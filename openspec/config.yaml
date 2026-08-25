@@ -1,0 +1,215 @@
+schema: odoo-estimated
+
+context: |
+  Project: custom jewelry manufacturing and inventory system.
+  Platform: Odoo 19 Community Edition.
+  Stack: Python, PostgreSQL, XML views, JavaScript/OWL where required.
+
+  Documentation language policy:
+  - Write proposal.md, design.md, estimate.md, tasks.md, archive summaries,
+    and general explanations in Russian.
+  - Write delta specifications under openspec/changes/*/specs/**/spec.md
+    in English from the start.
+  - Write canonical specifications under openspec/specs/**/spec.md in English.
+  - The only Russian content inside a canonical specification is its Obsidian
+    ^feature-card block.
+  - Keep OpenSpec structural headings in English:
+    ADDED Requirements, MODIFIED Requirements, REMOVED Requirements,
+    Requirement, Scenario, GIVEN, WHEN, THEN, AND.
+  - Use RFC 2119 keywords SHALL, MUST, SHOULD, and MAY inside requirements.
+  - Technical identifiers, model names, field names, XML IDs, and method names remain in English.
+
+  Repository structure:
+  - The repository contains multiple custom Odoo addons.
+  - Development normally runs inside an Odoo Docker container.
+  - Repository root inside the container: /mnt/extra-addons.
+  - Commands are executed directly inside the container.
+  - Do not add docker exec or docker compose exec when already inside the container.
+  - Inspect addon manifests to determine module ownership and dependencies.
+  - Third-party and standard Odoo modules are read-only unless explicitly stated otherwise.
+
+  Required project documentation:
+  - Read the repository AGENTS.md before proposing or implementing changes.
+  - Read ODOO_CODING_GUIDELINES.md when it exists.
+  - Inspect affected custom modules before designing a change.
+  - Inspect the relevant standard Odoo 19 implementation before proposing custom behavior.
+
+  Architectural principles:
+  - Prefer configuring or extending standard Odoo behavior over duplicating it.
+  - Do not create a new model when fields and relations on standard models are sufficient.
+  - Do not duplicate standard state machines, stock movements, procurement, accounting, or MRP logic.
+  - Clearly identify the source of truth for every important business value.
+  - Preserve existing databases and safe module upgrades.
+  - Backwards compatibility is important.
+  - Multi-company behavior must be considered.
+  - Batch recordsets must be handled correctly.
+  - Avoid business logic that works only through onchange or only through the user interface.
+
+  Core traceability context:
+  - Main entities commonly include sale.order.line, stock.lot,
+    mrp.production, mrp.workorder, stock.move, stock.move.line,
+    stock.quant, purchase.order.line, and procurement.group.
+  - A sale order line is normally the main commercial traceability unit.
+  - Lot and serial records identify concrete produced or stored items.
+  - Stock moves remain the source of truth for inventory movements.
+  - Manufacturing orders and work orders remain the source of truth
+    for manufacturing execution.
+
+  Design expectations:
+  - Separate business requirements from implementation details.
+  - Specs describe externally observable behavior.
+  - Model names, method names, extension hooks, and algorithms belong in design.md.
+  - Include Mermaid diagrams only when they materially clarify a process.
+  - Consider confirmation, cancellation, retry, return, partial processing,
+    access rights, migration, and existing data.
+  - Explicitly identify assumptions and excluded scope.
+
+  Testing expectations:
+  - Add focused automated tests for non-trivial business behavior, lifecycle logic, security rules, computed search behavior, operational flows, and known regressions.
+  - Do not require dedicated automated tests for trivial declarative XML, simple domains, labels, visibility rules, or standard group-by definitions unless they protect a known regression or non-trivial behavior.
+  - Verification effort must be proportional to implementation risk.
+  - For low-risk UI-only changes, module update, XML/view compilation, and focused smoke verification may be sufficient.
+  - Verify that standard behavior remains unchanged when the feature is not used, using automated tests or focused smoke checks according to risk.
+  - Prefer characterization tests before modifying unclear legacy behavior.
+  - Run focused module tests before wider test suites.
+
+rules:
+  proposal:
+    - State the business problem and expected outcome before suggesting implementation.
+    - List affected business processes and likely Odoo applications.
+    - State what is explicitly outside the scope.
+    - Identify whether discovery is required before a fixed implementation estimate.
+    - Do not include detailed Python or XML implementation instructions.
+
+  specs:
+    - Write requirements and scenario descriptions in English.
+    - Delta specifications under openspec/changes/*/specs/**/spec.md are written in English.
+    - Canonical specifications under openspec/specs/**/spec.md are written in English,
+      except for the Russian ^feature-card block.
+    - Preserve English OpenSpec headings and RFC 2119 keywords.
+    - Every requirement must contain at least one verifiable Scenario.
+    - Describe observable behavior, not internal methods or files.
+    - Separate happy path, validation, lifecycle, cancellation, and retry behavior when they are independent.
+    - Include a scenario preserving standard Odoo behavior when the feature is not used.
+    - Do not combine unrelated business effects in one Scenario.
+    - Use GIVEN only when preconditions materially affect the outcome.
+    - Use WHEN for the triggering action and THEN for the observable result.
+    - |
+      Delta specifications under openspec/changes/*/specs/** must not contain
+      an Obsidian feature card.
+    - |
+      Every canonical specification under openspec/specs/**/spec.md MUST contain
+      exactly one feature card immediately after the document title:
+
+      > [!abstract] <Краткое название на русском языке capability>
+      > <Одно краткое предложение на русском языке о бизнес-назначении capability.>
+      >
+      > **Использование:**
+      >
+      > <Расширенное описание на русском языке:
+      > Указать в каких элементах меню что либо добавлено функцией.
+      > Для каждой измененной формы указать, какие поля добавлены, какие поля изменены, какие поля удалены.
+      > какие основные действия или элементы интерфейса доступны,
+      > и какой наблюдаемый результат они дают.
+      > Также указать несколько сценариев использования, которые демонстрируют ожидаемое поведение.
+      ^feature-card
+
+      Use exactly the block identifier ^feature-card.
+      Keep technical identifiers, model names, and field names in English.
+      Do not include implementation details, estimates, status, migration notes,
+      or change-specific wording in the feature card.
+
+      During sync or archive:
+      - Write all canonical specification content outside ^feature-card in English.
+      - Ensure the complete affected canonical specification is in English, not only
+        the newly archived delta; translate older Russian requirement and scenario text
+        when it is encountered.
+      - Create the feature card in Russian only when creating a new canonical specification
+        or when the canonical specification does not yet contain ^feature-card.
+      - Preserve an existing ^feature-card block exactly as written.
+      - Never regenerate, rewrite, normalize, translate, shorten, or otherwise
+        modify an existing feature card.
+      - If the capability has materially changed and the feature card may be
+        outdated, report this for manual review without modifying the card.
+
+  design:
+    - Inspect the existing repository and standard Odoo 19 code before selecting an extension point.
+    - List affected models, modules, views, security records, data files, and tests.
+    - State the source of truth and ownership of every new value.
+    - Prefer standard extension hooks and standard models.
+    - Explain confirmation, cancellation, retry, duplication, import, API, and multi-company behavior.
+    - Include migration strategy when existing stored data or semantics change.
+    - List rejected alternatives and explain why they were rejected.
+    - Do not reduce required validation or tests merely to minimize code volume.
+
+  estimate:
+    - Read all delta specs and design.md before estimating.
+    - Separate specification coverage from implementation effort.
+    - List every Scenario exactly once and classify it as implementation-driving or verification-only.
+    - Do not assume that every Scenario requires an independent implementation.
+    - Group Scenarios implemented by the same model, view, method, configuration record, data file, or Odoo extension point into implementation clusters.
+    - Assign implementation units to clusters, not directly to individual Scenarios.
+    - Use only these implementation-unit values: 0, 0.25, 0.5, 1, 2, 3, 5, 8, or 13.
+    - Use 0 units for verification-only Scenarios that require no new production behavior.
+    - Use 0.25 for a very small declarative addition such as one simple domain, filter, field attribute, label, or XML insertion into an already known view.
+    - Use 0.5 for a small declarative change to one view, configuration record, or a repeated implementation of an already established pattern.
+    - Use 1 for a complete local change to one model, view, or known extension point.
+    - Use 2 or 3 for coordinated custom behavior within one Odoo subsystem.
+    - Use 5 or more only for substantial lifecycle coordination, operational flows, migrations, bulk processing, external integrations, or cross-subsystem behavior.
+    - A 13-unit cluster normally requires splitting or discovery.
+    - Apply marginal effort to repeated implementations of the same pattern: estimate the first implementation fully and later equivalents at their incremental cost.
+    - Do not count the same mechanism separately merely because it satisfies multiple Scenarios.
+    - Do not count module version changes, manifest edits, regression descriptions, or standard framework behavior as full implementation units.
+    - Standard Odoo reuse, existing project code, and known legacy implementations must reduce implementation effort when they materially reduce the work.
+    - AI assistance does not reduce specification coverage, but may be reflected only in a calibrated productivity profile based on actual project history.
+    - Estimate testing and verification effort according to business and regression risk.
+    - Do not require dedicated automated tests for trivial declarative XML changes unless they protect non-trivial domains, security, computed search behavior, or a known regression.
+    - Estimate hours from implementation clusters plus explicit delivery and verification work, never from the raw Scenario count.
+    - Do not apply an additional domain, addon, or architecture multiplier after cluster scoring.
+    - Use risk flags separately: stock, procurement, mrp, accounting, migration, bulk, external, security, legacy, uncertainty, and view-conflict.
+    - Detect missing, duplicated, combined, contradictory, or underspecified Scenarios.
+    - State assumptions, excluded scope, confidence, discovery requirements, and conditions that would change the estimate.
+    - Report both the number of specification Scenarios and the number of implementation clusters.
+
+  tasks:
+    - Derive tasks from specs, design, and estimate.
+    - Organize tasks by implementation mechanism rather than by Scenario or file count.
+    - Do not create separate implementation tasks for Scenarios satisfied by the same code, XML inheritance, configuration record, or extension point.
+    - Group repeated declarative changes when they use the same established pattern.
+    - Represent verification-only Scenarios through focused validation tasks instead of artificial production-code tasks.
+    - Add automated tests when required by business risk, lifecycle behavior, security, computed search behavior, operational flows, or known regression risk.
+    - For trivial declarative view changes, prefer module update, XML/view compilation, and focused smoke verification over broad automated test suites.
+    - Include upgrade or migration tasks when stored data or semantics change.
+    - Include proportionate verification that standard behavior remains unchanged when the feature is not used.
+    - Do not create tasks for requirements excluded from scope.
+    - Keep implementation and validation tasks independently verifiable.
+
+operations:
+  apply:
+    guidance:
+      - Read proposal.md, all delta specs, design.md, estimate.md, and tasks.md before changing code.
+      - Reinspect affected standard Odoo and project code before implementation.
+      - Implement the smallest upgrade-safe solution satisfying all scenarios.
+      - Do not silently change agreed requirements to simplify implementation.
+      - If implementation reveals a requirement or design problem, update the OpenSpec artifacts before continuing.
+      - Run focused tests and record relevant verification results.
+      - Mark a task complete only after its behavior is implemented and checked.
+
+  archive:
+    guidance:
+      - Archive only after tasks and relevant tests are complete.
+      - Ensure delta specs describe the final implemented behavior.
+      - Preserve estimate.md for later comparison with actual effort.
+      - Before writing canonical specs, apply the current specs rules.
+      - Write the complete affected canonical spec in English outside ^feature-card.
+      - Translate older Russian requirement and scenario text in the affected canonical spec when needed.
+      - Ensure every affected canonical spec contains exactly one ^feature-card block.
+      - Create a Russian feature card only when creating a new canonical spec or when ^feature-card is absent.
+      - Preserve every existing ^feature-card block exactly as written.
+      - Never regenerate, rewrite, normalize, translate, shorten, or otherwise modify an existing feature card.
+      - If a feature card may be outdated after the change, report it for manual review without modifying it.
+      - Create a new feature card from the complete canonical capability, not only from the archived delta.
+      - Keep the archive summary focused on implemented behavior and important deviations.
+      - After updating canonical specifications, run python3 openspec/tools/build_docs.py.
+      - Ensure generated client documentation is committed together with canonical spec changes.
+      - Do not edit files under openspec/docs/capabilities manually.

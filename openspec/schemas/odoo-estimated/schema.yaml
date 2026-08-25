@@ -1,0 +1,327 @@
+name: odoo-estimated
+version: 3
+
+description: >
+  Odoo spec-driven workflow with scenario coverage,
+  implementation clusters, risk analysis, and effort estimation.
+
+artifacts:
+  - id: proposal
+    generates: proposal.md
+    description: Business motivation, scope, and impact
+    template: proposal.md
+
+    instruction: |
+      Create a concise change proposal in Russian.
+
+      Explain:
+
+      - why the change is needed;
+      - what business capability will change;
+      - which existing processes may be affected;
+      - what is explicitly outside scope;
+      - whether architectural discovery is needed.
+
+      Keep detailed technical implementation out of the proposal.
+
+    requires: []
+
+  - id: specs
+    generates: specs/**/*.md
+    description: Delta requirements and verifiable scenarios
+    template: spec.md
+
+    instruction: |
+      Create delta specifications for the change in English.
+
+      Organize specifications by business capability.
+
+      Use OpenSpec delta sections:
+
+      - ADDED Requirements
+      - MODIFIED Requirements
+      - REMOVED Requirements
+
+      Write all Requirement names, requirement text, Scenario names,
+      and GIVEN/WHEN/THEN steps in English.
+
+      Every Requirement must describe required observable behavior.
+      Every Requirement must contain at least one Scenario.
+
+      Separate independent behaviors into independent Scenarios.
+
+      Include happy path, validation, lifecycle, cancellation, retry,
+      permissions, and standard-behavior scenarios when applicable.
+
+      Do not include model names, method names, file names,
+      or step-by-step implementation details.
+
+      Do not add an Obsidian feature card to a delta specification.
+
+      The feature card belongs only to the canonical specification
+      produced in openspec/specs during sync or archive.
+
+    requires:
+      - proposal
+
+  - id: design
+    generates: design.md
+    description: Odoo architecture and technical implementation approach
+    template: design.md
+
+    instruction: |
+      Create the technical design for the proposed change in Russian.
+
+      Inspect:
+
+      - affected custom addons;
+      - relevant standard Odoo 19 implementation;
+      - existing repository patterns;
+      - upgrade and migration implications.
+
+      Explain:
+
+      - affected modules and models;
+      - source of truth;
+      - standard Odoo extension points;
+      - data flow;
+      - lifecycle behavior;
+      - permissions and multi-company behavior;
+      - testing strategy;
+      - migration requirements;
+      - rejected alternatives.
+
+      Prefer standard Odoo mechanisms over custom duplication.
+
+    requires:
+      - proposal
+
+  - id: estimate
+    generates: estimate.md
+    description: >
+      Scenario coverage, implementation clusters, risks,
+      and effort estimate
+    template: estimate.md
+
+    instruction: |
+      Create an implementation effort estimate in Russian.
+
+      Read every delta spec and design.md.
+
+      Inspect the standard Odoo and existing project mechanisms
+      referenced by the design before estimating.
+
+      First, locate every heading matching:
+
+      #### Scenario: <name>
+
+      Use Scenarios to check specification coverage.
+
+      Do not assign implementation points directly
+      to individual Scenarios.
+
+      Classify every Scenario exactly once as either:
+
+      - implementation-driving:
+        requires new or changed production behavior;
+
+      - verification-only:
+        is satisfied by the same implementation as another Scenario
+        or only verifies existing or standard behavior.
+
+      Then group implementation-driving Scenarios
+      into implementation clusters.
+
+      A cluster is one implementation mechanism, for example:
+
+      - one inherited search view;
+      - one model extension;
+      - one method or Odoo extension point;
+      - one configuration or data record set;
+      - one migration;
+      - one coordinated lifecycle mechanism.
+
+      Assign implementation units to clusters using only:
+
+      - 0
+      - 0.25
+      - 0.5
+      - 1
+      - 2
+      - 3
+      - 5
+      - 8
+      - 13
+
+      Unit guidance:
+
+      - 0:
+        Verification-only. No independent production change.
+
+      - 0.25:
+        One very small declarative addition, such as a simple domain,
+        filter, label, field attribute, or known XML insertion.
+
+      - 0.5:
+        A small declarative change to one view or configuration record,
+        or a repeated implementation of an established pattern.
+
+      - 1:
+        A complete local change to one model, view,
+        or known extension point.
+
+      - 2:
+        Coordinated behavior across related records
+        inside one subsystem.
+
+      - 3:
+        Non-trivial custom behavior or a standard cross-subsystem
+        handoff requiring focused validation.
+
+      - 5:
+        Substantial lifecycle coordination, cancellation or retry
+        behavior, or operational logic with several interacting records.
+
+      - 8:
+        Complex stock, procurement, MRP, accounting, migration, bulk,
+        external integration, or failure-recovery behavior.
+
+      - 13:
+        Major indivisible architectural uncertainty.
+        Recommend splitting the change or performing discovery.
+
+      Estimation rules:
+
+      - Do not assume that every Scenario needs
+        an independent implementation.
+
+      - Do not count the same code, XML inheritance,
+        configuration record, or extension point more than once.
+
+      - Apply marginal effort to repeated implementations
+        of the same pattern.
+
+      - Standard Odoo reuse, existing project code,
+        and known legacy code must reduce implementation units
+        when they materially reduce the work.
+
+      - Do not count module version changes, manifest edits,
+        tests, files, or regression descriptions
+        as separate implementation clusters.
+
+      - Do not apply a second addon, module, domain,
+        or architecture multiplier.
+
+      - Estimate tests and verification separately
+        and proportionally to risk.
+
+      - Do not require dedicated automated tests
+        for trivial declarative XML unless they protect
+        a non-trivial domain, security rule, computed search,
+        or known regression.
+
+      - For low-risk UI-only changes, module update,
+        XML or view compilation, and focused smoke verification
+        may be sufficient.
+
+      - AI assistance does not change specification coverage.
+        Productivity may only be reflected through
+        the calibrated hours-per-unit range.
+
+      - Use a provisional productivity range of 1 hours
+        per implementation unit unless project history
+        supports another range.
+
+      - Add explicit hours for discovery, migration, data cleanup,
+        or unusual manual verification only when concrete work exists.
+
+      - Detect missing, duplicated, combined, contradictory,
+        or underspecified Scenarios.
+
+      - State assumptions, excluded scope, confidence,
+        discovery requirements, and conditions
+        that would change the estimate.
+
+      Report:
+
+      - total Scenario count;
+      - implementation-driving Scenario count;
+      - verification-only Scenario count;
+      - implementation cluster count;
+      - total implementation units;
+      - productivity range;
+      - calculated base hours;
+      - explicit additional hours;
+      - final effort range for a mid-level Odoo developer.
+
+    requires:
+      - specs
+      - design
+
+  - id: tasks
+    generates: tasks.md
+    description: Verifiable implementation checklist
+    template: tasks.md
+
+    instruction: |
+      Create implementation tasks in Russian based on:
+
+      - proposal.md;
+      - delta specs;
+      - design.md;
+      - estimate.md.
+
+      Group tasks by implementation mechanism,
+      not by Scenario count or arbitrary file order.
+
+      Rules:
+
+      - Do not create separate production tasks for Scenarios
+        satisfied by the same code, XML inheritance,
+        configuration record, or extension point.
+
+      - Group repeated declarative changes
+        that use the same established pattern.
+
+      - Represent verification-only Scenarios
+        through focused validation tasks,
+        not artificial implementation tasks.
+
+      - Add automated tests when required by:
+
+        - non-trivial business logic;
+        - lifecycle behavior;
+        - security;
+        - computed search behavior;
+        - operational flows;
+        - known regression risk.
+
+      - For trivial declarative view changes, prefer:
+
+        - module update;
+        - XML or view compilation;
+        - focused smoke verification;
+
+        instead of broad automated test suites.
+
+      - Include migration or data-cleanup tasks only when
+        stored data or semantics actually change.
+
+      - Include proportionate verification that standard behavior
+        remains unchanged when the feature is not used.
+
+      - Do not expand excluded scope.
+
+      - Keep implementation and validation tasks
+        independently verifiable.
+
+    requires:
+      - specs
+      - design
+      - estimate
+
+apply:
+  requires:
+    - tasks
+
+  tracks: tasks.md

@@ -1,0 +1,10 @@
+.pos .product .product-name {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    white-space: normal !important;
+    line-height: 1.2em;
+    max-height: 3.6em;
+    text-overflow: ellipsis;
+}
