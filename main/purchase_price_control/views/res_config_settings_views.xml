@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.purchase.price.control</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='purchase']/block[@name='purchase_setting_container']" position="after">
+                <block title="Price Control" name="purchase_price_control_setting_container">
+                    <setting id="purchase_default_markup_setting"
+                             company_dependent="1"
+                             string="Default Markup"
+                             help="Markup used when the product has no last purchase price.">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="purchase_default_markup" class="col-lg-4 o_light_label"/>
+                                <field name="purchase_default_markup" class="oe_inline"/>
+                                <span class="ms-2">%</span>
+                            </div>
+                        </div>
+                    </setting>
+                    <setting id="purchase_price_rounding_setting"
+                             company_dependent="1"
+                             string="Sales Price Rounding"
+                             help="Round planned sales prices upward to this multiple, for example 10, 5, or 0.10.">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="purchase_price_rounding" class="col-lg-4 o_light_label"/>
+                                <field name="purchase_price_rounding" class="oe_inline"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
