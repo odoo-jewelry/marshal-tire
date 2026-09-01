@@ -1,7 +1,6 @@
 schema: odoo-estimated
 
 context: |
-  Project: custom jewelry manufacturing and inventory system.
   Platform: Odoo 19 Community Edition.
   Stack: Python, PostgreSQL, XML views, JavaScript/OWL where required.
 
