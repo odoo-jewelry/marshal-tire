@@ -1,29 +1,55 @@
-from odoo import models
+from odoo import api, fields, models
 
 
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    def button_confirm(self):
-        orders_to_confirm = self.filtered(lambda order: order.state in ("draft", "sent"))
-        lines_to_save = orders_to_confirm.order_line.filtered(
-            lambda line: line.save_prices and line._is_price_control_eligible()
-        ).sorted(key=lambda line: (line.order_id.id, line.sequence, line.id))
-        price_values = [
-            (
-                line.product_id,
-                line.company_id,
-                line.effective_purchase_price,
-                line.planned_sale_price,
+    has_price_control_lines = fields.Boolean(compute="_compute_price_control_flags")
+    has_price_updates = fields.Boolean(compute="_compute_price_control_flags")
+
+    @api.depends(
+        "order_line.display_type",
+        "order_line.is_downpayment",
+        "order_line.price_update_required",
+        "order_line.product_id",
+    )
+    def _compute_price_control_flags(self):
+        for order in self:
+            eligible_lines = order.order_line.filtered(
+                lambda line: line._is_price_control_eligible()
             )
-            for line in lines_to_save
-        ]
+            order.has_price_control_lines = bool(eligible_lines)
+            order.has_price_updates = any(eligible_lines.mapped("price_update_required"))
 
-        result = super().button_confirm()
+    def action_fill_current_prices(self):
+        self._refresh_price_snapshots()
+        return True
 
-        for product, company, purchase_price, sale_price in price_values:
-            product.with_company(company).write({
-                "last_purchase_price": purchase_price,
-                "lst_price": sale_price,
+    def action_update_all_prices(self):
+        candidates = self.order_line.filtered(lambda line: line.price_update_required)
+        payload = candidates._get_price_update_payload()
+        if not payload:
+            return True
+        candidates._apply_price_update_payload(payload)
+        self._refresh_price_snapshots()
+        return True
+
+    def _refresh_price_snapshots(self):
+        for line in self.order_line.filtered(
+            lambda candidate: candidate._is_price_control_eligible()
+        ):
+            product = line.product_id.with_company(line.company_id)
+            purchase_price = product.last_purchase_price
+            sale_price = product.lst_price
+            markup = (
+                (sale_price / purchase_price - 1.0) * 100.0
+                if purchase_price > 0
+                else line.company_id.purchase_default_markup
+            )
+            line.write({
+                "current_purchase_price": purchase_price,
+                "current_sale_price": sale_price,
+                "current_markup": markup,
+                "current_standard_price": product.standard_price,
+                "price_snapshot_initialized": True,
             })
-        return result

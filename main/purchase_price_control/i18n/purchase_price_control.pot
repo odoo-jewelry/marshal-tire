@@ -7,76 +7,74 @@ msgstr ""
 "Project-Id-Version: Odoo Server 19.0-20260817\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-01 11:14+0000\n"
-"PO-Revision-Date: 2026-08-27 16:09+0000\n"
+"PO-Revision-Date: 2026-09-01 11:14+0000\n"
 "Last-Translator: \n"
-"Language-Team: Russian\n"
-"Language: ru\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: \n"
 
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.res_config_settings_view_form
 msgid "<span class=\"ms-2\">%</span>"
-msgstr "<span class=\"ms-2\">%</span>"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields.selection,name:purchase_price_control.selection__purchase_order_line__effective_cost_method__average
 msgid "Average Cost (AVCO)"
-msgstr "Средняя себестоимость (AVCO)"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__valuation_purchase_price
 msgid "Calculated Standard Cost"
-msgstr "Рассчитанная стандартная себестоимость"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model,name:purchase_price_control.model_res_company
 msgid "Companies"
-msgstr "Компании"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__company_currency_id
 msgid "Company Currency"
-msgstr "Валюта компании"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model,name:purchase_price_control.model_res_config_settings
 msgid "Config Settings"
-msgstr "Параметры конфигурации"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_markup
 msgid "Current Markup (%)"
-msgstr "Текущая наценка (%)"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_purchase_price
 msgid "Current Reference Purchase Price"
-msgstr "Текущая справочная цена закупки"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_sale_price
 msgid "Current Sales Price"
-msgstr "Текущая цена продажи"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_standard_price
 msgid "Current Standard Cost"
-msgstr "Текущая стандартная себестоимость"
+msgstr ""
 
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.res_config_settings_view_form
 msgid "Default Markup"
-msgstr "Наценка по умолчанию"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_res_company__purchase_default_markup
 #: model:ir.model.fields,field_description:purchase_price_control.field_res_config_settings__purchase_default_markup
 msgid "Default Purchase Markup (%)"
-msgstr "Наценка закупки по умолчанию (%)"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_product_product__display_name
@@ -85,32 +83,32 @@ msgstr "Наценка закупки по умолчанию (%)"
 #: model:ir.model.fields,field_description:purchase_price_control.field_res_company__display_name
 #: model:ir.model.fields,field_description:purchase_price_control.field_res_config_settings__display_name
 msgid "Display Name"
-msgstr "Отображаемое название"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__effective_cost_method
 msgid "Effective Cost Method"
-msgstr "Применяемый метод расчёта себестоимости"
+msgstr ""
 
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.purchase_order_view_form
 msgid "Fill Current Prices"
-msgstr "Заполнить текущие цены"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields.selection,name:purchase_price_control.selection__purchase_order_line__effective_cost_method__fifo
 msgid "First In First Out (FIFO)"
-msgstr "Первым поступил — первым выбыл (FIFO)"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order__has_price_control_lines
 msgid "Has Price Control Lines"
-msgstr "Есть строки ценового контроля"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order__has_price_updates
 msgid "Has Price Updates"
-msgstr "Есть обновления цен"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_product_product__id
@@ -119,12 +117,12 @@ msgstr "Есть обновления цен"
 #: model:ir.model.fields,field_description:purchase_price_control.field_res_company__id
 #: model:ir.model.fields,field_description:purchase_price_control.field_res_config_settings__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_product_product__last_purchase_price
 msgid "Last Purchase Price"
-msgstr "Последняя цена закупки"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,help:purchase_price_control.field_product_product__last_purchase_price
@@ -132,64 +130,62 @@ msgid ""
 "Last tax-included and discounted purchase price in the company currency per "
 "product unit."
 msgstr ""
-"Последняя цена закупки с учетом налогов и скидок в валюте компании за "
-"единицу товара."
 
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.res_config_settings_view_form
 msgid "Markup used when the product has no last purchase price."
-msgstr "Наценка, используемая, когда у товара нет последней цены закупки."
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__planned_sale_price
 msgid "Planned Sales Price"
-msgstr "Планируемая цена продажи"
+msgstr ""
 
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.res_config_settings_view_form
 msgid "Price Control"
-msgstr "Ценовой контроль"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__price_snapshot_initialized
 msgid "Price Snapshot Initialized"
-msgstr "Снимок цен инициализирован"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__price_update_required
 msgid "Price Update Required"
-msgstr "Требуется обновление цен"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model,name:purchase_price_control.model_product_product
 msgid "Product Variant"
-msgstr "Вариант продукта"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model,name:purchase_price_control.model_purchase_order
 msgid "Purchase Order"
-msgstr "Заказ на покупку"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model,name:purchase_price_control.model_purchase_order_line
 msgid "Purchase Order Line"
-msgstr "Позиция заказа на покупку"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__effective_purchase_price
 msgid "Purchase Price incl. Taxes"
-msgstr "Цена закупки с налогами"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_res_company__purchase_price_rounding
 #: model:ir.model.fields,field_description:purchase_price_control.field_res_config_settings__purchase_price_rounding
 msgid "Purchase Sales Price Rounding"
-msgstr "Округление цены продажи при закупке"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,help:purchase_price_control.field_purchase_order_line__valuation_purchase_price
 msgid "Purchase cost calculated with Odoo inventory valuation rules."
-msgstr "Себестоимость закупки, рассчитанная по правилам складской оценки Odoo."
+msgstr ""
 
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.res_config_settings_view_form
@@ -197,31 +193,29 @@ msgid ""
 "Round planned sales prices upward to this multiple, for example 10, 5, or "
 "0.10."
 msgstr ""
-"Округлять планируемые цены продажи вверх до значения, кратного указанному, "
-"например 10, 5 или 0,10."
 
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.res_config_settings_view_form
 msgid "Sales Price Rounding"
-msgstr "Округление цены продажи"
+msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields.selection,name:purchase_price_control.selection__purchase_order_line__effective_cost_method__standard
 msgid "Standard Price"
-msgstr "Стандартная себестоимость"
+msgstr ""
 
 #. module: purchase_price_control
 #. odoo-python
 #: code:addons/purchase_price_control/models/res_company.py:0
 msgid "The purchase sales price rounding step must be positive."
-msgstr "Шаг округления цены продажи при закупке должен быть положительным."
+msgstr ""
 
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.purchase_order_view_form
 msgid "Update"
-msgstr "Обновить"
+msgstr ""
 
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.purchase_order_view_form
 msgid "Update All"
-msgstr "Обновить всё"
+msgstr ""

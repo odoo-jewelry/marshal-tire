@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0-20260817\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-27 16:09+0000\n"
+"POT-Creation-Date: 2026-09-01 11:14+0000\n"
 "PO-Revision-Date: 2026-08-27 16:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
@@ -14,12 +14,23 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.res_config_settings_view_form
 msgid "<span class=\"ms-2\">%</span>"
 msgstr "<span class=\"ms-2\">%</span>"
+
+#. module: purchase_price_control
+#: model:ir.model.fields.selection,name:purchase_price_control.selection__purchase_order_line__effective_cost_method__average
+msgid "Average Cost (AVCO)"
+msgstr "Середня собівартість (AVCO)"
+
+#. module: purchase_price_control
+#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__valuation_purchase_price
+msgid "Calculated Standard Cost"
+msgstr "Розрахована стандартна собівартість"
 
 #. module: purchase_price_control
 #: model:ir.model,name:purchase_price_control.model_res_company
@@ -42,9 +53,19 @@ msgid "Current Markup (%)"
 msgstr "Поточна націнка (%)"
 
 #. module: purchase_price_control
+#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_purchase_price
+msgid "Current Reference Purchase Price"
+msgstr "Поточна довідкова ціна закупівлі"
+
+#. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_sale_price
 msgid "Current Sales Price"
 msgstr "Поточна ціна продажу"
+
+#. module: purchase_price_control
+#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_standard_price
+msgid "Current Standard Cost"
+msgstr "Поточна стандартна собівартість"
 
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.res_config_settings_view_form
@@ -67,6 +88,31 @@ msgid "Display Name"
 msgstr "Назва для відображення"
 
 #. module: purchase_price_control
+#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__effective_cost_method
+msgid "Effective Cost Method"
+msgstr "Застосований метод розрахунку собівартості"
+
+#. module: purchase_price_control
+#: model_terms:ir.ui.view,arch_db:purchase_price_control.purchase_order_view_form
+msgid "Fill Current Prices"
+msgstr "Заповнити поточні ціни"
+
+#. module: purchase_price_control
+#: model:ir.model.fields.selection,name:purchase_price_control.selection__purchase_order_line__effective_cost_method__fifo
+msgid "First In First Out (FIFO)"
+msgstr "Першим надійшов — першим вибув (FIFO)"
+
+#. module: purchase_price_control
+#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order__has_price_control_lines
+msgid "Has Price Control Lines"
+msgstr "Є рядки контролю цін"
+
+#. module: purchase_price_control
+#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order__has_price_updates
+msgid "Has Price Updates"
+msgstr "Є оновлення цін"
+
+#. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_product_product__id
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order__id
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__id
@@ -77,7 +123,6 @@ msgstr "ID"
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_product_product__last_purchase_price
-#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_purchase_price
 msgid "Last Purchase Price"
 msgstr "Остання ціна закупівлі"
 
@@ -107,6 +152,16 @@ msgid "Price Control"
 msgstr "Контроль ціни"
 
 #. module: purchase_price_control
+#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__price_snapshot_initialized
+msgid "Price Snapshot Initialized"
+msgstr "Знімок цін ініціалізовано"
+
+#. module: purchase_price_control
+#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__price_update_required
+msgid "Price Update Required"
+msgstr "Потрібне оновлення цін"
+
+#. module: purchase_price_control
 #: model:ir.model,name:purchase_price_control.model_product_product
 msgid "Product Variant"
 msgstr "Варіант товару"
@@ -133,6 +188,12 @@ msgid "Purchase Sales Price Rounding"
 msgstr "Округлення ціни продажу під час закупівлі"
 
 #. module: purchase_price_control
+#: model:ir.model.fields,help:purchase_price_control.field_purchase_order_line__valuation_purchase_price
+msgid "Purchase cost calculated with Odoo inventory valuation rules."
+msgstr ""
+"Собівартість закупівлі, розрахована за правилами складської оцінки Odoo."
+
+#. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.res_config_settings_view_form
 msgid ""
 "Round planned sales prices upward to this multiple, for example 10, 5, or "
@@ -147,12 +208,22 @@ msgid "Sales Price Rounding"
 msgstr "Округлення ціни продажу"
 
 #. module: purchase_price_control
-#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__save_prices
-msgid "Save Prices"
-msgstr "Зберегти ціни"
+#: model:ir.model.fields.selection,name:purchase_price_control.selection__purchase_order_line__effective_cost_method__standard
+msgid "Standard Price"
+msgstr "Стандартна собівартість"
 
 #. module: purchase_price_control
 #. odoo-python
 #: code:addons/purchase_price_control/models/res_company.py:0
 msgid "The purchase sales price rounding step must be positive."
 msgstr "Крок округлення ціни продажу під час закупівлі має бути додатним."
+
+#. module: purchase_price_control
+#: model_terms:ir.ui.view,arch_db:purchase_price_control.purchase_order_view_form
+msgid "Update"
+msgstr "Оновити"
+
+#. module: purchase_price_control
+#: model_terms:ir.ui.view,arch_db:purchase_price_control.purchase_order_view_form
+msgid "Update All"
+msgstr "Оновити все"

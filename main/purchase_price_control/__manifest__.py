@@ -1,12 +1,13 @@
 {
     "name": "Purchase Price Control",
-    "version": "19.0.1.0.0",
+    "version": "19.0.3.0.0",
     "category": "Purchases",
     "summary": "Control reference purchase prices and sales markup from purchase orders",
     "author": "Uvelirsoft",
     "website": "https://uvelirsoft.com.ua",
     "depends": [
         "purchase",
+        "purchase_stock",
         "stock_account",
     ],
     "data": [
