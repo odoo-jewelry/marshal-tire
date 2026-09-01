@@ -1,6 +1,6 @@
-# Odoo Jewelry
+# Odoo Tire
 
-Система управления ювелирным производством на базе Odoo 19 Community Edition.
+Система управления шиномонтажем на базе Odoo 19 Community Edition.
 
 [Функциональная документация](openspec/docs/capabilities/README.md)
 

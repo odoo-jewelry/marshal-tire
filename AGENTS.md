@@ -2,7 +2,7 @@
 
 ## Communication and output
 
-- Answer in Russian, concisely, and lead with the result.
+- Answer in Russian, concisely, and lead with the result. Write natural Russian prose; do not mix English technical nouns into Russian sentences when a clear Russian equivalent exists. Keep only established abbreviations, code identifiers, Odoo model/field names, and exact UI labels. When an English term is necessary, explain it in Russian on first use.
 - Prefer technical accuracy over brevity when explaining architecture, migrations,
   risks, or destructive operations.
 - Use English in the codebase for identifiers, comments, docstrings, logs, and
@@ -74,7 +74,7 @@
 
 - Before module updates, read `/etc/odoo/odoo.conf` and use its actual
   `addons_path`.
-- Never guess a database or update an ambiguous shared, staging, or production database. `odoo_jewelry` is the confirmed development database.
+- When a separate test database is needed, you may create one by appending `_testing` to the current database name.
 - `$odoo` does not set the HTTP port automatically. Every `$odoo` invocation MUST begin with `$odoo --http-port=8077 ...`.
 - Standard update command:
 
@@ -84,8 +84,7 @@
 
 - If overriding `--addons-path`, preserve required configured directories and use
   actual addon-provider subdirectories, not `/mnt/extra-addons/3party` itself.
-- Port `8069` belongs to the persistent server. Start temporary Odoo processes on
-  `8077`; if occupied, try `8078` and higher.
+- Port `8069` belongs to the persistent server. Start temporary Odoo processes on `8077`; if occupied, try `8078` and higher.
 
 
 ## Tests and validation
@@ -104,7 +103,7 @@
 - When canonical specifications or feature cards change, rebuild documentation:
 
   ```bash
-  python openspec/tools/build_docs.py
+  python3 openspec/tools/build_docs.py
   ```
 
 ## Legacy code
@@ -150,3 +149,8 @@ change:
 
 - Do not create or run browser-based automated tests, including HOOT, browser QUnit suites, tours, and UI test runners.
 - Validate frontend changes with static checks and non-browser tests where practical. Explicitly report browser behavior as not automatically verified.
+
+## Critical Design Validation
+
+Before designing or implementing a requested solution, critically validate its premise. Check whether it conflicts with standard Odoo workflows, duplicates the source of truth, breaks lifecycle/accounting/stock traceability, creates irreversible data consequences, or fails the stated business goal.
+If a critical flaw is found, stop before implementation: explain the failure scenario and recommend a safer direction. Continue only after the user explicitly confirms the decision. Do not block work for stylistic preferences or minor architectural trade-offs.
