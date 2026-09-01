@@ -75,6 +75,72 @@ class TestPurchasePriceControl(TransactionCase):
         with self.assertRaises(ValidationError):
             self.company.purchase_price_rounding = 0.0
 
+    def test_manual_planned_sale_price_is_exact_and_has_no_side_effects(self):
+        self.company.purchase_price_rounding = 0.01
+        order = self._create_order()
+        order.action_fill_current_prices()
+        line = order.order_line
+        initial_markup = line.current_markup
+        product_prices = (
+            self.product.with_company(self.company).last_purchase_price,
+            self.product.lst_price,
+            self.product.standard_price,
+        )
+
+        line.planned_sale_price = 12.0
+        self.env.flush_all()
+        line.invalidate_recordset(["planned_sale_price"])
+        self.assertAlmostEqual(line.current_markup, initial_markup)
+        self.assertAlmostEqual(line.planned_sale_price, 12.0)
+        self.assertTrue(line.planned_sale_price_manually_set)
+        self.assertEqual(
+            (
+                self.product.with_company(self.company).last_purchase_price,
+                self.product.lst_price,
+                self.product.standard_price,
+            ),
+            product_prices,
+        )
+
+    def test_manual_planned_sale_price_survives_basis_change(self):
+        order = self._create_order()
+        order.action_fill_current_prices()
+        line = order.order_line
+        initial_markup = line.current_markup
+        line.planned_sale_price = 12.0
+
+        line.price_unit = 120.0
+        self.assertAlmostEqual(line.effective_purchase_price, 120.0)
+        self.assertAlmostEqual(line.current_markup, initial_markup)
+        self.assertAlmostEqual(line.planned_sale_price, 12.0)
+
+        order.action_fill_current_prices()
+        self.assertFalse(line.planned_sale_price_manually_set)
+        self.assertAlmostEqual(line.planned_sale_price, 120.0)
+
+    def test_manual_planned_sale_price_requires_valid_initialized_basis(self):
+        initialized_line = self._create_order().order_line
+        initialized_line.order_id.action_fill_current_prices()
+        uninitialized_line = self._create_order().order_line
+        initial_markup = initialized_line.current_markup
+
+        with self.assertRaises(ValidationError), self.env.cr.savepoint():
+            (initialized_line | uninitialized_line).write({
+                "planned_sale_price": 150.0,
+            })
+        self.assertAlmostEqual(initialized_line.current_markup, initial_markup)
+
+        section_line = self._create_order([
+            {
+                "name": "Price Control Section",
+                "display_type": "line_section",
+                "product_qty": 0.0,
+                "price_unit": 0.0,
+            },
+        ]).order_line
+        with self.assertRaises(ValidationError), self.env.cr.savepoint():
+            section_line.planned_sale_price = 100.0
+
     def test_discount_tax_and_purchase_uom(self):
         tax = self.env["account.tax"].create({
             "name": "Purchase Tax 20%",

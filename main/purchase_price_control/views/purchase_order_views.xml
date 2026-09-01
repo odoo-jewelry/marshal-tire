@@ -15,6 +15,8 @@
                 <field name="company_currency_id" column_invisible="True"/>
                 <field name="price_snapshot_initialized" column_invisible="True"/>
                 <field name="price_update_required" column_invisible="True"/>
+                <field name="planned_sale_price_manually_set" column_invisible="True"/>
+                <field name="planned_sale_price_override" column_invisible="True"/>
             </xpath>
             <xpath expr="//field[@name='order_line']/list/field[@name='price_unit']" position="after">
                 <field name="current_purchase_price" optional="hide" readonly="True" invisible="display_type or is_downpayment"/>
@@ -23,7 +25,7 @@
                 <field name="effective_cost_method" column_invisible="True"/>
                 <field name="current_standard_price" optional="hide" readonly="True" invisible="display_type or is_downpayment or effective_cost_method != 'standard'"/>
                 <field name="effective_purchase_price" optional="show" invisible="display_type or is_downpayment"/>
-                <field name="planned_sale_price" optional="show" invisible="display_type or is_downpayment"/>
+                <field name="planned_sale_price" optional="show" readonly="not price_snapshot_initialized" invisible="display_type or is_downpayment"/>
                 <field name="valuation_purchase_price" optional="show" invisible="display_type or is_downpayment or effective_cost_method != 'standard'"/>
                 <button name="action_update_product_prices" string="Update" type="object" icon="fa-refresh" invisible="not price_update_required"/>
             </xpath>

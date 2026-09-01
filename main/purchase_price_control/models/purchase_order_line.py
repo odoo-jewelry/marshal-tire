@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 from odoo.tools.float_utils import float_compare, float_round
 
 
@@ -36,7 +37,14 @@ class PurchaseOrderLine(models.Model):
         string="Planned Sales Price",
         currency_field="company_currency_id",
         compute="_compute_calculated_prices",
+        inverse="_inverse_planned_sale_price",
+        readonly=False,
     )
+    planned_sale_price_override = fields.Monetary(
+        currency_field="company_currency_id",
+        copy=False,
+    )
+    planned_sale_price_manually_set = fields.Boolean(copy=False)
     valuation_purchase_price = fields.Monetary(
         string="Calculated Standard Cost",
         currency_field="company_currency_id",
@@ -63,6 +71,8 @@ class PurchaseOrderLine(models.Model):
         "is_downpayment",
         "order_id.partner_id",
         "price_snapshot_initialized",
+        "planned_sale_price_manually_set",
+        "planned_sale_price_override",
         "price_unit",
         "product_id",
         "product_uom_id",
@@ -82,6 +92,9 @@ class PurchaseOrderLine(models.Model):
             )._get_stock_move_price_unit()
             if not line.price_snapshot_initialized:
                 continue
+            if line.planned_sale_price_manually_set:
+                line.planned_sale_price = line.planned_sale_price_override
+                continue
             raw_sale_price = effective_price * (1.0 + line.current_markup / 100.0)
             line.planned_sale_price = (
                 float_round(
@@ -92,6 +105,22 @@ class PurchaseOrderLine(models.Model):
                 if raw_sale_price > 0
                 else raw_sale_price
             )
+
+    def _inverse_planned_sale_price(self):
+        invalid_lines = self.filtered(
+            lambda line: not line._is_price_control_eligible()
+            or not line.price_snapshot_initialized
+        )
+        if invalid_lines:
+            raise ValidationError(
+                self.env._(
+                    "Planned Sales Price can only be entered for an initialized "
+                    "product line."
+                )
+            )
+        for line in self:
+            line.planned_sale_price_override = line.planned_sale_price
+            line.planned_sale_price_manually_set = True
 
     @api.depends("product_id", "product_id.categ_id.property_cost_method")
     @api.depends_context("company")

@@ -22,7 +22,7 @@ class PurchaseOrder(models.Model):
             order.has_price_updates = any(eligible_lines.mapped("price_update_required"))
 
     def action_fill_current_prices(self):
-        self._refresh_price_snapshots()
+        self._refresh_price_snapshots(reset_manual_price=True)
         return True
 
     def action_update_all_prices(self):
@@ -34,7 +34,7 @@ class PurchaseOrder(models.Model):
         self._refresh_price_snapshots()
         return True
 
-    def _refresh_price_snapshots(self):
+    def _refresh_price_snapshots(self, reset_manual_price=False):
         for line in self.order_line.filtered(
             lambda candidate: candidate._is_price_control_eligible()
         ):
@@ -46,10 +46,16 @@ class PurchaseOrder(models.Model):
                 if purchase_price > 0
                 else line.company_id.purchase_default_markup
             )
-            line.write({
+            values = {
                 "current_purchase_price": purchase_price,
                 "current_sale_price": sale_price,
                 "current_markup": markup,
                 "current_standard_price": product.standard_price,
                 "price_snapshot_initialized": True,
-            })
+            }
+            if reset_manual_price:
+                values.update({
+                    "planned_sale_price_manually_set": False,
+                    "planned_sale_price_override": 0.0,
+                })
+            line.write(values)
