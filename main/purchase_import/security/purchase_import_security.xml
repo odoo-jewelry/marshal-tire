@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_import_profile_rule_company" model="ir.rule">
+        <field name="name">Purchase import profiles by company</field>
+        <field name="model_id" ref="model_purchase_import_profile"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="purchase_import_profile_mapping_rule_company" model="ir.rule">
+        <field name="name">Purchase import profile mappings by company</field>
+        <field name="model_id" ref="model_purchase_import_profile_mapping"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="purchase_import_profile_lookup_rule_company" model="ir.rule">
+        <field name="name">Purchase import profile lookups by company</field>
+        <field name="model_id" ref="model_purchase_import_profile_lookup"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

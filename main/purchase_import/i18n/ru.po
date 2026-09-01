@@ -1,0 +1,1116 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* purchase_import
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260817\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-27 16:09+0000\n"
+"PO-Revision-Date: 2026-08-27 16:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "%s is required."
+msgstr "Поле «%s» обязательно."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "%s must be a number."
+msgstr "Значение «%s» должно быть числом."
+
+#. module: purchase_import
+#: model:ir.model.constraint,message:purchase_import.constraint_purchase_import_profile_lookup_lookup_unique
+msgid "A lookup type can only be configured once per profile."
+msgstr "Каждый тип поиска можно настроить в профиле только один раз."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "A missing variant can only be created for dynamic attributes."
+msgstr ""
+"Отсутствующий вариант можно создать только для динамических атрибутов."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/models/import_profile.py:0
+msgid "A product template is required for variant creation."
+msgstr "Для создания варианта требуется шаблон товара."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/models/import_profile.py:0
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "A service product cannot be storable or tracked."
+msgstr "Услуга не может быть складируемой или отслеживаемой."
+
+#. module: purchase_import
+#: model:ir.model.constraint,message:purchase_import.constraint_purchase_import_profile_mapping_source_unique
+msgid "A source column can only be mapped once per profile."
+msgstr "Каждый исходный столбец можно сопоставить в профиле только один раз."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/models/import_profile.py:0
+msgid "A target can only be mapped once per profile."
+msgstr "Каждое целевое поле можно сопоставить в профиле только один раз."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__active
+msgid "Active"
+msgstr "Активный"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/models/import_profile.py:0
+msgid "An attribute is required only for an attribute mapping."
+msgstr "Атрибут требуется только при сопоставлении с атрибутом."
+
+#. module: purchase_import
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_import_profile_view_form
+msgid "Archived"
+msgstr "Архивировано"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_mapping__attribute_id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_mapping__attribute_id
+msgid "Attribute"
+msgstr "Атрибут"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Attribute %(attribute)s value %(value)s is missing or ambiguous."
+msgstr ""
+"Значение %(value)s атрибута %(attribute)s отсутствует или неоднозначно."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__attribute_values
+msgid "Attribute Values"
+msgstr "Значения атрибута"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__available_sheets
+msgid "Available Sheets"
+msgstr "Доступные листы"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__barcode
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_lookup__lookup_type__barcode
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_mapping__target__barcode
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_mapping__target__barcode
+msgid "Barcode"
+msgstr "Штрихкод"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__default_tracking__lot
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__default_tracking__lot
+msgid "By Lots"
+msgstr "По партиям"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__default_tracking__none
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__default_tracking__none
+msgid "By Quantity"
+msgstr "По количеству"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__default_tracking__serial
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__default_tracking__serial
+msgid "By Serial Number"
+msgstr "По серийным номерам"
+
+#. module: purchase_import
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_import_profile_view_form
+msgid "CSV"
+msgstr "CSV"
+
+#. module: purchase_import
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_order_line_import_wizard_view_form
+msgid "CSV and Limits"
+msgstr "CSV и ограничения"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Clear the attribute on a non-attribute mapping."
+msgstr "Очистите атрибут в сопоставлении, не относящемся к атрибуту."
+
+#. module: purchase_import
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_order_line_import_wizard_view_form
+msgid "Close"
+msgstr "Закрыть"
+
+#. module: purchase_import
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_import_profile_view_form
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_order_line_import_wizard_view_form
+msgid "Column Mapping"
+msgstr "Сопоставление столбцов"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__decimal_separator__comma
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__thousand_separator__comma
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__decimal_separator__comma
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__thousand_separator__comma
+msgid "Comma"
+msgstr "Запятая"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__company_id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_lookup__company_id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_mapping__company_id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__company_id
+msgid "Company"
+msgstr "Компания"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_preview__status__create
+msgid "Create"
+msgstr "Создать"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__unmatched_policy__create
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__unmatched_policy__create
+msgid "Create Product"
+msgstr "Создать товар"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__create_uid
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_lookup__create_uid
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_mapping__create_uid
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_mapping__create_uid
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__create_uid
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__create_uid
+msgid "Created by"
+msgstr "Создано:"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__create_date
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_lookup__create_date
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_mapping__create_date
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_mapping__create_date
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__create_date
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__create_date
+msgid "Created on"
+msgstr "Дата создания:"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__creation_mode
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__creation_mode
+msgid "Creation Mode"
+msgstr "Режим создания"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__data_row
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__data_row
+msgid "Data Row"
+msgstr "Первая строка данных"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__decimal_separator
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__decimal_separator
+msgid "Decimal Separator"
+msgstr "Десятичный разделитель"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/models/import_profile.py:0
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Decimal and thousand separators must be different."
+msgstr "Разделители дробной части и тысяч должны различаться."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__default_categ_id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__default_categ_id
+msgid "Default Categ"
+msgstr "Категория по умолчанию"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__default_code
+msgid "Default Code"
+msgstr "Внутренний артикул по умолчанию"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__default_is_storable
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__default_is_storable
+msgid "Default Is Storable"
+msgstr "Складируемый по умолчанию"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__default_product_type
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__default_product_type
+msgid "Default Product Type"
+msgstr "Тип товара по умолчанию"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__default_purchase_ok
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__default_purchase_ok
+msgid "Default Purchase Ok"
+msgstr "Можно закупать по умолчанию"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__default_purchase_uom_id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__default_purchase_uom_id
+msgid "Default Purchase Uom"
+msgstr "Единица закупки по умолчанию"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__default_sale_ok
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__default_sale_ok
+msgid "Default Sale Ok"
+msgstr "Можно продавать по умолчанию"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__default_supplier_tax_ids
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__default_supplier_tax_ids
+msgid "Default Supplier Tax"
+msgstr "Налоги поставщика по умолчанию"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__default_tracking
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__default_tracking
+msgid "Default Tracking"
+msgstr "Отслеживание по умолчанию"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__default_uom_id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__default_uom_id
+msgid "Default Uom"
+msgstr "Единица измерения по умолчанию"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__display_name
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_lookup__display_name
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_mapping__display_name
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_mapping__display_name
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__display_name
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__display_name
+msgid "Display Name"
+msgstr "Отображаемое название"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__decimal_separator__dot
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__thousand_separator__dot
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__decimal_separator__dot
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__thousand_separator__dot
+msgid "Dot"
+msgstr "Точка"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Each non-attribute target can only be mapped once."
+msgstr ""
+"Каждое целевое поле, кроме атрибута, можно сопоставить только один раз."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Each variant attribute can only be mapped once."
+msgstr "Каждый атрибут варианта можно сопоставить только один раз."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__encoding
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__encoding
+msgid "Encoding"
+msgstr "Кодировка"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Enter a name for the new import profile."
+msgstr "Введите название нового профиля импорта."
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_preview__status__error
+msgid "Error"
+msgstr "Ошибка"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__error_count
+msgid "Error Count"
+msgstr "Количество ошибок"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__error_message
+msgid "Error Message"
+msgstr "Сообщение об ошибке"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Every source column must have a non-empty header."
+msgstr "У каждого исходного столбца должен быть непустой заголовок."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__file_data
+msgid "File Data"
+msgstr "Содержимое файла"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__file_name
+msgid "File Name"
+msgstr "Имя файла"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+#: model:ir.model.constraint,message:purchase_import.constraint_purchase_import_profile_positive_limits
+msgid "File size and row limits must be positive."
+msgstr ""
+"Ограничения размера файла и количества строк должны быть положительными."
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__default_product_type__consu
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__default_product_type__consu
+msgid "Goods"
+msgstr "Товары"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__header_row
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__header_row
+msgid "Header Row"
+msgstr "Строка заголовков"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_lookup__id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_mapping__id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order__id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_mapping__id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: purchase_import
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_order_form
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_order_line_import_wizard_view_form
+msgid "Import Lines"
+msgstr "Импортировать строки"
+
+#. module: purchase_import
+#: model:ir.ui.menu,name:purchase_import.purchase_import_profile_menu
+msgid "Import Profiles"
+msgstr "Профили импорта"
+
+#. module: purchase_import
+#: model:ir.actions.act_window,name:purchase_import.purchase_order_line_import_wizard_action
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_order_line_import_wizard_view_form
+msgid "Import Purchase Lines"
+msgstr "Импорт строк закупки"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_lookup__lookup_type__default_code
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_mapping__target__default_code
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_mapping__target__default_code
+msgid "Internal Reference"
+msgstr "Внутренняя ссылка"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__write_uid
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_lookup__write_uid
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_mapping__write_uid
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_mapping__write_uid
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__write_uid
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Последнее обновление:"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__write_date
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_lookup__write_date
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_mapping__write_date
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_mapping__write_date
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__write_date
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__write_date
+msgid "Last Updated on"
+msgstr "Дата последнего обновления:"
+
+#. module: purchase_import
+#: model:ir.model.fields,help:purchase_import.field_purchase_import_profile__encoding
+msgid "Leave empty to detect the CSV encoding automatically."
+msgstr "Оставьте пустым для автоматического определения кодировки CSV."
+
+#. module: purchase_import
+#: model:ir.model.fields,help:purchase_import.field_purchase_import_profile__separator
+msgid "Leave empty to detect the CSV separator automatically."
+msgstr "Оставьте пустым для автоматического определения разделителя CSV."
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_mapping__target__description
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_mapping__target__description
+msgid "Line Description"
+msgstr "Описание строки"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__lookup_ids
+msgid "Lookup"
+msgstr "Посмотреть"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__lookup_order
+msgid "Lookup Order"
+msgstr "Порядок поиска"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_lookup__lookup_type
+msgid "Lookup Type"
+msgstr "Тип поиска"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid ""
+"Map a product identifier, a product name, or a complete variant combination."
+msgstr ""
+"Сопоставьте идентификатор товара, название товара или полный набор атрибутов"
+" варианта."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__mapping_ids
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__mapping_ids
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__state__mapping
+msgid "Mapping"
+msgstr "Сопоставление"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__max_file_size_mb
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__max_file_size_mb
+msgid "Max File Size Mb"
+msgstr "Максимальный размер файла, МБ"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__max_rows
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__max_rows
+msgid "Max Rows"
+msgstr "Максимум строк"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__min_qty
+msgid "Min Qty"
+msgstr "Мин. количество"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Minimum Quantity"
+msgstr "Минимальное количество"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Multiple supplier prices already exist for the exact import key."
+msgstr "Для точного ключа импорта уже существует несколько цен поставщика."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Multiple supplier prices exist for the exact import key."
+msgstr "Для точного ключа импорта существует несколько цен поставщика."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__name
+msgid "Name"
+msgstr "Имя"
+
+#. module: purchase_import
+#: model:ir.model.fields,help:purchase_import.field_purchase_order_line_import_wizard__profile_name
+msgid "Name used when saving the current settings as a new profile."
+msgstr "Название для сохранения текущих настроек как нового профиля."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "No product matches the configured lookup rules."
+msgstr "Ни один товар не соответствует настроенным правилам поиска."
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__thousand_separator__none
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__thousand_separator__none
+msgid "None"
+msgstr "Нет"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Only CSV and XLSX files are supported."
+msgstr "Поддерживаются только файлы CSV и XLSX."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Only Purchase Managers can save import profiles."
+msgstr "Сохранять профили импорта могут только руководители отдела закупок."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__order_id
+msgid "Order"
+msgstr "Заказ"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__order_snapshot
+msgid "Order Snapshot"
+msgstr "Снимок заказа"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__planned_action
+msgid "Planned Action"
+msgstr "Планируемое действие"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__preview_ids
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__state__preview
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_order_line_import_wizard_view_form
+msgid "Preview"
+msgstr "Предпросмотр"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__preview_valid
+msgid "Preview Valid"
+msgstr "Предпросмотр действителен"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__price
+msgid "Price"
+msgstr "Цена"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Price and minimum quantity cannot be negative."
+msgstr "Цена и минимальное количество не могут быть отрицательными."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__product_id
+msgid "Product"
+msgstr "Товар"
+
+#. module: purchase_import
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_import_profile_view_form
+msgid "Product Lookup"
+msgstr "Поиск товара"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__product_name
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_mapping__target__product_name
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_mapping__target__product_name
+msgid "Product Name"
+msgstr "Название товара"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Product identifier %(value)s is ambiguous."
+msgstr "Идентификатор товара %(value)s неоднозначен."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Product name is required to create a standalone product."
+msgstr "Для создания отдельного товара требуется название."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Product name must be mapped for standalone product creation."
+msgstr "Для создания отдельного товара необходимо сопоставить его название."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_lookup__profile_id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_mapping__profile_id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__profile_id
+msgid "Profile"
+msgstr "Профиль"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__profile_name
+msgid "Profile Name"
+msgstr "Название профиля"
+
+#. module: purchase_import
+#: model:ir.model,name:purchase_import.model_purchase_import_profile
+msgid "Purchase Import Profile"
+msgstr "Профиль импорта закупок"
+
+#. module: purchase_import
+#: model:ir.model,name:purchase_import.model_purchase_import_profile_lookup
+msgid "Purchase Import Profile Lookup"
+msgstr "Поиск профиля импорта закупок"
+
+#. module: purchase_import
+#: model:ir.model,name:purchase_import.model_purchase_import_profile_mapping
+msgid "Purchase Import Profile Mapping"
+msgstr "Сопоставление профиля импорта закупок"
+
+#. module: purchase_import
+#: model:ir.actions.act_window,name:purchase_import.purchase_import_profile_action
+msgid "Purchase Import Profiles"
+msgstr "Профили импорта закупок"
+
+#. module: purchase_import
+#: model:ir.model,name:purchase_import.model_purchase_order
+msgid "Purchase Order"
+msgstr "Заказ на покупку"
+
+#. module: purchase_import
+#: model:ir.model,name:purchase_import.model_purchase_order_line_import_wizard
+msgid "Purchase Order Line Import"
+msgstr "Импорт строк заказа на закупку"
+
+#. module: purchase_import
+#: model:ir.model,name:purchase_import.model_purchase_order_line_import_mapping
+msgid "Purchase Order Line Import Mapping"
+msgstr "Сопоставление импорта строк заказа на закупку"
+
+#. module: purchase_import
+#: model:ir.model,name:purchase_import.model_purchase_order_line_import_preview
+msgid "Purchase Order Line Import Preview"
+msgstr "Предпросмотр импорта строк заказа на закупку"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/models/purchase_order.py:0
+msgid "Purchase lines can only be imported into an empty order."
+msgstr "Строки закупки можно импортировать только в пустой заказ."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/models/purchase_order.py:0
+msgid "Purchase lines can only be imported into an unlocked draft order."
+msgstr ""
+"Строки закупки можно импортировать только в незаблокированный черновик "
+"заказа."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__quantity
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_mapping__target__quantity
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_mapping__target__quantity
+msgid "Quantity"
+msgstr "Количество"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Quantity and unit price columns are required."
+msgstr "Столбцы количества и цены за единицу обязательны."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Quantity must be greater than zero."
+msgstr "Количество должно быть больше нуля."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__quoting
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__quoting
+msgid "Quoting"
+msgstr "Ограничитель текста"
+
+#. module: purchase_import
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_order_line_import_wizard_view_form
+msgid "Read File"
+msgstr "Прочитать файл"
+
+#. module: purchase_import
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_order_line_import_wizard_view_form
+msgid "Reload File"
+msgstr "Перезагрузить файл"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__unmatched_policy__reject
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__unmatched_policy__reject
+msgid "Reject"
+msgstr "Отклонить"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_preview__status__resolved
+msgid "Resolved"
+msgstr "Распознано"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Row %(row)s: %(message)s"
+msgstr "Строка %(row)s: %(message)s"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Rows with the same supplier price key contain conflicting prices."
+msgstr "Строки с одинаковым ключом цены поставщика содержат разные цены."
+
+#. module: purchase_import
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_order_line_import_wizard_view_form
+msgid "Save as New Profile"
+msgstr "Сохранить как новый профиль"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Select a product template for variant creation."
+msgstr "Выберите шаблон товара для создания варианта."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/models/purchase_order.py:0
+msgid "Select a vendor before importing purchase lines."
+msgstr "Перед импортом строк закупки выберите поставщика."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Select an attribute for an attribute mapping."
+msgstr "Выберите атрибут для сопоставления с атрибутом."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__separator
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__separator
+msgid "Separator"
+msgstr "Разделитель"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_lookup__sequence
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_mapping__sequence
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_mapping__sequence
+msgid "Sequence"
+msgstr "Последовательность"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__default_product_type__service
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__default_product_type__service
+msgid "Service"
+msgstr "Service"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__sheet
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__sheet
+msgid "Sheet"
+msgstr "Таблица"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_mapping__source_column
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_mapping__source_column
+msgid "Source Column"
+msgstr "Исходный столбец"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_mapping__source_index
+msgid "Source Index"
+msgstr "Индекс исходного столбца"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__source_row
+msgid "Source Row"
+msgstr "Исходная строка"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__source_row_count
+msgid "Source Row Count"
+msgstr "Количество исходных строк"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Source column headers must be unique."
+msgstr "Заголовки исходных столбцов должны быть уникальными."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Source row %(row)s has more values than the header."
+msgstr "В исходной строке %(row)s больше значений, чем в заголовке."
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__thousand_separator__space
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__thousand_separator__space
+msgid "Space"
+msgstr "Пробел"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__creation_mode__standalone
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__creation_mode__standalone
+msgid "Standalone Product"
+msgstr "Отдельный товар"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__state
+msgid "State"
+msgstr "Область"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__status
+msgid "Status"
+msgstr "Статус"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__supplier_code
+msgid "Supplier Code"
+msgstr "Код поставщика"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile_mapping__target
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_mapping__target
+msgid "Target"
+msgstr "Цель"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile__creation_mode__variant
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__creation_mode__variant
+msgid "Template Variant"
+msgstr "Вариант шаблона"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/models/import_profile.py:0
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The CSV separator must be one character."
+msgstr "Разделитель CSV должен состоять из одного символа."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The configured header row does not exist in the file."
+msgstr "Настроенная строка заголовков отсутствует в файле."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The file or import configuration changed; generate a new preview."
+msgstr ""
+"Файл или настройки импорта изменились; сформируйте новый предпросмотр."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+#: model:ir.model.constraint,message:purchase_import.constraint_purchase_import_profile_positive_rows
+msgid "The first data row must be after the header row."
+msgstr "Первая строка данных должна находиться после строки заголовков."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The import file could not be read: %(message)s"
+msgstr "Не удалось прочитать файл импорта: %(message)s"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The import file exceeds the configured row limit."
+msgstr "Файл импорта превышает установленное ограничение количества строк."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The import file exceeds the configured size limit."
+msgstr "Файл импорта превышает установленное ограничение размера."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The import file has no content."
+msgstr "Файл импорта пуст."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The import profile must belong to the purchase order company."
+msgstr "Профиль импорта должен принадлежать компании заказа на закупку."
+
+#. module: purchase_import
+#: model:ir.model.constraint,message:purchase_import.constraint_purchase_import_profile_name_company_unique
+msgid "The import profile name must be unique per company."
+msgstr "Название профиля импорта должно быть уникальным в пределах компании."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The matching product variant is archived."
+msgstr "Найденный вариант товара архивирован."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The product lookup order is invalid."
+msgstr "Порядок поиска товара недействителен."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The product variant could not be created."
+msgstr "Не удалось создать вариант товара."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The purchase order lines changed; generate a new preview."
+msgstr "Строки заказа на закупку изменились; сформируйте новый предпросмотр."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The row must provide every variant-defining attribute."
+msgstr "В строке должны быть указаны все атрибуты, определяющие вариант."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The selected data range contains no import rows."
+msgstr "Выбранный диапазон данных не содержит строк для импорта."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/models/import_profile.py:0
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The text delimiter must be one character."
+msgstr "Ограничитель текста должен состоять из одного символа."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The variant combination is not allowed by the template."
+msgstr "Комбинация варианта не разрешена шаблоном."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "The variant template belongs to another company."
+msgstr "Шаблон варианта принадлежит другой компании."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/models/import_profile.py:0
+msgid "The variant template must belong to the profile company."
+msgstr "Шаблон варианта должен принадлежать компании профиля."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__thousand_separator
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__thousand_separator
+msgid "Thousand Separator"
+msgstr "Разделитель тысяч"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/models/import_profile.py:0
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Tracking requires a storable product."
+msgstr "Отслеживание доступно только для складируемого товара."
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_mapping__target__price
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_mapping__target__price
+msgid "Unit Price"
+msgstr "Цена за единицу"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_mapping__target__uom
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_mapping__target__uom
+msgid "Unit of Measure"
+msgstr "Ед. изм"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Unit of measure %s is missing or ambiguous."
+msgstr "Единица измерения %s отсутствует или неоднозначна."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__unmatched_policy
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__unmatched_policy
+msgid "Unmatched Policy"
+msgstr "Обработка ненайденных товаров"
+
+#. module: purchase_import
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_import_profile_view_form
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_order_line_import_wizard_view_form
+msgid "Unmatched Products"
+msgstr "Ненайденные товары"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__uom_id
+msgid "Uom"
+msgstr "Единица измерения"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_wizard__state__upload
+msgid "Upload"
+msgstr "Загрузить"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Upload a CSV or XLSX file."
+msgstr "Загрузите файл CSV или XLSX."
+
+#. module: purchase_import
+#: model_terms:ir.ui.view,arch_db:purchase_import.purchase_order_line_import_wizard_view_form
+msgid "Validate"
+msgstr "Подтвердить"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "Validate the import successfully before applying it."
+msgstr "Перед применением успешно проверьте импорт."
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__validation_token
+msgid "Validation Token"
+msgstr "Токен проверки"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_mapping__target__attribute
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_mapping__target__attribute
+msgid "Variant Attribute"
+msgstr "Атрибут варианта"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_import_profile__variant_template_id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_wizard__variant_template_id
+msgid "Variant Template"
+msgstr "Шаблон варианта"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_mapping__target__min_qty
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_mapping__target__min_qty
+msgid "Vendor Minimum Quantity"
+msgstr "Минимальное количество поставщика"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_lookup__lookup_type__supplier_code
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_mapping__target__supplier_code
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_mapping__target__supplier_code
+msgid "Vendor Product Code"
+msgstr "Код продукта поставщика"
+
+#. module: purchase_import
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_import_profile_mapping__target__supplier_name
+#: model:ir.model.fields.selection,name:purchase_import.selection__purchase_order_line_import_mapping__target__supplier_name
+msgid "Vendor Product Name"
+msgstr "Название продукта поставщика"
+
+#. module: purchase_import
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_mapping__wizard_id
+#: model:ir.model.fields,field_description:purchase_import.field_purchase_order_line_import_preview__wizard_id
+msgid "Wizard"
+msgstr "Мастер"
+
+#. module: purchase_import
+#. odoo-python
+#: code:addons/purchase_import/wizard/purchase_order_line_import.py:0
+msgid "You do not have permission to create products or variants."
+msgstr "У вас нет прав на создание товаров или вариантов."

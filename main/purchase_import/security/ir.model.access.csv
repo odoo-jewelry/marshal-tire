@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+purchase_import_profile_user,purchase.import.profile user,model_purchase_import_profile,purchase.group_purchase_user,1,0,0,0
+purchase_import_profile_manager,purchase.import.profile manager,model_purchase_import_profile,purchase.group_purchase_manager,1,1,1,1
+purchase_import_profile_mapping_user,purchase.import.profile.mapping user,model_purchase_import_profile_mapping,purchase.group_purchase_user,1,0,0,0
+purchase_import_profile_mapping_manager,purchase.import.profile.mapping manager,model_purchase_import_profile_mapping,purchase.group_purchase_manager,1,1,1,1
+purchase_import_profile_lookup_user,purchase.import.profile.lookup user,model_purchase_import_profile_lookup,purchase.group_purchase_user,1,0,0,0
+purchase_import_profile_lookup_manager,purchase.import.profile.lookup manager,model_purchase_import_profile_lookup,purchase.group_purchase_manager,1,1,1,1
+purchase_order_line_import_wizard_user,purchase.order.line.import.wizard user,model_purchase_order_line_import_wizard,purchase.group_purchase_user,1,1,1,1
+purchase_order_line_import_mapping_user,purchase.order.line.import.mapping user,model_purchase_order_line_import_mapping,purchase.group_purchase_user,1,1,1,1
+purchase_order_line_import_preview_user,purchase.order.line.import.preview user,model_purchase_order_line_import_preview,purchase.group_purchase_user,1,1,1,1
