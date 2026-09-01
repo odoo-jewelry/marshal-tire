@@ -565,9 +565,6 @@ class PurchaseOrderLineImportWizard(models.TransientModel):
 
     def _build_lookup_cache(self, row_values):
         Product = self.env["product.product"].with_company(self.order_id.company_id)
-        company_domain = [
-            ("product_tmpl_id.company_id", "in", [False, self.order_id.company_id.id])
-        ]
         cache = {}
         for lookup_type in self._lookup_types():
             identifiers = {
@@ -595,12 +592,11 @@ class PurchaseOrderLineImportWizard(models.TransientModel):
                         )
                     )
             else:
-                products = Product.search(
-                    company_domain + [(lookup_type, "in", list(identifiers))]
+                matches = Product._purchase_import_resolve_identifier_batch(
+                    lookup_type, identifiers, self.order_id.company_id
                 )
-                for product in products:
-                    key = (lookup_type, product[lookup_type])
-                    cache[key] = cache.get(key, Product) | product
+                for value, products in matches.items():
+                    cache[(lookup_type, value)] = products
         return cache
 
     def _resolve_product(self, values, lookup_cache):

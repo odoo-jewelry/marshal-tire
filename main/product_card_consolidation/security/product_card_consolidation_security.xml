@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_product_consolidation_manager" model="res.groups">
+        <field name="name">Consolidate Product Cards</field>
+        <field name="privilege_id" ref="product.res_groups_privilege_product"/>
+        <field name="implied_ids" eval="[Command.link(ref('base.group_user'))]"/>
+    </record>
+
+    <record id="product_identifier_alias_rule_company" model="ir.rule">
+        <field name="name">Product identifier aliases by company</field>
+        <field name="model_id" ref="model_product_identifier_alias"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_consolidation" model="ir.ui.view">
+        <field name="name">product.template.form.consolidation</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_merged_sources" type="object" class="oe_stat_button" icon="fa-code-fork" invisible="not merged_source_count" groups="product_card_consolidation.group_product_consolidation_manager">
+                    <field name="merged_source_count" widget="statinfo" string="Absorbed Cards"/>
+                </button>
+            </xpath>
+            <xpath expr="//group[@name='group_general']/field[@name='active']" position="after">
+                <field name="merged_into_id" readonly="1" invisible="not merged_into_id" groups="product_card_consolidation.group_product_consolidation_manager" context="{'active_test': False}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
