@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.web.chatter.toggle</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='general_settings']" position="inside">
+                <block title="Chatter" name="web_chatter_toggle_block">
+                    <setting
+                        id="web_chatter_toggle_setting"
+                        string="Chatter Toggle Button"
+                        help="Show a chatter show/hide toggle button on every form view. Users can hide the chatter panel to work full width, like in the To-do app. Reload the page after changing this setting.">
+                        <field name="chatter_toggle_enabled"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

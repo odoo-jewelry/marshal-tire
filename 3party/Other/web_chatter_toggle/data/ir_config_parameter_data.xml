@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="web_chatter_toggle_enabled_param" model="ir.config_parameter">
+        <field name="key">web_chatter_toggle.enabled</field>
+        <field name="value">True</field>
+    </record>
+</odoo>

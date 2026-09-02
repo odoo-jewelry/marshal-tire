@@ -1,0 +1,17 @@
+// Hide every standard form chatter (aside or bottom) when toggled off
+body.o_chatter_globally_hidden {
+    .o-mail-Form-chatter {
+        display: none !important;
+    }
+    // Let the sheet breathe into the freed space, like the To-do full width sheet
+    .o_form_view .o_form_sheet_bg {
+        max-width: unset;
+    }
+}
+
+// If the current form has no chatter at all, don't show the button
+body:not(:has(.o-mail-Form-chatter)):not(.o_chatter_globally_hidden) {
+    .o_chatter_toggle_btn {
+        display: none;
+    }
+}

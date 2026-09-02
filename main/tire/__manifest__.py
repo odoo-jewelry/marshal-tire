@@ -15,6 +15,14 @@
         'purchase_price_control',
         'product_card_consolidation',
 
+        'disable_odoo_online',
+        'portal_debranding',
+        'remove_odoo_enterprise',
+        'web_dialog_size',
+        'web_remember_tree_column_width',
+        
+        'web_chatter_toggle'
+
     ],
     'data': [
         'views/product_template_views.xml',

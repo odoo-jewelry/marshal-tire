@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="res_groups_privilege_product_consolidation" model="res.groups.privilege">
+        <field name="name">Product Card Consolidation</field>
+        <field name="description">Allows authorized users to consolidate duplicate product cards.</field>
+        <field name="category_id" ref="base.module_category_master_data"/>
+        <field name="sequence">10</field>
+    </record>
+
     <record id="group_product_consolidation_manager" model="res.groups">
         <field name="name">Consolidate Product Cards</field>
-        <field name="privilege_id" ref="product.res_groups_privilege_product"/>
+        <field name="privilege_id" ref="res_groups_privilege_product_consolidation"/>
         <field name="implied_ids" eval="[Command.link(ref('base.group_user'))]"/>
     </record>
 

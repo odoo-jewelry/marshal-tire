@@ -15,9 +15,17 @@ class TestProductCardConsolidation(TransactionCase):
         cls.group = cls.env.ref(
             "product_card_consolidation.group_product_consolidation_manager"
         )
+        cls.product_manager_group = cls.env.ref("product.group_product_manager")
         cls.env.user.group_ids = [Command.link(cls.group.id)]
         cls.ProductTemplate = cls.env["product.template"]
         cls.Service = cls.env["product.card.consolidation.service"]
+
+    def test_consolidation_permission_is_a_separate_privilege(self):
+        self.assertNotEqual(
+            self.group.privilege_id,
+            self.product_manager_group.privilege_id,
+        )
+        self.assertNotIn(self.product_manager_group, self.group.all_implied_ids)
 
     def _products(self, **duplicate_values):
         common = {

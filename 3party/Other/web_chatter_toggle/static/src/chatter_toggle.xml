@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="web_chatter_toggle.ControlPanel" t-inherit="web.ControlPanel" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_cp_pager')]" position="before">
+            <a
+                t-if="showChatterToggle"
+                role="button"
+                title="Toggle chatter"
+                data-hotkey="d"
+                t-attf-class="btn btn-light o_chatter_toggle_btn #{!state.chatterHidden ? 'active' : ''}"
+                t-on-click="toggleGlobalChatter"
+            >
+                <i class="fa fa-comments"/>
+            </a>
+        </xpath>
+    </t>
+
+</templates>
