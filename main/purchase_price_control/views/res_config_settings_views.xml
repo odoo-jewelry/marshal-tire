@@ -10,7 +10,7 @@
                     <setting id="purchase_default_markup_setting"
                              company_dependent="1"
                              string="Default Markup"
-                             help="Markup used when the product has no last purchase price.">
+                             help="Markup used when the product has no positive current cost.">
                         <div class="content-group">
                             <div class="row mt16">
                                 <label for="purchase_default_markup" class="col-lg-4 o_light_label"/>

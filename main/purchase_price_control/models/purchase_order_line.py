@@ -11,32 +11,22 @@ class PurchaseOrderLine(models.Model):
         string="Company Currency",
         readonly=True,
     )
-    current_purchase_price = fields.Monetary(
-        string="Current Reference Purchase Price",
-        currency_field="company_currency_id",
-        copy=False,
-    )
-    current_sale_price = fields.Monetary(
-        string="Current Sales Price",
-        currency_field="company_currency_id",
-        copy=False,
-    )
-    current_markup = fields.Float(string="Current Markup (%)", digits=(16, 2), copy=False)
     current_standard_price = fields.Monetary(
-        string="Current Standard Cost",
+        string="Current Cost",
+        currency_field="company_currency_id",
+        copy=False,
+    )
+    current_markup = fields.Float(string="Markup", digits=(16, 2), copy=False)
+    current_sale_price = fields.Monetary(
+        string="Current Sale",
         currency_field="company_currency_id",
         copy=False,
     )
     price_snapshot_initialized = fields.Boolean(copy=False)
-    effective_purchase_price = fields.Monetary(
-        string="Purchase Price incl. Taxes",
-        currency_field="company_currency_id",
-        compute="_compute_calculated_prices",
-    )
     planned_sale_price = fields.Monetary(
-        string="Planned Sales Price",
+        string="New Sale",
         currency_field="company_currency_id",
-        compute="_compute_calculated_prices",
+        compute="_compute_planned_sale_price",
         inverse="_inverse_planned_sale_price",
         readonly=False,
     )
@@ -45,20 +35,6 @@ class PurchaseOrderLine(models.Model):
         copy=False,
     )
     planned_sale_price_manually_set = fields.Boolean(copy=False)
-    valuation_purchase_price = fields.Monetary(
-        string="Calculated Standard Cost",
-        currency_field="company_currency_id",
-        compute="_compute_calculated_prices",
-        help="Purchase cost calculated with Odoo inventory valuation rules.",
-    )
-    effective_cost_method = fields.Selection(
-        selection=[
-            ("standard", "Standard Price"),
-            ("average", "Average Cost (AVCO)"),
-            ("fifo", "First In First Out (FIFO)"),
-        ],
-        compute="_compute_effective_cost_method",
-    )
     price_update_required = fields.Boolean(compute="_compute_price_update_required")
 
     @api.depends(
@@ -69,33 +45,26 @@ class PurchaseOrderLine(models.Model):
         "discount",
         "display_type",
         "is_downpayment",
-        "order_id.partner_id",
         "price_snapshot_initialized",
         "planned_sale_price_manually_set",
         "planned_sale_price_override",
         "price_unit",
         "product_id",
         "product_uom_id",
-        "tax_ids",
     )
-    def _compute_calculated_prices(self):
+    def _compute_planned_sale_price(self):
         for line in self:
-            line.effective_purchase_price = 0.0
             line.planned_sale_price = 0.0
-            line.valuation_purchase_price = 0.0
             if not line._is_price_control_eligible():
                 continue
-            effective_price = line._get_effective_purchase_price()
-            line.effective_purchase_price = effective_price
-            line.valuation_purchase_price = line.with_context(
-                conversion_date=line.date_order
-            )._get_stock_move_price_unit()
             if not line.price_snapshot_initialized:
                 continue
             if line.planned_sale_price_manually_set:
                 line.planned_sale_price = line.planned_sale_price_override
                 continue
-            raw_sale_price = effective_price * (1.0 + line.current_markup / 100.0)
+            raw_sale_price = line._get_purchase_price_basis() * (
+                1.0 + line.current_markup / 100.0
+            )
             line.planned_sale_price = (
                 float_round(
                     raw_sale_price,
@@ -114,7 +83,7 @@ class PurchaseOrderLine(models.Model):
         if invalid_lines:
             raise ValidationError(
                 self.env._(
-                    "Planned Sales Price can only be entered for an initialized "
+                    "New Sale can only be entered for an initialized "
                     "product line."
                 )
             )
@@ -122,49 +91,44 @@ class PurchaseOrderLine(models.Model):
             line.planned_sale_price_override = line.planned_sale_price
             line.planned_sale_price_manually_set = True
 
-    @api.depends("product_id", "product_id.categ_id.property_cost_method")
-    @api.depends_context("company")
-    def _compute_effective_cost_method(self):
-        for line in self:
-            line.effective_cost_method = (
-                line.product_id.with_company(line.company_id).cost_method
-                if line.product_id
-                else False
-            )
-
     @api.depends(
         "company_currency_id.rounding",
-        "current_purchase_price",
         "current_sale_price",
         "current_standard_price",
-        "effective_cost_method",
-        "effective_purchase_price",
+        "currency_id",
+        "date_order",
+        "discount",
+        "display_type",
+        "is_downpayment",
         "planned_sale_price",
         "price_snapshot_initialized",
-        "valuation_purchase_price",
+        "price_unit",
+        "product_id",
+        "product_id.categ_id.property_cost_method",
+        "product_uom_id",
     )
     def _compute_price_update_required(self):
         for line in self:
             rounding = line.company_currency_id.rounding
+            cost_method = (
+                line.product_id.with_company(line.company_id).cost_method
+                if line.product_id
+                else False
+            )
             line.price_update_required = bool(
                 line._is_price_control_eligible()
                 and line.price_snapshot_initialized
                 and (
                     float_compare(
-                        line.current_purchase_price,
-                        line.effective_purchase_price,
-                        precision_rounding=rounding,
-                    )
-                    or float_compare(
                         line.current_sale_price,
                         line.planned_sale_price,
                         precision_rounding=rounding,
                     )
                     or (
-                        line.effective_cost_method == "standard"
+                        cost_method == "standard"
                         and float_compare(
                             line.current_standard_price,
-                            line.valuation_purchase_price,
+                            line._get_purchase_price_basis(),
                             precision_rounding=rounding,
                         )
                     )
@@ -208,32 +172,25 @@ class PurchaseOrderLine(models.Model):
         values = {
             "product": self.product_id,
             "company": self.company_id,
-            "last_purchase_price": self.effective_purchase_price,
             "lst_price": self.planned_sale_price,
         }
-        if self.effective_cost_method == "standard":
-            values["standard_price"] = self.valuation_purchase_price
+        if self.product_id.with_company(self.company_id).cost_method == "standard":
+            values["standard_price"] = self._get_purchase_price_basis()
         return values
 
     def _is_price_control_eligible(self):
         self.ensure_one()
         return bool(self.product_id and not self.display_type and not self.is_downpayment)
 
-    def _get_effective_purchase_price(self):
+    def _get_purchase_price_basis(self):
         self.ensure_one()
         if not self._is_price_control_eligible():
             return 0.0
         company = self.company_id
         purchase_currency = self.currency_id or company.currency_id
-        discounted_price = self.price_unit * (1.0 - (self.discount or 0.0) / 100.0)
-        tax_result = self.tax_ids.compute_all(
-            discounted_price,
-            currency=purchase_currency,
-            quantity=1.0,
-            product=self.product_id,
-            partner=self.order_id.partner_id,
+        price_per_purchase_uom = self.price_unit * (
+            1.0 - (self.discount or 0.0) / 100.0
         )
-        price_per_purchase_uom = tax_result["total_included"]
         product_uom = self.product_id.uom_id
         price_per_product_uom = (
             self.product_uom_id._compute_price(price_per_purchase_uom, product_uom)

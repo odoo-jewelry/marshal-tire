@@ -1,37 +1,4 @@
-# Purchase Price Control Specification
-
-> [!abstract] Контроль закупочных и продажных цен
-> Позволяет закупщикам видеть расчётные показатели цены и явно сохранять закупочную и продажную цены товара при подтверждении заказа.
->
-> **Использование:**
->
-> В `Purchase > Configuration > Settings` добавлен блок Price Control с полями наценки по умолчанию и шага округления продажной цены для каждой компании. Стандартные поля настроек не изменялись и не удалялись.
->
-> В форме запроса коммерческого предложения и заказа на закупку в товарных строках добавлены текущая справочная закупочная цена, текущая продажная цена, наценка, эффективная закупочная цена, плановая продажная цена и флажок `Save Prices`. При подтверждении заказа система сохраняет рассчитанные значения только для отмеченных товарных строк; секции, подсекции, заметки и авансовые строки не участвуют.
->
-> Основные сценарии: сравнение текущих и плановых цен до подтверждения; применение company-specific наценки и округления; сохранение цен выбранных строк при обычном подтверждении или переходе в To Approve; повторное применение после возврата заказа в draft. Неотмеченные строки сохраняют стандартное поведение Odoo, отмена заказа не откатывает уже сохранённые цены, а дубликат заказа очищает флажки.
-^feature-card
-
-## Purpose
-
-Provide purchase users with a company-aware reference purchase price, markup visibility, and an explicit way to update reference purchase and sales prices when confirming a purchase order.
-
-## Requirements
-
-### Requirement: Company price-control configuration
-
-The system SHALL provide each company with a default markup percentage and a positive sales-price rounding step in the Purchase settings. The initial rounding step SHALL be `0.01`, and the initial default markup SHALL be `0%`.
-
-#### Scenario: Configure price control for one company
-
-- **WHEN** an administrator saves a default markup of `25%` and a rounding step of `10` for a company
-- **THEN** purchase price calculations for that company use those values
-- **AND** another company's configuration remains unchanged
-
-#### Scenario: Reject a non-positive rounding step
-
-- **WHEN** an administrator attempts to save a rounding step equal to or below zero
-- **THEN** the system rejects the configuration with a validation message
+## ADDED Requirements
 
 ### Requirement: Compact price-control column layout
 For every eligible purchase-order product line, the system SHALL present the price columns in this order: the standard `Unit Price`, `Current Cost`, `Markup`, `Current Sale`, and `New Sale`. `Current Cost` SHALL represent the product's current company-specific cost, `Current Sale` SHALL represent its current sales price, and `New Sale` SHALL represent the planned sales price. The price-control interface SHALL NOT display a separate reference purchase price, tax-included purchase price, or valuation-cost column.
@@ -80,6 +47,8 @@ When the module is upgraded, the system SHALL align every existing initialized p
 - **WHEN** the module is upgraded
 - **THEN** no product price, purchase-order state, inventory value, accounting entry, or tax value is changed
 - **AND** only the obsolete custom fields and their stored values are removed
+
+## MODIFIED Requirements
 
 ### Requirement: Purchase-line price-control information
 For every eligible product line, regardless of purchase-order state, the system SHALL display the current-cost snapshot, current markup percentage, current sales-price snapshot, rounded new sales price, and the applicable manual price action. Section, subsection, note, and down-payment lines SHALL NOT participate in price control.
@@ -161,112 +130,6 @@ For an initialized eligible line, the system SHALL calculate the automatic `New 
 - **THEN** the line remains uninitialized
 - **AND** it does not offer a usable manual `New Sale` or a product-price update
 
-### Requirement: Explicit price saving on confirmation
-The system SHALL NOT save sales prices or standard costs as a side effect of confirming, approving, cancelling, resetting, locking, or unlocking a purchase order. Price control SHALL change values only when a user explicitly invokes a line-level or order-level update action. An update SHALL write `New Sale` as the product sales price and, only for a product currently using Standard Price, write the tax-independent purchase basis as its company-specific cost.
-
-#### Scenario: Save an explicitly selected line
-- **GIVEN** an initialized Standard Price line has a sales-price or cost discrepancy
-- **WHEN** the user invokes its Update action
-- **THEN** the product sales price and company-specific standard cost are updated from the line values
-- **AND** no purchase-order lifecycle transition is required
-
-#### Scenario: Do not save an unselected line
-- **GIVEN** a line has a price or cost discrepancy but no explicit update action is invoked
-- **WHEN** the purchase order is confirmed
-- **THEN** price control changes neither product sales price nor standard cost
-
-#### Scenario: Confirmation enters approval workflow
-- **GIVEN** an order requires manager approval and contains price or cost discrepancies
-- **WHEN** the user confirms the order and it enters To Approve
-- **THEN** no product price, standard cost, inventory value, or snapshot is changed by confirmation
-- **AND** later approval does not apply any price-control update
-
-#### Scenario: Multiple selected lines target the same sales-price owner
-- **GIVEN** multiple bulk candidates target the same product or a shared sales-price owner
-- **WHEN** the user invokes Update All
-- **THEN** fixed line payloads are resolved in purchase-order line order
-- **AND** the last applicable payload determines each final shared value
-
-#### Scenario: Failed confirmation is atomic
-- **GIVEN** standard purchase confirmation fails
-- **WHEN** the transaction is rolled back
-- **THEN** no partial order confirmation remains
-- **AND** price control has written no product value or snapshot
-
-#### Scenario: Confirm without a standard-cost side effect
-- **GIVEN** an initialized Standard Price line has a cost discrepancy
-- **WHEN** the order is confirmed, approved, cancelled, reset, locked, or unlocked without an explicit update
-- **THEN** its standard cost, inventory value, and line snapshot remain unchanged by that lifecycle action
-
-#### Scenario: Confirm an order without a price side effect
-- **GIVEN** an order contains initialized lines with discrepancies
-- **WHEN** the order is confirmed
-- **THEN** standard purchase-order processing continues
-- **AND** price control changes no product price, cost, inventory value, or line snapshot
-
-#### Scenario: Complete double validation without a price side effect
-- **GIVEN** an order requires manager approval and contains discrepancies
-- **WHEN** the order is confirmed and later approved
-- **THEN** neither lifecycle action changes product values or line snapshots
-
-### Requirement: Lifecycle and copied orders
-Fill Current Prices, Update, and Update All SHALL be available according to line eligibility and discrepancy rules without restriction by purchase-order state. Cancelling, resetting, confirming, approving, locking, or unlocking an order SHALL NOT revert or automatically apply prices. Copied orders SHALL start with uninitialized price snapshots.
-
-#### Scenario: Cancel a confirmed order
-- **GIVEN** product values were saved through an explicit price-control action
-- **WHEN** the purchase order is later cancelled
-- **THEN** the saved sales price and any applicable Standard Price cost remain unchanged
-- **AND** cancellation does not apply another price update
-
-#### Scenario: Confirm again after resetting to draft
-- **GIVEN** a confirmed order is reset to draft and still has initialized snapshots
-- **WHEN** it is confirmed again
-- **THEN** confirmation does not recalculate or apply product prices
-- **AND** an explicit Update action remains required for any discrepancy
-
-#### Scenario: Update prices from a non-draft order
-- **GIVEN** an initialized differing line belongs to a confirmed, locked, or cancelled purchase order
-- **WHEN** the user invokes Update or Update All
-- **THEN** the applicable product values and affected snapshots are updated
-
-#### Scenario: Copy a purchase order
-- **WHEN** a purchase order containing initialized snapshots is duplicated
-- **THEN** every eligible line in the copied order starts without an initialized snapshot
-- **AND** the user must invoke Fill Current Prices before using an update action
-
-### Requirement: Product write authorization
-Price updates SHALL use the acting user's product write permissions and SHALL NOT bypass company or access restrictions. Current Cost SHALL be read and Standard Price cost SHALL be written in the purchase order's company. A failed authorization SHALL roll back the complete line or bulk action.
-
-#### Scenario: User cannot update an affected product
-- **GIVEN** the acting user lacks permission to update an affected product
-- **WHEN** the user invokes Update or Update All
-- **THEN** the action fails with an access error
-- **AND** no sales price, standard cost, inventory value, or snapshot is partially updated
-
-#### Scenario: Keep standard cost company-specific
-- **GIVEN** a product has different costs in two companies
-- **WHEN** a user fills or updates prices from an order belonging to one company
-- **THEN** Current Cost and any Standard Price cost update use only that order company
-- **AND** the other company's cost remains unchanged
-
-#### Scenario: User cannot update the product
-- **GIVEN** the acting user lacks permission to update an affected product
-- **WHEN** the user invokes Update or Update All
-- **THEN** the action fails with an access error
-- **AND** no product value or snapshot is partially updated
-
-#### Scenario: Reject an unauthorized standard-cost update
-- **GIVEN** the acting user cannot write an affected Standard Price product
-- **WHEN** an action would update its standard cost
-- **THEN** the action fails with an access error
-- **AND** no sales price, standard cost, inventory value, or snapshot change remains
-
-#### Scenario: User cannot fill an affected line
-- **GIVEN** the acting user lacks permission to update an affected purchase-order line
-- **WHEN** the user invokes Fill Current Prices
-- **THEN** the action fails with an access error
-- **AND** no partial snapshot updates remain
-
 ### Requirement: Explicit current-price snapshots
 The system SHALL keep current cost, current sales price, and current markup as a persistent snapshot on each eligible purchase-order line. A new, copied, or pre-existing line without a snapshot SHALL remain uninitialized until the user invokes Fill Current Prices. Filling SHALL read the product cost and sales price applicable to the order company, derive markup from those values with the configured default-markup fallback, persist the snapshot, and recalculate `New Sale` without changing any product price or inventory value.
 
@@ -315,6 +178,54 @@ The system SHALL keep current cost, current sales price, and current markup as a
 - **WHEN** the user invokes Fill Current Prices again
 - **THEN** the snapshot is replaced with the current company-specific values
 - **AND** markup and automatic `New Sale` are recalculated
+
+### Requirement: Explicit price saving on confirmation
+The system SHALL NOT save sales prices or standard costs as a side effect of confirming, approving, cancelling, resetting, locking, or unlocking a purchase order. Price control SHALL change values only when a user explicitly invokes a line-level or order-level update action. An update SHALL write `New Sale` as the product sales price and, only for a product currently using Standard Price, write the tax-independent purchase basis as its company-specific cost.
+
+#### Scenario: Save an explicitly selected line
+- **GIVEN** an initialized Standard Price line has a sales-price or cost discrepancy
+- **WHEN** the user invokes its Update action
+- **THEN** the product sales price and company-specific standard cost are updated from the line values
+- **AND** no purchase-order lifecycle transition is required
+
+#### Scenario: Do not save an unselected line
+- **GIVEN** a line has a price or cost discrepancy but no explicit update action is invoked
+- **WHEN** the purchase order is confirmed
+- **THEN** price control changes neither product sales price nor standard cost
+
+#### Scenario: Confirmation enters approval workflow
+- **GIVEN** an order requires manager approval and contains price or cost discrepancies
+- **WHEN** the user confirms the order and it enters To Approve
+- **THEN** no product price, standard cost, inventory value, or snapshot is changed by confirmation
+- **AND** later approval does not apply any price-control update
+
+#### Scenario: Multiple selected lines target the same sales-price owner
+- **GIVEN** multiple bulk candidates target the same product or a shared sales-price owner
+- **WHEN** the user invokes Update All
+- **THEN** fixed line payloads are resolved in purchase-order line order
+- **AND** the last applicable payload determines each final shared value
+
+#### Scenario: Failed confirmation is atomic
+- **GIVEN** standard purchase confirmation fails
+- **WHEN** the transaction is rolled back
+- **THEN** no partial order confirmation remains
+- **AND** price control has written no product value or snapshot
+
+#### Scenario: Confirm without a standard-cost side effect
+- **GIVEN** an initialized Standard Price line has a cost discrepancy
+- **WHEN** the order is confirmed, approved, cancelled, reset, locked, or unlocked without an explicit update
+- **THEN** its standard cost, inventory value, and line snapshot remain unchanged by that lifecycle action
+
+#### Scenario: Confirm an order without a price side effect
+- **GIVEN** an order contains initialized lines with discrepancies
+- **WHEN** the order is confirmed
+- **THEN** standard purchase-order processing continues
+- **AND** price control changes no product price, cost, inventory value, or line snapshot
+
+#### Scenario: Complete double validation without a price side effect
+- **GIVEN** an order requires manager approval and contains discrepancies
+- **WHEN** the order is confirmed and later approved
+- **THEN** neither lifecycle action changes product values or line snapshots
 
 ### Requirement: Manual line price update
 For an initialized eligible line, the system SHALL offer Update when `New Sale` differs from the current-sales-price snapshot or, for a Standard Price product, when the tax-independent purchase basis differs from the current-cost snapshot. Comparisons SHALL use the order company's currency precision. Update SHALL write the planned sales price and, only for Standard Price, the company-specific cost, then refresh affected snapshots from values actually stored.
@@ -397,6 +308,64 @@ The system SHALL provide Update All for every initialized eligible line with a s
 - **WHEN** Update All fails
 - **THEN** no partial product-value or snapshot update remains
 
+### Requirement: Lifecycle and copied orders
+Fill Current Prices, Update, and Update All SHALL be available according to line eligibility and discrepancy rules without restriction by purchase-order state. Cancelling, resetting, confirming, approving, locking, or unlocking an order SHALL NOT revert or automatically apply prices. Copied orders SHALL start with uninitialized price snapshots.
+
+#### Scenario: Cancel a confirmed order
+- **GIVEN** product values were saved through an explicit price-control action
+- **WHEN** the purchase order is later cancelled
+- **THEN** the saved sales price and any applicable Standard Price cost remain unchanged
+- **AND** cancellation does not apply another price update
+
+#### Scenario: Confirm again after resetting to draft
+- **GIVEN** a confirmed order is reset to draft and still has initialized snapshots
+- **WHEN** it is confirmed again
+- **THEN** confirmation does not recalculate or apply product prices
+- **AND** an explicit Update action remains required for any discrepancy
+
+#### Scenario: Update prices from a non-draft order
+- **GIVEN** an initialized differing line belongs to a confirmed, locked, or cancelled purchase order
+- **WHEN** the user invokes Update or Update All
+- **THEN** the applicable product values and affected snapshots are updated
+
+#### Scenario: Copy a purchase order
+- **WHEN** a purchase order containing initialized snapshots is duplicated
+- **THEN** every eligible line in the copied order starts without an initialized snapshot
+- **AND** the user must invoke Fill Current Prices before using an update action
+
+### Requirement: Product write authorization
+Price updates SHALL use the acting user's product write permissions and SHALL NOT bypass company or access restrictions. Current Cost SHALL be read and Standard Price cost SHALL be written in the purchase order's company. A failed authorization SHALL roll back the complete line or bulk action.
+
+#### Scenario: User cannot update an affected product
+- **GIVEN** the acting user lacks permission to update an affected product
+- **WHEN** the user invokes Update or Update All
+- **THEN** the action fails with an access error
+- **AND** no sales price, standard cost, inventory value, or snapshot is partially updated
+
+#### Scenario: Keep standard cost company-specific
+- **GIVEN** a product has different costs in two companies
+- **WHEN** a user fills or updates prices from an order belonging to one company
+- **THEN** Current Cost and any Standard Price cost update use only that order company
+- **AND** the other company's cost remains unchanged
+
+#### Scenario: User cannot update the product
+- **GIVEN** the acting user lacks permission to update an affected product
+- **WHEN** the user invokes Update or Update All
+- **THEN** the action fails with an access error
+- **AND** no product value or snapshot is partially updated
+
+#### Scenario: Reject an unauthorized standard-cost update
+- **GIVEN** the acting user cannot write an affected Standard Price product
+- **WHEN** an action would update its standard cost
+- **THEN** the action fails with an access error
+- **AND** no sales price, standard cost, inventory value, or snapshot change remains
+
+#### Scenario: User cannot fill an affected line
+- **GIVEN** the acting user lacks permission to update an affected purchase-order line
+- **WHEN** the user invokes Fill Current Prices
+- **THEN** the action fails with an access error
+- **AND** no partial snapshot updates remain
+
 ### Requirement: Inventory valuation isolation by costing method
 Price-control actions SHALL NOT write cost for products currently using AVCO or FIFO. Their product and lot costs SHALL continue to be determined by standard inventory valuation. A Standard Price cost write SHALL retain the standard observable accounting and lot-cost consequences of changing cost in Odoo.
 
@@ -417,3 +386,20 @@ Price-control actions SHALL NOT write cost for products currently using AVCO or 
 - **WHEN** the user explicitly updates its cost
 - **THEN** normal Standard Price cost history and valuation consequences are retained
 - **AND** any lot-cost propagation follows standard Odoo behavior
+
+## REMOVED Requirements
+
+### Requirement: Independent reference purchase price
+**Reason**: The simplified purchase-order workflow uses the standard `Unit Price` as its visible purchase-price source and no longer exposes or updates a separate reference purchase price.
+
+**Migration**: Existing stored reference-price data is intentionally discarded with the removed custom field and SHALL NOT be transferred to another business field.
+
+### Requirement: Effective purchase price calculation
+**Reason**: The tax-included effective purchase price conflicts with the required tax-independent custom calculation and is removed from the price-control interface and behavior.
+
+**Migration**: Existing orders require no data conversion; automatic `New Sale` values SHALL be recalculated from the new tax-independent basis when read.
+
+### Requirement: Valuation-compatible purchase cost
+**Reason**: A separate custom valuation-cost indicator is no longer required. Standard Odoo remains the source of truth for tax treatment and inventory valuation, while explicit Standard Price updates use the tax-independent purchase basis.
+
+**Migration**: No accounting or inventory records SHALL be rewritten during module upgrade.

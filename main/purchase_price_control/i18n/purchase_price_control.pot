@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0-20260817\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-01 11:14+0000\n"
-"PO-Revision-Date: 2026-09-01 11:14+0000\n"
+"POT-Creation-Date: 2026-09-01 17:06+0000\n"
+"PO-Revision-Date: 2026-09-01 17:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,16 +18,6 @@ msgstr ""
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.res_config_settings_view_form
 msgid "<span class=\"ms-2\">%</span>"
-msgstr ""
-
-#. module: purchase_price_control
-#: model:ir.model.fields.selection,name:purchase_price_control.selection__purchase_order_line__effective_cost_method__average
-msgid "Average Cost (AVCO)"
-msgstr ""
-
-#. module: purchase_price_control
-#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__valuation_purchase_price
-msgid "Calculated Standard Cost"
 msgstr ""
 
 #. module: purchase_price_control
@@ -46,23 +36,13 @@ msgid "Config Settings"
 msgstr ""
 
 #. module: purchase_price_control
-#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_markup
-msgid "Current Markup (%)"
-msgstr ""
-
-#. module: purchase_price_control
-#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_purchase_price
-msgid "Current Reference Purchase Price"
+#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_standard_price
+msgid "Current Cost"
 msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_sale_price
-msgid "Current Sales Price"
-msgstr ""
-
-#. module: purchase_price_control
-#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_standard_price
-msgid "Current Standard Cost"
+msgid "Current Sale"
 msgstr ""
 
 #. module: purchase_price_control
@@ -77,7 +57,6 @@ msgid "Default Purchase Markup (%)"
 msgstr ""
 
 #. module: purchase_price_control
-#: model:ir.model.fields,field_description:purchase_price_control.field_product_product__display_name
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order__display_name
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__display_name
 #: model:ir.model.fields,field_description:purchase_price_control.field_res_company__display_name
@@ -86,18 +65,8 @@ msgid "Display Name"
 msgstr ""
 
 #. module: purchase_price_control
-#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__effective_cost_method
-msgid "Effective Cost Method"
-msgstr ""
-
-#. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.purchase_order_view_form
 msgid "Fill Current Prices"
-msgstr ""
-
-#. module: purchase_price_control
-#: model:ir.model.fields.selection,name:purchase_price_control.selection__purchase_order_line__effective_cost_method__fifo
-msgid "First In First Out (FIFO)"
 msgstr ""
 
 #. module: purchase_price_control
@@ -111,7 +80,6 @@ msgid "Has Price Updates"
 msgstr ""
 
 #. module: purchase_price_control
-#: model:ir.model.fields,field_description:purchase_price_control.field_product_product__id
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order__id
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__id
 #: model:ir.model.fields,field_description:purchase_price_control.field_res_company__id
@@ -120,31 +88,34 @@ msgid "ID"
 msgstr ""
 
 #. module: purchase_price_control
-#: model:ir.model.fields,field_description:purchase_price_control.field_product_product__last_purchase_price
-msgid "Last Purchase Price"
-msgstr ""
-
-#. module: purchase_price_control
-#: model:ir.model.fields,help:purchase_price_control.field_product_product__last_purchase_price
-msgid ""
-"Last tax-included and discounted purchase price in the company currency per "
-"product unit."
+#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__current_markup
+msgid "Markup"
 msgstr ""
 
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.res_config_settings_view_form
-msgid "Markup used when the product has no last purchase price."
+msgid "Markup used when the product has no positive current cost."
 msgstr ""
 
 #. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__planned_sale_price
-msgid "Planned Sales Price"
+msgid "New Sale"
 msgstr ""
 
 #. module: purchase_price_control
 #. odoo-python
 #: code:addons/purchase_price_control/models/purchase_order_line.py:0
-msgid "Planned Sales Price can only be entered for an initialized product line."
+msgid "New Sale can only be entered for an initialized product line."
+msgstr ""
+
+#. module: purchase_price_control
+#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__planned_sale_price_manually_set
+msgid "Planned Sale Price Manually Set"
+msgstr ""
+
+#. module: purchase_price_control
+#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__planned_sale_price_override
+msgid "Planned Sale Price Override"
 msgstr ""
 
 #. module: purchase_price_control
@@ -163,11 +134,6 @@ msgid "Price Update Required"
 msgstr ""
 
 #. module: purchase_price_control
-#: model:ir.model,name:purchase_price_control.model_product_product
-msgid "Product Variant"
-msgstr ""
-
-#. module: purchase_price_control
 #: model:ir.model,name:purchase_price_control.model_purchase_order
 msgid "Purchase Order"
 msgstr ""
@@ -178,19 +144,9 @@ msgid "Purchase Order Line"
 msgstr ""
 
 #. module: purchase_price_control
-#: model:ir.model.fields,field_description:purchase_price_control.field_purchase_order_line__effective_purchase_price
-msgid "Purchase Price incl. Taxes"
-msgstr ""
-
-#. module: purchase_price_control
 #: model:ir.model.fields,field_description:purchase_price_control.field_res_company__purchase_price_rounding
 #: model:ir.model.fields,field_description:purchase_price_control.field_res_config_settings__purchase_price_rounding
 msgid "Purchase Sales Price Rounding"
-msgstr ""
-
-#. module: purchase_price_control
-#: model:ir.model.fields,help:purchase_price_control.field_purchase_order_line__valuation_purchase_price
-msgid "Purchase cost calculated with Odoo inventory valuation rules."
 msgstr ""
 
 #. module: purchase_price_control
@@ -203,11 +159,6 @@ msgstr ""
 #. module: purchase_price_control
 #: model_terms:ir.ui.view,arch_db:purchase_price_control.res_config_settings_view_form
 msgid "Sales Price Rounding"
-msgstr ""
-
-#. module: purchase_price_control
-#: model:ir.model.fields.selection,name:purchase_price_control.selection__purchase_order_line__effective_cost_method__standard
-msgid "Standard Price"
 msgstr ""
 
 #. module: purchase_price_control

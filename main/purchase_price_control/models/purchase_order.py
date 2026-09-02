@@ -39,18 +39,17 @@ class PurchaseOrder(models.Model):
             lambda candidate: candidate._is_price_control_eligible()
         ):
             product = line.product_id.with_company(line.company_id)
-            purchase_price = product.last_purchase_price
+            standard_price = product.standard_price
             sale_price = product.lst_price
             markup = (
-                (sale_price / purchase_price - 1.0) * 100.0
-                if purchase_price > 0
+                (sale_price / standard_price - 1.0) * 100.0
+                if standard_price > 0
                 else line.company_id.purchase_default_markup
             )
             values = {
-                "current_purchase_price": purchase_price,
                 "current_sale_price": sale_price,
                 "current_markup": markup,
-                "current_standard_price": product.standard_price,
+                "current_standard_price": standard_price,
                 "price_snapshot_initialized": True,
             }
             if reset_manual_price:
