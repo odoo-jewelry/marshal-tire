@@ -23,6 +23,11 @@ msgid "Abbreviation"
 msgstr "Сокращение"
 
 #. module: tire
+#: model:ir.model.fields,field_description:tire.field_report_pos_order__total_cost
+msgid "Cost"
+msgstr "Себестоимость"
+
+#. module: tire
 #: model:ir.model.fields,field_description:tire.field_product_template__display_name
 msgid "Display Name"
 msgstr "Отображаемое название"
