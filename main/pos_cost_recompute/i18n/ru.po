@@ -1,0 +1,719 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_cost_recompute
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-15 09:44+0000\n"
+"PO-Revision-Date: 2026-09-15 09:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid ""
+"%(currency)s: previous cost %(old)s; proposed cost %(new)s; margin change "
+"%(delta)s"
+msgstr ""
+"%(currency)s: прежняя себестоимость %(old)s; предлагаемая %(new)s; изменение"
+" маржи %(delta)s"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "A negative or non-finite unit cost is not supported."
+msgstr "Отрицательная или нечисловая стоимость единицы не поддерживается."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "A reason is required before applying cost changes."
+msgstr "Перед применением укажите причину изменения себестоимости."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid ""
+"Acknowledge the zero source costs. Recomputing cannot repair a zero source."
+msgstr ""
+"Подтвердите нулевую стоимость источников. Пересчёт не исправляет сам "
+"источник."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__actual_computed
+msgid "Actual Computed"
+msgstr "Расчёт фактически завершён"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__actual_cost
+msgid "Actual Cost"
+msgstr "Фактическая себестоимость"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute__cost_mode__all
+msgid "All Matching Lines"
+msgstr "Все подходящие строки"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "All selected records must belong to the operation company."
+msgstr "Все выбранные записи должны относиться к компании операции."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute__state__done
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_search
+msgid "Applied"
+msgstr "Применено"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__applied_at
+msgid "Applied At"
+msgstr "Дата применения"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__applied_by_id
+msgid "Applied By"
+msgstr "Применил"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Applied or cancelled history cannot be deleted."
+msgstr "Историю применённых или отменённых операций нельзя удалить."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Applied or cancelled operations cannot be edited."
+msgstr "Применённые или отменённые операции нельзя редактировать."
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid "Apply Reviewed Costs"
+msgstr "Применить просмотренные значения"
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid ""
+"Apply the reviewed costs to historical POS lines? This changes past POS "
+"margins. Stock valuation and accounting remain unchanged."
+msgstr ""
+"Применить просмотренную себестоимость к историческим строкам POS? Это "
+"изменит маржу прошлых периодов. Складская оценка и бухгалтерские данные "
+"сохранятся."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__can_apply
+msgid "Can Apply"
+msgstr "Можно применить"
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid "Cancel Operation"
+msgstr "Отменить операцию"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute__state__cancelled
+msgid "Cancelled"
+msgstr "Отменено"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__changed_count
+msgid "Changed Count"
+msgstr "Изменений стоимости"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__company_id
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__company_id
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_search
+msgid "Company"
+msgstr "Компания"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__completion_count
+msgid "Completion Count"
+msgstr "Завершений расчёта"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute_line__status__completion
+msgid "Completion Marker Only"
+msgstr "Только завершение расчёта"
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid "Confirmation"
+msgstr "Подтверждение"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute_line__status__changed
+msgid "Cost Change"
+msgstr "Изменение стоимости"
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.view_pos_pos_form
+msgid "Cost History"
+msgstr "История себестоимости"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__cost_mode
+msgid "Cost Mode"
+msgstr "Режим пересчёта"
+
+#. module: pos_cost_recompute
+#: model:ir.actions.act_window,name:pos_cost_recompute.pos_cost_recompute_action
+#: model:ir.ui.menu,name:pos_cost_recompute.pos_cost_recompute_menu
+msgid "Cost Recomputation"
+msgstr "Пересчёт себестоимости"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Cost recomputation #%(id)s"
+msgstr "Пересчёт себестоимости №%(id)s"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__create_uid
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__create_uid
+msgid "Created by"
+msgstr "Создал"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__create_date
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__create_date
+msgid "Created on"
+msgstr "Дата создания"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute_line__source__product
+msgid "Current Company Product Cost"
+msgstr "Текущая стоимость товара в компании"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute__selection_type__period
+msgid "Date Interval"
+msgstr "Период"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "Deferred-delivery zero-cost substitution requires separate review."
+msgstr ""
+"Подстановка нулевой стоимости отложенной доставки требует отдельной "
+"проверки."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__display_name
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__display_name
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_order__display_name
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_order_line__display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute__state__draft
+msgid "Draft"
+msgstr "Черновик"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__date_from
+msgid "From (inclusive)"
+msgstr "С (включительно)"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__allow_zero_cost
+msgid "I acknowledge zero source costs"
+msgstr "Подтверждаю нулевую стоимость источников"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__id
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__id
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_order__id
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_order_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__write_uid
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__write_uid
+msgid "Last Updated by"
+msgstr "Последним изменил"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__write_date
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__write_date
+msgid "Last Updated on"
+msgstr "Дата изменения"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__line_ids
+msgid "Line"
+msgstr "Строки"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "Manufacturing kits require separate cost allocation."
+msgstr ""
+"Производственные комплекты требуют отдельного распределения себестоимости."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__margin_delta
+msgid "Margin Delta"
+msgstr "Изменение маржи"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__move_ids
+msgid "Move"
+msgstr "Складские движения"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__name
+msgid "Name"
+msgstr "Название"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__new_computed
+msgid "New Computed"
+msgstr "Расчёт будет завершён"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__new_cost
+msgid "New Cost"
+msgstr "Предлагаемая себестоимость"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "No completed stock valuation source exists."
+msgstr "Нет завершённого источника складской оценки."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "No provable stock valuation source exists for this order."
+msgstr "Для этого чека нет подтверждённого источника складской оценки."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__old_computed
+msgid "Old Computed"
+msgstr "Расчёт ранее завершён"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__old_cost
+msgid "Old Cost"
+msgstr "Прежняя себестоимость"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Only POS managers can recompute costs."
+msgstr "Пересчитывать себестоимость могут только руководители POS."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Only draft operations can be deleted."
+msgstr "Удалить можно только черновую операцию."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Only draft or reviewed operations can be previewed."
+msgstr "Просмотр доступен только для черновой или просмотренной операции."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "Only paid or posted orders can be recomputed."
+msgstr "Пересчёт доступен только для оплаченных или проведённых чеков."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Only selection criteria and confirmation inputs can be supplied."
+msgstr ""
+"Разрешено передавать только критерии отбора и параметры подтверждения."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Only unapplied operations can be cancelled."
+msgstr "Отменить можно только неприменённые операции."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__operation_id
+msgid "Operation"
+msgstr "Операция"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__order_id
+msgid "Order Ref"
+msgstr "Чек"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute_line__source__order_moves
+msgid "Order Stock Valuation"
+msgstr "Складская оценка чека"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__order_ids
+msgid "Orders"
+msgstr "Чеки"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__incomplete_order_ids
+msgid "Orders with incomplete costs"
+msgstr "Чеки с незавершённым расчётом"
+
+#. module: pos_cost_recompute
+#: model:ir.model,name:pos_cost_recompute.model_pos_cost_recompute
+msgid "POS Cost Recomputation"
+msgstr "Пересчёт себестоимости POS"
+
+#. module: pos_cost_recompute
+#: model:ir.model,name:pos_cost_recompute.model_pos_cost_recompute_line
+msgid "POS Cost Recomputation Detail"
+msgstr "Строка пересчёта себестоимости POS"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "POS combo structures require separate cost allocation."
+msgstr "Комбинации POS требуют отдельного распределения себестоимости."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__config_ids
+msgid "Point of Sale"
+msgstr "Точка продаж"
+
+#. module: pos_cost_recompute
+#: model:ir.model,name:pos_cost_recompute.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Строки чеков POS"
+
+#. module: pos_cost_recompute
+#: model:ir.model,name:pos_cost_recompute.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Чеки POS"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__pos_line_id
+msgid "Pos Line"
+msgstr "Строка чека"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Prepare a current preview containing eligible lines first."
+msgstr "Сначала подготовьте актуальный просмотр с подходящими строками."
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid "Preview Costs"
+msgstr "Просмотреть себестоимость"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__preview_lang
+msgid "Preview Lang"
+msgstr "Язык просмотра"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Preview results and history are server-managed."
+msgstr "Результаты просмотра и история формируются сервером."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__product_id
+msgid "Product"
+msgstr "Товар"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__product_ids
+msgid "Products"
+msgstr "Товары"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "Project correction chains require separate cost allocation."
+msgstr "Цепочки корректировок требуют отдельного распределения себестоимости."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Provide a valid bounded date interval."
+msgstr "Укажите корректный ограниченный период."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__quantity
+msgid "Quantity"
+msgstr "Количество"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__reason
+msgid "Reason"
+msgstr "Причина"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Recomputation details are server-managed and cannot be edited."
+msgstr "Строки пересчёта формируются сервером и не могут редактироваться."
+
+#. module: pos_cost_recompute
+#: model:ir.actions.server,name:pos_cost_recompute.pos_order_action_recompute_cost
+msgid "Recompute Costs"
+msgstr "Пересчитать себестоимость"
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid ""
+"Recompute up to 1000 lines from closed sessions using standard cost sources.\n"
+"                        Current product costs do not restore historical purchase prices.\n"
+"                        FIFO and average costs use existing stock valuation, which this operation does not repair."
+msgstr ""
+"Пересчёт до 1000 строк закрытых смен по штатным источникам стоимости. "
+"Текущая стоимость товара не восстанавливает исторические закупочные цены. "
+"Для FIFO и средней стоимости используется существующая складская оценка; эта"
+" операция её не исправляет."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__related_line_ids
+msgid "Related lines outside selection"
+msgstr "Связанные строки вне выборки"
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid ""
+"Related sales or returns outside this selection remain unchanged.\n"
+"                                    Sale and return costs may differ because their sources or conversion dates differ."
+msgstr ""
+"Связанные продажи или возвраты вне выборки останутся без изменений. Их "
+"себестоимость может отличаться из-за разных источников или дат перевода "
+"валют."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "Related stock processing is not complete."
+msgstr "Связанная складская обработка не завершена."
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid "Result"
+msgstr "Результат"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute__state__ready
+msgid "Reviewed"
+msgstr "Просмотрено"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Select at least one order."
+msgstr "Выберите хотя бы один чек."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Select at most %(limit)s lines; narrow the selection."
+msgstr "Выберите не более %(limit)s строк: сузьте выборку."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order.py:0
+msgid "Select orders from exactly one company."
+msgstr "Выберите чеки одной компании."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute__selection_type__orders
+msgid "Selected Orders"
+msgstr "Выбранные чеки"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Selected lines must belong to the operation company."
+msgstr "Выбранные строки должны относиться к компании операции."
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid "Selection"
+msgstr "Отбор"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__selection_type
+msgid "Selection Type"
+msgstr "Способ отбора"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__skip_reason
+msgid "Skip Reason"
+msgstr "Причина пропуска"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute_line__status__skipped
+msgid "Skipped"
+msgstr "Пропущено"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__skipped_count
+msgid "Skipped Count"
+msgstr "Пропущенных строк"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__snapshot
+msgid "Snapshot"
+msgstr "Снимок исходных данных"
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid ""
+"Some sources still have zero cost. Acknowledge this explicitly before applying.\n"
+"                        A zero result does not mean that the underlying data was repaired."
+msgstr ""
+"Некоторые источники по-прежнему имеют нулевую стоимость. Явно подтвердите "
+"это перед применением. Нулевой результат не означает исправления исходных "
+"данных."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__source
+msgid "Source"
+msgstr "Источник"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "Standard calculation differs from the reviewed proposal."
+msgstr "Штатный расчёт отличается от просмотренного предложения."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__state
+msgid "State"
+msgstr "Состояние"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__status
+msgid "Status"
+msgstr "Результат строки"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "Stock source direction does not match the POS quantity."
+msgstr ""
+"Направление складского источника не соответствует знаку количества POS."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "Stock sources must belong to the order company."
+msgstr "Складские источники должны относиться к компании чека."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__summary
+msgid "Summary"
+msgstr "Итоги по валютам"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "The POS session is not closed."
+msgstr "Смена POS не закрыта."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "The operation company is not allowed."
+msgstr "Компания операции недоступна."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
+msgid "The preview is stale. Review current data before applying."
+msgstr "Просмотр устарел. Проверьте актуальные данные перед применением."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "The shared session source is affected by project corrections."
+msgstr "Общий источник смены затронут корректировками проекта."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "The stock source has no positive valued quantity."
+msgstr "У складского источника нет положительного оценённого количества."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "The stock source mixes sales and returns; its cost is ambiguous."
+msgstr ""
+"Складской источник объединяет продажи и возвраты: стоимость неоднозначна."
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid ""
+"These orders retain incomplete line costs. Their form margin may remain zero"
+" under standard Odoo rules."
+msgstr ""
+"В этих чеках остаются строки с незавершённым расчётом. По штатным правилам "
+"Odoo маржа в форме чека может оставаться нулевой."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__date_to
+msgid "To (exclusive)"
+msgstr "До (не включительно)"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute_line__status__unchanged
+msgid "Unchanged"
+msgstr "Без изменений"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__unchanged_count
+msgid "Unchanged Count"
+msgstr "Неизменённых строк"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute_line__source__session_moves
+msgid "Weighted Product Cost across the Session"
+msgstr "Средняя по движениям товара за смену"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__zero_count
+msgid "Zero Count"
+msgstr "Нулевых источников"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute__cost_mode__zero
+msgid "Zero Saved Costs Only"
+msgstr "Только нулевая сохранённая себестоимость"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_order_line.py:0
+msgid "Zero quantity is not supported."
+msgstr "Нулевое количество не поддерживается."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__zero_source
+msgid "Zero source acknowledgement required"
+msgstr "Требуется подтверждение нулевого источника"

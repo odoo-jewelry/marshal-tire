@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_cost_recompute_view_list" model="ir.ui.view">
+        <field name="name">pos.cost.recompute.list</field>
+        <field name="model">pos.cost.recompute</field>
+        <field name="arch" type="xml">
+            <list decoration-success="state == 'done'" decoration-muted="state == 'cancelled'">
+                <field name="name"/>
+                <field name="create_date"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="cost_mode"/>
+                <field name="changed_count"/>
+                <field name="skipped_count"/>
+                <field name="applied_by_id"/>
+                <field name="applied_at"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+    <record id="pos_cost_recompute_view_form" model="ir.ui.view">
+        <field name="name">pos.cost.recompute.form</field>
+        <field name="model">pos.cost.recompute</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_preview" type="object" string="Preview Costs" class="btn-primary" invisible="state not in ['draft', 'ready']"/>
+                    <button name="action_apply" type="object" string="Apply Reviewed Costs" class="btn-primary" invisible="not can_apply" confirm="Apply the reviewed costs to historical POS lines? This changes past POS margins. Stock valuation and accounting remain unchanged."/>
+                    <button name="action_cancel" type="object" string="Cancel Operation" invisible="state not in ['draft', 'ready']"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,ready,done"/>
+                </header>
+                <sheet>
+                    <field name="can_apply" invisible="1"/>
+                    <h1><field name="name"/></h1>
+                    <div class="alert alert-info" role="alert">
+                        Recompute up to 1000 lines from closed sessions using standard cost sources.
+                        Current product costs do not restore historical purchase prices.
+                        FIFO and average costs use existing stock valuation, which this operation does not repair.
+                    </div>
+                    <group>
+                        <group string="Selection">
+                            <field name="company_id" readonly="state in ['done', 'cancelled']" options="{'no_create': True}"/>
+                            <field name="selection_type" readonly="state in ['done', 'cancelled']"/>
+                            <field name="order_ids" widget="many2many_tags" invisible="selection_type != 'orders'" readonly="state in ['done', 'cancelled']" domain="[('company_id', '=', company_id)]" options="{'no_create': True}"/>
+                            <field name="date_from" invisible="selection_type != 'period'" readonly="state in ['done', 'cancelled']"/>
+                            <field name="date_to" invisible="selection_type != 'period'" readonly="state in ['done', 'cancelled']"/>
+                            <field name="config_ids" widget="many2many_tags" readonly="state in ['done', 'cancelled']" domain="[('company_id', '=', company_id)]" options="{'no_create': True}"/>
+                            <field name="product_ids" widget="many2many_tags" readonly="state in ['done', 'cancelled']" context="{'active_test': False}" options="{'no_create': True}"/>
+                            <field name="cost_mode" readonly="state in ['done', 'cancelled']"/>
+                        </group>
+                        <group string="Confirmation">
+                            <field name="reason" readonly="state in ['done', 'cancelled']"/>
+                            <field name="zero_count" invisible="1"/>
+                            <field name="allow_zero_cost" invisible="not zero_count" readonly="state in ['done', 'cancelled']"/>
+                            <field name="applied_by_id" invisible="state != 'done'"/>
+                            <field name="applied_at" invisible="state != 'done'"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-warning" role="alert" invisible="not zero_count">
+                        Some sources still have zero cost. Acknowledge this explicitly before applying.
+                        A zero result does not mean that the underlying data was repaired.
+                    </div>
+                    <group string="Result" invisible="state == 'draft'">
+                        <group>
+                            <field name="changed_count"/>
+                            <field name="unchanged_count"/>
+                            <field name="completion_count"/>
+                            <field name="skipped_count"/>
+                        </group>
+                        <group><field name="summary" nolabel="1"/></group>
+                    </group>
+                    <group invisible="not incomplete_order_ids">
+                        <div class="alert alert-warning" role="alert">
+                            These orders retain incomplete line costs. Their form margin may remain zero under standard Odoo rules.
+                        </div>
+                        <field name="incomplete_order_ids" widget="many2many_tags"/>
+                    </group>
+                    <field name="line_ids" readonly="1">
+                        <list create="0" delete="0" decoration-muted="status == 'skipped'">
+                            <field name="order_id"/>
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                            <field name="currency_id"/>
+                            <field name="old_cost"/>
+                            <field name="new_cost" invisible="status == 'skipped'"/>
+                            <field name="margin_delta"/>
+                            <field name="source"/>
+                            <field name="status" widget="badge"/>
+                            <field name="zero_source" optional="show"/>
+                            <field name="skip_reason" optional="show"/>
+                        </list>
+                        <form create="0" edit="0" delete="0">
+                            <group>
+                                <field name="pos_line_id"/>
+                                <field name="product_id"/>
+                                <field name="quantity"/>
+                                <field name="currency_id"/>
+                                <field name="status"/>
+                                <field name="source"/>
+                                <field name="old_cost"/>
+                                <field name="new_cost" invisible="status == 'skipped'"/>
+                                <field name="actual_cost" invisible="parent.state != 'done'"/>
+                                <field name="old_computed"/>
+                                <field name="new_computed"/>
+                                <field name="actual_computed" invisible="parent.state != 'done'"/>
+                                <field name="margin_delta"/>
+                                <field name="zero_source"/>
+                                <field name="skip_reason"/>
+                                <field name="move_ids" widget="many2many_tags"/>
+                            </group>
+                            <group invisible="not related_line_ids">
+                                <div class="alert alert-warning" role="alert">
+                                    Related sales or returns outside this selection remain unchanged.
+                                    Sale and return costs may differ because their sources or conversion dates differ.
+                                </div>
+                                <field name="related_line_ids" widget="many2many_tags"/>
+                            </group>
+                        </form>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="pos_cost_recompute_view_search" model="ir.ui.view">
+        <field name="name">pos.cost.recompute.search</field>
+        <field name="model">pos.cost.recompute</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="reason"/>
+                <field name="order_ids"/>
+                <field name="applied_by_id"/>
+                <filter name="applied" string="Applied" domain="[('state', '=', 'done')]"/>
+                <group><filter name="company" string="Company" domain="[]" context="{'group_by': 'company_id'}"/></group>
+            </search>
+        </field>
+    </record>
+    <record id="pos_cost_recompute_action" model="ir.actions.act_window">
+        <field name="name">Cost Recomputation</field>
+        <field name="res_model">pos.cost.recompute</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

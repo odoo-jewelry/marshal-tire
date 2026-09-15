@@ -1,12 +1,13 @@
 {
     'name': 'Tire',
-    'version': '19.0.1.1.0',
+    'version': '19.0.1.3.0',
     'category': 'Sales',
     'summary': 'Tire management',
     'author': 'dmitry.aka.jok@gmail.com',
     'website': 'https://uvelirsoft.com.ua',
     'depends': [
         'point_of_sale',
+        'pos_cost_recompute',
         'product',
         'stock',
         'sale_management',

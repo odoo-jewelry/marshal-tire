@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_order_action_recompute_cost" model="ir.actions.server">
+        <field name="name">Recompute Costs</field>
+        <field name="model_id" ref="point_of_sale.model_pos_order"/>
+        <field name="binding_model_id" ref="point_of_sale.model_pos_order"/>
+        <field name="binding_view_types">list</field>
+        <field name="group_ids" eval="[(4, ref('point_of_sale.group_pos_manager'))]"/>
+        <field name="state">code</field>
+        <field name="code">action = records.action_prepare_cost_recompute()</field>
+    </record>
+    <record id="view_pos_pos_form" model="ir.ui.view">
+        <field name="name">pos.order.form.inherit.cost.recompute</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_cost_recomputations" type="object" class="oe_stat_button" icon="fa-history" string="Cost History" groups="point_of_sale.group_pos_manager"/>
+            </xpath>
+        </field>
+    </record>
+    <menuitem id="pos_cost_recompute_menu" name="Cost Recomputation" parent="point_of_sale.menu_point_of_sale" action="pos_cost_recompute_action" groups="point_of_sale.group_pos_manager" sequence="40"/>
+</odoo>
