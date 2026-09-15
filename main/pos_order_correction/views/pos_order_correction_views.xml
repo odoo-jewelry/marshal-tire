@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_order_correction_list" model="ir.ui.view">
+        <field name="name">pos.order.correction.list</field>
+        <field name="model">pos.order.correction</field>
+        <field name="arch" type="xml">
+            <list create="0" delete="0">
+                <field name="name"/>
+                <field name="root_order_id"/>
+                <field name="revision"/>
+                <field name="target_session_id"/>
+                <field name="state"/>
+                <field name="applied_at"/>
+                <field name="applied_by_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pos_order_correction_form" model="ir.ui.view">
+        <field name="name">pos.order.correction.form</field>
+        <field name="model">pos.order.correction</field>
+        <field name="arch" type="xml">
+            <form string="POS Order Correction" create="0" delete="0">
+                <header>
+                    <button name="action_apply" string="Apply Correction" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_cancel" string="Cancel Draft" type="object" invisible="state != 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,applied,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_applied_order" type="object" class="oe_stat_button" icon="fa-file-text-o" invisible="not applied_order_id">
+                            <field name="applied_order_id" widget="statinfo" string="Difference Order"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Pending Session Closure" bg_color="text-bg-warning" invisible="not pending_processing"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="root_order_id" readonly="1"/>
+                            <field name="revision" readonly="1"/>
+                            <field name="base_revision" readonly="1"/>
+                            <field name="reason" placeholder="Explain why the receipt is corrected" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="target_session_id" readonly="state != 'draft'"/>
+                            <field name="config_id" invisible="1"/>
+                            <field name="company_id" readonly="1" groups="base.group_multi_company"/>
+                            <field name="partner_id" readonly="1"/>
+                            <field name="applied_by_id" invisible="state != 'applied'"/>
+                            <field name="applied_at" invisible="state != 'applied'"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Corrected Products">
+                            <field name="line_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="source_order_line_id" optional="show" readonly="1"/>
+                                    <field name="product_id"/>
+                                    <field name="qty"/>
+                                    <field name="price_unit"/>
+                                    <field name="discount"/>
+                                    <field name="tax_ids" widget="many2many_tags" readonly="1"/>
+                                    <field name="lot_names" optional="hide"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Corrected Payments">
+                            <field name="payment_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="payment_method_id"/>
+                                    <field name="amount" sum="Total"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Audit" invisible="state == 'draft'">
+                            <group>
+                                <field name="request_key" readonly="1"/>
+                                <field name="before_snapshot" readonly="1"/>
+                                <field name="after_snapshot" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pos_order_correction" model="ir.actions.act_window">
+        <field name="name">POS Order Corrections</field>
+        <field name="res_model">pos.order.correction</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

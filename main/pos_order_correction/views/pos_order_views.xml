@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_pos_form_correction" model="ir.ui.view">
+        <field name="name">pos.order.form.correction</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='action_pos_order_invoice']" position="before">
+                <button name="action_prepare_correction" string="Correct Receipt" type="object" class="oe_highlight" groups="pos_order_correction.group_pos_order_correction" invisible="state not in ['paid', 'done'] or is_correction_order or account_move"/>
+            </xpath>
+            <xpath expr="//sheet/div[@name='button_box']" position="inside">
+                <button name="action_open_correction_history" type="object" class="oe_stat_button" icon="fa-history" invisible="not correction_ids">
+                    <field name="correction_count" widget="statinfo" string="Corrections"/>
+                </button>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <widget name="web_ribbon" title="Correction Pending Session Closure" bg_color="text-bg-warning" invisible="not correction_pending"/>
+                <div class="alert alert-info" role="status" invisible="not correction_stock_pending">
+                    Stock processing is pending for the corrected sale.
+                </div>
+            </xpath>
+            <xpath expr="//page[@name='products']" position="attributes">
+                <attribute name="string">Original Products</attribute>
+            </xpath>
+            <xpath expr="//page[@name='payments']" position="attributes">
+                <attribute name="string">Original Payments</attribute>
+            </xpath>
+            <xpath expr="//page[@name='products']" position="before">
+                <page name="current_sale" string="Current Sale" invisible="is_correction_order">
+                    <field name="correction_current_line_ids" readonly="1">
+                        <list create="0" edit="0" delete="0">
+                            <field name="product_id"/>
+                            <field name="qty"/>
+                            <field name="price_unit"/>
+                            <field name="discount"/>
+                            <field name="tax_ids_after_fiscal_position" widget="many2many_tags"/>
+                            <field name="price_subtotal_incl"/>
+                            <field name="order_id" optional="hide"/>
+                            <field name="currency_id" column_invisible="True"/>
+                        </list>
+                    </field>
+                    <group>
+                        <field name="correction_current_total"/>
+                        <field name="correction_current_payments"/>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Correction History" invisible="not correction_ids">
+                    <field name="correction_ids" readonly="1">
+                        <list create="0" delete="0">
+                            <field name="revision"/>
+                            <field name="state"/>
+                            <field name="reason"/>
+                            <field name="target_session_id"/>
+                            <field name="applied_order_id"/>
+                            <field name="applied_by_id"/>
+                            <field name="applied_at"/>
+                            <field name="pending_processing"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="is_correction_order" invisible="1"/>
+                <field name="correction_root_id" invisible="not is_correction_order" readonly="1"/>
+                <field name="correction_pending" invisible="1"/>
+                <field name="correction_stock_pending" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

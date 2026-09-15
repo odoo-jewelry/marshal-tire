@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_groups_privilege_pos_order_correction" model="res.groups.privilege">
+        <field name="name">POS Order Correction</field>
+        <field name="sequence">23</field>
+        <field name="category_id" ref="base.module_category_sales"/>
+    </record>
+
+    <record id="group_pos_order_correction" model="res.groups">
+        <field name="name">Correct Completed Orders</field>
+        <field name="sequence">10</field>
+        <field name="privilege_id" ref="res_groups_privilege_pos_order_correction"/>
+        <field name="implied_ids" eval="[(4, ref('point_of_sale.group_pos_user')), (4, ref('pos_customer_debt.group_pos_customer_debt_viewer'))]"/>
+    </record>
+
+    <record id="point_of_sale.group_pos_manager" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('pos_order_correction.group_pos_order_correction'))]"/>
+    </record>
+
+    <record id="rule_pos_order_correction_company" model="ir.rule">
+        <field name="name">POS corrections by company</field>
+        <field name="model_id" ref="model_pos_order_correction"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_pos_order_correction_line_company" model="ir.rule">
+        <field name="name">POS correction lines by company</field>
+        <field name="model_id" ref="model_pos_order_correction_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_pos_order_correction_payment_company" model="ir.rule">
+        <field name="name">POS correction payments by company</field>
+        <field name="model_id" ref="model_pos_order_correction_payment"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>
