@@ -3,7 +3,7 @@
     "version": "19.0.2.0.0",
     "category": "Inventory/Products",
     "summary": "Safely consolidate duplicate single-variant product cards",
-    "author": "Uvelirsoft",
+    'author': 'dmitry.aka.jok@gmail.com',
     "website": "https://uvelirsoft.com.ua",
     "depends": [
         "purchase_import",

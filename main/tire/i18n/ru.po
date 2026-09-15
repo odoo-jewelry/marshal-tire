@@ -43,6 +43,16 @@ msgid "Product"
 msgstr "Товар"
 
 #. module: tire
+#: model:ir.model.fields.selection,name:tire.selection__pos_order__state__paid
+msgid "Paid"
+msgstr "Подтвержден"
+
+#. module: tire
+#: model:ir.model.fields.selection,name:tire.selection__pos_order__state__done
+msgid "Posted"
+msgstr "Проведен"
+
+#. module: tire
 #: model:ir.model.fields,field_description:tire.field_product_product__uktzed_code
 #: model:ir.model.fields,field_description:tire.field_product_template__uktzed_code
 msgid "UKTZED Code"

@@ -3,7 +3,7 @@
     "version": "19.0.1.0.0",
     "category": "Purchases",
     "summary": "Import purchase order lines from CSV and XLSX files",
-    "author": "Uvelirsoft",
+    'author': 'dmitry.aka.jok@gmail.com',
     "website": "https://uvelirsoft.com.ua",
     "depends": [
         "base_import",

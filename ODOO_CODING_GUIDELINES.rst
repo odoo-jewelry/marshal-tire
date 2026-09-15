@@ -13,6 +13,10 @@ minimal. Do not reformat or reorganize unrelated code merely to apply these
 guidelines. Repository-specific conventions take precedence where they are more
 specific.
 
+Execution restrictions in ``AGENTS.md`` take precedence over these guidelines,
+including the bans on installing dependencies and creating or running
+browser-based automated tests.
+
 Module layout and naming
 ========================
 
@@ -25,7 +29,8 @@ Use standard addon directories only when needed:
 * ``security/`` for groups, access rights, and record rules;
 * ``data/`` and ``demo/`` for installed and demonstration records;
 * ``report/`` for report models, actions, and templates;
-* ``static/src/`` for frontend source and ``static/tests/`` for frontend tests;
+* ``static/src/`` for frontend source and ``static/tests/`` for frontend tests
+  only when permitted by ``AGENTS.md``;
 * ``tests/`` for Python tests and ``migrations/`` for versioned migrations.
 
 Use lowercase ``[a-z0-9_]`` filenames. Name files after their main model or
@@ -85,6 +90,11 @@ Keep model members in this general order:
 9. action methods;
 10. other business methods.
 
+Declare SQL table constraints as model attributes using ``models.Constraint``;
+``_sql_constraints`` is no longer supported in Odoo 19. Use ``models.Index`` for
+custom indexes, such as composite or partial indexes. Keep ordinary field indexes
+declared through the field's ``index`` parameter, for example ``index=True``.
+
 Recordsets and extension
 ------------------------
 
@@ -125,6 +135,11 @@ Never call ``commit()`` or ``rollback()`` in normal model code. Manual transacti
 control is allowed only for an explicitly created cursor whose complete lifecycle
 and error handling are owned by that code.
 
+Scheduled jobs may use the standard ``ir.cron._commit_progress()`` API within its
+batch-processing contract, including respecting the returned remaining time.
+Do not use it outside a cron job to bypass transaction ownership: outside cron,
+it simply commits the current transaction.
+
 Catch only exceptions that can be handled meaningfully and keep ``try`` blocks
 narrow. Do not suppress unexpected errors. When intentionally handling an ORM
 failure and continuing, isolate the operation with a database savepoint.
@@ -151,9 +166,11 @@ Odoo 19 compatibility rules:
 
 * use ``<list>`` instead of the removed ``<tree>`` view type;
 * use ``list`` rather than ``tree`` in ``view_mode``;
-* define group categories with ``res.groups.privilege`` and ``privilege_id``;
+* link ``res.groups.privilege_id`` to ``res.groups.privilege`` and its
+  ``category_id`` to ``ir.module.category``;
 * inside a search-view ``<group>``, do not use ``expand`` or ``string`` on the
-  group and do not nest ``<separator/>``; group-by filters include ``domain="[]"``;
+  group; ``<separator/>`` is allowed and group-by filters do not require
+  ``domain="[]"``;
 * use only expressions supported by the XML domain evaluator; do not embed
   arbitrary Python.
 
@@ -190,10 +207,14 @@ field or attribute. Preserve standard behavior when the custom feature is absent
 Security
 --------
 
-Every persistent model requires intentional access control. Add ACLs, relevant
-groups, record rules, manifest entries, and multi-company restrictions. Avoid
-blanket permissions and global rules that unintentionally intersect with other
-rules. Validate access with representative user roles, not only as administrator.
+Define intentional access control for every new persistent model. Add appropriate
+ACLs and manifest entries, reusing existing groups where suitable. Add record
+rules and multi-company restrictions where the data requires them; shared
+reference data may remain company-independent. Extending an existing model with
+``_inherit`` without a new ``_name`` does not require duplicating its ACLs.
+Avoid blanket permissions and global rules that unintentionally intersect with
+other rules. Validate access with representative user roles, not only as
+administrator.
 
 Treat user-provided domains, filenames, URLs, and HTML as untrusted input. Use
 Odoo helpers for escaping, safe evaluation, content disposition, and access
@@ -236,4 +257,5 @@ Before completion, check as applicable:
 * focused automated tests and upgrade safety.
 
 Report checks that were not run. Do not claim runtime validation based only on
-static inspection.
+static inspection. For frontend changes, use static checks and non-browser tests
+where practical, and report browser behavior as not automatically verified.

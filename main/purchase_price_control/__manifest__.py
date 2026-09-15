@@ -3,7 +3,7 @@
     "version": "19.0.4.1.0",
     "category": "Purchases",
     "summary": "Control reference purchase prices and sales markup from purchase orders",
-    "author": "Uvelirsoft",
+    'author': 'dmitry.aka.jok@gmail.com',
     "website": "https://uvelirsoft.com.ua",
     "depends": [
         "purchase",
