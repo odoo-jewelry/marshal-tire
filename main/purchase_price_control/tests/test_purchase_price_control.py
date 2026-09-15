@@ -65,6 +65,17 @@ class TestPurchasePriceControl(TransactionCase):
             "company_id": self.company.id,
         })
 
+    def _track_writes(self, records, field_names):
+        original_write = type(records).write
+        calls = []
+
+        def tracked_write(current_records, values):
+            if set(values) & set(field_names):
+                calls.append((current_records.ids, values.copy()))
+            return original_write(current_records, values)
+
+        return patch.object(type(records), "write", tracked_write), calls
+
     def test_purchase_order_view_price_column_order_and_labels(self):
         view = self.env.ref("purchase_price_control.purchase_order_view_form")
         arch = etree.fromstring(view.arch_db.encode())
@@ -118,6 +129,69 @@ class TestPurchasePriceControl(TransactionCase):
         self.assertAlmostEqual(line.current_sale_price, 160.0)
         self.assertAlmostEqual(line.current_markup, 60.0)
         self.assertFalse(order.copy().order_line.price_snapshot_initialized)
+
+    def test_refill_skips_an_unchanged_snapshot_write(self):
+        order = self._create_order()
+        order.action_fill_current_prices()
+        line = order.order_line
+        tracked_fields = {
+            "current_standard_price",
+            "current_sale_price",
+            "current_markup",
+            "price_snapshot_initialized",
+            "planned_sale_price_manually_set",
+            "planned_sale_price_override",
+        }
+        write_patch, calls = self._track_writes(line, tracked_fields)
+
+        with write_patch:
+            order.action_fill_current_prices()
+
+        self.assertEqual(calls, [])
+
+    def test_fill_initializes_an_all_zero_snapshot(self):
+        product = self.env["product.product"].create({
+            "name": "Zero Price Product",
+            "is_storable": True,
+            "list_price": 0.0,
+            "standard_price": 0.0,
+            "supplier_taxes_id": [Command.clear()],
+        })
+        order = self._create_order([self._line_values(product=product, price_unit=0.0)])
+
+        order.action_fill_current_prices()
+
+        self.assertTrue(order.order_line.price_snapshot_initialized)
+        self.assertEqual(order.order_line.current_standard_price, 0.0)
+        self.assertEqual(order.order_line.current_sale_price, 0.0)
+
+    def test_fill_resets_manual_price_when_snapshot_values_match(self):
+        order = self._create_order()
+        order.action_fill_current_prices()
+        line = order.order_line
+        line.planned_sale_price = 12.0
+
+        order.action_fill_current_prices()
+
+        self.assertFalse(line.planned_sale_price_manually_set)
+        self.assertEqual(line.planned_sale_price_override, 0.0)
+        self.assertAlmostEqual(line.planned_sale_price, 187.5)
+
+    def test_snapshot_comparison_uses_each_field_storage_precision(self):
+        order = self._create_order()
+        order.action_fill_current_prices()
+        line = order.order_line
+
+        self.assertTrue(line._price_control_values_match({
+            "current_sale_price": line.current_sale_price + 0.004,
+            "current_markup": line.current_markup + 0.004,
+        }))
+        self.assertFalse(line._price_control_values_match({
+            "current_sale_price": line.current_sale_price + 0.006,
+        }))
+        self.assertFalse(line._price_control_values_match({
+            "current_markup": line.current_markup + 0.006,
+        }))
 
     def test_default_markup_and_rounding(self):
         self.product.standard_price = 0.0
@@ -286,6 +360,122 @@ class TestPurchasePriceControl(TransactionCase):
             prices_before_confirm,
         )
 
+    def test_line_update_skips_matching_product_values_and_refreshes_snapshot(self):
+        order = self._create_order()
+        order.action_fill_current_prices()
+        line = order.order_line
+        target_values = line._get_product_price_values()
+        self.product.with_company(self.company).write({
+            "lst_price": target_values["lst_price"],
+            "standard_price": target_values["standard_price"],
+        })
+        history_before = self.env["product.value"].search_count([
+            ("product_id", "=", self.product.id),
+        ])
+        write_patch, calls = self._track_writes(
+            self.product, {"lst_price", "standard_price"}
+        )
+
+        with write_patch:
+            line.action_update_product_prices()
+
+        self.assertEqual(calls, [])
+        self.assertEqual(
+            self.env["product.value"].search_count([
+                ("product_id", "=", self.product.id),
+            ]),
+            history_before,
+        )
+        self.assertAlmostEqual(line.current_sale_price, target_values["lst_price"])
+        self.assertAlmostEqual(
+            line.current_standard_price, target_values["standard_price"]
+        )
+        self.assertFalse(line.price_update_required)
+
+    def test_line_update_writes_only_the_differing_product_value(self):
+        order = self._create_order()
+        order.action_fill_current_prices()
+        line = order.order_line
+        target_cost = line._get_purchase_price_basis()
+        self.product.standard_price = target_cost
+        history_before = self.env["product.value"].search_count([
+            ("product_id", "=", self.product.id),
+        ])
+        write_patch, calls = self._track_writes(
+            self.product, {"lst_price", "standard_price"}
+        )
+
+        with write_patch:
+            line.action_update_product_prices()
+
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(set(calls[0][1]), {"lst_price"})
+        self.assertEqual(
+            self.env["product.value"].search_count([
+                ("product_id", "=", self.product.id),
+            ]),
+            history_before,
+        )
+
+    def test_line_update_refreshes_all_stale_and_shared_snapshots(self):
+        other_product = self.env["product.product"].create({
+            "name": "Unrelated Snapshot Product",
+            "is_storable": True,
+            "list_price": 70.0,
+            "standard_price": 50.0,
+            "supplier_taxes_id": [Command.clear()],
+        })
+        order = self._create_order([
+            self._line_values(),
+            self._line_values(),
+            self._line_values(product=other_product, price_unit=40.0),
+        ])
+        order.action_fill_current_prices()
+        selected, shared, unrelated = order.order_line
+        selected.planned_sale_price = 200.0
+        shared.planned_sale_price = 210.0
+        unrelated.planned_sale_price = 90.0
+        unrelated.current_sale_price = 0.0
+
+        selected.action_update_product_prices()
+
+        self.assertAlmostEqual(selected.current_sale_price, 200.0)
+        self.assertAlmostEqual(shared.current_sale_price, 200.0)
+        self.assertAlmostEqual(unrelated.current_sale_price, 70.0)
+        self.assertAlmostEqual(shared.planned_sale_price, 210.0)
+        self.assertAlmostEqual(unrelated.planned_sale_price, 90.0)
+
+    def test_one_price_change_writes_one_of_266_distinct_snapshots(self):
+        products = self.env["product.product"].create([
+            {
+                "name": f"Bulk Snapshot Product {index}",
+                "is_storable": True,
+                "list_price": 150.0,
+                "standard_price": 80.0,
+                "supplier_taxes_id": [Command.clear()],
+            }
+            for index in range(266)
+        ])
+        order = self._create_order([
+            self._line_values(product=product)
+            for product in products
+        ])
+        order.action_fill_current_prices()
+        selected = order.order_line[0]
+        selected.planned_sale_price = selected.planned_sale_price + 1.0
+        write_patch, calls = self._track_writes(order.order_line, {
+            "current_standard_price",
+            "current_sale_price",
+            "current_markup",
+            "price_snapshot_initialized",
+        })
+
+        with write_patch:
+            selected.action_update_product_prices()
+
+        self.assertEqual(sum(len(record_ids) for record_ids, _values in calls), 1)
+        self.assertEqual(calls[0][0], selected.ids)
+
     def test_avco_and_fifo_do_not_update_cost(self):
         category = self.env["product.category"].create({
             "name": "AVCO Price Control",
@@ -398,7 +588,88 @@ class TestPurchasePriceControl(TransactionCase):
         self.assertEqual(history_after, history_before + 1)
         self.assertTrue(order.order_line.sorted("sequence")[0].price_update_required)
 
+    def test_bulk_compares_shared_product_targets_in_order(self):
+        category = self.env["product.category"].create({
+            "name": "FIFO Ordered Price Updates",
+            "property_cost_method": "fifo",
+        })
+        product = self.env["product.product"].create({
+            "name": "Shared Ordered Product",
+            "is_storable": True,
+            "categ_id": category.id,
+            "list_price": 150.0,
+            "standard_price": 80.0,
+            "supplier_taxes_id": [Command.clear()],
+        })
+        order = self._create_order([
+            self._line_values(product=product),
+            self._line_values(product=product),
+            self._line_values(product=product),
+        ])
+        order.action_fill_current_prices()
+        first, middle, last = order.order_line
+        first.planned_sale_price = 150.0
+        middle.planned_sale_price = 200.0
+        last.planned_sale_price = 150.0
+        order.order_line.write({"current_sale_price": 0.0})
+        write_patch, calls = self._track_writes(product, {"lst_price"})
+
+        with write_patch:
+            order.action_update_all_prices()
+
+        self.assertEqual([values["lst_price"] for _ids, values in calls], [200.0, 150.0])
+        self.assertAlmostEqual(product.lst_price, 150.0)
+        self.assertFalse(first.price_update_required)
+        self.assertTrue(middle.price_update_required)
+        self.assertFalse(last.price_update_required)
+
+    def test_matching_variant_price_is_compared_with_its_price_extra(self):
+        attribute = self.env["product.attribute"].create({
+            "name": "Price Control Variant Attribute",
+            "value_ids": [
+                Command.create({"name": "Base"}),
+                Command.create({"name": "Extra"}),
+            ],
+        })
+        template = self.env["product.template"].create({
+            "name": "Variant Price Control Product",
+            "list_price": 100.0,
+            "attribute_line_ids": [Command.create({
+                "attribute_id": attribute.id,
+                "value_ids": [Command.set(attribute.value_ids.ids)],
+            })],
+        })
+        extra_value = template.attribute_line_ids.product_template_value_ids.filtered(
+            lambda value: value.product_attribute_value_id.name == "Extra"
+        )
+        extra_value.price_extra = 10.0
+        extra_variant = template.product_variant_ids.filtered(
+            lambda product: extra_value in product.product_template_attribute_value_ids
+        )
+        order = self._create_order([
+            self._line_values(product=extra_variant, price_unit=110.0)
+        ])
+        order.action_fill_current_prices()
+        line = order.order_line
+        line.planned_sale_price = extra_variant.lst_price
+        line.current_sale_price = 0.0
+        write_patch, calls = self._track_writes(extra_variant, {"lst_price"})
+
+        with write_patch:
+            line.action_update_product_prices()
+
+        self.assertEqual(calls, [])
+        self.assertAlmostEqual(template.list_price, 100.0)
+        self.assertAlmostEqual(line.current_sale_price, 110.0)
+
     def test_bulk_failure_rolls_back_prices_cost_history_and_snapshots(self):
+        matching_product = self.env["product.product"].create({
+            "name": "Already Matching Product",
+            "is_storable": True,
+            "list_price": 150.0,
+            "standard_price": 70.0,
+            "supplier_taxes_id": [Command.clear()],
+        })
         other_product = self.env["product.product"].create({
             "name": "Failing Product",
             "is_storable": True,
@@ -407,10 +678,16 @@ class TestPurchasePriceControl(TransactionCase):
             "supplier_taxes_id": [Command.clear()],
         })
         order = self._create_order([
+            self._line_values(product=matching_product, price_unit=100.0),
             self._line_values(price_unit=110.0),
             self._line_values(product=other_product, price_unit=120.0),
         ])
         order.action_fill_current_prices()
+        matching_values = order.order_line[0]._get_product_price_values()
+        matching_product.write({
+            "lst_price": matching_values["lst_price"],
+            "standard_price": matching_values["standard_price"],
+        })
         snapshots_before = order.order_line.read([
             "current_sale_price",
             "current_standard_price",
@@ -418,10 +695,10 @@ class TestPurchasePriceControl(TransactionCase):
         ])
         product_values_before = {
             product.id: (product.lst_price, product.standard_price)
-            for product in self.product | other_product
+            for product in matching_product | self.product | other_product
         }
         history_before = self.env["product.value"].search_count([
-            ("product_id", "in", (self.product | other_product).ids),
+            ("product_id", "in", (matching_product | self.product | other_product).ids),
         ])
         original_write = type(self.product).write
 
@@ -434,14 +711,14 @@ class TestPurchasePriceControl(TransactionCase):
             with patch.object(type(self.product), "write", failing_write):
                 order.action_update_all_prices()
 
-        for product in self.product | other_product:
+        for product in matching_product | self.product | other_product:
             self.assertEqual(
                 (product.lst_price, product.standard_price),
                 product_values_before[product.id],
             )
         self.assertEqual(
             self.env["product.value"].search_count([
-                ("product_id", "in", (self.product | other_product).ids),
+                ("product_id", "in", (matching_product | self.product | other_product).ids),
             ]),
             history_before,
         )
@@ -544,8 +821,7 @@ class TestPurchasePriceControl(TransactionCase):
 
         own_order = self._create_order(company=self.company)
         other_order = self._create_order(company=other_company)
-        own_order.action_fill_current_prices()
-        other_order.action_fill_current_prices()
+        (own_order | other_order).action_fill_current_prices()
         self.assertAlmostEqual(own_order.order_line.current_standard_price, 100.0)
         self.assertAlmostEqual(other_order.order_line.current_standard_price, 250.0)
 
@@ -565,6 +841,64 @@ class TestPurchasePriceControl(TransactionCase):
             order.order_line.with_user(user).action_update_product_prices()
         self.assertAlmostEqual(self.product.lst_price, 150.0)
         self.assertAlmostEqual(self.product.standard_price, 80.0)
+
+    def test_matching_product_target_still_checks_product_access(self):
+        user = self.env["res.users"].create({
+            "name": "Restricted Matching Price User",
+            "login": "restricted_matching_price_user",
+            "company_id": self.company.id,
+            "company_ids": [Command.set(self.company.ids)],
+            "group_ids": [Command.set([
+                self.env.ref("purchase.group_purchase_user").id,
+            ])],
+        })
+        order = self._create_order()
+        order.action_fill_current_prices()
+        values = order.order_line._get_product_price_values()
+        self.product.write({
+            "lst_price": values["lst_price"],
+            "standard_price": values["standard_price"],
+        })
+
+        with self.assertRaises(AccessError), self.env.cr.savepoint():
+            order.order_line.with_user(user).action_update_product_prices()
+
+    def test_matching_product_target_still_checks_field_access(self):
+        order = self._create_order()
+        order.action_fill_current_prices()
+        values = order.order_line._get_product_price_values()
+        self.product.write({
+            "lst_price": values["lst_price"],
+            "standard_price": values["standard_price"],
+        })
+        product_model = type(self.product)
+        original_check_field_access = product_model._check_field_access
+
+        def denied_cost_field(records, field, operation):
+            if operation == "write" and field.name == "standard_price":
+                raise AccessError("Expected cost field access failure")
+            return original_check_field_access(records, field, operation)
+
+        with self.assertRaises(AccessError), self.env.cr.savepoint():
+            with patch.object(
+                product_model, "_check_field_access", denied_cost_field
+            ):
+                order.order_line.action_update_product_prices()
+
+    def test_unchanged_snapshot_still_checks_line_access(self):
+        order = self._create_order()
+        order.action_fill_current_prices()
+        line_model = type(order.order_line)
+        original_check_access = line_model.check_access
+
+        def denied_line_write(records, operation):
+            if operation == "write":
+                raise AccessError("Expected purchase line access failure")
+            return original_check_access(records, operation)
+
+        with self.assertRaises(AccessError), self.env.cr.savepoint():
+            with patch.object(line_model, "check_access", denied_line_write):
+                order.action_fill_current_prices()
 
     def test_snapshot_markup_migration_is_company_safe_and_idempotent(self):
         self.company.purchase_default_markup = 30.0

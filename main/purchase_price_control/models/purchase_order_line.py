@@ -165,7 +165,17 @@ class PurchaseOrderLine(models.Model):
             company = values.pop("company")
             if final_cost_indexes.get((company.id, product.id)) != index:
                 values.pop("standard_price", None)
-            product.with_company(company).write(values)
+            product = product.with_company(company)
+            self._check_price_control_product_write_access(product, values)
+            changed_values = {
+                field_name: value
+                for field_name, value in values.items()
+                if not self._price_control_values_match(
+                    {field_name: value}, record=product
+                )
+            }
+            if changed_values:
+                product.write(changed_values)
 
     def _get_product_price_values(self):
         self.ensure_one()
@@ -205,3 +215,29 @@ class PurchaseOrderLine(models.Model):
             conversion_date,
             round=False,
         )
+
+    def _check_price_control_write_access(self, field_names):
+        self.check_access("write")
+        for field_name in field_names:
+            self._check_field_access(self._fields[field_name], "write")
+
+    def _check_price_control_product_write_access(self, product, values):
+        product.check_access("write")
+        for field_name in values:
+            product._check_field_access(product._fields[field_name], "write")
+        if "lst_price" in values:
+            product._check_field_access(product._fields["list_price"], "write")
+            templates = product.product_tmpl_id
+            templates.check_access("write")
+            templates._check_field_access(templates._fields["list_price"], "write")
+
+    def _price_control_values_match(self, values, record=None):
+        record = record or self
+        record.ensure_one()
+        for field_name, value in values.items():
+            field = record._fields[field_name]
+            if field.convert_to_cache(
+                record[field_name], record
+            ) != field.convert_to_cache(value, record):
+                return False
+        return True

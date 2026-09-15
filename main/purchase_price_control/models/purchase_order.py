@@ -35,9 +35,24 @@ class PurchaseOrder(models.Model):
         return True
 
     def _refresh_price_snapshots(self, reset_manual_price=False):
-        for line in self.order_line.filtered(
+        lines = self.order_line.filtered(
             lambda candidate: candidate._is_price_control_eligible()
-        ):
+        )
+        if not lines:
+            return
+        field_names = {
+            "current_sale_price",
+            "current_markup",
+            "current_standard_price",
+            "price_snapshot_initialized",
+        }
+        if reset_manual_price:
+            field_names.update({
+                "planned_sale_price_manually_set",
+                "planned_sale_price_override",
+            })
+        lines._check_price_control_write_access(field_names)
+        for line in lines:
             product = line.product_id.with_company(line.company_id)
             standard_price = product.standard_price
             sale_price = product.lst_price
@@ -57,4 +72,5 @@ class PurchaseOrder(models.Model):
                     "planned_sale_price_manually_set": False,
                     "planned_sale_price_override": 0.0,
                 })
-            line.write(values)
+            if not line._price_control_values_match(values):
+                line.write(values)
