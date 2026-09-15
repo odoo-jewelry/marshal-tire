@@ -33,6 +33,7 @@ class ProductConsolidationWizard(models.TransientModel):
         readonly=True,
     )
     has_blockers = fields.Boolean(compute="_compute_has_blockers")
+    analysis_fingerprint = fields.Char(readonly=True, copy=False)
 
     @api.model
     def default_get(self, field_names):
@@ -90,6 +91,7 @@ class ProductConsolidationWizard(models.TransientModel):
         self.env["product.consolidation.preview.line"].create([
             {**line, "wizard_id": self.id} for line in analysis["lines"]
         ])
+        self.analysis_fingerprint = analysis["fingerprint"]
         self.state = "preview"
         return self._reload_action()
 
@@ -112,7 +114,9 @@ class ProductConsolidationWizard(models.TransientModel):
             raise UserError(_("Use the final confirmation step before consolidation."))
         duplicate = self._validate_selection()
         canonical = self._service().consolidate(
-            self.canonical_template_id, duplicate
+            self.canonical_template_id,
+            duplicate,
+            expected_fingerprint=self.analysis_fingerprint,
         )
         return {
             "type": "ir.actions.act_window",
@@ -134,9 +138,21 @@ class ProductConsolidationPreviewLine(models.TransientModel):
         ondelete="cascade",
     )
     severity = fields.Selection(
-        [("blocker", "Blocker"), ("transfer", "Transfer"), ("preserve", "Preserve")],
+        [
+            ("blocker", "Blocker"),
+            ("warning", "Warning"),
+            ("transfer", "Transfer"),
+            ("preserve", "Preserve"),
+        ],
         required=True,
     )
     category = fields.Char(required=True)
     count = fields.Integer(required=True)
     message = fields.Char(required=True)
+    quantity = fields.Float(readonly=True, digits="Product Unit")
+    value = fields.Monetary(readonly=True, currency_field="currency_id")
+    currency_id = fields.Many2one("res.currency", readonly=True)
+    location_id = fields.Many2one("stock.location", readonly=True)
+    package_id = fields.Many2one("stock.package", readonly=True)
+    source_move_id = fields.Many2one("stock.move", readonly=True)
+    source_date = fields.Datetime(readonly=True)

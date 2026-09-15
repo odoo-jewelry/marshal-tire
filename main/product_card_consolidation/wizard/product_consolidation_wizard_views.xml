@@ -13,17 +13,24 @@
                     <field name="duplicate_template_id" readonly="1"/>
                 </group>
                 <div class="alert alert-warning" role="alert" invisible="state != 'confirm'">
-                    The duplicate product card will be archived. Historical documents will continue to open that archived card. This operation must be reviewed before confirmation.
+                    Eligible stock will be transferred at its current FIFO value and the duplicate product card will be archived. Historical documents will continue to open that archived card. Review quantities and values before confirmation.
                 </div>
                 <group invisible="state != 'confirm'">
                     <field name="canonical_template_id" readonly="1"/>
                     <field name="duplicate_template_id" readonly="1"/>
                 </group>
                 <field name="preview_line_ids" nolabel="1" readonly="1">
-                    <list decoration-danger="severity == 'blocker'" decoration-info="severity == 'transfer'" decoration-muted="severity == 'preserve'">
+                    <list decoration-danger="severity == 'blocker'" decoration-warning="severity == 'warning'" decoration-info="severity == 'transfer'" decoration-muted="severity == 'preserve'">
                         <field name="severity"/>
                         <field name="category"/>
                         <field name="count"/>
+                        <field name="quantity" optional="hide"/>
+                        <field name="value" optional="hide"/>
+                        <field name="currency_id" column_invisible="True"/>
+                        <field name="location_id" optional="hide"/>
+                        <field name="package_id" optional="hide"/>
+                        <field name="source_move_id" optional="hide"/>
+                        <field name="source_date" optional="hide"/>
                         <field name="message"/>
                     </list>
                 </field>

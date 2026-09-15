@@ -1,6 +1,6 @@
 {
     "name": "Product Card Consolidation",
-    "version": "19.0.1.0.1",
+    "version": "19.0.2.0.0",
     "category": "Inventory/Products",
     "summary": "Safely consolidate duplicate single-variant product cards",
     "author": "Uvelirsoft",
@@ -8,12 +8,14 @@
     "depends": [
         "purchase_import",
         "sale_management",
+        "stock_account",
     ],
     "data": [
         "security/product_card_consolidation_security.xml",
         "security/ir.model.access.csv",
         "wizard/product_consolidation_wizard_views.xml",
         "views/product_template_views.xml",
+        "views/stock_move_views.xml",
     ],
     "installable": True,
     "application": False,

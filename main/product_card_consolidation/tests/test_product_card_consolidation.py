@@ -1,7 +1,8 @@
 import base64
+from datetime import timedelta
 from unittest.mock import patch
 
-from odoo import Command
+from odoo import Command, fields
 from odoo.exceptions import AccessError, UserError, ValidationError
 from odoo.tests import tagged
 from odoo.tests.common import TransactionCase
@@ -19,6 +20,14 @@ class TestProductCardConsolidation(TransactionCase):
         cls.env.user.group_ids = [Command.link(cls.group.id)]
         cls.ProductTemplate = cls.env["product.template"]
         cls.Service = cls.env["product.card.consolidation.service"]
+        cls.stock_location = cls.env.ref("stock.stock_location_stock")
+        cls.supplier_location = cls.env.ref("stock.stock_location_suppliers")
+        cls.customer_location = cls.env.ref("stock.stock_location_customers")
+        cls.fifo_category = cls.env["product.category"].create({
+            "name": "Product consolidation FIFO",
+            "property_cost_method": "fifo",
+            "property_valuation": "periodic",
+        })
 
     def test_consolidation_permission_is_a_separate_privilege(self):
         self.assertNotEqual(
@@ -48,9 +57,93 @@ class TestProductCardConsolidation(TransactionCase):
         })
         return canonical, duplicate
 
+    def _stock_products(self):
+        common = {
+            "type": "consu",
+            "is_storable": True,
+            "company_id": self.env.company.id,
+            "categ_id": self.fifo_category.id,
+        }
+        canonical, duplicate = self.ProductTemplate.create([
+            {
+                **common,
+                "name": "Canonical stocked product",
+                "default_code": "CANONICAL-STOCK",
+            },
+            {
+                **common,
+                "name": "Duplicate stocked product",
+                "default_code": "DUPLICATE-STOCK",
+            },
+        ])
+        return canonical, duplicate
+
+    def _make_stock_move(
+        self,
+        product,
+        quantity,
+        location,
+        location_dest,
+        *,
+        unit_cost=None,
+        package=None,
+        date=None,
+        purchase_line=None,
+    ):
+        values = {
+            "product_id": product.id,
+            "product_uom": product.uom_id.id,
+            "product_uom_qty": quantity,
+            "company_id": self.env.company.id,
+            "location_id": location.id,
+            "location_dest_id": location_dest.id,
+        }
+        if unit_cost is not None:
+            values.update({
+                "price_unit": unit_cost,
+                "value_manual": quantity * unit_cost,
+            })
+        if purchase_line:
+            values["purchase_line_id"] = purchase_line.id
+        move = self.env["stock.move"].create(values)
+        move._action_confirm()
+        move._action_assign()
+        if package:
+            if location_dest.is_valued_internal:
+                move.move_line_ids.result_package_id = package
+            else:
+                move.move_line_ids.package_id = package
+        move.picked = True
+        move._action_done()
+        if date:
+            move.date = date
+        return move
+
+    def _receive(self, product, quantity, unit_cost, **kwargs):
+        return self._make_stock_move(
+            product,
+            quantity,
+            self.supplier_location,
+            kwargs.pop("location", self.stock_location),
+            unit_cost=unit_cost,
+            **kwargs,
+        )
+
+    def _deliver(self, product, quantity, **kwargs):
+        return self._make_stock_move(
+            product,
+            quantity,
+            kwargs.pop("location", self.stock_location),
+            self.customer_location,
+            **kwargs,
+        )
+
     def test_preview_is_read_only_and_consolidation_resolves_aliases(self):
         canonical, duplicate = self._products()
         source_write_date = duplicate.write_date
+        stock_move_count = self.env["stock.move"].search_count([
+            ("origin", "=", "Product card consolidation"),
+        ])
 
         analysis = self.Service.analyze(canonical, duplicate)
 
@@ -90,6 +183,12 @@ class TestProductCardConsolidation(TransactionCase):
         self.Service.consolidate(canonical, another_duplicate)
         self.assertEqual(len(canonical.merged_source_ids), 2)
         self.assertEqual(len(canonical.product_variant_id.alias_ids), 3)
+        self.assertEqual(
+            self.env["stock.move"].search_count([
+                ("origin", "=", "Product card consolidation"),
+            ]),
+            stock_move_count,
+        )
 
     def test_draft_lines_move_and_confirmed_history_stays(self):
         canonical, duplicate = self._products()
@@ -109,14 +208,16 @@ class TestProductCardConsolidation(TransactionCase):
             "product_uom_qty": 1,
             "price_unit": 23,
         })
+        duplicate_variant = duplicate.product_variant_id
         confirmed.action_confirm()
+        confirmed.picking_ids.action_cancel()
 
         self.Service.consolidate(canonical, duplicate)
 
         self.assertEqual(draft_line.product_id, canonical.product_variant_id)
         self.assertEqual(draft_line.name, "Entered description")
         self.assertEqual(draft_line.price_unit, 17)
-        self.assertEqual(history_line.product_id, duplicate.product_variant_id)
+        self.assertEqual(history_line.product_id, duplicate_variant)
 
     def test_alias_crud_is_service_only(self):
         canonical, duplicate = self._products()
@@ -284,13 +385,356 @@ class TestProductCardConsolidation(TransactionCase):
             line["category"]
             for line in self.Service.analyze(canonical, duplicate)["blockers"]
         }
-        self.assertIn("stock", categories)
+        self.assertIn("valuation", categories)
         quant.write({"quantity": 0, "inventory_quantity": 2})
         categories = {
             line["category"]
             for line in self.Service.analyze(canonical, duplicate)["blockers"]
         }
         self.assertIn("inventory_count", categories)
+
+    def test_stock_transfer_preserves_quantity_fifo_value_and_audit(self):
+        canonical, duplicate = self._stock_products()
+        original_date = fields.Datetime.now() - timedelta(days=30)
+        canonical_receipt = self._receive(
+            canonical.product_variant_id, 5, 2, date=original_date
+        )
+        source_receipts = self.env["stock.move"]
+        source_receipts |= self._receive(
+            duplicate.product_variant_id, 4, 3, date=original_date + timedelta(days=1)
+        )
+        source_receipts |= self._receive(
+            duplicate.product_variant_id, 6, 5, date=original_date + timedelta(days=2)
+        )
+        source_snapshot = {
+            move.id: (move.product_id, move.date, move.value)
+            for move in source_receipts | canonical_receipt
+        }
+        before = fields.Datetime.now()
+        analysis = self.Service.analyze(canonical, duplicate)
+
+        self.assertFalse(analysis["blockers"])
+        total = next(
+            line for line in analysis["lines"]
+            if line["category"] == "stock_transfer"
+        )
+        self.assertEqual(total["quantity"], 10)
+        self.assertEqual(total["value"], 42)
+
+        self.Service.consolidate(canonical, duplicate)
+
+        company = self.env.company
+        self.assertEqual(
+            self.Service._stock_quantity(canonical.product_variant_id, company),
+            15,
+        )
+        self.assertEqual(
+            self.Service._stock_quantity(duplicate.product_variant_id, company),
+            0,
+        )
+        self.assertFalse(duplicate.active)
+        canonical.product_variant_id.invalidate_recordset()
+        duplicate.product_variant_id.invalidate_recordset()
+        self.assertEqual(
+            canonical.product_variant_id.total_value
+            + duplicate.product_variant_id.total_value,
+            52,
+        )
+        incoming = self.env["stock.move"].search([
+            ("product_id", "=", canonical.product_variant_id.id),
+            ("consolidation_source_receipt_id", "!=", False),
+        ], order="id")
+        self.assertEqual(len(incoming), 2)
+        self.assertEqual(incoming.mapped("value"), [12, 30])
+        self.assertEqual(incoming.mapped("quantity"), [4, 6])
+        self.assertEqual(incoming.consolidation_source_receipt_id, source_receipts)
+        self.assertEqual(
+            incoming.mapped("consolidation_source_date"),
+            source_receipts.mapped("date"),
+        )
+        self.assertTrue(all(move.date >= before for move in incoming))
+        self.assertTrue(all(move.consolidation_out_move_id.state == "done" for move in incoming))
+        self.assertTrue(all(move.date >= before for move in incoming.consolidation_out_move_id))
+        remaining_moves = list(
+            canonical.product_variant_id._get_remaining_moves()[
+                canonical.product_variant_id
+            ]
+        )
+        self.assertEqual(remaining_moves[0], canonical_receipt)
+        self.assertEqual(remaining_moves[-2:], list(incoming))
+        for move_id, snapshot in source_snapshot.items():
+            move = self.env["stock.move"].browse(move_id)
+            self.assertEqual((move.product_id, move.date, move.value), snapshot)
+        audit_messages = canonical.message_ids.filtered(
+            lambda message: "model=stock.move" in (message.body or "")
+        )
+        self.assertEqual(len(audit_messages), 1)
+
+    def test_stock_transfer_preserves_partial_layers_locations_and_packages(self):
+        canonical, duplicate = self._stock_products()
+        secondary_location = self.env["stock.location"].create({
+            "name": "Consolidation secondary location",
+            "usage": "internal",
+            "location_id": self.stock_location.location_id.id,
+            "company_id": self.env.company.id,
+        })
+        package = self.env["stock.package"].create({
+            "name": "CONSOLIDATION-PACKAGE",
+        })
+        first_receipt = self._receive(duplicate.product_variant_id, 8, 2)
+        second_receipt = self._receive(
+            duplicate.product_variant_id,
+            5,
+            4,
+            location=secondary_location,
+            package=package,
+        )
+        self._deliver(duplicate.product_variant_id, 3)
+        quants_before = self.Service._internal_quants(
+            duplicate.product_variant_id, self.env.company
+        ).filtered(lambda quant: quant.quantity > 0)
+        bucket_before = sorted(
+            (quant.location_id.id, quant.package_id.id, quant.quantity)
+            for quant in quants_before
+        )
+
+        analysis = self.Service.analyze(canonical, duplicate)
+
+        self.assertFalse(analysis["blockers"])
+        by_source = {}
+        for segment in analysis["stock_plan"]:
+            quantity, value = by_source.get(segment["source_move_id"], (0, 0))
+            by_source[segment["source_move_id"]] = (
+                quantity + segment["quantity"],
+                value + segment["value"],
+            )
+        self.assertEqual(by_source[first_receipt.id], (5, 10))
+        self.assertEqual(by_source[second_receipt.id], (5, 20))
+
+        self.Service.consolidate(canonical, duplicate)
+
+        canonical_quants = self.Service._internal_quants(
+            canonical.product_variant_id, self.env.company
+        ).filtered(lambda quant: quant.quantity > 0)
+        bucket_after = sorted(
+            (quant.location_id.id, quant.package_id.id, quant.quantity)
+            for quant in canonical_quants
+        )
+        self.assertEqual(bucket_after, bucket_before)
+        incoming = self.env["stock.move"].search([
+            ("product_id", "=", canonical.product_variant_id.id),
+            ("consolidation_source_receipt_id", "!=", False),
+        ])
+        self.assertEqual(sum(incoming.mapped("quantity")), 10)
+        self.assertEqual(sum(incoming.mapped("value")), 30)
+
+    def test_stock_preview_staleness_and_cancellation_create_no_movements(self):
+        canonical, duplicate = self._stock_products()
+        self._receive(duplicate.product_variant_id, 2, 7)
+        Wizard = self.env["product.consolidation.wizard"]
+        wizard = Wizard.create({
+            "product_template_ids": [Command.set((canonical | duplicate).ids)],
+            "canonical_template_id": canonical.id,
+        })
+        move_count = self.env["stock.move"].search_count([
+            ("origin", "=", "Product card consolidation"),
+        ])
+
+        wizard.action_request_confirmation()
+
+        self.assertEqual(
+            self.env["stock.move"].search_count([
+                ("origin", "=", "Product card consolidation"),
+            ]),
+            move_count,
+        )
+        self._deliver(duplicate.product_variant_id, 1)
+        with self.assertRaises(UserError):
+            wizard.action_confirm()
+        self.assertTrue(duplicate.active)
+        self.assertFalse(duplicate.merged_into_id)
+        self.assertEqual(
+            self.env["stock.move"].search_count([
+                ("origin", "=", "Product card consolidation"),
+            ]),
+            move_count,
+        )
+
+    def test_stock_transfer_rejects_a_concurrent_quant_lock(self):
+        canonical, duplicate = self._stock_products()
+        self._receive(duplicate.product_variant_id, 2, 7)
+        QuantClass = type(self.env["stock.quant"])
+
+        with patch.object(
+            QuantClass,
+            "try_lock_for_update",
+            return_value=self.env["stock.quant"],
+        ), self.assertRaises(UserError):
+            self.Service.consolidate(canonical, duplicate)
+
+        self.assertEqual(
+            self.Service._stock_quantity(duplicate.product_variant_id, self.env.company),
+            2,
+        )
+        self.assertFalse(self.env["stock.move"].search([
+            ("origin", "=", "Product card consolidation"),
+        ]))
+        self.assertTrue(duplicate.active)
+
+    def test_stock_transfer_failure_rolls_back_and_retry_succeeds(self):
+        canonical, duplicate = self._stock_products()
+        self._receive(duplicate.product_variant_id, 2, 7)
+
+        def fail_after_handlers(_service, _canonical, _duplicate):
+            raise UserError("Forced consolidation failure")
+
+        service_type = type(self.Service)
+        with self.assertRaises(UserError), self.env.cr.savepoint(), patch.object(
+            service_type,
+            "_consolidation_after_handlers_hook",
+            fail_after_handlers,
+        ):
+            self.Service.consolidate(canonical, duplicate)
+
+        self.assertEqual(
+            self.Service._stock_quantity(canonical.product_variant_id, self.env.company),
+            0,
+        )
+        self.assertEqual(
+            self.Service._stock_quantity(duplicate.product_variant_id, self.env.company),
+            2,
+        )
+        self.assertFalse(self.env["stock.move"].search([
+            ("origin", "=", "Product card consolidation"),
+        ]))
+        self.assertTrue(duplicate.active)
+
+        self.Service.consolidate(canonical, duplicate)
+
+        self.assertEqual(
+            self.Service._stock_quantity(canonical.product_variant_id, self.env.company),
+            2,
+        )
+        self.assertFalse(duplicate.active)
+
+    def test_stock_transfer_blockers_are_reported_separately(self):
+        canonical, duplicate = self._stock_products()
+        self.env["stock.quant"].create({
+            "product_id": duplicate.product_variant_id.id,
+            "location_id": self.stock_location.id,
+            "quantity": 1,
+        })
+        categories = {
+            line["category"]
+            for line in self.Service.analyze(canonical, duplicate)["blockers"]
+        }
+        self.assertIn("stock_value_reconciliation", categories)
+
+        canonical, duplicate = self._stock_products()
+        self.env["stock.quant"].create({
+            "product_id": duplicate.product_variant_id.id,
+            "location_id": self.stock_location.id,
+            "quantity": -1,
+        })
+        categories = {
+            line["category"]
+            for line in self.Service.analyze(canonical, duplicate)["blockers"]
+        }
+        self.assertIn("negative_stock", categories)
+
+        canonical, duplicate = self._stock_products()
+        self.env["stock.quant"].create({
+            "product_id": duplicate.product_variant_id.id,
+            "location_id": self.stock_location.id,
+            "quantity": 1,
+            "owner_id": self.env.company.partner_id.id,
+        })
+        categories = {
+            line["category"]
+            for line in self.Service.analyze(canonical, duplicate)["blockers"]
+        }
+        self.assertIn("owner", categories)
+
+        canonical, duplicate = self._stock_products()
+        self._receive(duplicate.product_variant_id, 1, 3)
+        outgoing = self.env["stock.move"].create({
+            "product_id": duplicate.product_variant_id.id,
+            "product_uom": duplicate.uom_id.id,
+            "product_uom_qty": 1,
+            "company_id": self.env.company.id,
+            "location_id": self.stock_location.id,
+            "location_dest_id": self.customer_location.id,
+        })
+        outgoing._action_confirm()
+        outgoing._action_assign()
+        categories = {
+            line["category"]
+            for line in self.Service.analyze(canonical, duplicate)["blockers"]
+        }
+        self.assertIn("reservation", categories)
+        self.assertIn("open_stock_moves", categories)
+
+    def test_stock_transfer_requires_matching_valuation_configuration(self):
+        canonical, duplicate = self._stock_products()
+        self._receive(duplicate.product_variant_id, 1, 3)
+        other_inventory_location = self.env["stock.location"].create({
+            "name": "Other consolidation inventory adjustment",
+            "usage": "inventory",
+            "company_id": self.env.company.id,
+        })
+        canonical.property_stock_inventory = other_inventory_location
+
+        categories = {
+            line["category"]
+            for line in self.Service.analyze(canonical, duplicate)["blockers"]
+        }
+
+        self.assertIn("valuation", categories)
+
+    def test_preview_warns_when_supplier_billing_can_change_value(self):
+        canonical, duplicate = self._stock_products()
+        vendor = self.env["res.partner"].create({"name": "Mutable valuation vendor"})
+        order = self.env["purchase.order"].create({"partner_id": vendor.id})
+        line = self.env["purchase.order.line"].create({
+            "order_id": order.id,
+            "product_id": duplicate.product_variant_id.id,
+            "product_qty": 2,
+            "price_unit": 11,
+        })
+        order.button_confirm()
+        receipt = order.picking_ids.move_ids.filtered(
+            lambda move: move.product_id == duplicate.product_variant_id
+        )
+        receipt.value_manual = 22
+        receipt._action_assign()
+        receipt.picked = True
+        receipt._action_done()
+        self.assertFalse(line.product_uom_id.is_zero(line.qty_to_invoice))
+
+        analysis = self.Service.analyze(canonical, duplicate)
+
+        warning = next(
+            item for item in analysis["lines"]
+            if item["category"] == "mutable_valuation"
+        )
+        self.assertEqual(warning["severity"], "warning")
+        self.assertEqual(warning["quantity"], 2)
+        self.assertEqual(warning["value"], 22)
+
+    def test_stock_audit_fields_reject_arbitrary_writes(self):
+        canonical, duplicate = self._stock_products()
+        receipt = self._receive(duplicate.product_variant_id, 1, 3)
+        values = {
+            "product_id": canonical.product_variant_id.id,
+            "product_uom": canonical.uom_id.id,
+            "product_uom_qty": 1,
+            "company_id": self.env.company.id,
+            "location_id": self.supplier_location.id,
+            "location_dest_id": self.stock_location.id,
+            "consolidation_source_receipt_id": receipt.id,
+        }
+        with self.assertRaises(AccessError):
+            self.env["stock.move"].create(values)
 
     def test_company_and_multivariant_blockers(self):
         canonical, duplicate = self._products()
@@ -375,14 +819,16 @@ class TestProductCardConsolidation(TransactionCase):
             "product_qty": 1,
             "price_unit": 29,
         })
+        duplicate_variant = duplicate.product_variant_id
         confirmed.button_confirm()
+        confirmed.picking_ids.action_cancel()
 
         self.Service.consolidate(canonical, duplicate)
 
         self.assertEqual(draft_line.product_id, canonical.product_variant_id)
         self.assertEqual(draft_line.product_qty, 3)
         self.assertEqual(draft_line.price_unit, 19)
-        self.assertEqual(history_line.product_id, duplicate.product_variant_id)
+        self.assertEqual(history_line.product_id, duplicate_variant)
 
     def test_ordinary_product_search_archive_and_unarchive(self):
         ordinary = self.ProductTemplate.create({
@@ -395,6 +841,20 @@ class TestProductCardConsolidation(TransactionCase):
         self.assertFalse(ordinary.active)
         ordinary.action_unarchive()
         self.assertTrue(ordinary.active)
+
+    def test_ordinary_stock_movement_has_no_consolidation_audit(self):
+        canonical, _duplicate = self._stock_products()
+
+        receipt = self._receive(canonical.product_variant_id, 3, 5)
+
+        self.assertEqual(receipt.state, "done")
+        self.assertFalse(receipt.consolidation_source_receipt_id)
+        self.assertFalse(receipt.consolidation_source_date)
+        self.assertFalse(receipt.consolidation_out_move_id)
+        self.assertEqual(
+            self.Service._stock_quantity(canonical.product_variant_id, self.env.company),
+            3,
+        )
 
     def test_installation_metadata_is_empty_for_ordinary_products(self):
         ordinary = self.ProductTemplate.create({"name": "Upgrade-safe product"})

@@ -1,4 +1,5 @@
 from collections import defaultdict
+import hashlib
 
 from markupsafe import Markup, escape
 
@@ -28,12 +29,13 @@ class ProductCardConsolidationService(models.AbstractModel):
         return variants[:1]
 
     @api.model
-    def _line(self, severity, category, count, message):
+    def _line(self, severity, category, count, message, **values):
         return {
             "severity": severity,
             "category": category,
             "count": count,
             "message": message,
+            **values,
         }
 
     @api.model
@@ -69,23 +71,235 @@ class ProductCardConsolidationService(models.AbstractModel):
         return blockers
 
     @api.model
-    def _stock_blockers(self, templates):
-        variants = templates.with_context(active_test=False).product_variant_ids
+    def _internal_quants(self, variants, company):
+        return self.env["stock.quant"].sudo().with_company(company).search([
+            ("product_id", "in", variants.ids),
+            ("company_id", "=", company.id),
+            ("location_id.is_valued_internal", "=", True),
+        ], order="product_id, location_id, package_id, id")
+
+    @api.model
+    def _stock_quantity(self, product, company):
+        return sum(self._internal_quants(product, company).mapped("quantity"))
+
+    @api.model
+    def _valuation_signature(self, product, company):
+        product = product.with_company(company)
+        accounts = product._get_product_accounts()
+        return (
+            product.cost_method,
+            product.valuation,
+            product.property_stock_inventory.id,
+            accounts.get("stock_valuation").id,
+        )
+
+    @api.model
+    def _stock_transfer_analysis(self, canonical, duplicate):
+        canonical_variant = self._variant(canonical)
+        duplicate_variant = self._variant(duplicate)
+        variants = canonical_variant | duplicate_variant
         blockers = []
+        warnings = []
+        plan = []
         if not variants:
-            return blockers
+            return {"blockers": blockers, "warnings": warnings, "plan": plan, "quant_ids": []}
+        company = canonical.company_id or self.env.company
         if self.env["stock.lot"].sudo().search_count([("product_id", "in", variants.ids)]):
             blockers.append(self._line("blocker", "tracking", 1, _("Existing lots or serial numbers prevent consolidation.")))
-        quants = self.env["stock.quant"].sudo().search([("product_id", "in", variants.ids)])
-        if any(
-            not float_is_zero(quant.quantity, precision_rounding=quant.product_uom_id.rounding)
-            or not float_is_zero(quant.reserved_quantity, precision_rounding=quant.product_uom_id.rounding)
-            for quant in quants
-        ):
-            blockers.append(self._line("blocker", "stock", 1, _("On-hand or reserved quantity must be zero in every location.")))
-        if any(quants.mapped("inventory_quantity_set")):
+        company_quants = self.env["stock.quant"].sudo().with_company(company).search([
+            ("product_id", "in", variants.ids),
+            ("company_id", "=", company.id),
+        ])
+        internal_quants = self._internal_quants(variants, company)
+        other_company_internal = self.env["stock.quant"].sudo().search([
+            ("product_id", "in", variants.ids),
+            ("company_id", "!=", company.id),
+            ("location_id.usage", "in", ("internal", "transit")),
+            ("quantity", "!=", 0),
+        ])
+        if other_company_internal:
+            blockers.append(self._line(
+                "blocker", "company_stock", len(other_company_internal),
+                _("Stock in another company prevents consolidation."),
+            ))
+        reserved = company_quants.filtered(
+            lambda quant: not float_is_zero(
+                quant.reserved_quantity,
+                precision_rounding=quant.product_uom_id.rounding,
+            )
+        )
+        if reserved:
+            blockers.append(self._line(
+                "blocker", "reservation", len(reserved),
+                _("Reserved stock prevents consolidation."),
+            ))
+        negative = internal_quants.filtered(
+            lambda quant: quant.product_uom_id.compare(quant.quantity, 0) < 0
+        )
+        if negative:
+            blockers.append(self._line(
+                "blocker", "negative_stock", len(negative),
+                _("Negative internal stock prevents consolidation."),
+            ))
+        owned = internal_quants.filtered(
+            lambda quant: quant.owner_id
+            and quant.product_uom_id.compare(quant.quantity, 0) > 0
+        )
+        if owned:
+            blockers.append(self._line(
+                "blocker", "owner", len(owned),
+                _("Owner-specific stock cannot be transferred by consolidation."),
+            ))
+        tracked = internal_quants.filtered(
+            lambda quant: quant.lot_id
+            and quant.product_uom_id.compare(quant.quantity, 0) > 0
+        )
+        if tracked:
+            blockers.append(self._line(
+                "blocker", "tracking", len(tracked),
+                _("Lot or serial stock cannot be transferred by consolidation."),
+            ))
+        inventory_quants = company_quants.filtered("inventory_quantity_set")
+        if inventory_quants:
             blockers.append(self._line("blocker", "inventory_count", 1, _("An unfinished inventory count prevents consolidation.")))
-        return blockers
+        open_moves = self.env["stock.move"].sudo().with_company(company).search([
+            ("product_id", "=", duplicate_variant.id),
+            ("company_id", "=", company.id),
+            ("state", "not in", ("done", "cancel")),
+        ])
+        if open_moves:
+            blockers.append(self._line(
+                "blocker", "open_stock_moves", len(open_moves),
+                _("Open stock movements for the duplicate must be completed or cancelled."),
+            ))
+
+        duplicate_quants = internal_quants.filtered(
+            lambda quant: quant.product_id == duplicate_variant
+            and not quant.owner_id
+            and not quant.lot_id
+            and quant.product_uom_id.compare(quant.quantity, 0) > 0
+        )
+        total_quantity = sum(duplicate_quants.mapped("quantity"))
+        if duplicate_variant.uom_id.is_zero(total_quantity):
+            return {
+                "blockers": blockers,
+                "warnings": warnings,
+                "plan": plan,
+                "quant_ids": internal_quants.ids,
+            }
+
+        if (
+            canonical_variant.cost_method != "fifo"
+            or duplicate_variant.cost_method != "fifo"
+            or self._valuation_signature(canonical_variant, company)
+            != self._valuation_signature(duplicate_variant, company)
+            or not duplicate_variant.with_company(company).property_stock_inventory
+        ):
+            blockers.append(self._line(
+                "blocker", "valuation", 1,
+                _("Positive stock requires matching FIFO valuation, accounts, and inventory locations."),
+            ))
+            return {
+                "blockers": blockers,
+                "warnings": warnings,
+                "plan": plan,
+                "quant_ids": internal_quants.ids,
+            }
+
+        scoped_duplicate = duplicate_variant.with_company(company)
+        remaining_by_product = scoped_duplicate._get_remaining_moves()
+        remaining_by_move = remaining_by_product.get(scoped_duplicate, {})
+        layers = []
+        for source_move, remaining_quantity in remaining_by_move.items():
+            if duplicate_variant.uom_id.compare(remaining_quantity, 0) <= 0:
+                continue
+            source_move = source_move.with_company(company)
+            remaining_value = source_move.remaining_value
+            layers.append({
+                "source_move": source_move,
+                "quantity": remaining_quantity,
+                "value": remaining_value,
+            })
+            purchase_line = source_move.purchase_line_id
+            if purchase_line and (
+                not purchase_line.product_uom_id.is_zero(purchase_line.qty_to_invoice)
+                or purchase_line.invoice_lines.filtered(
+                    lambda line: line.move_id.state != "posted"
+                )
+            ):
+                warnings.append(self._line(
+                    "warning", "mutable_valuation", 1,
+                    _("Source receipt valuation may still change after supplier billing."),
+                    quantity=remaining_quantity,
+                    value=remaining_value,
+                    currency_id=company.currency_id.id,
+                    source_move_id=source_move.id,
+                    source_date=source_move.date,
+                ))
+        layer_quantity = sum(layer["quantity"] for layer in layers)
+        if duplicate_variant.uom_id.compare(total_quantity, layer_quantity):
+            blockers.append(self._line(
+                "blocker", "stock_value_reconciliation", 1,
+                _("Internal stock quantity does not match the remaining FIFO quantity."),
+            ))
+            return {
+                "blockers": blockers,
+                "warnings": warnings,
+                "plan": plan,
+                "quant_ids": internal_quants.ids,
+            }
+        layer_value = sum(layer["value"] for layer in layers)
+        duplicate_variant.invalidate_recordset(["total_value"])
+        if company.currency_id.compare_amounts(
+            layer_value, duplicate_variant.total_value
+        ):
+            blockers.append(self._line(
+                "blocker", "stock_value_reconciliation", 1,
+                _("Remaining FIFO value does not match the duplicate inventory value."),
+            ))
+            return {
+                "blockers": blockers,
+                "warnings": warnings,
+                "plan": plan,
+                "quant_ids": internal_quants.ids,
+            }
+
+        layer_index = 0
+        layer_quantity_left = layers[0]["quantity"] if layers else 0
+        layer_value_left = layers[0]["value"] if layers else 0
+        for quant in duplicate_quants.sorted(lambda item: (item.location_id.id, item.package_id.id, item.id)):
+            quant_quantity_left = quant.quantity
+            while duplicate_variant.uom_id.compare(quant_quantity_left, 0) > 0:
+                layer = layers[layer_index]
+                quantity = min(quant_quantity_left, layer_quantity_left)
+                if duplicate_variant.uom_id.compare(quantity, layer_quantity_left) == 0:
+                    value = layer_value_left
+                else:
+                    value = layer["value"] * quantity / layer["quantity"]
+                plan.append({
+                    "quant_id": quant.id,
+                    "location_id": quant.location_id.id,
+                    "package_id": quant.package_id.id,
+                    "source_move_id": layer["source_move"].id,
+                    "source_date": layer["source_move"].date,
+                    "quantity": quantity,
+                    "value": value,
+                })
+                quant_quantity_left -= quantity
+                layer_quantity_left -= quantity
+                layer_value_left -= value
+                if duplicate_variant.uom_id.is_zero(layer_quantity_left):
+                    layer_index += 1
+                    if layer_index < len(layers):
+                        layer_quantity_left = layers[layer_index]["quantity"]
+                        layer_value_left = layers[layer_index]["value"]
+
+        return {
+            "blockers": blockers,
+            "warnings": warnings,
+            "plan": plan,
+            "quant_ids": internal_quants.ids,
+        }
 
     @api.model
     def _value(self, record, field_name):
@@ -292,12 +506,35 @@ class ProductCardConsolidationService(models.AbstractModel):
         return lines
 
     @api.model
+    def _analysis_fingerprint(self, canonical, duplicate, analysis):
+        configuration_signature = tuple(
+            (
+                action,
+                spec["category"],
+                source.id,
+                target.id,
+            )
+            for action, spec, source, target in analysis["configuration_plan"]
+        )
+        payload = (
+            canonical.id,
+            canonical.write_date,
+            duplicate.id,
+            duplicate.write_date,
+            tuple(sorted(analysis["stock_quant_ids"])),
+            self._stock_plan_signature(analysis["stock_plan"]),
+            configuration_signature,
+        )
+        return hashlib.sha256(repr(payload).encode()).hexdigest()
+
+    @api.model
     def analyze(self, canonical, duplicate):
         canonical.ensure_one()
         duplicate.ensure_one()
         self._check_actor(canonical | duplicate)
         blockers = self._base_blockers(canonical, duplicate)
-        blockers += self._stock_blockers(canonical | duplicate)
+        stock_analysis = self._stock_transfer_analysis(canonical, duplicate)
+        blockers += stock_analysis["blockers"]
         configuration_plan, configuration_blockers = self._configuration_plan(canonical, duplicate)
         blockers += configuration_blockers
         blockers += self._alias_blockers(canonical, duplicate)
@@ -305,17 +542,48 @@ class ProductCardConsolidationService(models.AbstractModel):
         for action, spec, _source, _target in configuration_plan:
             counts[(action, spec["category"])] += 1
         lines = blockers[:]
+        stock_plan = stock_analysis["plan"]
+        if stock_plan:
+            company = canonical.company_id or self.env.company
+            lines.append(self._line(
+                "transfer", "stock_transfer", len(stock_plan),
+                _("Eligible stock will be transferred to the canonical product."),
+                quantity=sum(segment["quantity"] for segment in stock_plan),
+                value=sum(segment["value"] for segment in stock_plan),
+                currency_id=company.currency_id.id,
+            ))
+            lines.extend(
+                self._line(
+                    "transfer", "stock_fifo_layer", 1,
+                    _("A remaining FIFO layer will be transferred at its current value."),
+                    quantity=segment["quantity"],
+                    value=segment["value"],
+                    currency_id=company.currency_id.id,
+                    location_id=segment["location_id"],
+                    package_id=segment["package_id"],
+                    source_move_id=segment["source_move_id"],
+                    source_date=segment["source_date"],
+                )
+                for segment in stock_plan
+            )
+        lines += stock_analysis["warnings"]
         for (action, category), count in counts.items():
             message = _("Configuration records will be transferred.") if action == "transfer" else _("Equivalent configuration records will be deduplicated.")
             lines.append(self._line("transfer", category, count, message))
         lines += self._draft_and_history_lines(canonical, duplicate)
         lines.append(self._line("preserve", "unknown_references", 0, _("Unlisted third-party references are outside the allowlist and will remain linked to the archived source card.")))
         lines.append(self._line("preserve", "canonical_values", 1, _("All scalar and company-dependent values of the canonical product will be preserved.")))
-        return {
+        analysis = {
             "blockers": blockers,
             "lines": lines,
             "configuration_plan": configuration_plan,
+            "stock_plan": stock_plan,
+            "stock_quant_ids": stock_analysis["quant_ids"],
         }
+        analysis["fingerprint"] = self._analysis_fingerprint(
+            canonical, duplicate, analysis
+        )
+        return analysis
 
     @api.model
     def _transfer_configuration(self, plan):
@@ -396,6 +664,169 @@ class ProductCardConsolidationService(models.AbstractModel):
         ]).write({"variant_template_id": canonical.id})
 
     @api.model
+    def _stock_plan_signature(self, plan):
+        return tuple(
+            (
+                segment["quant_id"],
+                segment["location_id"],
+                segment["package_id"],
+                segment["source_move_id"],
+                segment["source_date"],
+                segment["quantity"],
+                segment["value"],
+            )
+            for segment in plan
+        )
+
+    @api.model
+    def _stock_move_values(
+        self,
+        product,
+        quantity,
+        location,
+        inventory_location,
+        package,
+        outgoing,
+        audit_values=None,
+    ):
+        source_location = location if outgoing else inventory_location
+        destination_location = inventory_location if outgoing else location
+        move_line_values = {
+            "product_id": product.id,
+            "product_uom_id": product.uom_id.id,
+            "quantity": quantity,
+            "location_id": source_location.id,
+            "location_dest_id": destination_location.id,
+            "company_id": product.company_id.id or self.env.company.id,
+            "picked": True,
+        }
+        if package:
+            if outgoing:
+                move_line_values["package_id"] = package.id
+            else:
+                move_line_values["result_package_id"] = package.id
+        values = {
+            "origin": _("Product card consolidation"),
+            "product_id": product.id,
+            "product_uom": product.uom_id.id,
+            "product_uom_qty": quantity,
+            "company_id": product.company_id.id or self.env.company.id,
+            "location_id": source_location.id,
+            "location_dest_id": destination_location.id,
+            "is_inventory": True,
+            "picked": True,
+            "move_line_ids": [Command.create(move_line_values)],
+        }
+        if audit_values:
+            values.update(audit_values)
+        return values
+
+    @api.model
+    def _transfer_stock(self, canonical, duplicate, analysis):
+        plan = analysis["stock_plan"]
+        StockMove = self.env["stock.move"].sudo().with_context(
+            product_consolidation_write=True
+        )
+        if not plan:
+            return StockMove
+
+        company = canonical.company_id or self.env.company
+        canonical_variant = self._variant(canonical).with_company(company)
+        duplicate_variant = self._variant(duplicate).with_company(company)
+        Quant = self.env["stock.quant"].sudo().with_company(company)
+        quants = Quant.browse(analysis["stock_quant_ids"]).sorted("id")
+        locked_quants = quants.try_lock_for_update(allow_referencing=True)
+        if set(locked_quants.ids) != set(quants.ids):
+            raise UserError(_("Stock changed during consolidation. Refresh the preview and retry."))
+        source_moves = StockMove.browse(
+            sorted({segment["source_move_id"] for segment in plan})
+        )
+        locked_source_moves = source_moves.try_lock_for_update(allow_referencing=True)
+        if set(locked_source_moves.ids) != set(source_moves.ids):
+            raise UserError(_("Stock valuation changed during consolidation. Refresh and retry."))
+        locked_quants.invalidate_recordset()
+        locked_source_moves.invalidate_recordset()
+        current = self._stock_transfer_analysis(canonical, duplicate)
+        if current["blockers"] or self._stock_plan_signature(current["plan"]) != self._stock_plan_signature(plan):
+            messages = [line["message"] for line in current["blockers"]]
+            messages.append(_("Stock changed during consolidation. Refresh the preview and retry."))
+            raise UserError("\n".join(dict.fromkeys(messages)))
+
+        canonical_quantity_before = self._stock_quantity(canonical_variant, company)
+        duplicate_quantity_before = self._stock_quantity(duplicate_variant, company)
+        canonical_value_before = canonical_variant.total_value
+        duplicate_value_before = duplicate_variant.total_value
+        inventory_location = duplicate_variant.property_stock_inventory
+        created_moves = StockMove
+
+        for segment in plan:
+            location = self.env["stock.location"].browse(segment["location_id"])
+            package = self.env["stock.package"].browse(segment["package_id"])
+            source_move = StockMove.browse(segment["source_move_id"])
+            out_move = StockMove.create(self._stock_move_values(
+                duplicate_variant,
+                segment["quantity"],
+                location,
+                inventory_location,
+                package,
+                outgoing=True,
+            ))
+            out_move._action_done()
+            if out_move.state != "done":
+                raise UserError(_("The duplicate stock movement could not be completed."))
+            if company.currency_id.compare_amounts(out_move.value, segment["value"]):
+                raise UserError(_("The consumed FIFO value changed during consolidation."))
+
+            in_values = self._stock_move_values(
+                canonical_variant,
+                segment["quantity"],
+                location,
+                inventory_location,
+                package,
+                outgoing=False,
+                audit_values={
+                    "consolidation_source_receipt_id": source_move.id,
+                    "consolidation_source_date": segment["source_date"],
+                    "consolidation_out_move_id": out_move.id,
+                    "value_manual": out_move.value,
+                },
+            )
+            in_move = StockMove.create(in_values)
+            in_move._action_done()
+            if in_move.state != "done":
+                raise UserError(_("The canonical stock movement could not be completed."))
+            if company.currency_id.compare_amounts(in_move.value, out_move.value):
+                raise UserError(_("The incoming FIFO value does not match the outgoing value."))
+            created_moves |= out_move | in_move
+
+        canonical_variant.invalidate_recordset()
+        duplicate_variant.invalidate_recordset()
+        canonical_quantity_after = self._stock_quantity(canonical_variant, company)
+        duplicate_quantity_after = self._stock_quantity(duplicate_variant, company)
+        transferred_quantity = sum(segment["quantity"] for segment in plan)
+        if not duplicate_variant.uom_id.is_zero(duplicate_quantity_after):
+            raise UserError(_("The duplicate still has internal stock after consolidation."))
+        if duplicate_variant.uom_id.compare(
+            duplicate_quantity_before, transferred_quantity
+        ) or canonical_variant.uom_id.compare(
+            canonical_quantity_after,
+            canonical_quantity_before + transferred_quantity,
+        ):
+            raise UserError(_("Stock quantities do not reconcile after consolidation."))
+        total_value_before = canonical_value_before + duplicate_value_before
+        total_value_after = canonical_variant.total_value + duplicate_variant.total_value
+        if company.currency_id.compare_amounts(total_value_after, total_value_before):
+            raise UserError(_("Inventory value does not reconcile after consolidation."))
+        if any(move.state != "done" for move in created_moves):
+            raise UserError(_("All consolidation stock movements must be completed."))
+        if any(
+            not move.consolidation_out_move_id
+            for move in created_moves.filtered("consolidation_source_receipt_id")
+        ):
+            raise UserError(_("Consolidation stock movement audit links are incomplete."))
+        return created_moves
+
+    @api.model
     def _create_aliases(self, canonical, duplicate):
         Alias = self.env["product.identifier.alias"].sudo().with_context(
             product_consolidation_write=True
@@ -434,6 +865,7 @@ class ProductCardConsolidationService(models.AbstractModel):
     def _consolidation_handler_registry(self):
         """Explicit extensibility point; never use generic foreign-key rewrites."""
         return (
+            "_transfer_stock",
             "_transfer_configuration",
             "_transfer_sets",
             "_transfer_drafts",
@@ -442,23 +874,33 @@ class ProductCardConsolidationService(models.AbstractModel):
 
     @api.model
     def _run_consolidation_handler(self, handler_name, canonical, duplicate, analysis):
+        if handler_name == "_transfer_stock":
+            return self._transfer_stock(canonical, duplicate, analysis)
         if handler_name == "_transfer_configuration":
             return self._transfer_configuration(analysis["configuration_plan"])
         return getattr(self, handler_name)(canonical, duplicate)
 
     @api.model
-    def consolidate(self, canonical, duplicate):
+    def consolidate(self, canonical, duplicate, expected_fingerprint=None):
         canonical.ensure_one()
         duplicate.ensure_one()
         analysis = self.analyze(canonical, duplicate)
         if analysis["blockers"]:
             raise UserError("\n".join(line["message"] for line in analysis["blockers"]))
+        if (
+            expected_fingerprint
+            and analysis["fingerprint"] != expected_fingerprint
+        ):
+            raise UserError(_("The consolidation preview is outdated. Refresh it and review the current stock plan."))
         canonical_admin = canonical.sudo().with_company(canonical.company_id or self.env.company)
         duplicate_admin = duplicate.sudo().with_company(canonical.company_id or self.env.company)
+        stock_moves = self.env["stock.move"]
         for handler_name in self._consolidation_handler_registry():
-            self._run_consolidation_handler(
+            result = self._run_consolidation_handler(
                 handler_name, canonical_admin, duplicate_admin, analysis
             )
+            if handler_name == "_transfer_stock":
+                stock_moves |= result
         self._consolidation_after_handlers_hook(canonical_admin, duplicate_admin)
         self._create_aliases(canonical_admin, duplicate_admin)
         duplicate_admin.with_context(product_consolidation_write=True).write({
@@ -475,12 +917,24 @@ class ProductCardConsolidationService(models.AbstractModel):
             duplicate_admin.id,
             escape(duplicate_admin.display_name),
         )
-        canonical_admin.message_post(body=Markup(_(
+        body = Markup(_(
             "Product card %(source)s was consolidated into this card by %(user)s. "
             "Transferred/deduplicated records: %(transferred)s. Preserved references: %(preserved)s.",
             source=source_link,
             user=escape(self.env.user.display_name),
             transferred=transferred,
             preserved=preserved,
-        )))
+        ))
+        if stock_moves:
+            move_links = Markup(", ").join(
+                Markup('<a href="/web#id=%s&amp;model=stock.move&amp;view_type=form">%s</a>') % (
+                    move.id,
+                    escape(move.display_name),
+                )
+                for move in stock_moves
+            )
+            body += Markup("<br/>") + Markup(_(
+                "Stock transfer movements: %(moves)s.", moves=move_links
+            ))
+        canonical_admin.message_post(body=body)
         return canonical

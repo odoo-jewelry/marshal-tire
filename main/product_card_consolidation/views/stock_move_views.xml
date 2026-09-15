@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stock_move_form_consolidation_audit" model="ir.ui.view">
+        <field name="name">stock.move.form.consolidation.audit</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='origin_grp']" position="after">
+                <group name="consolidation_audit_group" string="Product Consolidation" invisible="not consolidation_out_move_id" groups="product_card_consolidation.group_product_consolidation_manager">
+                    <field name="consolidation_out_move_id"/>
+                    <field name="consolidation_source_receipt_id"/>
+                    <field name="consolidation_source_date"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
