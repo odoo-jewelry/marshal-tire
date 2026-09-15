@@ -266,26 +266,37 @@ class TestPosCostRecompute(TestPoSCommon):
         self.assertEqual(operation.line_ids.pos_line_id.order_id, orders[:1])
         self.assertEqual(orders[1].lines.total_cost, 40)
 
-    def test_selection_bound_and_empty(self):
+    def test_selection_requires_orders_or_valid_period(self):
         with self.assertRaises(UserError):
             self.Operation.create({}).action_preview()
         operation = self.Operation.create({"selection_type": "orders"})
         with self.assertRaises(UserError):
             operation.action_preview()
+
+    def test_preview_and_apply_more_than_1000_lines_without_truncation(self):
         order = self._orders()
+        order.lines.write({"total_cost": 0, "is_total_cost_computed": False})
         line_values = order.lines.copy_data()[0]
         line_values["order_id"] = order.id
         self.env["pos.order.line"].create([line_values.copy() for _ in range(1000)])
         operation = self._operation(order, preview=False)
-        with self.assertRaisesRegex(UserError, "1000"):
-            operation.action_preview()
-        order.lines[-1:].product_id = self.service
-        operation.product_ids = self.product
-        self.assertEqual(len(operation._select_lines()), 1000)
+        self.assertEqual(len(operation._select_lines()), 1001)
+        period = self.Operation.create({
+            "selection_type": "period", "company_id": order.company_id.id,
+            "date_from": order.date_order, "date_to": order.date_order + timedelta(days=1),
+            "config_ids": [Command.set(self.config.ids)],
+            "product_ids": [Command.set(self.product.ids)],
+        })
+        self.assertEqual(period._select_lines(), operation._select_lines())
         operation.action_preview()
-        self.assertEqual(len(operation.line_ids), 1000)
+        self.assertEqual(operation.line_ids.pos_line_id, order.lines)
+        self.assertEqual(len(operation.line_ids), 1001)
+        self.assertFalse(any(order.lines.mapped("total_cost")))
         operation.action_apply()
         self.assertEqual(operation.state, "done")
+        self.assertEqual(operation.changed_count, 1001)
+        self.assertEqual(order.lines.mapped("total_cost"), [80] * 1001)
+        self.assertTrue(all(order.lines.mapped("is_total_cost_computed")))
 
     def test_changed_inputs_invalidate_preview(self):
         order = self._orders()

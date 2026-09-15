@@ -7,7 +7,7 @@
 >
 > В административном списке чеков «Point of Sale → Orders → Orders» доступно действие «Actions → Recompute Costs» для выбранных чеков. Меню «Point of Sale → Cost Recomputation» открывает историю и создание операции по периоду. В форме чека добавлена кнопка «Cost History», открывающая связанные операции; существующие поля чека не изменены и не удалены.
 >
-> В новой форме операции доступны компания, способ отбора «Selected Orders» или «Date Interval», поля «Orders», «From (inclusive)», «To (exclusive)», «Point of Sale», «Products» и режим «Zero Saved Costs Only» либо «All Matching Lines». Поле «Reason» задаёт причину применения, а «I acknowledge zero source costs» подтверждает допустимость нулевых источников. Отбор ограничен 1000 строками одной компании и закрытыми сменами.
+> В новой форме операции доступны компания, способ отбора «Selected Orders» или «Date Interval», поля «Orders», «From (inclusive)», «To (exclusive)», «Point of Sale», «Products» и режим «Zero Saved Costs Only» либо «All Matching Lines». Поле «Reason» задаёт причину применения, а «I acknowledge zero source costs» подтверждает допустимость нулевых источников. Отбор охватывает подходящие строки одной компании и закрытых смен без фиксированного предела их количества.
 >
 > Кнопка «Preview Costs» показывает прежнюю и предлагаемую себестоимость, изменение маржи, источники, причины пропуска и итоги по валютам. В детализации доступны связанные движения, признаки завершённости расчёта, фактический результат и связанные продажи или возвраты вне выборки. «Apply Reviewed Costs» применяет подтверждённые суммы с причиной; «Cancel Operation» отменяет операцию до применения. История содержит состояние, автора и время применения, счётчики изменённых, неизменных, завершённых без изменения суммы и пропущенных строк; применённые результаты защищены от редактирования.
 >
@@ -22,7 +22,7 @@ Allow authorized POS managers to recompute historical POS line costs through a r
 
 ### Requirement: Explicit bounded selection
 
-The system SHALL provide a cost-recomputation action from the administrative POS order list and an operation-history entry. An operation MUST belong to one authorized company. Users SHALL select explicit orders or a bounded order-date interval, optionally narrowed by POS configurations and products. The default mode SHALL select only lines with zero saved cost; an explicit all-lines mode SHALL also consider incorrect nonzero costs. Each operation SHALL include at most 1000 selected lines before eligibility exclusions, SHALL freeze its line selection at preview, and MUST NOT silently truncate or expand that selection.
+The system SHALL provide a cost-recomputation action from the administrative POS order list and an operation-history entry. An operation MUST belong to one authorized company. Users SHALL select explicit orders or a bounded order-date interval, optionally narrowed by POS configurations and products. The default mode SHALL select only lines with zero saved cost; an explicit all-lines mode SHALL also consider incorrect nonzero costs. The system MUST NOT impose a fixed maximum number of selected lines. Each operation SHALL include every matching line, SHALL freeze its line selection at preview, and MUST NOT silently truncate or expand that selection.
 
 #### Scenario: S01 Select historical orders by filters
 - **WHEN** a manager previews an operation for a company, date interval, POS configuration and product
@@ -40,10 +40,16 @@ The system SHALL provide a cost-recomputation action from the administrative POS
 - **THEN** the operation contains only matching lines of those orders
 - **AND** it never expands to other orders matching the same dates or products
 
-#### Scenario: S04 Reject an oversized or unbounded selection
-- **WHEN** an operation lacks both explicit orders and a bounded date interval, has invalid date boundaries, or selects more than 1000 lines
+#### Scenario: S04 Reject a missing or invalid selection scope
+- **WHEN** an operation lacks both explicit orders and a bounded date interval or has invalid date boundaries
 - **THEN** preview is rejected with an actionable explanation
 - **AND** no order cost is changed and no partial selection is presented as complete
+
+#### Scenario: S40 Process a selection exceeding the former line limit
+- **GIVEN** more than 1000 eligible lines match the explicit order selection or bounded date interval
+- **WHEN** the manager previews and applies the reviewed operation
+- **THEN** every matching line is included and processed under the ordinary eligibility rules
+- **AND** the operation neither rejects nor truncates the selection because of its line count
 
 ### Requirement: Reviewable cost proposal
 
@@ -172,7 +178,7 @@ The first version SHALL skip zero-quantity lines, POS combo structures, manufact
 
 ### Requirement: Atomic reviewed application
 
-Application SHALL require a nonempty reason, an explicit confirmation and a current server-generated preview. It MUST revalidate authorization, selected records, source identity and relevant values before any cost update. A changed source, cost, quantity, lifecycle condition or conversion input SHALL invalidate the whole preview. The operation SHALL apply only its reviewed eligible lines in one transaction; an unexpected failure MUST roll back all cost, completion-marker and success-history changes. No intermediate commits or silent runtime skips are permitted. Parallel or repeated requests for the same applied operation SHALL return its existing result, and overlapping operations SHALL not overwrite changes using stale previews.
+Application SHALL require a nonempty reason, an explicit confirmation and a current server-generated preview. It MUST revalidate authorization, selected records, source identity and relevant values before any cost update. An external change to a source, cost, quantity, lifecycle condition or conversion input SHALL invalidate the whole preview. In explicit stock-repair mode, only the fixed stock-value changes included in the reviewed repair plan MAY be applied before POS recomputation; they are authorized parts of that same transaction, not external stale-preview changes. The operation SHALL apply only its reviewed eligible lines in one transaction; an unexpected failure MUST roll back all cost, completion-marker and success-history changes. No intermediate commits or silent runtime skips are permitted. Parallel or repeated requests for the same applied operation SHALL return its existing result, and overlapping operations SHALL not overwrite changes using stale previews.
 
 #### Scenario: S25 Apply a reviewed mixed selection
 - **GIVEN** preview contains eligible and explicitly skipped lines and all required acknowledgements are present
@@ -234,7 +240,7 @@ Creating previews and applying operations SHALL require POS manager permission a
 
 ### Requirement: POS reporting and operational continuity
 
-After application, standard POS line and order margins and the POS sales-analysis report SHALL reflect updated saved costs using their existing formulas. Quantities, sales prices, discounts, taxes, totals, payments, invoices, accounting entries, stock movements, valuation amounts and product costs MUST remain unchanged by the operation. Installation or upgrade SHALL NOT trigger historical recomputation. Ordinary POS sale, refund, invoicing and session-closing workflows SHALL retain their existing behavior when this feature is not invoked.
+After application, standard POS line and order margins and the POS sales-analysis report SHALL reflect updated saved costs using their existing formulas. Quantities, sales prices, discounts, taxes, totals, payments, invoices, accounting entries, stock movement identities, dates and dimensions, receipt values and product costs MUST remain unchanged by the operation. Ordinary recomputation MUST also leave all stock valuation amounts unchanged. Explicit stock-repair mode MAY change only the reviewed eligible zero-valued outgoing movements under the stock-repair requirements, followed by recomputation of their fully selected POS lines. It MUST NOT create stock movements or financial postings. Installation or upgrade SHALL NOT trigger historical recomputation. Ordinary POS sale, refund, invoicing and session-closing workflows SHALL retain their existing behavior when this feature is not invoked.
 
 #### Scenario: S36 Refresh standard POS margin reporting
 - **GIVEN** a same-currency two-unit sale has untaxed revenue 120 and its reviewed cost changes from zero to 80

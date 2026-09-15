@@ -9,10 +9,9 @@ _INTERNAL = object()
 _CONTEXT_KEY = "pos_cost_recompute_internal"
 _CRITERIA = {
     "company_id", "selection_type", "order_ids", "date_from", "date_to",
-    "config_ids", "product_ids", "cost_mode",
+    "config_ids", "product_ids", "cost_mode", "repair_stock_values",
 }
-_EDITABLE = _CRITERIA | {"reason", "allow_zero_cost"}
-_LINE_LIMIT = 1000
+_EDITABLE = _CRITERIA | {"reason", "allow_zero_cost", "acknowledge_stock_repair"}
 
 
 class PosCostRecompute(models.Model):
@@ -130,14 +129,14 @@ class PosCostRecompute(models.Model):
                 raise AccessError(self.env._("Preview results and history are server-managed."))
             if set(vals) & _CRITERIA:
                 self._internal_write({"state": "draft", "allow_zero_cost": False})
-                self.line_ids.with_context(**{_CONTEXT_KEY: _INTERNAL}).unlink()
+                self._clear_preview()
         return super().write(vals)
 
     def unlink(self):
         self._check_manager()
         if self.filtered(lambda operation: operation.state != "draft"):
             raise UserError(self.env._("Only draft operations can be deleted."))
-        self.line_ids.with_context(**{_CONTEXT_KEY: _INTERNAL}).unlink()
+        self._clear_preview()
         return super().unlink()
 
     def copy_data(self, default=None):
@@ -153,6 +152,7 @@ class PosCostRecompute(models.Model):
                 "config_ids": [Command.set(operation.config_ids.ids)],
                 "product_ids": [Command.set(operation.product_ids.ids)],
                 "cost_mode": operation.cost_mode,
+                "repair_stock_values": operation.repair_stock_values,
             }
             vals.update(default or {})
             values.append(vals)
@@ -168,7 +168,7 @@ class PosCostRecompute(models.Model):
         with self.env.cr.savepoint():
             selected = self._select_lines()
             proposals = self._prepare_proposals(selected, lang=self.env.lang)
-            self.line_ids.with_context(**{_CONTEXT_KEY: _INTERNAL}).unlink()
+            self._clear_preview()
             self.env["pos.cost.recompute.line"].with_context(**{_CONTEXT_KEY: _INTERNAL}).create([
                 dict(values, operation_id=self.id) for values in proposals
             ])
@@ -206,6 +206,7 @@ class PosCostRecompute(models.Model):
                 for proposal in proposals
             ):
                 raise UserError(self.env._("The preview is stale. Review current data before applying."))
+            self._apply_stock_plan()
             groups = defaultdict(lambda: self.env["pos.order.line"])
             for detail in self.line_ids.filtered(lambda line: line.status in ("changed", "completion")):
                 groups[tuple(sorted(detail.move_ids.ids))] |= detail.pos_line_id
@@ -240,6 +241,12 @@ class PosCostRecompute(models.Model):
     def _internal_write(self, values):
         return self.with_context(**{_CONTEXT_KEY: _INTERNAL}).write(values)
 
+    def _clear_preview(self):
+        self.line_ids.with_context(**{_CONTEXT_KEY: _INTERNAL}).unlink()
+
+    def _apply_stock_plan(self):
+        """Extension point after snapshot validation, inside the apply savepoint."""
+
     def _get_action(self):
         self.ensure_one()
         return {
@@ -268,12 +275,9 @@ class PosCostRecompute(models.Model):
             digits = self.env["decimal.precision"].precision_get("Product Price")
             threshold = 0.5 * 10 ** -digits
             domain.extend([("total_cost", ">", -threshold), ("total_cost", "<", threshold)])
-        lines = self.env["pos.order.line"].with_context(active_test=False).search(
-            domain, limit=_LINE_LIMIT + 1, order="id"
+        return self.env["pos.order.line"].with_context(active_test=False).search(
+            domain, order="id"
         )
-        if len(lines) > _LINE_LIMIT:
-            raise UserError(self.env._("Select at most %(limit)s lines; narrow the selection.", limit=_LINE_LIMIT))
-        return lines
 
     def _prepare_proposals(self, selected, lang):
         selected = selected.with_company(self.company_id).with_context(active_test=False, lang=lang)

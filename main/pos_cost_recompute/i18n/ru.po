@@ -483,11 +483,11 @@ msgstr "Пересчитать себестоимость"
 #. module: pos_cost_recompute
 #: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
 msgid ""
-"Recompute up to 1000 lines from closed sessions using standard cost sources.\n"
+"Recompute lines from closed sessions using standard cost sources.\n"
 "                        Current product costs do not restore historical purchase prices.\n"
 "                        FIFO and average costs use existing stock valuation, which this operation does not repair."
 msgstr ""
-"Пересчёт до 1000 строк закрытых смен по штатным источникам стоимости. "
+"Пересчёт строк закрытых смен по штатным источникам стоимости. "
 "Текущая стоимость товара не восстанавливает исторические закупочные цены. "
 "Для FIFO и средней стоимости используется существующая складская оценка; эта"
 " операция её не исправляет."
@@ -528,12 +528,6 @@ msgstr "Просмотрено"
 #: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
 msgid "Select at least one order."
 msgstr "Выберите хотя бы один чек."
-
-#. module: pos_cost_recompute
-#. odoo-python
-#: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
-msgid "Select at most %(limit)s lines; narrow the selection."
-msgstr "Выберите не более %(limit)s строк: сузьте выборку."
 
 #. module: pos_cost_recompute
 #. odoo-python
@@ -717,3 +711,508 @@ msgstr "Нулевое количество не поддерживается."
 #: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__zero_source
 msgid "Zero source acknowledgement required"
 msgstr "Требуется подтверждение нулевого источника"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "A non-cancelled stock return requires separate review."
+msgstr "Неотменённый складской возврат требует отдельной проверки."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "A related POS return requires separate review."
+msgstr "Связанный возврат POS требует отдельной проверки."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_move.py:0
+msgid "A repaired movement requires a separate traceable revaluation."
+msgstr ""
+"Повторная переоценка исправленного движения требует отдельной операции с "
+"сохранением истории."
+
+#. module: pos_cost_recompute
+#: model:ir.model.constraint,message:pos_cost_recompute.constraint_pos_cost_recompute_stock_line_unique_move
+msgid "A stock issue must appear only once per operation."
+msgstr "Складское списание может встречаться в операции только один раз."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Access to every POS line using the stock source is required."
+msgstr "Нужен доступ ко всем строкам POS, использующим складской источник."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Access to every POS order using the stock source is required."
+msgstr "Нужен доступ ко всем чекам POS, использующим складской источник."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Access to the complete stock history is required for repair."
+msgstr "Для исправления нужен доступ ко всей складской истории."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Acknowledge the historical stock-value changes before applying."
+msgstr ""
+"Перед применением подтвердите изменение исторической складской оценки."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_stock_line__actual_value
+msgid "Actual Value"
+msgstr "Фактическая оценка"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Adjustments and internal transfers make the receipt basis ambiguous."
+msgstr ""
+"Инвентаризации и внутренние перемещения не позволяют однозначно определить "
+"исходное поступление."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Aggregate session stock sources cannot be repaired."
+msgstr "Общие складские списания смены не поддерживаются для исправления."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "All POS lines using this stock issue must be selected."
+msgstr ""
+"Необходимо выбрать все строки POS, использующие это складское списание."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "All related returns must be accessible in the operation company."
+msgstr "Все связанные возвраты должны быть доступны в компании операции."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute_stock_line.py:0
+msgid "Applied or cancelled stock repair evidence cannot be deleted."
+msgstr ""
+"Основания применённого или отменённого исправления склада нельзя удалить."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute_stock_line.py:0
+msgid "Applied or cancelled stock repair evidence cannot be edited."
+msgstr ""
+"Основания применённого или отменённого исправления склада нельзя изменить."
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid "Apply Stock Repair and POS Costs"
+msgstr "Применить исправление склада и себестоимость POS"
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid ""
+"Apply the reviewed stock values and POS costs? This changes historical stock"
+" valuation and POS margins."
+msgstr ""
+"Применить просмотренную складскую оценку и себестоимость POS? Историческая "
+"оценка склада и маржа POS изменятся."
+
+#. module: pos_cost_recompute
+#: model:ir.model,name:pos_cost_recompute.model_base
+msgid "Base"
+msgstr "Базовая модель"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Consolidated products require separate valuation review."
+msgstr "Объединённые товары требуют отдельной проверки оценки."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Consolidation movements cannot prove a simple receipt basis."
+msgstr ""
+"Движения объединения товаров не позволяют подтвердить одно исходное "
+"поступление."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_order__cost_recompute_revision
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_product_product__cost_recompute_revision
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_res_currency__cost_recompute_revision
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_ir_module_module__cost_recompute_revision
+msgid "Cost Recompute Revision"
+msgstr "Версия источников пересчёта"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid ""
+"Earlier consumption leaves insufficient receipt quantity for this issue."
+msgstr ""
+"После предыдущих расходов количества поступления недостаточно для этого "
+"списания."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Equal movement timestamps make the source order ambiguous."
+msgstr "Совпадающие даты и время движений не позволяют определить их порядок."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Exactly one earlier supplier receipt is required."
+msgstr "Требуется ровно одно предшествующее поступление от поставщика."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Historical company and product units must match."
+msgstr "В исторических движениях должны совпадать компания и единица товара."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Historical movements require positive finite valued quantities."
+msgstr ""
+"Оцениваемое количество исторических движений должно быть положительным "
+"конечным числом."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Historical negative stock prevents a receipt-based repair."
+msgstr ""
+"Исторический отрицательный остаток не позволяет исправить оценку по "
+"поступлению."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__acknowledge_stock_repair
+msgid "I acknowledge changes to historical stock values"
+msgstr "Подтверждаю изменение исторической складской оценки"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_move.py:0
+msgid "Lines of repaired stock movements cannot be changed."
+msgstr "Строки исправленных складских движений нельзя изменить."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_move.py:0
+msgid "Lines of repaired stock movements cannot be deleted."
+msgstr "Строки исправленных складских движений нельзя удалить."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Linked invoices, accounting or analytic entries prevent stock repair."
+msgstr ""
+"Связанные счета, проводки или аналитические записи не позволяют исправить "
+"складскую оценку."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Manufacturing history cannot prove a simple receipt basis."
+msgstr ""
+"Производственная история не позволяет подтвердить одно исходное поступление."
+
+#. module: pos_cost_recompute
+#: model:ir.model,name:pos_cost_recompute.model_ir_module_module
+msgid "Module"
+msgstr "Модуль"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_stock_line__new_value
+msgid "New Value"
+msgstr "Предлагаемая оценка"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_stock_line__old_value
+msgid "Old Value"
+msgstr "Прежняя оценка"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute_stock_line.py:0
+msgid "Only a current reviewed stock repair can be applied."
+msgstr "Можно применить только актуальное просмотренное исправление склада."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Only completed sales in closed sessions can repair stock values."
+msgstr ""
+"Исправление склада доступно только для завершённых продаж в закрытых сменах."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Only untracked company-owned storable products can be repaired."
+msgstr ""
+"Поддерживаются только складируемые товары компании без учёта по партиям и "
+"серийным номерам."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Ownership, tracking or storage changes make the history unsupported."
+msgstr ""
+"Изменения владельца, партий или мест хранения делают историю "
+"неподдерживаемой."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute_stock_line.py:0
+msgid ""
+"POS Cost Recompute cannot be removed while applied stock repairs exist."
+msgstr ""
+"Нельзя удалить POS Cost Recompute, пока существуют применённые исправления "
+"складской оценки."
+
+#. module: pos_cost_recompute
+#: model:ir.model,name:pos_cost_recompute.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Строки складских движений"
+
+#. module: pos_cost_recompute
+#: model:ir.model,name:pos_cost_recompute.model_product_value
+msgid "Product Value"
+msgstr "Оценка товара"
+
+#. module: pos_cost_recompute
+#: model:ir.model,name:pos_cost_recompute.model_product_product
+msgid "Product Variant"
+msgstr "Вариант товара"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_stock_line__receipt_id
+msgid "Receipt"
+msgstr "Поступление"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Related stock processing is not a completed direct sale."
+msgstr "Связанные складские движения не являются завершённой прямой продажей."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__repair_stock_values
+msgid "Repair Zero Stock Values and Recompute POS"
+msgstr "Исправить нулевую оценку склада и пересчитать POS"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_move.py:0
+msgid "Repaired stock movements cannot be deleted."
+msgstr "Исправленные складские движения нельзя удалить."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Returns, corrections, kits and combo structures cannot be repaired."
+msgstr ""
+"Возвраты, корректировки, комплекты и комбо не поддерживаются для исправления"
+" склада."
+
+#. module: pos_cost_recompute
+#: model:ir.model,name:pos_cost_recompute.model_pos_cost_recompute_stock_line
+msgid "Reviewed POS Stock Value Repair"
+msgstr "Просмотренное исправление складской оценки POS"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Selected POS quantities do not fully cover the stock source."
+msgstr ""
+"Количество выбранных строк POS не покрывает складской источник полностью."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/source_revision.py:0
+msgid "Source versions are server-managed."
+msgstr "Версии источников изменяются только сервером."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_stock_move__cost_repair_line_id
+msgid "Stock Cost Repair"
+msgstr "Исправление складской оценки"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__stock_evidence
+msgid "Stock Evidence"
+msgstr "Основание складской оценки"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__stock_line_ids
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_line__stock_line_ids
+msgid "Stock Line"
+msgstr "Детализация склада"
+
+#. module: pos_cost_recompute
+#: model:ir.model,name:pos_cost_recompute.model_stock_move
+msgid "Stock Move"
+msgstr "Складское движение"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__stock_repair_count
+msgid "Stock Repair Count"
+msgstr "Исправляемых складских движений"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute__stock_summary
+msgid "Stock Summary"
+msgstr "Итоги складской оценки"
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields.selection,name:pos_cost_recompute.selection__pos_cost_recompute_stock_line__status__repair
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid "Stock Value Repair"
+msgstr "Исправление складской оценки"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute_stock_line.py:0
+msgid "Stock repair evidence is server-managed."
+msgstr "Основания исправления склада изменяются только сервером."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_move.py:0
+msgid "Stock repair links are server-managed."
+msgstr "Связи с исправлением склада изменяются только сервером."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute_stock_line.py:0
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Stock repair requires POS-manager and stock-manager permissions."
+msgstr ""
+"Для исправления склада нужны права руководителя POS и руководителя склада."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Stock repair requires current FIFO and periodic valuation."
+msgstr "Для исправления должны быть включены FIFO и периодическая оценка."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Stock repairs cannot be applied while the module is being removed."
+msgstr "Нельзя применять исправления склада во время удаления модуля."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Stock sources must belong to the operation company."
+msgstr "Складские источники должны принадлежать компании операции."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Stock value: %(old)s → %(new)s"
+msgstr "Складская оценка: %(old)s → %(new)s"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "The proposed stock value must be positive and finite."
+msgstr ""
+"Предлагаемая складская оценка должна быть положительным конечным числом."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "The receipt has no positive finite recorded value."
+msgstr "У поступления нет положительной конечной оценки."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_move.py:0
+msgid "The repaired movement requires a separate traceable correction."
+msgstr ""
+"Исправленное движение требует отдельной корректировки с сохранением истории."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "The stock issue or POS order belongs to a locked period."
+msgstr "Складское списание или чек POS относятся к заблокированному периоду."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/pos_cost_recompute_stock_line.py:0
+msgid "The stock repair preview is stale."
+msgstr "Предварительный просмотр исправления склада устарел."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid ""
+"The supplier receipt must strictly precede the issue in the same storage "
+"location."
+msgstr ""
+"Поступление от поставщика должно быть строго раньше списания и в то же место"
+" хранения."
+
+#. module: pos_cost_recompute
+#: model_terms:ir.ui.view,arch_db:pos_cost_recompute.pos_cost_recompute_view_form
+msgid ""
+"This changes historical stock valuation using the receipt's current recorded value.\n"
+"                            It does not prove that FIFO applied at the sale date.\n"
+"                            Supplier billing may change the source later; applied repairs will not update automatically."
+msgstr ""
+"Историческая складская оценка изменяется по текущей оценке поступления. Это "
+"не доказывает, что FIFO действовал на дату продажи. Счета поставщика могут "
+"позже изменить источник; применённое исправление автоматически не обновится."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid ""
+"This corrects historical valuation using the receipt's current recorded "
+"value. It does not prove FIFO applied at the sale date. Supplier billing may"
+" still change the receipt value; later changes will not update this repair "
+"automatically."
+msgstr ""
+"Историческая оценка исправляется по текущей оценке поступления. Это не "
+"доказывает, что FIFO действовал на дату продажи. Счета поставщика могут "
+"изменить оценку поступления; исправление автоматически не обновится."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "This movement already has a stock repair."
+msgstr "Для этого движения уже применено исправление складской оценки."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_move.py:0
+msgid ""
+"This movement has a reviewed stock cost repair. Changing its value or stock "
+"dimensions requires a separate traceable correction."
+msgstr ""
+"Для движения применено просмотренное исправление оценки. Изменение его "
+"стоимости или складских параметров требует отдельной корректировки с "
+"сохранением истории."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Unresolved financial or analytic effects prevent stock repair."
+msgstr ""
+"Неопределённые бухгалтерские или аналитические последствия не позволяют "
+"исправить складскую оценку."
+
+#. module: pos_cost_recompute
+#: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_stock_line__warning
+msgid "Warning"
+msgstr "Предупреждение"

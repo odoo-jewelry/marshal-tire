@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="pos_cost_recompute_stock_line_rule_company" model="ir.rule">
+        <field name="name">POS stock repair evidence company</field>
+        <field name="model_id" ref="model_pos_cost_recompute_stock_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
     <record id="pos_cost_recompute_rule_company" model="ir.rule">
         <field name="name">POS cost recomputation company</field>
         <field name="model_id" ref="model_pos_cost_recompute"/>
