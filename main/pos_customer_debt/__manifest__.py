@@ -1,0 +1,20 @@
+{
+    "name": "POS Customer Debt Settlement",
+    "version": "19.0.1.0.0",
+    "category": "Point of Sale",
+    "summary": "Track and settle customer-account debt by POS order",
+    "author": "Uvelirsoft",
+    "license": "LGPL-3",
+    "depends": ["account", "point_of_sale"],
+    "data": [
+        "security/pos_customer_debt_security.xml",
+        "security/ir.model.access.csv",
+        "wizard/account_payment_register_views.xml",
+        "wizard/debt_link_review_views.xml",
+        "views/account_payment_views.xml",
+        "views/pos_order_views.xml",
+        "views/res_partner_views.xml",
+        "views/debt_menu.xml",
+    ],
+    "installable": True,
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_customer_debt_link_review_form" model="ir.ui.view">
+        <field name="name">pos.customer.debt.link.review.form</field>
+        <field name="model">pos.customer.debt.link.review</field>
+        <field name="arch" type="xml">
+            <form string="Review Historical Debt Links">
+                <group>
+                    <field name="order_ids" widget="many2many_tags" domain="[('debt_state', '=', 'review_required')]"/>
+                </group>
+                <group invisible="analyzed_count == 0">
+                    <field name="analyzed_count"/>
+                    <field name="linked_count"/>
+                    <field name="review_count"/>
+                </group>
+                <footer>
+                    <button name="action_analyze" type="object" string="Analyze and Link" class="oe_highlight"/>
+                    <button string="Close" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pos_customer_debt_link_review" model="ir.actions.act_window">
+        <field name="name">Review Historical Debt Links</field>
+        <field name="res_model">pos.customer.debt.link.review</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_pos_customer_debt_link_review_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_customer_debt_list" model="ir.ui.view">
+        <field name="name">pos.customer.debt.list</field>
+        <field name="model">pos.order</field>
+        <field name="arch" type="xml">
+            <list string="Customer Debts" create="0" delete="0" duplicate="0">
+                <header>
+                    <button
+                        name="action_register_debt_payment"
+                        type="object"
+                        string="Settle"
+                        groups="pos_customer_debt.group_pos_customer_debt_settler"
+                    />
+                </header>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="debt_residual_known" column_invisible="True"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="partner_id"/>
+                <field name="name"/>
+                <field name="session_id"/>
+                <field name="date_order"/>
+                <field name="debt_original_amount" sum="Original Debt"/>
+                <field name="debt_payment_amount" sum="Settled by Payments"/>
+                <field name="debt_adjustment_amount" sum="Other Adjustments"/>
+                <field name="debt_residual_amount" sum="Outstanding" invisible="not debt_residual_known"/>
+                <field name="debt_state" widget="badge"/>
+                <field name="debt_review_reason" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pos_customer_debt_search" model="ir.ui.view">
+        <field name="name">pos.customer.debt.search</field>
+        <field name="model">pos.order</field>
+        <field name="arch" type="xml">
+            <search string="Customer Debts">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="date_order"/>
+                <filter name="outstanding" string="Outstanding" domain="[('debt_state', '=', 'outstanding')]"/>
+                <filter name="settled" string="Settled" domain="[('debt_state', '=', 'settled')]"/>
+                <filter name="review_required" string="Review Required" domain="[('debt_state', '=', 'review_required')]"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_date" string="Date" context="{'group_by': 'date_order:month'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_pos_order_form_debt" model="ir.ui.view">
+        <field name="name">pos.order.form.customer.debt</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="action_register_debt_payment"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-money"
+                    invisible="debt_state != 'outstanding'"
+                    groups="pos_customer_debt.group_pos_customer_debt_settler"
+                >
+                    <field name="debt_residual_amount" widget="statinfo" string="Customer Debt"/>
+                </button>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page
+                    name="customer_debt"
+                    string="Customer Debt"
+                    groups="pos_customer_debt.group_pos_customer_debt_viewer"
+                    invisible="debt_state == 'not_applicable'"
+                >
+                    <group>
+                        <group>
+                            <field name="debt_state"/>
+                            <field name="debt_original_amount"/>
+                            <field name="debt_residual_known" invisible="1"/>
+                            <field name="debt_residual_amount" invisible="not debt_residual_known"/>
+                        </group>
+                        <group>
+                            <field name="debt_payment_amount"/>
+                            <field name="debt_adjustment_amount"/>
+                            <field name="debt_review_reason" invisible="debt_state != 'review_required'"/>
+                        </group>
+                    </group>
+                    <field name="debt_allocation_ids" readonly="1">
+                        <list create="0" delete="0">
+                            <field name="payment_reference"/>
+                            <field name="payment_id" groups="account.group_account_user" optional="hide"/>
+                            <field name="amount"/>
+                            <field name="effective_amount"/>
+                            <field name="state" widget="badge"/>
+                            <field name="applied_on"/>
+                            <field name="applied_by_id"/>
+                        </list>
+                    </field>
+                    <field name="debt_source_line_ids" groups="account.group_account_user" readonly="1"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

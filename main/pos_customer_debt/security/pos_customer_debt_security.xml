@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_groups_privilege_pos_customer_debt" model="res.groups.privilege">
+        <field name="name">POS Customer Debt</field>
+        <field name="sequence">22</field>
+        <field name="category_id" ref="base.module_category_sales"/>
+    </record>
+
+    <record id="group_pos_customer_debt_viewer" model="res.groups">
+        <field name="name">Viewer</field>
+        <field name="sequence">10</field>
+        <field name="privilege_id" ref="res_groups_privilege_pos_customer_debt"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_pos_customer_debt_settler" model="res.groups">
+        <field name="name">Settlement</field>
+        <field name="sequence">20</field>
+        <field name="privilege_id" ref="res_groups_privilege_pos_customer_debt"/>
+        <field name="implied_ids" eval="[(4, ref('group_pos_customer_debt_viewer')), (4, ref('account.group_account_invoice'))]"/>
+    </record>
+
+    <record id="group_pos_customer_debt_link_manager" model="res.groups">
+        <field name="name">Historical Link Management</field>
+        <field name="sequence">30</field>
+        <field name="privilege_id" ref="res_groups_privilege_pos_customer_debt"/>
+        <field name="implied_ids" eval="[(4, ref('group_pos_customer_debt_settler')), (4, ref('account.group_account_manager'))]"/>
+    </record>
+
+    <record id="rule_pos_customer_debt_allocation_company" model="ir.rule">
+        <field name="name">POS debt allocations by company</field>
+        <field name="model_id" ref="model_pos_customer_debt_allocation"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>

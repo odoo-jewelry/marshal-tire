@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_pos_customer_debt" model="ir.ui.view">
+        <field name="name">res.partner.form.pos.customer.debt</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    class="oe_stat_button"
+                    type="object"
+                    name="action_view_pos_customer_debts"
+                    icon="fa-money"
+                    groups="pos_customer_debt.group_pos_customer_debt_viewer"
+                    invisible="pos_debt_count == 0 and pos_debt_review_count == 0"
+                >
+                    <field name="pos_debt_count" widget="statinfo" string="POS Debts"/>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_payment_register_form_pos_customer_debt" model="ir.ui.view">
+        <field name="name">account.payment.register.form.pos.customer.debt</field>
+        <field name="model">account.payment.register</field>
+        <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group2']" position="after">
+                <group string="POS Debt Distribution" invisible="not pos_debt_order_ids">
+                    <field name="pos_debt_order_ids" invisible="1"/>
+                    <field name="pos_debt_created_payment_id" invisible="1"/>
+                    <field name="pos_debt_allocation_line_ids" nolabel="1">
+                        <list editable="bottom" create="0" delete="0">
+                            <field name="currency_id" column_invisible="True"/>
+                            <field name="order_id"/>
+                            <field name="amount"/>
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

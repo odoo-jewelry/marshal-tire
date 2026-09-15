@@ -1,0 +1,242 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * pos_customer_debt
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"PO-Revision-Date: 2026-09-11 00:00+0000\n"
+"Last-Translator: Uvelirsoft\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Accounting Customer"
+msgstr "Клиент в бухгалтерском учёте"
+
+msgid "Analyze and Link"
+msgstr "Проверить и связать"
+
+msgid "Apply Available Payment"
+msgstr "Распределить доступный платёж"
+
+msgid "Available for POS Debt"
+msgstr "Доступно для погашения долга"
+
+msgid "Cancelled"
+msgstr "Отменено"
+
+msgid "Customer Debt"
+msgstr "Долг клиента"
+
+msgid "Customer Debts"
+msgstr "Долги клиентов"
+
+msgid "Created Debt Payment"
+msgstr "Созданный платёж по долгу"
+
+msgid "Debt Allocations"
+msgstr "Распределения платежей по долгам"
+
+msgid "Debt Distribution"
+msgstr "Распределение по долгам"
+
+msgid "Debt payment registration is already being processed. Refresh and try again."
+msgstr "Регистрация платежа по долгу уже выполняется. Обновите данные и повторите попытку."
+
+msgid "Debt Journal Items"
+msgstr "Проводки задолженности"
+
+msgid "Debt Reconciliations"
+msgstr "Сопоставления задолженности"
+
+msgid "Debt Review Reason"
+msgstr "Причина проверки долга"
+
+msgid "Debt Status"
+msgstr "Состояние долга"
+
+msgid "Draft"
+msgstr "Черновик"
+
+msgid "Effective POS Debt Settlement"
+msgstr "Фактически погашено по кассовым долгам"
+
+msgid "Historical Link Management"
+msgstr "Управление историческими связями"
+
+msgid "Not Applicable"
+msgstr "Не применяется"
+
+msgid "Original Customer Account Debt"
+msgstr "Первоначальный долг на аккаунте клиента"
+
+msgid "Other Adjustments"
+msgstr "Другие корректировки"
+
+msgid "Outstanding"
+msgstr "Не погашено"
+
+msgid "Outstanding Customer Account Debt"
+msgstr "Остаток долга на аккаунте клиента"
+
+msgid "Outstanding Amount Is Known"
+msgstr "Остаток долга определён"
+
+msgid "POS Customer Debt"
+msgstr "Долги клиентов по кассовым заказам"
+
+msgid "POS Customer Debts"
+msgstr "Долги клиентов по кассовым заказам"
+
+msgid "POS Debt Allocations"
+msgstr "Распределения по кассовым долгам"
+
+msgid "POS Debt Distribution"
+msgstr "Распределение по кассовым долгам"
+
+msgid "POS Debt Payment"
+msgstr "Платёж по кассовому долгу"
+
+msgid "POS Debt Settlement"
+msgstr "Погашение кассовых долгов"
+
+msgid "POS Debts"
+msgstr "Кассовые долги"
+
+msgid "Pending Session Closure"
+msgstr "Ожидает закрытия смены"
+
+msgid "Payment Reference"
+msgstr "Номер платежа"
+
+msgid "Reconciliations"
+msgstr "Сопоставления"
+
+msgid "Register Debt Payment"
+msgstr "Зарегистрировать погашение долга"
+
+msgid "Review Historical Debt Links"
+msgstr "Проверить исторические связи долгов"
+
+msgid "Review Required"
+msgstr "Требуется проверка"
+
+msgid "Settle"
+msgstr "Погасить"
+
+msgid "Settled"
+msgstr "Погашено"
+
+msgid "Settled by Payments"
+msgstr "Погашено платежами"
+
+msgid "Settlement"
+msgstr "Погашение"
+
+msgid "Undo"
+msgstr "Отменить сопоставление"
+
+msgid "Viewer"
+msgstr "Просмотр"
+
+msgid "A debt allocation must reconcile exactly two lines in one currency."
+msgstr "Распределение долга должно сопоставлять ровно две проводки в одной валюте."
+
+msgid "A debt balance changed concurrently. Refresh and try again."
+msgstr "Остаток долга был одновременно изменён. Обновите данные и повторите попытку."
+
+msgid "Apply allocations for one payment at a time."
+msgstr "Применяйте распределения только для одного платежа за раз."
+
+msgid "A payment with debt settlement history cannot be deleted."
+msgstr "Платёж с историей погашения долга нельзя удалить."
+
+msgid "An allocation exceeds the order's current debt."
+msgstr "Сумма распределения превышает текущий долг по заказу."
+
+msgid "An order can occur only once in a draft allocation."
+msgstr "В черновике распределения заказ можно указать только один раз."
+
+msgid "Applied debt allocations must be undone before they can be changed."
+msgstr "Перед изменением применённого распределения отмените его сопоставление."
+
+msgid "Applied debt allocations must be undone before they can be deleted."
+msgstr "Перед удалением применённого распределения отмените его сопоставление."
+
+msgid "Cross-currency debt allocation is not supported."
+msgstr "Распределение долга между разными валютами не поддерживается."
+
+msgid "Debt distribution requires exactly one payment."
+msgstr "Для распределения по долгам требуется ровно один платёж."
+
+msgid "Draft and applied allocations cannot be mixed."
+msgstr "Нельзя одновременно применять черновые и уже применённые распределения."
+
+msgid "No unambiguous posted receivable journal item is linked to the order."
+msgstr "С заказом не связана однозначно определённая проведённая дебиторская проводка."
+
+msgid "Only incoming customer payments can settle debt."
+msgstr "Для погашения долга можно использовать только входящие платежи клиента."
+
+msgid "Only current outstanding debts can be allocated."
+msgstr "Распределение возможно только на текущие непогашенные долги."
+
+msgid "Only unambiguous debts from closed sessions can be settled."
+msgstr "Можно погашать только однозначно определённые долги из закрытых смен."
+
+msgid "Post the incoming payment before allocating it."
+msgstr "Перед распределением проведите входящий платёж."
+
+msgid "Select at least one customer debt."
+msgstr "Выберите хотя бы один долг клиента."
+
+msgid "Selected debts must use one company, customer, currency, and receivable account."
+msgstr "Выбранные долги должны относиться к одной компании, одному клиенту, одной валюте и одному счёту дебиторской задолженности."
+
+msgid "The allocation amount must be positive."
+msgstr "Сумма распределения должна быть положительной."
+
+msgid "The allocations exceed the available payment amount."
+msgstr "Сумма распределений превышает доступный остаток платежа."
+
+msgid "The accounting reconciliation did not match the requested amount."
+msgstr "Сумма бухгалтерского сопоставления не соответствует запрошенной сумме."
+
+msgid "The customer-account refund has no unique source order."
+msgstr "Для возврата на аккаунт клиента не определён единственный исходный заказ."
+
+msgid "The current residual amounts cannot satisfy the allocation."
+msgstr "Текущих остатков недостаточно для выполнения распределения."
+
+msgid "The debt allocation changed concurrently. Refresh and try again."
+msgstr "Распределение долга было одновременно изменено. Обновите данные и повторите попытку."
+
+msgid "The order has no identified customer."
+msgstr "В заказе не указан клиент."
+
+msgid "The payment and order must belong to the same company."
+msgstr "Платёж и заказ должны относиться к одной компании."
+
+msgid "The payment and order must have the same accounting customer."
+msgstr "У платежа и заказа должен быть один клиент в бухгалтерском учёте."
+
+msgid "The payment and selected debt use different receivable accounts."
+msgstr "В платеже и выбранном долге используются разные счета дебиторской задолженности."
+
+msgid "The payment journal entry must be posted."
+msgstr "Бухгалтерская запись платежа должна быть проведена."
+
+msgid "The payment must have one available receivable account."
+msgstr "В платеже должен быть один доступный счёт дебиторской задолженности."
+
+msgid "There is no residual amount left to allocate."
+msgstr "Для распределения не осталось доступного остатка."
+
+msgid "You are not allowed to recover debt links."
+msgstr "У вас нет права восстанавливать связи долгов."
+
+msgid "You are not allowed to settle point-of-sale customer debt."
+msgstr "У вас нет права погашать долги клиентов по кассовым заказам."

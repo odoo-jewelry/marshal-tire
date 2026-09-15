@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_payment_form_pos_customer_debt" model="ir.ui.view">
+        <field name="name">account.payment.form.pos.customer.debt</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook[@name='payment_notebook']" position="inside">
+                <page
+                    name="pos_customer_debt"
+                    string="POS Debt Settlement"
+                    groups="pos_customer_debt.group_pos_customer_debt_settler"
+                    invisible="payment_type != 'inbound' or partner_type != 'customer'"
+                >
+                    <group>
+                        <field name="pos_debt_allocated_amount" readonly="1"/>
+                        <field name="pos_debt_available_amount" readonly="1"/>
+                        <field name="pos_debt_accounting_partner_id" invisible="1"/>
+                        <field name="has_draft_pos_debt_allocations" invisible="1"/>
+                        <button
+                            name="action_apply_pos_debt_allocations"
+                            type="object"
+                            string="Apply Available Payment"
+                            class="oe_highlight"
+                            invisible="state not in ['in_process', 'paid'] or not has_draft_pos_debt_allocations"
+                        />
+                    </group>
+                    <field name="pos_debt_allocation_ids">
+                        <list editable="bottom">
+                            <field name="company_id" column_invisible="True"/>
+                            <field name="currency_id" column_invisible="True"/>
+                            <field
+                                name="order_id"
+                                domain="[('company_id', '=', parent.company_id), ('debt_accounting_partner_id', '=', parent.pos_debt_accounting_partner_id), ('currency_id', '=', parent.currency_id), ('debt_state', '=', 'outstanding')]"
+                                readonly="state != 'draft'"
+                            />
+                            <field name="amount" readonly="state != 'draft'"/>
+                            <field name="effective_amount" readonly="1"/>
+                            <field name="state" readonly="1" widget="badge"/>
+                            <button name="action_undo" type="object" string="Undo" invisible="state != 'applied'"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

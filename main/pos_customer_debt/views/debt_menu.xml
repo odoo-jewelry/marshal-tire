@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_pos_customer_debt" model="ir.actions.act_window">
+        <field name="name">Customer Debts</field>
+        <field name="res_model">pos.order</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_pos_customer_debt_list"/>
+        <field name="search_view_id" ref="view_pos_customer_debt_search"/>
+        <field name="domain">[('debt_state', 'in', ['outstanding', 'settled', 'review_required'])]</field>
+        <field name="context">{'search_default_outstanding': 1}</field>
+    </record>
+
+    <menuitem
+        id="menu_pos_customer_debt"
+        name="Customer Debts"
+        parent="point_of_sale.menu_point_of_sale"
+        action="action_pos_customer_debt"
+        sequence="4"
+        groups="pos_customer_debt.group_pos_customer_debt_viewer"
+    />
+
+    <menuitem
+        id="menu_pos_customer_debt_link_review"
+        name="Review Historical Debt Links"
+        parent="point_of_sale.menu_point_of_sale"
+        action="action_pos_customer_debt_link_review"
+        sequence="5"
+        groups="pos_customer_debt.group_pos_customer_debt_link_manager"
+    />
+</odoo>
