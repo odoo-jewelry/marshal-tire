@@ -580,7 +580,7 @@ class PosOrderCorrection(models.Model):
         ordered = self.sorted(lambda item: (item.root_order_id.id, item.revision))
         drafts = ordered.filtered(lambda correction: correction.state != "applied")
         if not drafts:
-            return ordered[-1].action_open_applied_order() if ordered else True
+            return ordered[-1].action_open_current_receipt() if ordered else True
         if len(drafts.root_order_id) != len(drafts):
             raise UserError(
                 self.env._("Apply only one pending revision per source order at a time.")
@@ -626,7 +626,7 @@ class PosOrderCorrection(models.Model):
         result = True
         for correction in ordered:
             if correction.state == "applied":
-                result = correction.action_open_applied_order()
+                result = correction.action_open_current_receipt()
                 continue
             line_commands, desired_results = correction._prepare_line_difference()
             payment_commands = correction._prepare_payment_difference()
@@ -693,11 +693,18 @@ class PosOrderCorrection(models.Model):
             correction.message_post(
                 body=self.env._("Correction applied as POS order %s.", order.name)
             )
-            result = correction.action_open_applied_order()
+            result = correction.action_open_current_receipt()
         return result
+
+    def action_open_current_receipt(self):
+        self.ensure_one()
+        self.check_access("read")
+        return self.root_order_id.action_open_current_receipt()
 
     def action_open_applied_order(self):
         self.ensure_one()
+        self.check_access("read")
+        self.applied_order_id.check_access("read")
         return {
             "type": "ir.actions.act_window",
             "res_model": "pos.order",

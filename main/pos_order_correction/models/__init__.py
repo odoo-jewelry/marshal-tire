@@ -7,4 +7,5 @@ from . import pos_session
 from . import stock_picking
 from . import payment_debt_allocation
 from . import pos_order_projection
+from . import correction_history
 from . import pos_order_ticket_data

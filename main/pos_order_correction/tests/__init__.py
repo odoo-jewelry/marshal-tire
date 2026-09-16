@@ -6,3 +6,4 @@ from . import test_correction_lifecycle
 from . import test_correction_debt
 from . import test_correction_security
 from . import test_correction_concurrency
+from . import test_correction_views

@@ -73,7 +73,8 @@ class TestPosOrderCorrectionLifecycle(PosOrderCorrectionCommon):
 
         action = correction.action_apply()
 
-        self.assertEqual(action["res_id"], applied_order.id)
+        self.assertEqual(action["res_id"], order.id)
+        self.assertEqual(correction.action_open_applied_order()["res_id"], applied_order.id)
         self.assertEqual(len(order.correction_order_ids), 1)
 
     def test_invoice_created_after_preparation_blocks_apply(self):

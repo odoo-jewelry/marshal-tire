@@ -28,6 +28,7 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
+                        <button name="action_open_current_receipt" string="Open Current Receipt" type="object" class="oe_stat_button" icon="fa-shopping-basket"/>
                         <button name="action_open_applied_order" type="object" class="oe_stat_button" icon="fa-file-text-o" invisible="not applied_order_id">
                             <field name="applied_order_id" widget="statinfo" string="Difference Order"/>
                         </button>
@@ -54,7 +55,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Corrected Products">
+                        <page string="Corrected Products" invisible="state == 'applied'">
                             <field name="line_ids" readonly="state != 'draft'">
                                 <list editable="bottom">
                                     <field name="source_order_line_id" optional="show" readonly="1"/>
@@ -68,7 +69,7 @@
                                 </list>
                             </field>
                         </page>
-                        <page string="Corrected Payments">
+                        <page string="Corrected Payments" invisible="state == 'applied'">
                             <field name="payment_ids" readonly="state != 'draft'">
                                 <list editable="bottom">
                                     <field name="payment_method_id"/>
@@ -77,12 +78,11 @@
                                 </list>
                             </field>
                         </page>
-                        <page string="Audit" invisible="state == 'draft'">
-                            <group>
-                                <field name="request_key" readonly="1"/>
-                                <field name="before_snapshot" readonly="1"/>
-                                <field name="after_snapshot" readonly="1"/>
-                            </group>
+                        <page name="correction_comparison" string="Changes" invisible="state != 'applied'">
+                            <separator string="Before"/>
+                            <field name="before_details" readonly="1" nolabel="1"/>
+                            <separator string="After"/>
+                            <field name="after_details" readonly="1" nolabel="1"/>
                         </page>
                     </notebook>
                 </sheet>

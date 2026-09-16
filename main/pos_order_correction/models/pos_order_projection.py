@@ -8,6 +8,7 @@ class PosOrder(models.Model):
     _inherit = "pos.order"
 
     correction_count = fields.Integer(compute="_compute_correction_projection")
+    correction_has_applied = fields.Boolean(compute="_compute_correction_projection")
     correction_current_line_ids = fields.Many2many(
         "pos.order.line", compute="_compute_correction_projection", string="Current Products"
     )
@@ -40,6 +41,9 @@ class PosOrder(models.Model):
             root = order._get_correction_root()
             chain = root._get_correction_chain()
             order.correction_count = len(root.correction_ids)
+            order.correction_has_applied = any(
+                correction.state == "applied" for correction in root.correction_ids
+            )
             order.correction_current_line_ids = root._get_effective_correction_lines()
             order.correction_current_total = sum(chain.mapped("amount_total"))
             amounts = {}
@@ -71,10 +75,26 @@ class PosOrder(models.Model):
 
     def action_open_correction_history(self):
         self.ensure_one()
+        self.check_access("read")
+        root = self._get_correction_root()
+        root.check_access("read")
+        self.env["pos.order.correction"].check_access("read")
         return {
             "type": "ir.actions.act_window",
-            "name": self.env._("Correction History"),
+            "name": self.env._("Change History"),
             "res_model": "pos.order.correction",
             "view_mode": "list,form",
-            "domain": [("root_order_id", "=", self._get_correction_root().id)],
+            "domain": [("root_order_id", "=", root.id)],
+        }
+
+    def action_open_current_receipt(self):
+        self.ensure_one()
+        self.check_access("read")
+        root = self._get_correction_root()
+        root.check_access("read")
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": "pos.order",
+            "view_mode": "form",
+            "res_id": root.id,
         }

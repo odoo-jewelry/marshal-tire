@@ -19,1258 +19,1548 @@ msgstr ""
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "A POS order with an ordinary return cannot be corrected."
 msgstr "Чек POS с обычным возвратом нельзя исправить."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "A POS order with subsequent debt settlement cannot be corrected."
 msgstr "Чек POS с последующим погашением долга нельзя исправить."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "A corrected sale must be returned for its original customer, company and POS."
 msgstr "Возврат исправленной продажи должен сохранять исходного покупателя, компанию и кассу."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "A correction must be created as a draft."
 msgstr "Исправление должно создаваться в состоянии подготовки."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "A correction reason is required."
 msgstr "Укажите причину исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "A result line can only be assigned by correction application."
 msgstr "Связь с итоговой строкой назначается только при применении исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "A serial number cannot be returned more than once."
 msgstr "Один серийный номер нельзя вернуть несколько раз."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "A target POS session is being processed. Try again."
 msgstr "Целевая смена обрабатывается. Повторите попытку."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__message_needaction
 msgid "Action Needed"
 msgstr "Требуется действие"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__after_snapshot
 msgid "After Snapshot"
 msgstr "Значения после исправления"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "All corrected products must be available for this point of sale."
 msgstr "Все товары исправления должны быть доступны для продажи в этой кассе."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "All payment methods must be available in the target session."
 msgstr "Все способы оплаты должны быть доступны в целевой смене."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_payment__amount
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
 msgid "Amount"
 msgstr "Сумма"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "An invoiced POS order cannot be corrected."
 msgstr "Чек POS с выставленным счётом нельзя исправить."
 
 #. module: pos_order_correction
+#: model:ir.model.fields.selection,name:pos_order_correction.selection__pos_order_correction__state__applied
 msgid "Applied"
 msgstr "Применено"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__applied_at
 msgid "Applied At"
 msgstr "Дата применения"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__applied_by_id
 msgid "Applied By"
 msgstr "Автор применения"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__applied_order_id
 msgid "Applied Order"
 msgstr "Заказ исправления"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Applied correction lines cannot be deleted."
 msgstr "Строки применённого исправления нельзя удалять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Applied correction lines cannot be edited."
 msgstr "Строки применённого исправления нельзя изменять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "Applied correction order lines cannot be deleted."
 msgstr "Строки заказа применённого исправления нельзя удалять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "Applied correction order lines cannot be edited."
 msgstr "Строки заказа применённого исправления нельзя изменять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Applied correction orders cannot be cancelled."
 msgstr "Заказы применённых исправлений нельзя отменять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Applied correction orders cannot be copied."
 msgstr "Заказы применённых исправлений нельзя копировать."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Applied correction orders cannot be deleted."
 msgstr "Заказы применённых исправлений нельзя удалять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Applied correction orders cannot be edited."
 msgstr "Заказы применённых исправлений нельзя изменять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
-#: code:addons/pos_order_correction/models/pos_payment.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
+#: code:addons/pos_order_correction/models/pos_payment.py:0
 msgid "Applied correction payments cannot be deleted."
 msgstr "Оплаты применённого исправления нельзя удалять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
-#: code:addons/pos_order_correction/models/pos_payment.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
+#: code:addons/pos_order_correction/models/pos_payment.py:0
 msgid "Applied correction payments cannot be edited."
 msgstr "Оплаты применённого исправления нельзя изменять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Applied corrections cannot be copied."
 msgstr "Применённые исправления нельзя копировать."
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
 msgid "Apply Correction"
 msgstr "Применить исправление"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Apply only one pending revision per source order at a time."
 msgstr "За один раз можно применить только одну подготовленную ревизию каждого исходного заказа."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__message_attachment_count
 msgid "Attachment Count"
 msgstr "Количество вложений"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__attribute_value_ids
 msgid "Attribute Value"
 msgstr "Значение атрибута"
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
 msgid "Audit"
 msgstr "История изменений"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__base_revision
 msgid "Base Revision"
 msgstr "Базовая ревизия"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__before_snapshot
 msgid "Before Snapshot"
 msgstr "Значения до исправления"
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
 msgid "Cancel Draft"
 msgstr "Отменить подготовку"
 
 #. module: pos_order_correction
+#: model:ir.model.fields.selection,name:pos_order_correction.selection__pos_order_correction__state__cancelled
 msgid "Cancelled"
 msgstr "Отменено"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Close all correction sessions before creating an invoice."
 msgstr "Перед созданием счёта закройте все смены с исправлениями."
 
 #. module: pos_order_correction
 #. odoo-javascript
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
-#: code:addons/pos_order_correction/models/pos_order_line.py
-#: code:addons/pos_order_correction/static/src/ticket_screen.js
+#: code:addons/pos_order_correction/models/pos_order.py:0
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
+#: code:addons/pos_order_correction/static/src/ticket_screen.js:0
 msgid "Close all correction sessions before returning products."
 msgstr "Перед возвратом товаров закройте все смены с исправлениями."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
-#: code:addons/pos_order_correction/models/pos_session.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
+#: code:addons/pos_order_correction/models/pos_session.py:0
 msgid "Close all correction sessions before settling this debt."
 msgstr "Перед погашением долга закройте все смены с исправлениями."
 
 #. module: pos_order_correction
 #. odoo-javascript
-#: code:addons/pos_order_correction/static/src/ticket_screen.xml
+#: code:addons/pos_order_correction/static/src/ticket_screen.xml:0
 msgid "Close the correction session before returning products."
 msgstr "Перед возвратом товаров закройте смену исправления."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__company_id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__company_id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_payment__company_id
 msgid "Company"
 msgstr "Компания"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Completed correction quantities cannot be edited."
 msgstr "Количество выполненного исправления нельзя изменять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Completed correction stock details cannot be extended."
 msgstr "Нельзя добавлять детали выполненного складского исправления."
 
 #. module: pos_order_correction
+#: model:res.groups,name:pos_order_correction.group_pos_order_correction
 msgid "Correct Completed Orders"
 msgstr "Исправление завершённых чеков"
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
 msgid "Correct Receipt"
 msgstr "Исправить чек"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__line_ids
 msgid "Corrected Lines"
 msgstr "Исправленные строки"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__payment_ids
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
 msgid "Corrected Payments"
 msgstr "Исправленные оплаты"
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
 msgid "Corrected Products"
 msgstr "Исправленный состав"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Corrected discounts must be between 0 and 100."
 msgstr "Скидки должны быть от 0 до 100 процентов."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Corrected line quantities must be positive."
 msgstr "Количество в исправленных строках должно быть положительным."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Corrected lines must use unique sources from the current revision."
 msgstr "Каждая исправленная строка должна ссылаться на отдельный источник из текущей ревизии."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Corrected prices cannot be negative."
 msgstr "Исправленные цены не могут быть отрицательными."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__correction_id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_payment__correction_id
 msgid "Correction"
 msgstr "Исправление"
 
+#, python-format
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
-#, python-format
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Correction %(revision)s"
 msgstr "Исправление %(revision)s"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_count
 msgid "Correction Count"
 msgstr "Количество исправлений"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_current_tax
 msgid "Correction Current Tax"
 msgstr "Текущая сумма налогов исправленной продажи"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_has_applied
 msgid "Correction Has Applied"
 msgstr "Есть применённые исправления"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_has_external_settlement
 msgid "Correction Has External Settlement"
 msgstr "Есть история внешнего погашения"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_projection.py
+#: code:addons/pos_order_correction/models/pos_order_projection.py:0
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
 msgid "Correction History"
 msgstr "История исправлений"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_order_ids
 msgid "Correction Orders"
 msgstr "Заказы исправлений"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_line__correction_origin_line_id
 msgid "Correction Origin Line"
 msgstr "Исходная складская строка"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_pending
 msgid "Correction Pending"
 msgstr "Исправление ожидает обработки"
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
 msgid "Correction Pending Session Closure"
 msgstr "Исправление ожидает закрытия смены"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_line__correction_projection_line_id
 msgid "Correction Projection Line"
 msgstr "Итоговая строка исправления"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_return_root_id
 msgid "Correction Return Root"
 msgstr "Исходная продажа возврата"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_root_id
 msgid "Correction Root"
 msgstr "Исходный заказ"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_line__correction_stock_qty
 msgid "Correction Stock Qty"
 msgstr "Складская разница количества"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction accounting entries cannot be copied."
 msgstr "Бухгалтерские записи исправления нельзя копировать."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction accounting entries cannot be deleted."
 msgstr "Бухгалтерские записи исправления нельзя удалять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction accounting entries cannot be edited independently."
 msgstr "Бухгалтерские записи исправления нельзя изменять отдельно."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction accounting entries cannot be reset to draft."
 msgstr "Бухгалтерские записи исправления нельзя вернуть в черновик."
 
+#, python-format
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
-#, python-format
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Correction applied as POS order %s."
 msgstr "Исправление применено заказом POS %s."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Correction data is being edited. Try again."
 msgstr "Данные исправления редактируются. Повторите попытку."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction deliveries cannot be assigned independently."
 msgstr "Нельзя отдельно назначать отгрузки исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction deliveries cannot be copied."
 msgstr "Отгрузки исправления нельзя копировать."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction deliveries cannot be deleted."
 msgstr "Отгрузки исправления нельзя удалять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction deliveries cannot be edited independently."
 msgstr "Отгрузки исправления нельзя изменять отдельно."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction demand can only be cancelled by another correction."
 msgstr "Отменить складскую потребность исправления можно только новым исправлением."
 
 #. module: pos_order_correction
 #. odoo-javascript
-#: code:addons/pos_order_correction/static/src/ticket_screen.js
+#: code:addons/pos_order_correction/static/src/ticket_screen.js:0
 msgid "Correction is pending"
 msgstr "Исправление ожидает обработки"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction journal items cannot be added independently."
 msgstr "Нельзя отдельно добавлять бухгалтерские строки исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction journal items cannot be deleted."
 msgstr "Бухгалтерские строки исправления нельзя удалять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction journal items cannot be edited independently."
 msgstr "Бухгалтерские строки исправления нельзя изменять отдельно."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "Correction line links can only be assigned by the correction workflow."
 msgstr "Связи строк исправления назначаются только при обработке исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "Correction line links cannot be edited."
 msgstr "Связи строк исправления нельзя изменять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "Correction lot identities cannot be deleted."
 msgstr "Партии и серийные номера исправления нельзя удалять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "Correction lot identities cannot be edited."
 msgstr "Партии и серийные номера исправления нельзя изменять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Correction ownership is assigned only by the correction workflow."
 msgstr "Принадлежность к исправлению назначается только при его обработке."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Correction posting is controlled by the standard session and invoice workflow."
 msgstr "Проведение исправления выполняется стандартными действиями закрытия смены и создания счёта."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "Correction product attributes cannot be deleted."
 msgstr "Атрибуты товаров исправления нельзя удалять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "Correction product attributes cannot be edited."
 msgstr "Атрибуты товаров исправления нельзя изменять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Correction quantities and amounts must be finite numbers."
 msgstr "Количество и суммы исправления должны быть конечными числами."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Correction result and tax fields cannot be edited."
 msgstr "Поля результата и налогов исправления нельзя изменять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Correction results can only be assigned by application."
 msgstr "Результаты исправления назначаются только при его применении."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Correction revision numbers are invalid."
 msgstr "Недопустимые номера ревизий исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction stock details cannot be deleted independently."
 msgstr "Детали складских операций исправления нельзя удалять отдельно."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction stock details cannot be edited independently."
 msgstr "Детали складских операций исправления нельзя изменять отдельно."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction stock effects cannot be added independently."
 msgstr "Нельзя отдельно добавлять складские операции исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction stock effects cannot be copied."
 msgstr "Складские операции исправления нельзя копировать."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction stock effects cannot be deleted."
 msgstr "Складские операции исправления нельзя удалять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction stock effects cannot be edited independently."
 msgstr "Складские операции исправления нельзя изменять отдельно."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction stock source links cannot be assigned independently."
 msgstr "Нельзя отдельно назначать связи складских источников исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction stock source links cannot be deleted."
 msgstr "Связи складских источников исправления нельзя удалять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Correction stock source links cannot be edited."
 msgstr "Связи складских источников исправления нельзя изменять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Correction system fields cannot be edited."
 msgstr "Служебные поля исправления нельзя изменять."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_ids
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
 msgid "Corrections"
 msgstr "Исправления"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__create_uid
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__create_uid
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_payment__create_uid
 msgid "Created by"
 msgstr "Создал"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__create_date
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__create_date
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_payment__create_date
 msgid "Created on"
 msgstr "Дата создания"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__currency_id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__currency_id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_payment__currency_id
 msgid "Currency"
 msgstr "Валюта"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_current_payments
 msgid "Current Payments"
 msgstr "Текущие оплаты"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_current_line_ids
 msgid "Current Products"
 msgstr "Текущие товары"
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
 msgid "Current Sale"
 msgstr "Текущая продажа"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_current_total
 msgid "Current Total"
 msgstr "Текущий итог"
 
 #. module: pos_order_correction
 #. odoo-javascript
-#: code:addons/pos_order_correction/static/src/ticket_screen.xml
+#: code:addons/pos_order_correction/static/src/ticket_screen.xml:0
 msgid "Current corrected sale. Printing retains the original receipt."
 msgstr "Текущая исправленная продажа. При печати сохраняется исходный чек."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__custom_attribute_values
 msgid "Custom Attribute Values"
 msgstr "Пользовательские значения атрибутов"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__partner_id
 msgid "Customer"
 msgstr "Покупатель"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,help:pos_order_correction.field_pos_order_correction_line__product_uom_id
 msgid "Default unit of measure used for all stock operations."
 msgstr "Единица измерения по умолчанию для всех складских операций."
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
 msgid "Difference Order"
 msgstr "Заказ-разница"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__discount
 msgid "Discount"
 msgstr "Скидка"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_account_move__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_account_partial_reconcile__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_customer_debt_allocation__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_payment__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_line__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_pack_operation_lot__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_payment__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_session__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_product_attribute_custom_value__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_stock_move__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_stock_move_line__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:pos_order_correction.field_stock_reference__display_name
 msgid "Display Name"
 msgstr "Отображаемое имя"
 
 #. module: pos_order_correction
+#: model:ir.model.fields.selection,name:pos_order_correction.selection__pos_order_correction__state__draft
 msgid "Draft"
 msgstr "Подготовка"
 
 #. module: pos_order_correction
+#: model:ir.model.constraint,message:pos_order_correction.constraint_pos_order_correction_payment_unique_method
 msgid "Each payment method can occur only once in a correction."
 msgstr "Каждый способ оплаты можно указать в исправлении только один раз."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Each payment method can occur only once."
 msgstr "Каждый способ оплаты можно указать только один раз."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__effective_correction_order_ids
 msgid "Effective Correction Order"
 msgstr "Заказы текущей цепочки исправлений"
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
 msgid "Explain why the receipt is corrected"
 msgstr "Укажите причину исправления чека"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__message_follower_ids
 msgid "Followers"
 msgstr "Подписчики"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "Подписчики (партнёры)"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__has_message
 msgid "Has Message"
 msgstr "Есть сообщение"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_account_move__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_account_move_line__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_account_partial_reconcile__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_customer_debt_allocation__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_payment__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_line__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_pack_operation_lot__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_payment__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_session__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_product_attribute_custom_value__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_stock_move__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_stock_move_line__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_stock_picking__id
+#: model:ir.model.fields,field_description:pos_order_correction.field_stock_reference__id
 msgid "ID"
 msgstr "ID"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,help:pos_order_correction.field_pos_order_correction__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr "Если отмечено, новые сообщения требуют вашего внимания."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,help:pos_order_correction.field_pos_order_correction__message_has_error
+#: model:ir.model.fields,help:pos_order_correction.field_pos_order_correction__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Если отмечено, некоторые сообщения не доставлены."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__internal_partial_reconcile_ids
 msgid "Internal Partial Reconcile"
 msgstr "Внутренние частичные сопоставления"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Internal correction offsets cannot be removed independently."
 msgstr "Внутренние зачёты исправления нельзя отменять отдельно."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__is_correction_order
 msgid "Is Correction Order"
 msgstr "Заказ исправления"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__message_is_follower
 msgid "Is Follower"
 msgstr "Подписчик"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_account_move
 msgid "Journal Entry"
 msgstr "Бухгалтерская запись"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_account_move_line
 msgid "Journal Item"
 msgstr "Бухгалтерская строка"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Keep the remaining corrected demand as a backorder."
 msgstr "Сохраните оставшуюся потребность исправления в дополнительной поставке."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__write_uid
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__write_uid
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_payment__write_uid
 msgid "Last Updated by"
 msgstr "Последним обновил"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__write_date
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__write_date
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_payment__write_date
 msgid "Last Updated on"
 msgstr "Дата последнего обновления"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Lines can only be added to draft corrections."
 msgstr "Строки можно добавлять только в подготавливаемое исправление."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Lines can only belong to draft corrections."
 msgstr "Строки можно переносить только в подготавливаемое исправление."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "Lines cannot be added to correction orders."
 msgstr "Нельзя добавлять строки в заказы исправлений."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "Lines cannot be moved to correction orders."
 msgstr "Нельзя переносить строки в заказы исправлений."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__lot_names
 msgid "Lot Names"
 msgstr "Партии и серийные номера"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__message_has_error
 msgid "Message Delivery error"
 msgstr "Ошибка доставки сообщения"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__message_ids
 msgid "Messages"
 msgstr "Сообщения"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__name
 msgid "Name"
 msgstr "Название"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__message_needaction_counter
 msgid "Number of Actions"
 msgstr "Количество действий"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__message_has_error_counter
 msgid "Number of errors"
 msgstr "Количество ошибок"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,help:pos_order_correction.field_pos_order_correction__message_needaction_counter
 msgid "Number of messages requiring action"
 msgstr "Количество сообщений, требующих действия"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,help:pos_order_correction.field_pos_order_correction__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "Количество сообщений с ошибкой доставки"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,help:pos_order_correction.field_pos_order_correction_line__lot_names
 msgid "One lot or serial number per line."
 msgstr "Каждая партия или серийный номер — на отдельной строке."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Only a draft correction can be applied."
 msgstr "Применить можно только подготавливаемое исправление."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Only completed POS orders can be corrected."
 msgstr "Исправлять можно только завершённые чеки POS."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Only draft corrections can be cancelled."
 msgstr "Отменять можно только подготавливаемые исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Only draft corrections can be deleted."
 msgstr "Удалять можно только подготавливаемые исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Only draft corrections can be edited."
 msgstr "Изменять можно только исправление в состоянии подготовки."
 
+#, python-format
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
-#, python-format
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Open a session for point of sale %s before returning products."
 msgstr "Перед возвратом товаров откройте смену кассы %s."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Open a session for the original point of sale before applying the correction."
 msgstr "Перед применением исправления откройте смену исходной кассы."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Orders invoiced together must use one company, POS, currency, customer and fiscal position."
 msgstr ""
 "Заказы в одном счёте должны относиться к одной компании, кассе, валюте, покупателю и налоговой "
 "позиции."
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
 msgid "Original Payments"
 msgstr "Исходные оплаты"
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
 msgid "Original Products"
 msgstr "Исходные товары"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_pos_customer_debt_allocation
 msgid "POS Customer Debt Allocation"
 msgstr "Распределение погашения долга покупателя POS"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_pos_order_correction
+#: model:res.groups.privilege,name:pos_order_correction.res_groups_privilege_pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
 msgid "POS Order Correction"
 msgstr "Исправление чека POS"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_pos_order_correction_line
 msgid "POS Order Correction Line"
 msgstr "Товарная строка исправления чека POS"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_pos_order_correction_payment
 msgid "POS Order Correction Payment"
 msgstr "Оплата исправления чека POS"
 
 #. module: pos_order_correction
+#: model:ir.actions.act_window,name:pos_order_correction.action_pos_order_correction
 msgid "POS Order Corrections"
 msgstr "Исправления чеков POS"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "POS debt matching amounts cannot be edited independently."
 msgstr "Суммы сопоставлений долга POS нельзя изменять отдельно."
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_account_partial_reconcile
 msgid "Partial Reconcile"
 msgstr "Частичное сопоставление"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_payment__payment_method_id
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
 msgid "Payment Method"
 msgstr "Способ оплаты"
 
+#, python-format
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
-#, python-format
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Payment method %(method)s uses a terminal and cannot be corrected automatically."
 msgstr "Способ оплаты %(method)s использует терминал и не допускает автоматического исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Payments can only be added to draft corrections."
 msgstr "Оплаты можно добавлять только в подготавливаемое исправление."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_payment.py
+#: code:addons/pos_order_correction/models/pos_payment.py:0
 msgid "Payments cannot be added to correction orders."
 msgstr "Нельзя добавлять оплаты в заказы исправлений."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_payment.py
+#: code:addons/pos_order_correction/models/pos_payment.py:0
 msgid "Payments cannot be moved to correction orders."
 msgstr "Нельзя переносить оплаты в заказы исправлений."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__pending_processing
 msgid "Pending Processing"
 msgstr "Ожидается обработка"
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
 msgid "Pending Session Closure"
 msgstr "Ожидает закрытия смены"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__config_id
 msgid "Point of Sale"
 msgstr "Касса"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_pos_order_line
 msgid "Point of Sale Order Lines"
 msgstr "Строки заказов POS"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_pos_order
 msgid "Point of Sale Orders"
 msgstr "Заказы POS"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_pos_payment
 msgid "Point of Sale Payments"
 msgstr "Оплаты POS"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_pos_session
 msgid "Point of Sale Session"
 msgstr "Смена POS"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__price_unit
 msgid "Price Unit"
 msgstr "Цена за единицу"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__product_id
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
 msgid "Product"
 msgstr "Товар"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_product_attribute_custom_value
 msgid "Product Attribute Custom Value"
 msgstr "Пользовательское значение атрибута товара"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
 msgstr "Строка складского перемещения"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__qty
 msgid "Qty"
 msgstr "Количество"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__reason
 msgid "Reason"
 msgstr "Причина"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_stock_reference
 msgid "Reference between stock documents"
 msgstr "Связь складских документов"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__request_key
 msgid "Request Key"
 msgstr "Ключ запроса"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__result_order_line_id
 msgid "Result Order Line"
 msgstr "Итоговая строка заказа"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Return POS orders cannot be corrected."
 msgstr "Возвратные заказы POS нельзя исправлять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "Return corrected deliveries through the source POS order."
 msgstr "Возвращайте исправленные отгрузки через исходный заказ POS."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "Return only lot or serial identities from the current sale."
 msgstr "Возвращать можно только партии и серийные номера текущей продажи."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__revision
 msgid "Revision"
 msgstr "Ревизия"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__root_order_id
 msgid "Root Order"
 msgstr "Исходный заказ"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr "Ошибка доставки СМС"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_session.py
+#: code:addons/pos_order_correction/models/pos_session.py:0
 msgid "Settle the debt from the original POS order."
 msgstr "Погашайте долг из исходного заказа POS."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Some orders already have an invoice. Open the existing invoice."
 msgstr "Для некоторых заказов уже создан счёт. Откройте существующий счёт."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__source_order_line_id
 msgid "Source Order Line"
 msgstr "Исходная строка заказа"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__source_snapshot
 msgid "Source Snapshot"
 msgstr "Снимок исходных данных"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_pos_pack_operation_lot
 msgid "Specify product lot/serial number in pos order line"
 msgstr "Укажите партию или серийный номер в строке заказа POS"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "Start corrections from the original POS order."
 msgstr "Начинайте исправление из исходного заказа POS."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__state
 msgid "State"
 msgstr "Состояние"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_stock_move
 msgid "Stock Move"
 msgstr "Складское перемещение"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order__correction_stock_pending
 msgid "Stock Processing Pending"
 msgstr "Ожидается складская обработка"
 
 #. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
 msgid "Stock processing is pending for the corrected sale."
 msgstr "Исправленная продажа ожидает складской обработки."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__target_session_id
 msgid "Target Session"
 msgstr "Смена исправления"
 
 #. module: pos_order_correction
 #. odoo-javascript
-#: code:addons/pos_order_correction/static/src/ticket_screen.xml
+#: code:addons/pos_order_correction/static/src/ticket_screen.xml:0
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__tax_ids
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
 msgid "Taxes"
 msgstr "Налоги"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "The POS correction is being processed. Try again."
 msgstr "Исправление POS обрабатывается. Повторите попытку."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "The POS order is being processed. Try again."
 msgstr "Заказ POS обрабатывается. Повторите попытку."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
-#: code:addons/pos_order_correction/models/pos_session.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
+#: code:addons/pos_order_correction/models/pos_session.py:0
 msgid "The POS session is being processed. Try again."
 msgstr "Смена POS обрабатывается. Повторите попытку."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_session.py
+#: code:addons/pos_order_correction/models/pos_session.py:0
 msgid "The accounting entry of a corrected POS session cannot be replaced."
 msgstr "Бухгалтерскую запись смены с исправлениями нельзя заменять."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_session.py
+#: code:addons/pos_order_correction/models/pos_session.py:0
 msgid "The closed POS sale has no unambiguous posted accounting source."
 msgstr "У закрытой продажи нет однозначно связанного проведённого бухгалтерского источника."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "The corrected order line could not be identified."
 msgstr "Не удалось определить итоговую строку исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
 msgid "The correction chain has incompatible company or POS data."
 msgstr "В цепочке исправлений обнаружены несовместимые данные компании или кассы."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "The correction does not contain any changes."
 msgstr "Исправление не содержит изменений."
 
 #. module: pos_order_correction
+#: model:ir.model.constraint,message:pos_order_correction.constraint_pos_order_correction_unique_request_key
 msgid "The correction request key must be unique."
 msgstr "Ключ запроса исправления должен быть уникальным."
 
 #. module: pos_order_correction
+#: model:ir.model.constraint,message:pos_order_correction.constraint_pos_order_correction_unique_root_revision
 msgid "The correction revision must be unique for the POS order."
 msgstr "Номер ревизии исправления должен быть уникальным для заказа POS."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/stock_picking.py
+#: code:addons/pos_order_correction/models/stock_picking.py:0
 msgid "The correction stock movement could not be completed."
 msgstr "Не удалось завершить складское перемещение исправления."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/correction_integrity.py
+#: code:addons/pos_order_correction/models/correction_integrity.py:0
 msgid "The delivered quantity exceeds the corrected demand."
 msgstr "Отгруженное количество превышает исправленную потребность."
 
+#, python-format
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/stock_picking.py
-#, python-format
+#: code:addons/pos_order_correction/models/stock_picking.py:0
 msgid "The delivered stock source for %(product)s cannot be established."
 msgstr "Не удалось установить исходное движение отгрузки товара %(product)s."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "The effective payment distribution cannot contain negative amounts."
 msgstr "Текущее распределение оплат не может содержать отрицательные суммы."
 
+#, python-format
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
-#, python-format
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "The effective payment distribution must equal %(expected)s; allocate the remaining %(remaining)s."
 msgstr "Итог оплат должен составлять %(expected)s; распределите оставшуюся сумму %(remaining)s."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "The return exceeds the current unreturned quantity."
 msgstr "Возврат превышает текущее доступное к возврату количество."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "The return quantity must match the selected serial numbers."
 msgstr "Количество возврата должно соответствовать выбранным серийным номерам."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/stock_picking.py
+#: code:addons/pos_order_correction/models/stock_picking.py:0
 msgid "The session delivery could not be completed."
 msgstr "Не удалось завершить отгрузку смены."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "The source sale changed after preparation. Create a new correction from the current result."
 msgstr "Исходная продажа изменилась после подготовки. Создайте новое исправление из текущего результата."
 
+#, python-format
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/stock_picking.py
-#, python-format
+#: code:addons/pos_order_correction/models/stock_picking.py:0
 msgid "The stock history for %(product)s does not identify the effective sold quantity."
 msgstr "Складская история товара %(product)s не подтверждает текущее проданное количество."
 
+#, python-format
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/stock_picking.py
-#, python-format
+#: code:addons/pos_order_correction/models/stock_picking.py:0
 msgid "The stock lot %(lot)s could not be identified."
 msgstr "Не удалось определить партию %(lot)s."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/stock_picking.py
+#: code:addons/pos_order_correction/models/stock_picking.py:0
 msgid "The stock source belongs to another company."
 msgstr "Складской источник принадлежит другой компании."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "The target session must use the original company."
 msgstr "Целевая смена должна относиться к исходной компании."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "The target session must use the original currency."
 msgstr "Валюта целевой смены должна совпадать с исходной."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "The target session must use the original point of sale."
 msgstr "Целевая смена должна относиться к исходной кассе."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "This correction is stale. Create a new correction from the current result."
 msgstr "Подготовка устарела. Создайте новое исправление из текущего результата."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_line.py
+#: code:addons/pos_order_correction/models/pos_order_line.py:0
 msgid "This source was replaced by a correction. Reload the current sale before returning it."
 msgstr "Этот источник заменён исправлением. Перед возвратом обновите данные текущей продажи."
 
 #. module: pos_order_correction
 #. odoo-javascript
-#: code:addons/pos_order_correction/static/src/ticket_screen.xml
+#: code:addons/pos_order_correction/static/src/ticket_screen.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
 msgid "Total"
 msgstr "Итого"
 
 #. module: pos_order_correction
+#: model:ir.model,name:pos_order_correction.model_stock_picking
 msgid "Transfer"
 msgstr "Перемещение"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction_line__product_uom_id
 msgid "Unit"
 msgstr "Единица измерения"
 
+#, python-format
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_correction.py
-#, python-format
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "Valid lot or serial numbers are required for %(product)s."
 msgstr "Для товара %(product)s необходимо указать корректные партии или серийные номера."
 
 #. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__website_message_ids
 msgid "Website Messages"
 msgstr "Сообщения сайта"
 
 #. module: pos_order_correction
+#: model:ir.model.fields,help:pos_order_correction.field_pos_order_correction__website_message_ids
 msgid "Website communication history"
 msgstr "История сообщений сайта"
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order.py
-#: code:addons/pos_order_correction/models/pos_order_correction.py
+#: code:addons/pos_order_correction/models/pos_order.py:0
+#: code:addons/pos_order_correction/models/pos_order_correction.py:0
 msgid "You are not allowed to correct POS orders."
 msgstr "У вас нет права исправлять заказы POS."
 
 #. module: pos_order_correction
 #. odoo-python
-#: code:addons/pos_order_correction/models/pos_order_projection.py
+#: code:addons/pos_order_correction/models/pos_order_projection.py:0
 msgid "root_order_id"
 msgstr "root_order_id"
+
+#. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
+msgid "After"
+msgstr "Стало"
+
+#. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__after_details
+msgid "After Details"
+msgstr "Значения после исправления"
+
+#. module: pos_order_correction
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
+msgid "Attributes"
+msgstr "Атрибуты"
+
+#. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
+msgid "Before"
+msgstr "Было"
+
+#. module: pos_order_correction
+#: model:ir.model.fields,field_description:pos_order_correction.field_pos_order_correction__before_details
+msgid "Before Details"
+msgstr "Значения до исправления"
+
+#. module: pos_order_correction
+#. odoo-python
+#: code:addons/pos_order_correction/models/pos_order_projection.py:0
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
+msgid "Change History"
+msgstr "История изменений"
+
+#. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
+msgid "Changes"
+msgstr "Изменения"
+
+#. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
+msgid ""
+"Correction document: the amounts below show this correction's differences."
+msgstr "Документ исправления: ниже показаны изменения товаров и оплат, внесённые этой корректировкой."
+
+#. module: pos_order_correction
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
+msgid "Custom Attributes"
+msgstr "Пользовательские атрибуты"
+
+#. module: pos_order_correction
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
+msgid "Discount (%)"
+msgstr "Скидка (%)"
+
+#. module: pos_order_correction
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
+msgid "Lots / Serial Numbers"
+msgstr "Партии / серийные номера"
+
+#. module: pos_order_correction
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
+msgid "None"
+msgstr "Нет"
+
+#. module: pos_order_correction
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
+msgid "Not recorded or unavailable"
+msgstr "Не записано или недоступно"
+
+#. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_order_correction_form
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
+msgid "Open Current Receipt"
+msgstr "Открыть актуальный чек"
+
+#. module: pos_order_correction
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
+msgid "Original Receipt"
+msgstr "Исходный чек"
+
+#. module: pos_order_correction
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
+msgid "Payments"
+msgstr "Оплаты"
+
+#. module: pos_order_correction
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
+#: model_terms:ir.ui.view,arch_db:pos_order_correction.view_pos_pos_form_correction
+msgid "Products"
+msgstr "Товары"
+
+#. module: pos_order_correction
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
+msgid "Quantity"
+msgstr "Количество"
+
+#. module: pos_order_correction
+#. odoo-python
+#: code:addons/pos_order_correction/models/correction_history.py:0
+msgid "Unit Price"
+msgstr "Цена за единицу"
