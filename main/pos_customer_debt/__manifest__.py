@@ -1,6 +1,6 @@
 {
     "name": "POS Customer Debt Settlement",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.0.2",
     "category": "Point of Sale",
     "summary": "Track and settle customer-account debt by POS order",
     "author": "Uvelirsoft",

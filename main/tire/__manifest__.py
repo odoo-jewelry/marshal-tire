@@ -8,6 +8,8 @@
     'depends': [
         'point_of_sale',
         'pos_cost_recompute',
+        'pos_customer_debt',
+        'pos_order_correction',
         'pos_historical_stock_writeoff',
         'product',
         'stock',

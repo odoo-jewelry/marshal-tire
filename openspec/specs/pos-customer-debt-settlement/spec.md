@@ -7,6 +7,8 @@
 >
 > В меню «Point of Sale» добавлены «Customer Debts» для просмотра задолженностей и «Review Historical Debt Links» для проверки связей старых заказов. Список долгов показывает клиента, компанию, заказ, смену, дату, первоначальный долг, погашение платежами, прочие корректировки, остаток, состояние и причину проверки. Доступны поиск по клиенту и дате, фильтры «Outstanding», «Settled», «Review Required» и действие «Settle» для выбранных совместимых заказов.
 >
+> В обычном списке «Orders» сохраняются стандартные столбцы и их порядок, включая номер чека, клиента, итог и статус заказа, а также стандартный поиск. Для пользователей с правом просмотра долгов добавлены шесть переключаемых столбцов: первоначальный долг, погашение платежами, прочие корректировки, остаток, состояние долга и причина проверки. В «Orders» они скрыты по умолчанию и включаются через выбор столбцов; в отдельном списке «Customer Debts» показаны по умолчанию, но каждый из них можно отключить. Скрытие столбцов не меняет заказы и задолженность.
+>
 > В форме заказа добавлены кнопка и вкладка «Customer Debt»: состояние задолженности, первоначальная сумма, остаток, суммы погашения и корректировок, причина проверки, история распределений и доступные пользователю бухгалтерские источники. В карточке клиента добавлена кнопка «POS Debts» со счётчиком, открывающая связанные долги. Сводки относятся к кассовым долгам и разделяются по компаниям и валютам.
 >
 > В форме входящего платежа покупателя добавлена вкладка «POS Debt Settlement» с распределённой и доступной суммами, таблицей заказов, назначенными и действующими суммами погашения, состоянием распределения и действием «Undo». Кнопка «Apply Available Payment» применяет свободный остаток проведённого платежа. В форме регистрации платежа из долгов добавлен блок «POS Debt Distribution» с выбранными заказами и редактируемыми суммами. В изменённых формах существующие поля не изменены и не удалены.
@@ -233,3 +235,39 @@ The module SHALL preserve standard point-of-sale states, stock operations and pa
 #### Scenario: S36 Order state preservation
 - **WHEN** a completed customer-account order is partially or fully settled
 - **THEN** its standard order state and original point-of-sale payment lines are unchanged while separate debt information reflects the settlement
+
+### Requirement: Standard order views and optional debt columns
+
+The ordinary Orders action SHALL retain the standard POS order list and search behavior after installation or upgrade of the debt feature. Standard columns SHALL retain their visibility and relative order, including the order reference, receipt number, customer, order total and order state. The dedicated Customer Debts list and debt-specific search SHALL be used by debt navigation without replacing the ordinary Orders views.
+
+Users with debt-viewing permission SHALL be able to select six additional debt columns in Orders: original debt, settlement by payments, other adjustments, outstanding amount, debt state and review reason. With no saved column preferences, these columns SHALL be hidden in Orders and visible in Customer Debts. Each of these columns SHALL be independently showable and hideable through the standard column selector in both lists. Technical visibility fields SHALL NOT become selectable business columns. Changing column visibility SHALL NOT modify orders, payments or debt balances. An unknown outstanding amount SHALL remain distinguishable from a confirmed zero when its column is shown.
+
+#### Scenario: S37 Preserve the ordinary Orders list and search
+- **GIVEN** the customer debt feature has been installed or upgraded
+- **WHEN** a user opens the ordinary Orders action without entering the debt workflow
+- **THEN** the standard order reference, receipt number, customer, total and order state columns are available in their standard relative order
+- **AND** the standard receipt-number search and order-state filters remain available instead of being replaced by debt-specific search
+
+#### Scenario: S38 Debt columns are optional in Orders
+- **GIVEN** a user has debt-viewing permission and no saved column preferences
+- **WHEN** the user opens Orders
+- **THEN** all six additional debt columns are hidden by default and available in the column selector
+- **AND** technical visibility fields are not offered as selectable columns
+
+#### Scenario: S39 Toggle debt columns without changing business data
+- **GIVEN** a user has debt-viewing permission
+- **WHEN** the user shows or hides individual debt columns in either order list
+- **THEN** only the selected columns change visibility and order, payment and debt data remain unchanged
+- **AND** showing the outstanding amount of an order with an unknown residual does not display that residual as a confirmed zero
+
+#### Scenario: S40 Keep dedicated debt navigation
+- **GIVEN** a user has debt-viewing permission and no saved column preferences
+- **WHEN** the user opens Customer Debts or a customer's debt history
+- **THEN** the dedicated debt list and its outstanding, settled and review-required filters are used
+- **AND** all six debt columns are initially visible and individually hideable
+- **AND** opening ordinary Orders still uses its standard list and search
+
+#### Scenario: S41 Restrict optional debt columns to debt viewers
+- **WHEN** a user without debt-viewing permission opens Orders
+- **THEN** the standard order columns remain available
+- **AND** the additional debt columns are not offered in the list or its column selector

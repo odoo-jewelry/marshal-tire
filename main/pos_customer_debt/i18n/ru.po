@@ -13,230 +13,431 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_account_payment__pos_debt_accounting_partner_id
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_order__debt_accounting_partner_id
 msgid "Accounting Customer"
 msgstr "Клиент в бухгалтерском учёте"
 
+#. module: pos_customer_debt
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_pos_customer_debt_link_review_form
 msgid "Analyze and Link"
 msgstr "Проверить и связать"
 
+#. module: pos_customer_debt
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_account_payment_form_pos_customer_debt
 msgid "Apply Available Payment"
 msgstr "Распределить доступный платёж"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_account_payment__pos_debt_available_amount
 msgid "Available for POS Debt"
 msgstr "Доступно для погашения долга"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields.selection,name:pos_customer_debt.selection__pos_customer_debt_allocation__state__cancelled
 msgid "Cancelled"
 msgstr "Отменено"
 
+#. module: pos_customer_debt
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_pos_order_form_debt
 msgid "Customer Debt"
 msgstr "Долг клиента"
 
+#. module: pos_customer_debt
+#: model:ir.actions.act_window,name:pos_customer_debt.action_pos_customer_debt
+#: model:ir.ui.menu,name:pos_customer_debt.menu_pos_customer_debt
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_pos_customer_debt_list
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_pos_customer_debt_search
 msgid "Customer Debts"
 msgstr "Долги клиентов"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_account_payment_register__pos_debt_created_payment_id
 msgid "Created Debt Payment"
 msgstr "Созданный платёж по долгу"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_order__debt_allocation_ids
 msgid "Debt Allocations"
 msgstr "Распределения платежей по долгам"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_account_payment_register__pos_debt_allocation_line_ids
 msgid "Debt Distribution"
 msgstr "Распределение по долгам"
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/wizard/account_payment_register.py:0
 msgid "Debt payment registration is already being processed. Refresh and try again."
 msgstr "Регистрация платежа по долгу уже выполняется. Обновите данные и повторите попытку."
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_customer_debt_allocation__debt_move_line_ids
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_order__debt_source_line_ids
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_payment__debt_move_line_ids
 msgid "Debt Journal Items"
 msgstr "Проводки задолженности"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_order__debt_history_partial_ids
 msgid "Debt Reconciliations"
 msgstr "Сопоставления задолженности"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_order__debt_review_reason
 msgid "Debt Review Reason"
 msgstr "Причина проверки долга"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_order__debt_state
 msgid "Debt Status"
 msgstr "Состояние долга"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields.selection,name:pos_customer_debt.selection__pos_customer_debt_allocation__state__draft
 msgid "Draft"
 msgstr "Черновик"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_account_payment__pos_debt_allocated_amount
 msgid "Effective POS Debt Settlement"
 msgstr "Фактически погашено по кассовым долгам"
 
+#. module: pos_customer_debt
+#: model:res.groups,name:pos_customer_debt.group_pos_customer_debt_link_manager
 msgid "Historical Link Management"
 msgstr "Управление историческими связями"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields.selection,name:pos_customer_debt.selection__pos_order__debt_state__not_applicable
 msgid "Not Applicable"
 msgstr "Не применяется"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_order__debt_original_amount
 msgid "Original Customer Account Debt"
 msgstr "Первоначальный долг на аккаунте клиента"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_order__debt_adjustment_amount
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_pos_customer_debt_list
 msgid "Other Adjustments"
 msgstr "Другие корректировки"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields.selection,name:pos_customer_debt.selection__pos_order__debt_state__outstanding
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_pos_customer_debt_list
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_pos_customer_debt_search
 msgid "Outstanding"
 msgstr "Не погашено"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_order__debt_residual_amount
 msgid "Outstanding Customer Account Debt"
 msgstr "Остаток долга на аккаунте клиента"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_order__debt_residual_known
 msgid "Outstanding Amount Is Known"
 msgstr "Остаток долга определён"
 
+#. module: pos_customer_debt
+#: model:res.groups.privilege,name:pos_customer_debt.res_groups_privilege_pos_customer_debt
 msgid "POS Customer Debt"
 msgstr "Долги клиентов по кассовым заказам"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_account_payment_register__pos_debt_order_ids
 msgid "POS Customer Debts"
 msgstr "Долги клиентов по кассовым заказам"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_account_payment__pos_debt_allocation_ids
 msgid "POS Debt Allocations"
 msgstr "Распределения по кассовым долгам"
 
+#. module: pos_customer_debt
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_account_payment_register_form_pos_customer_debt
 msgid "POS Debt Distribution"
 msgstr "Распределение по кассовым долгам"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_account_move_line__pos_debt_payment_id
 msgid "POS Debt Payment"
 msgstr "Платёж по кассовому долгу"
 
+#. module: pos_customer_debt
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_account_payment_form_pos_customer_debt
 msgid "POS Debt Settlement"
 msgstr "Погашение кассовых долгов"
 
+#. module: pos_customer_debt
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_partner_form_pos_customer_debt
 msgid "POS Debts"
 msgstr "Кассовые долги"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields.selection,name:pos_customer_debt.selection__pos_order__debt_state__pending_session
 msgid "Pending Session Closure"
 msgstr "Ожидает закрытия смены"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_customer_debt_allocation__payment_reference
 msgid "Payment Reference"
 msgstr "Номер платежа"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_customer_debt_allocation__partial_reconcile_ids
 msgid "Reconciliations"
 msgstr "Сопоставления"
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/pos_order.py:0
 msgid "Register Debt Payment"
 msgstr "Зарегистрировать погашение долга"
 
+#. module: pos_customer_debt
+#: model:ir.actions.act_window,name:pos_customer_debt.action_pos_customer_debt_link_review
+#: model:ir.ui.menu,name:pos_customer_debt.menu_pos_customer_debt_link_review
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_pos_customer_debt_link_review_form
 msgid "Review Historical Debt Links"
 msgstr "Проверить исторические связи долгов"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields.selection,name:pos_customer_debt.selection__pos_order__debt_state__review_required
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_pos_customer_debt_search
 msgid "Review Required"
 msgstr "Требуется проверка"
 
+#. module: pos_customer_debt
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_pos_customer_debt_list
 msgid "Settle"
 msgstr "Погасить"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields.selection,name:pos_customer_debt.selection__pos_order__debt_state__settled
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_pos_customer_debt_search
 msgid "Settled"
 msgstr "Погашено"
 
+#. module: pos_customer_debt
+#: model:ir.model.fields,field_description:pos_customer_debt.field_pos_order__debt_payment_amount
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_pos_customer_debt_list
 msgid "Settled by Payments"
 msgstr "Погашено платежами"
 
+#. module: pos_customer_debt
+#: model:res.groups,name:pos_customer_debt.group_pos_customer_debt_settler
 msgid "Settlement"
 msgstr "Погашение"
 
+#. module: pos_customer_debt
+#: model_terms:ir.ui.view,arch_db:pos_customer_debt.view_account_payment_form_pos_customer_debt
 msgid "Undo"
 msgstr "Отменить сопоставление"
 
+#. module: pos_customer_debt
+#: model:res.groups,name:pos_customer_debt.group_pos_customer_debt_viewer
 msgid "Viewer"
 msgstr "Просмотр"
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/account_move_line.py:0
 msgid "A debt allocation must reconcile exactly two lines in one currency."
 msgstr "Распределение долга должно сопоставлять ровно две проводки в одной валюте."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "A debt balance changed concurrently. Refresh and try again."
 msgstr "Остаток долга был одновременно изменён. Обновите данные и повторите попытку."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "Apply allocations for one payment at a time."
 msgstr "Применяйте распределения только для одного платежа за раз."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/account_payment.py:0
 msgid "A payment with debt settlement history cannot be deleted."
 msgstr "Платёж с историей погашения долга нельзя удалить."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "An allocation exceeds the order's current debt."
 msgstr "Сумма распределения превышает текущий долг по заказу."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "An order can occur only once in a draft allocation."
 msgstr "В черновике распределения заказ можно указать только один раз."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "Applied debt allocations must be undone before they can be changed."
 msgstr "Перед изменением применённого распределения отмените его сопоставление."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "Applied debt allocations must be undone before they can be deleted."
 msgstr "Перед удалением применённого распределения отмените его сопоставление."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "Cross-currency debt allocation is not supported."
 msgstr "Распределение долга между разными валютами не поддерживается."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/wizard/account_payment_register.py:0
 msgid "Debt distribution requires exactly one payment."
 msgstr "Для распределения по долгам требуется ровно один платёж."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "Draft and applied allocations cannot be mixed."
 msgstr "Нельзя одновременно применять черновые и уже применённые распределения."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/pos_order.py:0
 msgid "No unambiguous posted receivable journal item is linked to the order."
 msgstr "С заказом не связана однозначно определённая проведённая дебиторская проводка."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "Only incoming customer payments can settle debt."
 msgstr "Для погашения долга можно использовать только входящие платежи клиента."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "Only current outstanding debts can be allocated."
 msgstr "Распределение возможно только на текущие непогашенные долги."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/pos_order.py:0
 msgid "Only unambiguous debts from closed sessions can be settled."
 msgstr "Можно погашать только однозначно определённые долги из закрытых смен."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "Post the incoming payment before allocating it."
 msgstr "Перед распределением проведите входящий платёж."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/pos_order.py:0
 msgid "Select at least one customer debt."
 msgstr "Выберите хотя бы один долг клиента."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/pos_order.py:0
 msgid "Selected debts must use one company, customer, currency, and receivable account."
 msgstr "Выбранные долги должны относиться к одной компании, одному клиенту, одной валюте и одному счёту дебиторской задолженности."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "The allocation amount must be positive."
 msgstr "Сумма распределения должна быть положительной."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "The allocations exceed the available payment amount."
 msgstr "Сумма распределений превышает доступный остаток платежа."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "The accounting reconciliation did not match the requested amount."
 msgstr "Сумма бухгалтерского сопоставления не соответствует запрошенной сумме."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/pos_order.py:0
 msgid "The customer-account refund has no unique source order."
 msgstr "Для возврата на аккаунт клиента не определён единственный исходный заказ."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "The current residual amounts cannot satisfy the allocation."
 msgstr "Текущих остатков недостаточно для выполнения распределения."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "The debt allocation changed concurrently. Refresh and try again."
 msgstr "Распределение долга было одновременно изменено. Обновите данные и повторите попытку."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/pos_order.py:0
 msgid "The order has no identified customer."
 msgstr "В заказе не указан клиент."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "The payment and order must belong to the same company."
 msgstr "Платёж и заказ должны относиться к одной компании."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "The payment and order must have the same accounting customer."
 msgstr "У платежа и заказа должен быть один клиент в бухгалтерском учёте."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "The payment and selected debt use different receivable accounts."
 msgstr "В платеже и выбранном долге используются разные счета дебиторской задолженности."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "The payment journal entry must be posted."
 msgstr "Бухгалтерская запись платежа должна быть проведена."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "The payment must have one available receivable account."
 msgstr "В платеже должен быть один доступный счёт дебиторской задолженности."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/account_move_line.py:0
 msgid "There is no residual amount left to allocate."
 msgstr "Для распределения не осталось доступного остатка."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/wizard/debt_link_review.py:0
 msgid "You are not allowed to recover debt links."
 msgstr "У вас нет права восстанавливать связи долгов."
 
+#. module: pos_customer_debt
+#. odoo-python
+#: code:addons/pos_customer_debt/models/payment_debt_allocation.py:0
 msgid "You are not allowed to settle point-of-sale customer debt."
 msgstr "У вас нет права погашать долги клиентов по кассовым заказам."

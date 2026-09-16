@@ -3,6 +3,7 @@
     <record id="view_pos_customer_debt_list" model="ir.ui.view">
         <field name="name">pos.customer.debt.list</field>
         <field name="model">pos.order</field>
+        <field name="priority">50</field>
         <field name="arch" type="xml">
             <list string="Customer Debts" create="0" delete="0" duplicate="0">
                 <header>
@@ -20,11 +21,11 @@
                 <field name="name"/>
                 <field name="session_id"/>
                 <field name="date_order"/>
-                <field name="debt_original_amount" sum="Original Debt"/>
-                <field name="debt_payment_amount" sum="Settled by Payments"/>
-                <field name="debt_adjustment_amount" sum="Other Adjustments"/>
-                <field name="debt_residual_amount" sum="Outstanding" invisible="not debt_residual_known"/>
-                <field name="debt_state" widget="badge"/>
+                <field name="debt_original_amount" sum="Original Debt" optional="show"/>
+                <field name="debt_payment_amount" sum="Settled by Payments" optional="show"/>
+                <field name="debt_adjustment_amount" sum="Other Adjustments" optional="show"/>
+                <field name="debt_residual_amount" sum="Outstanding" invisible="not debt_residual_known" optional="show"/>
+                <field name="debt_state" widget="badge" optional="show"/>
                 <field name="debt_review_reason" optional="show"/>
             </list>
         </field>
@@ -33,6 +34,7 @@
     <record id="view_pos_customer_debt_search" model="ir.ui.view">
         <field name="name">pos.customer.debt.search</field>
         <field name="model">pos.order</field>
+        <field name="priority">50</field>
         <field name="arch" type="xml">
             <search string="Customer Debts">
                 <field name="name"/>
@@ -46,6 +48,23 @@
                 <filter name="group_date" string="Date" context="{'group_by': 'date_order:month'}"/>
                 <filter name="group_company" string="Company" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
             </search>
+        </field>
+    </record>
+
+    <record id="view_pos_order_tree" model="ir.ui.view">
+        <field name="name">pos.order.list.inherit.customer.debt</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field name="debt_residual_known" column_invisible="True" groups="pos_customer_debt.group_pos_customer_debt_viewer"/>
+                <field name="debt_original_amount" optional="hide" groups="pos_customer_debt.group_pos_customer_debt_viewer"/>
+                <field name="debt_payment_amount" optional="hide" groups="pos_customer_debt.group_pos_customer_debt_viewer"/>
+                <field name="debt_adjustment_amount" optional="hide" groups="pos_customer_debt.group_pos_customer_debt_viewer"/>
+                <field name="debt_residual_amount" invisible="not debt_residual_known" optional="hide" groups="pos_customer_debt.group_pos_customer_debt_viewer"/>
+                <field name="debt_state" widget="badge" optional="hide" groups="pos_customer_debt.group_pos_customer_debt_viewer"/>
+                <field name="debt_review_reason" optional="hide" groups="pos_customer_debt.group_pos_customer_debt_viewer"/>
+            </xpath>
         </field>
     </record>
 
