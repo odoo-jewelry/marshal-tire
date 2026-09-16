@@ -1,6 +1,6 @@
 {
     'name': 'Tire',
-    'version': '19.0.1.4.0',
+    'version': '19.0.1.4.2',
     'category': 'Sales',
     'summary': 'Tire management',
     'author': 'dmitry.aka.jok@gmail.com',
@@ -8,6 +8,7 @@
     'depends': [
         'point_of_sale',
         'pos_cost_recompute',
+        'pos_historical_stock_writeoff',
         'product',
         'stock',
         'sale_management',

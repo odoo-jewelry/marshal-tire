@@ -1,0 +1,815 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_historical_stock_writeoff
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-16 12:26+0000\n"
+"PO-Revision-Date: 2026-09-16 12:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid ""
+"%(product)s requires untracked company-owned stock with FIFO and periodic "
+"valuation."
+msgstr ""
+"Для товара %(product)s поддерживаются собственные запасы без партий и "
+"серийных номеров, метод FIFO и периодическая оценка."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid ""
+"A complete stock source is required for historical POS cost recomputation."
+msgstr ""
+"Для пересчёта себестоимости чека нужны полностью проведённые складские "
+"движения."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "A lot or serial number is required for this stock product."
+msgstr "Для этого товара необходимо указать партию или серийный номер."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/pos_order.py:0
+msgid ""
+"A receipt used for historical stock consumption cannot accept a payment."
+msgstr "Чек, использованный для исторического списания, нельзя оплатить."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/pos_order.py:0
+msgid ""
+"A receipt used for historical stock consumption cannot create another "
+"payment, delivery or return."
+msgstr ""
+"Чек, использованный для исторического списания, нельзя повторно оплатить, "
+"отгрузить или вернуть."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid "Access to the complete stock history is required."
+msgstr "Необходим доступ ко всей складской истории."
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_picking__historical_applied_at
+msgid "Applied At"
+msgstr "Дата выполнения"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_picking__historical_applied_by_id
+msgid "Applied By"
+msgstr "Выполнил"
+
+#. module: pos_historical_stock_writeoff
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.stock_picking_historical_form
+msgid "Apply Historical Stock"
+msgstr "Провести списание"
+
+#. module: pos_historical_stock_writeoff
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.historical_cost_recompute_form
+msgid "Apply Historical Stock and POS Costs"
+msgstr "Применить себестоимость склада и чеков"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Apply historical documents individually."
+msgstr "Проводите исторические списания по одному."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid "Audited historical stock values cannot be deleted."
+msgstr "Складские оценки с сохранённой историей пересчёта нельзя удалять."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/pos_order.py:0
+msgid ""
+"Cancel historical preparation before changing or processing its source "
+"receipt. Completed historical consumption cannot be reused as a sale."
+msgstr ""
+"Перед изменением или проведением исходного чека отмените подготовку "
+"исторического списания. После проведения списания чек нельзя использовать "
+"для продажи."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Completed historical consumption cannot be cancelled."
+msgstr "Проведённое историческое списание нельзя отменить."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Completed historical documents cannot be deleted."
+msgstr "Проведённые исторические списания нельзя удалять."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_integrity.py:0
+msgid "Completed historical stock movements cannot be changed."
+msgstr "Проведённые исторические складские движения нельзя изменять."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Completed or cancelled historical documents cannot be edited."
+msgstr ""
+"Проведённые или отменённые исторические списания нельзя редактировать."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid "Consolidated product history requires separate review."
+msgstr "История объединённых товаров требует отдельной проверки."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid "Current unreserved stock is insufficient for %(product)s."
+msgstr "Недостаточно текущего свободного остатка товара %(product)s."
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_cost_recompute__display_name
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_order__display_name
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_order_line__display_name
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_payment__display_name
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_session__display_name
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_product_product__display_name
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_product_value__display_name
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_move__display_name
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_move_line__display_name
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_picking__display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid ""
+"Equal receipt and issue timestamps make historical valuation ambiguous."
+msgstr ""
+"Совпадающее время прихода и расхода не позволяет однозначно определить "
+"историческую стоимость."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid ""
+"Existing accounting or analytic entries prevent historical stock valuation "
+"changes."
+msgstr ""
+"Существующие бухгалтерские или аналитические записи не позволяют изменять "
+"историческую складскую оценку."
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_move__historical_cost_line_id
+msgid "Historical Cost Recalculation"
+msgstr "Исторический пересчёт себестоимости"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_picking__historical_effective_at
+msgid "Stock Operation Date"
+msgstr "Дата и время списания"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_cost_recompute__historical_evidence
+msgid "Historical Evidence"
+msgstr "Данные проверки истории"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid "Historical FIFO returned an invalid valuation."
+msgstr "Исторический расчёт FIFO вернул недопустимую стоимость."
+
+#. module: pos_historical_stock_writeoff
+#: model:res.groups.privilege,name:pos_historical_stock_writeoff.privilege_historical_stock
+msgid "Historical POS Stock"
+msgstr "Исторические списания кассы"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_picking__historical_session_id
+msgid "Historical Session"
+msgstr "Старая смена"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_picking__historical_source_snapshot
+msgid "Historical Source Snapshot"
+msgstr "Снимок исходного чека"
+
+#. module: pos_historical_stock_writeoff
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.pos_order_historical_form
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.pos_session_historical_form
+msgid "Historical Stock"
+msgstr "Исторические списания"
+
+#. module: pos_historical_stock_writeoff
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.pos_order_historical_form
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.stock_picking_historical_form
+msgid "Historical Stock Write-off"
+msgstr "Историческое списание"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid ""
+"Historical Stock Write-off cannot be removed while completed historical "
+"documents exist."
+msgstr ""
+"Модуль исторического списания нельзя удалить, пока существуют проведённые "
+"исторические документы."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/pos_order.py:0
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_cost_recompute__historical_picking_ids
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_order__historical_picking_ids
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_session__historical_picking_ids
+#: model:ir.model.fields.selection,name:pos_historical_stock_writeoff.selection__pos_cost_recompute__selection_type__historical
+msgid "Historical Stock Write-offs"
+msgstr "Исторические списания"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/pos_order.py:0
+msgid "Historical consumption requires a direct delivery operation."
+msgstr ""
+"Для исторического списания необходима прямая отгрузка со склада покупателю."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid ""
+"Historical consumption would cause a stock shortage for %(product)s on "
+"%(date)s."
+msgstr ""
+"Историческое списание приведёт к недостатку товара %(product)s на %(date)s."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid "Historical cost audit links are server-managed."
+msgstr "Связи с историей пересчёта стоимости устанавливаются сервером."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Historical details require a document prepared from a receipt."
+msgstr ""
+"Исторические реквизиты доступны только в документе, подготовленном из чека."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid ""
+"Historical documents cannot be copied. Prepare them from an eligible "
+"receipt."
+msgstr ""
+"Исторические списания нельзя копировать. Подготовьте документ из подходящего"
+" чека."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid ""
+"Historical receipt, session and stock locations must belong to the same "
+"company and POS."
+msgstr ""
+"Исходный чек, смена и складские размещения должны соответствовать одной "
+"компании и кассе."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid "Historical receipts must have a positive recorded value."
+msgstr "Исторические приходы должны иметь положительную учётную стоимость."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid "Historical recomputation cannot include this POS source: %(reason)s"
+msgstr "Этот чек нельзя включить в исторический пересчёт: %(reason)s"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid ""
+"Historical recomputation includes all affected products and subsequent "
+"operations. Use All Matching Lines without additional product or POS "
+"filters."
+msgstr ""
+"Исторический пересчёт охватывает все затронутые товары и последующие "
+"операции. Выберите все подходящие строки без дополнительных фильтров по "
+"товарам и кассам."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Historical source links and audit data are server-managed."
+msgstr "Исторические связи и сведения о проведении устанавливаются сервером."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_integrity.py:0
+msgid ""
+"Historical stock dimensions and values are managed by the historical "
+"actions."
+msgstr ""
+"Реквизиты и стоимость исторических движений изменяются только специальными "
+"действиями списания и пересчёта."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_integrity.py:0
+msgid "Historical stock movements cannot be copied."
+msgstr "Исторические складские движения нельзя копировать."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid "Historical stock operations require dedicated permission."
+msgstr "Для исторических складских операций необходимо отдельное разрешение."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/pos_order.py:0
+msgid ""
+"Historical stock preparation requires a draft or cancelled receipt without "
+"payments, deliveries, invoices, returns, corrections or debt settlement."
+msgstr ""
+"Для исторического списания нужен черновой или отменённый чек без оплат, "
+"отгрузок, счетов, возвратов, исправлений и погашений долга."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid ""
+"Historical stock processing did not complete without unsupported side "
+"effects."
+msgstr ""
+"Историческое списание не завершено полностью либо создало неподдержанные "
+"связанные операции."
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_cost_recompute__historical_cutoff
+msgid "History Through"
+msgstr "История по"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_cost_recompute__id
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_order__id
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_order_line__id
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_payment__id
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_session__id
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_product_product__id
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_product_value__id
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_move__id
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_move_line__id
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_picking__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid ""
+"Insufficient historical stock for %(product)s: available %(available)s, "
+"required %(required)s."
+msgstr ""
+"Недостаточно исторического остатка товара %(product)s: доступно "
+"%(available)s, требуется %(required)s."
+
+#. module: pos_historical_stock_writeoff
+#: model:res.groups,name:pos_historical_stock_writeoff.group_historical_stock
+msgid "Manage Historical Stock Write-offs"
+msgstr "Управление историческими списаниями"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Only draft historical documents can be applied."
+msgstr "Провести можно только черновик исторического списания."
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.constraint,message:pos_historical_stock_writeoff.constraint_stock_picking_historical_active_source
+msgid "Only one active historical stock document is allowed per receipt."
+msgstr ""
+"Для чека допускается только одна активная подготовка или проведённое "
+"историческое списание."
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model,name:pos_historical_stock_writeoff.model_pos_cost_recompute
+msgid "POS Cost Recomputation"
+msgstr "Пересчёт себестоимости чеков"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_picking__historical_config_id
+msgid "Point of Sale"
+msgstr "Касса"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model,name:pos_historical_stock_writeoff.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Строки кассовых заказов"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model,name:pos_historical_stock_writeoff.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Кассовые заказы"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model,name:pos_historical_stock_writeoff.model_pos_payment
+msgid "Point of Sale Payments"
+msgstr "Кассовые оплаты"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model,name:pos_historical_stock_writeoff.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Кассовая смена"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model,name:pos_historical_stock_writeoff.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Строки складских движений"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model,name:pos_historical_stock_writeoff.model_product_value
+msgid "Product Value"
+msgstr "Стоимость товара"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model,name:pos_historical_stock_writeoff.model_product_product
+msgid "Product Variant"
+msgstr "Вариант товара"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Provide a reason and at least one stock line."
+msgstr "Укажите основание и добавьте хотя бы одну строку товара."
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_picking__historical_reason
+msgid "Reason"
+msgstr "Основание"
+
+#. module: pos_historical_stock_writeoff
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.stock_picking_historical_form
+msgid "Recompute Subsequent Costs"
+msgstr "Пересчитать последующую себестоимость"
+
+#. module: pos_historical_stock_writeoff
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.historical_cost_recompute_form
+msgid ""
+"Recompute all subsequent issues of the affected products from the earliest "
+"selected historical document, including nonzero costs. Stock values are "
+"updated first, followed by related completed POS costs. Revenue, payments "
+"and quantities remain unchanged."
+msgstr ""
+"Пересчитываются все последующие расходы затронутых товаров от самого раннего"
+" выбранного исторического документа, включая ненулевую стоимость. Сначала "
+"обновляется складская оценка, затем себестоимость связанных проведённых "
+"чеков. Выручка, оплаты и количества сохраняются."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid ""
+"Recorded movements do not reconcile with current stock for %(product)s."
+msgstr ""
+"Записанные движения не соответствуют текущему остатку товара %(product)s."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid ""
+"Returns, transfers or previously repaired stock require separate valuation "
+"review."
+msgstr ""
+"Возвраты, внутренние перемещения и ранее исправленные складские оценки "
+"требуют отдельной проверки стоимости."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Saving historical preparation must not reserve stock."
+msgstr ""
+"Сохранение подготовки исторического списания не должно резервировать товар."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Select a closed session and a stock operation date in the past."
+msgstr "Выберите закрытую смену и укажите дату и время списания в прошлом."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Select completed historical documents from one company."
+msgstr "Выберите проведённые исторические списания одной компании."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid ""
+"Select completed historical stock documents from one company and stock "
+"location; do not combine recomputation modes."
+msgstr ""
+"Выберите проведённые исторические списания одной компании и одного "
+"складского размещения. Не совмещайте режимы пересчёта."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/pos_order.py:0
+msgid "Select historical source receipts separately from ordinary sales."
+msgstr ""
+"Выбирайте исходные чеки исторических списаний отдельно от обычных продаж."
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_cost_recompute__selection_type
+msgid "Selection Type"
+msgstr "Способ отбора"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_stock_picking__historical_pos_order_id
+msgid "Source Receipt"
+msgstr "Исходный чек"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model,name:pos_historical_stock_writeoff.model_stock_move
+msgid "Stock Move"
+msgstr "Складское движение"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid "Stock history contains an unsupported date or quantity."
+msgstr "Складская история содержит неподдержанную дату или количество."
+
+#. module: pos_historical_stock_writeoff
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.historical_cost_recompute_form
+msgid "Subsequent Stock Costs"
+msgstr "Себестоимость последующих списаний"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "The complete historical quantity could not be reserved."
+msgstr ""
+"Не удалось зарезервировать полное количество для исторического списания."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid "The historical operation overlaps a locked or closed valuation period."
+msgstr ""
+"Историческая операция попадает в заблокированный период или закрытый период "
+"оценки запасов."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid ""
+"The historical preview is stale. Review current history before applying."
+msgstr ""
+"Предварительный расчёт устарел. Повторите просмотр текущей истории перед "
+"применением."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/pos_order.py:0
+msgid "The receipt contains no stock products."
+msgstr "В чеке нет складских товаров."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/pos_order.py:0
+msgid "The source company is not allowed."
+msgstr "Нет доступа к компании исходного чека."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/pos_order.py:0
+msgid ""
+"The source lines of completed historical consumption cannot be changed."
+msgstr ""
+"Строки исходного чека проведённого исторического списания нельзя изменять."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "The source receipt changed. Cancel preparation and prepare it again."
+msgstr "Исходный чек изменился. Отмените подготовку и создайте её заново."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid "The total historical quantity must be finite."
+msgstr ""
+"Итоговое количество исторического списания должно быть конечным числом."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "This is not a historical stock document."
+msgstr "Этот документ не является историческим списанием."
+
+#. module: pos_historical_stock_writeoff
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.stock_picking_historical_form
+msgid ""
+"This records stock consumption without revenue or payments. After completing"
+" your transfers, manually recompute subsequent costs from the earliest "
+"historical consumption."
+msgstr ""
+"Документ списывает товар без выручки и оплат. После завершения переносов "
+"вручную пересчитайте последующую себестоимость от самого раннего "
+"исторического списания."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid "Tracked, packaged or third-party stock history is not supported."
+msgstr ""
+"История с партиями, серийными номерами, упаковками или чужими запасами не "
+"поддерживается."
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model,name:pos_historical_stock_writeoff.model_stock_picking
+msgid "Transfer"
+msgstr "Перемещение"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_integrity.py:0
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Use Apply Historical Stock to confirm and complete the document."
+msgstr ""
+"Используйте «Провести списание» для подтверждения и завершения документа."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_integrity.py:0
+msgid "Use Apply Historical Stock to value this document."
+msgstr "Используйте «Провести списание» для оценки этого документа."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+#: code:addons/pos_historical_stock_writeoff/models/stock_integrity.py:0
+msgid ""
+"Use a new reviewed historical recomputation to change an audited stock "
+"value."
+msgstr ""
+"Для изменения стоимости с сохранённой историей создайте новый исторический "
+"пересчёт и проверьте его перед применением."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_integrity.py:0
+msgid "Use manual historical recomputation to change completed stock values."
+msgstr ""
+"Для изменения стоимости проведённых движений используйте ручной исторический"
+" пересчёт."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid ""
+"Use positive stock quantities in the product's unit, without chained or "
+"return movements."
+msgstr ""
+"Укажите положительное количество складского товара в допустимой единице "
+"измерения, без связанных цепочек движений и возвратов."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_picking.py:0
+msgid "Use the historical stock actions to process this document."
+msgstr "Для обработки документа используйте действия исторического списания."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/pos_order.py:0
+msgid "id"
+msgstr "id"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,help:pos_historical_stock_writeoff.field_stock_picking__historical_effective_at
+msgid ""
+"Effective stock date and time, independent of the linked session interval."
+msgstr ""
+"Дата и время складского списания, независимые от интервала связанной смены."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/history.py:0
+msgid ""
+"%(product)s still has separate source history. Open Merge Full History on "
+"its product card and convert all absorbed sources first."
+msgstr ""
+"Для товара %(product)s ещё сохраняется раздельная история. Откройте его "
+"карточку, выберите «Объединить всю историю» и сначала объедините все "
+"исходные карточки."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid ""
+"A supported history with outgoing movements in one stock location is "
+"required."
+msgstr ""
+"Необходима поддерживаемая история с расходами из одного места хранения."
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields.selection,name:pos_historical_stock_writeoff.selection__pos_cost_recompute__selection_type__consolidation
+msgid "Consolidated Product History"
+msgstr "Объединённая история товаров"
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid "Convert all remaining source histories before recomputation."
+msgstr "Перед пересчётом объедините историю всех оставшихся источников."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/consolidation.py:0
+msgid "Convert every remaining source before recomputing the unified history."
+msgstr "Перед пересчётом объедините историю всех оставшихся источников."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/consolidation.py:0
+msgid ""
+"History can be consolidated, but historical write-offs and cost "
+"recomputation require direct supplier receipts and customer issues in one "
+"unpackaged stock location. This history requires separate review."
+msgstr ""
+"Историю можно объединить, но исторические списания и пересчёт себестоимости "
+"поддерживают только прямые приходы от поставщика и расходы клиенту в одном "
+"месте хранения без упаковок. Эта история требует отдельной проверки."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid ""
+"History recomputation requires all matching costs without ordinary filters "
+"or stock repair."
+msgstr ""
+"Пересчёт истории должен включать все затронутые стоимости без обычных "
+"фильтров и отдельного восстановления складской оценки."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/consolidation.py:0
+msgid "Recompute Consolidated History Costs"
+msgstr "Пересчёт себестоимости объединённой истории"
+
+#. module: pos_historical_stock_writeoff
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.consolidation_operation_recompute_form
+msgid "Recompute Costs"
+msgstr "Пересчитать себестоимость"
+
+#. module: pos_historical_stock_writeoff
+#: model:ir.model.fields,field_description:pos_historical_stock_writeoff.field_pos_cost_recompute__history_start_at
+msgid "Recompute From"
+msgstr "Пересчитать начиная с"
+
+#. module: pos_historical_stock_writeoff
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.historical_cost_recompute_form
+msgid ""
+"Recompute all subsequent issues, including nonzero costs. Full product "
+"consolidation may require an earlier start than the selected historical "
+"write-off; Recompute From shows the inclusive boundary. Stock values are "
+"updated first, followed by related completed POS costs. Revenue, payments "
+"and quantities remain unchanged."
+msgstr ""
+"Пересчёт включает все последующие расходы, в том числе с ненулевой "
+"себестоимостью. После полного объединения товаров начало периода может быть "
+"раньше выбранного исторического списания; поле «Пересчитать начиная с» "
+"показывает включительную границу. Сначала обновляется складская стоимость, "
+"затем себестоимость связанных завершённых продаж POS. Выручка, оплаты и "
+"количества сохраняются."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid "Select applied full-history consolidations from one company."
+msgstr "Выберите выполненные полные объединения истории одной компании."

@@ -6,14 +6,19 @@
         <field name="arch" type="xml">
             <form string="Consolidate Product Cards">
                 <field name="state" invisible="1"/>
+                <field name="mode" widget="radio"/>
+                <field name="confirmed_mode" invisible="1"/>
                 <field name="has_blockers" invisible="1"/>
                 <group invisible="state != 'preview'">
                     <field name="product_template_ids" widget="many2many_tags" readonly="1"/>
                     <field name="canonical_template_id" domain="[('id', 'in', product_template_ids)]"/>
                     <field name="duplicate_template_id" readonly="1"/>
                 </group>
-                <div class="alert alert-warning" role="alert" invisible="state != 'confirm'">
+                <div class="alert alert-warning" role="alert" invisible="state != 'confirm' or mode != 'stock'">
                     Eligible stock will be transferred at its current FIFO value and the duplicate product card will be archived. Historical documents will continue to open that archived card. Review quantities and values before confirmation.
+                </div>
+                <div class="alert alert-warning" role="alert" invisible="state != 'confirm' or mode != 'history'">
+                    Full history consolidation changes past product reports. Original documents keep their dates and amounts. Previous stock-transfer pairs leave active stock and FIFO; their evidence is retained. Run cost recomputation separately after conversion.
                 </div>
                 <group invisible="state != 'confirm'">
                     <field name="canonical_template_id" readonly="1"/>

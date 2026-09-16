@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="history_consolidation_operation_list" model="ir.ui.view">
+        <field name="name">product.consolidation.operation.list</field>
+        <field name="model">product.consolidation.operation</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="applied_at"/>
+                <field name="canonical_id"/>
+                <field name="source_ids" widget="many2many_tags"/>
+                <field name="user_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="earliest_issue_at"/>
+            </list>
+        </field>
+    </record>
+    <record id="history_consolidation_operation_form" model="ir.ui.view">
+        <field name="name">product.consolidation.operation.form</field>
+        <field name="model">product.consolidation.operation</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0" duplicate="0">
+                <header><button name="action_open_product" type="object" string="Open Canonical Product"/></header>
+                <sheet>
+                    <group>
+                        <field name="canonical_id"/>
+                        <field name="source_ids" widget="many2many_tags" context="{'active_test': False}"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="user_id"/>
+                        <field name="applied_at"/>
+                        <field name="earliest_issue_at"/>
+                        <field name="reason"/>
+                    </group>
+                    <field name="line_ids">
+                        <list create="0" edit="0" delete="0">
+                            <field name="kind"/>
+                            <field name="record_model"/>
+                            <field name="record_id"/>
+                            <field name="record_label"/>
+                            <field name="source_product_id" context="{'active_test': False}"/>
+                            <field name="canonical_product_id"/>
+                        </list>
+                        <form create="0" edit="0" delete="0">
+                            <group><field name="kind"/><field name="record_model"/><field name="record_id"/>
+                                <field name="source_product_id"/><field name="canonical_product_id"/>
+                                <field name="before" widget="json"/></group>
+                        </form>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="product_template_full_history_buttons" model="ir.ui.view">
+        <field name="name">product.template.full.history.buttons</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_history_consolidation" type="object" class="oe_stat_button" icon="fa-compress"
+                        invisible="not merged_into_id and not merged_source_count"
+                        groups="product_card_consolidation.group_product_consolidation_manager">
+                    <div class="o_stat_info"><span class="o_stat_text">Merge Full History</span></div>
+                </button>
+                <button name="action_open_history_consolidation_audit" type="object" class="oe_stat_button" icon="fa-history"
+                        invisible="not merged_into_id and not merged_source_count"
+                        groups="product_card_consolidation.group_product_consolidation_manager">
+                    <div class="o_stat_info"><span class="o_stat_text">History Consolidations</span></div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

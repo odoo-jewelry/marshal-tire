@@ -64,3 +64,48 @@ class ProductTemplate(models.Model):
             "domain": [("merged_into_id", "=", self.id)],
             "context": {"active_test": False, "create": False},
         }
+
+    def _full_history_operations(self, company):
+        self.ensure_one()
+        return self.env["product.consolidation.operation"].sudo().with_context(active_test=False).search([
+            ("canonical_id", "=", self.id), ("company_id", "=", company.id),
+        ])
+
+    def _has_full_consolidation_history(self, company):
+        self.ensure_one()
+        sources = self.with_context(active_test=False).merged_source_ids
+        if self.merged_into_id or not sources:
+            return False
+        operations = self._full_history_operations(company)
+        if sources - operations.source_ids:
+            return False
+        source_products = sources.with_context(active_test=False).product_variant_ids
+        # New references to an archived source invalidate the proof as well as
+        # newly absorbed cards; a prior successful audit alone is insufficient.
+        return not self.env["stock.move"].sudo().search_count([
+            ("product_id", "in", source_products.ids), ("state", "!=", "cancel"),
+        ]) and not self.env["stock.quant"].sudo().search_count([
+            ("product_id", "in", source_products.ids), ("quantity", "!=", 0),
+        ])
+
+    def action_open_history_consolidation(self):
+        self.ensure_one()
+        canonical = self.merged_into_id or self
+        source = self if self.merged_into_id else self.with_context(active_test=False).merged_source_ids[:1]
+        if not source:
+            raise ValidationError(_("Select the canonical and duplicate cards from the product list."))
+        return {
+            "type": "ir.actions.act_window", "name": _("Full History Consolidation"),
+            "res_model": "product.consolidation.wizard", "view_mode": "form", "target": "new",
+            "context": {"active_test": False, "default_mode": "history",
+                        "default_product_template_ids": (canonical | source).ids,
+                        "default_canonical_template_id": canonical.id},
+        }
+
+    def action_open_history_consolidation_audit(self):
+        self.ensure_one()
+        return {
+            "type": "ir.actions.act_window", "name": _("History Consolidations"),
+            "res_model": "product.consolidation.operation", "view_mode": "list,form",
+            "domain": ["|", ("canonical_id", "=", self.id), ("source_ids", "in", self.id)],
+        }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="consolidation_operation_recompute_form" model="ir.ui.view">
+        <field name="name">product.consolidation.operation.recompute.form</field>
+        <field name="model">product.consolidation.operation</field>
+        <field name="inherit_id" ref="product_card_consolidation.history_consolidation_operation_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_recompute_costs" type="object" string="Recompute Costs" groups="pos_historical_stock_writeoff.group_historical_stock"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="history_consolidation_read" model="ir.model.access">
+        <field name="name">Historical stock consolidation audit read</field>
+        <field name="model_id" ref="product_card_consolidation.model_product_consolidation_operation"/>
+        <field name="group_id" ref="group_historical_stock"/>
+        <field name="perm_read" eval="True"/>
+    </record>
+    <record id="history_consolidation_line_read" model="ir.model.access">
+        <field name="name">Historical stock consolidation evidence read</field>
+        <field name="model_id" ref="product_card_consolidation.model_product_consolidation_operation_line"/>
+        <field name="group_id" ref="group_historical_stock"/>
+        <field name="perm_read" eval="True"/>
+    </record>
+</odoo>

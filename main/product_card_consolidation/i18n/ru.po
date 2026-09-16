@@ -1,0 +1,692 @@
+# Translation of Odoo Server.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: product_card_consolidation
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.product_template_full_history_buttons
+msgid "<span class=\"o_stat_text\">History Consolidations</span>"
+msgstr "<span class=\"o_stat_text\">История объединений</span>"
+
+#. module: product_card_consolidation
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.product_template_full_history_buttons
+msgid "<span class=\"o_stat_text\">Merge Full History</span>"
+msgstr "<span class=\"o_stat_text\">Объединить всю историю</span>"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "A locked or closed period prevents rewriting movement %s."
+msgstr ""
+"Запрет изменений или закрытый период препятствует изменению товара в "
+"движении %s."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "A previously audited valuation prevents retiring transfer %s."
+msgstr ""
+"Предыдущий аудит оценки препятствует исключению служебного переноса %s."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "A source with its own absorbed cards requires separate review."
+msgstr ""
+"Исходная карточка уже содержит объединённые карточки и требует отдельной "
+"проверки."
+
+#. module: product_card_consolidation
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.product_template_form_consolidation
+msgid "Absorbed Cards"
+msgstr "Объединённые карточки"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/product_template.py:0
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_product__merged_source_ids
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_template__merged_source_ids
+msgid "Absorbed Product Cards"
+msgstr "Объединённые карточки товаров"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation__source_ids
+msgid "Absorbed Sources"
+msgstr "Объединённые исходные карточки"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Accounting or analytic links prevent rewriting movement %s."
+msgstr ""
+"Бухгалтерские или аналитические связи препятствуют изменению товара в "
+"движении %s."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Another operation is changing this history. Refresh the preview."
+msgstr "Другая операция изменяет эту историю. Обновите предпросмотр."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_audit.py:0
+msgid "Applied consolidation evidence cannot be changed."
+msgstr "Аудит выполненного объединения нельзя изменять."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_audit.py:0
+msgid "Applied consolidation evidence cannot be copied."
+msgstr "Аудит выполненного объединения нельзя копировать."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_audit.py:0
+msgid "Applied consolidation evidence cannot be deleted."
+msgstr "Аудит выполненного объединения нельзя удалять."
+
+#. module: product_card_consolidation
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.product_consolidation_wizard_form
+msgid "Archive Duplicate and Consolidate"
+msgstr "Объединить и архивировать дубль"
+
+#. module: product_card_consolidation
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.product_consolidation_wizard_form
+msgid "Back"
+msgstr "Назад"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation_line__before
+msgid "Before"
+msgstr "Исходные данные"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields.selection,name:product_card_consolidation.selection__product_consolidation_preview_line__severity__blocker
+msgid "Blocker"
+msgstr "Препятствие"
+
+#. module: product_card_consolidation
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.product_consolidation_wizard_form
+msgid "Cancel"
+msgstr "Отмена"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation__canonical_id
+msgid "Canonical"
+msgstr "Основной товар"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation_line__canonical_product_id
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_identifier_alias__product_id
+msgid "Canonical Product"
+msgstr "Основной товар"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_wizard__canonical_template_id
+msgid "Canonical Product Card"
+msgstr "Основная карточка товара"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_preview_line__category
+msgid "Category"
+msgstr "Категория"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Combined physical stock after full consolidation."
+msgstr "Совокупный физический остаток после полного объединения."
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation__company_id
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation_line__company_id
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_identifier_alias__company_id
+msgid "Company"
+msgstr "Компания"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Company, unit and inventory identity must match: %s"
+msgstr ""
+"Компания, единица измерения и параметры складского учёта должны совпадать: "
+"%s"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid ""
+"Complete or cancel all unfinished stock movements before merging history."
+msgstr ""
+"Перед объединением истории завершите или отмените все незавершённые "
+"складские движения."
+
+#. module: product_card_consolidation
+#: model:ir.model.fields.selection,name:product_card_consolidation.selection__product_consolidation_wizard__state__confirm
+msgid "Confirmation"
+msgstr "Подтверждение"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_wizard__confirmed_mode
+msgid "Confirmed Mode"
+msgstr "Подтверждённый способ"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/wizard/product_consolidation_wizard.py:0
+#: model:ir.actions.act_window,name:product_card_consolidation.action_product_consolidation_wizard
+#: model:ir.actions.server,name:product_card_consolidation.action_product_consolidation_bound
+#: model:res.groups,name:product_card_consolidation.group_product_consolidation_manager
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.product_consolidation_wizard_form
+msgid "Consolidate Product Cards"
+msgstr "Объединить карточки товаров"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_product__merged_into_id
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_template__merged_into_id
+msgid "Consolidated Into"
+msgstr "Объединён с"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_wizard__mode
+msgid "Consolidation Mode"
+msgstr "Способ объединения"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_audit.py:0
+msgid "Consolidation evidence is created only by the reviewed operation."
+msgstr "Аудит объединения создаётся только подтверждённой операцией."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_revision.py:0
+msgid "Consolidation source versions are server-managed."
+msgstr "Версии источников объединения управляются сервером."
+
+#. module: product_card_consolidation
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.product_consolidation_wizard_form
+msgid "Continue"
+msgstr "Продолжить"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_preview_line__count
+msgid "Count"
+msgstr "Записей"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields.selection,name:product_card_consolidation.selection__product_consolidation_wizard__confirmed_mode__stock
+#: model:ir.model.fields.selection,name:product_card_consolidation.selection__product_consolidation_wizard__mode__stock
+msgid "Current Stock Transfer"
+msgstr "Перенос текущего остатка"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid ""
+"Current-stock consolidation keeps source history separate. Historical write-"
+"offs require full history conversion of every source."
+msgstr ""
+"Перенос текущего остатка сохраняет раздельную историю исходных карточек. Для"
+" исторического списания необходимо полностью объединить историю всех "
+"источников."
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_wizard__duplicate_template_id
+msgid "Duplicate Product Card"
+msgstr "Карточка-дубль"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Each product card must have exactly one variant."
+msgstr "Каждая карточка товара должна иметь ровно один вариант."
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation__earliest_issue_at
+msgid "Earliest Issue At"
+msgstr "Самый ранний расход"
+
+#. module: product_card_consolidation
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.product_consolidation_wizard_form
+msgid ""
+"Eligible stock will be transferred at its current FIFO value and the "
+"duplicate product card will be archived. Historical documents will continue "
+"to open that archived card. Review quantities and values before "
+"confirmation."
+msgstr ""
+"Допустимый остаток будет перенесён по текущей стоимости FIFO, а карточка-"
+"дубль — архивирована. Исторические документы продолжат открывать архивную "
+"карточку. Перед подтверждением проверьте количества и стоимости."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+#: code:addons/product_card_consolidation/models/product_consolidation_service.py:0
+msgid "Existing lots or serial numbers prevent consolidation."
+msgstr "Существующие партии или серийные номера препятствуют объединению."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/product_template.py:0
+#: model:ir.model.fields.selection,name:product_card_consolidation.selection__product_consolidation_wizard__confirmed_mode__history
+#: model:ir.model.fields.selection,name:product_card_consolidation.selection__product_consolidation_wizard__mode__history
+msgid "Full History Consolidation"
+msgstr "Полное объединение истории"
+
+#. module: product_card_consolidation
+#: model:ir.model,name:product_card_consolidation.model_product_consolidation_operation
+msgid "Full Product History Consolidation"
+msgstr "Полное объединение истории товара"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Full consolidation of duplicate product history"
+msgstr "Полное объединение истории карточек-дублей"
+
+#. module: product_card_consolidation
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.product_consolidation_wizard_form
+msgid ""
+"Full history consolidation changes past product reports. Original documents "
+"keep their dates and amounts. Previous stock-transfer pairs leave active "
+"stock and FIFO; their evidence is retained. Run cost recomputation "
+"separately after conversion."
+msgstr ""
+"Полное объединение истории изменит прошлые отчёты по товарам. Даты и суммы "
+"исходных документов сохраняются. Старые служебные пары исключаются из "
+"остатков и FIFO; их исходные данные остаются в аудите. После объединения "
+"выполните пересчёт себестоимости отдельно."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid ""
+"Full product history consolidated. Audit operation: %s. Run cost "
+"recomputation separately."
+msgstr ""
+"История товара полностью объединена. Операция аудита: %s. Пересчёт "
+"себестоимости выполните отдельно."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Full stock history requires FIFO and periodic valuation: %s"
+msgstr ""
+"Для объединения складской истории необходимы FIFO и периодическая оценка: %s"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Future stock history requires separate review: %s"
+msgstr "Складская история с будущими датами требует отдельной проверки: %s"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid ""
+"Historical business values changed unexpectedly in %s. Nothing was applied."
+msgstr ""
+"В %s неожиданно изменились исторические значения документов. Операция "
+"полностью отменена."
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_stock_move__consolidation_retired_operation_id
+msgid "History Conversion"
+msgstr "Объединение истории"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "History in another company prevents consolidation: %s"
+msgstr "История в другой компании препятствует объединению: %s"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Invalid movement quantity or value: %s"
+msgstr "Недопустимое количество или стоимость движения: %s"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid ""
+"Invoice or journal product lines prevent full history consolidation; review "
+"their linked documents first."
+msgstr ""
+"Товарные строки счетов или бухгалтерских записей препятствуют полному "
+"объединению истории. Сначала проверьте связанные документы."
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation_line__kind
+msgid "Kind"
+msgstr "Вид изменения"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation__line_ids
+msgid "Line"
+msgstr "Строки аудита"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_preview_line__location_id
+msgid "Location"
+msgstr "Место хранения"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Manual costs must include issues from %s."
+msgstr "Ручной пересчёт себестоимости должен включать расходы начиная с %s."
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_preview_line__message
+msgid "Message"
+msgstr "Описание"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Negative internal stock prevents history consolidation."
+msgstr "Отрицательные внутренние остатки препятствуют объединению истории."
+
+#. module: product_card_consolidation
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.history_consolidation_operation_form
+msgid "Open Canonical Product"
+msgstr "Открыть основной товар"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation_line__operation_id
+msgid "Operation"
+msgstr "Операция"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid ""
+"Original history will use the canonical product. Past product reports will "
+"change; run cost recomputation separately."
+msgstr ""
+"Исходная история будет относиться к основному товару. Прошлые отчёты по "
+"товарам изменятся; пересчёт себестоимости выполните отдельно."
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_preview_line__package_id
+msgid "Package"
+msgstr "Упаковка"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields.selection,name:product_card_consolidation.selection__product_consolidation_preview_line__severity__preserve
+msgid "Preserve"
+msgstr "Сохранение"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_wizard__preview_line_ids
+#: model:ir.model.fields.selection,name:product_card_consolidation.selection__product_consolidation_wizard__state__preview
+msgid "Preview"
+msgstr "Предпросмотр"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Previous consolidation pairs are incomplete or share a movement."
+msgstr "Старые служебные пары неполны или используют одно и то же движение."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid ""
+"Previous transfer pairs will leave active stock and FIFO, retaining their "
+"evidence."
+msgstr ""
+"Старые служебные пары будут исключены из остатков и FIFO с сохранением "
+"исходных данных в аудите."
+
+#. module: product_card_consolidation
+#: model:ir.model,name:product_card_consolidation.model_product_consolidation_wizard
+#: model:res.groups.privilege,name:product_card_consolidation.res_groups_privilege_product_consolidation
+msgid "Product Card Consolidation"
+msgstr "Объединение карточек товаров"
+
+#. module: product_card_consolidation
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.stock_move_form_consolidation_audit
+msgid "Product Consolidation"
+msgstr "Объединение товаров"
+
+#. module: product_card_consolidation
+#: model:ir.model,name:product_card_consolidation.model_product_consolidation_operation_line
+msgid "Product History Consolidation Evidence"
+msgstr "Аудит объединения истории товара"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields.selection,name:product_card_consolidation.selection__product_consolidation_operation_line__kind__identity
+msgid "Product Identity"
+msgstr "Смена товара"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Product references: %s"
+msgstr "Ссылки на товар: %s"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation__quantities
+msgid "Quantities"
+msgstr "Остатки"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_preview_line__quantity
+msgid "Quantity"
+msgstr "Количество"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation_line__record_id
+msgid "Record"
+msgstr "Запись"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation_line__record_label
+msgid "Record Label"
+msgstr "Документ"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation_line__record_model
+msgid "Record Model"
+msgstr "Модель записи"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid ""
+"Recorded movements do not reconcile with physical stock by location and "
+"package."
+msgstr ""
+"Движения не сходятся с физическими остатками по местам хранения и упаковкам."
+
+#. module: product_card_consolidation
+#: model_terms:ir.ui.view,arch_db:product_card_consolidation.product_consolidation_wizard_form
+msgid "Refresh Preview"
+msgstr "Обновить предпросмотр"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid ""
+"Reservations or unfinished inventory counts prevent history consolidation."
+msgstr ""
+"Резервы или незавершённая инвентаризация препятствуют объединению истории."
+
+#. module: product_card_consolidation
+#: model:ir.model.fields.selection,name:product_card_consolidation.selection__product_consolidation_operation_line__kind__retired
+msgid "Retired Transfer"
+msgstr "Исключённый служебный перенос"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/stock_move.py:0
+msgid "Retired consolidation transfers cannot be changed."
+msgstr "Исключённые служебные переносы нельзя изменять."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/stock_move.py:0
+msgid "Retired consolidation transfers cannot be deleted."
+msgstr "Исключённые служебные переносы нельзя удалять."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/stock_move.py:0
+msgid "Retired transfers are managed by history consolidation."
+msgstr ""
+"Исключение служебных переносов выполняется операцией объединения истории."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Return movements outside this product history prevent consolidation."
+msgstr ""
+"Возвратные движения вне истории этих товаров препятствуют объединению."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Review a full-history preview before confirmation."
+msgstr "Перед подтверждением просмотрите план полного объединения истории."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/wizard/product_consolidation_wizard.py:0
+msgid "Review the selected consolidation mode again."
+msgstr "Повторно просмотрите план выбранного способа объединения."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Select a supported consolidation mode."
+msgstr "Выберите допустимый способ объединения."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Select an active canonical card and a different duplicate."
+msgstr ""
+"Выберите действующую основную карточку и отличающуюся от неё карточку-дубль."
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_wizard__product_template_ids
+msgid "Selected Product Cards"
+msgstr "Выбранные карточки товаров"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_preview_line__severity
+msgid "Severity"
+msgstr "Тип"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_preview_line__source_date
+msgid "Source Date"
+msgstr "Исходная дата"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_preview_line__source_move_id
+msgid "Source Move"
+msgstr "Исходное движение"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation_line__source_product_id
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_identifier_alias__source_product_id
+msgid "Source Product"
+msgstr "Исходный товар"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Stock did not reconcile after full history consolidation."
+msgstr "После полного объединения истории остатки не сошлись."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Stock remains on an absorbed source."
+msgstr "На объединённой исходной карточке остался ненулевой остаток."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Stock valuation settings must match."
+msgstr "Параметры оценки запасов должны совпадать."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "The full-history preview is outdated. Review current history."
+msgstr ""
+"Предпросмотр полного объединения устарел. Просмотрите текущую историю "
+"заново."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "The previous consolidation transfer cannot be proven: %s"
+msgstr "Не удалось подтвердить происхождение старого служебного переноса: %s"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "The return source is outside the merged history: %s"
+msgstr "Источник возврата находится вне объединяемой истории: %s"
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "The source belongs to another canonical product."
+msgstr "Исходная карточка относится к другому основному товару."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Tracked or third-party stock history is not supported."
+msgstr ""
+"История запасов с партиями, серийными номерами или сторонним владельцем не "
+"поддерживается."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+#: code:addons/product_card_consolidation/models/product_consolidation_service.py:0
+msgid "Tracked products cannot be consolidated."
+msgstr "Товары с учётом по партиям или серийным номерам нельзя объединять."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Unsupported product references: %(model)s.%(field)s, records %(ids)s."
+msgstr ""
+"Неподдерживаемые ссылки на товар: %(model)s.%(field)s, записи %(ids)s."
+
+#. module: product_card_consolidation
+#. odoo-python
+#: code:addons/product_card_consolidation/models/history_service.py:0
+msgid "Unsupported stock route: %s"
+msgstr "Неподдерживаемый складской маршрут: %s"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_operation__user_id
+msgid "User"
+msgstr "Пользователь"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_consolidation_preview_line__value
+#: model:ir.model.fields,field_description:product_card_consolidation.field_product_identifier_alias__value
+msgid "Value"
+msgstr "Стоимость"
+
+#. module: product_card_consolidation
+#: model:ir.model.fields.selection,name:product_card_consolidation.selection__product_consolidation_preview_line__severity__warning
+msgid "Warning"
+msgstr "Предупреждение"

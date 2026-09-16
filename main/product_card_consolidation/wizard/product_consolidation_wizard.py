@@ -1,10 +1,15 @@
-from odoo import _, api, fields, models
+from odoo import _, api, Command, fields, models
 from odoo.exceptions import UserError
 
 
 class ProductConsolidationWizard(models.TransientModel):
     _name = "product.consolidation.wizard"
     _description = "Product Card Consolidation"
+
+    mode = fields.Selection([("stock", "Current Stock Transfer"), ("history", "Full History Consolidation")],
+                            required=True, default="stock", string="Consolidation Mode")
+    confirmed_mode = fields.Selection(selection=[("stock", "Current Stock Transfer"),
+        ("history", "Full History Consolidation")], readonly=True, copy=False)
 
     state = fields.Selection(
         [("preview", "Preview"), ("confirm", "Confirmation")],
@@ -39,7 +44,8 @@ class ProductConsolidationWizard(models.TransientModel):
     def default_get(self, field_names):
         values = super().default_get(field_names)
         active_ids = self.env.context.get("active_ids", [])
-        if self.env.context.get("active_model") == "product.template":
+        if (self.env.context.get("active_model") == "product.template"
+                and "default_product_template_ids" not in self.env.context):
             selected = self.env["product.template"].browse(active_ids).exists()
             values["product_template_ids"] = [(6, 0, selected.ids)]
             if selected:
@@ -62,6 +68,18 @@ class ProductConsolidationWizard(models.TransientModel):
 
     def _service(self):
         return self.env["product.card.consolidation.service"]
+
+    @api.onchange("mode", "canonical_template_id")
+    def _onchange_history_mode(self):
+        self.state = "preview"
+        self.analysis_fingerprint = False
+        self.confirmed_mode = False
+        self.preview_line_ids = [Command.clear()]
+
+    def write(self, vals):
+        if {"mode", "canonical_template_id", "product_template_ids"}.intersection(vals):
+            vals = {**vals, "state": "preview", "analysis_fingerprint": False, "confirmed_mode": False}
+        return super().write(vals)
 
     def _validate_selection(self):
         self.ensure_one()
@@ -86,7 +104,7 @@ class ProductConsolidationWizard(models.TransientModel):
     def action_preview(self):
         self.ensure_one()
         duplicate = self._validate_selection()
-        analysis = self._service().analyze(self.canonical_template_id, duplicate)
+        analysis = self._service().analyze(self.canonical_template_id, duplicate, mode=self.mode)
         self.preview_line_ids.unlink()
         self.env["product.consolidation.preview.line"].create([
             {**line, "wizard_id": self.id} for line in analysis["lines"]
@@ -101,6 +119,7 @@ class ProductConsolidationWizard(models.TransientModel):
         if self.has_blockers:
             raise UserError(_("Resolve every blocker before consolidation."))
         self.state = "confirm"
+        self.confirmed_mode = self.mode
         return self._reload_action()
 
     def action_back_to_preview(self):
@@ -112,11 +131,14 @@ class ProductConsolidationWizard(models.TransientModel):
         self.ensure_one()
         if self.state != "confirm":
             raise UserError(_("Use the final confirmation step before consolidation."))
+        if self.mode != self.confirmed_mode:
+            raise UserError(_("Review the selected consolidation mode again."))
         duplicate = self._validate_selection()
         canonical = self._service().consolidate(
             self.canonical_template_id,
             duplicate,
             expected_fingerprint=self.analysis_fingerprint,
+            mode=self.mode,
         )
         return {
             "type": "ir.actions.act_window",

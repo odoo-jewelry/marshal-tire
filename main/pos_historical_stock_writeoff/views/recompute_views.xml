@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="historical_cost_recompute_form" model="ir.ui.view">
+        <field name="name">pos.cost.recompute.historical.form</field>
+        <field name="model">pos.cost.recompute</field>
+        <field name="inherit_id" ref="pos_cost_recompute.pos_cost_recompute_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='action_apply']" position="attributes">
+                <attribute name="invisible" add="selection_type in ('historical', 'consolidation')" separator=" or "/>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="action_apply" type="object" string="Apply Historical Stock and POS Costs" class="btn-primary" invisible="not can_apply or selection_type not in ('historical', 'consolidation')"/>
+            </xpath>
+            <xpath expr="//field[@name='selection_type']" position="after">
+                <field name="historical_picking_ids" widget="many2many_tags" invisible="selection_type != 'historical'" readonly="state in ('done', 'cancelled')" domain="[('company_id', '=', company_id), ('historical_pos_order_id', '!=', False), ('state', '=', 'done')]" options="{'no_create': True}"/>
+                <field name="consolidation_operation_ids" widget="many2many_tags" invisible="selection_type != 'consolidation'" readonly="state in ('done', 'cancelled')" domain="[('company_id', '=', company_id)]" options="{'no_create': True}"/>
+                <field name="history_start_at" invisible="selection_type not in ('historical', 'consolidation') or state == 'draft'"/>
+                <field name="historical_cutoff" invisible="selection_type not in ('historical', 'consolidation') or state == 'draft'"/>
+            </xpath>
+            <xpath expr="//field[@name='config_ids' or @name='product_ids' or @name='repair_stock_values' or @name='cost_mode']" position="attributes">
+                <attribute name="invisible" add="selection_type in ('historical', 'consolidation')" separator=" or "/>
+            </xpath>
+            <xpath expr="//sheet/div[@invisible='repair_stock_values']" position="attributes">
+                <attribute name="invisible" add="selection_type in ('historical', 'consolidation')" separator=" or "/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <group string="Subsequent Stock Costs" invisible="selection_type not in ('historical', 'consolidation')">
+                    <div class="alert alert-info" role="alert">
+                        Recompute all subsequent issues, including nonzero costs. Full product consolidation may require an earlier start than the selected historical write-off; Recompute From shows the inclusive boundary. Stock values are updated first, followed by related completed POS costs. Revenue, payments and quantities remain unchanged.
+                    </div>
+                    <field name="stock_line_ids" readonly="1" nolabel="1">
+                        <list create="0" delete="0">
+                            <field name="move_id"/>
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                            <field name="currency_id"/>
+                            <field name="old_value"/>
+                            <field name="new_value"/>
+                            <field name="actual_value" optional="hide"/>
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

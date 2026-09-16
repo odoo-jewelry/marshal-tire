@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_order_historical_form" model="ir.ui.view">
+        <field name="name">pos.order.historical.stock.form</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_prepare_historical_stock" type="object" string="Historical Stock Write-off" groups="pos_historical_stock_writeoff.group_historical_stock" invisible="state not in ('draft', 'cancel') or is_correction_order"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <field name="historical_picking_ids" invisible="1"/>
+                <button name="action_view_historical_stock" type="object" class="oe_stat_button" icon="fa-history" string="Historical Stock" invisible="not historical_picking_ids" groups="stock.group_stock_user"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="pos_session_historical_form" model="ir.ui.view">
+        <field name="name">pos.session.historical.stock.form</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <field name="historical_picking_ids" invisible="1"/>
+                <button name="action_view_historical_stock" type="object" class="oe_stat_button" icon="fa-history" string="Historical Stock" invisible="not historical_picking_ids" groups="stock.group_stock_user"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="stock_picking_historical_form" model="ir.ui.view">
+        <field name="name">stock.picking.historical.stock.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_apply_historical_stock" type="object" string="Apply Historical Stock" class="btn-primary" invisible="not historical_pos_order_id or state != 'draft'" groups="pos_historical_stock_writeoff.group_historical_stock"/>
+                <button name="action_prepare_historical_recompute" type="object" string="Recompute Subsequent Costs" invisible="not historical_pos_order_id or state != 'done'" groups="pos_historical_stock_writeoff.group_historical_stock"/>
+            </xpath>
+            <xpath expr="//header/button[@name='action_confirm' or @name='action_assign' or @name='button_validate']" position="attributes">
+                <attribute name="invisible" add="historical_pos_order_id" separator=" or "/>
+            </xpath>
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="historical_pos_order_id" invisible="not historical_pos_order_id"/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <group string="Historical Stock Write-off" invisible="not historical_pos_order_id">
+                    <group>
+                        <field name="historical_config_id" invisible="1"/>
+                        <field name="historical_session_id" domain="[('state', '=', 'closed'), ('company_id', '=', company_id), ('config_id', '=', historical_config_id)]" options="{'no_create': True}" readonly="state != 'draft'"/>
+                        <field name="historical_effective_at" readonly="state != 'draft'"/>
+                        <field name="historical_reason" readonly="state != 'draft'"/>
+                    </group>
+                    <group invisible="state != 'done'">
+                        <field name="historical_applied_at"/>
+                        <field name="historical_applied_by_id"/>
+                    </group>
+                    <div class="alert alert-info" role="alert" colspan="2">
+                        This records stock consumption without revenue or payments. After completing your transfers, manually recompute subsequent costs from the earliest historical consumption.
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

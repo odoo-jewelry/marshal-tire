@@ -110,14 +110,22 @@ class PosCostRecompute(models.Model):
                 if any(company != operation.company_id for company in records.company_id):
                     raise UserError(self.env._("All selected records must belong to the operation company."))
 
+    @api.model
+    def _selection_fields(self):
+        return _CRITERIA
+
+    @api.model
+    def _editable_fields(self):
+        return self._selection_fields() | (_EDITABLE - _CRITERIA)
+
     @api.model_create_multi
     def create(self, vals_list):
         self._check_manager()
-        if any(set(vals) - _EDITABLE for vals in vals_list):
+        if any(set(vals) - self._editable_fields() for vals in vals_list):
             raise AccessError(self.env._("Only selection criteria and confirmation inputs can be supplied."))
         # RPC context defaults must not forge server-owned state or history.
         context = {key: value for key, value in self.env.context.items()
-                   if not key.startswith("default_") or key[8:] in _EDITABLE}
+                   if not key.startswith("default_") or key[8:] in self._editable_fields()}
         return super(PosCostRecompute, self.with_context(context)).create(vals_list)
 
     def write(self, vals):
@@ -125,9 +133,9 @@ class PosCostRecompute(models.Model):
         if self.env.context.get(_CONTEXT_KEY) is not _INTERNAL:
             if self.filtered(lambda operation: operation.state in ("done", "cancelled")):
                 raise UserError(self.env._("Applied or cancelled operations cannot be edited."))
-            if set(vals) - _EDITABLE:
+            if set(vals) - self._editable_fields():
                 raise AccessError(self.env._("Preview results and history are server-managed."))
-            if set(vals) & _CRITERIA:
+            if set(vals) & self._selection_fields():
                 self._internal_write({"state": "draft", "allow_zero_cost": False})
                 self._clear_preview()
         return super().write(vals)

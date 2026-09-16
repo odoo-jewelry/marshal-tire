@@ -1,18 +1,4 @@
-# Product Card Consolidation Specification
-
-> [!abstract] Объединение карточек товаров
-> Функция безопасно выводит дублирующую карточку товара из обращения, сохраняя историю и направляя будущий поиск на основную карточку.
->
-> **Использование:**
->
-> В списке карточек товаров ответственный пользователь выбирает ровно две активные одновариантные карточки и запускает действие `Consolidate Product Cards`. Мастер показывает основную и дублирующую карточки, переносимую конфигурацию, сохраняемую историю и блокирующие конфликты. После отдельного подтверждения черновые ссылки и совместимая конфигурация переводятся на основную карточку, а дубль архивируется. На форме архивного источника поле `merged_into_id` открывает основную карточку; на основной карточке кнопка `Absorbed Cards` показывает поглощённые источники. Прежние `default_code`, `barcode` и коды поставщика продолжают находить основной товар в серверном поиске и импорте закупок. Примеры: объединение двух совместимых карточек без остатков; отказ при наличии партии или резерва; повторный импорт по прежнему коду; открытие архивного товара из исторического документа.
-^feature-card
-
-## Purpose
-
-This capability lets authorized users retire a duplicate product card in favor of one canonical card while preserving operational history and making future product resolution converge on the canonical product.
-
-## Requirements
+## MODIFIED Requirements
 
 ### Requirement: Controlled consolidation selection
 
@@ -123,25 +109,6 @@ Current-stock mode SHALL retain its existing compatibility and stock-transfer sa
 - **WHEN** product or operational data changes before confirmation and makes the pair ineligible
 - **THEN** confirmation is refused using the current data and no partial consolidation is applied
 
-### Requirement: Deterministic canonical data
-
-The canonical card SHALL remain the source of truth for scalar product properties, while compatible relational configuration from the duplicate SHALL be retained without creating duplicate configuration records.
-
-#### Scenario: Preserve canonical scalar values
-- **GIVEN** the canonical and duplicate cards contain different names, descriptions, images, prices, costs, or accounting properties
-- **WHEN** consolidation succeeds
-- **THEN** the canonical card keeps its scalar values and the preview makes this policy visible before confirmation
-
-#### Scenario: Combine non-conflicting configuration
-- **GIVEN** the duplicate contains supplier references, price rules, routes, taxes, tags, packaging, or replenishment configuration that does not conflict with canonical configuration
-- **WHEN** consolidation succeeds
-- **THEN** the supported configuration remains available for the canonical card without duplicate equivalent records
-
-#### Scenario: Block unresolved configuration conflicts
-- **GIVEN** equivalent canonical and duplicate configuration records carry incompatible business values
-- **WHEN** the consolidation preview is evaluated
-- **THEN** consolidation is blocked and each conflict is identified for manual resolution
-
 ### Requirement: State-aware reference handling
 
 In current-stock mode, only editable draft references SHALL move, while non-draft operational history SHALL remain on the archived source. For an eligible full-history scope, the system SHALL redirect all supported draft, confirmed, completed and cancelled operational product references to the canonical product as one operation. Related purchase, sales and POS lines, stock movements and movement details MUST agree on product identity. Except for explicitly retired old consolidation transfer pairs, original document identities, lifecycle states, dates, quantities, units, descriptions, prices, discounts, taxes, commercial totals and return relationships SHALL remain unchanged. Protected accounting records SHALL remain outside mutation and SHALL block consolidation when their references prevent a consistent result. Historical evidence from prior corrections and cost operations SHALL remain immutable and resolvable through consolidation audit.
@@ -179,39 +146,6 @@ In current-stock mode, only editable draft references SHALL move, while non-draf
 - **AND** a preserved historical document references a consolidated duplicate
 - **WHEN** a permitted user opens the referenced product card
 - **THEN** the archived card remains accessible and identifies its canonical card
-
-### Requirement: Duplicate retirement and future resolution
-
-After successful consolidation, the system SHALL retire the duplicate card, record its canonical relationship, and resolve supported former identifiers to the canonical product for future operations.
-
-#### Scenario: Archive the duplicate
-- **WHEN** consolidation succeeds
-- **THEN** the canonical card remains active, the duplicate is archived, and the duplicate records which canonical card replaced it
-
-#### Scenario: Prevent accidental reactivation
-- **GIVEN** a duplicate card has been consolidated and archived
-- **WHEN** a user attempts to reactivate it without reversing the consolidation through a supported process
-- **THEN** reactivation is refused and the canonical relationship remains unchanged
-
-#### Scenario: Resolve an alternative internal reference
-- **GIVEN** the duplicate had an internal reference that is not the canonical card's current internal reference
-- **WHEN** a backend product lookup or purchase-line import searches by that former reference
-- **THEN** the canonical product is returned and no new duplicate is planned
-
-#### Scenario: Resolve an alternative barcode
-- **GIVEN** the duplicate had a barcode that is not the canonical card's current barcode
-- **WHEN** a supported backend lookup or purchase-line import searches by that former barcode
-- **THEN** the canonical product is returned without changing the canonical barcode
-
-#### Scenario: Preserve supplier product resolution
-- **GIVEN** a supplier identifier previously resolved to the duplicate product
-- **WHEN** a later purchase-line import for the same supplier uses that identifier
-- **THEN** it resolves to the canonical product unless a reported supplier configuration conflict prevents consolidation
-
-#### Scenario: Consolidate another duplicate later
-- **GIVEN** an active canonical card has already absorbed one duplicate
-- **WHEN** it is later selected with another eligible active duplicate
-- **THEN** the system permits a new consolidation and retains all previously recorded alternative identifiers
 
 ### Requirement: Authorization, audit, and atomicity
 
@@ -282,14 +216,7 @@ Full history consolidation MUST use the existing separate consolidation privileg
 - **WHEN** the blocking cause is resolved and an authorized user retries
 - **THEN** the system revalidates current stock and can complete the consolidation once
 
-### Requirement: Unchanged standard product behavior
 
-The system SHALL preserve standard product and stock behavior for cards that have not been consolidated and for workflows that do not invoke consolidation.
-
-#### Scenario: Use an ordinary product
-- **GIVEN** a product has neither been consolidated nor registered as a canonical target
-- **WHEN** users search, buy, sell, stock, value, archive, unarchive, import, or report that product without invoking consolidation
-- **THEN** standard Odoo behavior remains unchanged
 
 ### Requirement: Current-dated stock transfer
 
@@ -328,6 +255,7 @@ In current-stock consolidation mode, the system SHALL transfer eligible on-hand 
 - **WHEN** consolidation succeeds
 - **THEN** the system completes the existing consolidation behavior without creating stock transfer movements
 
+
 ### Requirement: FIFO value preservation
 
 In current-stock consolidation mode, for eligible FIFO products, the system MUST preserve the duplicate product's inventory value at the consolidation time and SHALL create separately auditable canonical receipt layers for the transferred remaining FIFO quantities.
@@ -356,6 +284,7 @@ In current-stock consolidation mode, for eligible FIFO products, the system MUST
 - **AND** a remaining source receipt can still be affected by unposted or partial supplier billing
 - **WHEN** consolidation is previewed
 - **THEN** the preview warns that the transferred value is a snapshot taken at confirmation and later source valuation changes will not be synchronized automatically
+
 
 ### Requirement: Stock transfer eligibility
 
@@ -390,6 +319,8 @@ In current-stock consolidation mode, the system MUST transfer only unreserved, n
 - **AND** an eligible preview was generated
 - **WHEN** quantities, reservations, FIFO values, or open movements change before confirmation
 - **THEN** confirmation uses current data and refuses any now-ineligible transfer without partial consolidation
+
+## ADDED Requirements
 
 ### Requirement: Unified original stock history
 
