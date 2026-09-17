@@ -57,3 +57,16 @@ msgstr "Проведен"
 #: model:ir.model.fields,field_description:tire.field_product_template__uktzed_code
 msgid "UKTZED Code"
 msgstr "Код УКТЗЕД"
+
+#. module: tire
+#: model:ir.model.fields,field_description:tire.field_pos_config__auto_invoice_company_customer
+#: model:ir.model.fields,field_description:tire.field_res_config_settings__pos_auto_invoice_company_customer
+msgid "Automatically enable invoicing for company customers"
+msgstr "Автоматически включать счёт при выборе клиента-компании"
+
+#. module: tire
+#: model:ir.model.fields,help:tire.field_pos_config__auto_invoice_company_customer
+#: model:ir.model.fields,help:tire.field_res_config_settings__pos_auto_invoice_company_customer
+#: model_terms:ir.ui.view,arch_db:tire.res_config_settings_view_form
+msgid "Enable the invoice option when selecting a company customer. When disabled, invoicing can still be selected manually. Reload the POS interface after changing this setting."
+msgstr "Включать отметку «Счёт» при выборе клиента-компании. Если настройка выключена, счёт можно выбрать вручную. После изменения настройки перезагрузите кассовый интерфейс."

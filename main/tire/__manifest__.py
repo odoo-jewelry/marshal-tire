@@ -1,6 +1,6 @@
 {
     'name': 'Tire',
-    'version': '19.0.1.4.2',
+    'version': '19.0.1.4.3',
     'category': 'Sales',
     'summary': 'Tire management',
     'author': 'dmitry.aka.jok@gmail.com',
@@ -30,9 +30,11 @@
     ],
     'data': [
         'views/product_template_views.xml',
+        'views/res_config_settings_views.xml',
     ],
     'assets': {
         'point_of_sale._assets_pos': [
+            'tire/static/src/app/models/pos_order.js',
             'tire/static/src/app/product_card/product_screen.xml',
             'tire/static/src/app/product_card/product_card.scss',
         ],
