@@ -1,6 +1,6 @@
 {
     "name": "POS Cost Recompute",
-    "version": "19.0.1.1.2",
+    "version": "19.0.1.1.4",
     "category": "Point of Sale",
     "summary": "Review and recompute historical POS costs using standard sources",
     "author": "Uvelirsoft",

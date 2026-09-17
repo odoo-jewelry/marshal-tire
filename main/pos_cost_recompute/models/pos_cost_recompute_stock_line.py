@@ -48,8 +48,8 @@ class PosCostRecomputeStockLine(models.Model):
 
     def unlink(self):
         self._check_internal()
-        if self.operation_id.filtered(lambda op: op.state in ("done", "cancelled")):
-            raise UserError(self.env._("Applied or cancelled stock repair evidence cannot be deleted."))
+        if self.operation_id.filtered(lambda op: op.state == "done"):
+            raise UserError(self.env._("Applied stock repair evidence cannot be deleted."))
         return super().unlink()
 
     def _apply_reviewed_value(self):

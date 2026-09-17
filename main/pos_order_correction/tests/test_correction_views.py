@@ -143,7 +143,7 @@ class TestPosOrderCorrectionViews(PosOrderCorrectionCommon):
 
     def test_history_handles_missing_values_zero_and_escaped_text(self):
         order = self._create_paid_order("correction-view-legacy")
-        correction = self._apply(order, price=110, amount=110)
+        correction = self._apply(order, price=110, amount=110).with_context(lang="en_US")
         snapshot = deepcopy(correction.after_snapshot)
         snapshot["lines"][0].pop("discount")
         snapshot["lines"][0]["qty"] = 0

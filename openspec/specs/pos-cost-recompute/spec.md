@@ -9,7 +9,7 @@
 >
 > В новой форме операции доступны компания, способ отбора «Selected Orders» или «Date Interval», поля «Orders», «From (inclusive)», «To (exclusive)», «Point of Sale», «Products» и режим «Zero Saved Costs Only» либо «All Matching Lines». Поле «Reason» задаёт причину применения, а «I acknowledge zero source costs» подтверждает допустимость нулевых источников. Отбор охватывает подходящие строки одной компании и закрытых смен без фиксированного предела их количества.
 >
-> Кнопка «Preview Costs» показывает прежнюю и предлагаемую себестоимость, изменение маржи, источники, причины пропуска и итоги по валютам. В детализации доступны связанные движения, признаки завершённости расчёта, фактический результат и связанные продажи или возвраты вне выборки. «Apply Reviewed Costs» применяет подтверждённые суммы с причиной; «Cancel Operation» отменяет операцию до применения. История содержит состояние, автора и время применения, счётчики изменённых, неизменных, завершённых без изменения суммы и пропущенных строк; применённые результаты защищены от редактирования.
+> Кнопка «Preview Costs» показывает прежнюю и предлагаемую себестоимость, изменение маржи, источники, причины пропуска и итоги по валютам. В детализации доступны связанные движения, признаки завершённости расчёта, фактический результат и связанные продажи или возвраты вне выборки. «Apply Reviewed Costs» применяет подтверждённые суммы с причиной; «Cancel Operation» отменяет операцию до применения. Руководитель POS может удалить черновую или отменённую операцию доступной компании вместе с её предварительными расчётами без изменения чеков и складских движений. История содержит состояние, автора и время применения, счётчики изменённых, неизменных, завершённых без изменения суммы и пропущенных строк; применённые результаты защищены от редактирования и удаления.
 >
 > Например, для чеков с нулевой сохранённой себестоимостью можно проверить доступные источники и применить предложенные суммы. Для ошибочной ненулевой суммы выбирают «All Matching Lines». Услуги и товары со стандартной себестоимостью используют текущую стоимость компании, а товары FIFO и средней стоимости — существующую складскую оценку. Нулевая оценка требует отдельного подтверждения; отсутствующие или неоднозначные источники приводят к объяснимому пропуску. При изменении источников после просмотра требуется новый просмотр. Повторное применение уже выполненной операции возвращает её результат. Маржа чеков и отчёта POS обновляется; складская оценка, бухгалтерские документы и невыбранные чеки сохраняются.
 ^feature-card
@@ -209,7 +209,7 @@ Application SHALL require a nonempty reason, an explicit confirmation and a curr
 
 #### Scenario: S30 Cancel before application
 - **WHEN** a manager cancels a draft or previewed operation
-- **THEN** no POS cost changes and the cancelled operation cannot be applied
+- **THEN** no POS cost or stock value changes and the cancelled operation cannot be applied
 
 #### Scenario: S31 Recompute again with unchanged inputs
 - **GIVEN** a previous operation completed and all relevant inputs remain unchanged
@@ -219,6 +219,8 @@ Application SHALL require a nonempty reason, an explicit confirmation and a curr
 ### Requirement: Authorization and protected history
 
 Creating previews and applying operations SHALL require POS manager permission and normal access to all affected records and cost sources. Every operation and detail SHALL be restricted to its authorized company. Application SHALL retain the acting user, application time, reason, reviewed selection, sources, before and after costs and markers, and skipped reasons. Applied operations and their details SHALL be immutable through ordinary editing, deletion, copying, import and direct requests; duplicated drafts SHALL contain only fresh editable selection criteria. Direct calls MUST enforce the same rules as the interface and MUST NOT trust client-supplied computed results.
+
+An authorized POS manager SHALL be allowed to delete draft and cancelled operations in an authorized company, subject to existing access rules for their details. Deletion SHALL remove the operation and its POS and stock preview details together without changing POS business records, stock movements or stock values. Reviewed and applied operations MUST NOT be deleted; a reviewed operation SHALL require cancellation first. A deletion request containing any protected operation MUST fail without deleting any operation or detail. Preview details SHALL remain server-managed and MUST NOT allow direct editing or deletion, including when their operation is cancelled. The deletion permission MUST NOT weaken protection of applied audit evidence.
 
 #### Scenario: S32 Reject an unauthorized direct request
 - **WHEN** a non-manager or a manager lacking required record access directly requests preview or application
@@ -237,6 +239,26 @@ Creating previews and applying operations SHALL require POS manager permission a
 - **WHEN** ordinary editing, import, copying or a direct request attempts to forge preview amounts, alter applied history or reapply an applied copy
 - **THEN** it is rejected or creates only a fresh draft containing selection criteria
 - **AND** no forged cost update is applied
+
+#### Scenario: S41 Delete a cancelled operation with preview details
+- **GIVEN** an authorized manager has cancelled an operation with POS or stock preview details
+- **WHEN** the manager deletes the operation
+- **THEN** the operation and its preview details are deleted together
+- **AND** POS costs, calculation-completion markers, stock movements and stock values remain unchanged
+
+#### Scenario: S42 Preserve deletion boundaries
+- **WHEN** an authorized manager deletes draft or cancelled operations in an authorized company
+- **THEN** deletion is allowed subject to existing access rules
+- **AND** a request containing a reviewed or applied operation is rejected without deleting any operation or detail
+
+#### Scenario: S43 Enforce deletion authorization
+- **WHEN** a non-manager or a manager without access to the operation company directly requests deletion of a draft or cancelled operation
+- **THEN** deletion is rejected and the operation and its details remain available to authorized users
+
+#### Scenario: S44 Reject direct deletion or editing of preview details
+- **WHEN** a direct request attempts to edit or delete a POS or stock preview detail, including a detail of a cancelled operation
+- **THEN** the request is rejected
+- **AND** removing preview details with a cancelled operation is permitted only through the server-managed operation deletion
 
 ### Requirement: POS reporting and operational continuity
 
@@ -260,6 +282,31 @@ After application, standard POS line and order margins and the POS sales-analysi
 #### Scenario: S39 Install and upgrade without recomputation
 - **WHEN** the module is installed or upgraded on a database containing historical POS orders
 - **THEN** no historical POS cost is rewritten by installation or upgrade
+
+### Requirement: Server-owned source versions during POS synchronization
+
+Source-version counters used to detect stale recomputation previews SHALL remain server-managed and SHALL NOT be included in POS order loading fields, field metadata or synchronization responses. Valid POS order synchronization SHALL ignore any client-supplied source-version counter, including empty, stale or arbitrary values sent by an already open or offline client. Ordinary cashiers MUST be able to create, save and pay otherwise valid orders without recomputation-manager permission. Synchronization MUST preserve server-controlled source tracking and stale-preview protection. Direct creation or editing that assigns a source-version counter, including through a supplied default value, MUST remain forbidden. These rules SHALL NOT bypass ordinary order validation, record access or company restrictions.
+
+#### Scenario: S45 Exclude source versions from POS order data
+- **WHEN** an authorized cashier loads POS order fields and records or receives synchronized orders
+- **THEN** source-version counters are absent from the field metadata and returned order data
+- **AND** standard order fields required for checkout remain available
+
+#### Scenario: S46 Pay a new order containing a client source version
+- **GIVEN** a cashier has ordinary POS access without recomputation-manager permission
+- **WHEN** the cashier submits an otherwise valid paid order containing an empty or arbitrary source-version counter
+- **THEN** the sale follows standard payment and cost processing without a source-version access error
+- **AND** the supplied counter is ignored and source versions remain controlled by the server
+
+#### Scenario: S47 Retry and pay a draft from an already open client
+- **GIVEN** a draft order has been synchronized and a subsequent source change has advanced its server-owned version
+- **WHEN** an already open or offline POS client resends the draft and later pays it with an outdated or arbitrary source-version counter
+- **THEN** the existing order is updated and paid through the standard workflow
+- **AND** the client counter does not reset or replace server-owned versions or disable source-change tracking
+
+#### Scenario: S48 Reject direct source-version assignment
+- **WHEN** a direct creation or editing request assigns a source-version counter, including an empty value or a supplied default
+- **THEN** the assignment is rejected and existing source-version data remains unchanged
 
 ### Requirement: Manual valuation of fully consolidated history
 

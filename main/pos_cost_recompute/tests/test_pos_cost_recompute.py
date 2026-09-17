@@ -359,6 +359,79 @@ class TestPosCostRecompute(TestPoSCommon):
         with self.assertRaises(UserError):
             operation.reason = "Changed"
 
+    def test_delete_cancelled_operation_with_preview(self):
+        order = self._orders()
+        order.lines.write({"total_cost": 0, "is_total_cost_computed": False})
+        moves = order.picking_ids.move_ids
+        line_fields = ["total_cost", "is_total_cost_computed", "qty", "price_subtotal", "write_date"]
+        move_fields = ["state", "quantity", "value", "cost_repair_line_id", "write_date"]
+        before_lines = order.lines.read(line_fields)
+        before_moves = moves.read(move_fields)
+        operation = self._operation(order)
+        operation.action_cancel()
+        details = operation.line_ids
+        self.assertTrue(details)
+        for context in ({}, {"pos_cost_recompute_internal": True}):
+            with self.subTest(context=context), self.assertRaises(AccessError):
+                details.with_user(self.manager).with_context(**context).unlink()
+        self.assertTrue(operation.with_user(self.manager).unlink())
+        self.assertFalse(operation.exists())
+        self.assertFalse(details.exists())
+        self.assertEqual(order.lines.read(line_fields), before_lines)
+        self.assertEqual(moves.read(move_fields), before_moves)
+
+    def test_delete_draft_and_cancelled_operations_batch(self):
+        order = self._orders()
+        draft = self._operation(order, preview=False)
+        cancelled_draft = self._operation(order, preview=False)
+        cancelled_draft.action_cancel()
+        cancelled_preview = self._operation(order)
+        cancelled_preview.action_cancel()
+        operations = draft | cancelled_draft | cancelled_preview
+        details = operations.line_ids
+        self.assertTrue(details)
+        operations.with_user(self.manager).unlink()
+        self.assertFalse(operations.exists())
+        self.assertFalse(details.exists())
+
+    def test_delete_batch_rejects_reviewed_and_applied_operations(self):
+        order = self._orders()
+        draft = self._operation(order, preview=False)
+        cancelled = self._operation(order)
+        cancelled.action_cancel()
+        protected = self._operation(order)
+        operations = draft | cancelled | protected
+        details = operations.line_ids
+        for state in ("ready", "done"):
+            with self.subTest(state=state):
+                if state == "done":
+                    protected.action_apply()
+                before = details.read(["operation_id", "snapshot", "actual_cost"])
+                with self.assertRaises(UserError):
+                    operations.with_user(self.manager).unlink()
+                self.assertEqual(operations.exists(), operations)
+                self.assertEqual(details.exists(), details)
+                self.assertEqual(details.read(["operation_id", "snapshot", "actual_cost"]), before)
+                self.assertEqual(operations.mapped("state"), ["draft", "cancelled", state])
+
+    def test_delete_cancelled_operation_requires_manager_and_company_access(self):
+        order = self._orders()
+        operation = self._operation(order)
+        operation.action_cancel()
+        details = operation.line_ids
+        other = self.env["res.company"].create({"name": "Cancelled Cost Other Company"})
+        other_manager = new_test_user(
+            self.env, login="cancelled-cost-other-manager",
+            groups="point_of_sale.group_pos_manager",
+            company_id=other.id, company_ids=[Command.set(other.ids)],
+        )
+        for user in (self.operator, other_manager):
+            with self.subTest(user=user.login), self.assertRaises(AccessError):
+                operation.with_user(user).with_context(allowed_company_ids=user.company_ids.ids).unlink()
+        self.assertEqual(operation.exists(), operation)
+        self.assertEqual(operation.state, "cancelled")
+        self.assertEqual(details.exists(), details)
+
     def test_access_and_history_forgery(self):
         order = self._orders()
         with self.assertRaises(AccessError):

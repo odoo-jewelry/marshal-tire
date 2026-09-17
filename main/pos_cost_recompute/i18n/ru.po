@@ -87,8 +87,8 @@ msgstr "Применил"
 #. module: pos_cost_recompute
 #. odoo-python
 #: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
-msgid "Applied or cancelled history cannot be deleted."
-msgstr "Историю применённых или отменённых операций нельзя удалить."
+msgid "Applied history cannot be deleted."
+msgstr "Историю применённых операций нельзя удалить."
 
 #. module: pos_cost_recompute
 #. odoo-python
@@ -326,8 +326,8 @@ msgstr "Пересчитывать себестоимость могут тол�
 #. module: pos_cost_recompute
 #. odoo-python
 #: code:addons/pos_cost_recompute/models/pos_cost_recompute.py:0
-msgid "Only draft operations can be deleted."
-msgstr "Удалить можно только черновую операцию."
+msgid "Only draft or cancelled operations can be deleted."
+msgstr "Удалить можно только черновую или отменённую операцию."
 
 #. module: pos_cost_recompute
 #. odoo-python
@@ -797,9 +797,9 @@ msgstr "Все связанные возвраты должны быть дос�
 #. module: pos_cost_recompute
 #. odoo-python
 #: code:addons/pos_cost_recompute/models/pos_cost_recompute_stock_line.py:0
-msgid "Applied or cancelled stock repair evidence cannot be deleted."
+msgid "Applied stock repair evidence cannot be deleted."
 msgstr ""
-"Основания применённого или отменённого исправления склада нельзя удалить."
+"Основания применённого исправления склада нельзя удалить."
 
 #. module: pos_cost_recompute
 #. odoo-python

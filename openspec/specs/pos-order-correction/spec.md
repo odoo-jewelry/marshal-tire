@@ -357,3 +357,22 @@ The interface change SHALL preserve pending stock and session-closure notices, s
 #### Scenario: S61 Preserve the standard orders list
 - **WHEN** the user opens the standard Orders action after installation or upgrade
 - **THEN** its standard list and search remain selected, receipt number, customer, total and status retain their established arrangement, and debt columns retain their optional behavior
+
+### Requirement: Server-owned correction metadata during POS synchronization
+
+Correction ownership, correction classification, external-settlement markers and links between original orders, correction documents and returns SHALL be assigned only by the server-controlled workflows. POS order synchronization SHALL ignore client-supplied values for these fields, including empty values, echoed server values and forged assignments. Valid ordinary draft synchronization and payment MUST NOT fail solely because the client returns such metadata. Server-assigned return-source links SHALL survive synchronization. Correction metadata required by existing POS displays and return workflows SHALL remain available for authorized reading. Direct creation or editing outside the correction workflow MUST retain ownership protection, and synchronization MUST NOT bypass validation of return sources, applied-history protection, record access or company restrictions.
+
+#### Scenario: S63 Save and pay an ordinary draft with empty correction metadata
+- **WHEN** a cashier synchronizes an otherwise valid ordinary draft and later pays it while the client includes empty correction links and false correction flags
+- **THEN** the same order is saved and paid without a correction-ownership error
+- **AND** no correction ownership or correction history is created
+
+#### Scenario: S64 Preserve the source of a corrected-sale return
+- **GIVEN** an eligible return draft references the current effective lines of a corrected sale and the server has assigned its original-sale link
+- **WHEN** POS submits payment for the return while echoing that link and other correction metadata
+- **THEN** the return is paid through the standard workflow with its server-assigned original-sale link and returned source lines preserved
+
+#### Scenario: S65 Ignore forged correction ownership during checkout
+- **WHEN** an otherwise valid POS creation or draft-update request contains forged correction ownership, classification, external-settlement markers or correction and return links
+- **THEN** those supplied values are ignored and do not create or reassign correction history or alter server-owned links
+- **AND** direct requests to assign correction ownership outside the correction workflow remain rejected

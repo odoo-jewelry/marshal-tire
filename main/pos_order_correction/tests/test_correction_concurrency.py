@@ -99,7 +99,7 @@ class TestPosOrderCorrectionConcurrency(TransactionCase):
 
             with closing(database.cursor()) as first_cr, closing(database.cursor()) as second_cr:
                 first = api.Environment(first_cr, SUPERUSER_ID, {})
-                second = api.Environment(second_cr, SUPERUSER_ID, {})
+                second = api.Environment(second_cr, SUPERUSER_ID, {"lang": "en_US"})
                 first["pos.order.correction"].browse(fixture["correction"]).action_apply()
                 operations = {
                     "correction": lambda: second["pos.order.correction"].browse(fixture["correction"]).action_apply(),

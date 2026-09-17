@@ -430,6 +430,18 @@ class PosOrder(models.Model):
             raise UserError(message)
 
     @api.model
+    def _process_order(self, order, existing_order):
+        # POS serializes readonly fields too. Correction ownership is assigned
+        # by the server and must survive draft synchronization unchanged.
+        ownership_fields = {
+            "correction_root_id", "correction_id", "is_correction_order",
+            "correction_return_root_id", "correction_ids", "correction_order_ids",
+            "correction_has_external_settlement",
+        }
+        order = {key: value for key, value in order.items() if key not in ownership_fields}
+        return super()._process_order(order, existing_order)
+
+    @api.model
     def _get_refunded_orders(self, order):
         sources = super()._get_refunded_orders(order)
         return sources.mapped(lambda source: source._get_correction_root())

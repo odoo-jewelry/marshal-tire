@@ -1,6 +1,6 @@
 {
     "name": "POS Order Correction",
-    "version": "19.0.1.0.2",
+    "version": "19.0.1.0.3",
     "category": "Point of Sale",
     "summary": "Correct completed POS orders through auditable revisions",
     "author": "Uvelirsoft",

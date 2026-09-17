@@ -142,8 +142,11 @@ class PosCostRecompute(models.Model):
 
     def unlink(self):
         self._check_manager()
-        if self.filtered(lambda operation: operation.state != "draft"):
-            raise UserError(self.env._("Only draft operations can be deleted."))
+        self.check_access("unlink")
+        self.lock_for_update()
+        self.invalidate_recordset(["state"])
+        if self.filtered(lambda operation: operation.state not in ("draft", "cancelled")):
+            raise UserError(self.env._("Only draft or cancelled operations can be deleted."))
         self._clear_preview()
         return super().unlink()
 
@@ -365,6 +368,6 @@ class PosCostRecomputeLine(models.Model):
 
     def unlink(self):
         self._check_internal()
-        if self.operation_id.filtered(lambda operation: operation.state in ("done", "cancelled")):
-            raise UserError(self.env._("Applied or cancelled history cannot be deleted."))
+        if self.operation_id.filtered(lambda operation: operation.state == "done"):
+            raise UserError(self.env._("Applied history cannot be deleted."))
         return super().unlink()

@@ -7,3 +7,4 @@ from . import test_correction_debt
 from . import test_correction_security
 from . import test_correction_concurrency
 from . import test_correction_views
+from . import test_correction_pos_sync

@@ -206,6 +206,68 @@ class TestStockValueRepair(TestPoSCommon):
         with self.assertRaises(UserError):
             operation.action_apply()
 
+    def test_delete_cancelled_stock_repair_preserves_sources(self):
+        products, receipts, orders, issues = self._fixture()
+        manager = new_test_user(
+            self.env, login="cancelled-stock-repair-manager",
+            groups="point_of_sale.group_pos_manager,stock.group_stock_manager",
+            company_id=self.env.company.id,
+        )
+        pos_only = new_test_user(
+            self.env, login="cancelled-stock-repair-pos-only",
+            groups="point_of_sale.group_pos_manager", company_id=self.env.company.id,
+        )
+        moves = receipts | issues
+        move_fields = ["state", "quantity", "value", "cost_repair_line_id", "write_date"]
+        line_fields = ["total_cost", "is_total_cost_computed", "qty", "write_date"]
+        product_fields = ["standard_price", "qty_available", "total_value"]
+        before_moves = moves.read(move_fields)
+        before_lines = orders.lines.read(line_fields)
+        before_products = products.read(product_fields)
+        operation = self._repair(orders)
+        operation.action_cancel()
+        pos_details, stock_details = operation.line_ids, operation.stock_line_ids
+        self.assertTrue(pos_details)
+        self.assertTrue(stock_details)
+        with self.assertRaises(AccessError):
+            operation.with_user(pos_only).unlink()
+        for details in (pos_details, stock_details):
+            for context in ({}, {"pos_cost_recompute_internal": True}):
+                with self.subTest(model=details._name, context=context), self.assertRaises(AccessError):
+                    details.with_user(manager).with_context(**context).unlink()
+        operation.with_user(manager).unlink()
+        self.assertFalse(operation.exists())
+        self.assertFalse(pos_details.exists())
+        self.assertFalse(stock_details.exists())
+        self.assertEqual(moves.read(move_fields), before_moves)
+        self.assertEqual(orders.lines.read(line_fields), before_lines)
+        self.assertEqual(products.read(product_fields), before_products)
+
+    def test_delete_batch_preserves_reviewed_and_applied_stock_evidence(self):
+        _products, _receipts, orders, issues = self._fixture()
+        cancelled = self._repair(orders)
+        cancelled.action_cancel()
+        protected = self._repair(orders)
+        operations = cancelled | protected
+        pos_details = operations.line_ids
+        stock_details = operations.stock_line_ids
+        for state in ("ready", "done"):
+            with self.subTest(state=state):
+                if state == "done":
+                    protected.acknowledge_stock_repair = True
+                    protected.action_apply()
+                before_pos = pos_details.read(["snapshot", "actual_cost"])
+                before_stock = stock_details.read(["snapshot", "actual_value"])
+                before_move = issues.read(["value", "cost_repair_line_id"])
+                with self.assertRaises(UserError):
+                    operations.unlink()
+                self.assertEqual(operations.exists(), operations)
+                self.assertEqual(pos_details.exists(), pos_details)
+                self.assertEqual(stock_details.exists(), stock_details)
+                self.assertEqual(pos_details.read(["snapshot", "actual_cost"]), before_pos)
+                self.assertEqual(stock_details.read(["snapshot", "actual_value"]), before_stock)
+                self.assertEqual(issues.read(["value", "cost_repair_line_id"]), before_move)
+
     def test_exclusions(self):
         products, receipts, orders, issues = self._fixture()
         cases = [

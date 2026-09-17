@@ -1,9 +1,27 @@
-from odoo import Command, models
+from odoo import Command, api, models
 from odoo.exceptions import UserError
 
 
 class PosOrder(models.Model):
     _inherit = "pos.order"
+
+    @api.model
+    def _load_pos_data_fields(self, config):
+        fields_to_load = super()._load_pos_data_fields(config)
+        if not fields_to_load:
+            # An empty list loads all fields; keep the standard POS exclusion
+            # of manual fields and the current user's field access restrictions.
+            fields_to_load = [
+                name for name in self.fields_get(attributes=()) if not self._fields[name].manual
+            ]
+        return [name for name in fields_to_load if name != "cost_recompute_revision"]
+
+    @api.model
+    def _process_order(self, order, existing_order):
+        # Already open or offline POS clients can still send this server-owned
+        # counter. Ignore the echoed value without weakening ORM write guards.
+        order = {key: value for key, value in order.items() if key != "cost_recompute_revision"}
+        return super()._process_order(order, existing_order)
 
     def action_prepare_cost_recompute(self):
         self.env["pos.cost.recompute"]._check_manager()
