@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Personnel Number Sequence (Табельний номер) -->
+        <record id="seq_hr_employee_number" model="ir.sequence">
+            <field name="name">Employee Personnel Number</field>
+            <field name="code">hr.employee.number</field>
+            <field name="prefix">%(year)s-</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- HR Order Sequences -->
+        
+        <record id="seq_hr_order_hiring" model="ir.sequence">
+            <field name="name">HR Order: Hiring</field>
+            <field name="code">hr.order.hiring</field>
+            <field name="prefix">П-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_order_dismissal" model="ir.sequence">
+            <field name="name">HR Order: Dismissal</field>
+            <field name="code">hr.order.dismissal</field>
+            <field name="prefix">З-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_order_transfer" model="ir.sequence">
+            <field name="name">HR Order: Transfer</field>
+            <field name="code">hr.order.transfer</field>
+            <field name="prefix">ПР-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_order_vacation" model="ir.sequence">
+            <field name="name">HR Order: Vacation</field>
+            <field name="code">hr.order.vacation</field>
+            <field name="prefix">В-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_order_bonus" model="ir.sequence">
+            <field name="name">HR Order: Bonus</field>
+            <field name="code">hr.order.bonus</field>
+            <field name="prefix">ПМ-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_order_sick_leave" model="ir.sequence">
+            <field name="name">HR Order: Sick Leave</field>
+            <field name="code">hr.order.sick_leave</field>
+            <field name="prefix">Л-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_order_business_trip" model="ir.sequence">
+            <field name="name">HR Order: Business Trip</field>
+            <field name="code">hr.order.business_trip</field>
+            <field name="prefix">ВД-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_order_other" model="ir.sequence">
+            <field name="name">HR Order: Other</field>
+            <field name="code">hr.order.other</field>
+            <field name="prefix">К-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_military_notification" model="ir.sequence">
+            <field name="name">Military Notification (TCC)</field>
+            <field name="code">hr.military.notification</field>
+            <field name="prefix">ТЦК/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

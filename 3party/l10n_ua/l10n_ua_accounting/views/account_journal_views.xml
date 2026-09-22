@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Extend journal form with Ukrainian sequences -->
+    <record id="view_account_journal_form_ua" model="ir.ui.view">
+        <field name="name">account.journal.form.ua</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='advanced_settings']" position="inside">
+                <group string="Ukrainian Cash Orders" invisible="type != 'cash'">
+                    <group>
+                        <field name="ua_pko_sequence_id"/>
+                        <field name="ua_vko_sequence_id"/>
+                    </group>
+                    <group>
+                        <button name="action_create_ua_sequences" type="object"
+                                string="Create UA Sequences"
+                                class="btn-secondary"
+                                invisible="ua_pko_sequence_id and ua_vko_sequence_id"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

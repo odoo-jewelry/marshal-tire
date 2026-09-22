@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Payment Order Wizard Form -->
+    <record id="view_payment_order_wizard_form" model="ir.ui.view">
+        <field name="name">l10n_ua.payment.order.wizard.form</field>
+        <field name="model">l10n_ua.payment.order.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Створення платіжних доручень">
+                <group>
+                    <group>
+                        <field name="journal_id" options="{'no_create': True}"/>
+                        <field name="payment_date"/>
+                    </group>
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="total_amount" widget="monetary"/>
+                    </group>
+                </group>
+                <field name="line_ids">
+                    <list editable="bottom">
+                        <field name="bill_id" readonly="1"/>
+                        <field name="partner_id" readonly="1"/>
+                        <field name="partner_bank_id"/>
+                        <field name="currency_id" column_invisible="True"/>
+                        <field name="amount_residual" readonly="1" widget="monetary"/>
+                        <field name="amount_to_pay" widget="monetary"/>
+                    </list>
+                </field>
+                <footer>
+                    <button name="action_create_payment_orders" type="object"
+                            string="Створити ПД" class="btn-primary"/>
+                    <button string="Скасувати" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Wizard binding action (appears in Action menu on vendor bills list) -->
+    <record id="action_payment_order_wizard" model="ir.actions.act_window">
+        <field name="name">Створити платіжні доручення</field>
+        <field name="res_model">l10n_ua.payment.order.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+</odoo>

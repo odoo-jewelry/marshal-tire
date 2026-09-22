@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Add currency menus under Bank UA Configuration -->
+    <!-- Parent menu comes from l10n_ua_bank_sync -->
+
+    <menuitem id="menu_ua_bank_currencies"
+              name="Currencies"
+              parent="l10n_ua_bank_sync.menu_ua_bank_config"
+              action="res_currency_action"
+              sequence="50"/>
+
+    <menuitem id="menu_ua_bank_currency_rates"
+              name="Currency Rates"
+              parent="l10n_ua_bank_sync.menu_ua_bank_config"
+              action="res_currency_rate_action"
+              sequence="51"/>
+
+    <menuitem id="menu_ua_bank_currency_providers"
+              name="Rate Providers"
+              parent="l10n_ua_bank_sync.menu_ua_bank_config"
+              action="res_currency_rate_provider_action"
+              sequence="52"/>
+
+    <menuitem id="menu_ua_bank_currency_sync"
+              name="Sync Currencies"
+              parent="l10n_ua_bank_sync.menu_ua_bank_config"
+              action="currency_sync_wizard_action"
+              sequence="53"/>
+
+</odoo>

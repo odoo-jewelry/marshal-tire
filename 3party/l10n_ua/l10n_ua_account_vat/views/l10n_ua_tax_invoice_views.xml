@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tax Invoice Form -->
+    <record id="l10n_ua_tax_invoice_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.invoice.form</field>
+        <field name="model">l10n_ua.tax.invoice</field>
+        <field name="arch" type="xml">
+            <form string="Податкова накладна">
+                <header>
+                    <button name="action_generate_xml" string="Генерувати XML" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_register_erpn" string="Зареєструвати в ЄРПН" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_cancel" string="Скасувати" type="object"
+                            invisible="state != 'draft'" confirm="Ви впевнені?"/>
+                    <button name="action_mark_received" string="Позначити отриманою" type="object"
+                            invisible="invoice_type != 'received' or received_status != 'expected'"/>
+                    <button name="action_mark_erpn_verified" string="Перевірено в ЄРПН" type="object"
+                            invisible="invoice_type != 'received' or received_status != 'received'"/>
+                    <button name="action_draft" string="Повернути в чернетку" type="object"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,registered"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_generate_xml" type="object"
+                                class="oe_stat_button" icon="fa-file-code-o"
+                                invisible="not file_xml">
+                            <span>XML</span>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="doc_type"/>
+                            <field name="invoice_type"/>
+                            <field name="number"/>
+                            <field name="date"/>
+                            <field name="vat_method"/>
+                            <field name="registration_deadline"/>
+                            <field name="is_import"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="partner_ipn"/>
+                            <field name="move_id"/>
+                            <field name="erpn_number"/>
+                            <field name="erpn_date"/>
+                            <field name="erpn_receipt" readonly="1"
+                                   invisible="not erpn_receipt"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <!-- Received PN status -->
+                    <group invisible="invoice_type != 'received'">
+                        <group string="Статус отриманої ПН">
+                            <field name="received_status"/>
+                            <field name="received_date"/>
+                            <field name="erpn_verified_date"/>
+                        </group>
+                    </group>
+                    <!-- RK fields -->
+                    <group invisible="doc_type != 'rk'">
+                        <group>
+                            <field name="original_invoice_id"/>
+                            <field name="reason"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Рядки" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="product_id" optional="show"/>
+                                    <field name="name"/>
+                                    <field name="uktzed_code" optional="show"/>
+                                    <field name="dkpp_code" optional="hide"/>
+                                    <field name="quantity"/>
+                                    <field name="uom_id" optional="show"/>
+                                    <field name="price_unit"/>
+                                    <field name="base_amount" sum="Total"/>
+                                    <field name="vat_rate"/>
+                                    <field name="vat_amount" sum="Total"/>
+                                    <field name="is_import" optional="hide"/>
+                                    <field name="is_own_agro" optional="hide"/>
+                                    <field name="benefit_code" optional="hide"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="XML" name="xml" invisible="not file_xml">
+                            <group>
+                                <field name="file_xml" filename="file_xml_name"/>
+                                <field name="file_xml_name" invisible="True"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <group class="oe_subtotal_footer">
+                        <field name="total_base"/>
+                        <field name="total_vat"/>
+                        <field name="total_amount" class="oe_subtotal_footer_separator"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tax Invoice List -->
+    <record id="l10n_ua_tax_invoice_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.invoice.list</field>
+        <field name="model">l10n_ua.tax.invoice</field>
+        <field name="arch" type="xml">
+            <list string="Податкові накладні"
+                  decoration-muted="state == 'cancelled'"
+                  decoration-success="state == 'registered'"
+                  decoration-danger="is_overdue">
+                <field name="number"/>
+                <field name="date"/>
+                <field name="doc_type"/>
+                <field name="invoice_type"/>
+                <field name="partner_id"/>
+                <field name="partner_ipn" optional="show"/>
+                <field name="total_base" sum="Total"/>
+                <field name="total_vat" sum="Total"/>
+                <field name="total_amount" sum="Total" optional="show"/>
+                <field name="registration_deadline" optional="show"/>
+                <field name="is_overdue" optional="hide"/>
+                <field name="received_status" optional="hide"/>
+                <field name="erpn_number" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'registered'"
+                       decoration-info="state == 'draft'"
+                       decoration-danger="state == 'cancelled'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Tax Invoice Search -->
+    <record id="l10n_ua_tax_invoice_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.invoice.search</field>
+        <field name="model">l10n_ua.tax.invoice</field>
+        <field name="arch" type="xml">
+            <search string="Податкові накладні">
+                <field name="number" string="Номер"/>
+                <field name="partner_id"/>
+                <field name="move_id"/>
+
+                <filter string="Чернетка" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Зареєстровано" name="filter_registered" domain="[('state', '=', 'registered')]"/>
+                <filter string="Скасовано" name="filter_cancelled" domain="[('state', '=', 'cancelled')]"/>
+                <separator/>
+                <filter string="Видані" name="filter_issued" domain="[('invoice_type', '=', 'issued')]"/>
+                <filter string="Отримані" name="filter_received" domain="[('invoice_type', '=', 'received')]"/>
+                <separator/>
+                <filter string="ПН" name="filter_pn" domain="[('doc_type', '=', 'pn')]"/>
+                <filter string="РК" name="filter_rk" domain="[('doc_type', '=', 'rk')]"/>
+                <separator/>
+                <filter string="Прострочені" name="filter_overdue" domain="[('is_overdue', '=', True)]"/>
+                <separator/>
+                <filter string="Очікується" name="filter_expected" domain="[('received_status', '=', 'expected')]"/>
+                <filter string="Перевірено ЄРПН" name="filter_erpn_verified" domain="[('received_status', '=', 'erpn_verified')]"/>
+
+                <group>
+                    <filter string="Контрагент" name="groupby_partner" domain="[]" context="{'group_by': 'partner_id'}"/>
+                    <filter string="Стан" name="groupby_state" domain="[]" context="{'group_by': 'state'}"/>
+                    <filter string="Тип" name="groupby_type" domain="[]" context="{'group_by': 'invoice_type'}"/>
+                    <filter string="Місяць" name="groupby_date" domain="[]" context="{'group_by': 'date:month'}"/>
+                    <filter string="Статус отримання" name="groupby_received" domain="[]" context="{'group_by': 'received_status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Actions: Issued -->
+    <record id="l10n_ua_tax_invoice_issued_action" model="ir.actions.act_window">
+        <field name="name">Видані ПН</field>
+        <field name="res_model">l10n_ua.tax.invoice</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('invoice_type', '=', 'issued')]</field>
+        <field name="context">{'default_invoice_type': 'issued', 'search_default_filter_draft': 1}</field>
+        <field name="search_view_id" ref="l10n_ua_tax_invoice_view_search"/>
+    </record>
+
+    <!-- Actions: Received -->
+    <record id="l10n_ua_tax_invoice_received_action" model="ir.actions.act_window">
+        <field name="name">Отримані ПН</field>
+        <field name="res_model">l10n_ua.tax.invoice</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('invoice_type', '=', 'received')]</field>
+        <field name="context">{'default_invoice_type': 'received', 'search_default_filter_draft': 1}</field>
+        <field name="search_view_id" ref="l10n_ua_tax_invoice_view_search"/>
+    </record>
+
+    <!-- Actions: All -->
+    <record id="l10n_ua_tax_invoice_action" model="ir.actions.act_window">
+        <field name="name">Усі податкові накладні</field>
+        <field name="res_model">l10n_ua.tax.invoice</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="l10n_ua_tax_invoice_view_search"/>
+    </record>
+
+    <!-- Actions: Deadline Dashboard -->
+    <record id="l10n_ua_tax_invoice_deadline_action" model="ir.actions.act_window">
+        <field name="name">Дедлайни реєстрації</field>
+        <field name="res_model">l10n_ua.tax.invoice</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('state', '=', 'draft'), ('invoice_type', '=', 'issued')]</field>
+        <field name="context">{'search_default_filter_draft': 1}</field>
+        <field name="search_view_id" ref="l10n_ua_tax_invoice_view_search"/>
+    </record>
+
+</odoo>

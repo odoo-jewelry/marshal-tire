@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Asset Group form: code/name plus default depreciation accounts -->
+    <record id="l10n_ua_asset_group_form" model="ir.ui.view">
+        <field name="name">l10n_ua.asset.group.form</field>
+        <field name="model">l10n_ua.asset.group</field>
+        <field name="arch" type="xml">
+            <form string="Група ОЗ">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="min_useful_life"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Рахунки амортизації за замовчуванням">
+                            <field name="depreciation_journal_id"/>
+                            <field name="expense_account_id"/>
+                            <field name="depreciation_account_id"/>
+                        </group>
+                    </group>
+                    <field name="description" placeholder="Опис..."/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Asset Group Action (must be before menu that references it) -->
+    <record id="l10n_ua_asset_group_action" model="ir.actions.act_window">
+        <field name="name">Fixed Asset Groups</field>
+        <field name="res_model">l10n_ua.asset.group</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_l10n_ua_assets"
+              name="Fixed Assets"
+              parent="l10n_ua_account_base.menu_l10n_ua_root"
+              sequence="25"
+              groups="account.group_account_user"/>
+
+    <menuitem id="menu_l10n_ua_assets_list"
+              name="Asset Cards"
+              parent="menu_l10n_ua_assets"
+              action="l10n_ua_asset_action"
+              sequence="5"/>
+
+    <menuitem id="menu_l10n_ua_mnma"
+              name="Low Value Assets (MNMA)"
+              parent="menu_l10n_ua_assets"
+              action="l10n_ua_mnma_action"
+              sequence="10"/>
+
+    <menuitem id="menu_l10n_ua_mshp"
+              name="МШП (рах. 22)"
+              parent="menu_l10n_ua_assets"
+              action="l10n_ua_mshp_action"
+              sequence="11"/>
+
+    <menuitem id="menu_l10n_ua_mshp_register"
+              name="Реєстр МШП в експлуатації"
+              parent="menu_l10n_ua_assets"
+              action="l10n_ua_mshp_register_action"
+              sequence="12"/>
+
+    <menuitem id="menu_l10n_ua_asset_revaluation"
+              name="Asset Revaluations"
+              parent="menu_l10n_ua_assets"
+              action="l10n_ua_asset_revaluation_action"
+              sequence="15"/>
+
+    <menuitem id="menu_l10n_ua_asset_modernization"
+              name="Asset Modernizations"
+              parent="menu_l10n_ua_assets"
+              action="l10n_ua_asset_modernization_action"
+              sequence="17"/>
+
+    <menuitem id="menu_l10n_ua_asset_inventory"
+              name="Asset Inventories"
+              parent="menu_l10n_ua_assets"
+              action="l10n_ua_asset_inventory_action"
+              sequence="18"/>
+
+    <menuitem id="menu_l10n_ua_asset_groups"
+              name="Asset Groups"
+              parent="menu_l10n_ua_assets"
+              action="l10n_ua_asset_group_action"
+              sequence="20"/>
+
+</odoo>

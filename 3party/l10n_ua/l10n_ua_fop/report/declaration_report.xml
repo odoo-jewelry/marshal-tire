@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- FOP Declaration Report Action -->
+    <record id="action_report_declaration" model="ir.actions.report">
+        <field name="name">Декларація ЄП</field>
+        <field name="model">l10n_ua.fop.declaration</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_fop.report_declaration_document</field>
+        <field name="report_file">l10n_ua_fop.report_declaration_document</field>
+        <field name="print_report_name">'Декларація_ЄП_%s' % (object.name or '')</field>
+        <field name="binding_model_id" ref="model_l10n_ua_fop_declaration"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+    <!-- FOP Declaration Template -->
+    <template id="report_declaration_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+                        <t t-set="company" t-value="o.company_id"/>
+                        <t t-set="comp_partner" t-value="company.partner_id"/>
+                        <t t-set="period_names" t-value="{'q1': 'I квартал', 'h1': 'Півріччя', '9m': '9 місяців', 'year': 'Рік'}"/>
+
+                        <!-- Right block: tax office -->
+                        <div class="row mb-3">
+                            <div class="col-6"></div>
+                            <div class="col-6">
+                                <div>До ДПІ _______________________________</div>
+                                <div class="small">(назва контролюючого органу)</div>
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <div class="ua-report-title" style="margin: 15px 0 10px 0;">
+                            ПОДАТКОВА ДЕКЛАРАЦІЯ<br/>
+                            <span style="font-size: 11pt;">платника єдиного податку — фізичної особи-підприємця</span>
+                        </div>
+
+                        <!-- FOP info -->
+                        <table class="no-border-all mb-3" style="width: 100%;">
+                            <tr>
+                                <td class="no-border" style="width: 30%;">ПІБ підприємця:</td>
+                                <td class="no-border" style="border-bottom: 1px solid black;">
+                                    <t t-esc="comp_partner.name or ''"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="no-border">РНОКПП (ІПН):</td>
+                                <td class="no-border" style="border-bottom: 1px solid black;">
+                                    <t t-esc="comp_partner.vat or comp_partner.company_registry or ''"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="no-border">Група ЄП:</td>
+                                <td class="no-border" style="border-bottom: 1px solid black;">
+                                    <strong t-esc="o.fop_group_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="no-border">Звітний період:</td>
+                                <td class="no-border" style="border-bottom: 1px solid black;">
+                                    <strong><t t-esc="period_names.get(o.period, '')"/>
+                                    <t t-esc="o.year"/> року</strong>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Section I: Income -->
+                        <div class="bold" style="margin: 15px 0 5px 0; font-size: 11pt;">
+                            I. Показники господарської діяльності
+                        </div>
+
+                        <table class="mb-3">
+                            <tr>
+                                <th style="width: 5%;">№</th>
+                                <th style="width: 55%;">Показник</th>
+                                <th style="width: 20%;">Код рядка</th>
+                                <th style="width: 20%;">Сума, грн</th>
+                            </tr>
+                            <tr>
+                                <td class="text-center">1</td>
+                                <td>Обсяг доходу за звітний період</td>
+                                <td class="text-center">01</td>
+                                <td class="text-right bold">
+                                    <span t-esc="'%.2f' % o.total_income"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">2</td>
+                                <td>
+                                    Обсяг доходу, що оподатковується за ставкою
+                                    <span t-esc="'%.0f' % o.tax_rate"/> %
+                                </td>
+                                <td class="text-center">02</td>
+                                <td class="text-right">
+                                    <span t-esc="'%.2f' % o.total_income"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Section II: Tax obligations -->
+                        <div class="bold" style="margin: 15px 0 5px 0; font-size: 11pt;">
+                            II. Податкові зобов'язання
+                        </div>
+
+                        <table class="mb-3">
+                            <tr>
+                                <th style="width: 5%;">№</th>
+                                <th style="width: 55%;">Показник</th>
+                                <th style="width: 20%;">Код рядка</th>
+                                <th style="width: 20%;">Сума, грн</th>
+                            </tr>
+                            <tr>
+                                <td class="text-center">3</td>
+                                <td>
+                                    Сума єдиного податку за ставкою
+                                    <t t-if="o.fop_group_id.code in ('1', '2')">
+                                        (фіксована × <t t-esc="o.esv_months"/> міс.)
+                                    </t>
+                                    <t t-else="">
+                                        <span t-esc="'%.0f' % o.tax_rate"/> %
+                                    </t>
+                                </td>
+                                <td class="text-center">03</td>
+                                <td class="text-right bold">
+                                    <span t-esc="'%.2f' % o.single_tax"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Section III: ESV -->
+                        <div class="bold" style="margin: 15px 0 5px 0; font-size: 11pt;">
+                            III. Визначення зобов'язань зі сплати ЄСВ
+                        </div>
+
+                        <table class="mb-3">
+                            <tr>
+                                <th style="width: 5%;">№</th>
+                                <th style="width: 55%;">Показник</th>
+                                <th style="width: 20%;">Код рядка</th>
+                                <th style="width: 20%;">Сума, грн</th>
+                            </tr>
+                            <tr>
+                                <td class="text-center">4</td>
+                                <td>
+                                    Мінімальна заробітна плата (на кінець періоду)
+                                </td>
+                                <td class="text-center">04</td>
+                                <td class="text-right">
+                                    <span t-esc="'%.2f' % o.min_wage"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">5</td>
+                                <td>
+                                    Кількість місяців у звітному періоді
+                                </td>
+                                <td class="text-center">05</td>
+                                <td class="text-right">
+                                    <span t-esc="o.esv_months"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">6</td>
+                                <td>
+                                    База нарахування ЄСВ (сума мінімальних зарплат за місяці періоду)
+                                </td>
+                                <td class="text-center">06</td>
+                                <td class="text-right">
+                                    <span t-esc="'%.2f' % o.esv_base"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">7</td>
+                                <td>
+                                    Сума ЄСВ (р.06 ×
+                                    <span t-esc="'%.0f' % o.esv_rate"/>%)
+                                </td>
+                                <td class="text-center">07</td>
+                                <td class="text-right bold">
+                                    <span t-esc="'%.2f' % o.esv_amount"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">8</td>
+                                <td>
+                                    Військовий збір
+                                    <t t-if="o.fop_group_id.code in ('1', '2')">(10% мінімальної зарплати щомісяця)</t>
+                                    <t t-else="">(1% доходу)</t>
+                                </td>
+                                <td class="text-center">08</td>
+                                <td class="text-right bold">
+                                    <span t-esc="'%.2f' % o.military_levy"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Total -->
+                        <table class="mb-3">
+                            <tr class="bold">
+                                <td style="width: 60%;">Усього до сплати (р.03 + р.07 + р.08):</td>
+                                <td class="text-center" style="width: 20%;"></td>
+                                <td class="text-right" style="width: 20%;">
+                                    <span t-esc="'%.2f' % o.total_payable"/> грн
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Income limit warning -->
+                        <t t-if="o.income_limit_exceeded">
+                            <div class="bold" style="color: red; margin: 10px 0;">
+                                УВАГА: Дохід перевищує ліміт
+                                (<span t-esc="'%.2f' % o.income_limit"/> грн)
+                                для обраної групи ЄП!
+                            </div>
+                        </t>
+
+                        <!-- Signature -->
+                        <div style="margin-top: 30px;">
+                            <table class="no-border-all" style="width: 100%;">
+                                <tr>
+                                    <td class="no-border" style="width: 35%;">ФОП</td>
+                                    <td class="no-border" style="width: 25%; border-bottom: 1px solid black;"></td>
+                                    <td class="no-border" style="width: 5%;"></td>
+                                    <td class="no-border" style="width: 35%; border-bottom: 1px solid black;">
+                                        <t t-esc="comp_partner.name or ''"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="no-border"></td>
+                                    <td class="no-border text-center small">(підпис)</td>
+                                    <td class="no-border"></td>
+                                    <td class="no-border text-center small">(ПІБ)</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Date -->
+                        <div style="margin-top: 15px;">
+                            Дата подання:
+                            <t t-if="o.submission_date">
+                                <span t-field="o.submission_date" t-options='{"widget": "date"}'/>
+                            </t>
+                            <t t-else="">«___» ___________ 20__ р.</t>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

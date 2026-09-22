@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Default certificate sequence (fallback) -->
+        <record id="seq_hr_certificate_default" model="ir.sequence">
+            <field name="name">HR Certificate: Default</field>
+            <field name="code">hr.certificate</field>
+            <field name="prefix">Д-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <!-- Sequences for specific certificate types -->
+        <record id="seq_hr_certificate_employment" model="ir.sequence">
+            <field name="name">HR Certificate: Employment</field>
+            <field name="code">hr.certificate.employment</field>
+            <field name="prefix">ДР-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_certificate_salary" model="ir.sequence">
+            <field name="name">HR Certificate: Salary</field>
+            <field name="code">hr.certificate.salary</field>
+            <field name="prefix">ДЗП-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_certificate_income" model="ir.sequence">
+            <field name="name">HR Certificate: Income</field>
+            <field name="code">hr.certificate.income</field>
+            <field name="prefix">ДД-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_certificate_experience" model="ir.sequence">
+            <field name="name">HR Certificate: Experience</field>
+            <field name="code">hr.certificate.experience</field>
+            <field name="prefix">ДС-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_certificate_bank" model="ir.sequence">
+            <field name="name">HR Certificate: Bank</field>
+            <field name="code">hr.certificate.bank</field>
+            <field name="prefix">ДБ-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_certificate_character" model="ir.sequence">
+            <field name="name">HR Certificate: Character Reference</field>
+            <field name="code">hr.certificate.character</field>
+            <field name="prefix">ХАР-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_certificate_pension" model="ir.sequence">
+            <field name="name">HR Certificate: Pension (OK-5)</field>
+            <field name="code">hr.certificate.pension</field>
+            <field name="prefix">ОК5-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_certificate_employment_center" model="ir.sequence">
+            <field name="name">HR Certificate: Employment Center</field>
+            <field name="code">hr.certificate.employment_center</field>
+            <field name="prefix">ДЦЗ-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_certificate_subsidy" model="ir.sequence">
+            <field name="name">HR Certificate: Housing Subsidy</field>
+            <field name="code">hr.certificate.subsidy</field>
+            <field name="prefix">ДСУБ-%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

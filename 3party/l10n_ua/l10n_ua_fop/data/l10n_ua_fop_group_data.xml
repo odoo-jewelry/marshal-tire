@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Ліміт доходу — у мінімальних зарплатах на 1 січня року (п. 291.4 ПКУ);
+         суму рахує декларація з довідника l10n_ua.min.wage. Наявним базам
+         множник проставляє міграція 19.0.3.0.0 (дані під noupdate). -->
+
+    <record id="fop_group_1" model="l10n_ua.fop.group">
+        <field name="code">1</field>
+        <field name="name">Group 1 - Retail trade, services to population</field>
+        <field name="tax_rate">0</field>
+        <field name="limit_min_wages">167</field>
+        <field name="can_hire_employees">False</field>
+        <field name="max_employees">0</field>
+        <field name="description">Fixed rate based on minimum wage. Retail trade at markets, household services to population.</field>
+    </record>
+
+    <record id="fop_group_2" model="l10n_ua.fop.group">
+        <field name="code">2</field>
+        <field name="name">Group 2 - Services to FOP and legal entities</field>
+        <field name="tax_rate">0</field>
+        <field name="limit_min_wages">834</field>
+        <field name="can_hire_employees">True</field>
+        <field name="max_employees">10</field>
+        <field name="description">Fixed rate based on minimum wage. Services to other FOP and legal entities, production.</field>
+    </record>
+
+    <record id="fop_group_3" model="l10n_ua.fop.group">
+        <field name="code">3</field>
+        <field name="name">Group 3 - Without VAT</field>
+        <field name="tax_rate">5</field>
+        <field name="limit_min_wages">1167</field>
+        <field name="can_hire_employees">True</field>
+        <field name="max_employees">0</field>
+        <field name="description">5% of income. Any activity except prohibited. No employee limit.</field>
+    </record>
+
+    <record id="fop_group_3_vat" model="l10n_ua.fop.group">
+        <field name="code">3_vat</field>
+        <field name="name">Group 3 - With VAT</field>
+        <field name="tax_rate">3</field>
+        <field name="limit_min_wages">1167</field>
+        <field name="can_hire_employees">True</field>
+        <field name="max_employees">0</field>
+        <field name="description">3% of income + VAT. Any activity except prohibited. No employee limit.</field>
+    </record>
+
+</odoo>

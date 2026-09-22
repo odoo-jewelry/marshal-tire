@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form View -->
+    <record id="hr_salary_account_config_view_form" model="ir.ui.view">
+        <field name="name">hr.salary.account.config.form</field>
+        <field name="model">hr.salary.account.config</field>
+        <field name="arch" type="xml">
+            <form string="Налаштування рахунків зарплати">
+                <sheet>
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                    <group string="Журнал">
+                        <field name="salary_journal_id"/>
+                    </group>
+                    <group>
+                        <group string="Рахунки зобов'язань (кредит)">
+                            <field name="wages_payable_account_id"/>
+                            <field name="pdfo_payable_account_id"/>
+                            <field name="military_tax_payable_account_id"/>
+                            <field name="esv_payable_account_id"/>
+                            <field name="other_payable_account_id"/>
+                        </group>
+                        <group string="Рахунки витрат (дебет)">
+                            <field name="default_expense_account_id"/>
+                            <div class="text-muted" colspan="2">
+                                Рахунок витрат можна вказати окремо для кожного підрозділу
+                                (91/92/93/94). Якщо у підрозділу не вказано — використовується
+                                цей рахунок за замовчуванням.
+                            </div>
+                        </group>
+                    </group>
+                    <group string="Параметри">
+                        <group>
+                            <field name="entry_granularity" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="auto_post"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="hr_salary_account_config_view_list" model="ir.ui.view">
+        <field name="name">hr.salary.account.config.list</field>
+        <field name="model">hr.salary.account.config</field>
+        <field name="arch" type="xml">
+            <list string="Налаштування рахунків зарплати">
+                <field name="company_id"/>
+                <field name="salary_journal_id"/>
+                <field name="wages_payable_account_id"/>
+                <field name="default_expense_account_id"/>
+                <field name="entry_granularity"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_hr_salary_account_config" model="ir.actions.act_window">
+        <field name="name">Рахунки зарплати</field>
+        <field name="res_model">hr.salary.account.config</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Налаштуйте рахунки для проводок по зарплаті
+            </p>
+            <p>
+                Вкажіть бухгалтерські рахунки для автоматичного створення проводок
+                при нарахуванні зарплати (661, 6411, 6415, 651, 685, 91-94).
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu item under HR Salary -->
+    <menuitem id="menu_hr_salary_account_config"
+              name="Рахунки зарплати"
+              parent="l10n_ua_hr_salary.menu_hr_payroll_config"
+              action="action_hr_salary_account_config"
+              sequence="10"/>
+
+</odoo>

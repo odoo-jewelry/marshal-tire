@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Certificates menu under HR Documents -->
+        <menuitem id="menu_hr_certificates_root"
+                  name="Certificates"
+                  parent="l10n_ua_hr_base.menu_hr_documents_root"
+                  sequence="50"/>
+
+        <menuitem id="menu_hr_certificate"
+                  name="Certificates"
+                  parent="menu_hr_certificates_root"
+                  action="action_hr_certificate"
+                  sequence="10"/>
+
+        <menuitem id="menu_hr_certificate_type"
+                  name="Certificate Types"
+                  parent="menu_hr_certificates_root"
+                  action="action_hr_certificate_type"
+                  sequence="100"
+                  groups="l10n_ua_hr_base.group_hr_ua_manager"/>
+
+    </data>
+</odoo>

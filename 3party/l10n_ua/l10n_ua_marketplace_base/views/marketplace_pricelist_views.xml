@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Pricelist Form View -->
+    <record id="marketplace_pricelist_view_form" model="ir.ui.view">
+        <field name="name">marketplace.pricelist.form</field>
+        <field name="model">marketplace.pricelist</field>
+        <field name="arch" type="xml">
+            <form string="Marketplace Pricelist">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_items" type="object" class="oe_stat_button" icon="fa-cubes">
+                            <field name="item_count" widget="statinfo" string="Items"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Pricelist Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="backend_id"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="last_generation" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Pricing" name="pricing">
+                            <group>
+                                <group string="Base Pricing">
+                                    <field name="pricelist_id"/>
+                                    <field name="currency_id"/>
+                                </group>
+                                <group string="Adjustments">
+                                    <field name="price_margin"/>
+                                    <field name="price_round"/>
+                                    <field name="min_price"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Product Filter" name="filter">
+                            <group>
+                                <group>
+                                    <field name="category_ids" widget="many2many_tags"/>
+                                    <field name="product_domain"/>
+                                </group>
+                                <group>
+                                    <field name="include_out_of_stock"/>
+                                    <field name="min_qty_available"/>
+                                    <field name="exclude_no_image"/>
+                                </group>
+                            </group>
+                            <div class="oe_button_box">
+                                <button name="action_generate_items" type="object"
+                                        string="Generate Items from Products" class="btn-primary"/>
+                                <button name="action_refresh_prices" type="object"
+                                        string="Refresh Prices" class="btn-secondary"/>
+                            </div>
+                        </page>
+
+                        <page string="Items" name="items">
+                            <field name="item_ids">
+                                <list editable="bottom">
+                                    <field name="product_tmpl_id"/>
+                                    <field name="sku"/>
+                                    <field name="marketplace_category_id"/>
+                                    <field name="price"/>
+                                    <field name="qty_available"/>
+                                    <field name="state" widget="badge"
+                                           decoration-success="state == 'published'"
+                                           decoration-warning="state == 'pending'"
+                                           decoration-danger="state == 'error'"/>
+                                    <field name="active"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pricelist Tree View -->
+    <record id="marketplace_pricelist_view_tree" model="ir.ui.view">
+        <field name="name">marketplace.pricelist.tree</field>
+        <field name="model">marketplace.pricelist</field>
+        <field name="arch" type="xml">
+            <list string="Marketplace Pricelists">
+                <field name="name"/>
+                <field name="backend_id"/>
+                <field name="item_count"/>
+                <field name="last_generation"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Pricelist Action -->
+    <record id="marketplace_pricelist_action" model="ir.actions.act_window">
+        <field name="name">Pricelists</field>
+        <field name="res_model">marketplace.pricelist</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Pricelist Item Form View -->
+    <record id="marketplace_pricelist_item_view_form" model="ir.ui.view">
+        <field name="name">marketplace.pricelist.item.form</field>
+        <field name="model">marketplace.pricelist.item</field>
+        <field name="arch" type="xml">
+            <form string="Pricelist Item">
+                <sheet>
+                    <group>
+                        <group string="Product">
+                            <field name="pricelist_id"/>
+                            <field name="product_tmpl_id"/>
+                            <field name="product_id"/>
+                            <field name="sku" readonly="1"/>
+                            <field name="barcode" readonly="1"/>
+                        </group>
+                        <group string="Marketplace">
+                            <field name="external_id"/>
+                            <field name="marketplace_category_id"/>
+                            <field name="state"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Pricing">
+                            <field name="price"/>
+                            <field name="price_original"/>
+                            <field name="price_promo"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Stock">
+                            <field name="qty_available"/>
+                            <field name="qty_to_publish"/>
+                            <field name="warehouse_id"/>
+                        </group>
+                    </group>
+                    <group string="Content Override">
+                        <field name="name_override"/>
+                        <field name="description_override"/>
+                    </group>
+                    <group string="Sync" invisible="not last_sync">
+                        <field name="last_sync" readonly="1"/>
+                        <field name="sync_error" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pricelist Item Tree View -->
+    <record id="marketplace_pricelist_item_view_tree" model="ir.ui.view">
+        <field name="name">marketplace.pricelist.item.tree</field>
+        <field name="model">marketplace.pricelist.item</field>
+        <field name="arch" type="xml">
+            <list string="Pricelist Items" decoration-danger="state == 'error'"
+                  decoration-muted="not active">
+                <field name="product_tmpl_id"/>
+                <field name="sku"/>
+                <field name="marketplace_category_id"/>
+                <field name="price"/>
+                <field name="qty_available"/>
+                <field name="last_sync"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'published'"
+                       decoration-warning="state == 'pending'"
+                       decoration-info="state == 'draft'"
+                       decoration-danger="state == 'error'"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Pricelist Item Search View -->
+    <record id="marketplace_pricelist_item_view_search" model="ir.ui.view">
+        <field name="name">marketplace.pricelist.item.search</field>
+        <field name="model">marketplace.pricelist.item</field>
+        <field name="arch" type="xml">
+            <search string="Pricelist Items">
+                <field name="product_tmpl_id"/>
+                <field name="sku"/>
+                <field name="external_id"/>
+                <field name="pricelist_id"/>
+                <filter string="Published" name="filter_published" domain="[('state', '=', 'published')]"/>
+                <filter string="Pending" name="filter_pending" domain="[('state', '=', 'pending')]"/>
+                <filter string="Draft" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Error" name="filter_error" domain="[('state', '=', 'error')]"/>
+                <separator/>
+                <filter string="Has Stock to Publish" name="filter_in_stock" domain="[('qty_to_publish', '>', 0)]"/>
+                <separator/>
+                <group>
+                    <filter string="State" name="groupby_state" domain="[]"
+                            context="{'group_by': 'state'}"/>
+                    <filter string="Category" name="groupby_category" domain="[]"
+                            context="{'group_by': 'marketplace_category_id'}"/>
+                    <filter string="Pricelist" name="groupby_pricelist" domain="[]"
+                            context="{'group_by': 'pricelist_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pricelist Item Action -->
+    <record id="marketplace_pricelist_item_action" model="ir.actions.act_window">
+        <field name="name">Pricelist Items</field>
+        <field name="res_model">marketplace.pricelist.item</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

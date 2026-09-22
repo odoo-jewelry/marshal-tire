@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Demo payslip batch -->
+        <record id="demo_payslip_run_2026_01" model="hr.payslip.run">
+            <field name="name">Зарплата за січень 2026</field>
+            <field name="date_start">2026-01-01</field>
+            <field name="date_end">2026-01-31</field>
+            <field name="state">draft</field>
+        </record>
+        
+    </data>
+</odoo>

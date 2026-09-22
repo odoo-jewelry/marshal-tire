@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Списки персонального військового обліку призовників,
+         військовозобов'язаних та резервістів — додаток 5 до Порядку
+         організації та ведення військового обліку (ПКМУ № 1487 від
+         30.12.2022) у редакції ПКМУ № 916 від 30.07.2025, зі змінами
+         ПКМУ № 812 від 10.06.2026. -->
+    <record id="action_report_hr_employee_military_form5" model="ir.actions.report">
+        <field name="name">Списки військового обліку (додаток 5)</field>
+        <field name="model">hr.employee.military.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_hr_base.report_hr_employee_military_form5</field>
+        <field name="report_file">l10n_ua_hr_base.report_hr_employee_military_form5</field>
+        <field name="print_report_name">'Списки_ВО_%s' % (object.date.strftime('%Y%m%d') if object.date else time.strftime('%Y%m%d'))</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_a4_ua_landscape"/>
+    </record>
+
+    <template id="report_hr_employee_military_form5">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="report_doc">
+                <t t-call="l10n_ua_hr_base.report_hr_employee_military_form5_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_hr_employee_military_form5_document">
+        <t t-call="web.basic_layout">
+            <t t-set="company" t-value="report_doc.company_id or env.company"/>
+            <t t-set="groups" t-value="report_doc._get_form5_groups()"/>
+            <div class="page" style="font-family: 'Times New Roman', serif; font-size: 8pt;">
+
+                <div style="text-align: right; font-size: 8pt; margin-bottom: 6px;">
+                    Додаток 5<br/>
+                    до Порядку організації та ведення військового обліку<br/>
+                    призовників, військовозобов'язаних та резервістів<br/>
+                    (в редакції постанови Кабінету Міністрів України<br/>
+                    від 30 липня 2025 р. № 916)
+                </div>
+
+                <div style="text-align: center; margin-bottom: 10px;">
+                    <div style="font-size: 12pt; font-weight: bold;">СПИСКИ</div>
+                    <div style="font-size: 9pt;">
+                        персонального військового обліку призовників,
+                        військовозобов'язаних та резервістів
+                    </div>
+                    <div style="font-size: 9pt; margin-top: 4px;">
+                        <span t-field="company.name"/>
+                        <t t-if="company.edrpou">, код ЄДРПОУ <span t-field="company.edrpou"/></t>
+                    </div>
+                    <div style="font-size: 9pt;">
+                        станом на <span t-esc="report_doc.date.strftime('%d.%m.%Y')"/>
+                    </div>
+                </div>
+
+                <t t-foreach="groups" t-as="group">
+                    <t t-set="group_employees" t-value="group[2]"/>
+                    <div style="font-weight: bold; font-size: 8.5pt; margin: 8px 0 3px 0;">
+                        <t t-esc="group[1]"/>
+                        <span style="font-weight: normal;">
+                            (осіб: <t t-esc="len(group_employees)"/>)
+                        </span>
+                    </div>
+
+                    <table style="width: 100%; border-collapse: collapse; font-size: 6pt; table-layout: fixed; word-break: break-word;">
+                        <thead>
+                            <tr style="background-color: #f0f0f0; font-size: 5pt;">
+                                <th style="border: 1px solid #000; padding: 1px; width: 2%;">Порядковий номер</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 5%;">Категорія військового обліку</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 5%;">Військове звання</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 9%;">Прізвище, власне ім'я та по батькові (за наявності)</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 5%;">Число, місяць, рік народження</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 5%;">Реєстраційний номер облікового запису в Єдиному державному реєстрі призовників, військовозобов'язаних та резервістів</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 5%;">Реєстраційний номер облікової картки платника податків</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 4%;">Військово-облікова спеціальність</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 7%;">Реквізити військово-облікового документа (серія (за наявності), номер, ким та коли видано, час та дата формування)</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 7%;">Реквізити паспорта громадянина України (серія (за наявності), номер, ким та коли видано)</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 8%;">Адреса задекларованого (зареєстрованого) або фактичного місця проживання</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 7%;">Найменування територіального центру комплектування та соціальної підтримки, органу СБУ, підрозділу Служби зовнішньої розвідки, де перебуває на військовому обліку</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 8%;">Відомості про наявність відстрочки від призову на військову службу (направлення для проходження базової військової служби)</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 4%;">Відомості про перебування на спеціальному обліку</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 4%;">Відомості про проходження військової служби</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 5%;">Відомості про наявність мобілізаційного розпорядження (дата видачі)</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 6%;">Посада, реквізити акта про призначення/звільнення на посаду/з посади</th>
+                                <th style="border: 1px solid #000; padding: 1px; width: 6%;">Реквізити повідомлення про призначення/звільнення на посаду/з посади</th>
+                            </tr>
+                            <tr style="font-size: 6pt;">
+                                <t t-foreach="range(1, 19)" t-as="col">
+                                    <th style="border: 1px solid #000; padding: 1px; text-align: center; font-weight: normal;">
+                                        <t t-esc="col"/>
+                                    </th>
+                                </t>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="not group_employees">
+                                <tr>
+                                    <td colspan="18" style="border: 1px solid #000; padding: 4px; text-align: center; font-style: italic;">
+                                        записів немає
+                                    </td>
+                                </tr>
+                            </t>
+                            <t t-set="row_num" t-value="0"/>
+                            <t t-foreach="group_employees" t-as="employee">
+                                <t t-set="row_num" t-value="row_num + 1"/>
+                                <tr>
+                                    <td style="border: 1px solid #000; padding: 2px; text-align: center;">
+                                        <t t-esc="row_num"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 1.5px;">
+                                        <t t-if="employee.military_register_category == 'conscript'">призовник</t>
+                                        <t t-if="employee.military_register_category == 'liable'">військовозобов'язаний</t>
+                                        <t t-if="employee.military_register_category == 'reservist'">резервіст</t>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 1.5px;">
+                                        <t t-esc="employee.military_rank_id.name or ''"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 1.5px;">
+                                        <t t-esc="employee.name"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 2px; text-align: center;">
+                                        <t t-if="employee.birthday">
+                                            <t t-esc="employee.birthday.strftime('%d.%m.%Y')"/>
+                                        </t>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 2px; text-align: center;">
+                                        <t t-esc="employee.military_vin_code or ''"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 2px; text-align: center;">
+                                        <t t-esc="employee.rnokpp or ''"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 2px; text-align: center;">
+                                        <t t-esc="employee.military_specialty or ''"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 1.5px;">
+                                        <t t-esc="employee._military_document_label()"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 1.5px;">
+                                        <t t-esc="employee._military_passport_label()"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 1.5px;">
+                                        <t t-esc="employee._military_address_label()"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 1.5px;">
+                                        <t t-esc="employee.military_tcc_id.name or ''"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 1.5px;">
+                                        <t t-esc="employee._military_deferment_label()"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 2px; text-align: center;">
+                                        <t t-esc="employee._military_special_register_label()"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 2px; text-align: center;">
+                                        <t t-esc="employee._military_service_label()"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 1.5px;">
+                                        <t t-esc="employee._military_mob_order_label() or 'ні'"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 1.5px;">
+                                        <t t-esc="employee._military_position_label()"/>
+                                    </td>
+                                    <td style="border: 1px solid #000; padding: 1.5px;">
+                                        <t t-esc="employee._military_notice_label()"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+
+                <div style="margin-top: 10px; font-size: 8pt;">
+                    Усього в Списках: <strong><t t-esc="report_doc.employee_count"/></strong>,
+                    з них заброньовано: <strong><t t-esc="report_doc.reserved_count"/></strong>.
+                </div>
+
+                <!-- Підписи за п. 40 Порядку № 1487: щороку до 25 січня станом
+                     на 1 січня Списки підписують керівник і відповідальна
+                     особа, після чого їх реєструє служба діловодства. -->
+                <div style="margin-top: 18px; font-size: 8pt;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 45%; padding-bottom: 2px;">
+                                Особа, відповідальна за ведення військового обліку
+                            </td>
+                            <td style="width: 25%; border-bottom: 1px solid #000;"></td>
+                            <td style="width: 30%; border-bottom: 1px solid #000; text-align: center;">
+                                <t t-esc="report_doc.military_officer_id.name or ''"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align: center; font-size: 7pt;">(підпис)</td>
+                            <td style="text-align: center; font-size: 7pt;">(ініціали та прізвище)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 14px;">
+                                <t t-esc="company.name"/><br/>
+                                Керівник
+                            </td>
+                            <td style="border-bottom: 1px solid #000; vertical-align: bottom;"></td>
+                            <td style="border-bottom: 1px solid #000; vertical-align: bottom; text-align: center;">
+                                <t t-esc="report_doc.director_id.name or ''"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align: center; font-size: 7pt;">(підпис)</td>
+                            <td style="text-align: center; font-size: 7pt;">(ініціали та прізвище)</td>
+                        </tr>
+                    </table>
+                    <div style="margin-top: 10px;">
+                        Зареєстровано у службі діловодства
+                        <t t-if="report_doc.registration_ref">
+                            за № <strong><t t-esc="report_doc.registration_ref"/></strong>
+                        </t>
+                        <t t-else="">за № ______________</t>
+                        «____» ______________ 20____ р.
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Report Action -->
+    <record id="action_report_tax_invoice" model="ir.actions.report">
+        <field name="name">Податкова накладна</field>
+        <field name="model">l10n_ua.tax.invoice</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_account_vat.report_tax_invoice</field>
+        <field name="report_file">l10n_ua_account_vat.report_tax_invoice</field>
+        <field name="binding_model_id" ref="model_l10n_ua_tax_invoice"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Report Template -->
+    <template id="report_tax_invoice">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-family: 'Times New Roman', serif;">
+                        <!-- Header -->
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <h3 style="margin-bottom: 5px;">
+                                <t t-if="o.doc_type == 'pn'">ПОДАТКОВА НАКЛАДНА</t>
+                                <t t-else="">РОЗРАХУНОК КОРИГУВАННЯ</t>
+                            </h3>
+                            <p style="margin: 0;">
+                                № <strong t-field="o.number"/>
+                                від <span t-field="o.date"/>
+                            </p>
+                        </div>
+
+                        <!-- Parties -->
+                        <table style="width: 100%; margin-bottom: 15px; border-collapse: collapse;">
+                            <tr>
+                                <td style="width: 50%; vertical-align: top; padding: 5px;">
+                                    <strong>Постачальник:</strong><br/>
+                                    <t t-if="o.invoice_type == 'issued'">
+                                        <span t-field="o.company_id.name"/><br/>
+                                        ІПН: <span t-esc="o.company_id.vat or o.company_id.company_registry or ''"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="o.partner_id.name"/><br/>
+                                        ІПН: <span t-field="o.partner_ipn"/>
+                                    </t>
+                                </td>
+                                <td style="width: 50%; vertical-align: top; padding: 5px;">
+                                    <strong>Покупець:</strong><br/>
+                                    <t t-if="o.invoice_type == 'issued'">
+                                        <span t-field="o.partner_id.name"/><br/>
+                                        ІПН: <span t-field="o.partner_ipn"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="o.company_id.name"/><br/>
+                                        ІПН: <span t-esc="o.company_id.vat or o.company_id.company_registry or ''"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- RK info -->
+                        <t t-if="o.doc_type == 'rk' and o.original_invoice_id">
+                            <p>
+                                До ПН № <span t-field="o.original_invoice_id.number"/>
+                                від <span t-field="o.original_invoice_id.date"/>
+                            </p>
+                            <t t-if="o.reason">
+                                <p>Причина коригування: <span t-field="o.reason"/></p>
+                            </t>
+                        </t>
+
+                        <!-- Lines -->
+                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 15px;">
+                            <thead>
+                                <tr style="background-color: #f0f0f0;">
+                                    <th style="border: 1px solid #000; padding: 4px; text-align: center;">№</th>
+                                    <th style="border: 1px solid #000; padding: 4px;">Номенклатура</th>
+                                    <th style="border: 1px solid #000; padding: 4px;">Код УКТ ЗЕД / ДКПП</th>
+                                    <th style="border: 1px solid #000; padding: 4px; text-align: center;">Од.</th>
+                                    <th style="border: 1px solid #000; padding: 4px; text-align: right;">К-сть</th>
+                                    <th style="border: 1px solid #000; padding: 4px; text-align: right;">Ціна</th>
+                                    <th style="border: 1px solid #000; padding: 4px; text-align: right;">База</th>
+                                    <th style="border: 1px solid #000; padding: 4px; text-align: center;">Ставка</th>
+                                    <th style="border: 1px solid #000; padding: 4px; text-align: right;">ПДВ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="seq" t-value="0"/>
+                                <t t-foreach="o.line_ids" t-as="line">
+                                    <t t-set="seq" t-value="seq + 1"/>
+                                    <tr>
+                                        <td style="border: 1px solid #000; padding: 4px; text-align: center;">
+                                            <t t-esc="seq"/>
+                                        </td>
+                                        <td style="border: 1px solid #000; padding: 4px;">
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td style="border: 1px solid #000; padding: 4px;">
+                                            <span t-esc="line.uktzed_code or line.dkpp_code or ''"/>
+                                        </td>
+                                        <td style="border: 1px solid #000; padding: 4px; text-align: center;">
+                                            <span t-esc="line.uom_id.name if line.uom_id else 'шт.'"/>
+                                        </td>
+                                        <td style="border: 1px solid #000; padding: 4px; text-align: right;">
+                                            <span t-field="line.quantity" t-options="{'precision': 2}"/>
+                                        </td>
+                                        <td style="border: 1px solid #000; padding: 4px; text-align: right;">
+                                            <span t-field="line.price_unit_display"/>
+                                        </td>
+                                        <td style="border: 1px solid #000; padding: 4px; text-align: right;">
+                                            <span t-field="line.base_amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                                        </td>
+                                        <td style="border: 1px solid #000; padding: 4px; text-align: center;">
+                                            <span t-field="line.vat_rate"/>
+                                        </td>
+                                        <td style="border: 1px solid #000; padding: 4px; text-align: right;">
+                                            <span t-field="line.vat_amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- Totals -->
+                        <table style="width: 50%; margin-left: auto; border-collapse: collapse;">
+                            <tr>
+                                <td style="padding: 4px;"><strong>Обсяг постачання (без ПДВ):</strong></td>
+                                <td style="padding: 4px; text-align: right;">
+                                    <span t-field="o.total_base" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 4px;"><strong>Сума ПДВ:</strong></td>
+                                <td style="padding: 4px; text-align: right;">
+                                    <span t-field="o.total_vat" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                                </td>
+                            </tr>
+                            <tr style="border-top: 2px solid #000;">
+                                <td style="padding: 4px;"><strong>Загальна сума з ПДВ:</strong></td>
+                                <td style="padding: 4px; text-align: right;">
+                                    <strong><span t-field="o.total_amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/></strong>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- ERPN -->
+                        <t t-if="o.erpn_number">
+                            <div style="margin-top: 15px; padding: 8px; border: 1px solid #ccc; background: #f9f9f9;">
+                                <strong>Реєстрація в ЄРПН:</strong>
+                                № <span t-field="o.erpn_number"/>
+                                від <span t-field="o.erpn_date"/>
+                            </div>
+                        </t>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

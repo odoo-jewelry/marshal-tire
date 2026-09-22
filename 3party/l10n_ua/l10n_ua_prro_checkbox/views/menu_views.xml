@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_l10n_ua_prro_checkbox"
+              name="Checkbox"
+              parent="l10n_ua_prro_base.menu_l10n_ua_prro"
+              action="l10n_ua_prro_checkbox_config_action"
+              sequence="40"/>
+
+</odoo>

@@ -1,0 +1,63 @@
+@startuml bank_sync
+skinparam backgroundColor #FEFEFE
+
+title Синхронізація банківських виписок
+
+|Odoo|
+start
+:Налаштування банку;
+note right
+    API ключ
+    Рахунок IBAN
+    Період синхронізації
+end note
+
+|Банк API|
+if (Який банк?) then (ПриватБанк)
+    :Privat24 Business API;
+    :GET /statements;
+else (monobank)
+    :monobank API;
+    :GET /personal/statement;
+endif
+
+:Отримання транзакцій;
+
+|Odoo|
+:Парсинг виписки;
+
+repeat
+    :Обробка транзакції;
+
+    if (Контрагент знайдений?) then (так)
+        :Зв'язок з partner_id;
+    else (ні)
+        :Пошук за ЄДРПОУ/IBAN;
+        if (Знайдено?) then (так)
+            :Зв'язок з partner_id;
+        else (ні)
+            :Створення контрагента;
+        endif
+    endif
+
+    :Створення account.bank.statement.line;
+
+    if (Автоматичне звірення?) then (так)
+        :Пошук відповідного invoice;
+        :Звірення платежу;
+    endif
+
+repeat while (Ще є транзакції?) is (так)
+
+:Оновлення балансу;
+:Створення проводок;
+
+|Книга доходів (ФОП)|
+if (ФОП?) then (так)
+    :Запис в книгу доходів;
+    :l10n_ua.fop.income.book;
+endif
+
+stop
+
+@enduml

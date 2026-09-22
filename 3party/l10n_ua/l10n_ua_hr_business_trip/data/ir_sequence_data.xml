@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="seq_business_trip_report" model="ir.sequence">
+        <field name="name">Звіт про відрядження</field>
+        <field name="code">l10n_ua.business.trip.report</field>
+        <field name="prefix">ЗВ-</field>
+        <field name="padding">4</field>
+    </record>
+
+</odoo>

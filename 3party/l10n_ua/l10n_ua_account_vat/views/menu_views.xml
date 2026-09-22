@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Root: VAT section under Taxes -->
+    <menuitem id="menu_l10n_ua_vat"
+              name="VAT"
+              parent="l10n_ua_tax.menu_ua_tax_root"
+              sequence="30"/>
+
+    <!-- Tax Invoices submenu -->
+    <menuitem id="menu_l10n_ua_tax_invoices"
+              name="Tax Invoices"
+              parent="menu_l10n_ua_vat"
+              sequence="10"/>
+
+    <menuitem id="menu_l10n_ua_tax_invoices_issued"
+              name="Issued Tax Invoices"
+              parent="menu_l10n_ua_tax_invoices"
+              action="l10n_ua_tax_invoice_issued_action"
+              sequence="10"/>
+
+    <menuitem id="menu_l10n_ua_tax_invoices_received"
+              name="Received Tax Invoices"
+              parent="menu_l10n_ua_tax_invoices"
+              action="l10n_ua_tax_invoice_received_action"
+              sequence="20"/>
+
+    <menuitem id="menu_l10n_ua_tax_invoices_all"
+              name="All Tax Invoices"
+              parent="menu_l10n_ua_tax_invoices"
+              action="l10n_ua_tax_invoice_action"
+              sequence="30"/>
+
+    <!-- VAT Registers submenu -->
+    <menuitem id="menu_l10n_ua_vat_registers"
+              name="Tax Invoice Registers"
+              parent="menu_l10n_ua_vat"
+              sequence="20"/>
+
+    <menuitem id="menu_l10n_ua_vat_registers_issued"
+              name="Issued Register"
+              parent="menu_l10n_ua_vat_registers"
+              action="l10n_ua_vat_register_issued_action"
+              sequence="10"/>
+
+    <menuitem id="menu_l10n_ua_vat_registers_received"
+              name="Received Register"
+              parent="menu_l10n_ua_vat_registers"
+              action="l10n_ua_vat_register_received_action"
+              sequence="20"/>
+
+    <!-- VAT Declaration -->
+    <menuitem id="menu_l10n_ua_vat_declarations"
+              name="VAT Declaration"
+              parent="menu_l10n_ua_vat"
+              action="l10n_ua_vat_declaration_action"
+              sequence="30"/>
+
+    <!-- ERPN Limit -->
+    <menuitem id="menu_l10n_ua_vat_erpn_limit"
+              name="Registration Limit"
+              parent="menu_l10n_ua_vat"
+              action="l10n_ua_vat_erpn_limit_action"
+              sequence="40"/>
+
+    <!-- Deadline Dashboard -->
+    <menuitem id="menu_l10n_ua_vat_deadlines"
+              name="Registration Deadlines"
+              parent="menu_l10n_ua_vat"
+              action="l10n_ua_tax_invoice_deadline_action"
+              sequence="50"/>
+
+</odoo>

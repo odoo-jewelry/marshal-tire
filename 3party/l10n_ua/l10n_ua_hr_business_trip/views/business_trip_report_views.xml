@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form -->
+    <record id="business_trip_report_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.business.trip.report.form</field>
+        <field name="model">l10n_ua.business.trip.report</field>
+        <field name="arch" type="xml">
+            <form string="Звіт про відрядження">
+                <header>
+                    <button name="action_confirm" string="Затвердити"
+                            type="object" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_create_advance_report"
+                            string="Сформувати авансовий звіт"
+                            type="object" class="btn-primary"
+                            invisible="state != 'confirmed' or advance_report_id"/>
+                    <button name="action_print" string="Друк звіту"
+                            type="object" class="btn-secondary"
+                            invisible="state == 'draft'"/>
+                    <button name="action_cancel" string="Скасувати"
+                            type="object"
+                            invisible="state == 'cancelled'"/>
+                    <button name="action_draft" string="В чернетку"
+                            type="object"
+                            invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_advance_report" type="object"
+                                class="oe_stat_button" icon="fa-money"
+                                invisible="not advance_report_id">
+                            <span>Авансовий звіт</span>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="order_id"/>
+                            <field name="destination"/>
+                            <field name="purpose"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="days"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <group string="Витрати">
+                        <group>
+                            <label for="daily_rate"/>
+                            <div class="o_row">
+                                <field name="daily_rate"/>
+                                <span>× </span>
+                                <field name="days" readonly="1" nolabel="1"/>
+                                <span> дн. = </span>
+                                <field name="daily_total" readonly="1" nolabel="1"/>
+                            </div>
+                            <field name="transport_amount"/>
+                            <field name="accommodation_amount"/>
+                            <field name="other_amount"/>
+                        </group>
+                        <group>
+                            <field name="total_amount"
+                                   class="oe_subtotal_footer_separator"/>
+                        </group>
+                    </group>
+                    <field name="note" placeholder="Примітки..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- List -->
+    <record id="business_trip_report_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.business.trip.report.list</field>
+        <field name="model">l10n_ua.business.trip.report</field>
+        <field name="arch" type="xml">
+            <list string="Звіти про відрядження"
+                  decoration-muted="state == 'cancelled'">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="destination"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="days"/>
+                <field name="total_amount" sum="Разом"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'confirmed'"
+                       decoration-info="state == 'draft'"
+                       decoration-muted="state == 'cancelled'"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Search -->
+    <record id="business_trip_report_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.business.trip.report.search</field>
+        <field name="model">l10n_ua.business.trip.report</field>
+        <field name="arch" type="xml">
+            <search string="Звіти про відрядження">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="destination"/>
+                <field name="order_id"/>
+
+                <filter string="Чернетка" name="filter_draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter string="Затверджено" name="filter_confirmed"
+                        domain="[('state', '=', 'confirmed')]"/>
+                <separator/>
+
+                <group>
+                    <filter string="Працівник" name="groupby_employee" domain="[]"
+                            context="{'group_by': 'employee_id'}"/>
+                    <filter string="Стан" name="groupby_state" domain="[]"
+                            context="{'group_by': 'state'}"/>
+                    <filter string="Місяць вибуття" name="groupby_date" domain="[]"
+                            context="{'group_by': 'date_from:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_business_trip_report" model="ir.actions.act_window">
+        <field name="name">Звіти про відрядження</field>
+        <field name="res_model">l10n_ua.business.trip.report</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="business_trip_report_view_search"/>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_business_trip_report"
+              name="Звіти про відрядження"
+              action="action_business_trip_report"
+              parent="l10n_ua_hr_base.menu_hr_documents_root"
+              sequence="22"/>
+
+</odoo>

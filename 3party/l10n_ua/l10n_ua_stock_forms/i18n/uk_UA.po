@@ -1,0 +1,486 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_stock_forms
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-04 17:00+0000\n"
+"PO-Revision-Date: 2026-08-04 17:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.actions.act_window,name:l10n_ua_stock_forms.action_material_report_lines
+#: model:ir.actions.server,name:l10n_ua_stock_forms.action_material_report_open
+#: model:ir.ui.menu,name:l10n_ua_stock_forms.menu_material_report
+msgid "Material Report (M-19)"
+msgstr "Матеріальний звіт (М-19)"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.actions.report,name:l10n_ua_stock_forms.action_report_material_report
+#: model:ir.model,name:l10n_ua_stock_forms.model_l10n_ua_material_report_wizard
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_pivot
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_search
+msgid "Material Report"
+msgstr "Матеріальний звіт"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model,name:l10n_ua_stock_forms.model_l10n_ua_material_report_line
+msgid "Material Report Line"
+msgstr "Рядок матеріального звіту"
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_wizard.py:0
+msgid "Material Report (M-19): %(location)s"
+msgstr "Матеріальний звіт (М-19): %(location)s"
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_wizard.py:0
+msgid "The period must start before it ends."
+msgstr "Початок періоду має передувати його кінцю."
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_wizard.py:0
+msgid ""
+"Company \"%(company)s\" has no warehouse, hence no storage place for the "
+"report. Create a warehouse in the Inventory settings."
+msgstr ""
+"У компанії «%(company)s» немає складу, тож немає й місця зберігання для "
+"звіту. Створіть склад у налаштуваннях запасів."
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_line.py:0
+msgid "No rows match the current filters, so there is nothing to print."
+msgstr "За поточними фільтрами рядків немає, тож друкувати нічого."
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_line.py:0
+msgid ""
+"Movements can be shown for receipts and issues only. A balance is what is "
+"held at a moment, not something that moved."
+msgstr ""
+"Рухи можна показати лише для надходження та витрати. Залишок — це те, що "
+"лежить на складі в певний момент, а не те, що рухалося."
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_line.py:0
+msgid "The rows of this report are gone — reopen it from the menu."
+msgstr "Рядків цього звіту вже немає — відкрийте його з меню ще раз."
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_line.py:0
+msgid ""
+"These rows come from several reports, and their movements cannot be shown as "
+"one list."
+msgstr ""
+"Ці рядки належать різним звітам, тож показати їхні рухи одним списком "
+"неможливо."
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_line.py:0
+msgid "Handed over by"
+msgstr "Звіт здав"
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_line.py:0
+msgid "Accepted by"
+msgstr "Звіт прийняв"
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_line.py:0
+msgid "Accountant"
+msgstr "Бухгалтер"
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_line.py:0
+msgid "all"
+msgstr "усі"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__date_from
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_wizard__date_from
+msgid "Period From"
+msgstr "Період з"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__date_to
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_wizard__date_to
+msgid "Period To"
+msgstr "Період по"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__location_id
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_wizard__location_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_search
+msgid "Storage Place"
+msgstr "Місце зберігання"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_wizard__responsible_person
+msgid "Person in Charge"
+msgstr "МВО (відповідальна особа)"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,help:l10n_ua_stock_forms.field_l10n_ua_material_report_wizard__responsible_person
+msgid "The person materially responsible for this store"
+msgstr "Матеріально відповідальна особа, яка звітує за цей склад"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__company_id
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_wizard__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_wizard__line_ids
+msgid "Report Lines"
+msgstr "Рядки звіту"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__is_monthly
+msgid "Monthly Row"
+msgstr "Помісячний рядок"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__wizard_id
+msgid "Report"
+msgstr "Звіт"
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_line.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "History"
+msgstr "Історія"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__product_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_search
+msgid "Product"
+msgstr "Номенклатура"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__default_code
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "Product Reference"
+msgstr "Номенклатурний номер"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__categ_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_search
+msgid "Product Category"
+msgstr "Категорія товару"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__uom_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "UoM"
+msgstr "Од. вим."
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__price
+msgid "Cost Price"
+msgstr "Облікова ціна"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__opening_qty
+msgid "Opening Balance"
+msgstr "Залишок на початок"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__opening_value
+msgid "Opening Amount"
+msgstr "Сума на початок"
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_line.py:0
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__in_qty
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Receipts"
+msgstr "Надходження"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__in_value
+msgid "Receipts Amount"
+msgstr "Сума надходження"
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_line.py:0
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__out_qty
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Issues"
+msgstr "Витрата"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__out_value
+msgid "Issues Amount"
+msgstr "Сума витрати"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__closing_qty
+msgid "Closing Balance"
+msgstr "Залишок на кінець"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__closing_value
+msgid "Closing Amount"
+msgstr "Сума на кінець"
+
+#. module: l10n_ua_stock_forms
+#: model:ir.model.fields,field_description:l10n_ua_stock_forms.field_l10n_ua_material_report_line__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "Material"
+msgstr "Назва матеріалу"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "Price"
+msgstr "Ціна"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "Opening Balance, Qty"
+msgstr "Залишок на початок, к-сть"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "Opening Balance, Amount"
+msgstr "Залишок на початок, сума"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "Receipts, Qty"
+msgstr "Надходження, к-сть"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "Receipts, Amount"
+msgstr "Надходження, сума"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "Issues, Qty"
+msgstr "Витрата, к-сть"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "Issues, Amount"
+msgstr "Витрата, сума"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "Closing Balance, Qty"
+msgstr "Залишок на кінець, к-сть"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "Closing Balance, Amount"
+msgstr "Залишок на кінець, сума"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_list
+msgid "Total"
+msgstr "Разом"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_search
+msgid "Moved in the Period"
+msgstr "З рухом за період"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_search
+msgid "Has a Closing Balance"
+msgstr "Є залишок на кінець"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_search
+msgid "Negative Balance"
+msgstr "Від'ємний залишок"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_line_search
+msgid "Period"
+msgstr "Період"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.actions.act_window,help:l10n_ua_stock_forms.action_material_report_lines
+msgid "No movement and no balance for the selected period"
+msgstr "За вибраний період руху і залишків немає"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.actions.act_window,help:l10n_ua_stock_forms.action_material_report_lines
+msgid "Change the period with the date range above, or clear the filters."
+msgstr "Змініть період добіркою дат угорі або зніміть фільтри."
+
+#. module: l10n_ua_stock_forms
+#. odoo-javascript
+#: code:addons/l10n_ua_stock_forms/static/src/material_report/print_menu.xml:0
+msgid "Print Report"
+msgstr "Друк звіту"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_period_form
+msgid "Apply"
+msgstr "Застосувати"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Standard form No. M-19"
+msgstr "Типова форма № М-19"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "MATERIAL REPORT"
+msgstr "МАТЕРІАЛЬНИЙ ЗВІТ"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "for the period from"
+msgstr "за період з"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "to"
+msgstr "по"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Company:"
+msgstr "Підприємство:"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Warehouse:"
+msgstr "Склад:"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Person in charge:"
+msgstr "Матеріально відповідальна особа:"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Product category:"
+msgstr "Категорія товару:"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "No."
+msgstr "№ з/п"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Product reference"
+msgstr "Номенклатурний номер"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Sheet <span class=\"page\"/> of <span class=\"topage\"/>"
+msgstr "Аркуш <span class=\"page\"/> з <span class=\"topage\"/>"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Storage place"
+msgstr "Місце зберігання"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Opening balance"
+msgstr "Залишок на початок"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Closing balance"
+msgstr "Залишок на кінець"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Qty"
+msgstr "К-сть"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "Amount"
+msgstr "Сума"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid ""
+"Amounts are stated at the product's cost price (as of the moment of "
+"printing)."
+msgstr ""
+"Суми наведено за обліковою ціною номенклатури (собівартість на момент "
+"друку)."
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid ""
+"Rows are stated per storage place of the warehouse, so transfers\n"
+"                                between them count towards both the receipts and the issues of those places."
+msgstr ""
+"Рядки наведено за місцями зберігання складу, тому переміщення\n"
+"                                між ними входять і до надходження, і до витрати відповідних місць."
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.report_material_report
+msgid "(signature)"
+msgstr "(підпис)"
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_period_form
+msgid "Report Period"
+msgstr "Період звіту"
+
+#. module: l10n_ua_stock_forms
+#: model_terms:ir.ui.view,arch_db:l10n_ua_stock_forms.view_material_report_period_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: l10n_ua_stock_forms
+#. odoo-python
+#: code:addons/l10n_ua_stock_forms/wizard/material_report_line.py:0
+msgid ""
+"These rows come from several reports, and one form can only describe one. "
+"Narrow the selection down to a single report."
+msgstr ""
+"Ці рядки належать різним звітам, а один бланк описує лише один. Звузьте "
+"вибірку до одного звіту."
+
+#. module: l10n_ua_stock_forms
+#: model:ir.actions.report,print_report_name:l10n_ua_stock_forms.action_report_material_report
+msgid ""
+"'Material Report %s %s..%s' % ((object.location_id.complete_name or "
+"'').replace('/', '-'), object.date_from, object.date_to)"
+msgstr ""
+"'Матеріальний звіт %s %s..%s' % ((object.location_id.complete_name or "
+"'').replace('/', '-'), object.date_from, object.date_to)"

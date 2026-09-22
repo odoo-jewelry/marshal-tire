@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="l10n_ua_bank_payment_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.payment.form</field>
+        <field name="model">l10n_ua.bank.payment</field>
+        <field name="arch" type="xml">
+            <form string="Платіжне доручення">
+                <header>
+                    <button name="action_generate_file" string="Сформувати файл"
+                            type="object" class="btn-secondary"
+                            invisible="state not in ('draft', 'generated')"/>
+                    <button name="action_kep_sign" string="Підписати КЕП"
+                            type="object" class="btn-primary"
+                            invisible="state not in ('generated', 'signed')"/>
+                    <button name="action_mark_sent" string="Позначити відправленим"
+                            type="object" invisible="state != 'signed'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,generated,signed,sent"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="payer_account_id"/>
+                            <field name="payment_date"/>
+                            <field name="file_format"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="total_amount"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="file_name" invisible="1"/>
+                            <field name="file_data" filename="file_name"
+                                   invisible="not file_data"/>
+                            <field name="signer_info" invisible="not signer_info"/>
+                            <field name="receipt" invisible="not receipt"/>
+                        </group>
+                    </group>
+                    <field name="line_ids">
+                        <list editable="bottom">
+                            <field name="recipient_name"/>
+                            <field name="recipient_edrpou"/>
+                            <field name="recipient_iban"/>
+                            <field name="amount" sum="Total"/>
+                            <field name="purpose"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_bank_payment_view_tree" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.payment.list</field>
+        <field name="model">l10n_ua.bank.payment</field>
+        <field name="arch" type="xml">
+            <list string="Платіжні доручення" decoration-success="state == 'sent'"
+                  decoration-info="state == 'signed'">
+                <field name="name"/>
+                <field name="payment_date"/>
+                <field name="payer_account_id"/>
+                <field name="total_amount" sum="Total"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'sent'"
+                       decoration-info="state == 'signed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_bank_payment_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.payment.search</field>
+        <field name="model">l10n_ua.bank.payment</field>
+        <field name="arch" type="xml">
+            <search string="Платіжні доручення">
+                <field name="name"/>
+                <field name="payer_account_id"/>
+                <filter string="Не відправлені" name="filter_open"
+                        domain="[('state', '!=', 'sent')]"/>
+                <group>
+                    <filter string="Status" name="groupby_state"
+                            domain="[]" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_l10n_ua_bank_payment" model="ir.actions.act_window">
+        <field name="name">Платіжні доручення (КЕП)</field>
+        <field name="res_model">l10n_ua.bank.payment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_l10n_ua_bank_payment"
+              name="Платіжні доручення (КЕП)"
+              action="action_l10n_ua_bank_payment"
+              parent="l10n_ua_bank_sync.menu_ua_bank_root"
+              sequence="30"/>
+
+</odoo>

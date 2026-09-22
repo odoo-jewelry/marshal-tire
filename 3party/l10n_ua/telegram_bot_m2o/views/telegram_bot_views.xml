@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Bot Form View -->
+    <record id="telegram_bot_view_form" model="ir.ui.view">
+        <field name="name">telegram.bot.form</field>
+        <field name="model">telegram.bot</field>
+        <field name="arch" type="xml">
+            <form string="Telegram Bot">
+                <header>
+                    <button name="action_validate_token" string="Validate Token"
+                            type="object" class="btn-secondary"/>
+                    <button name="action_start" string="Start Bot"
+                            type="object" class="btn-primary"/>
+                    <button name="action_stop" string="Stop Bot"
+                            type="object" class="btn-secondary"/>
+                    <button name="action_sync_commands" string="Sync Commands"
+                            type="object" class="btn-secondary"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,running,stopped"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_chats" type="object"
+                                class="oe_stat_button" icon="fa-comments">
+                            <field name="chat_count" widget="statinfo" string="Chats"/>
+                        </button>
+                        <button name="action_view_leads" type="object"
+                                class="oe_stat_button" icon="fa-star">
+                            <field name="lead_count" widget="statinfo" string="Leads"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Bot Name"/>
+                        </h1>
+                        <field name="username" class="oe_inline"/>
+                    </div>
+
+                    <group>
+                        <group string="Configuration">
+                            <field name="token" password="True"/>
+                            <field name="webhook_url" readonly="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group string="CRM Integration">
+                            <field name="create_leads"/>
+                            <field name="default_lead_team_id"/>
+                            <field name="default_lead_user_id"/>
+                        </group>
+                        <group string="Integrations">
+                            <field name="fallback_webhook_url" placeholder="https://n8n.example.com/webhook/xxx"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Commands" name="commands">
+                            <div class="alert alert-info" role="alert" invisible="command_count">
+                                <p><strong>No commands configured.</strong></p>
+                                <p>Click the button below to create default commands (start, price, services, contact, help).</p>
+                                <button name="action_create_default_commands" string="Create Default Commands"
+                                        type="object" class="btn-primary"/>
+                            </div>
+                            <field name="command_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="trigger_type"/>
+                                    <field name="show_in_menu"/>
+                                    <field name="active"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Error Log" name="errors">
+                            <field name="last_error" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Bot List View -->
+    <record id="telegram_bot_view_list" model="ir.ui.view">
+        <field name="name">telegram.bot.list</field>
+        <field name="model">telegram.bot</field>
+        <field name="arch" type="xml">
+            <list string="Telegram Bots">
+                <field name="name"/>
+                <field name="username"/>
+                <field name="state" widget="badge"/>
+                <field name="command_count"/>
+                <field name="chat_count"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Bot Search View -->
+    <record id="telegram_bot_view_search" model="ir.ui.view">
+        <field name="name">telegram.bot.search</field>
+        <field name="model">telegram.bot</field>
+        <field name="arch" type="xml">
+            <search string="Telegram Bots">
+                <field name="name"/>
+                <field name="username"/>
+                <filter name="running" string="Running"
+                        domain="[('state', '=', 'running')]"/>
+                <filter name="stopped" string="Stopped"
+                        domain="[('state', '=', 'stopped')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Bot Action -->
+    <record id="telegram_bot_action" model="ir.actions.act_window">
+        <field name="name">Telegram Bots</field>
+        <field name="res_model">telegram.bot</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Telegram bot
+            </p>
+        </field>
+    </record>
+
+</odoo>

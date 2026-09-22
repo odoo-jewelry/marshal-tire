@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_report_1df_view_form" model="ir.ui.view">
+        <field name="name">hr.report.1df.form</field>
+        <field name="model">hr.report.1df</field>
+        <field name="arch" type="xml">
+            <form string="1DF Report">
+                <header>
+                    <button name="action_generate" string="Generate" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_submit" string="Mark as Submitted" type="object"
+                            invisible="state != 'generated'"/>
+                    <button name="action_draft" string="Set to Draft" type="object"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,generated,submitted"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="year"/>
+                            <field name="quarter"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="total_employees" string="Employees"/>
+                            <field name="total_accrued"/>
+                            <field name="total_pdfo"/>
+                            <field name="total_military"/>
+                            <field name="submission_date" invisible="state != 'submitted'"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Report Lines" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="rnokpp"/>
+                                    <field name="income_type"/>
+                                    <field name="income_sign"/>
+                                    <field name="accrued_amount" sum="Total"/>
+                                    <field name="paid_amount" sum="Total"/>
+                                    <field name="pdfo_amount" sum="Total"/>
+                                    <field name="military_amount" sum="Total"/>
+                                    <field name="date_hire"/>
+                                    <field name="date_termination"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_report_1df_view_tree" model="ir.ui.view">
+        <field name="name">hr.report.1df.tree</field>
+        <field name="model">hr.report.1df</field>
+        <field name="arch" type="xml">
+            <list string="1DF Reports">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="quarter"/>
+                <field name="total_accrued" sum="Total"/>
+                <field name="total_pdfo" sum="Total"/>
+                <field name="submission_date"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'submitted'"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'generated'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hr_report_1df" model="ir.actions.act_window">
+        <field name="name">1DF Reports</field>
+        <field name="res_model">hr.report.1df</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a 1DF quarterly tax report
+            </p>
+        </field>
+    </record>
+
+</odoo>

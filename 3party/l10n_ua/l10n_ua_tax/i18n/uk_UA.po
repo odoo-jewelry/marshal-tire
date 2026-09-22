@@ -1,0 +1,644 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_tax
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260103\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-22 19:01+0000\n"
+"PO-Revision-Date: 2026-01-22 19:01+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_report__report_type__4df
+msgid "4DF Report"
+msgstr "Звіт 4ДФ"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__acceptance_date
+msgid "Acceptance Date"
+msgstr "Дата прийняття"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_report__state__accepted
+msgid "Accepted"
+msgstr "Прийнято"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__message_needaction
+msgid "Action Needed"
+msgstr "Потрібна дія"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_budget_code__active
+msgid "Active"
+msgstr "Активний"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__activity_ids
+msgid "Activities"
+msgstr "Активності"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Оформлення виключення активності"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__activity_state
+msgid "Activity State"
+msgstr "Стан активності"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Іконка типу активності"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__message_attachment_count
+msgid "Attachment Count"
+msgstr "Кількість вкладень"
+
+#. module: l10n_ua_tax
+#: model:ir.model,name:l10n_ua_tax.model_l10n_ua_budget_code
+msgid "Budget Classification Code"
+msgstr "Код бюджетної класифікації"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_account_tax__ua_budget_code_id
+msgid "Budget Code"
+msgstr "Код бюджету"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_account_tax__ua_budget_code_id
+msgid "Budget classification code for payment"
+msgstr "Код бюджетної класифікації для оплати"
+
+#. module: l10n_ua_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.l10n_ua_tax_report_view_form
+msgid "Calculate"
+msgstr "Розрахувати"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_report__state__calculated
+msgid "Calculated"
+msgstr "Розраховано"
+
+#. module: l10n_ua_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.l10n_ua_tax_period_view_form
+msgid "Close"
+msgstr "Закрити"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_period__state__closed
+msgid "Closed"
+msgstr "Закрито"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_budget_code__code
+msgid "Code"
+msgstr "Код"
+
+#. module: l10n_ua_tax
+#: model:ir.model,name:l10n_ua_tax.model_res_company
+msgid "Companies"
+msgstr "Компанії"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__company_id
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: l10n_ua_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.view_company_form_ua_tax
+msgid "Company Type"
+msgstr "Тип компанії"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_budget_code__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__create_uid
+msgid "Created by"
+msgstr "Створено"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_budget_code__create_date
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__create_date
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__create_date
+msgid "Created on"
+msgstr "Дата створення"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_account_tax__display_name
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_budget_code__display_name
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__display_name
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__display_name
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_res_company__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_report__state__draft
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__account_tax__ua_tax_type__ep
+msgid "EP (Single Tax)"
+msgstr "ЄП (Єдиний податок)"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_budget_code__tax_type__esv
+msgid "ESV"
+msgstr "ЄСВ"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__account_tax__ua_tax_type__esv
+msgid "ESV (Unified Social Contribution)"
+msgstr "ЄСВ (Єдиний соціальний внесок)"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_report__report_type__esv
+msgid "ESV Report"
+msgstr "Звіт ЄСВ"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__date_end
+msgid "End Date"
+msgstr "Дата закінчення"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_res_company__l10n_ua_fop_group
+msgid "FOP Group"
+msgstr "Група ФОП"
+
+#. module: l10n_ua_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.view_company_form_ua_tax
+msgid "FOP Settings (Single Tax)"
+msgstr "Налаштування ФОП (Єдиний податок)"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Партнери)"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_l10n_ua_tax_report__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Іконка Font Awesome, напр. fa-tasks"
+
+#. module: l10n_ua_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.l10n_ua_tax_report_view_form
+msgid "Generate XML"
+msgstr "Згенерувати XML"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__res_company__l10n_ua_fop_group__1
+msgid "Group 1"
+msgstr "Група 1"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__res_company__l10n_ua_fop_group__2
+msgid "Group 2"
+msgstr "Група 2"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__res_company__l10n_ua_fop_group__3
+msgid "Group 3"
+msgstr "Група 3"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__has_message
+msgid "Has Message"
+msgstr "Має повідомлення"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_account_tax__id
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_budget_code__id
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__id
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__id
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_res_company__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__activity_exception_icon
+msgid "Icon"
+msgstr "Іконка"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_l10n_ua_tax_report__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Іконка для позначення виключення активності."
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_l10n_ua_tax_report__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо позначено, нові повідомлення потребують вашої уваги."
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_l10n_ua_tax_report__message_has_error
+#: model:ir.model.fields,help:l10n_ua_tax.field_l10n_ua_tax_report__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_res_company__l10n_ua_is_fop
+msgid "Is FOP"
+msgstr "Є ФОП"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__message_is_follower
+msgid "Is Follower"
+msgstr "Є підписником"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_budget_code__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__write_uid
+msgid "Last Updated by"
+msgstr "Останнє оновлення"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_budget_code__write_date
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__write_date
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__write_date
+msgid "Last Updated on"
+msgstr "Дата оновлення"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_res_company__l10n_ua_legal_form_id
+msgid "Legal Form"
+msgstr "Організаційно-правова форма"
+
+#. module: l10n_ua_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.l10n_ua_tax_report_view_form
+msgid "Mark Accepted"
+msgstr "Позначити прийнятим"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставки повідомлення"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_budget_code__tax_type__vz
+msgid "Military Tax"
+msgstr "Військовий збір"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__month
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_period__period_type__month
+msgid "Month"
+msgstr "Місяць"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Мій дедлайн активності"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_budget_code__name
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__name
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Дедлайн наступної активності"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__activity_summary
+msgid "Next Activity Summary"
+msgstr "Опис наступної активності"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__activity_type_id
+msgid "Next Activity Type"
+msgstr "Тип наступної активності"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__notes
+msgid "Notes"
+msgstr "Примітки"
+
+#. module: l10n_ua_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.l10n_ua_tax_report_view_form
+msgid "Notes..."
+msgstr "Примітки..."
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__message_has_error_counter
+msgid "Number of errors"
+msgstr "Кількість помилок"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_l10n_ua_tax_report__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Кількість повідомлень, що потребують дії"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_l10n_ua_tax_report__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилкою доставки"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_period__state__open
+msgid "Open"
+msgstr "Відкрито"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__account_tax__ua_tax_type__other
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_budget_code__tax_type__other
+msgid "Other"
+msgstr "Інше"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_budget_code__tax_type__pdfo
+msgid "PDFO"
+msgstr "ПДФО"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__account_tax__ua_tax_type__pdfo
+msgid "PDFO (Personal Income Tax)"
+msgstr "ПДФО (Податок на доходи фізичних осіб)"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__account_tax__ua_tax_type__pdv
+msgid "PDV (VAT)"
+msgstr "ПДВ"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__period_type
+msgid "Period Type"
+msgstr "Тип періоду"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__account_tax__ua_tax_type__profit
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_budget_code__tax_type__profit
+msgid "Profit Tax"
+msgstr "Податок на прибуток"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_report__report_type__profit
+msgid "Profit Tax Declaration"
+msgstr "Декларація з податку на прибуток"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__quarter
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_period__period_type__quarter
+msgid "Quarter"
+msgstr "Квартал"
+
+#. module: l10n_ua_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.l10n_ua_tax_period_view_form
+msgid "Reopen"
+msgstr "Відкрити знову"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__report_type
+msgid "Report Type"
+msgstr "Тип звіту"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__activity_user_id
+msgid "Responsible User"
+msgstr "Відповідальний користувач"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Помилка доставки SMS"
+
+#. module: l10n_ua_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.l10n_ua_tax_report_view_form
+msgid "Set to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_budget_code__tax_type__ep
+msgid "Single Tax"
+msgstr "Єдиний податок"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_report__report_type__ep
+msgid "Single Tax Declaration"
+msgstr "Декларація єдиного податку"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_res_company__l10n_ua_tax_rate
+msgid "Single Tax Rate (%)"
+msgstr "Ставка єдиного податку (%)"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_res_company__l10n_ua_fop_group
+msgid "Single tax payer group (1, 2, or 3)"
+msgstr "Група платника єдиного податку (1, 2 або 3)"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_res_company__l10n_ua_tax_rate
+msgid "Single tax rate percentage"
+msgstr "Відсоток ставки єдиного податку"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__date_start
+msgid "Start Date"
+msgstr "Дата початку"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__state
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__state
+msgid "State"
+msgstr "Стан"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_l10n_ua_tax_report__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr "Статус на основі активностей\nПрострочено: Термін вже минув\nСьогодні: Дата активності сьогодні\nЗаплановано: Майбутні активності."
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__submission_date
+msgid "Submission Date"
+msgstr "Дата подання"
+
+#. module: l10n_ua_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.l10n_ua_tax_report_view_form
+msgid "Submit"
+msgstr "Подати"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_report__state__submitted
+msgid "Submitted"
+msgstr "Подано"
+
+#. module: l10n_ua_tax
+#: model:ir.model,name:l10n_ua_tax.model_account_tax
+msgid "Tax"
+msgstr "Податок"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_account_tax__ua_tax_code
+msgid "Tax Code"
+msgstr "Код податку"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_res_company__l10n_ua_tax_office_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.view_company_form_ua_tax
+msgid "Tax Office"
+msgstr "Податкова інспекція"
+
+#. module: l10n_ua_tax
+#: model:ir.model,name:l10n_ua_tax.model_l10n_ua_tax_period
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__period_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.l10n_ua_tax_period_view_form
+msgid "Tax Period"
+msgstr "Податковий період"
+
+#. module: l10n_ua_tax
+#: model:ir.actions.act_window,name:l10n_ua_tax.l10n_ua_tax_period_action
+#: model:ir.ui.menu,name:l10n_ua_tax.menu_ua_tax_periods
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.l10n_ua_tax_period_view_list
+msgid "Tax Periods"
+msgstr "Податкові періоди"
+
+#. module: l10n_ua_tax
+#: model:ir.model,name:l10n_ua_tax.model_l10n_ua_tax_report
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.l10n_ua_tax_report_view_form
+msgid "Tax Report"
+msgstr "Податковий звіт"
+
+#. module: l10n_ua_tax
+#: model:ir.actions.act_window,name:l10n_ua_tax.l10n_ua_tax_report_action
+#: model:ir.ui.menu,name:l10n_ua_tax.menu_l10n_ua_tax_reports
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.l10n_ua_tax_report_view_list
+msgid "Tax Reports"
+msgstr "Податкові звіти"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_budget_code__tax_type
+msgid "Tax Type"
+msgstr "Тип податку"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_account_tax__ua_tax_code
+msgid "Tax code for reporting"
+msgstr "Код податку для звітності"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_res_company__l10n_ua_tax_office_id
+msgid "Tax office (ДПІ) where the company is registered"
+msgstr "Податкова інспекція (ДПІ), де зареєстрована компанія"
+
+#. module: l10n_ua_tax
+#: model:ir.ui.menu,name:l10n_ua_tax.menu_ua_tax_root
+msgid "Taxes UA"
+msgstr "Податки"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_l10n_ua_tax_report__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Тип виключення активності в записі."
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_account_tax__ua_tax_type
+msgid "UA Tax Type"
+msgstr "Тип податку UA"
+
+#. module: l10n_ua_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax.view_company_form_ua_tax
+msgid "Ukrainian Tax Settings"
+msgstr "Українські податкові налаштування"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_budget_code__tax_type__pdv
+msgid "VAT"
+msgstr "ПДВ"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_report__report_type__vat
+msgid "VAT Declaration"
+msgstr "Декларація з ПДВ"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__account_tax__ua_tax_type__vz
+msgid "VZ (Military Tax)"
+msgstr "ВЗ (Військовий збір)"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__website_message_ids
+msgid "Website Messages"
+msgstr "Повідомлення вебсайту"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,help:l10n_ua_tax.field_l10n_ua_tax_report__website_message_ids
+msgid "Website communication history"
+msgstr "Історія комунікації вебсайту"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__xml_file
+msgid "XML File"
+msgstr "XML файл"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_report__xml_filename
+msgid "XML Filename"
+msgstr "Назва XML файлу"
+
+#. module: l10n_ua_tax
+#: model:ir.model.fields,field_description:l10n_ua_tax.field_l10n_ua_tax_period__year
+#: model:ir.model.fields.selection,name:l10n_ua_tax.selection__l10n_ua_tax_period__period_type__year
+msgid "Year"
+msgstr "Рік"
+
+#. module: l10n_ua_tax
+#: model:ir.ui.menu,name:l10n_ua_tax.menu_ua_tax_documents
+msgid "Tax Documents"
+msgstr "Податкові документи"
+
+#. module: l10n_ua_tax
+#: model:ir.ui.menu,name:l10n_ua_tax.menu_ua_tax_config
+msgid "Configuration"
+msgstr "Налаштування"
+
+#. module: l10n_ua_tax
+#: model:ir.ui.menu,name:l10n_ua_tax.menu_ua_tax_document_types
+msgid "Document Types"
+msgstr "Типи документів"
+
+#. module: l10n_ua_tax
+#: model:ir.ui.menu,name:l10n_ua_tax.menu_ua_tax_budget_codes
+msgid "Budget Codes"
+msgstr "Коди бюджету"
+
+#. module: l10n_ua_tax
+#: model:ir.ui.menu,name:l10n_ua_tax.menu_ua_tax_offices
+msgid "Tax Offices (ДПІ)"
+msgstr "Податкові інспекції (ДПІ)"

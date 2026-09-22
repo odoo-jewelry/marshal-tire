@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Product Template Form View Extension -->
+    <record id="product_template_form_view_marketplace" model="ir.ui.view">
+        <field name="name">product.template.form.marketplace</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Add stat button -->
+            <div name="button_box" position="inside">
+                <button name="action_view_marketplace_items" type="object"
+                        class="oe_stat_button" icon="fa-shopping-cart"
+                        invisible="marketplace_item_count == 0">
+                    <field name="marketplace_item_count" widget="statinfo" string="Marketplaces"/>
+                </button>
+            </div>
+            <!-- Add marketplace tab -->
+            <page name="sales" position="after">
+                <page string="Marketplaces" name="marketplaces">
+                    <group>
+                        <group>
+                            <field name="marketplace_published"/>
+                        </group>
+                    </group>
+                    <group string="Published on Marketplaces" invisible="not marketplace_published">
+                        <field name="marketplace_item_ids" nolabel="1">
+                            <list>
+                                <field name="pricelist_id"/>
+                                <field name="price"/>
+                                <field name="qty_available"/>
+                                <field name="state" widget="badge"
+                                       decoration-success="state == 'published'"
+                                       decoration-warning="state == 'pending'"
+                                       decoration-danger="state == 'error'"/>
+                            </list>
+                        </field>
+                    </group>
+                    <div invisible="marketplace_published">
+                        <button name="action_add_to_marketplace" type="object"
+                                string="Add to Marketplace" class="btn-primary"/>
+                    </div>
+                </page>
+            </page>
+        </field>
+    </record>
+
+    <!-- Product Template Search View Extension -->
+    <record id="product_template_search_view_marketplace" model="ir.ui.view">
+        <field name="name">product.template.search.marketplace</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <filter name="filter_to_sell" position="after">
+                <separator/>
+                <filter string="Published on Marketplace" name="filter_marketplace"
+                        domain="[('marketplace_published', '=', True)]"/>
+            </filter>
+        </field>
+    </record>
+
+</odoo>

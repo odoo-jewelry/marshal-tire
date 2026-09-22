@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_production_calendar_view_form" model="ir.ui.view">
+        <field name="name">hr.production.calendar.form</field>
+        <field name="model">hr.production.calendar</field>
+        <field name="arch" type="xml">
+            <form string="Production Calendar">
+                <header>
+                    <button name="action_generate_calendar" string="Generate Calendar" type="object"
+                            class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="year"/>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   domain="[('id', 'in', allowed_company_ids)]"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="total_days"/>
+                            <field name="working_days"/>
+                            <field name="holidays"/>
+                            <field name="working_hours"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Calendar Days" name="days">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="date"/>
+                                    <field name="day_type"/>
+                                    <field name="is_working_day"/>
+                                    <field name="working_hours"/>
+                                    <field name="holiday_name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_production_calendar_view_tree" model="ir.ui.view">
+        <field name="name">hr.production.calendar.tree</field>
+        <field name="model">hr.production.calendar</field>
+        <field name="arch" type="xml">
+            <list string="Production Calendars">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="total_days"/>
+                <field name="working_days"/>
+                <field name="holidays"/>
+                <field name="working_hours"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hr_production_calendar" model="ir.actions.act_window">
+        <field name="name">Production Calendars</field>
+        <field name="res_model">hr.production.calendar</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a production calendar for the year
+            </p>
+            <p>
+                Production calendar defines working days, weekends, and public holidays.
+            </p>
+        </field>
+    </record>
+
+</odoo>

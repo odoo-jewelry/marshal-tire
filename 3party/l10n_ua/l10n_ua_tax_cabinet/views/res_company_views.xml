@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Extend l10n_ua_tax company view to add KVED activity codes -->
+    <record id="view_company_form_ua_tax_cabinet" model="ir.ui.view">
+        <field name="name">res.company.form.ua.tax.cabinet</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="l10n_ua_tax.view_company_form_ua_tax"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='ua_tax_settings']" position="inside">
+                <group string="Activity Codes (KVED)">
+                    <field name="l10n_ua_kved_ids" nolabel="1" colspan="2">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="kved_id" options="{'no_create': True}"/>
+                            <field name="is_primary"/>
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

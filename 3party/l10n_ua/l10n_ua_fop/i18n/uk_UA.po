@@ -1,0 +1,1146 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * l10n_ua_fop
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 14:14+0000\n"
+"PO-Revision-Date: 2026-08-14 14:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: l10n_ua_fop
+#: model:ir.actions.report,print_report_name:l10n_ua_fop.action_report_declaration
+msgid "'Декларація_ЄП_%s' % (object.name or '')"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.actions.report,print_report_name:l10n_ua_fop.action_report_income_book
+msgid "'Книга_доходів_%s' % (object.name or '')"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "(ПІБ)"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "(назва контролюючого органу)"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "(підпис)"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "(фіксована ×"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "01"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "02"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "03"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "04"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "05"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "06"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "07"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_group__code__1
+msgid "1 група"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_group__code__2
+msgid "2 група"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_group__code__3
+msgid "3 група (без ПДВ)"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_group__code__3_vat
+msgid "3 група (з ПДВ)"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:l10n_ua.fop.group,description:l10n_ua_fop.fop_group_3_vat
+msgid "3% of income + VAT. Any activity except prohibited. No employee limit."
+msgstr ""
+"3% від доходу + ПДВ. Будь-яка діяльність крім забороненої. Без обмеження "
+"працівників."
+
+#. module: l10n_ua_fop
+#: model:l10n_ua.fop.group,description:l10n_ua_fop.fop_group_3
+msgid "5% of income. Any activity except prohibited. No employee limit."
+msgstr ""
+"5% від доходу. Будь-яка діяльність крім забороненої. Без обмеження "
+"працівників."
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_declaration__period__9m
+msgid "9 місяців"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_form
+msgid "<span>Друк</span>"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "<span>Книги доходів</span>"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "<strong>Увага!</strong> Дохід перевищує ліміт для обраної групи ЄП."
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__message_needaction
+msgid "Action Needed"
+msgstr "Необхідна дія"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__active
+msgid "Active"
+msgstr "Активно"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_ids
+msgid "Activities"
+msgstr "Дії"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Оформлення виключення дії"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_state
+msgid "Activity State"
+msgstr "Стан дії"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Іконка типу дії"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__message_attachment_count
+msgid "Attachment Count"
+msgstr "Підрахунок прикріплення"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__create_date
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__create_date
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__create_date
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__display_name
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__display_name
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__display_name
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: l10n_ua_fop
+#: model:ir.ui.menu,name:l10n_ua_fop.menu_l10n_ua_fop
+msgid "FOP (Simplified Tax)"
+msgstr "ФОП (Єдиний податок)"
+
+#. module: l10n_ua_fop
+#: model:l10n_ua.fop.group,description:l10n_ua_fop.fop_group_1
+msgid ""
+"Fixed rate based on minimum wage. Retail trade at markets, household "
+"services to population."
+msgstr ""
+"Фіксована ставка від мінімальної зарплати. Торгівля на ринках, побутові "
+"послуги населенню."
+
+#. module: l10n_ua_fop
+#: model:l10n_ua.fop.group,description:l10n_ua_fop.fop_group_2
+msgid ""
+"Fixed rate based on minimum wage. Services to other FOP and legal entities, "
+"production."
+msgstr ""
+"Фіксована ставка від мінімальної зарплати. Послуги іншим ФОП та юрособам, "
+"виробництво."
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Партнери)"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Іконка зі шрифтом Font awesome, напр. fa-tasks"
+
+#. module: l10n_ua_fop
+#: model:l10n_ua.fop.group,name:l10n_ua_fop.fop_group_1
+msgid "Group 1 - Retail trade, services to population"
+msgstr "Група 1 - Роздрібна торгівля, послуги населенню"
+
+#. module: l10n_ua_fop
+#: model:l10n_ua.fop.group,name:l10n_ua_fop.fop_group_2
+msgid "Group 2 - Services to FOP and legal entities"
+msgstr "Група 2 - Послуги ФОП та юридичним особам"
+
+#. module: l10n_ua_fop
+#: model:l10n_ua.fop.group,name:l10n_ua_fop.fop_group_3_vat
+msgid "Group 3 - With VAT"
+msgstr "Група 3 - З ПДВ"
+
+#. module: l10n_ua_fop
+#: model:l10n_ua.fop.group,name:l10n_ua_fop.fop_group_3
+msgid "Group 3 - Without VAT"
+msgstr "Група 3 - Без ПДВ"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__has_message
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__has_message
+msgid "Has Message"
+msgstr "Є повідомлення"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_declaration__period__q1
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_income_book__quarter__1
+msgid "I квартал"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "I. Показники господарської діяльності"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__id
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__id
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__id
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_income_book__quarter__2
+msgid "II квартал"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "II. Податкові зобов'язання"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_income_book__quarter__3
+msgid "III квартал"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "III. Визначення зобов'язань зі сплати ЄСВ"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_income_book__quarter__4
+msgid "IV квартал"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_exception_icon
+msgid "Icon"
+msgstr "Значок"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Іконка для визначення виключення дії."
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__message_needaction
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_income_book__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо позначено, то нові повідомлення будуть потребувати вашої уваги."
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__message_has_error
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__message_has_sms_error
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_income_book__message_has_error
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_income_book__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: l10n_ua_fop
+#: model:ir.ui.menu,name:l10n_ua_fop.menu_l10n_ua_fop_income_books
+msgid "Income Books"
+msgstr "Книги обліку доходів"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__message_is_follower
+msgid "Is Follower"
+msgstr "Стежить"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__write_uid
+msgid "Last Updated by"
+msgstr "Востаннє оновив"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__write_date
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__write_date
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__write_date
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__write_date
+msgid "Last Updated on"
+msgstr "Останнє оновлення"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставлення повідомлення"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Дедлайн моєї дії"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Наступна подія календаря дій"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Дедлайн наступної дії"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_summary
+msgid "Next Activity Summary"
+msgstr "Підсумок наступної дії"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_type_id
+msgid "Next Activity Type"
+msgstr "Тип наступної дії"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__message_has_error_counter
+msgid "Number of errors"
+msgstr "Кількість помилок"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_income_book__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Кількість повідомлень, які вимагають дії"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_income_book__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилкою доставки"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_user_id
+msgid "Responsible User"
+msgstr "Відповідальний користувач"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Помилка доставки SMS"
+
+#. module: l10n_ua_fop
+#: model:ir.ui.menu,name:l10n_ua_fop.menu_l10n_ua_fop_declarations
+msgid "Simplified Tax Declarations"
+msgstr "Декларації єдиного податку"
+
+#. module: l10n_ua_fop
+#: model:ir.actions.act_window,name:l10n_ua_fop.l10n_ua_fop_group_action
+msgid "Simplified Tax Groups"
+msgstr "Групи єдиного податку"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_state
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Етап заснований на діях\n"
+"Протерміновано: термін виконання вже минув\n"
+"Сьогодні: дата дії сьогодні\n"
+"Заплановано: майбутні дії."
+
+#. module: l10n_ua_fop
+#: model:ir.ui.menu,name:l10n_ua_fop.menu_l10n_ua_fop_groups
+msgid "Tax Groups"
+msgstr "Групи оподаткування"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_income_book__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Тип дії виключення на записі."
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__website_message_ids
+msgid "Website Messages"
+msgstr "Повідомлення з веб-сайту"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_income_book__website_message_ids
+msgid "Website communication history"
+msgstr "Історія бесіди на сайті"
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__xml_file
+msgid "XML файл"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "«___» ___________ 20__ р."
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "ЄДРПОУ/РНОКПП:"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "ЄСВ"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__single_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "Єдиний податок"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__xml_filename
+msgid "Ім'я файлу"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__esv_base
+msgid "База нарахування ЄСВ"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "База нарахування ЄСВ (р.04 × р.05)"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_income_book_line__income_type__bank
+msgid "Безготівковий"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_form
+msgid "В чернетку"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__income_type
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "Вид доходу"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__total_payable
+msgid "Всього до сплати"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_income_book_line__income_type__cash
+msgid "Готівка"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__code
+msgid "Група"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__fop_group_id
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__fop_group_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_search
+msgid "Група ЄП"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "Група ЄП:"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model,name:l10n_ua_fop.model_l10n_ua_fop_group
+msgid "Група платника єдиного податку"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "Група єдиного податку:"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__date
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "Дата"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__submission_date
+msgid "Дата подання"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "Дата подання:"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.actions.report,name:l10n_ua_fop.action_report_declaration
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "Декларація ЄП"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.constraint,message:l10n_ua_fop.constraint_l10n_ua_fop_declaration_unique_declaration
+msgid "Декларація за цей період та групу вже існує!"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model,name:l10n_ua_fop.model_l10n_ua_fop_declaration
+msgid "Декларація платника єдиного податку"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.actions.act_window,name:l10n_ua_fop.l10n_ua_fop_declaration_action
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_search
+msgid "Декларації ЄП"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__monthly_tax_amount
+msgid "Для груп 1 та 2 — фіксована місячна сума єдиного податку"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "До ДПІ _______________________________"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "Додаткові примітки..."
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "Дохід"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__total_income
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__total_income
+msgid "Загальний дохід"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model,name:l10n_ua_fop.model_l10n_ua_fop_income_book_line
+msgid "Запис книги обліку доходів"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__line_ids
+msgid "Записи"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_form
+msgid "Записи доходів"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__period
+msgid "Звітний період"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "Звітний період:"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "КНИГА ОБЛІКУ ДОХОДІВ"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_income_book_line__income_type__card
+msgid "Картка"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__quarter
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_search
+msgid "Квартал"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__book_id
+msgid "Книга доходів"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.actions.report,name:l10n_ua_fop.action_report_income_book
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_form
+msgid "Книга обліку доходів"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model,name:l10n_ua_fop.model_l10n_ua_fop_income_book
+msgid "Книга обліку доходів ФОП"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.constraint,message:l10n_ua_fop.constraint_l10n_ua_fop_income_book_unique_book
+msgid "Книга обліку за цей квартал та групу вже існує!"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.actions.act_window,name:l10n_ua_fop.l10n_ua_fop_income_book_action
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__income_book_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_search
+msgid "Книги обліку доходів"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "Код рядка"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__company_id
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__company_id
+msgid "Компанія"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__partner_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "Контрагент"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__line_count
+msgid "Кількість записів"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__esv_months
+msgid "Кількість місяців"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "Кількість місяців у звітному періоді"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__income_limit
+msgid "Ліміт доходу"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__income_limit_exceeded
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_search
+msgid "Ліміт перевищено"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__income_limit
+msgid "Ліміт річного доходу"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__max_employees
+msgid "Макс. кількість працівників"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__can_hire_employees
+msgid "Може наймати працівників"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "Мінімальна заробітна плата"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__min_wage
+msgid "Мінімальна заробітна плата для розрахунку ЄСВ"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__min_wage
+msgid "Мінімальна зарплата"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__monthly_tax_amount
+msgid "Місячна сума ЄП"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__name
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__name
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__name
+msgid "Назва"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "Обсяг доходу за звітний період"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "Обсяг доходу, що оподатковується за ставкою"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__description
+msgid "Опис"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__description
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "Опис операції"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "Основне"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "ПІБ підприємця:"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid ""
+"ПОДАТКОВА ДЕКЛАРАЦІЯ<br/>\n"
+"                            <span style=\"font-size: 11pt;\">платника єдиного податку — фізичної особи-підприємця</span>"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_search
+msgid "Період"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "Подання"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_declaration__state__submitted
+msgid "Подано"
+msgstr ""
+
+#. module: l10n_ua_fop
+#. odoo-python
+#: code:addons/l10n_ua_fop/models/l10n_ua_fop_declaration.py:0
+msgid "Подано до ДПС. Квитанція: %s"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_search
+msgid "Подані"
+msgstr ""
+
+#. module: l10n_ua_fop
+#. odoo-python
+#: code:addons/l10n_ua_fop/models/l10n_ua_fop_declaration.py:0
+msgid "Подати декларацію ЄП до ДПС"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "Податки та ЄСВ"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "Показник"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_search
+msgid "Поточний рік"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_declaration__state__accepted
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "Прийнято"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_search
+msgid "Прийняті"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__notes
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "Примітки"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_declaration__period__h1
+msgid "Півріччя"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "Підписати і подати"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_income_book__state__confirmed
+msgid "Підтверджено"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_search
+msgid "Підтверджені"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_form
+msgid "Підтвердити"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "РНОКПП (ІПН):"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_list
+msgid "Разом"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_list
+msgid "Разом ЄП"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_list
+msgid "Разом ЄСВ"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_list
+msgid "Разом до сплати"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_list
+msgid "Разом дохід"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "Разом за квартал:"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_declaration__state__calculated
+msgid "Розраховано"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_search
+msgid "Розраховані"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "Розрахувати"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__bank_statement_line_id
+msgid "Рядок банківської виписки"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__year
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__year
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_declaration__period__year
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_search
+msgid "Рік"
+msgstr ""
+
+#. module: l10n_ua_fop
+#. odoo-python
+#: code:addons/l10n_ua_fop/models/l10n_ua_fop_declaration.py:0
+msgid "Спершу розрахуйте декларацію (кнопка «Розрахувати»)."
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__tax_rate
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_group__tax_rate
+msgid "Ставка ЄП (%)"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__esv_rate
+msgid "Ставка ЄСВ (%)"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_declaration__tax_rate
+#: model:ir.model.fields,help:l10n_ua_fop.field_l10n_ua_fop_group__tax_rate
+msgid "Ставка єдиного податку як відсоток від доходу"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__state
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book__state
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_search
+msgid "Статус"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_declaration__esv_amount
+msgid "Сума ЄСВ"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "Сума ЄСВ (р.06 ×"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "Сума єдиного податку за ставкою"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__amount
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "Сума, грн"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_form
+msgid "Сформувати XML"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid ""
+"УВАГА: Дохід перевищує ліміт\n"
+"                                ("
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "Усього до сплати (р.03 + р.07):"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "ФОП"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_declaration__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_fop.selection__l10n_ua_fop_income_book__state__draft
+msgid "Чернетка"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_declaration_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.l10n_ua_fop_income_book_view_search
+msgid "Чернетки"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "грн"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid ""
+"грн)\n"
+"                                для обраної групи ЄП!"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "за"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "квартал"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+msgid "міс.)"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_declaration_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "року"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.model.fields,field_description:l10n_ua_fop.field_l10n_ua_fop_income_book_line__document_number
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "№ документа"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model_terms:ir.ui.view,arch_db:l10n_ua_fop.report_income_book_document
+msgid "№ з/п"
+msgstr ""
+
+#. module: l10n_ua_fop
+#: model:ir.module.module,shortdesc:base.module_l10n_ua_fop
+msgid "Ukraine - FOP (Single Tax)"
+msgstr "Україна - ФОП (Єдиний податок)"

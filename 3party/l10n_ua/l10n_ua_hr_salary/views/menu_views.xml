@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- NB: root/container groups alone do NOT hide the app — Odoo shows the
+         ancestors of any visible ungated leaf. Every action-bearing LEAF menu
+         carries the group. See docs/menu_architecture.md (видимість). -->
+    <menuitem id="menu_hr_payroll_root"
+              name="Payroll"
+              web_icon="l10n_ua_hr_salary,static/description/icon.png"
+              sequence="30"
+              groups="l10n_ua_hr_base.group_hr_ua_user"/>
+
+    <menuitem id="menu_hr_payslip"
+              name="Payslips"
+              parent="menu_hr_payroll_root"
+              action="action_hr_payslip"
+              sequence="10"
+              groups="l10n_ua_hr_base.group_hr_ua_user"/>
+
+    <menuitem id="menu_hr_payslip_run"
+              name="Batches"
+              parent="menu_hr_payroll_root"
+              action="action_hr_payslip_run"
+              sequence="20"
+              groups="l10n_ua_hr_base.group_hr_ua_user"/>
+
+    <menuitem id="menu_hr_execution_document"
+              name="Execution Documents"
+              parent="menu_hr_payroll_root"
+              action="action_hr_execution_document"
+              sequence="30"
+              groups="l10n_ua_hr_base.group_hr_ua_user"/>
+
+    <menuitem id="menu_hr_salary_advance_root"
+              name="Advances"
+              parent="menu_hr_payroll_root"
+              sequence="40"/>
+
+    <menuitem id="menu_hr_salary_advance"
+              name="Advance List"
+              parent="menu_hr_salary_advance_root"
+              action="action_hr_salary_advance"
+              sequence="10"
+              groups="l10n_ua_hr_base.group_hr_ua_user"/>
+
+    <menuitem id="menu_hr_salary_advance_run"
+              name="Advance Batches"
+              parent="menu_hr_salary_advance_root"
+              action="action_hr_salary_advance_run"
+              sequence="20"
+              groups="l10n_ua_hr_base.group_hr_ua_user"/>
+
+    <menuitem id="menu_hr_piece_work_entry"
+              name="Наряди відрядної оплати"
+              parent="menu_hr_payroll_root"
+              action="action_hr_piece_work_entry"
+              sequence="35"
+              groups="l10n_ua_hr_base.group_hr_ua_user"/>
+
+    <menuitem id="menu_hr_payroll_config"
+              name="Configuration"
+              parent="menu_hr_payroll_root"
+              sequence="100"
+              groups="l10n_ua_hr_base.group_hr_ua_manager"/>
+
+    <menuitem id="menu_hr_seniority_scale"
+              name="Шкали вислуги років"
+              parent="menu_hr_payroll_config"
+              action="action_hr_seniority_scale"
+              sequence="50"
+              groups="l10n_ua_hr_base.group_hr_ua_manager"/>
+
+    <menuitem id="menu_hr_psp_parameters"
+              name="PSP Parameters"
+              parent="menu_hr_payroll_config"
+              action="action_hr_psp_parameters"
+              sequence="10"
+              groups="l10n_ua_hr_base.group_hr_ua_manager"/>
+
+    <menuitem id="menu_hr_accrual_type"
+              name="Accrual Types"
+              parent="menu_hr_payroll_config"
+              action="action_hr_accrual_type"
+              sequence="20"
+              groups="l10n_ua_hr_base.group_hr_ua_manager"/>
+
+    <menuitem id="menu_hr_deduction_type"
+              name="Deduction Types"
+              parent="menu_hr_payroll_config"
+              action="action_hr_deduction_type"
+              sequence="30"
+              groups="l10n_ua_hr_base.group_hr_ua_manager"/>
+
+    <menuitem id="menu_hr_cpi_index"
+              name="Consumer Price Index"
+              parent="menu_hr_payroll_config"
+              action="action_hr_cpi_index"
+              sequence="40"
+              groups="l10n_ua_hr_base.group_hr_ua_manager"/>
+
+</odoo>

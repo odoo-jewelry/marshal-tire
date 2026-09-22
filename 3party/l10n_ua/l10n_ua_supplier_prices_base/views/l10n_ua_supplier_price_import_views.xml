@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_supplier_price_import_list" model="ir.ui.view">
+        <field name="name">l10n_ua.supplier.price.import.list</field>
+        <field name="model">l10n_ua.supplier.price.import</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <list string="Imports" decoration-success="state == 'done'"
+                  decoration-danger="state == 'error'"
+                  decoration-info="state in ('fetching','parsing','applying')">
+                <field name="name"/>
+                <field name="date_imported"/>
+                <field name="source_id"/>
+                <field name="partner_id"/>
+                <field name="line_count"/>
+                <field name="matched_count"/>
+                <field name="unknown_count"/>
+                <field name="error_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_supplier_price_import_form" model="ir.ui.view">
+        <field name="name">l10n_ua.supplier.price.import.form</field>
+        <field name="model">l10n_ua.supplier.price.import</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <form string="Import">
+                <header>
+                    <button name="action_fetch" type="object" string="Fetch"
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_parse" type="object" string="Parse"
+                            class="oe_highlight" invisible="state != 'fetched'"/>
+                    <button name="action_apply" type="object" string="Apply"
+                            class="oe_highlight" invisible="state != 'parsed'"/>
+                    <button name="action_restart" type="object" string="Restart"
+                            invisible="state != 'error'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,fetched,parsed,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="source_id" readonly="state != 'draft'"/>
+                            <field name="partner_id" readonly="1"/>
+                            <field name="company_id" readonly="1"
+                                   groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="date_imported" readonly="state != 'draft'"/>
+                            <field name="raw_filename" readonly="state not in ('draft','fetched')"/>
+                            <field name="raw_file" filename="raw_filename"
+                                   readonly="state not in ('draft','fetched')"/>
+                        </group>
+                    </group>
+                    <group string="Statistics" invisible="not line_ids">
+                        <group>
+                            <field name="line_count"/>
+                            <field name="matched_count"/>
+                        </group>
+                        <group>
+                            <field name="unknown_count"/>
+                            <field name="error_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" invisible="not line_ids">
+                            <field name="line_ids" readonly="1">
+                                <list decoration-success="status in ('matched','created')"
+                                      decoration-warning="status == 'unknown'"
+                                      decoration-danger="status == 'error'"
+                                      decoration-muted="status == 'skipped'">
+                                    <field name="supplier_sku"/>
+                                    <field name="supplier_name"/>
+                                    <field name="price"/>
+                                    <field name="currency_id"/>
+                                    <field name="qty_min"/>
+                                    <field name="product_id"/>
+                                    <field name="status" widget="badge"/>
+                                    <field name="error_message" optional="hide"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Error Log" invisible="not error_log">
+                            <field name="error_log" readonly="1" widget="text"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_supplier_price_import" model="ir.actions.act_window">
+        <field name="name">Imports</field>
+        <field name="res_model">l10n_ua.supplier.price.import</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

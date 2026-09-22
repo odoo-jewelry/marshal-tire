@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ERPN Limit Form -->
+    <record id="l10n_ua_vat_erpn_limit_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.vat.erpn.limit.form</field>
+        <field name="model">l10n_ua.vat.erpn.limit</field>
+        <field name="arch" type="xml">
+            <form string="Реєстраційний ліміт ЄРПН">
+                <header>
+                    <button name="action_calculate_from_registers"
+                            string="Заповнити з реєстрів"
+                            type="object"
+                            class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="limit_amount" class="oe_subtotal_footer_separator"/>
+                        </group>
+                    </group>
+                    <group string="Складові формули ліміту">
+                        <group>
+                            <field name="amount_overpayment"/>
+                            <field name="amount_import_vat"/>
+                            <field name="amount_budget_refund"/>
+                        </group>
+                        <group>
+                            <field name="amount_received_vat"/>
+                            <field name="amount_issued_vat"/>
+                            <field name="amount_refunded"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes" placeholder="Примітки до розрахунку..."/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ERPN Limit List -->
+    <record id="l10n_ua_vat_erpn_limit_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.vat.erpn.limit.list</field>
+        <field name="model">l10n_ua.vat.erpn.limit</field>
+        <field name="arch" type="xml">
+            <list string="Реєстраційний ліміт ЄРПН">
+                <field name="date"/>
+                <field name="amount_received_vat" optional="show"/>
+                <field name="amount_issued_vat" optional="show"/>
+                <field name="amount_overpayment" optional="hide"/>
+                <field name="amount_import_vat" optional="hide"/>
+                <field name="limit_amount" decoration-danger="limit_amount &lt; 0"
+                       decoration-success="limit_amount &gt; 0"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ERPN Limit Search -->
+    <record id="l10n_ua_vat_erpn_limit_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.vat.erpn.limit.search</field>
+        <field name="model">l10n_ua.vat.erpn.limit</field>
+        <field name="arch" type="xml">
+            <search string="Ліміт ЄРПН">
+                <field name="date"/>
+
+                <group>
+                    <filter string="Місяць" name="groupby_date" domain="[]" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ERPN Limit Action -->
+    <record id="l10n_ua_vat_erpn_limit_action" model="ir.actions.act_window">
+        <field name="name">Ліміт реєстрації ЄРПН</field>
+        <field name="res_model">l10n_ua.vat.erpn.limit</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="l10n_ua_vat_erpn_limit_view_search"/>
+    </record>
+
+</odoo>

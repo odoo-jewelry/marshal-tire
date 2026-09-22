@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="paperformat_a4_landscape_ua" model="report.paperformat">
+        <field name="name">A4 Ukrainian Landscape</field>
+        <field name="default">False</field>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">15</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line">False</field>
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_hr_vacation_schedule" model="ir.actions.report">
+        <field name="name">Print</field>
+        <field name="model">hr.vacation.schedule</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_hr_holidays.report_hr_vacation_schedule</field>
+        <field name="report_file">l10n_ua_hr_holidays.report_hr_vacation_schedule</field>
+        <field name="print_report_name">'Графік_відпусток_%s' % (object.year)</field>
+        <field name="binding_model_id" ref="model_hr_vacation_schedule"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_a4_landscape_ua"/>
+    </record>
+
+    <template id="report_hr_vacation_schedule">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="report_doc">
+                <t t-call="l10n_ua_hr_holidays.report_hr_vacation_schedule_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_hr_vacation_schedule_document">
+        <t t-call="web.basic_layout">
+            <t t-set="company" t-value="report_doc.company_id or env.company"/>
+            <div class="page" style="font-family: 'Times New Roman', serif; font-size: 11pt;">
+
+                <div style="margin-bottom: 20px; font-size: 10pt; overflow: hidden;">
+                    <div style="width: 50%; float: left; text-align: left;">
+                        <strong t-esc="company.name"/>
+                    </div>
+                    <div style="width: 50%; float: right; text-align: left;">
+                        <div><strong>ЗАТВЕРДЖУЮ</strong></div>
+                        <div>Директор <t t-esc="company.name"/></div>
+                        <div>____________________ <t t-esc="company.director_id.name or ''"/></div>
+                        <div><t t-esc="report_doc._report_generation_date()"/></div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <h3 style="margin: 10px 0;">ГРАФІК ВІДПУСТОК</h3>
+                    <p style="font-size: 10pt;">на <span t-esc="report_doc.year"/> рік</p>
+                </div>
+
+                <table style="width: 100%; border-collapse: collapse; font-size: 8pt;">
+                    <thead>
+                        <tr style="background-color: #f0f0f0;">
+                            <th style="border: 1px solid #000; padding: 4px; width: 3%; vertical-align: middle;" rowspan="2">№</th>
+                            <th style="border: 1px solid #000; padding: 4px; width: 12%; vertical-align: middle;" rowspan="2">ПІБ</th>
+                            <th style="border: 1px solid #000; padding: 4px; width: 10%; vertical-align: middle;" rowspan="2">Посада</th>
+                            <th style="border: 1px solid #000; padding: 4px; width: 10%; vertical-align: middle;" rowspan="2">Тип відпустки</th>
+                            <th style="border: 1px solid #000; padding: 4px; width: 7%; vertical-align: middle;" rowspan="2">Кількість календарних днів</th>
+                            <th style="border: 1px solid #000; padding: 4px; width: 11%; vertical-align: middle;" rowspan="2">Період, за який надається відпустка</th>
+                            <th style="border: 1px solid #000; padding: 4px; width: 11%; vertical-align: middle;" rowspan="2">Місяць, або період відпустки</th>
+                            <th style="border: 1px solid #000; padding: 4px; width: 9%; vertical-align: middle;" rowspan="2">Підпис працівника</th>
+                            <th style="border: 1px solid #000; padding: 4px; width: 16%;" colspan="2">Перенесення відпустки</th>
+                            <th style="border: 1px solid #000; padding: 4px; width: 11%; vertical-align: middle;" rowspan="2">Примітки (заміна частини відпустки компенсацією тощо)</th>
+                        </tr>
+                        <tr style="background-color: #f0f0f0;">
+                            <th style="border: 1px solid #000; padding: 4px; width: 11%;">Підстава (реквізити наказу, розпорядження)</th>
+                            <th style="border: 1px solid #000; padding: 4px; width: 5%;">Новий період</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="row_num" t-value="0"/>
+                        <t t-foreach="report_doc._report_lines_grouped()" t-as="grp">
+                            <t t-set="row_num" t-value="row_num + 1"/>
+                            <t t-foreach="grp['type_groups']" t-as="tg">
+                                <t t-foreach="tg['lines']" t-as="line">
+                                    <tr>
+                                        <t t-if="tg_index == 0 and line_index == 0">
+                                            <td style="border: 1px solid #000; padding: 4px; text-align: center; vertical-align: middle;"
+                                                t-att-rowspan="grp['total']">
+                                                <t t-esc="row_num"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 4px; vertical-align: middle;"
+                                                t-att-rowspan="grp['total']">
+                                                <t t-esc="grp['employee'].name"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 4px; vertical-align: middle;"
+                                                t-att-rowspan="grp['total']">
+                                                <t t-esc="grp['employee'].job_id.name or ''"/>
+                                            </td>
+                                        </t>
+                                        <t t-if="line_index == 0">
+                                            <td style="border: 1px solid #000; padding: 4px; vertical-align: middle;"
+                                                t-att-rowspan="len(tg['lines'])">
+                                                <t t-esc="tg['leave_type'].name or ''"/>
+                                            </td>
+                                        </t>
+                                        <td style="border: 1px solid #000; padding: 4px; text-align: center;">
+                                            <t t-esc="line.planned_days"/>
+                                        </td>
+                                        <td style="border: 1px solid #000; padding: 4px; text-align: center;">
+                                            <t t-esc="line.vacation_balance_id.period_label or ''"/>
+                                        </td>
+                                        <td style="border: 1px solid #000; padding: 4px; text-align: center;">
+                                            <t t-esc="line.vacation_period_display or ''"/>
+                                        </td>
+                                        <t t-if="tg_index == 0 and line_index == 0">
+                                            <td style="border: 1px solid #000; padding: 4px; vertical-align: middle;"
+                                                t-att-rowspan="grp['total']"/>
+                                        </t>
+                                        <!-- Перенесення відпустки: заповнюється вручну -->
+                                        <td style="border: 1px solid #000; padding: 4px;"/>
+                                        <td style="border: 1px solid #000; padding: 4px;"/>
+                                        <td style="border: 1px solid #000; padding: 4px;">
+                                            <t t-esc="line.notes or ''"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </t>
+                    </tbody>
+                </table>
+
+                <div style="margin-top: 30px; overflow: hidden;">
+                    <div style="width: 40%; float: left; padding-top: 16px;">
+                        <t t-esc="company.hr_manager_id.job_id.name or 'Керівник кадрової служби'"/>
+                    </div>
+                    <div style="width: 30%; float: left; text-align: center;">
+                        <div style="border-bottom: 1px solid #000; height: 16px;"></div>
+                        <div style="font-size: 9pt;">(підпис)</div>
+                    </div>
+                    <div style="width: 30%; float: left; text-align: center;">
+                        <div style="border-bottom: 1px solid #000; height: 16px;">
+                            <t t-esc="company.hr_manager_id.name or ''"/>
+                        </div>
+                        <div style="font-size: 9pt;">(П.І.Б.)</div>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+
+</odoo>

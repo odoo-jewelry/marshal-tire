@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- NBU Provider - Official rates -->
+        <record id="currency_rate_provider_nbu" model="res.currency.rate.provider">
+            <field name="name">NBU (Official Rates)</field>
+            <field name="code">nbu</field>
+            <field name="sequence">10</field>
+            <field name="auto_sync">True</field>
+        </record>
+
+        <!-- PrivatBank Provider - Commercial rates -->
+        <record id="currency_rate_provider_privat" model="res.currency.rate.provider">
+            <field name="name">PrivatBank</field>
+            <field name="code">privatbank</field>
+            <field name="sequence">20</field>
+            <field name="privat_rate_type">5</field>
+            <field name="auto_sync">False</field>
+        </record>
+
+        <!-- Monobank Provider - Commercial rates -->
+        <record id="currency_rate_provider_mono" model="res.currency.rate.provider">
+            <field name="name">Monobank</field>
+            <field name="code">monobank</field>
+            <field name="sequence">30</field>
+            <field name="auto_sync">False</field>
+        </record>
+
+    </data>
+</odoo>

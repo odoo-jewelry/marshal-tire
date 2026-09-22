@@ -1,12 +1,6 @@
-# Project instructions
+# Odoo 19 CE Project Instructions
 
-This file keeps team rules, Odoo development policy, and project settings together
-in the repository. When reusing it, adapt the Project environment and Project
-workflows sections to the target project.
-
-## Team working rules
-
-### Communication and output
+## Communication and output
 
 - Answer in Russian, concisely, and lead with the result. Write natural Russian prose; do not mix English technical nouns into Russian sentences when a clear Russian equivalent exists. Keep only established abbreviations, code identifiers, Odoo model/field names, and exact UI labels. When an English term is necessary, explain it in Russian on first use.
 - Prefer technical accuracy over brevity when explaining architecture, migrations,
@@ -16,45 +10,34 @@ workflows sections to the target project.
 - For repository edits, report changed files, key decisions, validation performed,
   and anything not verified.
 
-### Existing work and secrets
+## Environment and scope
 
-- Preserve unrelated pre-existing and user changes. Keep diffs focused and retain
-  established local style; do not reformat unrelated code.
-- Never hardcode or expose secrets. Read only configuration keys needed for the
-  current task; never print complete configuration or environment contents, or
-  `/proc/1/environ`.
+- Target Odoo 19.0 Community Edition.
+- Commands run inside the Odoo container. Do not use `docker`, `docker compose`,
+  or `docker exec`.
+- Repository root: `/mnt/extra-addons/`.
+- Writable project code:
+  - `/mnt/extra-addons/main/`
+  - `/mnt/extra-addons/solutions/`
+  - `/mnt/extra-addons/forks/` only when the task explicitly targets a fork
+- Treat `/mnt/extra-addons/3party/` and
+  `/usr/lib/python3/dist-packages/odoo/addons/` as read-only unless explicitly
+  requested otherwise.
+- Use the installed standard Odoo source as the primary implementation reference.
 
-### Dependency installation and browser testing
+## Coding-guideline routing
 
-- Never install packages, dependencies, tools, browsers, system libraries, or runtime components.
-- This prohibition applies to system-wide, user-local, project-local, virtual environment, container, and temporary-directory installations.
-- Never use `apt`, `pip`, `pipx`, `npm`, `yarn`, `pnpm`, or similar installation commands, including `pip --target`, `--user`, and `--break-system-packages`.
-- Do not work around missing dependencies by changing `PYTHONPATH`, creating a virtual environment, or downloading executables.
-- If a required dependency is unavailable, skip the affected validation and explicitly report what was not verified.
-
-- Do not create or run browser-based automated tests, including HOOT, browser QUnit suites, tours, and UI test runners.
-- Validate frontend changes with static checks and non-browser tests where practical. Explicitly report browser behavior as not automatically verified.
-
-## Odoo development
-
-### Reference and coding guidelines
-
-- Use the installed standard Odoo source for the target version as the primary
-  implementation reference.
 - Do not read `ODOO_CODING_GUIDELINES.rst` in full at the start of every task.
 - Consult only its relevant section when creating or reviewing Odoo code:
   module layout, Python/ORM, XML/data/security, frontend, or tests/review.
+- Existing local style wins when modifying stable code. Keep diffs focused and do
+  not reformat unrelated code.
 
-### Critical design validation
-
-Before designing or implementing a requested solution, critically validate its premise. Check whether it conflicts with standard Odoo workflows, duplicates the source of truth, breaks lifecycle/accounting/stock traceability, creates irreversible data consequences, or fails the stated business goal.
-If a critical flaw is found, stop before implementation: explain the failure scenario and recommend a safer direction. Continue only after the user explicitly confirms the decision. Do not block work for stylistic preferences or minor architectural trade-offs.
-
-### Development workflow
+## Development workflow
 
 1. Inspect the affected custom module and its existing tests.
-2. Inspect the relevant standard Odoo implementation for the target version and
-   project extension points.
+2. Inspect the relevant standard Odoo 19 implementation and project extension
+   points.
 3. Prefer, in order: standard configuration, existing project functionality,
    inheritance of standard behavior, then minimal custom implementation.
 4. Do not duplicate standard state machines, procurement, stock moves,
@@ -64,22 +47,22 @@ If a critical flaw is found, stop before implementation: explain the failure sce
 6. Keep installed databases safely upgradeable; update manifests, security, data
    ordering, migrations, and tests when required.
 
-### Data integrity and security
+## Data integrity and security
 
 - Use ORM by default. Use parameterized SQL only when ORM is insufficient or
   materially inefficient, and document why.
 - Preserve transaction boundaries and company isolation.
-- Give every new persistent model an explicit access policy. Reuse existing
-  groups and add access rights, record rules, company restrictions, and manifest
-  entries as needed. Extending an existing model with `_inherit` without a new
-  `_name` does not require duplicating its access rights. Shared reference data
-  does not require artificial company separation.
+- Never hardcode or expose secrets. Read only required keys from
+  `/etc/odoo/odoo.conf`; never print complete environment contents or
+  `/proc/1/environ`.
+- For every new persistent model, add appropriate access rights, record rules when
+  required, multi-company protection, and manifest entries.
 - Do not implement business invariants only through `onchange`.
 
-### Configuration and migrations
+## Configuration and migrations
 
 - Prefer XML data, standard configuration, or an explicit migration over runtime
-  setup helpers.
+  setup helpers such as `_ensure_*_inventory_setup`.
 - Distinguish one-time development-database cleanup from a permanent deployment
   migration.
 - Permanent migrations must be reproducible, versioned, and committed with the
@@ -87,67 +70,39 @@ If a critical flaw is found, stop before implementation: explain the failure sce
 - Do not commit one-time cleanup scripts unless requested.
 - Report destructive or irreversible migration requirements before applying them.
 
-### Tests and validation
+## Running Odoo
 
-- Add focused automated tests for non-trivial behavior and regressions. Use the
-  Tests and review section of `ODOO_CODING_GUIDELINES.rst` for Odoo-specific cases
-  and checks; apply the dependency and browser-test restrictions above.
-- Do not build unrelated test infrastructure.
-- Run checks applicable to the change. Explicitly report checks that were not
-  run, and do not claim runtime validation based only on static inspection.
-
-## Project environment
-
-### Runtime and code locations
-
-- Target Odoo 19.0 Community Edition.
-- Each project runs in its own Odoo container. Commands execute inside that
-  container; do not use `docker`, `docker compose`, or `docker exec`.
-- Repository root: `/mnt/extra-addons/`. Project paths below are relative to it.
-- Writable project code is under `main/` and, where present, `solutions/`.
-- `forks/`, when present, contains project forks; modify them only when the task
-  explicitly targets a fork.
-- Treat `3party/` and `/usr/lib/python3/dist-packages/odoo/addons/` as read-only
-  unless explicitly requested otherwise.
-
-### Running Odoo
-
-- Configuration file: `/etc/odoo/odoo.conf`. Before module updates, read the
-  required settings, including the actual `addons_path`, and pass this file
-  explicitly with `-c`.
-- For module updates and tests, explicitly select the intended development or
-  test database with `-d`.
-- When a separate test database is needed, you may create one by appending
-  `_testing` to the current database name.
-- For temporary Odoo processes, pass an explicit `--http-port`: prefer `8077`;
-  if occupied, use a free port starting from `8078`. Port `8069` belongs to the
-  persistent server.
-- Standard update command (replace the placeholders and adjust the port if
-  occupied):
+- Before module updates, read `/etc/odoo/odoo.conf` and use its actual
+  `addons_path`.
+- The base database name is the name of the project's current main database. Determine it once before testing; never use a test database as the base.
+- The only allowed test database name is `<base_database_name>_testing`. Example: `odoo_base` → `odoo_base_testing`. Never append `_testing` repeatedly or add other suffixes.
+- Reuse the test database if it already exists. Do not drop or recreate a pre-existing database without explicit user approval.
+- After testing, whether tests pass or fail, drop the test database if you created it during the current task, unless the user explicitly requests keeping it.
+- Before dropping, verify that the target is exactly `<base_database_name>_testing` and was created during the current task. Never drop the main database. Report whether the test database was removed or retained.
+- `$odoo` does not set the HTTP port automatically. Every `$odoo` invocation MUST begin with `$odoo --http-port=18069 ...`.
+- Standard update command:
 
   ```bash
-  odoo --http-port=8077 -c /etc/odoo/odoo.conf -u {module_name} -d {db_name} --stop-after-init
+  odoo -u {module_name} -d {db_name} --stop-after-init
   ```
 
 - If overriding `--addons-path`, preserve required configured directories and use
-  actual addon-provider subdirectories, not `3party/` itself.
+  actual addon-provider subdirectories, not `/mnt/extra-addons/3party` itself.
+- Port `8069` belongs to the persistent server. Start temporary Odoo processes on `18069`; if occupied, try `18070` and higher.
 
-## Project workflows
 
-These sections apply when the corresponding legacy code or OpenSpec workflow is
-present in the project.
+## Tests and validation
 
-### Legacy code
+- Add focused automated tests for non-trivial behavior, bug fixes, and changes to
+  stock, procurement, manufacturing, accounting, cancellation, retries, returns,
+  or partial processing.
+- Do not build unrelated test infrastructure.
+- Before completion, run all applicable checks: Python syntax/imports, XML and
+  external IDs, access CSV, manifest dependencies/data order, module update,
+  focused tests, upgrade safety, and unchanged standard behavior.
+- Explicitly report checks that were not run.
 
-- If `legacy/addons/` is present, it may be inspected for business
-  behavior, historical workflows, edge cases, data structures, and integrations.
-- Never add legacy code to `addons_path`, import it, declare it as a dependency, or
-  treat it as the authoritative specification.
-- For migrated capabilities, confirm requirements, compare the target standard
-  Odoo version, update OpenSpec where applicable, implement in new addons, add
-  focused tests, and document intentional differences.
-
-### OpenSpec documentation
+## OpenSpec documentation
 
 - When canonical specifications or feature cards change, rebuild documentation:
 
@@ -155,7 +110,18 @@ present in the project.
   python3 openspec/tools/build_docs.py
   ```
 
-### OpenSpec archive commit
+## Legacy code
+
+- Legacy implementation is under `legacy/addons` and may be inspected for business
+  behavior, historical workflows, edge cases, data structures, and integrations.
+- Never add legacy code to `addons_path`, import it, declare it as a dependency, or
+  treat it as the authoritative specification.
+- For migrated capabilities, confirm requirements, compare standard Odoo 19,
+  update OpenSpec where applicable, implement in new addons, add focused tests,
+  and document intentional differences.
+
+
+## OpenSpec archive commit
 
 After successfully implementing, validating, syncing, and archiving an OpenSpec
 change:
@@ -176,3 +142,19 @@ change:
 - Do not split implementation, spec sync, generated documentation, and archive
   artifacts into separate commits unless explicitly requested.
 - Do not push automatically.
+
+## Dependency installation and browser testing
+
+- Never install packages, dependencies, tools, browsers, system libraries, or runtime components.
+- This prohibition applies to system-wide, user-local, project-local, virtual environment, container, and temporary-directory installations.
+- Never use `apt`, `pip`, `pipx`, `npm`, `yarn`, `pnpm`, or similar installation commands, including `pip --target`, `--user`, and `--break-system-packages`.
+- Do not work around missing dependencies by changing `PYTHONPATH`, creating a virtual environment, or downloading executables.
+- If a required dependency is unavailable, skip the affected validation and explicitly report what was not verified.
+
+- Do not create or run browser-based automated tests, including HOOT, browser QUnit suites, tours, and UI test runners.
+- Validate frontend changes with static checks and non-browser tests where practical. Explicitly report browser behavior as not automatically verified.
+
+## Critical Design Validation
+
+Before designing or implementing a requested solution, critically validate its premise. Check whether it conflicts with standard Odoo workflows, duplicates the source of truth, breaks lifecycle/accounting/stock traceability, creates irreversible data consequences, or fails the stated business goal.
+If a critical flaw is found, stop before implementation: explain the failure scenario and recommend a safer direction. Continue only after the user explicitly confirms the decision. Do not block work for stylistic preferences or minor architectural trade-offs.

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report_hr_staffing_table" model="ir.actions.report">
+        <field name="name">Staffing Table</field>
+        <field name="model">hr.staffing.table</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_hr_base.report_hr_staffing_table</field>
+        <field name="report_file">l10n_ua_hr_base.report_hr_staffing_table</field>
+        <field name="print_report_name">'Штатний_розпис_%s' % (object.company_id.name)</field>
+        <field name="binding_model_id" ref="model_hr_staffing_table"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_a4_ua"/>
+    </record>
+
+    <template id="report_hr_staffing_table">
+        <t t-call="web.html_container">
+            <t t-set="data_report_landscape" t-value="True"/>
+            <t t-call="l10n_ua_hr_base.report_hr_staffing_table_document"/>
+        </t>
+    </template>
+
+    <template id="report_hr_staffing_table_document">
+        <t t-call="web.basic_layout">
+            <t t-set="company" t-value="docs[0].company_id if docs else env.company"/>
+            <div class="page" style="font-family: 'Times New Roman', serif; font-size: 12pt;">
+                
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <h2 style="margin: 0;">ШТАТНИЙ РОЗПИС</h2>
+                    <p style="margin: 5px 0;">
+                        <strong t-esc="company.name"/>
+                    </p>
+                    <p style="margin: 5px 0; font-size: 10pt;">
+                        станом на <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d.%m.%Y')"/>
+                    </p>
+                </div>
+                
+                <table style="width: 100%; border-collapse: collapse; font-size: 10pt;">
+                    <thead>
+                        <tr style="background-color: #f0f0f0;">
+                            <th style="border: 1px solid #000; padding: 5px; width: 5%;">№</th>
+                            <th style="border: 1px solid #000; padding: 5px; width: 25%;">Підрозділ</th>
+                            <th style="border: 1px solid #000; padding: 5px; width: 25%;">Посада</th>
+                            <th style="border: 1px solid #000; padding: 5px; width: 10%;">Штатних одиниць</th>
+                            <th style="border: 1px solid #000; padding: 5px; width: 10%;">Зайнято</th>
+                            <th style="border: 1px solid #000; padding: 5px; width: 10%;">Вакансій</th>
+                            <th style="border: 1px solid #000; padding: 5px; width: 15%;">Оклад, грн</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="row_num" t-value="0"/>
+                        <t t-set="total_units" t-value="0"/>
+                        <t t-set="total_filled" t-value="0"/>
+                        <t t-set="total_vacant" t-value="0"/>
+                        <t t-set="total_fund" t-value="0"/>
+                        <t t-foreach="docs" t-as="record">
+                            <t t-set="row_num" t-value="row_num + 1"/>
+                            <t t-set="total_units" t-value="total_units + record.units"/>
+                            <t t-set="total_filled" t-value="total_filled + record.filled_units"/>
+                            <t t-set="total_vacant" t-value="total_vacant + record.vacant_units"/>
+                            <t t-set="total_fund" t-value="total_fund + record.total_salary_fund"/>
+                            <tr>
+                                <td style="border: 1px solid #000; padding: 5px; text-align: center;">
+                                    <t t-esc="row_num"/>
+                                </td>
+                                <td style="border: 1px solid #000; padding: 5px;">
+                                    <t t-esc="record.department_id.name"/>
+                                </td>
+                                <td style="border: 1px solid #000; padding: 5px;">
+                                    <t t-esc="record.job_id.name"/>
+                                </td>
+                                <td style="border: 1px solid #000; padding: 5px; text-align: center;">
+                                    <t t-esc="record.units"/>
+                                </td>
+                                <td style="border: 1px solid #000; padding: 5px; text-align: center;">
+                                    <t t-esc="record.filled_units"/>
+                                </td>
+                                <td style="border: 1px solid #000; padding: 5px; text-align: center;">
+                                    <t t-esc="record.vacant_units"/>
+                                </td>
+                                <td style="border: 1px solid #000; padding: 5px; text-align: right;">
+                                    <t t-esc="'{:,.2f}'.format(record.salary)"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <tr style="background-color: #f0f0f0; font-weight: bold;">
+                            <td colspan="3" style="border: 1px solid #000; padding: 5px; text-align: right;">
+                                РАЗОМ:
+                            </td>
+                            <td style="border: 1px solid #000; padding: 5px; text-align: center;">
+                                <t t-esc="total_units"/>
+                            </td>
+                            <td style="border: 1px solid #000; padding: 5px; text-align: center;">
+                                <t t-esc="total_filled"/>
+                            </td>
+                            <td style="border: 1px solid #000; padding: 5px; text-align: center;">
+                                <t t-esc="total_vacant"/>
+                            </td>
+                            <td style="border: 1px solid #000; padding: 5px; text-align: right;">
+                                <t t-esc="'{:,.2f}'.format(total_fund)"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="margin-top: 40px;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 40%;">Керівник</td>
+                            <td style="width: 30%; text-align: center; border-bottom: 1px solid #000;"></td>
+                            <td style="width: 30%; text-align: center; border-bottom: 1px solid #000;"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align: center; font-size: 9pt;">(підпис)</td>
+                            <td style="text-align: center; font-size: 9pt;">(П.І.Б.)</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 40%;">Головний бухгалтер</td>
+                            <td style="width: 30%; text-align: center; border-bottom: 1px solid #000;"></td>
+                            <td style="width: 30%; text-align: center; border-bottom: 1px solid #000;"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align: center; font-size: 9pt;">(підпис)</td>
+                            <td style="text-align: center; font-size: 9pt;">(П.І.Б.)</td>
+                        </tr>
+                    </table>
+                </div>
+                
+            </div>
+        </t>
+    </template>
+
+</odoo>

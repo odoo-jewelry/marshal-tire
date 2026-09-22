@@ -1,0 +1,48 @@
+@startuml
+skinparam backgroundColor white
+skinparam roundcorner 10
+skinparam shadowing false
+
+skinparam activity {
+    BackgroundColor #0088cc
+    BorderColor #006699
+    FontColor white
+    ArrowColor #333333
+}
+
+title Message Processing Flow
+
+start
+:User sends message\nto Telegram Bot;
+
+:Telegram sends\nwebhook to Odoo;
+
+if (Contact shared?) then (yes)
+    :Save phone number;
+    :Link/Create Partner;
+    :Send confirmation;
+    stop
+endif
+
+if (Command matched?) then (yes)
+    :Execute command;
+    :Send response(s);
+    if (Create lead?) then (yes)
+        :Create CRM Lead;
+    endif
+else (no)
+    if (Fallback webhook\nconfigured?) then (yes)
+        :Forward to\nexternal webhook;
+    else (no)
+        if (Phone collected?) then (no)
+            :Ask for phone;
+        else (yes)
+            :Acknowledge message;
+        endif
+    endif
+endif
+
+:Log message to\nPartner chatter;
+
+stop
+@enduml

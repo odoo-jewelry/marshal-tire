@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_budget_multi_form_wizard" model="ir.ui.view">
+        <field name="name">l10n_ua.budget.multi_form.wizard.form</field>
+        <field name="model">l10n_ua.budget.multi_form.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Бюджетна форма: параметри">
+                <group>
+                    <field name="form_kind"/>
+                    <field name="estimate_id"/>
+                    <field name="period"/>
+                    <field name="date_from" readonly="1"/>
+                    <field name="date_to" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="action_print" type="object" string="Друкувати" class="btn-primary"/>
+                    <button special="cancel" string="Скасувати" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_budget_multi_form_wizard" model="ir.actions.act_window">
+        <field name="name">Бюджетна звітність</field>
+        <field name="res_model">l10n_ua.budget.multi_form.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

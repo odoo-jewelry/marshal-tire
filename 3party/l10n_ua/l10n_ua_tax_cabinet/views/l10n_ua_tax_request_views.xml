@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_tax_request_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.request.form</field>
+        <field name="model">l10n_ua.tax.request</field>
+        <field name="arch" type="xml">
+            <form string="Запит до ДПС">
+                <header>
+                    <button name="action_generate_xml" string="Сформувати XML"
+                            type="object" class="btn-secondary"
+                            invisible="state == 'submitted'"/>
+                    <button name="action_submit" string="Підписати і подати"
+                            type="object" class="btn-primary"
+                            invisible="state == 'submitted'"/>
+                    <button name="action_draft" string="Повернути в чернетку"
+                            type="object" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,generated,submitted"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="request_type"/>
+                            <field name="request_date"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="submission_date" invisible="state != 'submitted'"/>
+                            <field name="xml_filename" invisible="1"/>
+                            <field name="xml_file" filename="xml_filename"
+                                   invisible="not xml_file"/>
+                        </group>
+                    </group>
+                    <group string="Квитанція" invisible="not response_receipt">
+                        <field name="response_receipt" nolabel="1" readonly="1"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_tax_request_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.request.list</field>
+        <field name="model">l10n_ua.tax.request</field>
+        <field name="arch" type="xml">
+            <list string="Запити до ДПС">
+                <field name="name"/>
+                <field name="request_type"/>
+                <field name="request_date"/>
+                <field name="submission_date"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'submitted'"
+                       decoration-info="state == 'generated'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_tax_request_action" model="ir.actions.act_window">
+        <field name="name">Запити до ДПС</field>
+        <field name="res_model">l10n_ua.tax.request</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_ua_tax_cabinet_requests"
+              name="Info Requests"
+              parent="menu_ua_tax_cabinet"
+              action="l10n_ua_tax_request_action"
+              sequence="10"/>
+
+</odoo>

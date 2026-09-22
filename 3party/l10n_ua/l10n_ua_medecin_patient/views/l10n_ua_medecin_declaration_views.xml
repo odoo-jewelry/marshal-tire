@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_declaration_list" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.declaration.list</field>
+        <field name="model">l10n_ua.medecin.declaration</field>
+        <field name="arch" type="xml">
+            <list string="Декларації"
+                  decoration-info="state == 'draft'"
+                  decoration-success="state == 'active'"
+                  decoration-muted="state in ('terminated', 'cancelled')">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="date_signed"/>
+                <field name="date_start"/>
+                <field name="date_terminated" optional="hide"/>
+                <field name="is_signed_electronic" widget="boolean_toggle" optional="hide"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_declaration_form" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.declaration.form</field>
+        <field name="model">l10n_ua.medecin.declaration</field>
+        <field name="arch" type="xml">
+            <form string="Декларація">
+                <header>
+                    <button name="action_activate" string="Активувати" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_terminate" string="Припинити" type="object"
+                            invisible="state != 'active'"/>
+                    <button name="action_cancel" string="Скасувати" type="object"
+                            invisible="state in ('terminated', 'cancelled')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,active,terminated"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" readonly="state != 'draft'"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="patient_id" readonly="state != 'draft'"/>
+                            <field name="doctor_id" readonly="state != 'draft'"/>
+                            <field name="date_signed" readonly="state != 'draft'"/>
+                            <field name="date_start"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="ehealth_uuid"/>
+                            <field name="is_signed_electronic"/>
+                            <field name="date_terminated" readonly="1" invisible="state != 'terminated'"/>
+                            <field name="termination_reason" invisible="state not in ('active', 'terminated')"
+                                   required="state == 'terminated'"/>
+                        </group>
+                    </group>
+                    <group invisible="state not in ('active', 'terminated')">
+                        <field name="termination_note" nolabel="1" placeholder="Деталі припинення..."/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_declaration_search" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.declaration.search</field>
+        <field name="model">l10n_ua.medecin.declaration</field>
+        <field name="arch" type="xml">
+            <search string="Пошук декларацій">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <filter string="Чернетки" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Активні" name="filter_active" domain="[('state', '=', 'active')]"/>
+                <filter string="Припинені" name="filter_terminated" domain="[('state', '=', 'terminated')]"/>
+                <group>
+                    <filter string="Лікар" name="groupby_doctor" domain="[]"
+                            context="{'group_by': 'doctor_id'}"/>
+                    <filter string="Стан" name="groupby_state" domain="[]"
+                            context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_declaration" model="ir.actions.act_window">
+        <field name="name">Декларації</field>
+        <field name="res_model">l10n_ua.medecin.declaration</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_filter_active': 1}</field>
+    </record>
+</odoo>

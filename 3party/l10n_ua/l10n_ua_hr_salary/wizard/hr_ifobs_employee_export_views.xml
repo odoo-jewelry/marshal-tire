@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_ifobs_employee_export_view_form" model="ir.ui.view">
+        <field name="name">hr.ifobs.employee.export.form</field>
+        <field name="model">hr.ifobs.employee.export</field>
+        <field name="arch" type="xml">
+            <form string="Дані працівників для iFOBS">
+                <group invisible="state == 'done'">
+                    <field name="employee_ids" widget="many2many_tags"/>
+                    <div class="text-muted">
+                        Формує DBF «Дані щодо співробітників» для відкриття карток
+                        у зарплатному проєкті iFOBS (Укргазбанк та ін.).
+                    </div>
+                </group>
+                <group invisible="state != 'done'">
+                    <field name="file_name" invisible="1"/>
+                    <field name="file_data" filename="file_name" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="action_generate" string="Сформувати"
+                            type="object" class="btn-primary"
+                            invisible="state == 'done'"/>
+                    <button string="Закрити" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_ifobs_employee_export" model="ir.actions.act_window">
+        <field name="name">Дані працівників для iFOBS</field>
+        <field name="res_model">hr.ifobs.employee.export</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_hr_ifobs_employee_export_server" model="ir.actions.server">
+        <field name="name">Експорт для карток (iFOBS)</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <field name="binding_model_id" ref="hr.model_hr_employee"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">action = {
+    'type': 'ir.actions.act_window',
+    'res_model': 'hr.ifobs.employee.export',
+    'view_mode': 'form',
+    'target': 'new',
+    'context': {'active_ids': records.ids},
+}</field>
+    </record>
+
+</odoo>

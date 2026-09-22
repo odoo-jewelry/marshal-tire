@@ -1,0 +1,61 @@
+@startuml
+skinparam backgroundColor white
+skinparam roundcorner 10
+skinparam shadowing false
+skinparam componentStyle rectangle
+
+skinparam component {
+    BackgroundColor #E8F4F8
+    BorderColor #0088cc
+}
+
+skinparam database {
+    BackgroundColor #F5F5F5
+    BorderColor #714B67
+}
+
+title Telegram Bot Module Architecture
+
+package "Telegram" {
+    [Telegram User] as user
+    [Telegram API] as tgapi
+}
+
+package "Odoo" {
+    package "telegram_bot module" {
+        [Webhook Controller] as webhook
+        [telegram.bot] as bot
+        [telegram.bot.command] as cmd
+        [telegram.bot.response] as resp
+        [telegram.bot.button] as btn
+        [telegram.bot.chat] as chat
+        [telegram.bot.message] as msg
+    }
+
+    package "CRM" {
+        [crm.lead] as lead
+    }
+
+    package "Contacts" {
+        [res.partner] as partner
+    }
+
+    package "External" {
+        [n8n / Webhook] as n8n
+    }
+}
+
+user --> tgapi : sends message
+tgapi --> webhook : POST /telegram/webhook
+webhook --> chat : get/create chat
+webhook --> msg : log message
+webhook --> cmd : match command
+cmd --> resp : get responses
+resp --> btn : inline buttons
+resp --> tgapi : send response
+chat --> partner : create/link
+cmd --> lead : create lead
+webhook --> n8n : forward unmatched
+partner --> msg : chatter log
+
+@enduml

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_scholarship_payment"
+              name="Стипендії: відомості"
+              parent="l10n_ua_education_base.menu_l10n_ua_education_root"
+              action="action_scholarship_payment"
+              sequence="30"/>
+
+    <menuitem id="menu_scholarship_type"
+              name="Типи стипендій"
+              parent="l10n_ua_education_base.menu_l10n_ua_education_config"
+              action="action_scholarship_type"
+              sequence="20"/>
+</odoo>

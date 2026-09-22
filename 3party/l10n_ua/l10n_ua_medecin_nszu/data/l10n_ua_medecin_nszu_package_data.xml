@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Зразкові пакети — звіряти з актуальною специфікацією НСЗУ -->
+        <record id="package_pmd_capitation_2025" model="l10n_ua.medecin.nszu.package">
+            <field name="code">PMD-2025</field>
+            <field name="name">Первинна медична допомога (капітація)</field>
+            <field name="package_type">pmd_capitation</field>
+            <field name="payment_model">capitation</field>
+            <field name="year">2025</field>
+            <field name="base_tariff">878.0</field>
+            <field name="description">&lt;p&gt;Капітаційний тариф на 1 декларованого пацієнта (середній). Реальна виплата залежить від вікового коефіцієнта і коригувальних факторів — звіряти з Постановою КМУ № 240 та наказами НСЗУ.&lt;/p&gt;</field>
+        </record>
+
+        <record id="package_emd_2025" model="l10n_ua.medecin.nszu.package">
+            <field name="code">EMD-2025</field>
+            <field name="name">Екстрена медична допомога</field>
+            <field name="package_type">emergency</field>
+            <field name="payment_model">global</field>
+            <field name="year">2025</field>
+        </record>
+
+        <record id="package_childbirth_2025" model="l10n_ua.medecin.nszu.package">
+            <field name="code">CB-2025</field>
+            <field name="name">Медична допомога при пологах</field>
+            <field name="package_type">childbirth</field>
+            <field name="payment_model">per_case</field>
+            <field name="year">2025</field>
+        </record>
+
+        <record id="package_specialized_2025" model="l10n_ua.medecin.nszu.package">
+            <field name="code">SPEC-AMB-2025</field>
+            <field name="name">Спеціалізована амбулаторна допомога</field>
+            <field name="package_type">specialized</field>
+            <field name="payment_model">per_service</field>
+            <field name="year">2025</field>
+        </record>
+
+        <record id="package_hospital_2025" model="l10n_ua.medecin.nszu.package">
+            <field name="code">HOSP-2025</field>
+            <field name="name">Стаціонарна медична допомога</field>
+            <field name="package_type">hospital</field>
+            <field name="payment_model">per_case</field>
+            <field name="year">2025</field>
+        </record>
+    </data>
+</odoo>

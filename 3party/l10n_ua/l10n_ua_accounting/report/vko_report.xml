@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- VKO Report Template (Видатковий касовий ордер, форма КО-2) -->
+    <template id="report_vko_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+                        <!-- Header -->
+                        <div class="form-number-box">
+                            <div class="small">Типова форма № КО-2</div>
+                            <div class="small">Затверджено наказом</div>
+                            <div class="small">Мінстату України</div>
+                            <div class="small">від 15.02.96 № 51</div>
+                        </div>
+
+                        <div class="company-header">
+                            <div class="company-name" t-field="o.company_id.name"/>
+                            <div class="small">(найменування підприємства (організації))</div>
+                            <div class="company-code">
+                                Ідентифікаційний код ЄДРПОУ:
+                                <span t-field="o.company_id.company_registry"/>
+                            </div>
+                        </div>
+
+                        <div class="ua-report-title">
+                            ВИДАТКОВИЙ КАСОВИЙ ОРДЕР
+                        </div>
+
+                        <table class="mb-3" style="width: auto;">
+                            <tr>
+                                <td class="text-center" style="width: 80px;">Номер<br/>документа</td>
+                                <td class="text-center" style="width: 100px;">Дата<br/>складання</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center bold"><span t-field="o.ua_cash_order_number"/></td>
+                                <td class="text-center"><span t-field="o.date" t-options='{"widget": "date"}'/></td>
+                            </tr>
+                        </table>
+
+                        <!-- Main table -->
+                        <table class="mb-3">
+                            <tr>
+                                <th colspan="2">Кореспондуючий рахунок, субрахунок</th>
+                                <th rowspan="2" style="width: 80px;">Код аналітичного обліку</th>
+                                <th rowspan="2" style="width: 100px;">Сума, грн</th>
+                                <th rowspan="2" style="width: 60px;">Код цільового призначення</th>
+                            </tr>
+                            <tr>
+                                <th style="width: 60px;">рахунок</th>
+                                <th style="width: 60px;">субрахунок</th>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <t t-if="o.destination_account_id">
+                                        <span t-field="o.destination_account_id.code"/>
+                                    </t>
+                                </td>
+                                <td class="text-center">-</td>
+                                <td class="text-center">-</td>
+                                <td class="text-right money">
+                                    <span t-field="o.amount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                                <td class="text-center">-</td>
+                            </tr>
+                        </table>
+
+                        <div class="mb-2">
+                            <span class="bold">Видати: </span>
+                            <span t-if="o.ua_cash_person" t-field="o.ua_cash_person"/>
+                            <span t-elif="o.partner_id" t-field="o.partner_id.name"/>
+                            <span t-else="">_______________________</span>
+                        </div>
+
+                        <div class="mb-2">
+                            <span class="bold">Підстава: </span>
+                            <span t-if="o.ua_payment_basis" t-field="o.ua_payment_basis"/>
+                            <span t-elif="o.memo" t-field="o.memo"/>
+                            <span t-else="">_______________________</span>
+                        </div>
+
+                        <div class="mb-2">
+                            <span class="bold">Сума: </span>
+                            <span class="amount-words">
+                                <t t-esc="o.amount"/> грн.
+                            </span>
+                        </div>
+
+                        <div class="mb-2">
+                            <span class="bold">Додатки: </span>
+                            <span t-if="o.ua_appendix" t-field="o.ua_appendix"/>
+                            <span t-else="">_______________________</span>
+                        </div>
+
+                        <!-- Signatures: Management -->
+                        <div class="signature-block">
+                            <div class="signature-row">
+                                <span>Керівник підприємства</span>
+                                <span class="signature-line"></span>
+                                <span class="small">(підпис)</span>
+                                <span class="signature-line" style="min-width: 100px;"></span>
+                                <span class="small">(прізвище, ініціали)</span>
+                            </div>
+                            <div class="signature-row">
+                                <span>Головний бухгалтер</span>
+                                <span class="signature-line"></span>
+                                <span class="small">(підпис)</span>
+                                <span class="signature-line" style="min-width: 100px;"></span>
+                                <span class="small">(прізвище, ініціали)</span>
+                            </div>
+                        </div>
+
+                        <!-- Receipt section -->
+                        <div class="mt-4 mb-3" style="border-top: 1px solid black; padding-top: 10px;">
+                            <div class="mb-2">
+                                <span class="bold">Одержав: </span>
+                                <span class="amount-words">
+                                    <t t-esc="o.amount"/> грн.
+                                </span>
+                            </div>
+
+                            <div class="mb-2">
+                                "<span class="signature-line" style="min-width: 30px;"></span>"
+                                <span class="signature-line" style="min-width: 80px;"></span>
+                                20<span class="signature-line" style="min-width: 30px;"></span> р.
+                            </div>
+
+                            <div class="mb-2">
+                                <span>Підпис </span>
+                                <span class="signature-line" style="min-width: 150px;"></span>
+                            </div>
+                        </div>
+
+                        <!-- ID Document -->
+                        <div class="mb-3">
+                            <div class="bold mb-2">За документом:</div>
+                            <div class="mb-2" t-if="o.ua_person_document">
+                                <span t-field="o.ua_person_document"/>
+                            </div>
+                            <div t-else="">
+                                <span>Назва документа </span>
+                                <span class="signature-line" style="min-width: 200px;"></span>
+                                <br/>
+                                <span>№ </span>
+                                <span class="signature-line" style="min-width: 100px;"></span>
+                                <span> від </span>
+                                <span class="signature-line" style="min-width: 100px;"></span>
+                            </div>
+                        </div>
+
+                        <!-- Cashier signature -->
+                        <div class="signature-block">
+                            <div class="signature-row">
+                                <span>Видав касир</span>
+                                <span class="signature-line"></span>
+                                <span class="small">(підпис)</span>
+                                <span class="signature-line" style="min-width: 100px;"></span>
+                                <span class="small">(прізвище, ініціали)</span>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

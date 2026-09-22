@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_order_template_tree" model="ir.ui.view">
+        <field name="name">hr.order.template.tree</field>
+        <field name="model">hr.order.template</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="order_type"/>
+                <field name="subject"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hr_order_template_form" model="ir.ui.view">
+        <field name="name">hr.order.template.form</field>
+        <field name="model">hr.order.template</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Template Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="order_type"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="subject"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Content Template">
+                            <field name="body"/>
+                        </page>
+                        <page string="Source code">
+                            <field name="body" widget="ace"/>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hr_order_template_search" model="ir.ui.view">
+        <field name="name">hr.order.template.search</field>
+        <field name="model">hr.order.template</field>
+        <field name="arch" type="xml">
+            <search string="Order Templates">
+                <field name="name"/>
+                <field name="order_type"/>
+                <separator/>
+                <filter string="Hiring" name="hiring" domain="[('order_type', '=', 'hiring')]"/>
+                <filter string="Dismissal" name="dismissal" domain="[('order_type', '=', 'dismissal')]"/>
+                <filter string="Transfer" name="transfer" domain="[('order_type', '=', 'transfer')]"/>
+                <filter string="Vacation" name="vacation" domain="[('order_type', '=', 'vacation')]"/>
+                <separator/>
+                <filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_order_template" model="ir.actions.act_window">
+        <field name="name">Order Templates</field>
+        <field name="res_model">hr.order.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first order template
+            </p>
+            <p>
+                Templates help you quickly fill in standard order content.
+            </p>
+        </field>
+    </record>
+
+</odoo>

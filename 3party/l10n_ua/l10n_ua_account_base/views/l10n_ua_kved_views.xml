@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_kved_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.kved.form</field>
+        <field name="model">l10n_ua.kved</field>
+        <field name="arch" type="xml">
+            <form string="KVED">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="section"/>
+                        </group>
+                        <group>
+                            <field name="parent_id"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_kved_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.kved.list</field>
+        <field name="model">l10n_ua.kved</field>
+        <field name="arch" type="xml">
+            <list string="KVED">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="section"/>
+                <field name="parent_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_kved_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.kved.search</field>
+        <field name="model">l10n_ua.kved</field>
+        <field name="arch" type="xml">
+            <search string="KVED">
+                <field name="name" string="KVED"/>
+                <field name="code"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="l10n_ua_kved_action" model="ir.actions.act_window">
+        <field name="name">KVED-2010</field>
+        <field name="res_model">l10n_ua.kved</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No KVED records found
+            </p>
+            <p>
+                KVED-2010 is the Ukrainian classification of economic activities.
+            </p>
+        </field>
+    </record>
+
+</odoo>

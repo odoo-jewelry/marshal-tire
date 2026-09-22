@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- MNMA Form View -->
+    <record id="l10n_ua_mnma_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.mnma.form</field>
+        <field name="model">l10n_ua.mnma</field>
+        <field name="arch" type="xml">
+            <form string="МНМА">
+                <header>
+                    <button name="action_commission" string="Ввести в експлуатацію"
+                            type="object" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_write_off" string="Списати"
+                            type="object" class="btn-danger"
+                            invisible="state != 'in_use'"/>
+                    <button name="action_draft" string="Повернути в чернетку"
+                            type="object"
+                            invisible="state == 'draft'"
+                            confirm="Повернути МНМА в чернетку? Номери актів будуть скинуті."/>
+                    <button name="action_print_commission_act" type="object"
+                            string="Друк акту введення"
+                            class="btn-secondary"
+                            invisible="state == 'draft'"/>
+                    <button name="action_print_writeoff_act" type="object"
+                            string="Друк акту списання"
+                            class="btn-secondary"
+                            invisible="state != 'written_off'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,in_use,written_off"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="inventory_number"/>
+                            <field name="date"/>
+                            <field name="commission_date" readonly="1"/>
+                            <field name="commission_act_number" readonly="1"
+                                   invisible="not commission_act_number"/>
+                        </group>
+                        <group>
+                            <field name="original_value"/>
+                            <field name="write_off_method"/>
+                            <field name="depreciation_value"/>
+                            <field name="residual_value"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="responsible_id"/>
+                            <field name="department_id"/>
+                            <field name="location"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="writeoff_date" readonly="1"
+                                   invisible="state != 'written_off'"/>
+                            <field name="writeoff_act_number" readonly="1"
+                                   invisible="state != 'written_off'"/>
+                            <field name="writeoff_reason"
+                                   invisible="state != 'written_off'"/>
+                        </group>
+                    </group>
+                    <field name="notes" placeholder="Примітки..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- MNMA List View -->
+    <record id="l10n_ua_mnma_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.mnma.list</field>
+        <field name="model">l10n_ua.mnma</field>
+        <field name="arch" type="xml">
+            <list string="МНМА" decoration-muted="state == 'written_off'">
+                <field name="inventory_number" string="Інв. №"/>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="original_value" sum="Всього"/>
+                <field name="write_off_method"/>
+                <field name="depreciation_value" sum="Всього"/>
+                <field name="residual_value" sum="Всього"/>
+                <field name="responsible_id"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'in_use'"
+                       decoration-info="state == 'draft'"
+                       decoration-muted="state == 'written_off'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- MNMA Search View (fixed for Odoo 19) -->
+    <record id="l10n_ua_mnma_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.mnma.search</field>
+        <field name="model">l10n_ua.mnma</field>
+        <field name="arch" type="xml">
+            <search string="МНМА">
+                <field name="name"/>
+                <field name="inventory_number"/>
+                <field name="responsible_id"/>
+
+                <filter string="Чернетка" name="filter_draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter string="В експлуатації" name="filter_in_use"
+                        domain="[('state', '=', 'in_use')]"/>
+                <filter string="Списано" name="filter_written_off"
+                        domain="[('state', '=', 'written_off')]"/>
+                <separator/>
+
+                <group>
+                    <filter string="Стан" name="groupby_state" domain="[]"
+                            context="{'group_by': 'state'}"/>
+                    <filter string="Відповідальний" name="groupby_responsible" domain="[]"
+                            context="{'group_by': 'responsible_id'}"/>
+                    <filter string="Підрозділ" name="groupby_department" domain="[]"
+                            context="{'group_by': 'department_id'}"/>
+                    <filter string="Дата придбання" name="groupby_date" domain="[]"
+                            context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- MNMA Action -->
+    <record id="l10n_ua_mnma_action" model="ir.actions.act_window">
+        <field name="name">МНМА</field>
+        <field name="res_model">l10n_ua.mnma</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="l10n_ua_mnma_view_search"/>
+        <field name="context">{'search_default_filter_in_use': 1}</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Аналітичний розподіл ЗП на сторінці "UA: Контракт" картки працівника (#209) -->
+    <record id="hr_employee_view_form_salary_analytic" model="ir.ui.view">
+        <field name="name">hr.employee.form.salary.analytic</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="l10n_ua_hr_contract.hr_employee_view_form_version_ua"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='salary_form']" position="after">
+                <field name="salary_analytic_distribution"
+                       widget="analytic_distribution"
+                       groups="analytic.group_analytic_accounting"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

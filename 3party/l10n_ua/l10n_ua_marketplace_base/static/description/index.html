@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 900px; margin: 0 auto; color: #333;">
+
+    <div style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #005BBB 0%, #FFD500 100%); border-radius: 8px; margin-bottom: 30px;">
+        <h1 style="color: white; margin: 0; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🛒 Україна - Маркетплейси (Базовий модуль)</h1>
+        <p style="color: white; font-size: 1.2em; margin-top: 10px;">Інтеграція українських маркетплейсів для Odoo 19</p>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin-bottom: 25px;">
+        <h2 style="color: #005BBB; margin-top: 0;">📦 Про модуль</h2>
+        <p>Базовий модуль для інтеграції з українськими маркетплейсами. Надає спільну інфраструктуру для:</p>
+        <ul>
+            <li><strong>Rozetka</strong> — найбільший маркетплейс України</li>
+            <li><strong>Prom.ua</strong> — популярний B2B/B2C маркетплейс</li>
+            <li><strong>Epicentr</strong> — маркетплейс будівельних матеріалів</li>
+            <li><strong>Allo</strong> — маркетплейс електроніки</li>
+            <li><strong>Hotline</strong> — агрегатор цін (тільки фід)</li>
+            <li><strong>Price.ua</strong> — агрегатор цін (тільки фід)</li>
+        </ul>
+    </div>
+
+    <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #005BBB; margin-top: 0;">✨ Основні можливості</h3>
+        <ul>
+            <li><strong>Конфігурація бекендів</strong> — налаштування підключень до різних маркетплейсів</li>
+            <li><strong>Управління прайслистами</strong> — створення окремих прайслистів для кожного маркетплейсу</li>
+            <li><strong>Імпорт замовлень</strong> — автоматичне завантаження замовлень з маркетплейсів</li>
+            <li><strong>YML/XML фіди</strong> — генерація товарних фідів у форматі Yandex Market</li>
+            <li><strong>Webhook підтримка</strong> — миттєве отримання повідомлень від маркетплейсів</li>
+            <li><strong>Синхронізація залишків</strong> — автоматичне оновлення наявності товарів</li>
+            <li><strong>Синхронізація цін</strong> — автоматичне оновлення цін</li>
+            <li><strong>Пошук/створення клієнтів</strong> — налаштовуваний пошук за телефоном/email</li>
+        </ul>
+    </div>
+
+    <div style="background: #e8f5e9; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #388e3c; margin-top: 0;">🏗️ Архітектура</h3>
+        <p>Модуль створює наступні моделі:</p>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <tr style="background: #c8e6c9;">
+                <th style="padding: 10px; text-align: left; border: 1px solid #a5d6a7;">Модель</th>
+                <th style="padding: 10px; text-align: left; border: 1px solid #a5d6a7;">Призначення</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #a5d6a7;"><code>marketplace.backend</code></td>
+                <td style="padding: 10px; border: 1px solid #a5d6a7;">Конфігурація підключення до маркетплейсу</td>
+            </tr>
+            <tr style="background: #e8f5e9;">
+                <td style="padding: 10px; border: 1px solid #a5d6a7;"><code>marketplace.pricelist</code></td>
+                <td style="padding: 10px; border: 1px solid #a5d6a7;">Прайслист для публікації на маркетплейсі</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #a5d6a7;"><code>marketplace.pricelist.item</code></td>
+                <td style="padding: 10px; border: 1px solid #a5d6a7;">Товарна позиція в прайслисті</td>
+            </tr>
+            <tr style="background: #e8f5e9;">
+                <td style="padding: 10px; border: 1px solid #a5d6a7;"><code>marketplace.order</code></td>
+                <td style="padding: 10px; border: 1px solid #a5d6a7;">Замовлення з маркетплейсу</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #a5d6a7;"><code>marketplace.category</code></td>
+                <td style="padding: 10px; border: 1px solid #a5d6a7;">Категорії маркетплейсу</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="background: #fff8e1; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #f57c00; margin-top: 0;">⚙️ Налаштування бекенду</h3>
+        <p>Кожен бекенд може мати наступні налаштування:</p>
+        <ul>
+            <li><strong>API конфігурація</strong> — URL, ключі, токени</li>
+            <li><strong>Feed налаштування</strong> — формат (YML/XML), URL фіду, авторизація</li>
+            <li><strong>Webhook</strong> — URL для прийому повідомлень, секретний ключ</li>
+            <li><strong>Синхронізація</strong> — інтервали оновлення замовлень, залишків, цін</li>
+            <li><strong>Продажі</strong> — авто-створення замовлень продажу, команда продажів</li>
+            <li><strong>Клієнти</strong> — режим створення партнерів, пошук за телефоном/email</li>
+        </ul>
+    </div>
+
+    <div style="background: #e3f2fd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #1976d2; margin-top: 0;">🔄 Cron завдання</h3>
+        <p>Модуль створює 4 автоматичні завдання:</p>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <tr style="background: #bbdefb;">
+                <th style="padding: 10px; text-align: left; border: 1px solid #90caf9;">Завдання</th>
+                <th style="padding: 10px; text-align: left; border: 1px solid #90caf9;">Інтервал</th>
+                <th style="padding: 10px; text-align: left; border: 1px solid #90caf9;">Опис</th>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #90caf9;">Import Orders</td>
+                <td style="padding: 8px; border: 1px solid #90caf9;">15 хв</td>
+                <td style="padding: 8px; border: 1px solid #90caf9;">Імпорт нових замовлень</td>
+            </tr>
+            <tr style="background: #e3f2fd;">
+                <td style="padding: 8px; border: 1px solid #90caf9;">Sync Stock</td>
+                <td style="padding: 8px; border: 1px solid #90caf9;">30 хв</td>
+                <td style="padding: 8px; border: 1px solid #90caf9;">Оновлення залишків</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #90caf9;">Sync Prices</td>
+                <td style="padding: 8px; border: 1px solid #90caf9;">1 год</td>
+                <td style="padding: 8px; border: 1px solid #90caf9;">Оновлення цін</td>
+            </tr>
+            <tr style="background: #e3f2fd;">
+                <td style="padding: 8px; border: 1px solid #90caf9;">Refresh Tokens</td>
+                <td style="padding: 8px; border: 1px solid #90caf9;">12 год</td>
+                <td style="padding: 8px; border: 1px solid #90caf9;">Оновлення API токенів</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="background: #fce4ec; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #c2185b; margin-top: 0;">📋 Статуси замовлень</h3>
+        <p>Стандартні статуси замовлень:</p>
+        <ul>
+            <li><span style="background: #e3f2fd; padding: 2px 8px; border-radius: 4px;">Новий</span> — щойно отримане замовлення</li>
+            <li><span style="background: #fff8e1; padding: 2px 8px; border-radius: 4px;">В обробці</span> — замовлення обробляється</li>
+            <li><span style="background: #fff8e1; padding: 2px 8px; border-radius: 4px;">Підтверджений</span> — замовлення підтверджено</li>
+            <li><span style="background: #e8f5e9; padding: 2px 8px; border-radius: 4px;">Відправлений</span> — замовлення відправлено</li>
+            <li><span style="background: #e8f5e9; padding: 2px 8px; border-radius: 4px;">Доставлений</span> — замовлення доставлено</li>
+            <li><span style="background: #ffebee; padding: 2px 8px; border-radius: 4px;">Скасований</span> — замовлення скасовано</li>
+            <li><span style="background: #ffebee; padding: 2px 8px; border-radius: 4px;">Повернення</span> — товар повернуто</li>
+        </ul>
+    </div>
+
+    <div style="background: #f3e5f5; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #7b1fa2; margin-top: 0;">🔌 Контролери</h3>
+        <p>Модуль надає два HTTP контролери:</p>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <tr style="background: #e1bee7;">
+                <th style="padding: 10px; text-align: left; border: 1px solid #ce93d8;">URL</th>
+                <th style="padding: 10px; text-align: left; border: 1px solid #ce93d8;">Призначення</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ce93d8;"><code>/marketplace/feed/&lt;id&gt;</code></td>
+                <td style="padding: 10px; border: 1px solid #ce93d8;">Генерація YML/XML фіду для маркетплейсу</td>
+            </tr>
+            <tr style="background: #f3e5f5;">
+                <td style="padding: 10px; border: 1px solid #ce93d8;"><code>/marketplace/webhook/&lt;id&gt;</code></td>
+                <td style="padding: 10px; border: 1px solid #ce93d8;">Прийом webhook повідомлень</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="background: #fff3cd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #856404; margin-top: 0;">⚠️ Вимоги</h3>
+        <ul>
+            <li>Odoo 19 Community або Enterprise Edition</li>
+            <li>Модулі: <strong>sale</strong>, <strong>stock</strong>, <strong>delivery</strong></li>
+            <li>Python бібліотека <strong>lxml</strong> (для генерації XML)</li>
+        </ul>
+    </div>
+
+    <div style="background: #e8eaf6; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #3f51b5; margin-top: 0;">📦 Пов'язані модулі</h3>
+        <ul>
+            <li><strong>l10n_ua_marketplace_rozetka</strong> — інтеграція з Rozetka</li>
+            <li><strong>l10n_ua_marketplace_prom</strong> — інтеграція з Prom.ua</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #005BBB 0%, #FFD500 100%); border-radius: 8px; color: white;">
+        <p style="margin: 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">Розроблено для Odoo 19 Community Edition</p>
+    </div>
+
+    <div style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); padding: 25px; border-radius: 8px; margin: 25px 0; border-left: 4px solid #ffc107;">
+        <h3 style="color: #856404; margin-top: 0;">🫙 Збір на українську локалізацію Odoo — заміна 1С для бізнесу</h3>
+        <p style="margin-bottom: 15px;">Привіт! Створюю <strong>відкриті модулі української локалізації Odoo</strong> для повноцінної заміни 1С:</p>
+        <ul style="list-style: none; padding: 0; margin: 15px 0;">
+            <li style="padding: 8px 0;">📊 <strong>Бухгалтерський та фінансовий облік</strong> за українськими стандартами</li>
+            <li style="padding: 8px 0;">📋 <strong>Податкова звітність</strong> та електронний документообіг</li>
+            <li style="padding: 8px 0;">👥 <strong>HR-модуль (заміна ЗУП)</strong> — кадри, зарплата, табелі</li>
+            <li style="padding: 8px 0;">🛒 <strong>Інтеграція з маркетплейсами</strong> — Rozetka, Prom.ua, інші</li>
+        </ul>
+        <p><strong>Навіщо це потрібно:</strong> тисячі українських компаній досі сидять на російському софті, бо немає повноцінної альтернативи. Odoo — це потужна європейська ERP з відкритим кодом, але без якісної української локалізації перехід неможливий.</p>
+        <p><strong>Куди підуть кошти:</strong> розробка та тестування модулів, документація українською, підтримка спільноти.</p>
+        <p style="margin-bottom: 0;"><strong>Модулі будуть у відкритому доступі</strong> — для всіх, хто хоче позбутися російських технологій.</p>
+        <p style="margin-top: 15px; margin-bottom: 0;"><strong>Дякую за підтримку! 🙏</strong></p>
+        <p style="margin-top:10px; text-align:center"><img src="monobank_qr.png" alt="QR код для підтримки на Monobank" style="width:150px; height:150px;"/><br/><strong>Скануйте QR для підтримки на Monobank</strong></p>
+    </div>
+
+</div>
+</body>
+</html>

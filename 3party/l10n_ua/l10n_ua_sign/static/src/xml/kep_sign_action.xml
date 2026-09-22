@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="l10n_ua_sign.KepSignAction">
+        <div class="o_kep_sign container-fluid p-4">
+            <div class="o_kep_sign_card mx-auto">
+                <h3 class="mb-3">Підпис КЕП</h3>
+
+                <t t-if="state.phase === 'loading'">
+                    <div class="text-muted">
+                        <i class="fa fa-spinner fa-spin me-2"/>Підготовка даних…
+                    </div>
+                </t>
+
+                <t t-elif="state.phase === 'error'">
+                    <div class="alert alert-danger" role="alert">
+                        <t t-esc="state.error"/>
+                    </div>
+                    <button class="btn btn-secondary" t-on-click="onClose">Назад</button>
+                </t>
+
+                <t t-elif="state.phase === 'done'">
+                    <div class="alert alert-success" role="alert">
+                        <div><strong>Готово.</strong></div>
+                        <div class="mt-1"><small t-esc="state.receipt"/></div>
+                    </div>
+                    <button class="btn btn-primary" t-on-click="onClose">Закрити</button>
+                </t>
+
+                <t t-else="">
+                    <t t-if="!state.libAvailable">
+                        <div class="alert alert-warning" role="alert">
+                            Файли бібліотеки підпису IIT не знайдено у
+                            <code>l10n_ua_sign/static/src/lib/euscp</code>. Потрібні
+                            <code>euscp.js</code>, <code>euscp.worker.js</code>,
+                            <code>data/CAs.json</code> і <code>data/CACertificates.p7b</code>
+                            — див. README у цій папці.
+                        </div>
+                    </t>
+
+                    <p class="text-muted">
+                        <t t-if="authOnly">
+                            Буде підписано лише код платника — для авторизації в
+                            електронному кабінеті.
+                        </t>
+                        <t t-else="">
+                            Документів до підпису: <strong t-esc="docCount"/>.
+                        </t>
+                        Ключ і пароль обробляються лише у вашому браузері й не
+                        передаються на сервер.
+                    </p>
+
+                    <t t-if="state.error">
+                        <div class="alert alert-danger" role="alert" t-esc="state.error"/>
+                    </t>
+
+                    <!-- Крок 1: зчитати ключ -->
+                    <div class="o_kep_step mb-3">
+                        <h5>1. Зчитати ключ</h5>
+                        <div class="mb-2">
+                            <label class="form-label">Оберіть АЦСК</label>
+                            <select class="form-select" t-on-change="onCaChange"
+                                    t-att-disabled="state.busy">
+                                <option value="" t-att-selected="!state.caName">
+                                    Визначати автоматично
+                                </option>
+                                <t t-foreach="state.caList" t-as="ca" t-key="ca.name">
+                                    <option t-att-value="ca.name"
+                                            t-att-selected="ca.name === state.caName"
+                                            t-esc="ca.name"/>
+                                </t>
+                            </select>
+                            <small t-if="!state.caName" class="text-muted">
+                                Бібліотека по черзі перепитає всі ЦСК — це довго. Оберіть
+                                свій ЦСК, щоб зчитати ключ одразу.
+                            </small>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Файл-ключ (.dat / .jks / .pfx)</label>
+                            <input type="file" class="form-control"
+                                   accept=".dat,.jks,.pfx,.pk8,.zs2"
+                                   t-on-change="onKeyFileChange"/>
+                            <small t-if="state.keyFileName" class="text-muted"
+                                   t-esc="state.keyFileName"/>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Пароль до ключа</label>
+                            <input type="password" class="form-control"
+                                   autocomplete="off"
+                                   t-att-value="state.password"
+                                   t-on-input="onPasswordInput"/>
+                        </div>
+                        <button class="btn btn-outline-primary" t-on-click="onReadKey"
+                                t-att-disabled="state.busy or !state.libAvailable">
+                            <t t-if="state.busy and !state.ownerRows">
+                                <i class="fa fa-spinner fa-spin me-2"/>Зчитування…
+                            </t>
+                            <t t-else="">Зчитати ключ</t>
+                        </button>
+                    </div>
+
+                    <!-- Дані власника ключа (після кроку 1) -->
+                    <t t-if="state.ownerRows">
+                        <div class="alert alert-info" role="alert">
+                            <div class="fw-bold mb-1">Ключ зчитано — перевірте власника:</div>
+                            <table class="table table-sm mb-0">
+                                <tbody>
+                                    <tr t-foreach="state.ownerRows" t-as="row" t-key="row.label">
+                                        <td class="text-muted" style="width: 40%">
+                                            <t t-esc="row.label"/>
+                                        </td>
+                                        <td><t t-esc="row.value"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Крок 2: підписати -->
+                        <div class="o_kep_step mb-3">
+                            <h5>2. Підписати</h5>
+                            <button class="btn btn-primary" t-on-click="onSign"
+                                    t-att-disabled="state.busy">
+                                <t t-if="state.busy and !state.signed">
+                                    <i class="fa fa-spinner fa-spin me-2"/>Підписання…
+                                </t>
+                                <t t-else="">Підписати</t>
+                            </button>
+                            <span t-if="state.signed" class="badge text-bg-success ms-2">
+                                <i class="fa fa-check me-1"/>Підписано
+                            </span>
+                        </div>
+                    </t>
+
+                    <!-- Крок 3: відправити (після кроку 2) -->
+                    <t t-if="state.signed">
+                        <div class="o_kep_step mb-3">
+                            <h5>3. <t t-esc="submitLabel"/></h5>
+                            <button class="btn btn-success" t-on-click="onSend"
+                                    t-att-disabled="state.busy">
+                                <t t-if="state.busy">
+                                    <i class="fa fa-spinner fa-spin me-2"/>Відправлення…
+                                </t>
+                                <t t-else=""><t t-esc="submitLabel"/></t>
+                            </button>
+                        </div>
+                    </t>
+
+                    <hr/>
+                    <button class="btn btn-link text-muted p-0" t-on-click="onClose">
+                        Скасувати
+                    </button>
+                </t>
+            </div>
+        </div>
+    </t>
+
+</templates>

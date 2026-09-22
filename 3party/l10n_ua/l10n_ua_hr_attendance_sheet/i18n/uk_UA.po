@@ -1,0 +1,825 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_hr_attendance_sheet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260103\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-15 13:14+0000\n"
+"PO-Revision-Date: 2026-01-15 13:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.actions.report,print_report_name:l10n_ua_hr_attendance_sheet.action_report_timesheet
+msgid "'Табель_%s_%s' % (object.month, object.year)"
+msgstr ""
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.report_timesheet_document
+msgid "<small>Типова форма № П-5</small>"
+msgstr ""
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet_code__code_type__absence
+msgid "Absence"
+msgstr "Відсутність"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__absence_days
+msgid "Absence Days"
+msgstr "Дні відсутності"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_needaction
+msgid "Action Needed"
+msgstr "Потрібна дія"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__active
+msgid "Active"
+msgstr "Активний"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_ids
+msgid "Activities"
+msgstr "Активності"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Оформлення виключення активності"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_state
+msgid "Activity State"
+msgstr "Стан активності"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Іконка типу активності"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_view_form
+msgid "Approve"
+msgstr "Затвердити"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__state__approved
+msgid "Approved"
+msgstr "Затверджено"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__month__4
+msgid "April"
+msgstr "Квітень"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_attachment_count
+msgid "Attachment Count"
+msgstr "Кількість вкладень"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.ui.menu,name:l10n_ua_hr_attendance_sheet.menu_hr_timesheet
+#: model:ir.ui.menu,name:l10n_ua_hr_attendance_sheet.menu_hr_timesheet_config
+msgid "Attendance Sheet (P-5)"
+msgstr "Табель П-5"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__month__8
+msgid "August"
+msgstr "Серпень"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__calendar_id
+msgid "Calendar"
+msgstr "Календар"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_production_calendar_view_form
+msgid "Calendar Days"
+msgstr "Календарні дні"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__line_ids
+msgid "Calendar Lines"
+msgstr "Рядки календаря"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__code
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__code_id
+msgid "Code"
+msgstr "Код"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__color
+msgid "Color"
+msgstr "Колір"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_view_form
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__state__confirmed
+msgid "Confirmed"
+msgstr "Підтверджено"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__is_worked
+msgid "Counted as Worked"
+msgstr "Зараховується як відпрацьовано"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_attendance_sheet.action_hr_timesheet
+msgid "Create a monthly timesheet"
+msgstr "Створити місячний табель"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_attendance_sheet.action_hr_production_calendar
+msgid "Create a production calendar for the year"
+msgstr "Створити виробничий календар на рік"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__date
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__date
+msgid "Date"
+msgstr "Дата"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__day_number
+msgid "Day"
+msgstr "День"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__day_type
+msgid "Day Type"
+msgstr "Тип дня"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__day_of_week
+msgid "Day of Week"
+msgstr "День тижня"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__day_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_line_view_form
+msgid "Days"
+msgstr "Дні"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__month__12
+msgid "December"
+msgstr "Грудень"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__default_hours
+msgid "Default Hours"
+msgstr "Години за замовчуванням"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__department_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__department_id
+msgid "Department"
+msgstr "Підрозділ"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__description
+msgid "Description"
+msgstr "Опис"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__display_name
+msgid "Display Name"
+msgstr "Відображувана назва"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__state__draft
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__employee_id
+msgid "Employee"
+msgstr "Працівник"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_view_form
+msgid "Employees"
+msgstr "Працівники"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__month__2
+msgid "February"
+msgstr "Лютий"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Партнери)"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,help:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Іконка Font Awesome, напр. fa-tasks"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_production_calendar_view_form
+msgid "Generate Calendar"
+msgstr "Згенерувати календар"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_view_form
+msgid "Generate Lines"
+msgstr "Згенерувати рядки"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__has_message
+msgid "Has Message"
+msgstr "Є повідомлення"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet_code__code_type__holiday
+msgid "Holiday"
+msgstr "Свято"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__holiday_name
+msgid "Holiday Name"
+msgstr "Назва свята"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__holidays
+msgid "Holidays"
+msgstr "Свята"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__hours
+msgid "Hours"
+msgstr "Години"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,help:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__is_worked
+msgid "Hours are counted as worked time"
+msgstr "Години зараховуються як відпрацьований час"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_exception_icon
+msgid "Icon"
+msgstr "Іконка"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,help:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Іконка для позначення виключної активності."
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,help:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо позначено, нові повідомлення потребують вашої уваги."
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,help:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_has_error
+#: model:ir.model.fields,help:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_is_follower
+msgid "Is Follower"
+msgstr "Є підписником"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__month__1
+msgid "January"
+msgstr "Січень"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__job_id
+msgid "Job Position"
+msgstr "Посада"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__month__7
+msgid "July"
+msgstr "Липень"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__month__6
+msgid "June"
+msgstr "Червень"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__write_uid
+msgid "Last Updated by"
+msgstr "Оновив"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__write_date
+msgid "Last Updated on"
+msgstr "Оновлено"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet_code__code_type__leave
+msgid "Leave"
+msgstr "Відпустка"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__month__3
+msgid "March"
+msgstr "Березень"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__month__5
+msgid "May"
+msgstr "Травень"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставки повідомлення"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__month
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__month
+msgid "Month"
+msgstr "Місяць"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Термін моєї активності"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Подія календаря наступної активності"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Термін наступної активності"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_summary
+msgid "Next Activity Summary"
+msgstr "Опис наступної активності"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_type_id
+msgid "Next Activity Type"
+msgstr "Тип наступної активності"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__night_hours
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__night_hours
+msgid "Night Hours"
+msgstr "Нічні години"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__notes
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__notes
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_view_form
+msgid "Notes"
+msgstr "Примітки"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__month__11
+msgid "November"
+msgstr "Листопад"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_has_error_counter
+msgid "Number of errors"
+msgstr "Кількість помилок"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,help:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Кількість повідомлень, що потребують дії"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,help:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилкою доставки"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__month__10
+msgid "October"
+msgstr "Жовтень"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet_code__code_type__other
+msgid "Other"
+msgstr "Інше"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__overtime_hours
+msgid "Overtime"
+msgstr "Понаднормові"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__overtime_hours
+msgid "Overtime Hours"
+msgstr "Понаднормові години"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__is_paid
+msgid "Paid"
+msgstr "Оплачуваний"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model,name:l10n_ua_hr_attendance_sheet.model_hr_production_calendar
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_production_calendar_view_form
+msgid "Production Calendar"
+msgstr "Виробничий календар"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model,name:l10n_ua_hr_attendance_sheet.model_hr_production_calendar_line
+msgid "Production Calendar Line"
+msgstr "Рядок виробничого календаря"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.actions.act_window,name:l10n_ua_hr_attendance_sheet.action_hr_production_calendar
+#: model:ir.ui.menu,name:l10n_ua_hr_attendance_sheet.menu_hr_production_calendar
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_production_calendar_view_tree
+msgid "Production Calendars"
+msgstr "Виробничі календарі"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_attendance_sheet.action_hr_production_calendar
+msgid ""
+"Production calendar defines working days, weekends, and public holidays."
+"Production calendar defines working days, weekends, and public holidays."
+msgstr "Виробничий календар визначає робочі дні, вихідні та державні свята."
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.constraint,message:l10n_ua_hr_attendance_sheet.constraint_hr_production_calendar_unique_year_company_id
+msgid "Production calendar for this year already exists!"
+msgstr "Виробничий календар на цей рік вже існує!"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_production_calendar_line__day_type__holiday
+msgid "Public Holiday"
+msgstr "Державне свято"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__responsible_id
+msgid "Responsible"
+msgstr "Відповідальний"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_user_id
+msgid "Responsible User"
+msgstr "Відповідальний"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Помилка доставки SMS"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__is_scheduled
+msgid "Scheduled"
+msgstr "Заплановано"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__scheduled_days
+msgid "Scheduled Days"
+msgstr "Заплановані дні"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet__month__9
+msgid "September"
+msgstr "Вересень"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_view_form
+msgid "Set to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__sick_days
+msgid "Sick Days"
+msgstr "Дні хвороби"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet_code__code_type__sick
+msgid "Sick Leave"
+msgstr "Лікарняний"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__state
+msgid "Status"
+msgstr "Статус"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,help:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr "Статус на основі активностей\nПрострочено: Термін вже минув\nСьогодні: Дата активності сьогодні\nЗаплановано: Майбутні активності.Статус на основі активностей\nПрострочено: Термін вже минув\nСьогодні: Дата активності сьогодні\nЗаплановано: Майбутні активності."
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model,name:l10n_ua_hr_attendance_sheet.model_hr_timesheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__timesheet_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_view_form
+msgid "Timesheet"
+msgstr "Табель"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.actions.report,name:l10n_ua_hr_attendance_sheet.action_report_timesheet
+msgid "Timesheet (Form П-5)"
+msgstr "Табель (Форма П-5)"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model,name:l10n_ua_hr_attendance_sheet.model_hr_timesheet_code
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_code_view_form
+msgid "Timesheet Code"
+msgstr "Код табеля"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.actions.act_window,name:l10n_ua_hr_attendance_sheet.action_hr_timesheet_code
+#: model:ir.ui.menu,name:l10n_ua_hr_attendance_sheet.menu_hr_timesheet_code
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_code_view_tree
+msgid "Timesheet Codes"
+msgstr "Коди табеля"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model,name:l10n_ua_hr_attendance_sheet.model_hr_timesheet_day
+msgid "Timesheet Day"
+msgstr "День табеля"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model,name:l10n_ua_hr_attendance_sheet.model_hr_timesheet_line
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_day__line_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_line_view_form
+msgid "Timesheet Line"
+msgstr "Рядок табеля"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__line_ids
+msgid "Timesheet Lines"
+msgstr "Рядки табеля"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.constraint,message:l10n_ua_hr_attendance_sheet.constraint_hr_timesheet_code_unique_code
+msgid "Timesheet code must be unique!"
+msgstr "Код табеля має бути унікальним!"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.constraint,message:l10n_ua_hr_attendance_sheet.constraint_hr_timesheet_unique_year_month_department_id_company_id
+msgid "Timesheet for this period already exists!"
+msgstr "Табель за цей період вже існує!"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.actions.act_window,name:l10n_ua_hr_attendance_sheet.action_hr_timesheet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_view_tree
+msgid "Timesheets"
+msgstr "Табелі"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_attendance_sheet.hr_timesheet_view_tree
+msgid "Total"
+msgstr "Всього"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__total_days
+msgid "Total Days"
+msgstr "Всього днів"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__total_employees
+msgid "Total Employees"
+msgstr "Всього працівників"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__total_worked_days
+msgid "Total Worked Days"
+msgstr "Всього відпрацьовано днів"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__total_worked_hours
+msgid "Total Worked Hours"
+msgstr "Всього відпрацьовано годин"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_production_calendar_line__day_type__transferred
+msgid "Transferred Day"
+msgstr "Перенесений день"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_code__code_type
+msgid "Type"
+msgstr "Тип"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,help:l10n_ua_hr_attendance_sheet.field_hr_timesheet__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Тип виключної активності в записі."
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__vacation_days
+msgid "Vacation Days"
+msgstr "Дні відпустки"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__website_message_ids
+msgid "Website Messages"
+msgstr "Повідомлення веб-сайту"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,help:l10n_ua_hr_attendance_sheet.field_hr_timesheet__website_message_ids
+msgid "Website communication history"
+msgstr "Історія комунікації веб-сайту"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_production_calendar_line__day_type__weekend
+msgid "Weekend"
+msgstr "Вихідний"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_timesheet_code__code_type__work
+msgid "Work"
+msgstr "Робота"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__worked_days
+msgid "Worked Days"
+msgstr "Відпрацьовано днів"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet_line__worked_hours
+msgid "Worked Hours"
+msgstr "Відпрацьовано годин"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__is_working_day
+#: model:ir.model.fields.selection,name:l10n_ua_hr_attendance_sheet.selection__hr_production_calendar_line__day_type__working
+msgid "Working Day"
+msgstr "Робочий день"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__working_days
+msgid "Working Days"
+msgstr "Робочі дні"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__working_hours
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar_line__working_hours
+msgid "Working Hours"
+msgstr "Робочі години"
+
+#. module: l10n_ua_hr_attendance_sheet
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_production_calendar__year
+#: model:ir.model.fields,field_description:l10n_ua_hr_attendance_sheet.field_hr_timesheet__year
+msgid "Year"
+msgstr "Рік"

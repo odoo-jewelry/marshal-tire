@@ -1,6 +1,6 @@
 {
     "name": "Product Card Consolidation",
-    "version": "19.0.3.0.0",
+    "version": "19.0.3.0.1",
     "category": "Inventory/Products",
     "summary": "Safely consolidate duplicate single-variant product cards",
     'author': 'dmitry.aka.jok@gmail.com',

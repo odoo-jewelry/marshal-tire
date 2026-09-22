@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_edebo_import"
+              name="Імпорт з ЄДЕБО"
+              parent="l10n_ua_education_base.menu_l10n_ua_education_root"
+              action="action_edebo_import"
+              sequence="50"/>
+
+    <menuitem id="menu_edebo_export"
+              name="Експорт у ЄДЕБО"
+              parent="l10n_ua_education_base.menu_l10n_ua_education_root"
+              action="action_edebo_export"
+              sequence="51"/>
+</odoo>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Period Closing Form -->
+    <record id="l10n_ua_period_closing_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.period.closing.form</field>
+        <field name="model">l10n_ua.period.closing</field>
+        <field name="arch" type="xml">
+            <form string="Закриття періоду">
+                <header>
+                    <button name="action_compute" string="Розрахувати" type="object"
+                            class="btn-secondary" invisible="state != 'draft'"/>
+                    <button name="action_open_currency_revaluation"
+                            string="Переоцінка валюти" type="object"
+                            class="btn-secondary" invisible="state != 'draft'"/>
+                    <button name="action_close" string="Закрити період" type="object"
+                            class="btn-primary" invisible="state != 'draft'"
+                            confirm="Ви впевнені? Буде створено проводки закриття та встановлено блокування періоду."/>
+                    <button name="action_reverse" string="Сторнувати" type="object"
+                            class="btn-warning" invisible="state != 'closed'"
+                            confirm="Сторнувати закриття? Проводки будуть скасовані, період буде розблоковано."/>
+                    <button name="action_draft" string="В чернетку" type="object"
+                            invisible="state != 'reversed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="True"/></h1>
+                    </div>
+                    <group>
+                        <group string="Параметри">
+                            <field name="period_id" readonly="state != 'draft'"/>
+                            <field name="date"/>
+                            <field name="journal_id" readonly="state != 'draft'"/>
+                            <field name="lock_period" readonly="state != 'draft'"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="currency_id" invisible="True"/>
+                        </group>
+                        <group string="Результат">
+                            <field name="total_revenue"/>
+                            <field name="total_expenses"/>
+                            <field name="net_result" class="oe_subtotal_footer_separator"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Рахунки для закриття" name="closing_lines">
+                            <field name="closing_line_ids" readonly="True">
+                                <list string="Accounts">
+                                    <field name="account_code"/>
+                                    <field name="account_id"/>
+                                    <field name="account_type" widget="badge"
+                                           decoration-success="account_type == 'revenue'"
+                                           decoration-danger="account_type == 'expense'"/>
+                                    <field name="debit" sum="Total Debit"/>
+                                    <field name="credit" sum="Total Credit"/>
+                                    <field name="balance" sum="Total Balance"/>
+                                    <field name="result_account_id"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Налаштування рахунків" name="config_accounts">
+                            <group>
+                                <group string="Фінансові результати (79x)">
+                                    <field name="account_791_id" readonly="state != 'draft'"/>
+                                    <field name="account_792_id" readonly="state != 'draft'"/>
+                                    <field name="account_793_id" readonly="state != 'draft'"/>
+                                </group>
+                                <group string="Нерозподілений прибуток/збитки">
+                                    <field name="account_profit_id" readonly="state != 'draft'"/>
+                                    <field name="account_loss_id" readonly="state != 'draft'"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Проводки" name="moves" invisible="state == 'draft'">
+                            <group>
+                                <group>
+                                    <field name="closing_move_id"/>
+                                </group>
+                                <group>
+                                    <field name="retained_move_id"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Примітки" name="notes">
+                            <field name="note" placeholder="Примітки до закриття періоду..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Period Closing List -->
+    <record id="l10n_ua_period_closing_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.period.closing.list</field>
+        <field name="model">l10n_ua.period.closing</field>
+        <field name="arch" type="xml">
+            <list string="Закриття періодів"
+                  decoration-muted="state == 'reversed'"
+                  decoration-success="state == 'closed'">
+                <field name="name"/>
+                <field name="period_id"/>
+                <field name="date"/>
+                <field name="total_revenue"/>
+                <field name="total_expenses"/>
+                <field name="net_result"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'closed'"
+                       decoration-warning="state == 'draft'"
+                       decoration-muted="state == 'reversed'"/>
+                <field name="currency_id" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Period Closing Search -->
+    <record id="l10n_ua_period_closing_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.period.closing.search</field>
+        <field name="model">l10n_ua.period.closing</field>
+        <field name="arch" type="xml">
+            <search string="Закриття періодів">
+                <field name="period_id"/>
+
+                <filter string="Чернетка" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Закрито" name="filter_closed" domain="[('state', '=', 'closed')]"/>
+                <filter string="Сторновано" name="filter_reversed" domain="[('state', '=', 'reversed')]"/>
+                <separator/>
+
+                <group>
+                    <filter string="Період" name="groupby_period" domain="[]" context="{'group_by': 'period_id'}"/>
+                    <filter string="Стан" name="groupby_state" domain="[]" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Inherit tax period form to show closing link -->
+    <record id="l10n_ua_tax_period_form_inherit_closing" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.period.form.inherit.closing</field>
+        <field name="model">l10n_ua.tax.period</field>
+        <field name="inherit_id" ref="l10n_ua_tax.l10n_ua_tax_period_view_form"/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="closing_id" invisible="not closing_id"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="l10n_ua_period_closing_action" model="ir.actions.act_window">
+        <field name="name">Закриття періодів</field>
+        <field name="res_model">l10n_ua.period.closing</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="l10n_ua_period_closing_view_search"/>
+        <field name="context">{'default_lock_period': True}</field>
+    </record>
+
+</odoo>

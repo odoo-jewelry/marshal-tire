@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Extend hr.version list view with Ukrainian fields -->
+    <record id="hr_version_list_view_ua" model="ir.ui.view">
+        <field name="name">hr.version.list.ua</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="hr.hr_version_list_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='contract_type_id']" position="after">
+                <field name="contract_type_ua" optional="show"/>
+                <field name="employment_type_ua" optional="hide"/>
+            </xpath>
+            <xpath expr="//field[@name='wage']" position="after">
+                <field name="total_allowances" optional="hide"/>
+                <field name="total_wage" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Extend hr.employee form to show Ukrainian version fields -->
+    <record id="hr_employee_view_form_version_ua" model="ir.ui.view">
+        <field name="name">hr.employee.form.version.ua</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="priority">60</field>
+        <field name="arch" type="xml">
+            <!-- The staffing line sits right under the position it is derived
+                 from: the position is entered once, and the line, its salary
+                 and its occupancy are read next to it without switching tabs.
+                 Everything here is readonly - only the position is edited. -->
+            <xpath expr="//field[@name='job_title']" position="after">
+                <field name="staffing_line_id" invisible="1"/>
+                <field name="staffing_currency_id" invisible="1"/>
+                <!-- The empty state is carried by a second label rather than a
+                     span: text of an inline element standing among <field>
+                     siblings is extracted together with its markup, so it
+                     never matches a plain msgid. `string` always does. -->
+                <label for="staffing_line_start" string="Staffing Version"
+                       invisible="not staffing_line_id"/>
+                <label for="staffing_line_start" string="Outside the staffing table"
+                       invisible="staffing_line_id"/>
+                <!-- The row itself is always rendered, empty or not: a visible
+                     <label> claims the label cell of the group, so hiding its
+                     partner would shift every following cell by one and break
+                     the pairing of the fields below. -->
+                <div class="o_row">
+                    <field name="staffing_line_start" readonly="1" class="oe_inline"
+                           invisible="not staffing_line_id"/>
+                    <label for="staffing_state" string="Status:" class="oe_inline"
+                           invisible="not staffing_line_id"/>
+                    <field name="staffing_state" readonly="1" class="oe_inline"
+                           invisible="not staffing_line_id"/>
+                </div>
+                <field name="staffing_salary" string="Staffing Salary" readonly="1"
+                       invisible="not staffing_line_id"/>
+                <label for="staffing_salary_min" string="Salary Range"
+                       invisible="not staffing_salary_min and not staffing_salary_max"/>
+                <div class="o_row"
+                     invisible="not staffing_salary_min and not staffing_salary_max">
+                    <field name="staffing_salary_min" readonly="1" class="oe_inline"/>
+                    <span>-</span>
+                    <field name="staffing_salary_max" readonly="1" class="oe_inline"/>
+                </div>
+                <field name="tariff_grade_id"/>
+            </xpath>
+            <!-- Add Ukrainian contract fields after standard contract_type_id -->
+            <xpath expr="//field[@name='contract_type_id']" position="after">
+                <field name="contract_type_ua" string="UA Contract Type" placeholder="UA Contract Type"/>
+                <field name="employment_type_ua"/>
+            </xpath>
+            <!-- Add after schedule separator -->
+            <!-- working_hours_week прибрано (#213): норма тижня тепер
+                 читається зі штатних «Робочих годин», і два сусідні контроли
+                 з однаковим змістом лише заплутували кадровика. -->
+            <xpath expr="//separator[@name='schedule']" position="before">
+                <field name="work_rate"/>
+                <field name="scheduled_hours_week"/>
+                <field name="scheduled_hours_day"/>
+            </xpath>
+            <!-- Add consolidated Ukrainian contract page -->
+            <xpath expr="//page[@name='hr_settings']" position="before">
+                <page string="UA: Контракт" name="ua_contract" groups="hr.group_hr_user">
+                    <!-- work_schedule_ua_id прибрано (#213): графік роботи
+                         живе у штатному resource_calendar_id на вкладці
+                         «Робоча інформація».
+                         The "Staffing" group moved to the Work tab, next to
+                         the position it is derived from. -->
+                    <group>
+                        <group string="Orders">
+                            <field name="hire_order_number"/>
+                            <field name="hire_order_date"/>
+                            <field name="termination_order_number"/>
+                            <field name="termination_order_date"/>
+                            <field name="termination_reason_ua_id"/>
+                        </group>
+                        <group string="Working Conditions">
+                            <field name="work_conditions"/>
+                            <field name="work_conditions_class" invisible="work_conditions == 'normal'"/>
+                            <field name="work_conditions_subclass" invisible="work_conditions == 'normal'"/>
+                            <field name="additional_vacation_days"/>
+                            <field name="diia_city_employee"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Probation">
+                            <field name="probation_period_days"/>
+                            <field name="probation_end_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Надбавки" name="allowances_inner">
+                            <field name="allowance_ids" nolabel="1">
+                                <list editable="bottom">
+                                    <field name="allowance_type_id"/>
+                                    <field name="calculation_method"/>
+                                    <field name="amount"/>
+                                    <field name="percent"/>
+                                    <field name="calculated_amount" sum="Total"/>
+                                    <field name="date_from"/>
+                                    <field name="date_to"/>
+                                    <field name="is_active"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Зміни зарплати" name="salary_changes_inner" groups="hr.group_hr_manager">
+                            <field name="salary_change_ids" nolabel="1">
+                                <list>
+                                    <field name="effective_date"/>
+                                    <field name="old_wage"/>
+                                    <field name="new_wage"/>
+                                    <field name="change_percent"/>
+                                    <field name="order_number"/>
+                                    <field name="state" widget="badge"
+                                           decoration-success="state == 'applied'"
+                                           decoration-info="state == 'draft'"
+                                           decoration-warning="state == 'confirmed'"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Додаткові угоди" name="amendments_inner">
+                            <field name="amendment_ids" nolabel="1">
+                                <list>
+                                    <field name="amendment_date"/>
+                                    <field name="amendment_type"/>
+                                    <field name="description"/>
+                                    <field name="order_number"/>
+                                    <field name="state" widget="badge"
+                                           decoration-success="state == 'confirmed'"
+                                           decoration-info="state == 'draft'"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

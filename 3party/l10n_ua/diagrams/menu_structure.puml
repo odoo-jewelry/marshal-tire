@@ -1,0 +1,222 @@
+@startuml menu_structure
+skinparam backgroundColor #FEFEFE
+left to right direction
+
+title Структура меню Ukrainian Localization
+
+package "Кореневі меню Odoo" {
+    rectangle "Invoicing\n(sequence=50)" as invoicing #LightBlue
+    rectangle "Employees\n(sequence=60)" as employees #PaleGreen
+    rectangle "Time Off" as timeoff #PaleGreen
+}
+
+package "Кореневі меню UA" {
+    rectangle "Payroll\n(sequence=30)" as payroll #Plum
+    rectangle "Timesheet\n(sequence=50)" as timesheet #LightCoral
+    rectangle "Бухгалтерія UA\n(sequence=51)" as accounting #LightGoldenRodYellow
+    rectangle "Bank UA\n(sequence=53)" as bank #LightSkyBlue
+    rectangle "Taxes UA\n(sequence=54)" as taxes #LightYellow
+}
+
+package "Invoicing → Configuration → Ukraine" #LightBlue {
+    rectangle "Directories" as dirs {
+        card "KOATUU/KATOTTG"
+        card "KVED-2010"
+    }
+    rectangle "UA Accounting" as ua_acc {
+        card "Journal Orders"
+        card "Trial Balance (OSV)"
+    }
+    rectangle "Fixed Assets" as assets {
+        card "MNMA"
+    }
+    rectangle "PRRO" as prro {
+        card "Configurations"
+        card "Shifts"
+        card "Receipts"
+        card "Checkbox"
+    }
+    rectangle "Delivery" as delivery {
+        card "Warehouses"
+    }
+    rectangle "Marketplaces" as marketplace {
+        card "Configurations"
+        card "Orders"
+        card "Category Mapping"
+    }
+}
+
+package "Bank UA" #LightSkyBlue {
+    rectangle "Dashboard" as bank_dash
+    rectangle "Statements" as bank_stmt {
+        card "Statements"
+        card "Transactions"
+        card "Generate Statement"
+    }
+    rectangle "Sync Jobs" as bank_sync {
+        card "Jobs"
+    }
+    rectangle "Configuration" as bank_cfg {
+        card "Connections"
+        card "Currencies"
+        card "Currency Rates"
+        card "Rate Providers"
+    }
+}
+
+package "Taxes UA" #LightYellow {
+    rectangle "Tax Documents" as tax_docs
+    rectangle "Tax Periods" as tax_periods
+    rectangle "Tax Cabinet" as tax_cab {
+        card "Sync Documents"
+    }
+    rectangle "VAT" as vat {
+        card "Tax Invoices"
+        card "VAT Registers"
+        card "VAT Declarations"
+    }
+    rectangle "FOP (Single Tax)" as fop {
+        card "Income Books"
+        card "Declarations"
+    }
+    rectangle "Configuration" as tax_cfg {
+        card "Document Types"
+        card "Budget Codes"
+        card "Tax Offices (ДПІ)"
+        card "Cabinet Connections"
+    }
+}
+
+package "Employees → Documents" #PaleGreen {
+    rectangle "Штатний розпис" as staffing
+    rectangle "Salary Changes" as sal_changes
+    rectangle "Job Combining" as job_comb
+    rectangle "Amendments" as amendments
+    rectangle "Кадрові накази" as orders
+    rectangle "Order Templates" as order_tpl
+    rectangle "Personal Files" as personal
+    rectangle "Certificates" as certs {
+        card "Certificates"
+        card "Certificate Types"
+    }
+}
+
+package "Employees → Configuration → Ukraine" #PaleGreen {
+    rectangle "Classifiers" as classifiers {
+        card "Professions (KP 2010)"
+        card "Education Levels"
+        card "Tariff Grades"
+        card "Employee Benefits"
+    }
+    rectangle "Military Accounting" as military {
+        card "Military Ranks"
+        card "Territorial Centers"
+    }
+}
+
+package "Time Off" #PaleGreen {
+    rectangle "Sick Leaves" as sick
+    rectangle "Vacation Balances" as vac_bal
+    rectangle "Vacation Schedules" as vac_sch
+    rectangle "Vacation Calendar" as vac_cal
+}
+
+package "Payroll" #Plum {
+    rectangle "Payslips" as payslips
+    rectangle "Batches" as batches
+    rectangle "Execution Docs" as exec_docs
+    rectangle "Configuration" as pay_cfg {
+        card "PSP Parameters"
+        card "Accrual Types"
+        card "Deduction Types"
+    }
+}
+
+package "Timesheet" #LightCoral {
+    rectangle "Timesheets" as timesheets
+    rectangle "Configuration" as ts_cfg {
+        card "Production Calendars"
+        card "Timesheet Codes"
+    }
+}
+
+package "HR Reports" #PaleGreen {
+    rectangle "1DF Reports" as rep_1df
+    rectangle "D5 ESV Reports" as rep_d5
+    rectangle "Generate Report" as rep_wiz
+}
+
+package "Бухгалтерія UA (PLANNED)" #LightGoldenRodYellow {
+    rectangle "Документи" as acc_docs {
+        card "Рахунки"
+        card "Акти наданих послуг"
+        card "Видаткові накладні"
+        card "Авансові звіти"
+    }
+    rectangle "Каса та банк" as acc_cash {
+        card "ПКО"
+        card "ВКО"
+        card "Касова книга"
+        card "Акти звірки"
+    }
+    rectangle "Основні засоби" as acc_assets {
+        card "Картки ОЗ"
+        card "МНМА"
+        card "Амортизація"
+    }
+    rectangle "Звітність" as acc_reports {
+        card "ОСВ"
+        card "Журнали-ордери"
+        card "Баланс (Ф№1)"
+        card "Звіт про фін. результати (Ф№2)"
+    }
+    rectangle "Налаштування" as acc_cfg {
+        card "План рахунків"
+        card "Аналітика"
+    }
+}
+
+' Relationships
+invoicing --> dirs
+invoicing --> ua_acc
+invoicing --> assets
+invoicing --> prro
+invoicing --> delivery
+invoicing --> marketplace
+
+bank --> bank_dash
+bank --> bank_stmt
+bank --> bank_sync
+bank --> bank_cfg
+
+taxes --> tax_docs
+taxes --> tax_periods
+taxes --> tax_cab
+taxes --> vat
+taxes --> fop
+taxes --> tax_cfg
+
+employees --> staffing
+employees --> orders
+employees --> certs
+employees --> classifiers
+employees --> military
+
+timeoff --> sick
+timeoff --> vac_bal
+timeoff --> vac_sch
+
+payroll --> payslips
+payroll --> batches
+payroll --> pay_cfg
+
+timesheet --> timesheets
+timesheet --> ts_cfg
+
+accounting --> acc_docs
+accounting --> acc_cash
+accounting --> acc_assets
+accounting --> acc_reports
+accounting --> acc_cfg
+
+@enduml

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_l10n_ua_budget_estimates"
+              name="Кошториси"
+              parent="l10n_ua_budget_base.menu_l10n_ua_budget_root"
+              action="action_l10n_ua_budget_estimate"
+              sequence="5"/>
+
+    <menuitem id="menu_l10n_ua_budget_estimate_lines"
+              name="Рядки кошторисів (зведено)"
+              parent="l10n_ua_budget_base.menu_l10n_ua_budget_root"
+              action="action_l10n_ua_budget_estimate_line"
+              sequence="6"/>
+</odoo>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Cash Book Report Action -->
+    <record id="action_report_cash_book" model="ir.actions.report">
+        <field name="name">Cash Book</field>
+        <field name="model">l10n_ua.cash.book.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_accounting.report_cash_book_document</field>
+        <field name="report_file">l10n_ua_accounting.report_cash_book_document</field>
+        <field name="print_report_name">'Касова_книга_%s-%s' % (object.date_from, object.date_to)</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+    <!-- Cash Book Report Template -->
+    <template id="report_cash_book_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="wizard">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+                        <!-- Header -->
+                        <div class="form-number-box">
+                            <div class="small">Типова форма № КО-4</div>
+                            <div class="small">Затверджено наказом</div>
+                            <div class="small">Мінстату України</div>
+                            <div class="small">від 15.02.96 № 51</div>
+                        </div>
+
+                        <div class="company-header">
+                            <div class="company-name" t-field="wizard.company_id.name"/>
+                            <div class="small">(найменування підприємства (організації))</div>
+                            <div class="company-code">
+                                Ідентифікаційний код ЄДРПОУ:
+                                <span t-field="wizard.company_id.company_registry"/>
+                            </div>
+                        </div>
+
+                        <div class="ua-report-title">
+                            КАСОВА КНИГА
+                        </div>
+
+                        <div class="ua-report-subtitle">
+                            за період з
+                            <span t-field="wizard.date_from" t-options='{"widget": "date"}'/>
+                            по
+                            <span t-field="wizard.date_to" t-options='{"widget": "date"}'/>
+                        </div>
+
+                        <div class="ua-report-subtitle mb-3">
+                            Каса: <span t-field="wizard.journal_id.name"/>
+                        </div>
+
+                        <!-- Cash Book Table -->
+                        <t t-set="data" t-value="wizard._get_report_data()"/>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 60px;">Номер документа</th>
+                                    <th style="width: 80px;">Дата</th>
+                                    <th>Від кого одержано або кому видано</th>
+                                    <th style="width: 60px;">№ кор. рахунку</th>
+                                    <th style="width: 100px;">Надходження</th>
+                                    <th style="width: 100px;">Видаток</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Opening balance -->
+                                <tr>
+                                    <td colspan="4" class="text-right bold">Залишок на початок періоду:</td>
+                                    <td class="text-right money bold" t-esc="'%.2f' % data['opening_balance']"/>
+                                    <td></td>
+                                </tr>
+
+                                <!-- Transactions -->
+                                <t t-foreach="data['lines']" t-as="line">
+                                    <tr>
+                                        <td class="text-center" t-esc="line['number']"/>
+                                        <td class="text-center" t-esc="line['date']"/>
+                                        <td t-esc="line['partner']"/>
+                                        <td class="text-center" t-esc="line['account']"/>
+                                        <td class="text-right money">
+                                            <t t-if="line['debit']">
+                                                <t t-esc="'%.2f' % line['debit']"/>
+                                            </t>
+                                        </td>
+                                        <td class="text-right money">
+                                            <t t-if="line['credit']">
+                                                <t t-esc="'%.2f' % line['credit']"/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+
+                                <!-- Totals -->
+                                <tr>
+                                    <td colspan="4" class="text-right bold">Обороти за період:</td>
+                                    <td class="text-right money bold" t-esc="'%.2f' % data['total_debit']"/>
+                                    <td class="text-right money bold" t-esc="'%.2f' % data['total_credit']"/>
+                                </tr>
+
+                                <!-- Closing balance -->
+                                <tr>
+                                    <td colspan="4" class="text-right bold">Залишок на кінець періоду:</td>
+                                    <td class="text-right money bold" t-esc="'%.2f' % data['closing_balance']"/>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Signatures -->
+                        <div class="signature-block mt-4">
+                            <div class="signature-row">
+                                <span>Касир</span>
+                                <span class="signature-line"></span>
+                                <span class="small">(підпис)</span>
+                                <span class="signature-line" style="min-width: 100px;"></span>
+                                <span class="small">(прізвище, ініціали)</span>
+                            </div>
+                            <div class="signature-row">
+                                <span>Перевірив бухгалтер</span>
+                                <span class="signature-line"></span>
+                                <span class="small">(підпис)</span>
+                                <span class="signature-line" style="min-width: 100px;"></span>
+                                <span class="small">(прізвище, ініціали)</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 small">
+                            Документи в кількості
+                            <span class="underline" t-esc="len(data['lines'])"/>
+                            прийняті.
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

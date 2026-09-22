@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_report_wage_fund_view_form" model="ir.ui.view">
+        <field name="name">hr.report.wage_fund.form</field>
+        <field name="model">hr.report.wage_fund</field>
+        <field name="arch" type="xml">
+            <form string="Wage Fund Report">
+                <header>
+                    <button name="action_generate" string="Generate" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_draft" string="Set to Draft" type="object"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,generated"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Period">
+                            <field name="year"/>
+                            <field name="month"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Summary">
+                            <field name="total_employees"/>
+                            <field name="total_gross"/>
+                            <field name="total_net"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Wage Fund Structure">
+                            <field name="fund_basic_salary"/>
+                            <field name="fund_allowances"/>
+                            <field name="fund_bonuses"/>
+                            <field name="fund_other"/>
+                        </group>
+                        <group string="Tax Deductions">
+                            <field name="total_pdfo"/>
+                            <field name="total_military"/>
+                            <field name="total_esv"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="By Employee" name="lines">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="employee_id"/>
+                                    <field name="department_id"/>
+                                    <field name="gross_salary" sum="Total"/>
+                                    <field name="net_salary" sum="Total"/>
+                                    <field name="pdfo_amount" sum="Total"/>
+                                    <field name="military_amount" sum="Total"/>
+                                    <field name="esv_amount" sum="Total"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="By Accrual Type" name="accruals">
+                            <field name="accrual_summary_ids">
+                                <list>
+                                    <field name="accrual_type_id"/>
+                                    <field name="total_amount" sum="Total"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes" placeholder="Additional notes..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_report_wage_fund_view_list" model="ir.ui.view">
+        <field name="name">hr.report.wage_fund.list</field>
+        <field name="model">hr.report.wage_fund</field>
+        <field name="arch" type="xml">
+            <list string="Wage Fund Reports">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="month"/>
+                <field name="total_employees"/>
+                <field name="total_gross" sum="Total"/>
+                <field name="total_net" sum="Total"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'generated'"
+                       decoration-info="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_report_wage_fund_view_search" model="ir.ui.view">
+        <field name="name">hr.report.wage_fund.search</field>
+        <field name="model">hr.report.wage_fund</field>
+        <field name="arch" type="xml">
+            <search string="Wage Fund">
+                <field name="name"/>
+                <field name="year"/>
+                <filter string="Draft" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Generated" name="filter_generated" domain="[('state', '=', 'generated')]"/>
+                <separator/>
+                <group>
+                    <filter string="Year" name="groupby_year" domain="[]" context="{'group_by': 'year'}"/>
+                    <filter string="Status" name="groupby_state" domain="[]" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_report_wage_fund" model="ir.actions.act_window">
+        <field name="name">Wage Fund Reports</field>
+        <field name="res_model">hr.report.wage_fund</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a wage fund report
+            </p>
+            <p>
+                This report analyzes the wage fund structure by accrual types
+                and provides tax deduction summaries.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Extend currency rate list view -->
+    <record id="res_currency_rate_view_list_inherit" model="ir.ui.view">
+        <field name="name">res.currency.rate.list.inherit.ua</field>
+        <field name="model">res.currency.rate</field>
+        <field name="inherit_id" ref="base.view_currency_rate_tree"/>
+        <field name="arch" type="xml">
+            <field name="rate" position="after">
+                <field name="inverse_company_rate" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Extend currency rate form view -->
+    <record id="res_currency_rate_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.currency.rate.form.inherit.ua</field>
+        <field name="model">res.currency.rate</field>
+        <field name="inherit_id" ref="base.view_currency_rate_form"/>
+        <field name="arch" type="xml">
+            <field name="rate" position="after">
+                <field name="inverse_company_rate"/>
+                <field name="provider_id" readonly="1"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Currency list action for menu -->
+    <record id="res_currency_action" model="ir.actions.act_window">
+        <field name="name">Currencies</field>
+        <field name="res_model">res.currency</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Currency rates action for menu -->
+    <record id="res_currency_rate_action" model="ir.actions.act_window">
+        <field name="name">Currency Rates</field>
+        <field name="res_model">res.currency.rate</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_current_rates': 1}</field>
+    </record>
+
+</odoo>

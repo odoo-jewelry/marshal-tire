@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Income Book Report Action -->
+    <record id="action_report_income_book" model="ir.actions.report">
+        <field name="name">Книга обліку доходів</field>
+        <field name="model">l10n_ua.fop.income.book</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_fop.report_income_book_document</field>
+        <field name="report_file">l10n_ua_fop.report_income_book_document</field>
+        <field name="print_report_name">'Книга_доходів_%s' % (object.name or '')</field>
+        <field name="binding_model_id" ref="model_l10n_ua_fop_income_book"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+    <!-- Income Book Template -->
+    <template id="report_income_book_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+                        <t t-set="company" t-value="o.company_id"/>
+                        <t t-set="comp_partner" t-value="company.partner_id"/>
+
+                        <!-- Company header -->
+                        <div class="company-header">
+                            <div class="company-name" t-field="company.name"/>
+                            <t t-if="comp_partner.company_registry">
+                                <div class="company-code">
+                                    ЄДРПОУ/РНОКПП: <span t-field="comp_partner.company_registry"/>
+                                </div>
+                            </t>
+                        </div>
+
+                        <!-- Title -->
+                        <div class="ua-report-title" style="margin: 15px 0 5px 0;">
+                            КНИГА ОБЛІКУ ДОХОДІВ
+                        </div>
+
+                        <!-- Period info -->
+                        <div class="text-center" style="margin-bottom: 15px; font-size: 11pt;">
+                            <t t-set="quarter_names" t-value="{'1': 'I', '2': 'II', '3': 'III', '4': 'IV'}"/>
+                            за <strong><t t-esc="quarter_names.get(o.quarter, '')"/> квартал
+                            <t t-esc="o.year"/> року</strong>
+                        </div>
+
+                        <div style="margin-bottom: 10px;">
+                            Група єдиного податку:
+                            <strong t-esc="o.fop_group_id.name"/>
+                        </div>
+
+                        <!-- Income lines table -->
+                        <table>
+                            <tr>
+                                <th style="width: 5%;">№ з/п</th>
+                                <th style="width: 12%;">Дата</th>
+                                <th style="width: 13%;">№ документа</th>
+                                <th style="width: 25%;">Опис операції</th>
+                                <th style="width: 15%;">Контрагент</th>
+                                <th style="width: 12%;">Вид доходу</th>
+                                <th style="width: 18%;">Сума, грн</th>
+                            </tr>
+                            <t t-set="income_types" t-value="{'cash': 'Готівка', 'bank': 'Безготівковий', 'card': 'Картка'}"/>
+                            <t t-foreach="o.line_ids" t-as="line">
+                                <tr>
+                                    <td class="text-center"><t t-esc="line_index + 1"/></td>
+                                    <td class="text-center">
+                                        <span t-field="line.date" t-options='{"widget": "date"}'/>
+                                    </td>
+                                    <td class="text-center" t-esc="line.document_number or '—'"/>
+                                    <td t-esc="line.description or ''"/>
+                                    <td t-esc="line.partner_id.name if line.partner_id else '—'"/>
+                                    <td class="text-center" t-esc="income_types.get(line.income_type, '')"/>
+                                    <td class="text-right">
+                                        <span t-esc="'%.2f' % line.amount"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <tr class="bold">
+                                <td colspan="6" class="text-right">Разом за квартал:</td>
+                                <td class="text-right">
+                                    <span t-esc="'%.2f' % o.total_income"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Signature -->
+                        <div style="margin-top: 30px;">
+                            <table class="no-border-all" style="width: 100%;">
+                                <tr>
+                                    <td class="no-border" style="width: 30%;">ФОП</td>
+                                    <td class="no-border" style="width: 30%; border-bottom: 1px solid black;"></td>
+                                    <td class="no-border" style="width: 10%;"></td>
+                                    <td class="no-border" style="width: 30%; border-bottom: 1px solid black;"></td>
+                                </tr>
+                                <tr>
+                                    <td class="no-border"></td>
+                                    <td class="no-border text-center small">(підпис)</td>
+                                    <td class="no-border"></td>
+                                    <td class="no-border text-center small">(ПІБ)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

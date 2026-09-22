@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="accrual_type_salary" model="hr.accrual.type">
+            <field name="name">Оклад</field>
+            <field name="code">SALARY</field>
+            <field name="category">wage</field>
+            <field name="calculation_method">monthly</field>
+            <field name="is_basic_salary">True</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">10</field>
+        </record>
+        
+        <record id="accrual_type_allowance" model="hr.accrual.type">
+            <field name="name">Надбавка</field>
+            <field name="code">ALLOWANCE</field>
+            <field name="category">allowance</field>
+            <field name="calculation_method">fixed</field>
+            <field name="is_basic_salary">True</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">20</field>
+        </record>
+        
+        <record id="accrual_type_bonus" model="hr.accrual.type">
+            <field name="name">Премія</field>
+            <field name="code">BONUS</field>
+            <field name="category">bonus</field>
+            <field name="calculation_method">fixed</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">30</field>
+        </record>
+        
+        <record id="accrual_type_vacation" model="hr.accrual.type">
+            <field name="name">Відпускні</field>
+            <field name="code">VACATION</field>
+            <field name="category">vacation</field>
+            <field name="calculation_method">daily</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">40</field>
+        </record>
+        
+        <record id="accrual_type_sick_employer" model="hr.accrual.type">
+            <field name="name">Лікарняні (за рахунок роботодавця)</field>
+            <field name="code">SICK_EMP</field>
+            <field name="category">sick</field>
+            <field name="calculation_method">daily</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">50</field>
+            <field name="description">Оплата перших 5 днів тимчасової непрацездатності</field>
+        </record>
+        
+        <record id="accrual_type_sick_fss" model="hr.accrual.type">
+            <field name="name">Лікарняні (за рахунок ФСС)</field>
+            <field name="code">SICK_FSS</field>
+            <field name="category">sick</field>
+            <field name="calculation_method">daily</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">False</field>
+            <field name="d4_income_type">127</field>
+            <field name="sequence">55</field>
+            <field name="description">Допомога по тимчасовій непрацездатності за рахунок ФСС</field>
+        </record>
+        
+        <record id="accrual_type_maternity" model="hr.accrual.type">
+            <field name="name">Допомога по вагітності та пологах</field>
+            <field name="code">MATERNITY</field>
+            <field name="category">maternity</field>
+            <field name="calculation_method">fixed</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">False</field>
+            <field name="is_military_tax">False</field>
+            <field name="is_esv_base">False</field>
+            <field name="d4_income_type">128</field>
+            <field name="sequence">60</field>
+        </record>
+        
+        <record id="accrual_type_overtime" model="hr.accrual.type">
+            <field name="name">Надурочні</field>
+            <field name="code">OVERTIME</field>
+            <field name="category">wage</field>
+            <field name="calculation_method">hourly</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">70</field>
+        </record>
+        
+        <record id="accrual_type_night" model="hr.accrual.type">
+            <field name="name">Доплата за нічні</field>
+            <field name="code">NIGHT</field>
+            <field name="category">allowance</field>
+            <field name="calculation_method">hourly</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">75</field>
+        </record>
+        
+        <record id="accrual_type_holiday" model="hr.accrual.type">
+            <field name="name">Доплата за святкові</field>
+            <field name="code">HOLIDAY</field>
+            <field name="category">allowance</field>
+            <field name="calculation_method">daily</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">80</field>
+        </record>
+        
+        <record id="accrual_type_compensation" model="hr.accrual.type">
+            <field name="name">Компенсація за невикористану відпустку</field>
+            <field name="code">COMP_VAC</field>
+            <field name="category">compensation</field>
+            <field name="calculation_method">daily</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">90</field>
+        </record>
+        
+        <record id="accrual_type_severance" model="hr.accrual.type">
+            <field name="name">Вихідна допомога</field>
+            <field name="code">SEVERANCE</field>
+            <field name="category">compensation</field>
+            <field name="calculation_method">fixed</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">95</field>
+        </record>
+        
+        <record id="accrual_type_indexation" model="hr.accrual.type">
+            <field name="name">Індексація</field>
+            <field name="code">INDEXATION</field>
+            <field name="category">allowance</field>
+            <field name="calculation_method">percent</field>
+            <field name="is_basic_salary">True</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">85</field>
+        </record>
+
+        <record id="accrual_type_retro" model="hr.accrual.type">
+            <field name="name">Перерахунок за минулий період</field>
+            <field name="code">RETRO</field>
+            <field name="category">other</field>
+            <field name="calculation_method">fixed</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">96</field>
+        </record>
+
+        <record id="accrual_type_in_kind" model="hr.accrual.type">
+            <field name="name">Дохід у натуральній формі</field>
+            <field name="code">INKIND</field>
+            <field name="category">other</field>
+            <field name="calculation_method">fixed</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="is_in_kind">True</field>
+            <field name="d4_income_type">126</field>
+            <field name="sequence">98</field>
+        </record>
+
+        <record id="accrual_type_material_aid" model="hr.accrual.type">
+            <field name="name">Матеріальна допомога</field>
+            <field name="code">MAT_AID</field>
+            <field name="category">other</field>
+            <field name="calculation_method">fixed</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">False</field>
+            <field name="d4_income_type">126</field>
+            <field name="sequence">100</field>
+        </record>
+
+        <record id="accrual_type_seniority" model="hr.accrual.type">
+            <field name="name">Надбавка за вислугу років</field>
+            <field name="code">SENIORITY</field>
+            <field name="category">allowance</field>
+            <field name="calculation_method">percent</field>
+            <field name="is_basic_salary">False</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">85</field>
+        </record>
+
+        <record id="accrual_type_piece" model="hr.accrual.type">
+            <field name="name">Відрядна оплата</field>
+            <field name="code">PIECE</field>
+            <field name="category">wage</field>
+            <field name="calculation_method">fixed</field>
+            <field name="is_basic_salary">True</field>
+            <field name="is_taxable_pdfo">True</field>
+            <field name="is_military_tax">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="d4_income_type">101</field>
+            <field name="sequence">99</field>
+        </record>
+
+    </data>
+</odoo>

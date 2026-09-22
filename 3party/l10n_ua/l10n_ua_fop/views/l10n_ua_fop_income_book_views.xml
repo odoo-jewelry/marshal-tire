@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_fop_income_book_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.fop.income.book.form</field>
+        <field name="model">l10n_ua.fop.income.book</field>
+        <field name="arch" type="xml">
+            <form string="Книга обліку доходів">
+                <header>
+                    <button name="action_confirm" string="Підтвердити" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_draft" string="В чернетку" type="object"
+                            invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_print_income_book" type="object"
+                                class="oe_stat_button" icon="fa-print"
+                                invisible="line_count == 0">
+                            <span>Друк</span>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="year"/>
+                            <field name="quarter"/>
+                            <field name="fop_group_id"/>
+                        </group>
+                        <group>
+                            <field name="total_income" widget="monetary"/>
+                            <field name="line_count"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Записи доходів" name="lines">
+                            <field name="line_ids" readonly="state == 'confirmed'">
+                                <list editable="bottom">
+                                    <field name="date"/>
+                                    <field name="document_number"/>
+                                    <field name="description"/>
+                                    <field name="partner_id"/>
+                                    <field name="income_type"/>
+                                    <field name="amount" sum="Разом"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_fop_income_book_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.fop.income.book.list</field>
+        <field name="model">l10n_ua.fop.income.book</field>
+        <field name="arch" type="xml">
+            <list string="Книги обліку доходів"
+                  decoration-muted="state == 'confirmed'">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="quarter"/>
+                <field name="fop_group_id"/>
+                <field name="line_count"/>
+                <field name="total_income" sum="Разом"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'confirmed'"
+                       decoration-info="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_fop_income_book_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.fop.income.book.search</field>
+        <field name="model">l10n_ua.fop.income.book</field>
+        <field name="arch" type="xml">
+            <search string="Книги обліку доходів">
+                <field name="name"/>
+                <field name="fop_group_id"/>
+                <filter string="Чернетки" name="filter_draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter string="Підтверджені" name="filter_confirmed"
+                        domain="[('state', '=', 'confirmed')]"/>
+                <separator/>
+                <filter string="Поточний рік" name="filter_current_year"
+                        domain="[('year', '=', context_today().year)]"/>
+                <group>
+                    <filter string="Рік" name="groupby_year" domain="[]"
+                            context="{'group_by': 'year'}"/>
+                    <filter string="Квартал" name="groupby_quarter" domain="[]"
+                            context="{'group_by': 'quarter'}"/>
+                    <filter string="Група ЄП" name="groupby_group" domain="[]"
+                            context="{'group_by': 'fop_group_id'}"/>
+                    <filter string="Статус" name="groupby_state" domain="[]"
+                            context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="l10n_ua_fop_income_book_action" model="ir.actions.act_window">
+        <field name="name">Книги обліку доходів</field>
+        <field name="res_model">l10n_ua.fop.income.book</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="l10n_ua_fop_income_book_view_search"/>
+        <field name="context">{'search_default_filter_current_year': 1}</field>
+    </record>
+
+</odoo>

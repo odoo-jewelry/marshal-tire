@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 900px; margin: 0 auto; color: #333;">
+
+    <div style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #005BBB 0%, #FFD500 100%); border-radius: 8px; margin-bottom: 30px;">
+        <h1 style="color: white; margin: 0; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Коди УКТ ЗЕД і ДКПП</h1>
+        <p style="color: white; font-size: 1.2em; margin-top: 10px;">Два класифікаційні коди номенклатури — в одному місці, для всіх українських модулів</p>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin-bottom: 25px;">
+        <h2 style="color: #005BBB; margin-top: 0;">Що додає модуль</h2>
+        <ul>
+            <li><b>Код УКТ ЗЕД</b> — код товару за Українською класифікацією товарів зовнішньоекономічної діяльності. Графа 3.1 податкової накладної, обов'язкова для товарів.</li>
+            <li><b>Код ДКПП</b> — код послуги за ДК 016:2010. Графа 3.3 податкової накладної, обов'язкова для послуг.</li>
+        </ul>
+        <p>
+            Обидва поля — на картці номенклатури, на вкладці «Загальна інформація».
+        </p>
+    </div>
+
+    <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #005BBB; margin-top: 0;">Чому окремим модулем</h3>
+        <p>
+            Код належить товару, а не документу, і той самий код потрібен податковій
+            накладній, чеку ПРРО та фідам маркетплейсів. Тримати його тут дозволяє
+            магазину на маркетплейсах мати ці поля, не встановлюючи бухгалтерську
+            локалізацію з планом рахунків.
+        </p>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #005BBB; margin-top: 0;">Перевірка формату</h3>
+        <ul>
+            <li>УКТ ЗЕД зберігається самими цифрами: крапки, пробіли й дефіси з митних документів прибираються при записі — у XML ЄРПН іде саме рядок цифр.</li>
+            <li>Довжина коду має відповідати рівню класифікатора: 4, 6, 8 або 10 цифр. Обірваний код відхиляється одразу, а не квитанцією ДПС.</li>
+            <li>ДКПП перевіряється за формою запису: двоцифрові групи через крапку, дефіс — лише перед останніми двома (62.01.11-00.00).</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; padding: 20px; color: #666; font-size: 0.9em;">
+        <p>Технічний модуль: власного меню не має, працює через картку номенклатури.</p>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_bank_mono
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260103\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-22 19:18+0000\n"
+"PO-Revision-Date: 2026-01-22 19:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model.fields,field_description:l10n_ua_bank_mono.field_l10n_ua_bank_sync_config__mono_api_token
+msgid "API Token"
+msgstr "API токен"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "API returned error: %s"
+msgstr "API повернув помилку: %s"
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model.fields,field_description:l10n_ua_bank_mono.field_l10n_ua_bank_sync_config__mono_account_id
+msgid "Account ID"
+msgstr "ID рахунку"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "Available Accounts"
+msgstr "Доступні рахунки"
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model,name:l10n_ua_bank_mono.model_l10n_ua_bank_sync_config
+msgid "Bank Sync Configuration"
+msgstr "Налаштування синхронізації банку"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "Connected to monobank. Client: %s, Accounts: %d"
+msgstr "Підключено до monobank. Клієнт: %s, Рахунків: %d"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "Connection failed: %s"
+msgstr "Помилка підключення: %s"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "Could not determine monobank account ID"
+msgstr "Не вдалося визначити ID рахунку monobank"
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model.fields,field_description:l10n_ua_bank_mono.field_l10n_ua_bank_statement__display_name
+#: model:ir.model.fields,field_description:l10n_ua_bank_mono.field_l10n_ua_bank_sync_config__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "Failed to fetch accounts: %s"
+msgstr "Не вдалося отримати рахунки: %s"
+
+#. module: l10n_ua_bank_mono
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_mono.l10n_ua_bank_sync_config_view_form_mono
+msgid "Fetch Accounts"
+msgstr "Отримати рахунки"
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model.fields,field_description:l10n_ua_bank_mono.field_l10n_ua_bank_statement__id
+#: model:ir.model.fields,field_description:l10n_ua_bank_mono.field_l10n_ua_bank_sync_config__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "No accounts found"
+msgstr "Рахунків не знайдено"
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model.fields,help:l10n_ua_bank_mono.field_l10n_ua_bank_sync_config__mono_api_token
+msgid "Personal token from monobank settings (Настройки → API)"
+msgstr ""
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "Please configure API Token"
+msgstr "Будь ласка, налаштуйте API токен"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "Please configure monobank API Token"
+msgstr "Будь ласка, налаштуйте API токен monobank"
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model.fields,field_description:l10n_ua_bank_mono.field_l10n_ua_bank_sync_config__provider
+msgid "Provider"
+msgstr "Провайдер"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "Rate limit exceeded. Please wait 60 seconds."
+msgstr "Перевищено ліміт запитів. Будь ласка, зачекайте 60 секунд."
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model.fields,field_description:l10n_ua_bank_mono.field_l10n_ua_bank_statement__sync_provider
+msgid "Source"
+msgstr "Джерело"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "Success"
+msgstr "Успіх"
+
+#. module: l10n_ua_bank_mono
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_mono.l10n_ua_bank_sync_config_view_form_mono
+msgid "Test Connection"
+msgstr "Перевірити підключення"
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model,name:l10n_ua_bank_mono.model_l10n_ua_bank_statement
+msgid "Ukrainian Bank Statement"
+msgstr "Українська банківська виписка"
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model.fields,field_description:l10n_ua_bank_mono.field_l10n_ua_bank_sync_config__mono_webhook_active
+msgid "Webhook Active"
+msgstr "Webhook активний"
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model.fields,field_description:l10n_ua_bank_mono.field_l10n_ua_bank_sync_config__mono_webhook_url
+msgid "Webhook URL"
+msgstr "URL Webhook"
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model.fields.selection,name:l10n_ua_bank_mono.selection__l10n_ua_bank_statement__sync_provider__mono
+#: model:ir.model.fields.selection,name:l10n_ua_bank_mono.selection__l10n_ua_bank_sync_config__provider__mono
+msgid "monobank"
+msgstr "monobank"
+
+#. module: l10n_ua_bank_mono
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_mono.l10n_ua_bank_sync_config_view_form_mono
+msgid "monobank API"
+msgstr "API monobank"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "monobank API allows maximum 31 days per request"
+msgstr "API monobank дозволяє максимум 31 день на запит"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "monobank API error: %s"
+msgstr "Помилка API monobank: %s"
+
+#. module: l10n_ua_bank_mono
+#. odoo-python
+#: code:addons/l10n_ua_bank_mono/models/l10n_ua_bank_mono_config.py:0
+msgid "monobank API rate limit exceeded. Please wait 60 seconds."
+msgstr "Перевищено ліміт запитів API monobank. Будь ласка, зачекайте 60 секунд."
+
+#. module: l10n_ua_bank_mono
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_mono.l10n_ua_bank_sync_config_view_form_mono
+msgid "monobank Webhook"
+msgstr "Webhook monobank"
+
+#. module: l10n_ua_bank_mono
+#: model:ir.model.fields,help:l10n_ua_bank_mono.field_l10n_ua_bank_sync_config__mono_account_id
+msgid "monobank account ID (optional, fetched automatically)"
+msgstr "ID рахунку monobank (необов'язково, отримується автоматично)"

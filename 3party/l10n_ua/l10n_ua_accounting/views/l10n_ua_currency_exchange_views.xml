@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form -->
+    <record id="l10n_ua_currency_exchange_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.currency.exchange.form</field>
+        <field name="model">l10n_ua.currency.exchange</field>
+        <field name="arch" type="xml">
+            <form string="Купівля/продаж валюти">
+                <header>
+                    <button name="action_post" string="Провести"
+                            type="object" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_draft" string="В чернетку"
+                            type="object"
+                            invisible="state != 'posted'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,posted"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_move" type="object"
+                                class="oe_stat_button" icon="fa-book"
+                                invisible="not move_id">
+                            <span>Проводка</span>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="operation_type" widget="radio"/>
+                            <field name="date"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="foreign_currency_id"/>
+                            <field name="fc_amount"/>
+                            <field name="commercial_rate"/>
+                            <field name="nbu_rate"/>
+                            <field name="commission"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Розрахунок">
+                            <field name="uah_amount"/>
+                            <field name="nbu_value"/>
+                            <field name="fx_result"/>
+                        </group>
+                        <group string="Accounts">
+                            <field name="journal_id"/>
+                            <field name="foreign_account_id"/>
+                            <field name="current_account_id"/>
+                            <field name="commission_account_id"/>
+                            <field name="gain_account_id"/>
+                            <field name="loss_account_id"/>
+                        </group>
+                    </group>
+                    <field name="note" placeholder="Примітки..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- List -->
+    <record id="l10n_ua_currency_exchange_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.currency.exchange.list</field>
+        <field name="model">l10n_ua.currency.exchange</field>
+        <field name="arch" type="xml">
+            <list string="Купівля/продаж валюти"
+                  decoration-muted="state == 'draft'">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="operation_type"/>
+                <field name="foreign_currency_id"/>
+                <field name="fc_amount"/>
+                <field name="commercial_rate"/>
+                <field name="nbu_rate"/>
+                <field name="uah_amount" sum="Разом"/>
+                <field name="fx_result" sum="Фінрезультат"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'posted'"
+                       decoration-info="state == 'draft'"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="foreign_currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Search -->
+    <record id="l10n_ua_currency_exchange_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.currency.exchange.search</field>
+        <field name="model">l10n_ua.currency.exchange</field>
+        <field name="arch" type="xml">
+            <search string="Купівля/продаж валюти">
+                <field name="name"/>
+                <field name="foreign_currency_id"/>
+
+                <filter string="Купівля" name="filter_purchase"
+                        domain="[('operation_type', '=', 'purchase')]"/>
+                <filter string="Продаж" name="filter_sale"
+                        domain="[('operation_type', '=', 'sale')]"/>
+                <separator/>
+                <filter string="Чернетка" name="filter_draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter string="Проведено" name="filter_posted"
+                        domain="[('state', '=', 'posted')]"/>
+
+                <group>
+                    <filter string="Операція" name="groupby_type" domain="[]"
+                            context="{'group_by': 'operation_type'}"/>
+                    <filter string="Валюта" name="groupby_currency" domain="[]"
+                            context="{'group_by': 'foreign_currency_id'}"/>
+                    <filter string="Місяць" name="groupby_date" domain="[]"
+                            context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="l10n_ua_currency_exchange_action" model="ir.actions.act_window">
+        <field name="name">Купівля/продаж валюти</field>
+        <field name="res_model">l10n_ua.currency.exchange</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="l10n_ua_currency_exchange_view_search"/>
+    </record>
+
+</odoo>

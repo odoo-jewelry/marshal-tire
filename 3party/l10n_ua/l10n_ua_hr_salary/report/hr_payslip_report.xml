@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_report_payslip" model="ir.actions.report">
+        <field name="name">Payslip</field>
+        <field name="model">hr.payslip</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_hr_salary.report_payslip</field>
+        <field name="report_file">l10n_ua_hr_salary.report_payslip</field>
+        <field name="print_report_name">'Розрахунковий_листок_%s_%s' % (object.employee_id.name, object.date_to)</field>
+        <field name="binding_model_id" ref="model_hr_payslip"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_payslip">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="payslip">
+                <t t-call="l10n_ua_hr_salary.report_payslip_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_payslip_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-family: 'Times New Roman', serif; font-size: 11pt;">
+                
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <strong t-esc="payslip.company_id.name"/>
+                    <h3 style="margin: 10px 0;">РОЗРАХУНКОВИЙ ЛИСТОК</h3>
+                    <p style="font-size: 10pt;">
+                        за період з <span t-esc="payslip.date_from.strftime('%d.%m.%Y')"/> 
+                        по <span t-esc="payslip.date_to.strftime('%d.%m.%Y')"/>
+                    </p>
+                </div>
+                
+                <table style="width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 10pt;">
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 5px; width: 25%;"><strong>Працівник:</strong></td>
+                        <td style="border: 1px solid #000; padding: 5px; width: 25%;"><t t-esc="payslip.employee_id.name"/></td>
+                        <td style="border: 1px solid #000; padding: 5px; width: 25%;"><strong>Табельний №:</strong></td>
+                        <td style="border: 1px solid #000; padding: 5px; width: 25%;"><t t-esc="payslip.employee_id.employee_number or ''"/></td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 5px;"><strong>Підрозділ:</strong></td>
+                        <td style="border: 1px solid #000; padding: 5px;"><t t-esc="payslip.department_id.name or ''"/></td>
+                        <td style="border: 1px solid #000; padding: 5px;"><strong>Посада:</strong></td>
+                        <td style="border: 1px solid #000; padding: 5px;"><t t-esc="payslip.job_id.name or ''"/></td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 5px;"><strong>РНОКПП:</strong></td>
+                        <td style="border: 1px solid #000; padding: 5px;"><t t-esc="payslip.rnokpp or ''"/></td>
+                        <td style="border: 1px solid #000; padding: 5px;"><strong>Відпрацьовано:</strong></td>
+                        <td style="border: 1px solid #000; padding: 5px;"><t t-esc="payslip.worked_days"/> дн. / <t t-esc="payslip.worked_hours"/> год.</td>
+                    </tr>
+                </table>
+                
+                <table style="width: 100%; border-collapse: collapse; font-size: 10pt;">
+                    <tr style="background-color: #f0f0f0;">
+                        <th style="border: 1px solid #000; padding: 5px; width: 50%; text-align: left;">НАРАХОВАНО</th>
+                        <th style="border: 1px solid #000; padding: 5px; width: 50%; text-align: left;">УТРИМАНО</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #000; padding: 0; vertical-align: top;">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <t t-foreach="payslip.accrual_ids" t-as="accrual">
+                                    <tr>
+                                        <td style="padding: 3px; border-bottom: 1px solid #ddd;">
+                                            <t t-esc="accrual.accrual_type_id.name"/>
+                                            <t t-if="accrual.notes">
+                                                <span style="font-size: 9pt; color: #666;"> (<t t-esc="accrual.notes"/>)</span>
+                                            </t>
+                                        </td>
+                                        <td style="padding: 3px; border-bottom: 1px solid #ddd; text-align: right; width: 100px;">
+                                            <t t-esc="'{:,.2f}'.format(accrual.amount)"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr style="background-color: #f9f9f9; font-weight: bold;">
+                                    <td style="padding: 5px;">ВСЬОГО НАРАХОВАНО:</td>
+                                    <td style="padding: 5px; text-align: right;"><t t-esc="'{:,.2f}'.format(payslip.gross_salary)"/></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="border: 1px solid #000; padding: 0; vertical-align: top;">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <tr>
+                                    <td style="padding: 3px; border-bottom: 1px solid #ddd;">ПДФО (18%)</td>
+                                    <td style="padding: 3px; border-bottom: 1px solid #ddd; text-align: right; width: 100px;">
+                                        <t t-esc="'{:,.2f}'.format(payslip.pdfo_amount)"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 3px; border-bottom: 1px solid #ddd;">Військовий збір (5%)</td>
+                                    <td style="padding: 3px; border-bottom: 1px solid #ddd; text-align: right;">
+                                        <t t-esc="'{:,.2f}'.format(payslip.military_tax_amount)"/>
+                                    </td>
+                                </tr>
+                                <t t-foreach="payslip.deduction_ids" t-as="deduction">
+                                    <tr>
+                                        <td style="padding: 3px; border-bottom: 1px solid #ddd;">
+                                            <t t-esc="deduction.deduction_type_id.name"/>
+                                        </td>
+                                        <td style="padding: 3px; border-bottom: 1px solid #ddd; text-align: right;">
+                                            <t t-esc="'{:,.2f}'.format(deduction.amount)"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr style="background-color: #f9f9f9; font-weight: bold;">
+                                    <td style="padding: 5px;">ВСЬОГО УТРИМАНО:</td>
+                                    <td style="padding: 5px; text-align: right;"><t t-esc="'{:,.2f}'.format(payslip.total_deductions)"/></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                
+                <table style="width: 100%; margin-top: 15px; font-size: 11pt;">
+                    <tr>
+                        <td style="width: 70%;"></td>
+                        <td style="width: 30%; border: 2px solid #000; padding: 10px; text-align: center; background-color: #f9f9f9;">
+                            <strong>ДО ВИПЛАТИ:</strong><br/>
+                            <span style="font-size: 16pt; font-weight: bold;">
+                                <t t-esc="'{:,.2f}'.format(payslip.net_salary)"/> грн
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                
+                <t t-if="payslip.psp_amount > 0">
+                    <p style="font-size: 9pt; margin-top: 10px; color: #666;">
+                        * Застосовано ПСП у розмірі <t t-esc="'{:,.2f}'.format(payslip.psp_amount)"/> грн
+                    </p>
+                </t>
+                
+                <p style="font-size: 9pt; margin-top: 5px; color: #666;">
+                    ЄСВ (нарахування роботодавця): <t t-esc="'{:,.2f}'.format(payslip.esv_amount)"/> грн
+                </p>
+                
+                <div style="margin-top: 30px; font-size: 10pt;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 50%;">
+                                Дата формування: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d.%m.%Y')"/>
+                            </td>
+                            <td style="width: 50%; text-align: right;">
+                                Бухгалтер: _______________
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+            </div>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_recipe_list" model="ir.ui.view">
+        <field name="name">l10n_ua.meal.recipe.list</field>
+        <field name="model">l10n_ua.meal.recipe</field>
+        <field name="arch" type="xml">
+            <list string="Технологічні картки">
+                <field name="code" optional="hide"/>
+                <field name="name"/>
+                <field name="meal_kind"/>
+                <field name="age_group"/>
+                <field name="yield_grams"/>
+                <field name="calories_kcal"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_recipe_form" model="ir.ui.view">
+        <field name="name">l10n_ua.meal.recipe.form</field>
+        <field name="model">l10n_ua.meal.recipe</field>
+        <field name="arch" type="xml">
+            <form string="Технологічна картка">
+                <sheet>
+                    <div class="oe_title"><h1><field name="name"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="meal_kind"/>
+                            <field name="age_group"/>
+                            <field name="yield_grams"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Поживна цінність на порцію">
+                            <field name="calories_kcal"/>
+                            <field name="protein_g"/>
+                            <field name="fat_g"/>
+                            <field name="carbohydrate_g"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Інгредієнти" name="ingredients">
+                            <field name="ingredient_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="gross_g"/>
+                                    <field name="quantity_g"/>
+                                    <field name="note"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Технологія" name="cooking">
+                            <field name="cooking_instructions" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_recipe" model="ir.actions.act_window">
+        <field name="name">Технологічні картки</field>
+        <field name="res_model">l10n_ua.meal.recipe</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

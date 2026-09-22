@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="menu_supplier_prices_root"
+              name="Supplier Prices"
+              parent="purchase.menu_purchase_root"
+              sequence="50"
+              groups="group_supplier_prices_user"/>
+
+    <menuitem id="menu_supplier_price_imports"
+              name="Imports"
+              parent="menu_supplier_prices_root"
+              action="action_supplier_price_import"
+              sequence="10"/>
+
+    <menuitem id="menu_supplier_prices_config"
+              name="Configuration"
+              parent="menu_supplier_prices_root"
+              sequence="90"
+              groups="group_supplier_prices_manager"/>
+
+    <menuitem id="menu_supplier_price_sources"
+              name="Sources"
+              parent="menu_supplier_prices_config"
+              action="action_supplier_price_source"
+              sequence="10"/>
+
+    <menuitem id="menu_supplier_price_mappings"
+              name="Mappings"
+              parent="menu_supplier_prices_config"
+              action="action_supplier_price_mapping"
+              sequence="20"/>
+
+</odoo>

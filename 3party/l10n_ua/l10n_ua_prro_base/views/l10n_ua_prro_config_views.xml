@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_prro_config_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.prro.config.form</field>
+        <field name="model">l10n_ua.prro.config</field>
+        <field name="arch" type="xml">
+            <form string="PRRO Configuration">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="provider"/>
+                            <field name="fiscal_number"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="current_shift_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="POS" name="pos">
+                            <field name="pos_config_ids" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+                    <field name="error_message" readonly="1" invisible="not error_message"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_prro_config_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.prro.config.list</field>
+        <field name="model">l10n_ua.prro.config</field>
+        <field name="arch" type="xml">
+            <list string="PRRO Configurations">
+                <field name="name"/>
+                <field name="provider"/>
+                <field name="fiscal_number"/>
+                <field name="current_shift_id"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_prro_config_action" model="ir.actions.act_window">
+        <field name="name">PRRO Configurations</field>
+        <field name="res_model">l10n_ua.prro.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

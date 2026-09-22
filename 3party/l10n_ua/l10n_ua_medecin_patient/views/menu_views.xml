@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_patient"
+              name="Пацієнти"
+              parent="l10n_ua_medecin_base.menu_medecin_root"
+              action="action_patient"
+              sequence="10"/>
+
+    <menuitem id="menu_declaration"
+              name="Декларації"
+              parent="l10n_ua_medecin_base.menu_medecin_root"
+              action="action_declaration"
+              sequence="20"/>
+</odoo>

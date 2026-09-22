@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_supplier_price_mapping_list" model="ir.ui.view">
+        <field name="name">l10n_ua.supplier.price.mapping.list</field>
+        <field name="model">l10n_ua.supplier.price.mapping</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <list string="Mappings">
+                <field name="name"/>
+                <field name="source_count"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_supplier_price_mapping_form" model="ir.ui.view">
+        <field name="name">l10n_ua.supplier.price.mapping.form</field>
+        <field name="model">l10n_ua.supplier.price.mapping</field>
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <form string="Mapping">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Generic A — JSON v1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="record_path" placeholder="items, products.list, //product"/>
+                            <field name="source_count"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <field name="description" placeholder="Опис призначення цього mapping..."/>
+                    <notebook>
+                        <page string="Parser Config">
+                            <field name="parser_config" widget="text"
+                                   placeholder='{"delimiter": ";", "encoding": "utf-8", "has_header": true}'/>
+                            <p class="text-muted">
+                                JSON з налаштуваннями парсера. Структура залежить від
+                                <em>parser_type</em> у source.
+                            </p>
+                        </page>
+                        <page string="Fields">
+                            <field name="field_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="target"/>
+                                    <field name="source_path"/>
+                                    <field name="required"/>
+                                    <field name="default_value"/>
+                                    <field name="transform"/>
+                                    <field name="transform_param"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_supplier_price_mapping" model="ir.actions.act_window">
+        <field name="name">Mappings</field>
+        <field name="res_model">l10n_ua.supplier.price.mapping</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

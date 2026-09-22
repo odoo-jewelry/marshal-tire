@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- The columns stand in the same order as on paper. Only the amounts are
+         totalled — the form does not total quantities either, because products
+         are measured in different units. -->
+    <record id="view_material_report_line_list" model="ir.ui.view">
+        <field name="name">l10n_ua.material.report.line.list</field>
+        <field name="model">l10n_ua.material.report.line</field>
+        <field name="arch" type="xml">
+            <!-- No buttons in the header: the period is set with the date
+                 range in the control panel, narrowing with the left-hand
+                 panel and the filters, printing under the cog. A separate
+                 parameter dialog has nothing left to ask. -->
+            <list string="Material Report"
+                  js_class="l10n_ua_material_report_list"
+                  create="0" edit="0" delete="0">
+                <field name="default_code" string="Product Reference"
+                       optional="hide"/>
+                <field name="product_id" string="Material"/>
+                <field name="location_id" optional="show"/>
+                <field name="categ_id" optional="show"/>
+                <field name="uom_id" string="UoM" optional="show"/>
+                <field name="price" string="Price" optional="show"/>
+                <field name="opening_qty" string="Opening Balance, Qty"/>
+                <field name="opening_value" string="Opening Balance, Amount"
+                       sum="Total"/>
+                <field name="in_qty" string="Receipts, Qty"/>
+                <field name="in_value" string="Receipts, Amount" sum="Total"/>
+                <field name="out_qty" string="Issues, Qty"/>
+                <field name="out_value" string="Issues, Amount" sum="Total"/>
+                <field name="closing_qty" string="Closing Balance, Qty"
+                       decoration-danger="closing_qty &lt; 0"/>
+                <field name="closing_value" string="Closing Balance, Amount"
+                       sum="Total"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="company_id" column_invisible="True"
+                       groups="base.group_multi_company"/>
+                <!-- A button and not a click on the row, because a row of a list opens that very
+                     record everywhere in Odoo — the standard stock on hand puts
+                     its History button in the row for the same reason
+                     (stock/views/stock_quant_views.xml). Both directions
+                     because a row holds receipts and issues at once and a
+                     single click cannot mean one of them; the pivot table, where
+                     a cell names its measure, offers them separately. -->
+                <button name="action_view_movements" string="History"
+                        type="object" class="btn-link" icon="fa-history"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- The order of the measures is the order they are named here: the arch
+         parser keeps it and the table lays the columns out in the same
+         sequence (`_getMeasuresRow` in
+         web/static/src/views/pivot/pivot_model.js), so the two views of one
+         report read alike and the eye does not have to relearn the row.
+
+         One thing to keep in mind while reading a quantity total: a category
+         holds products of different units, and a sum over it adds kilograms to
+         pieces. The amounts are the figures that add up across a category;
+         the quantities are meant to be read per product.
+
+         The month is a column rather than a row, and that is not a matter of
+         taste. Receipts and issues are flows and add up across months.
+         Balances are a state at a moment and must not be added: the sum of
+         the March and April balances means nothing. As long as the month
+         remains a dimension of the table, every cell falls within one month
+         and tells the truth; folding the months together is honest for
+         receipts and issues only. -->
+    <record id="view_material_report_line_pivot" model="ir.ui.view">
+        <field name="name">l10n_ua.material.report.line.pivot</field>
+        <field name="model">l10n_ua.material.report.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Material Report"
+                   js_class="l10n_ua_material_report_pivot">
+                <field name="categ_id" type="row"/>
+                <field name="product_id" type="row"/>
+                <field name="date_from" interval="month" type="col"/>
+                <field name="opening_qty" type="measure"/>
+                <field name="opening_value" type="measure"/>
+                <field name="in_qty" type="measure"/>
+                <field name="in_value" type="measure"/>
+                <field name="out_qty" type="measure"/>
+                <field name="out_value" type="measure"/>
+                <field name="closing_qty" type="measure"/>
+                <field name="closing_value" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_material_report_line_search" model="ir.ui.view">
+        <field name="name">l10n_ua.material.report.line.search</field>
+        <field name="model">l10n_ua.material.report.line</field>
+        <field name="arch" type="xml">
+            <search string="Material Report">
+                <field name="product_id" string="Product"
+                       filter_domain="['|', ('default_code', 'ilike', self), ('product_id', 'ilike', self)]"/>
+                <field name="categ_id"/>
+                <field name="location_id"/>
+                <filter name="with_movement" string="Moved in the Period"
+                        domain="['|', ('in_qty', '!=', 0), ('out_qty', '!=', 0)]"/>
+                <filter name="with_closing" string="Has a Closing Balance"
+                        domain="[('closing_qty', '!=', 0)]"/>
+                <separator/>
+                <filter name="negative_closing" string="Negative Balance"
+                        domain="[('closing_qty', '&lt;', 0)]"/>
+                <group name="groupby">
+                    <!-- "Period", not "Month": Odoo unfolds a date grouping
+                         into a second level of Day / Week / Month / Quarter /
+                         Year by itself, and the same name on both levels would
+                         read as a mistake. The month stays the default step. -->
+                    <filter name="group_month" string="Period"
+                            domain="[]" context="{'group_by': 'date_from:month'}"/>
+                    <filter name="group_categ" string="Product Category"
+                            domain="[]" context="{'group_by': 'categ_id'}"/>
+                    <filter name="group_location" string="Storage Place"
+                            domain="[]" context="{'group_by': 'location_id'}"/>
+                    <filter name="group_product" string="Product"
+                            domain="[]" context="{'group_by': 'product_id'}"/>
+                </group>
+                <!-- The left-hand panel is the same navigation as in the
+                     standard Inventory report: first narrow to a category or a
+                     place, then read. Places are shown as checkboxes, because
+                     several are compared at once (one shelf against another),
+                     whereas a category is taken one at a time. -->
+                <searchpanel>
+                    <field name="categ_id" icon="fa-filter"
+                           string="Product Category" enable_counters="1"/>
+                    <field name="location_id" icon="fa-map-marker"
+                           string="Storage Place" select="multi"
+                           enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_material_report_lines" model="ir.actions.act_window">
+        <field name="name">Material Report (M-19)</field>
+        <field name="res_model">l10n_ua.material.report.line</field>
+        <field name="view_mode">list,pivot</field>
+        <field name="search_view_id" ref="view_material_report_line_search"/>
+        <!-- The report on screen is one report, and this is what says so when
+             the action is loaded from its id alone.
+
+             The browser Back button is where that happens. The URL remembers an
+             action by id and keeps `active_id` beside it, nothing more
+             (`makeState` in web/webclient/actions/action_service.js) — the
+             domain the wizard put on the action when it opened is not in the
+             URL. Coming back from a drilled-down list, the client reloads the
+             action from the server, and without this line the reader would get
+             every row they ever produced, each product once per report they ran
+             that day, all with the same numbers.
+
+             `active_id` is therefore the wizard, which is exactly what the word
+             means here: the record the report was opened from. -->
+        <field name="domain">[('wizard_id', '=', active_id)]</field>
+        <field name="context">{'create': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                No movement and no balance for the selected period
+            </p><p>
+                Change the period with the date range above, or clear the filters.
+            </p>
+        </field>
+    </record>
+
+    <!-- The menu opens the report itself rather than a dialog: the current
+         month for the main store of the company. Everything else is done from
+         within the report — the period with the date range in the control
+         panel, narrowing with the left-hand panel, printing under the cog — so
+         there is no separate parameter form any more. -->
+    <record id="action_material_report_open" model="ir.actions.server">
+        <field name="name">Material Report (M-19)</field>
+        <field name="model_id" ref="model_l10n_ua_material_report_wizard"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_default_report()</field>
+    </record>
+
+    <menuitem id="menu_material_report"
+              name="Material Report (M-19)"
+              parent="stock.menu_warehouse_report"
+              action="action_material_report_open"
+              sequence="90"/>
+
+</odoo>

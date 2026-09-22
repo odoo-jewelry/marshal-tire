@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_version_allowance_view_form" model="ir.ui.view">
+        <field name="name">hr.version.allowance.form</field>
+        <field name="model">hr.version.allowance</field>
+        <field name="arch" type="xml">
+            <form string="Version Allowance">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="version_id"/>
+                            <field name="employee_id"/>
+                            <field name="allowance_type_id"/>
+                        </group>
+                        <group>
+                            <field name="calculation_method"/>
+                            <field name="amount" invisible="calculation_method != 'fixed'"/>
+                            <field name="percent" invisible="calculation_method == 'fixed'"/>
+                            <field name="calculated_amount"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="is_active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_version_allowance_view_list" model="ir.ui.view">
+        <field name="name">hr.version.allowance.list</field>
+        <field name="model">hr.version.allowance</field>
+        <field name="arch" type="xml">
+            <list string="Version Allowances" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="employee_id"/>
+                <field name="allowance_type_id"/>
+                <field name="calculation_method"/>
+                <field name="amount" invisible="calculation_method != 'fixed'"/>
+                <field name="percent" invisible="calculation_method == 'fixed'"/>
+                <field name="calculated_amount" sum="Total"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="is_active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hr_version_allowance" model="ir.actions.act_window">
+        <field name="name">Version Allowances</field>
+        <field name="res_model">hr.version.allowance</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

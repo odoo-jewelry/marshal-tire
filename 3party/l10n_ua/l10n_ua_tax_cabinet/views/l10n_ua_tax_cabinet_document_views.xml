@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Extend tax document form view with Cabinet features -->
+    <record id="l10n_ua_tax_document_view_form_cabinet" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.document.form.cabinet</field>
+        <field name="model">l10n_ua.tax.document</field>
+        <field name="inherit_id" ref="l10n_ua_tax.l10n_ua_tax_document_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Add Cabinet buttons to header -->
+            <xpath expr="//button[@name='action_prepare']" position="after">
+                <button name="action_sign_document" string="Sign with KEP" type="object"
+                        invisible="not file_xml or state not in ('draft', 'prepared')" class="btn-secondary"
+                        help="Sign document with KEP"/>
+                <button name="action_submit_to_cabinet" string="Submit to Cabinet" type="object"
+                        invisible="not file_xml or state not in ('draft', 'prepared', 'signed')" class="btn-primary"
+                        help="Sign, encrypt and submit document to cabinet.tax.gov.ua"/>
+            </xpath>
+
+            <!-- Add Cabinet buttons to button box -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_download_signed" type="object" class="oe_stat_button"
+                        icon="fa-certificate" invisible="not file_signed">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Download Signed</span>
+                    </div>
+                </button>
+                <button name="action_redownload_files" type="object" class="oe_stat_button"
+                        icon="fa-download" invisible="source != 'cabinet' or not external_id">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Re-download</span>
+                    </div>
+                </button>
+            </xpath>
+
+            <!-- Add Cabinet-specific fields to Company group -->
+            <xpath expr="//field[@name='taxpayer_code']" position="after">
+                <field name="source"/>
+                <field name="external_id" invisible="source != 'cabinet'"/>
+                <field name="sync_date" invisible="source != 'cabinet'"/>
+            </xpath>
+
+            <!-- Add signed file to Files page -->
+            <xpath expr="//page[@name='files']/group/group[2]" position="after">
+                <group invisible="not file_signed">
+                    <field name="file_signed" filename="file_signed_name"/>
+                    <field name="file_signed_name" invisible="1"/>
+                </group>
+            </xpath>
+
+            <!-- Replace XML preview with custom xml_viewer widget -->
+            <xpath expr="//page[@name='xml_preview']" position="replace">
+                <page string="XML Preview" name="xml_preview" invisible="not file_xml">
+                    <field name="file_xml" widget="xml_viewer" nolabel="1"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Extend tax document list view with Cabinet features -->
+    <record id="l10n_ua_tax_document_view_list_cabinet" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.document.list.cabinet</field>
+        <field name="model">l10n_ua.tax.document</field>
+        <field name="inherit_id" ref="l10n_ua_tax.l10n_ua_tax_document_view_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="source" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Extend tax document search view with Cabinet filters -->
+    <record id="l10n_ua_tax_document_view_search_cabinet" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.document.search.cabinet</field>
+        <field name="model">l10n_ua.tax.document</field>
+        <field name="inherit_id" ref="l10n_ua_tax.l10n_ua_tax_document_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='rejected']" position="after">
+                <filter name="signed" string="Signed" domain="[('state', '=', 'signed')]"/>
+            </xpath>
+            <xpath expr="//filter[@name='rejected']" position="after">
+                <separator/>
+                <filter name="from_cabinet" string="From Cabinet" domain="[('source', '=', 'cabinet')]"/>
+                <filter name="manual" string="Manual" domain="[('source', '=', 'manual')]"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

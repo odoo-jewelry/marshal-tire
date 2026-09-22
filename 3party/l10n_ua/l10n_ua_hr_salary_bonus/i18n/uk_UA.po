@@ -1,0 +1,282 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_hr_salary_bonus
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-05 12:00+0000\n"
+"PO-Revision-Date: 2026-04-05 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk_UA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model,name:l10n_ua_hr_salary_bonus.model_hr_bonus
+msgid "Employee Bonus"
+msgstr "Премія працівника"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model,name:l10n_ua_hr_salary_bonus.model_hr_bonus_type
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus__bonus_type_id
+msgid "Bonus Type"
+msgstr "Тип премії"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus__name
+msgid "Reference"
+msgstr "Номер"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus__employee_id
+msgid "Employee"
+msgstr "Працівник"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus__date
+msgid "Date"
+msgstr "Дата"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus__amount
+msgid "Amount"
+msgstr "Сума"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus__state
+msgid "Status"
+msgstr "Статус"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary_bonus.selection__hr_bonus__state__draft
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary_bonus.selection__hr_bonus__state__confirmed
+msgid "Confirmed"
+msgstr "Підтверджено"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary_bonus.selection__hr_bonus__state__paid
+msgid "Paid"
+msgstr "Виплачено"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus__notes
+msgid "Notes"
+msgstr "Примітки"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus__payslip_id
+msgid "Payslip"
+msgstr "Розрахунковий листок"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus__department_id
+msgid "Department"
+msgstr "Відділ"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus_type__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus_type__code
+msgid "Code"
+msgstr "Код"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus_type__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus_type__is_taxable_pdfo
+msgid "Taxable (PDFO)"
+msgstr "Оподатковується ПДФО"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus_type__is_military_tax
+msgid "Military Tax"
+msgstr "Військовий збір"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus_type__is_esv_base
+msgid "ESV Base"
+msgstr "База ЄСВ"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus_type__d4_income_type
+msgid "4DF Income Type"
+msgstr "Код доходу 4ДФ"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_bonus_type__active
+msgid "Active"
+msgstr "Активний"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_employee__bonus_system_enabled
+msgid "Bonus System Enabled"
+msgstr "Бонусна система увімкнена"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_employee__bonus_ids
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary_bonus.action_hr_bonus
+#: model:ir.ui.menu,name:l10n_ua_hr_salary_bonus.menu_hr_bonus_root
+#: model:ir.ui.menu,name:l10n_ua_hr_salary_bonus.menu_hr_bonus
+msgid "Bonuses"
+msgstr "Премії"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_bonus.field_hr_employee__bonus_count
+msgid "Bonus Count"
+msgstr "Кількість премій"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary_bonus.action_hr_bonus_type
+#: model:ir.ui.menu,name:l10n_ua_hr_salary_bonus.menu_hr_bonus_type
+msgid "Bonus Types"
+msgstr "Типи премій"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.hr_bonus_view_form
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.hr_bonus_view_form
+msgid "Reset to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.hr_bonus_view_form
+msgid "Payroll Integration"
+msgstr "Інтеграція з зарплатою"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.hr_bonus_type_view_form
+msgid "General"
+msgstr "Загальні"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.hr_bonus_type_view_form
+msgid "Tax Settings"
+msgstr "Податкові налаштування"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.hr_employee_view_form_inherit_bonus
+msgid "Bonus System"
+msgstr "Бонусна система"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.hr_bonus_view_search
+msgid "This Month"
+msgstr "Цей місяць"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.hr_bonus_view_search
+msgid "Last Month"
+msgstr "Минулий місяць"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.hr_bonus_type_view_search
+msgid "Archived"
+msgstr "Архівовані"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,help:l10n_ua_hr_salary_bonus.field_hr_bonus_type__is_taxable_pdfo
+msgid "Include in personal income tax (PDFO) calculation"
+msgstr "Включати в розрахунок податку на доходи фізичних осіб (ПДФО)"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,help:l10n_ua_hr_salary_bonus.field_hr_bonus_type__is_military_tax
+msgid "Include in military tax calculation"
+msgstr "Включати в розрахунок військового збору"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,help:l10n_ua_hr_salary_bonus.field_hr_bonus_type__is_esv_base
+msgid "Include in unified social contribution (ESV) base"
+msgstr "Включати в базу єдиного соціального внеску (ЄСВ)"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,help:l10n_ua_hr_salary_bonus.field_hr_bonus_type__d4_income_type
+msgid "Income type code for 4DF tax report"
+msgstr "Код типу доходу для звіту 4ДФ"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,help:l10n_ua_hr_salary_bonus.field_hr_employee__bonus_system_enabled
+msgid "Enable bonus system for this employee. When enabled, confirmed bonuses will be included in payroll calculation."
+msgstr "Увімкнути бонусну систему для цього працівника. При увімкненні підтверджені премії будуть включені в розрахунок зарплати."
+
+#. module: l10n_ua_hr_salary_bonus
+#: model:ir.model.fields,help:l10n_ua_hr_salary_bonus.field_hr_bonus__payslip_id
+msgid "Payslip that includes this bonus"
+msgstr "Розрахунковий листок, що включає цю премію"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.action_hr_bonus
+msgid "Create your first bonus"
+msgstr "Створіть вашу першу премію"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.action_hr_bonus
+msgid "Bonuses are included in payroll calculation when confirmed."
+msgstr "Премії включаються в розрахунок зарплати після підтвердження."
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.action_hr_bonus_type
+msgid "Create your first bonus type"
+msgstr "Створіть ваш перший тип премії"
+
+#. module: l10n_ua_hr_salary_bonus
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_bonus.action_hr_bonus_type
+msgid "Bonus types define categories of bonuses with specific tax settings."
+msgstr "Типи премій визначають категорії премій з певними податковими налаштуваннями."
+
+#. module: l10n_ua_hr_salary_bonus
+#: code:addons/l10n_ua_hr_salary_bonus/models/hr_bonus.py:0
+#, python-format
+msgid "New"
+msgstr "Новий"
+
+#. module: l10n_ua_hr_salary_bonus
+#: code:addons/l10n_ua_hr_salary_bonus/models/hr_bonus.py:0
+#, python-format
+msgid "Only draft bonuses can be confirmed."
+msgstr "Тільки чернетки премій можуть бути підтверджені."
+
+#. module: l10n_ua_hr_salary_bonus
+#: code:addons/l10n_ua_hr_salary_bonus/models/hr_bonus.py:0
+#, python-format
+msgid "Bonus system is not enabled for employee %s. Enable it in employee settings first."
+msgstr "Бонусна система не увімкнена для працівника %s. Спочатку увімкніть її в налаштуваннях працівника."
+
+#. module: l10n_ua_hr_salary_bonus
+#: code:addons/l10n_ua_hr_salary_bonus/models/hr_bonus.py:0
+#, python-format
+msgid "Paid bonuses cannot be reset to draft."
+msgstr "Виплачені премії не можуть бути повернуті в чернетку."
+
+#. module: l10n_ua_hr_salary_bonus
+#: code:addons/l10n_ua_hr_salary_bonus/models/hr_bonus.py:0
+#, python-format
+msgid "Cannot delete paid bonuses."
+msgstr "Неможливо видалити виплачені премії."

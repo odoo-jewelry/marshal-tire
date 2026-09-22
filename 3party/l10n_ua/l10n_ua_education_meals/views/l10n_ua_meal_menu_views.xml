@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_menu_list" model="ir.ui.view">
+        <field name="name">l10n_ua.meal.menu.list</field>
+        <field name="model">l10n_ua.meal.menu</field>
+        <field name="arch" type="xml">
+            <list string="Меню" decoration-success="state == 'approved'"
+                  decoration-info="state == 'draft'">
+                <field name="menu_date"/>
+                <field name="age_group"/>
+                <field name="total_calories"/>
+                <field name="total_protein"/>
+                <field name="total_fat"/>
+                <field name="total_carbohydrate"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_menu_form" model="ir.ui.view">
+        <field name="name">l10n_ua.meal.menu.form</field>
+        <field name="model">l10n_ua.meal.menu</field>
+        <field name="arch" type="xml">
+            <form string="Меню">
+                <header>
+                    <button name="action_approve" type="object" string="Затвердити"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_reset_to_draft" type="object" string="У чернетку"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="menu_date"/>
+                        <field name="age_group"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                    <notebook>
+                        <page string="Страви" name="lines">
+                            <field name="line_ids" readonly="state == 'approved'">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="meal_kind"/>
+                                    <field name="recipe_id"/>
+                                    <field name="portion_grams"/>
+                                    <field name="calories"/>
+                                    <field name="protein"/>
+                                    <field name="fat"/>
+                                    <field name="carbohydrate"/>
+                                </list>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="total_calories"/>
+                                <field name="total_protein"/>
+                                <field name="total_fat"/>
+                                <field name="total_carbohydrate"/>
+                            </group>
+                        </page>
+                        <page string="Примітки" name="note">
+                            <field name="note" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_menu" model="ir.actions.act_window">
+        <field name="name">Меню</field>
+        <field name="res_model">l10n_ua.meal.menu</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

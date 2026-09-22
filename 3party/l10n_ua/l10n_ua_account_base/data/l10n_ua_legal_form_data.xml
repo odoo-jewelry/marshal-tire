@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Фізична особа-підприємець (FOP) -->
+        <record id="legal_form_fop" model="l10n_ua.legal.form">
+            <field name="code">FOP</field>
+            <field name="name">Фізична особа-підприємець</field>
+            <field name="short_name">ФОП</field>
+            <field name="is_fop">True</field>
+            <field name="is_legal_entity">False</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <!-- Товариство з обмеженою відповідальністю -->
+        <record id="legal_form_tov" model="l10n_ua.legal.form">
+            <field name="code">240</field>
+            <field name="name">Товариство з обмеженою відповідальністю</field>
+            <field name="short_name">ТОВ</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <!-- Приватне підприємство -->
+        <record id="legal_form_pp" model="l10n_ua.legal.form">
+            <field name="code">120</field>
+            <field name="name">Приватне підприємство</field>
+            <field name="short_name">ПП</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <!-- Товариство з додатковою відповідальністю -->
+        <record id="legal_form_tdv" model="l10n_ua.legal.form">
+            <field name="code">250</field>
+            <field name="name">Товариство з додатковою відповідальністю</field>
+            <field name="short_name">ТДВ</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <!-- Акціонерне товариство -->
+        <record id="legal_form_at" model="l10n_ua.legal.form">
+            <field name="code">230</field>
+            <field name="name">Акціонерне товариство</field>
+            <field name="short_name">АТ</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">5</field>
+        </record>
+
+        <!-- Публічне акціонерне товариство -->
+        <record id="legal_form_pat" model="l10n_ua.legal.form">
+            <field name="code">231</field>
+            <field name="name">Публічне акціонерне товариство</field>
+            <field name="short_name">ПАТ</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">6</field>
+        </record>
+
+        <!-- Приватне акціонерне товариство -->
+        <record id="legal_form_prat" model="l10n_ua.legal.form">
+            <field name="code">232</field>
+            <field name="name">Приватне акціонерне товариство</field>
+            <field name="short_name">ПрАТ</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">7</field>
+        </record>
+
+        <!-- Повне товариство -->
+        <record id="legal_form_pt" model="l10n_ua.legal.form">
+            <field name="code">210</field>
+            <field name="name">Повне товариство</field>
+            <field name="short_name">ПТ</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">8</field>
+        </record>
+
+        <!-- Командитне товариство -->
+        <record id="legal_form_kt" model="l10n_ua.legal.form">
+            <field name="code">220</field>
+            <field name="name">Командитне товариство</field>
+            <field name="short_name">КТ</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">9</field>
+        </record>
+
+        <!-- Державне підприємство -->
+        <record id="legal_form_dp" model="l10n_ua.legal.form">
+            <field name="code">140</field>
+            <field name="name">Державне підприємство</field>
+            <field name="short_name">ДП</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Комунальне підприємство -->
+        <record id="legal_form_kp" model="l10n_ua.legal.form">
+            <field name="code">150</field>
+            <field name="name">Комунальне підприємство</field>
+            <field name="short_name">КП</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">11</field>
+        </record>
+
+        <!-- Кооператив -->
+        <record id="legal_form_koop" model="l10n_ua.legal.form">
+            <field name="code">310</field>
+            <field name="name">Кооператив</field>
+            <field name="short_name">Кооп.</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">12</field>
+        </record>
+
+        <!-- Виробничий кооператив -->
+        <record id="legal_form_vk" model="l10n_ua.legal.form">
+            <field name="code">320</field>
+            <field name="name">Виробничий кооператив</field>
+            <field name="short_name">ВК</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">13</field>
+        </record>
+
+        <!-- Фермерське господарство -->
+        <record id="legal_form_fg" model="l10n_ua.legal.form">
+            <field name="code">130</field>
+            <field name="name">Фермерське господарство</field>
+            <field name="short_name">ФГ</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">14</field>
+        </record>
+
+        <!-- Громадська організація -->
+        <record id="legal_form_go" model="l10n_ua.legal.form">
+            <field name="code">810</field>
+            <field name="name">Громадська організація</field>
+            <field name="short_name">ГО</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">15</field>
+        </record>
+
+        <!-- Благодійна організація -->
+        <record id="legal_form_bo" model="l10n_ua.legal.form">
+            <field name="code">820</field>
+            <field name="name">Благодійна організація</field>
+            <field name="short_name">БО</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">16</field>
+        </record>
+
+        <!-- Об'єднання співвласників багатоквартирного будинку -->
+        <record id="legal_form_osbb" model="l10n_ua.legal.form">
+            <field name="code">876</field>
+            <field name="name">Об'єднання співвласників багатоквартирного будинку</field>
+            <field name="short_name">ОСББ</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">True</field>
+            <field name="sequence">17</field>
+        </record>
+
+        <!-- Представництво -->
+        <record id="legal_form_pred" model="l10n_ua.legal.form">
+            <field name="code">910</field>
+            <field name="name">Представництво</field>
+            <field name="short_name">Представ.</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">False</field>
+            <field name="sequence">18</field>
+        </record>
+
+        <!-- Філія -->
+        <record id="legal_form_filiya" model="l10n_ua.legal.form">
+            <field name="code">920</field>
+            <field name="name">Філія</field>
+            <field name="short_name">Філія</field>
+            <field name="is_fop">False</field>
+            <field name="is_legal_entity">False</field>
+            <field name="sequence">19</field>
+        </record>
+
+    </data>
+</odoo>

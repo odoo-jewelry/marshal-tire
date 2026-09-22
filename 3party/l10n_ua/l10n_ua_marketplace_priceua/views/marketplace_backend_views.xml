@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Extend backend form for Price.ua-specific fields -->
+        <record id="view_marketplace_backend_form_priceua" model="ir.ui.view">
+            <field name="name">marketplace.backend.form.priceua</field>
+            <field name="model">marketplace.backend</field>
+            <field name="inherit_id" ref="l10n_ua_marketplace_base.marketplace_backend_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='feed']/group" position="after">
+                    <group invisible="marketplace_type != 'priceua'">
+                        <group name="priceua_settings" string="Price.ua Settings">
+                            <field name="priceua_merchant_id"/>
+                            <field name="priceua_feed_category_id"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

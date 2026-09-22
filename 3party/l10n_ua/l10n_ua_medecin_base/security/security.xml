@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="group_ua_medecin_user" model="res.groups">
+            <field name="name">UA Medecin User</field>
+            <field name="comment">Базовий доступ до даних медичного закладу.</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_ua_medecin_manager" model="res.groups">
+            <field name="name">UA Medecin Manager</field>
+            <field name="comment">Повний доступ: конфігурація типу закладу, ліцензій, договорів НСЗУ.</field>
+            <field name="implied_ids" eval="[(4, ref('group_ua_medecin_user'))]"/>
+        </record>
+    </data>
+</odoo>

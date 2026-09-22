@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="seq_hr_bonus" model="ir.sequence">
+            <field name="name">Bonus</field>
+            <field name="code">hr.bonus</field>
+            <field name="prefix">BON/%(year)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

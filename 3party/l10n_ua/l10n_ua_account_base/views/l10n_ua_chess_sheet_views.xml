@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_chess_sheet_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.chess.sheet.form</field>
+        <field name="model">l10n_ua.chess.sheet</field>
+        <field name="arch" type="xml">
+            <form string="Chess Sheet">
+                <header>
+                    <button name="action_compute" string="Compute" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_draft" string="Set to Draft" type="object" invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="period_start"/>
+                            <field name="period_end"/>
+                        </group>
+                        <group>
+                            <field name="total_amount"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Correspondence matrix" name="cells">
+                            <field name="line_ids">
+                                <list default_group_by="debit_account_id">
+                                    <field name="debit_account_id"/>
+                                    <field name="credit_account_id"/>
+                                    <field name="amount" sum="Total"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_chess_sheet_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.chess.sheet.list</field>
+        <field name="model">l10n_ua.chess.sheet</field>
+        <field name="arch" type="xml">
+            <list string="Chess Sheets">
+                <field name="name"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="total_amount"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_chess_sheet_action" model="ir.actions.act_window">
+        <field name="name">Chess Sheet</field>
+        <field name="res_model">l10n_ua.chess.sheet</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

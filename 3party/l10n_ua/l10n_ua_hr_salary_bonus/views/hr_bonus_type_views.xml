@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_bonus_type_view_form" model="ir.ui.view">
+        <field name="name">hr.bonus.type.form</field>
+        <field name="model">hr.bonus.type</field>
+        <field name="arch" type="xml">
+            <form string="Bonus Type">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Bonus Type Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="General">
+                            <field name="code"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Tax Settings">
+                            <field name="is_taxable_pdfo"/>
+                            <field name="is_military_tax"/>
+                            <field name="is_esv_base"/>
+                            <field name="d4_income_type"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_bonus_type_view_list" model="ir.ui.view">
+        <field name="name">hr.bonus.type.list</field>
+        <field name="model">hr.bonus.type</field>
+        <field name="arch" type="xml">
+            <list string="Bonus Types">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="is_taxable_pdfo"/>
+                <field name="is_military_tax"/>
+                <field name="is_esv_base"/>
+                <field name="d4_income_type"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_bonus_type_view_search" model="ir.ui.view">
+        <field name="name">hr.bonus.type.search</field>
+        <field name="model">hr.bonus.type</field>
+        <field name="arch" type="xml">
+            <search string="Bonus Types">
+                <field name="name"/>
+                <field name="code"/>
+                <separator/>
+                <filter string="Archived" name="filter_inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_bonus_type" model="ir.actions.act_window">
+        <field name="name">Bonus Types</field>
+        <field name="res_model">hr.bonus.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first bonus type
+            </p>
+            <p>
+                Bonus types define categories of bonuses with specific tax settings.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_journal_order_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.journal.order.form</field>
+        <field name="model">l10n_ua.journal.order</field>
+        <field name="arch" type="xml">
+            <form string="Journal Order">
+                <header>
+                    <button name="action_compute" string="Compute" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_draft" string="Set to Draft" type="object" invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="journal_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="period_start"/>
+                            <field name="period_end"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="total_debit"/>
+                        </group>
+                        <group>
+                            <field name="total_credit"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="date"/>
+                                    <field name="account_id"/>
+                                    <field name="partner_id"/>
+                                    <field name="description"/>
+                                    <field name="debit" sum="Total Debit"/>
+                                    <field name="credit" sum="Total Credit"/>
+                                    <field name="move_id" optional="hide"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_journal_order_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.journal.order.list</field>
+        <field name="model">l10n_ua.journal.order</field>
+        <field name="arch" type="xml">
+            <list string="Journal Orders">
+                <field name="name"/>
+                <field name="journal_id"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="total_debit" sum="Total"/>
+                <field name="total_credit" sum="Total"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_journal_order_action" model="ir.actions.act_window">
+        <field name="name">Journal Orders</field>
+        <field name="res_model">l10n_ua.journal.order</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_payslip_bank_export_view_form" model="ir.ui.view">
+        <field name="name">hr.payslip.bank.export.form</field>
+        <field name="model">hr.payslip.bank.export</field>
+        <field name="arch" type="xml">
+            <form string="Зарплатний файл у банк">
+                <group invisible="state == 'done'">
+                    <group>
+                        <field name="payslip_run_id"/>
+                        <field name="date_from" invisible="payslip_run_id"
+                               required="not payslip_run_id"/>
+                        <field name="date_to" invisible="payslip_run_id"
+                               required="not payslip_run_id"/>
+                    </group>
+                    <group>
+                        <field name="file_format"/>
+                        <field name="payer_account_id"/>
+                        <field name="transit_account_id"
+                               invisible="file_format not in ('ifobs',)"
+                               required="file_format == 'ifobs'"/>
+                        <field name="salary_project_code"
+                               invisible="file_format not in ('ifobs',)"/>
+                        <field name="accrual_name"
+                               invisible="file_format not in ('ifobs', 'ibank2')"/>
+                        <field name="payment_purpose"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                </group>
+                <group invisible="state != 'done'">
+                    <field name="file_name" invisible="1"/>
+                    <field name="file_data" filename="file_name" readonly="1"/>
+                    <div class="text-muted">
+                        Файл сформовано. Завантажте його і імпортуйте в клієнт-банк.
+                    </div>
+                </group>
+                <footer>
+                    <button name="action_generate" string="Сформувати"
+                            type="object" class="btn-primary"
+                            invisible="state == 'done'"/>
+                    <button string="Закрити" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_payslip_bank_export" model="ir.actions.act_window">
+        <field name="name">Зарплатний файл у банк</field>
+        <field name="res_model">hr.payslip.bank.export</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_hr_payslip_bank_export"
+              name="Зарплатний файл у банк"
+              parent="menu_hr_payroll_root"
+              action="action_hr_payslip_bank_export"
+              sequence="50"
+              groups="l10n_ua_hr_base.group_hr_ua_officer"/>
+
+</odoo>

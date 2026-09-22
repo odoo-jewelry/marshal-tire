@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_encounter_list" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.encounter.list</field>
+        <field name="model">l10n_ua.medecin.encounter</field>
+        <field name="arch" type="xml">
+            <list string="Прийоми"
+                  decoration-info="state == 'planned'"
+                  decoration-warning="state == 'in_progress'"
+                  decoration-success="state == 'finished'"
+                  decoration-muted="state == 'cancelled'">
+                <field name="date_start"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="encounter_type"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_encounter_form" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.encounter.form</field>
+        <field name="model">l10n_ua.medecin.encounter</field>
+        <field name="arch" type="xml">
+            <form string="Прийом">
+                <header>
+                    <button name="action_start" string="Розпочати" type="object"
+                            class="btn-primary" invisible="state != 'planned'"/>
+                    <button name="action_finish" string="Завершити" type="object"
+                            class="btn-primary" invisible="state != 'in_progress'"/>
+                    <button name="action_cancel" string="Скасувати" type="object"
+                            invisible="state in ('finished', 'cancelled')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="planned,in_progress,finished"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="doctor_id"/>
+                            <field name="encounter_type"/>
+                        </group>
+                        <group>
+                            <field name="date_start"/>
+                            <field name="date_end" readonly="state != 'in_progress'"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Скарги / Анамнез" name="complaint">
+                            <field name="complaint" nolabel="1"/>
+                        </page>
+                        <page string="Об'єктивний огляд" name="exam">
+                            <field name="examination" nolabel="1"/>
+                        </page>
+                        <page string="Діагнози" name="diagnoses">
+                            <field name="diagnosis_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="icd10_id"/>
+                                    <field name="icd10_code" readonly="1"/>
+                                    <field name="is_primary"/>
+                                    <field name="is_chronic"/>
+                                    <field name="note"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Лікування" name="treatment">
+                            <field name="treatment" nolabel="1"/>
+                        </page>
+                        <page string="Примітки" name="notes">
+                            <field name="notes" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_encounter" model="ir.actions.act_window">
+        <field name="name">Прийоми</field>
+        <field name="res_model">l10n_ua.medecin.encounter</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Payment Order Report Template (Платіжне доручення) -->
+    <template id="report_payment_order_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+
+                        <div class="ua-report-title" style="font-size: 12pt; margin-bottom: 10px;">
+                            ПЛАТІЖНЕ ДОРУЧЕННЯ
+                        </div>
+
+                        <!-- Header: number + date -->
+                        <table class="mb-3" style="width: auto;">
+                            <tr>
+                                <td class="text-center" style="width: 80px;">Номер<br/>документа</td>
+                                <td class="text-center" style="width: 100px;">Дата<br/>складання</td>
+                                <td class="text-center" style="width: 100px;">Дата<br/>валютування</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center bold">
+                                    <span t-field="o.ua_payment_order_number"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="o.date" t-options='{"widget": "date"}'/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="o.date" t-options='{"widget": "date"}'/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Payer block -->
+                        <table class="mb-3" style="width: 100%;">
+                            <tr>
+                                <td style="width: 120px; vertical-align: top;" class="bold">Платник:</td>
+                                <td>
+                                    <span t-field="o.company_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Код платника:</td>
+                                <td>
+                                    <span t-field="o.company_id.company_registry"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Рахунок №:</td>
+                                <td>
+                                    <t t-if="o.journal_id.bank_account_id">
+                                        <span t-field="o.journal_id.bank_account_id.acc_number"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Банк платника:</td>
+                                <td>
+                                    <t t-if="o.journal_id.bank_account_id and o.journal_id.bank_account_id.bank_id">
+                                        <span t-field="o.journal_id.bank_account_id.bank_id.name"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Recipient block -->
+                        <table class="mb-3" style="width: 100%;">
+                            <tr>
+                                <td style="width: 120px; vertical-align: top;" class="bold">Отримувач:</td>
+                                <td>
+                                    <span t-field="o.partner_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Код отримувача:</td>
+                                <td>
+                                    <t t-if="o.partner_id.company_registry">
+                                        <span t-field="o.partner_id.company_registry"/>
+                                    </t>
+                                    <t t-elif="o.partner_id.vat">
+                                        <span t-field="o.partner_id.vat"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Рахунок №:</td>
+                                <td>
+                                    <t t-if="o.partner_bank_id">
+                                        <span t-field="o.partner_bank_id.acc_number"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Банк отримувача:</td>
+                                <td>
+                                    <t t-if="o.partner_bank_id and o.partner_bank_id.bank_id">
+                                        <span t-field="o.partner_bank_id.bank_id.name"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Amount -->
+                        <table class="mb-3" style="width: 100%;">
+                            <tr>
+                                <td style="width: 120px;" class="bold">Сума:</td>
+                                <td class="bold">
+                                    <span t-field="o.amount"
+                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Сума прописом:</td>
+                                <td>
+                                    <t t-esc="o.amount"/> грн.
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Payment purpose -->
+                        <div class="mb-3">
+                            <span class="bold">Призначення платежу: </span>
+                            <span t-if="o.ua_payment_purpose" t-field="o.ua_payment_purpose"/>
+                            <span t-elif="o.memo" t-field="o.memo"/>
+                            <span t-else="">______________________________________________________</span>
+                        </div>
+
+                        <!-- Signatures -->
+                        <div class="signature-block" style="margin-top: 40px;">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="signature-row">
+                                        <span>Керівник</span>
+                                        <span class="signature-line"></span>
+                                    </div>
+                                    <div class="text-center small">(підпис)</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="signature-row">
+                                        <span>Головний бухгалтер</span>
+                                        <span class="signature-line"></span>
+                                    </div>
+                                    <div class="text-center small">(підпис)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center" style="margin-top: 30px;">
+                            М.П.
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_currency_rate_provider_view_form" model="ir.ui.view">
+        <field name="name">res.currency.rate.provider.form</field>
+        <field name="model">res.currency.rate.provider</field>
+        <field name="arch" type="xml">
+            <form string="Currency Rate Provider">
+                <header>
+                    <button name="action_sync_rates" string="Sync Now" type="object"
+                            class="btn-primary"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. NBU Official Rates"/></h1>
+                    </div>
+                    <group>
+                        <group string="Provider Settings">
+                            <field name="code"/>
+                            <field name="sequence"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group string="Sync Settings">
+                            <field name="auto_sync"/>
+                            <field name="last_sync_date"/>
+                            <field name="privat_rate_type" invisible="code != 'privatbank'"/>
+                        </group>
+                    </group>
+                    <group string="Currencies to Sync">
+                        <field name="currency_ids" widget="many2many_tags" nolabel="1"
+                               options="{'no_create': True}"
+                               placeholder="Leave empty to sync all available currencies"/>
+                    </group>
+                    <div class="alert alert-info" role="alert">
+                        <p><strong>Provider Information:</strong></p>
+                        <ul>
+                            <li><strong>NBU</strong> - Official rates from National Bank of Ukraine. Supports historical rates.</li>
+                            <li><strong>PrivatBank</strong> - Commercial bank rates (cash or non-cash). Only current rates.</li>
+                            <li><strong>Monobank</strong> - Commercial bank rates. Only current rates. Rate limit: 1 request/minute.</li>
+                        </ul>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_currency_rate_provider_view_list" model="ir.ui.view">
+        <field name="name">res.currency.rate.provider.list</field>
+        <field name="model">res.currency.rate.provider</field>
+        <field name="arch" type="xml">
+            <list string="Currency Rate Providers">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="auto_sync"/>
+                <field name="last_sync_date"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="res_currency_rate_provider_action" model="ir.actions.act_window">
+        <field name="name">Currency Rate Providers</field>
+        <field name="res_model">res.currency.rate.provider</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Configure currency rate providers
+            </p>
+            <p>
+                Set up providers to sync exchange rates from NBU, PrivatBank, or Monobank.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_l10n_ua_education_root"
+              name="Освіта (UA)"
+              sequence="55"
+              web_icon="l10n_ua_education_base,static/description/icon.png"
+              groups="group_ua_education_user"/>
+
+    <menuitem id="menu_l10n_ua_education_contingent"
+              name="Контингент"
+              parent="menu_l10n_ua_education_root"
+              action="action_l10n_ua_education_contingent_member"
+              sequence="10"/>
+
+    <menuitem id="menu_l10n_ua_education_groups"
+              name="Групи / класи"
+              parent="menu_l10n_ua_education_root"
+              action="action_l10n_ua_education_group"
+              sequence="20"/>
+
+    <menuitem id="menu_l10n_ua_education_config"
+              name="Налаштування"
+              parent="menu_l10n_ua_education_root"
+              sequence="100"
+              groups="group_ua_education_manager"/>
+
+    <menuitem id="menu_l10n_ua_education_academic_year"
+              name="Навчальні роки"
+              parent="menu_l10n_ua_education_config"
+              action="action_l10n_ua_education_academic_year"
+              sequence="10"/>
+</odoo>

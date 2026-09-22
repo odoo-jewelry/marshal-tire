@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 900px; margin: 0 auto; color: #333;">
+    
+    <div style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #005BBB 0%, #FFD500 100%); border-radius: 8px; margin-bottom: 30px;">
+        <h1 style="color: white; margin: 0; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Україна - Інтеграція з monobank</h1>
+        <p style="color: white; font-size: 1.2em; margin-top: 10px;">Автоматична синхронізація банківських виписок для Odoo 19</p>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin-bottom: 25px;">
+        <h2 style="color: #005BBB; margin-top: 0;">Про модуль</h2>
+        <p>Модуль інтеграції з API monobank для автоматичного імпорту банківських виписок в Odoo.</p>
+        <p>Розширює базовий модуль <strong>l10n_ua_bank_sync</strong> функціоналом, специфічним для monobank.</p>
+    </div>
+
+    <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #005BBB; margin-top: 0;">Основні можливості</h3>
+        <ul>
+            <li>Підключення через monobank API</li>
+            <li>Автоматичний імпорт банківських виписок для ФОП</li>
+            <li>Підтримка webhook для оновлень в реальному часі</li>
+            <li>Підтримка кількох рахунків</li>
+            <li>Синхронізація транзакцій за обраний період</li>
+            <li>Детальне логування операцій</li>
+        </ul>
+    </div>
+
+    <div style="margin-bottom: 25px;">
+        <h3 style="color: #005BBB;">Скріншоти</h3>
+        
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 10px;">Панель банку</p>
+            <img src="01 dashboard.png" alt="Панель банку" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 10px;">Синхронізація банку</p>
+            <img src="02 sync bank.png" alt="Синхронізація банку" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 10px;">Підключення до банку</p>
+            <img src="03 bank connection.png" alt="Підключення до банку" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 10px;">Завдання синхронізації</p>
+            <img src="04 bank sync job.png" alt="Завдання синхронізації" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 10px;">Деталі завдання синхронізації</p>
+            <img src="05 bank sync job details.png" alt="Деталі завдання синхронізації" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 10px;">Логи синхронізації</p>
+            <img src="06 bank sync job logs.png" alt="Логи синхронізації" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 10px;">Транзакції</p>
+            <img src="07 transactions.png" alt="Транзакції" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 10px;">Банківські виписки</p>
+            <img src="08 bank statements.png" alt="Банківські виписки" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 10px;">Деталі виписки</p>
+            <img src="09 statement details.png" alt="Деталі виписки" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 10px;">Експорт виписки у XLSX або PDF</p>
+            <img src="10 export statement to xlsx or pdf.png" alt="Експорт виписки" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+        </div>
+    </div>
+
+    <div style="background: #fff3cd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #856404; margin-top: 0;">Вимоги</h3>
+        <ul>
+            <li>Встановлений модуль <strong>l10n_ua_bank_sync</strong></li>
+            <li>Токен monobank API (отримується в додатку monobank)</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; padding: 20px; background: #005BBB; border-radius: 8px; color: white;">
+        <p style="margin: 0;">Розроблено для Odoo 19 Community Edition</p>
+    </div>
+
+    <div style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); padding: 25px; border-radius: 8px; margin: 25px 0; border-left: 4px solid #ffc107;">
+        <h3 style="color: #856404; margin-top: 0;">🫙 Збір на українську локалізацію Odoo — заміна 1С для бізнесу</h3>
+        <p style="margin-bottom: 15px;">Привіт! Створюю <strong>відкриті модулі української локалізації Odoo</strong> для повноцінної заміни 1С:</p>
+        <ul style="list-style: none; padding: 0; margin: 15px 0;">
+            <li style="padding: 8px 0;">📊 <strong>Бухгалтерський та фінансовий облік</strong> за українськими стандартами</li>
+            <li style="padding: 8px 0;">📋 <strong>Податкова звітність</strong> та електронний документообіг</li>
+            <li style="padding: 8px 0;">👥 <strong>HR-модуль (заміна ЗУП)</strong> — кадри, зарплата, табелі</li>
+            <li style="padding: 8px 0;">🏭 <strong>Операційний облік</strong> — склад, виробництво, продажі</li>
+        </ul>
+        <p><strong>Навіщо це потрібно:</strong> тисячі українських компаній досі сидять на російському софті, бо немає повноцінної альтернативи. Odoo — це потужна європейська ERP з відкритим кодом, але без якісної української локалізації перехід неможливий.</p>
+        <p><strong>Куди підуть кошти:</strong> розробка та тестування модулів, документація українською, підтримка спільноти.</p>
+        <p style="margin-bottom: 0;"><strong>Модулі будуть у відкритому доступі</strong> — для всіх, хто хоче позбутися російських технологій.</p>
+        <p style="margin-top: 15px; margin-bottom: 0;"><strong>Дякую за підтримку! 🙏</strong></p>
+        <p style="margin-top:10px; text-align:center"><img src="monobank_qr.png" alt="QR код для підтримки на Monobank" style="width:150px; height:150px;"/><br/><strong>Скануйте QR для підтримки на Monobank</strong></p>
+    </div>
+
+</div>
+</body>
+</html>

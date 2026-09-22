@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_meals"
+              name="Харчування"
+              parent="l10n_ua_education_base.menu_l10n_ua_education_root"
+              sequence="40"/>
+
+    <menuitem id="menu_meals_menu"
+              name="Меню"
+              parent="menu_meals"
+              action="action_menu"
+              sequence="10"/>
+
+    <menuitem id="menu_meals_attendance"
+              name="Відвідуваність"
+              parent="menu_meals"
+              action="action_attendance"
+              sequence="20"/>
+
+    <menuitem id="menu_meals_recipe"
+              name="Технологічні картки"
+              parent="l10n_ua_education_base.menu_l10n_ua_education_config"
+              action="action_recipe"
+              sequence="30"/>
+</odoo>

@@ -1,0 +1,330 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_hr_salary_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-07 12:00+0000\n"
+"PO-Revision-Date: 2026-08-07 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.module.module,shortdesc:base.module_l10n_ua_hr_salary_account
+msgid "Ukraine - HR Salary Accounting"
+msgstr "Україна - Бухгалтерський облік зарплати"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.module.module,summary:base.module_l10n_ua_hr_salary_account
+msgid "Автоматичне створення проводок при нарахуванні зарплати"
+msgstr "Автоматичне створення проводок при нарахуванні зарплати"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model,name:l10n_ua_hr_salary_account.model_hr_salary_account_config
+msgid "Salary Account Configuration"
+msgstr "Налаштування рахунків зарплати"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model,name:l10n_ua_hr_salary_account.model_hr_department
+msgid "Department"
+msgstr "Підрозділ"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model,name:l10n_ua_hr_salary_account.model_hr_payslip
+msgid "Payslip"
+msgstr "Розрахунковий листок"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model,name:l10n_ua_hr_salary_account.model_hr_payslip_run
+msgid "Payslip Batch"
+msgstr "Пакет розрахункових листків"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model,name:l10n_ua_hr_salary_account.model_hr_version
+msgid "Version"
+msgstr "Версія"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__display_name
+msgid "Display Name"
+msgstr "Відображувана назва"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__write_uid
+msgid "Last Updated by"
+msgstr "Оновив"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__write_date
+msgid "Last Updated on"
+msgstr "Оновлено"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__wages_payable_account_id
+msgid "661 — Розрахунки за ЗП"
+msgstr "661 — Розрахунки за ЗП"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_salary_account_config__wages_payable_account_id
+msgid "Рахунок 661 — Розрахунки за заробітною платою"
+msgstr "Рахунок 661 — Розрахунки за заробітною платою"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__pdfo_payable_account_id
+msgid "6411 — ПДФО"
+msgstr "6411 — ПДФО"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_salary_account_config__pdfo_payable_account_id
+msgid "Рахунок 6411 — Розрахунки за ПДФО"
+msgstr "Рахунок 6411 — Розрахунки за ПДФО"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__military_tax_payable_account_id
+msgid "6415 — Військовий збір"
+msgstr "6415 — Військовий збір"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_salary_account_config__military_tax_payable_account_id
+msgid "Рахунок 6415 — Розрахунки за військовим збором"
+msgstr "Рахунок 6415 — Розрахунки за військовим збором"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__esv_payable_account_id
+msgid "651 — ЄСВ"
+msgstr "651 — ЄСВ"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_salary_account_config__esv_payable_account_id
+msgid "Рахунок 651 — Розрахунки за ЄСВ"
+msgstr "Рахунок 651 — Розрахунки за ЄСВ"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__other_payable_account_id
+msgid "685 — Інші кредитори"
+msgstr "685 — Інші кредитори"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_salary_account_config__other_payable_account_id
+msgid ""
+"Рахунок 685 — Розрахунки з іншими кредиторами (аліменти, профспілка тощо)"
+msgstr ""
+"Рахунок 685 — Розрахунки з іншими кредиторами (аліменти, профспілка тощо)"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__company_id
+msgid "Компанія"
+msgstr "Компанія"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__salary_journal_id
+msgid "Журнал зарплати"
+msgstr "Журнал зарплати"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_salary_account_config__salary_journal_id
+msgid "Журнал для проводок по зарплаті (тип: загальний)"
+msgstr "Журнал для проводок по зарплаті (тип: загальний)"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__default_expense_account_id
+msgid "Рахунок витрат за замовчуванням"
+msgstr "Рахунок витрат за замовчуванням"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_salary_account_config__default_expense_account_id
+msgid ""
+"Рахунок витрат за замовчуванням (92 — Адміністративні витрати). "
+"Використовується, якщо у підрозділу не вказано окремий рахунок."
+msgstr ""
+"Рахунок витрат за замовчуванням (92 — Адміністративні витрати). "
+"Використовується, якщо у підрозділу не вказано окремий рахунок."
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__entry_granularity
+msgid "Деталізація проводок"
+msgstr "Деталізація проводок"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_salary_account_config__entry_granularity
+msgid ""
+"Зведена проводка — одна проводка на місяць (рекомендовано). Окрема — по "
+"проводці на кожного працівника."
+msgstr ""
+"Зведена проводка — одна проводка на місяць (рекомендовано). Окрема — по "
+"проводці на кожного працівника."
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary_account.selection__hr_salary_account_config__entry_granularity__per_batch
+msgid "Зведена проводка (одна на пачку)"
+msgstr "Зведена проводка (одна на пачку)"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary_account.selection__hr_salary_account_config__entry_granularity__per_payslip
+msgid "Окрема проводка на кожен розрахунковий листок"
+msgstr "Окрема проводка на кожен розрахунковий листок"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_salary_account_config__auto_post
+msgid "Автоматично проводити"
+msgstr "Автоматично проводити"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_salary_account_config__auto_post
+msgid "Автоматично проводити (підтверджувати) створені проводки"
+msgstr "Автоматично проводити (підтверджувати) створені проводки"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.constraint,message:l10n_ua_hr_salary_account.constraint_hr_salary_account_config_company_uniq
+msgid ""
+"Для кожної компанії може бути лише одна конфігурація рахунків зарплати!"
+msgstr ""
+"Для кожної компанії може бути лише одна конфігурація рахунків зарплати!"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_department__salary_expense_account_id
+msgid "Рахунок витрат на ЗП"
+msgstr "Рахунок витрат на ЗП"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_department__salary_expense_account_id
+msgid ""
+"Рахунок витрат для цього підрозділу (91/92/93/94). Якщо не вказано — "
+"використовується рахунок за замовчуванням з налаштувань зарплати."
+msgstr ""
+"Рахунок витрат для цього підрозділу (91/92/93/94). Якщо не вказано — "
+"використовується рахунок за замовчуванням з налаштувань зарплати."
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_department__salary_analytic_distribution
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_version__salary_analytic_distribution
+msgid "Аналітичний розподіл ЗП"
+msgstr "Аналітичний розподіл ЗП"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_department__salary_analytic_distribution
+msgid ""
+"Типовий аналітичний розподіл зарплатних витрат підрозділу. Використовується, "
+"якщо у версії (контракті) працівника не задано власний розподіл."
+msgstr ""
+"Типовий аналітичний розподіл зарплатних витрат підрозділу. Використовується, "
+"якщо у версії (контракті) працівника не задано власний розподіл."
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_version__salary_analytic_distribution
+msgid ""
+"Розподіл зарплатних витрат цього працівника за аналітичними рахунками "
+"(проєкти, центри витрат). Має пріоритет над розподілом підрозділу. "
+"Застосовується до рядків витрат (Дт 91/92/93/94, ЄСВ) у зарплатних проводках."
+msgstr ""
+"Розподіл зарплатних витрат цього працівника за аналітичними рахунками "
+"(проєкти, центри витрат). Має пріоритет над розподілом підрозділу. "
+"Застосовується до рядків витрат (Дт 91/92/93/94, ЄСВ) у зарплатних проводках."
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_payslip__move_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary_account.field_hr_payslip_run__move_id
+msgid "Бухгалтерська проводка"
+msgstr "Бухгалтерська проводка"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_payslip__move_id
+msgid ""
+"Бухгалтерська проводка, створена при підтвердженні розрахункового листка"
+msgstr ""
+"Бухгалтерська проводка, створена при підтвердженні розрахункового листка"
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.model.fields,help:l10n_ua_hr_salary_account.field_hr_payslip_run__move_id
+msgid "Зведена бухгалтерська проводка по зарплаті за період"
+msgstr "Зведена бухгалтерська проводка по зарплаті за період"
+
+#. module: l10n_ua_hr_salary_account
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_account.hr_payslip_view_form_inherit_account
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_account.hr_payslip_run_view_form_inherit_account
+msgid "Проводка"
+msgstr "Проводка"
+
+#. module: l10n_ua_hr_salary_account
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_account.hr_salary_account_config_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_account.hr_salary_account_config_view_list
+msgid "Налаштування рахунків зарплати"
+msgstr "Налаштування рахунків зарплати"
+
+#. module: l10n_ua_hr_salary_account
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_account.hr_salary_account_config_view_form
+msgid "Журнал"
+msgstr "Журнал"
+
+#. module: l10n_ua_hr_salary_account
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_account.hr_salary_account_config_view_form
+msgid "Рахунки зобов'язань (кредит)"
+msgstr "Рахунки зобов'язань (кредит)"
+
+#. module: l10n_ua_hr_salary_account
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_account.hr_salary_account_config_view_form
+msgid "Рахунки витрат (дебет)"
+msgstr "Рахунки витрат (дебет)"
+
+#. module: l10n_ua_hr_salary_account
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_account.hr_salary_account_config_view_form
+msgid "Параметри"
+msgstr "Параметри"
+
+#. module: l10n_ua_hr_salary_account
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary_account.hr_salary_account_config_view_form
+msgid ""
+"Рахунок витрат можна вказати окремо для кожного підрозділу\n"
+"                                (91/92/93/94). Якщо у підрозділу не вказано — використовується\n"
+"                                цей рахунок за замовчуванням."
+msgstr ""
+"Рахунок витрат можна вказати окремо для кожного підрозділу\n"
+"                                (91/92/93/94). Якщо у підрозділу не вказано — використовується\n"
+"                                цей рахунок за замовчуванням."
+
+#. module: l10n_ua_hr_salary_account
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary_account.action_hr_salary_account_config
+#: model:ir.ui.menu,name:l10n_ua_hr_salary_account.menu_hr_salary_account_config
+msgid "Рахунки зарплати"
+msgstr "Рахунки зарплати"
+
+#. module: l10n_ua_hr_salary_account
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary_account.action_hr_salary_account_config
+msgid "Налаштуйте рахунки для проводок по зарплаті"
+msgstr "Налаштуйте рахунки для проводок по зарплаті"
+
+#. module: l10n_ua_hr_salary_account
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary_account.action_hr_salary_account_config
+msgid ""
+"Вкажіть бухгалтерські рахунки для автоматичного створення проводок\n"
+"                при нарахуванні зарплати (661, 6411, 6415, 651, 685, 91-94)."
+msgstr ""
+"Вкажіть бухгалтерські рахунки для автоматичного створення проводок\n"
+"                при нарахуванні зарплати (661, 6411, 6415, 651, 685, 91-94)."
+
+#. module: l10n_ua_hr_salary_account
+#: model:account.journal,name:l10n_ua_hr_salary_account.salary_journal
+msgid "Зарплата"
+msgstr "Зарплата"

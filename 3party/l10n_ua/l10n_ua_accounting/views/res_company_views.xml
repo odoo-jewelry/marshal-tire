@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Extend company form with Ukrainian accounting settings -->
+    <record id="view_company_form_ua_payment_approval" model="ir.ui.view">
+        <field name="name">res.company.form.ua.accounting.settings</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Затвердження платежів (UA)">
+                    <group>
+                        <field name="l10n_ua_payment_approval_enabled"/>
+                        <field name="l10n_ua_payment_approval_threshold"
+                               invisible="not l10n_ua_payment_approval_enabled"/>
+                    </group>
+                </group>
+                <group string="Ліміт каси (UA)">
+                    <group>
+                        <field name="l10n_ua_cash_limit_enabled"/>
+                        <field name="l10n_ua_cash_limit"
+                               invisible="not l10n_ua_cash_limit_enabled"/>
+                    </group>
+                </group>
+                <group string="Авансові звіти (UA)">
+                    <group>
+                        <field name="l10n_ua_advance_journal_id"/>
+                        <field name="l10n_ua_advance_account_id"/>
+                        <field name="l10n_ua_advance_expense_account_id"/>
+                    </group>
+                </group>
+                <group string="Курсові різниці (UA)">
+                    <group>
+                        <field name="l10n_ua_fx_gain_op_account_id"/>
+                        <field name="l10n_ua_fx_loss_op_account_id"/>
+                    </group>
+                    <group>
+                        <field name="l10n_ua_fx_gain_nonop_account_id"/>
+                        <field name="l10n_ua_fx_loss_nonop_account_id"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

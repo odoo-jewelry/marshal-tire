@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #0057b8;">Україна — Заклади охорони здоров'я</h2>
+        <h3 class="oe_slogan" style="color: #1a1a1a;">ЦПМСД / АСМД / Лікарні / Поліклініки / ЕМД</h3>
+        <div class="oe_span12">
+            <p class="oe_mt32 text-center" style="font-size: 18px;">
+                Пацієнти, декларації з лікарем, НСЗУ-капітація, клінічна картка
+                і інтеграція з eHealth — все для роботи в реформованій системі охорони здоров'я.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Що включено</h2>
+
+        <div class="oe_span6">
+            <h3><i class="fa fa-hospital-o"></i> l10n_ua_medecin_base</h3>
+            <ul>
+                <li>Тип закладу: ЦПМСД, АСМД, поліклініка, лікарня, ЕМД,
+                    діагностичний центр, санаторій, диспансер, лабораторія</li>
+                <li>Ліцензія МОЗ + ID НСЗУ як надавача послуг</li>
+                <li>ID закладу в Центральній компоненті eHealth</li>
+                <li>13 медичних спеціалізацій (сімейна медицина, терапія, педіатрія,
+                    хірургія, кардіологія, неврологія, стоматологія тощо)</li>
+                <li>Окремі групи доступу: UA Medecin User / Manager</li>
+            </ul>
+
+            <h3><i class="fa fa-user-md"></i> l10n_ua_medecin_patient</h3>
+            <ul>
+                <li>Пацієнти з прив'язкою до res.partner</li>
+                <li>Вікові категорії 0-5 / 6-17 / 18-39 / 40-64 / 65+
+                    (для капітаційних коефіцієнтів НСЗУ)</li>
+                <li>Декларації з лікарем ПМД (Наказ МОЗ № 503)</li>
+                <li>Lifecycle декларації: draft → active → terminated</li>
+                <li>Автоматичне припинення попередньої при підписанні нової</li>
+                <li>eHealth UUID на декларації</li>
+            </ul>
+        </div>
+
+        <div class="oe_span6">
+            <h3><i class="fa fa-handshake-o"></i> l10n_ua_medecin_nszu</h3>
+            <ul>
+                <li>Договір з НСЗУ з повним lifecycle (draft → submitted → active)</li>
+                <li>10 типів пакетів медичних послуг:<br/>
+                    ПМД-капітація, спеціалізована, стаціонар, ЕМД,
+                    пологи, онкологія, психіатрія, реабілітація, стоматологія</li>
+                <li>5 моделей оплати: капітація / глобальний бюджет / за випадок /
+                    за послугу / змішана</li>
+                <li>Автоматичний розрахунок капітації:<br/>
+                    тариф × Σ(пацієнтів × ваговий коефіцієнт за віком)</li>
+                <li>Стартовий каталог 5 типових пакетів НСЗУ 2025</li>
+            </ul>
+
+            <h3><i class="fa fa-stethoscope"></i> l10n_ua_medecin_clinical</h3>
+            <ul>
+                <li>Прийом пацієнта (encounter): консультація, профілактика,
+                    виклик додому, ЕМД, маніпуляція</li>
+                <li>Діагнози з прив'язкою до МКХ-10 (primary + concurrent)</li>
+                <li>Хронічні стани з датою встановлення і ступенем</li>
+                <li>Алергії з рівнем тяжкості</li>
+                <li>Каталог МКХ-10 (стартова вибірка)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3><i class="fa fa-cloud"></i> l10n_ua_medecin_ehealth</h3>
+            <ul>
+                <li>HTTP-клієнт для Центральної компоненти eHealth (api.ehealth.gov.ua)</li>
+                <li>OAuth2 client_credentials flow</li>
+                <li>Реєстрація декларацій в eHealth при активації (hook в action_activate)</li>
+                <li>Лог усіх API-запитів з тілом запиту/відповіді</li>
+                <li>Dry-run режим за замовчуванням — без реальних запитів,
+                    тільки логування. Безпечно для перших налаштувань.</li>
+                <li>Налаштування через res.config.settings (API URL, credentials)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Як це виглядає</h2>
+        <div class="oe_span12 text-center oe_mt32">
+            <h4 style="color:#0057b8;">Картка пацієнта з історією декларацій</h4>
+            <img src="01_patient_form.png" alt="Форма пацієнта з активною декларацією і eHealth-інтеграцією"
+                 style="max-width:100%; height:auto; border:1px solid #dfdfdf;
+                        box-shadow:0 2px 8px rgba(0,0,0,0.1);"/>
+        </div>
+        <div class="oe_span12 text-center oe_mt32">
+            <h4 style="color:#0057b8;">Договір з НСЗУ з розрахунком капітації</h4>
+            <img src="02_nszu_contract.png" alt="Договір НСЗУ з пакетами і розрахунком капітації за віковими категоріями"
+                 style="max-width:100%; height:auto; border:1px solid #dfdfdf;
+                        box-shadow:0 2px 8px rgba(0,0,0,0.1);"/>
+        </div>
+        <div class="oe_span12 oe_mt32">
+            <p class="text-center" style="font-size:14px; color:#666;">
+                Капітаційний платіж НСЗУ розраховується автоматично:
+                <code>тариф × Σ(пацієнтів × ваговий коефіцієнт за віком)</code>
+                за Постановою КМУ № 240. Декларації при активації реєструються
+                в eHealth (dry-run або реальний API).
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Для кого</h2>
+
+        <div class="oe_span3">
+            <div class="text-center">
+                <i class="fa fa-home fa-3x" style="color: #0057b8;"></i>
+                <h4>ЦПМСД / АСМД</h4>
+                <p>Первинна медико-санітарна допомога. Декларації + капітація НСЗУ.</p>
+            </div>
+        </div>
+
+        <div class="oe_span3">
+            <div class="text-center">
+                <i class="fa fa-medkit fa-3x" style="color: #0057b8;"></i>
+                <h4>Поліклініки</h4>
+                <p>Спеціалізована амбулаторна допомога за пакетами НСЗУ.</p>
+            </div>
+        </div>
+
+        <div class="oe_span3">
+            <div class="text-center">
+                <i class="fa fa-h-square fa-3x" style="color: #0057b8;"></i>
+                <h4>Лікарні</h4>
+                <p>Стаціонарна допомога. Облік пацієнтів, випадків, виконання договору.</p>
+            </div>
+        </div>
+
+        <div class="oe_span3">
+            <div class="text-center">
+                <i class="fa fa-ambulance fa-3x" style="color: #0057b8;"></i>
+                <h4>ЕМД</h4>
+                <p>Станції екстреної медичної допомоги. Глобальний бюджет НСЗУ.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Як це працює</h2>
+
+        <div class="oe_span4">
+            <div class="text-center">
+                <i class="fa fa-id-card-o fa-3x" style="color: #0057b8;"></i>
+                <h4>1. Декларація</h4>
+                <p>Пацієнт обирає лікаря ПМД, декларація автоматично реєструється
+                в eHealth (через dry-run або реальний API).</p>
+            </div>
+        </div>
+
+        <div class="oe_span4">
+            <div class="text-center">
+                <i class="fa fa-calculator fa-3x" style="color: #0057b8;"></i>
+                <h4>2. Капітація</h4>
+                <p>НСЗУ-договір автоматично перераховує очікувану суму:<br/>
+                <code>тариф × Σ(пацієнти × коеф. за віком)</code></p>
+            </div>
+        </div>
+
+        <div class="oe_span4">
+            <div class="text-center">
+                <i class="fa fa-file-text-o fa-3x" style="color: #0057b8;"></i>
+                <h4>3. Прийом</h4>
+                <p>Лікар приймає пацієнта → encounter з діагнозом МКХ-10
+                і призначенням лікування.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Нормативна база</h2>
+        <div class="oe_span12">
+            <ul>
+                <li>Закон України «Основи законодавства про охорону здоров'я»</li>
+                <li>Закон України № 2168-VIII «Про державні фінансові гарантії медобслуговування»</li>
+                <li>Постанова КМУ № 411 — Положення про eHealth</li>
+                <li>Постанова КМУ № 240 — Порядок реалізації державних гарантій</li>
+                <li>Постанова КМУ № 285 — Ліцензійні умови меддіяльності</li>
+                <li>Наказ МОЗ № 503 від 19.03.2018 — Порядок вибору лікаря ПМД</li>
+                <li>Наказ МОЗ № 110 — Форми первинної облікової документації</li>
+                <li>Наказ МОЗ № 89 — Адаптація МКХ-10 для України</li>
+                <li>Накази НСЗУ про специфікації пакетів медичних послуг</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_separator"></section>
+
+</body>
+</html>

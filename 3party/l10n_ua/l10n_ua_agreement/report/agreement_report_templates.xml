@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_agreement_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-set="company" t-value="doc.company_id or env.company"/>
+                <t t-set="partner" t-value="doc.partner_id"/>
+                <div class="page">
+                    <div class="text-center mb-4">
+                        <h3 class="mt-0">
+                            <t t-if="doc.is_amendment">Додаткова угода</t>
+                            <t t-else="">Договір</t>
+                            <span t-if="doc.code"> № <span t-field="doc.code"/></span>
+                        </h3>
+                        <t t-if="doc.is_amendment and doc.parent_agreement_id">
+                            <div>до Договору № <span t-field="doc.parent_agreement_id.code"/></div>
+                        </t>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <span t-if="doc.start_date" t-field="doc.start_date"/>
+                        </div>
+                        <div class="col-6 text-end">
+                            <span t-field="company.city"/>
+                        </div>
+                    </div>
+
+                    <p>
+                        <strong t-field="company.name"/>, надалі «Виконавець», з однієї
+                        сторони, та
+                        <strong t-field="partner.name"/>, надалі «Замовник», з іншої
+                        сторони, уклали цей <t t-if="doc.is_amendment">Договір (додаткову угоду)</t><t t-else="">Договір</t>
+                        про наступне:
+                    </p>
+
+                    <h5>1. Предмет договору</h5>
+                    <div t-if="doc.subject" t-field="doc.subject"/>
+                    <p t-else="">
+                        Виконавець зобов'язується надати Замовнику послуги, а Замовник —
+                        прийняти та оплатити їх на умовах цього Договору.
+                    </p>
+
+                    <h5 t-if="doc.amount_total">2. Вартість послуг</h5>
+                    <p t-if="doc.amount_total">
+                        Загальна вартість послуг за цим Договором становить
+                        <strong>
+                            <span t-field="doc.amount_total"
+                                  t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                        </strong>.
+                    </p>
+
+                    <h5>3. Строк дії договору</h5>
+                    <p>
+                        Договір набирає чинності з
+                        <strong><span t-field="doc.start_date"/></strong>
+                        <t t-if="doc.end_date"> і діє до
+                            <strong><span t-field="doc.end_date"/></strong></t>
+                        <t t-else=""> і діє до повного виконання сторонами своїх зобов'язань</t>.
+                    </p>
+
+                    <h5>4. Реквізити та підписи сторін</h5>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <strong>ВИКОНАВЕЦЬ</strong>
+                            <div t-field="company.name"/>
+                            <div t-if="company.vat">ЄДРПОУ/ІПН: <span t-field="company.vat"/></div>
+                            <div t-field="company.partner_id"
+                                 t-options='{"widget": "contact", "fields": ["address", "phone", "email"], "no_marker": true}'/>
+                            <div class="mt-4">_______________________</div>
+                            <div class="text-muted">(підпис)</div>
+                        </div>
+                        <div class="col-6">
+                            <strong>ЗАМОВНИК</strong>
+                            <div t-field="partner.name"/>
+                            <div t-if="partner.vat">ЄДРПОУ/ІПН: <span t-field="partner.vat"/></div>
+                            <div t-field="doc.partner_id"
+                                 t-options='{"widget": "contact", "fields": ["address", "phone", "email"], "no_marker": true}'/>
+                            <div class="mt-4">_______________________</div>
+                            <div class="text-muted">(підпис)</div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <!-- Акт наданих послуг -->
+    <template id="report_agreement_act">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-set="company" t-value="doc.company_id or env.company"/>
+                <t t-set="partner" t-value="doc.partner_id"/>
+                <t t-set="act_date" t-value="doc.end_date or doc.signature_date or doc.start_date"/>
+                <div class="page">
+                    <div class="text-center mb-4">
+                        <h3 class="mt-0">
+                            Акт наданих послуг
+                            <span t-if="doc.code">№ <span t-field="doc.code"/>/А</span>
+                        </h3>
+                        <div>
+                            до Договору
+                            <span t-if="doc.code">№ <span t-field="doc.code"/></span>
+                            <t t-if="doc.start_date"> від <span t-field="doc.start_date"/></t>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <span t-if="act_date" t-out="act_date"/>
+                        </div>
+                        <div class="col-6 text-end">
+                            <span t-field="company.city"/>
+                        </div>
+                    </div>
+
+                    <p>
+                        <strong t-field="company.name"/> («Виконавець») та
+                        <strong t-field="partner.name"/> («Замовник») склали цей Акт про те,
+                        що Виконавцем надано, а Замовником прийнято такі послуги:
+                    </p>
+
+                    <table class="table table-sm table-bordered mt-3">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="width:5%">№</th>
+                                <th>Найменування послуг</th>
+                                <th class="text-end" style="width:25%">Сума</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">1</td>
+                                <td>
+                                    <span t-field="doc.name"/>
+                                    <div t-if="doc.subject" t-field="doc.subject"/>
+                                </td>
+                                <td class="text-end">
+                                    <span t-field="doc.amount_total"
+                                          t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-end"><strong>Усього:</strong></td>
+                                <td class="text-end">
+                                    <strong>
+                                        <span t-field="doc.amount_total"
+                                              t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        Послуги надано в повному обсязі та з належною якістю.
+                        Сторони претензій одна до одної не мають.
+                    </p>
+
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <strong>ВИКОНАВЕЦЬ</strong>
+                            <div t-field="company.name"/>
+                            <div t-if="company.vat">ЄДРПОУ/ІПН: <span t-field="company.vat"/></div>
+                            <div class="mt-4">_______________________</div>
+                            <div class="text-muted">(підпис)</div>
+                        </div>
+                        <div class="col-6">
+                            <strong>ЗАМОВНИК</strong>
+                            <div t-field="partner.name"/>
+                            <div t-if="partner.vat">ЄДРПОУ/ІПН: <span t-field="partner.vat"/></div>
+                            <div class="mt-4">_______________________</div>
+                            <div class="text-muted">(підпис)</div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

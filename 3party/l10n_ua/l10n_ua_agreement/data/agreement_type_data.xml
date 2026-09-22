@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="agreement_type_services" model="agreement.type">
+            <field name="name">Послуги</field>
+            <field name="domain">sale</field>
+        </record>
+        <record id="agreement_type_supply" model="agreement.type">
+            <field name="name">Поставка товарів</field>
+            <field name="domain">sale</field>
+        </record>
+        <record id="agreement_type_contract" model="agreement.type">
+            <field name="name">Підряд</field>
+            <field name="domain">sale</field>
+        </record>
+        <record id="agreement_type_support" model="agreement.type">
+            <field name="name">Абонентське обслуговування</field>
+            <field name="domain">sale</field>
+        </record>
+    </data>
+</odoo>

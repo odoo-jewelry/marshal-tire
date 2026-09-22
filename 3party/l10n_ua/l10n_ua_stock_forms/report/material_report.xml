@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Landscape A4: the report table carries four quantity/amount pairs and
+         does not fit the portrait width. Defined here rather than reused from
+         the accounting localization, which this module deliberately does not
+         depend on. -->
+    <record id="paperformat_ua_stock_report" model="report.paperformat">
+        <field name="name">UA Stock Report A4 Landscape</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">12</field>
+        <field name="margin_bottom">12</field>
+        <field name="margin_left">8</field>
+        <field name="margin_right">8</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">8</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!-- What is printed is what is on screen, filters and all: the rows the
+         search left over reach the form through the wizard. -->
+    <record id="action_report_material_report" model="ir.actions.report">
+        <field name="name">Material Report</field>
+        <!-- The wizard is printed, not the rows, and that is what makes the
+             file name possible: Odoo evaluates `print_report_name` only when a
+             single record is printed (web/controllers/report.py:134). The rows
+             chosen on screen reach the form through `printed_line_ids`.
+
+             The binding is cleared rather than merely left out. It used to
+             print whatever rows were ticked, straight from the client —
+             bypassing the collapsing of monthly rows, the author check and the
+             refusal to mix reports that action_print_report performs. Dropping
+             the field from this record would not undo that: an update writes
+             only the fields it names, so the value stored earlier would stay
+             and the second, uncontrolled path with it. -->
+        <field name="model">l10n_ua.material.report.wizard</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_stock_forms.report_material_report</field>
+        <field name="report_file">l10n_ua_stock_forms.report_material_report</field>
+        <field name="paperformat_id" ref="paperformat_ua_stock_report"/>
+        <!-- The field is translatable, so the file is named in the reader's
+             own language: this expression is the source term and the PO files
+             carry its counterparts. A slash in a store name is turned into a
+             dash — otherwise it would read as a folder in the file name. -->
+        <field name="print_report_name">'Material Report %s %s..%s' % ((object.location_id.complete_name or '').replace('/', '-'), object.date_from, object.date_to)</field>
+    </record>
+
+    <template id="report_material_report">
+        <t t-call="web.html_container">
+            <!-- `docs` are report parameters; the rows are the ones chosen
+                 on screen, kept on the wizard by action_print_report. The form
+                 prints those rather than recomputing anything: otherwise the
+                 filters would stay on screen and never reach the paper. -->
+            <t t-foreach="docs" t-as="wizard">
+                <t t-set="lines" t-value="wizard.printed_line_ids"/>
+                <t t-if="lines">
+                    <t t-call="web.basic_layout">
+                        <div class="page o_ua_material_report">
+                            <!-- The look of the form lives here rather than on
+                                 every cell. The table alone carries some forty
+                                 cells, and with the rules written out on each of
+                                 them a change of the form meant forty edits and
+                                 one of them forgotten. Kept inline in the
+                                 template rather than in an asset bundle: this is
+                                 the only place that uses it, and a printed form
+                                 has no business reaching into the styles of the
+                                 web client. -->
+                            <style>
+                                .o_ua_material_report { font-size: 9pt; }
+                                .o_ua_material_report .form-code { text-align: right; font-size: 8pt; }
+                                .o_ua_material_report .title { text-align: center; margin: 4px 0; }
+                                .o_ua_material_report .period { text-align: center; margin-bottom: 8px; }
+                                .o_ua_material_report .note { font-size: 8pt; }
+                                .o_ua_material_report .note-first { margin-top: 4px; }
+
+                                /* The captions above the table are a set of
+                                   headings, not data, so they carry no borders;
+                                   the table is there for the two even columns. */
+                                .o_ua_material_report .captions { width: 100%; margin-bottom: 8px; }
+                                .o_ua_material_report .captions td { border: none; }
+                                .o_ua_material_report .captions .half { width: 50%; }
+
+                                .o_ua_material_report .figures { width: 100%; border-collapse: collapse; }
+                                .o_ua_material_report .figures th,
+                                .o_ua_material_report .figures td { border: 1px solid #000; padding: 2px; }
+                                .o_ua_material_report .figures thead tr { background-color: #f0f0f0; }
+                                .o_ua_material_report .figures .total { font-weight: bold; }
+                                .o_ua_material_report .figures .num { text-align: right; }
+                                .o_ua_material_report .figures .mid { text-align: center; }
+
+                                .o_ua_material_report .signatures { width: 100%; margin-top: 28px; }
+                                .o_ua_material_report .signatures td { border: none; padding-top: 18px; }
+                                /* A caption is a whole phrase: were the table
+                                   squeezed, the browser would break it inside
+                                   the words and stack the letters. */
+                                .o_ua_material_report .signatures .who,
+                                .o_ua_material_report .signatures .role,
+                                .o_ua_material_report .signatures .name {
+                                    vertical-align: bottom; white-space: nowrap;
+                                }
+                                .o_ua_material_report .signatures .who { width: 16%; }
+                                .o_ua_material_report .signatures .role { width: 18%; }
+                                .o_ua_material_report .signatures .sign { width: 34%; }
+                                .o_ua_material_report .signatures .name { width: 32%; padding-left: 8px; }
+                                /* Ruled, not underscored: underscores spread
+                                   differently from font to font and leave the
+                                   caption beneath them off centre. */
+                                .o_ua_material_report .signatures .rule { border-bottom: 1px solid #000; height: 12px; }
+                                .o_ua_material_report .signatures .caption {
+                                    text-align: center; font-size: 7pt; font-style: italic;
+                                }
+                            </style>
+                            <t t-set="totals" t-value="lines._report_totals()"/>
+
+                            <div class="form-code">
+                                Standard form No. M-19
+                            </div>
+                            <h4 class="title">
+                                MATERIAL REPORT
+                            </h4>
+                            <div class="period">
+                                for the period from
+                                <span t-field="wizard.date_from" t-options="{'widget': 'date'}"/>
+                                to
+                                <span t-field="wizard.date_to" t-options="{'widget': 'date'}"/>
+                            </div>
+
+                            <table class="captions">
+                                <tr>
+                                    <td class="half">
+                                        Company: <strong t-field="wizard.company_id.name"/>
+                                    </td>
+                                    <!-- This is the store the person in charge
+                                         reports for; the Storage Place column in
+                                         the table is a concrete place beneath it. -->
+                                    <td class="half">
+                                        Warehouse: <strong t-field="wizard.location_id.complete_name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Person in charge:
+                                        <strong t-out="wizard.responsible_person or '______________________'"/>
+                                    </td>
+                                    <!-- What gets printed is usually an already
+                                         narrowed report, so the category
+                                         characterises the form just as the store
+                                         does. -->
+                                    <td>
+                                        Product category: <strong t-out="lines._report_category_label()"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Numbers go through QWeb's own converter rather
+                                 than python's '%.2f'. The latter always prints
+                                 213000.00, while a locale decides the separators —
+                                 Ukrainian, for one, wants 213 000,00. The number of
+                                 decimals for quantities and for the price comes
+                                 from the same decimal.precision records as the
+                                 `digits` of the fields, so the form and the screen
+                                 cannot drift apart. -->
+                            <table class="figures">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">No.</th>
+                                        <th rowspan="2">Product reference</th>
+                                        <th rowspan="2">Material</th>
+                                        <th rowspan="2">Storage place</th>
+                                        <th rowspan="2">UoM</th>
+                                        <th rowspan="2">Price</th>
+                                        <th colspan="2">Opening balance</th>
+                                        <th colspan="2">Receipts</th>
+                                        <th colspan="2">Issues</th>
+                                        <th colspan="2">Closing balance</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Qty</th>
+                                        <th>Amount</th>
+                                        <th>Qty</th>
+                                        <th>Amount</th>
+                                        <th>Qty</th>
+                                        <th>Amount</th>
+                                        <th>Qty</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="lines" t-as="line">
+                                        <td class="mid">
+                                            <t t-out="line_index + 1"/>
+                                        </td>
+                                        <td><t t-out="line.default_code"/></td>
+                                        <td><t t-out="line.product_id.display_name"/></td>
+                                        <td><t t-out="line.location_id.complete_name"/></td>
+                                        <td class="mid"><t t-out="line.uom_id.name"/></td>
+                                        <td class="num">
+                                            <t t-out="line.price" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                                        </td>
+                                        <td class="num"><t t-out="line.opening_qty" t-options="{'widget': 'float', 'decimal_precision': 'Product Unit'}"/></td>
+                                        <td class="num"><t t-out="line.opening_value" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                        <td class="num"><t t-out="line.in_qty" t-options="{'widget': 'float', 'decimal_precision': 'Product Unit'}"/></td>
+                                        <td class="num"><t t-out="line.in_value" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                        <td class="num"><t t-out="line.out_qty" t-options="{'widget': 'float', 'decimal_precision': 'Product Unit'}"/></td>
+                                        <td class="num"><t t-out="line.out_value" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                        <td class="num"><t t-out="line.closing_qty" t-options="{'widget': 'float', 'decimal_precision': 'Product Unit'}"/></td>
+                                        <td class="num"><t t-out="line.closing_value" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                    </tr>
+                                    <tr class="total">
+                                        <td colspan="7">Total</td>
+                                        <td class="num"><t t-out="totals['opening_value']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                        <td/>
+                                        <td class="num"><t t-out="totals['in_value']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                        <td/>
+                                        <td class="num"><t t-out="totals['out_value']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                        <td/>
+                                        <td class="num"><t t-out="totals['closing_value']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- The basis of the amounts is printed, not implied:
+                                 a reader must not mistake cost-price figures for a
+                                 valuation taken from the accounting layers. -->
+                            <div class="note note-first">
+                                Amounts are stated at the product's cost price (as of the moment of printing).
+                            </div>
+                            <!-- Said plainly, because otherwise the receipts and
+                                 issues totals look inflated: a transfer between two
+                                 places of one store is an issue from one and a
+                                 receipt for the other, so the total counts it
+                                 twice. Balances are unaffected — there such
+                                 transfers cancel each other out. -->
+                            <div class="note">
+                                Rows are stated per storage place of the warehouse, so transfers
+                                between them count towards both the receipts and the issues of those places.
+                            </div>
+
+                            <table class="signatures">
+                                <tr t-foreach="lines._report_signatures()" t-as="signature" t-key="signature_index">
+                                    <td class="who">
+                                        <t t-out="signature['title']"/>
+                                    </td>
+                                    <td class="role">
+                                        <t t-out="signature['role']"/>
+                                    </td>
+                                    <td class="sign">
+                                        <div class="rule"/>
+                                        <div class="caption">
+                                            (signature)
+                                        </div>
+                                    </td>
+                                    <td class="name">
+                                        <t t-out="signature['name']"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- The form is signed and filed, and at 9pt on
+                                 landscape A4 it runs to two or three sheets. An
+                                 unnumbered sheet can go missing between the
+                                 signature and the folder with nothing to show
+                                 for it.
+
+                                 The two spans are filled by wkhtmltopdf, not by
+                                 QWeb: at rendering time nobody knows yet how
+                                 many sheets there will be. Odoo lifts a `footer`
+                                 div out of the body and hands it over as a
+                                 document of its own (`_prepare_html` in
+                                 odoo/addons/base/models/ir_actions_report.py) —
+                                 which is also why this one is styled inline: the
+                                 `style` block above stays behind with the body
+                                 and never reaches it. -->
+                            <div class="footer" style="text-align: center; font-size: 7pt;">
+                                Sheet <span class="page"/> of <span class="topage"/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Vacation work-year anchor, shown next to the hire date it overrides. -->
+    <record id="view_employee_form_inherit_ua_holidays" model="ir.ui.view">
+        <field name="name">hr.employee.form.ua.holidays</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="l10n_ua_hr_base.view_employee_form_inherit_ua"/>
+        <field name="arch" type="xml">
+            <field name="hire_date" position="after">
+                <field name="vacation_anchor_date"
+                       placeholder="Дата прийняття"
+                       groups="hr.group_hr_user"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

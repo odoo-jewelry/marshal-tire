@@ -1,0 +1,75 @@
+.o_xml_viewer_field {
+    width: 100%;
+    max-height: 600px;
+    overflow: auto;
+    background-color: #1e1e1e;
+    border-radius: 4px;
+    padding: 0;
+}
+
+.o_xml_viewer_field .xml-content {
+    margin: 0;
+    padding: 12px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #d4d4d4;
+    white-space: pre;
+    tab-size: 2;
+}
+
+/* Syntax highlighting colors (VS Code dark theme style) */
+.o_xml_viewer_field .xml-tag {
+    color: #569cd6;
+}
+
+.o_xml_viewer_field .xml-attr {
+    color: #9cdcfe;
+}
+
+.o_xml_viewer_field .xml-value {
+    color: #ce9178;
+}
+
+.o_xml_viewer_field .xml-comment {
+    color: #6a9955;
+    font-style: italic;
+}
+
+.o_xml_viewer_field .xml-cdata {
+    color: #808080;
+}
+
+.o_xml_viewer_field .xml-decl {
+    color: #808080;
+}
+
+.o_xml_viewer_field .xml-bracket {
+    color: #808080;
+}
+
+/* Light mode support */
+.o_light_mode .o_xml_viewer_field,
+body:not(.dark) .o_xml_viewer_field {
+    background-color: #f5f5f5;
+}
+
+body:not(.dark) .o_xml_viewer_field .xml-content {
+    color: #333;
+}
+
+body:not(.dark) .o_xml_viewer_field .xml-tag {
+    color: #0000ff;
+}
+
+body:not(.dark) .o_xml_viewer_field .xml-attr {
+    color: #ff0000;
+}
+
+body:not(.dark) .o_xml_viewer_field .xml-value {
+    color: #008000;
+}
+
+body:not(.dark) .o_xml_viewer_field .xml-comment {
+    color: #808080;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inject NBU QR code into standard invoice report -->
+    <template id="report_invoice_document_nbu_qr"
+              inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@name='qr_code_placeholder']" position="after">
+            <t t-set="show_nbu_qr"
+               t-value="o.move_type in ('out_invoice',) and o.amount_residual and o.nbu_payment_link and request.env['ir.config_parameter'].sudo().get_param('l10n_ua.nbu_qr_on_invoices')"/>
+            <div t-if="show_nbu_qr" id="nbu_qrcode" class="d-flex mb-3 avoid-page-break-inside">
+                <div class="qrcode me-3" id="nbu_qrcode_image">
+                    <p class="position-relative mb-0">
+                        <img t-att-src="o._get_nbu_qr_barcode_url(200, 200)"
+                             style="width: 200px; height: 200px;"/>
+                    </p>
+                </div>
+                <div class="d-inline text-muted lh-sm fst-italic" id="nbu_qrcode_info">
+                    <p>Скануйте QR-код<br/>банківським додатком для оплати</p>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

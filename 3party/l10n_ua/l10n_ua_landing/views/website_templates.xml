@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Брендований футер для всіх frontend-сторінок website (login, /contactus тощо).
+         Замінює дефолтний плейсхолдерний футер ("Useful Links", "Company name",
+         "+1 555-555-5556", "info@yourcompany.example.com", соцмережі-заглушки). -->
+    <template id="footer_many2one" inherit_id="website.footer_custom" name="many2one Footer">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div id="footer" t-ignore="true" t-if="not no_footer"
+                 class="text-break" style="background:#0f2233;color:#b7c4d0;">
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-lg-4 col-12 mb-4">
+                            <div style="font-weight:800;font-size:22px;color:#fff;">many<span style="color:#2980b9;">2</span>one</div>
+                            <p style="color:#8ba0b3;font-size:14px;margin-top:12px;max-width:280px;">
+                                Українська локалізація Odoo&#160;19 — бухгалтерія, податки,
+                                HR/зарплата, банки, ПРРО, маркетплейси та галузеві рішення.
+                            </p>
+                        </div>
+                        <div class="col-lg-2 col-6 mb-4">
+                            <h6 style="color:#fff;">Продукт</h6>
+                            <ul class="list-unstyled" style="font-size:14px;">
+                                <li class="mb-1"><a href="/" style="color:#b7c4d0;">Головна</a></li>
+                                <li class="mb-1"><a href="/#directions" style="color:#b7c4d0;">Модулі</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-6 mb-4">
+                            <h6 style="color:#fff;">Демо</h6>
+                            <ul class="list-unstyled" style="font-size:14px;">
+                                <li class="mb-1"><a href="/odoo" style="color:#b7c4d0;">Увійти в демо</a></li>
+                                <li class="mb-1"><a href="/web/login" style="color:#b7c4d0;">Сторінка входу</a></li>
+                            </ul>
+                            <p style="color:#8ba0b3;font-size:13px;margin-top:6px;">
+                                логін <b style="color:#cbd6e0;">demo</b> / пароль <b style="color:#cbd6e0;">demo</b>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-12 mb-4">
+                            <h6 style="color:#fff;">Контакти</h6>
+                            <ul class="list-unstyled" style="font-size:14px;">
+                                <li class="mb-1"><a href="https://many2one.online" style="color:#b7c4d0;">many2one.online</a></li>
+                                <li class="mb-1"><a href="https://many2one.online" style="color:#b7c4d0;">Замовити впровадження</a></li>
+                                <li class="mb-1"><a href="https://many2one.online" style="color:#b7c4d0;">Міграція з 1С</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between flex-wrap"
+                         style="border-top:1px solid rgba(255,255,255,.10);padding-top:18px;color:#8ba0b3;font-size:13px;gap:10px;">
+                        <span>© 2026 many2one.online — Українська локалізація Odoo&#160;19</span>
+                        <span>Працює на Odoo&#160;19 · Усі назви належать відповідним власникам</span>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Копірайт-бар: "Copyright © Company name" -> брендований -->
+    <template id="footer_copyright_many2one" inherit_id="website.footer_copyright_company_name"
+              name="many2one Copyright">
+        <xpath expr="//span[hasclass('o_footer_copyright_name')]" position="replace">
+            <span class="o_footer_copyright_name me-2 small">© many2one.online</span>
+        </xpath>
+    </template>
+
+    <!-- Прибираємо дефолтний телефон-заглушку "+1 555-555-5556" з хедера
+         (елемент "Header Text Element", гілка phone_mail) -->
+    <record id="website.header_text_element" model="ir.ui.view">
+        <field name="active" eval="False"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_employee_view_form_inherit_bonus" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.bonus</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_bonuses" type="object"
+                        class="oe_stat_button" icon="fa-gift"
+                        invisible="not bonus_system_enabled">
+                    <field name="bonus_count" widget="statinfo" string="Bonuses"/>
+                </button>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Bonus System" name="bonus_system">
+                    <group>
+                        <group>
+                            <field name="bonus_system_enabled"/>
+                        </group>
+                    </group>
+                    <field name="bonus_ids" invisible="not bonus_system_enabled">
+                        <list>
+                            <field name="name"/>
+                            <field name="bonus_type_id"/>
+                            <field name="date"/>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="amount" sum="Total"/>
+                            <field name="state" widget="badge"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

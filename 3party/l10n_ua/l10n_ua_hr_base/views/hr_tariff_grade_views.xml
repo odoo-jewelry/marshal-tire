@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_tariff_grade_tree" model="ir.ui.view">
+        <field name="name">hr.tariff.grade.tree</field>
+        <field name="model">hr.tariff.grade</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="grade"/>
+                <field name="name"/>
+                <field name="coefficient"/>
+                <field name="min_salary"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hr_tariff_grade_form" model="ir.ui.view">
+        <field name="name">hr.tariff.grade.form</field>
+        <field name="model">hr.tariff.grade</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="grade"/>
+                        </group>
+                        <group>
+                            <field name="coefficient"/>
+                            <field name="min_salary"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_tariff_grade" model="ir.actions.act_window">
+        <field name="name">Tariff Grades</field>
+        <field name="res_model">hr.tariff.grade</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

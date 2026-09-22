@@ -100,6 +100,26 @@ class TestFullHistoryConsolidation(TransactionCase):
         wizard.action_confirm()
         self.assertTrue(canonical._has_full_consolidation_history(self.env.company))
 
+    def test_variant_form_buttons_open_template_actions(self):
+        canonical, duplicate, _real = self._history(old=True)
+        action = duplicate.product_variant_id.action_open_history_consolidation()
+        self.assertEqual(action, duplicate.action_open_history_consolidation())
+        wizard = self.env["product.consolidation.wizard"].with_context(
+            active_model="product.product", active_ids=duplicate.product_variant_id.ids,
+            **action["context"],
+        ).create({})
+        self.assertEqual(wizard.mode, "history")
+        self.assertEqual(wizard.canonical_template_id, canonical)
+        self.assertEqual(set(wizard.product_template_ids.ids), set((canonical | duplicate).ids))
+        self.assertEqual(
+            duplicate.product_variant_id.action_open_history_consolidation_audit(),
+            duplicate.action_open_history_consolidation_audit(),
+        )
+        self.assertEqual(
+            canonical.product_variant_id.action_open_merged_sources(),
+            canonical.action_open_merged_sources(),
+        )
+
     def test_preserve_purchase_values(self):
         canonical, duplicate = self._stock_products()
         partner = self.env["res.partner"].create({"name": "History vendor"})

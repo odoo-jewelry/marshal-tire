@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Order Form View -->
+    <record id="marketplace_order_view_form" model="ir.ui.view">
+        <field name="name">marketplace.order.form</field>
+        <field name="model">marketplace.order</field>
+        <field name="arch" type="xml">
+            <form string="Marketplace Order">
+                <header>
+                    <button name="action_create_sale_order" type="object" string="Create Sale Order"
+                            class="btn-primary" invisible="sale_order_id or state in ('cancelled', 'returned')"/>
+                    <button name="action_confirm" type="object" string="Confirm"
+                            class="btn-primary" invisible="state != 'new'"/>
+                    <button name="action_ship" type="object" string="Ship"
+                            class="btn-primary" invisible="state not in ('processing', 'confirmed')"/>
+                    <button name="action_deliver" type="object" string="Mark Delivered"
+                            class="btn-secondary" invisible="state != 'shipped'"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            class="btn-secondary" invisible="state in ('cancelled', 'delivered', 'returned')"/>
+                    <button name="action_register_payment" type="object" string="Register Payment"
+                            class="btn-secondary" invisible="is_paid or not sale_order_id"/>
+                    <button name="action_sync_status" type="object" string="Sync Status"
+                            class="btn-secondary"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="new,processing,confirmed,shipped,delivered"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_sale_order" type="object" class="oe_stat_button"
+                                icon="fa-file-text-o" invisible="not sale_order_id">
+                            <span class="o_stat_text">Sale Order</span>
+                        </button>
+                        <button name="action_view_pickings" type="object" class="oe_stat_button"
+                                icon="fa-truck" invisible="picking_count == 0">
+                            <field name="picking_count" widget="statinfo" string="Deliveries"/>
+                        </button>
+                        <button name="action_view_invoices" type="object" class="oe_stat_button"
+                                icon="fa-pencil-square-o" invisible="invoice_count == 0">
+                            <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                        <h2>
+                            <field name="backend_id" readonly="1"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group string="Order Info">
+                            <field name="external_id" readonly="1"/>
+                            <field name="order_date" readonly="1"/>
+                            <field name="import_date" readonly="1"/>
+                            <field name="marketplace_state" readonly="1"/>
+                            <field name="sale_order_id" readonly="1"/>
+                        </group>
+                        <group string="Financial">
+                            <field name="amount_total" readonly="1"/>
+                            <field name="amount_delivery" readonly="1"/>
+                            <field name="commission_amount" readonly="1"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="payment_method" readonly="1"/>
+                            <field name="is_paid"/>
+                            <field name="payment_status_id" readonly="1"/>
+                            <field name="payment_date" readonly="1" invisible="not payment_date"/>
+                            <field name="payment_amount" readonly="1" invisible="not payment_amount"/>
+                            <field name="payment_id" readonly="1" invisible="not payment_id"/>
+                        </group>
+                    </group>
+
+                    <!-- Cancellation Info (visible only when cancelled) -->
+                    <group invisible="state != 'cancelled'">
+                        <group string="Cancellation Info">
+                            <field name="cancel_reason" readonly="1"/>
+                            <field name="cancel_comment" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Order Lines" name="lines">
+                            <field name="line_ids" readonly="1">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="sku"/>
+                                    <field name="name"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
+                                    <field name="discount"/>
+                                    <field name="price_total"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Customer" name="customer">
+                            <group>
+                                <group>
+                                    <field name="partner_id"/>
+                                    <field name="customer_name" readonly="1"/>
+                                    <field name="customer_phone" readonly="1"/>
+                                    <field name="customer_email" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="customer_comment" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Delivery" name="delivery">
+                            <group>
+                                <group>
+                                    <field name="delivery_method" readonly="1"/>
+                                    <field name="delivery_carrier_name" readonly="1"/>
+                                    <field name="tracking_number"/>
+                                </group>
+                                <group>
+                                    <field name="delivery_city" readonly="1"/>
+                                    <field name="delivery_region" readonly="1"/>
+                                    <field name="delivery_warehouse" readonly="1"/>
+                                    <field name="delivery_zip" readonly="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="delivery_address" readonly="1"/>
+                            </group>
+                        </page>
+
+                        <page string="Raw Data" name="raw" groups="base.group_no_one">
+                            <field name="raw_data" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Order Tree View -->
+    <record id="marketplace_order_view_tree" model="ir.ui.view">
+        <field name="name">marketplace.order.tree</field>
+        <field name="model">marketplace.order</field>
+        <field name="arch" type="xml">
+            <list string="Marketplace Orders" decoration-info="state == 'new'"
+                  decoration-warning="state in ('processing', 'confirmed')"
+                  decoration-success="state in ('shipped', 'delivered')"
+                  decoration-danger="state in ('cancelled', 'returned')">
+                <field name="name"/>
+                <field name="backend_id"/>
+                <field name="order_date"/>
+                <field name="customer_name"/>
+                <field name="customer_phone"/>
+                <field name="amount_total"/>
+                <field name="is_paid" optional="show"/>
+                <field name="tracking_number"/>
+                <field name="sale_order_id" optional="show"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'new'"
+                       decoration-warning="state in ('processing', 'confirmed')"
+                       decoration-success="state in ('shipped', 'delivered')"
+                       decoration-danger="state in ('cancelled', 'returned')"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Order Search View -->
+    <record id="marketplace_order_view_search" model="ir.ui.view">
+        <field name="name">marketplace.order.search</field>
+        <field name="model">marketplace.order</field>
+        <field name="arch" type="xml">
+            <search string="Marketplace Orders">
+                <field name="name"/>
+                <field name="external_id"/>
+                <field name="customer_name"/>
+                <field name="customer_phone"/>
+                <field name="tracking_number"/>
+                <field name="backend_id"/>
+                <filter string="New" name="filter_new" domain="[('state', '=', 'new')]"/>
+                <filter string="Processing" name="filter_processing"
+                        domain="[('state', 'in', ('processing', 'confirmed'))]"/>
+                <filter string="Shipped" name="filter_shipped" domain="[('state', '=', 'shipped')]"/>
+                <filter string="Delivered" name="filter_delivered" domain="[('state', '=', 'delivered')]"/>
+                <filter string="Cancelled" name="filter_cancelled"
+                        domain="[('state', 'in', ('cancelled', 'returned'))]"/>
+                <separator/>
+                <filter string="Without Sale Order" name="filter_no_so"
+                        domain="[('sale_order_id', '=', False)]"/>
+                <filter string="Paid" name="filter_paid" domain="[('is_paid', '=', True)]"/>
+                <filter string="Not Paid" name="filter_not_paid" domain="[('is_paid', '=', False)]"/>
+                <filter string="Today" name="filter_today"
+                        domain="[('order_date', '>=', context_today().strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <group>
+                    <filter string="State" name="groupby_state" domain="[]"
+                            context="{'group_by': 'state'}"/>
+                    <filter string="Marketplace" name="groupby_backend" domain="[]"
+                            context="{'group_by': 'backend_id'}"/>
+                    <filter string="Order Date" name="groupby_date" domain="[]"
+                            context="{'group_by': 'order_date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Order Action -->
+    <record id="marketplace_order_action" model="ir.actions.act_window">
+        <field name="name">Marketplace Orders</field>
+        <field name="res_model">marketplace.order</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_filter_new': 1, 'search_default_filter_processing': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No orders yet
+            </p>
+            <p>
+                Orders from connected marketplaces will appear here.
+            </p>
+        </field>
+    </record>
+
+</odoo>

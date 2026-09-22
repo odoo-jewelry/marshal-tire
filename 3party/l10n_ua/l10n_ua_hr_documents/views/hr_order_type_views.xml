@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_order_type_view_form" model="ir.ui.view">
+        <field name="name">hr.order.type.form</field>
+        <field name="model">hr.order.type</field>
+        <field name="arch" type="xml">
+            <form string="Order Type">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="category"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="sequence_id"/>
+                            <field name="requires_employee"/>
+                            <field name="requires_contract"/>
+                            <field name="requires_department"/>
+                            <field name="requires_date_range"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Template" name="template">
+                            <field name="template_body"/>
+                        </page>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_order_type_view_tree" model="ir.ui.view">
+        <field name="name">hr.order.type.tree</field>
+        <field name="model">hr.order.type</field>
+        <field name="arch" type="xml">
+            <list string="Order Types">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hr_order_type" model="ir.actions.act_window">
+        <field name="name">Order Types</field>
+        <field name="res_model">hr.order.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

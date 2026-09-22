@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Форма договору: header зі станом + кнопки + smart-кнопки + поля -->
+    <record id="agreement_form_l10n_ua" model="ir.ui.view">
+        <field name="name">agreement.form.l10n.ua</field>
+        <field name="model">agreement</field>
+        <field name="inherit_id" ref="agreement.agreement_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="action_confirm" type="object" string="На підпис"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_request_signature" type="object"
+                            string="Надіслати на підпис" class="btn-primary"
+                            invisible="state not in ('draft', 'to_sign')"/>
+                    <button name="action_create_contract" type="object"
+                            string="Створити періодичний договір"
+                            invisible="state != 'signed'"/>
+                    <button name="action_print_act" type="object"
+                            string="Акт наданих послуг"
+                            invisible="state != 'signed'"/>
+                    <button name="action_draft" type="object" string="В чернетку"
+                            invisible="state in ('draft', 'cancelled')"/>
+                    <button name="action_cancel" type="object" string="Скасувати"
+                            invisible="state in ('cancelled', 'signed')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,to_sign,signed"/>
+                </header>
+            </xpath>
+
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_sign_requests" type="object"
+                        class="oe_stat_button" icon="fa-pencil-square-o"
+                        invisible="sign_request_count == 0">
+                    <field name="sign_request_count" widget="statinfo" string="Підписи"/>
+                </button>
+                <button name="action_view_child_agreements" type="object"
+                        class="oe_stat_button" icon="fa-files-o"
+                        invisible="child_agreement_count == 0">
+                    <field name="child_agreement_count" widget="statinfo"
+                           string="Дод. угоди"/>
+                </button>
+                <button name="action_view_contracts" type="object"
+                        class="oe_stat_button" icon="fa-refresh"
+                        invisible="contract_count == 0">
+                    <field name="contract_count" widget="statinfo" string="Періодичні"/>
+                </button>
+            </xpath>
+
+            <xpath expr="//group[@name='right']" position="inside">
+                <field name="parent_agreement_id" readonly="1"
+                       invisible="not parent_agreement_id"/>
+                <field name="currency_id" groups="base.group_multi_currency"/>
+                <field name="amount_total"/>
+                <field name="is_amendment" invisible="1"/>
+            </xpath>
+
+            <!-- Cross-version safe: the `name` field exists in the OCA form on
+                 both the old (label + h1) and current (h1-only, widget="text")
+                 agreement@19.0 layouts, whereas //label[@for='name'] does not
+                 exist on the newer one (issue #211). -->
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="placeholder">Назва договору</attribute>
+            </xpath>
+
+            <!-- Тип договору показуємо завжди (без гейту по групі) -->
+            <xpath expr="//field[@name='agreement_type_id']" position="attributes">
+                <attribute name="groups"></attribute>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page name="subject_page" string="Предмет договору">
+                    <field name="subject" placeholder="Опишіть предмет договору, перелік послуг…"/>
+                </page>
+                <page name="amendments_page" string="Додаткові угоди"
+                      invisible="is_amendment">
+                    <button name="action_add_amendment" type="object"
+                            string="Додати додаткову угоду" class="btn-link"
+                            icon="fa-plus" invisible="state == 'draft'"/>
+                    <field name="child_agreement_ids" readonly="1">
+                        <list>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="amount_total"/>
+                            <field name="state" widget="badge"/>
+                        </list>
+                    </field>
+                </page>
+                <page name="signed_doc_page" string="Підписаний документ"
+                      invisible="state != 'signed'">
+                    <field name="signed_filename" invisible="1"/>
+                    <field name="signed_document" filename="signed_filename"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Список: додаємо стан і суму -->
+    <record id="agreement_tree_l10n_ua" model="ir.ui.view">
+        <field name="name">agreement.list.l10n.ua</field>
+        <field name="model">agreement</field>
+        <field name="inherit_id" ref="agreement.agreement_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="agreement_type_id" optional="show"/>
+                <field name="amount_total" optional="show"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'signed'"
+                       decoration-info="state == 'to_sign'"
+                       decoration-muted="state in ('expired', 'cancelled')"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Пошук: фільтри за станом і групування -->
+    <record id="agreement_search_l10n_ua" model="ir.ui.view">
+        <field name="name">agreement.search.l10n.ua</field>
+        <field name="model">agreement</field>
+        <field name="inherit_id" ref="agreement.agreement_search"/>
+        <field name="arch" type="xml">
+            <field name="name" position="attributes">
+                <attribute name="string">Назва або номер</attribute>
+            </field>
+            <filter name="sale" position="attributes">
+                <attribute name="string">Продаж</attribute>
+            </filter>
+            <filter name="purchase" position="attributes">
+                <attribute name="string">Закупівля</attribute>
+            </filter>
+            <filter name="inactive" position="attributes">
+                <attribute name="string">Архівні</attribute>
+            </filter>
+            <filter name="partner_groupby" position="attributes">
+                <attribute name="string">Клієнт</attribute>
+            </filter>
+            <filter name="signature_date_groupby" position="attributes">
+                <attribute name="string">Дата підпису</attribute>
+            </filter>
+            <filter name="domain_groupby" position="attributes">
+                <attribute name="string">Сфера</attribute>
+            </filter>
+            <field name="name" position="after">
+                <filter string="Чернетки" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="На підписанні" name="filter_to_sign" domain="[('state', '=', 'to_sign')]"/>
+                <filter string="Підписані" name="filter_signed" domain="[('state', '=', 'signed')]"/>
+                <separator/>
+                <filter string="Основні договори" name="filter_main" domain="[('parent_agreement_id', '=', False)]"/>
+                <filter string="Додаткові угоди" name="filter_amendments" domain="[('parent_agreement_id', '!=', False)]"/>
+                <group>
+                    <filter string="Стан" name="groupby_state" domain="[]" context="{'group_by': 'state'}"/>
+                    <filter string="Тип договору" name="groupby_type" domain="[]" context="{'group_by': 'agreement_type_id'}"/>
+                    <filter string="Клієнт" name="groupby_partner" domain="[]" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </field>
+        </field>
+    </record>
+
+    <!-- Звітність: аналіз договорів -->
+    <record id="action_agreement_report" model="ir.actions.act_window">
+        <field name="name">Аналіз договорів</field>
+        <field name="res_model">agreement</field>
+        <field name="view_mode">pivot,graph,list,form</field>
+        <field name="context">{'search_default_groupby_type': 1, 'search_default_groupby_state': 1}</field>
+    </record>
+    <menuitem id="menu_agreement_report"
+              name="Аналіз договорів"
+              parent="agreement.agreement_reporting_menu"
+              action="action_agreement_report"
+              sequence="10"/>
+</odoo>

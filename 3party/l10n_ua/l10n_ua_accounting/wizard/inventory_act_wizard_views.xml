@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_inventory_act_wizard_form" model="ir.ui.view">
+        <field name="name">l10n_ua.inventory.act.wizard.form</field>
+        <field name="model">l10n_ua.inventory.act.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Інвентаризаційний опис">
+                <group>
+                    <group string="Інвентаризація">
+                        <field name="date"/>
+                        <field name="location_id"/>
+                        <field name="include_zero"/>
+                    </group>
+                    <group string="Наказ">
+                        <field name="order_number"/>
+                        <field name="order_date"/>
+                    </group>
+                </group>
+                <group>
+                    <group string="Комісія">
+                        <field name="commission_head"/>
+                        <field name="commission_members" placeholder="Прізвище І.Б., по одному на рядок"/>
+                    </group>
+                    <group string="МВО">
+                        <field name="responsible_person"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_print" string="Друкувати" type="object"
+                            class="btn-primary"/>
+                    <button string="Скасувати" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_inventory_act_wizard" model="ir.actions.act_window">
+        <field name="name">Інвентаризаційний опис</field>
+        <field name="res_model">l10n_ua.inventory.act.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

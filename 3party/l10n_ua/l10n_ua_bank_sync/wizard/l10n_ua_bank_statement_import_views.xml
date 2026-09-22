@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="l10n_ua_bank_statement_import_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.statement.import.form</field>
+        <field name="model">l10n_ua.bank.statement.import</field>
+        <field name="arch" type="xml">
+            <form string="Імпорт виписки з файлу">
+                <group>
+                    <field name="config_id"/>
+                    <field name="statement_file" filename="file_name"/>
+                    <field name="file_name" invisible="1"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <div class="text-muted">
+                    Завантажте файл виписки, експортований із клієнт-банку.
+                    Формат розбирається за провайдером обраної конфігурації.
+                </div>
+                <footer>
+                    <button name="action_import" string="Імпортувати"
+                            type="object" class="btn-primary"/>
+                    <button string="Скасувати" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_bank_statement_import_action" model="ir.actions.act_window">
+        <field name="name">Імпорт виписки з файлу</field>
+        <field name="res_model">l10n_ua.bank.statement.import</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_ua_bank_statement_import"
+              name="Імпорт виписки з файлу"
+              parent="menu_ua_bank_statements_root"
+              action="l10n_ua_bank_statement_import_action"
+              sequence="35"/>
+
+</odoo>

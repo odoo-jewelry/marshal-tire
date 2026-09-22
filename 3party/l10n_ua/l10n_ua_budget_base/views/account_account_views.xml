@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_form_budget" model="ir.ui.view">
+        <field name="name">account.account.form.budget</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Бюджетний облік (UA)" name="ua_budget">
+                    <group>
+                        <field name="ua_budget_is_state_sector"/>
+                        <field name="ua_default_kekv_id" invisible="not ua_budget_is_state_sector"/>
+                    </group>
+                    <group>
+                        <field name="ua_fund_type" invisible="not ua_budget_is_state_sector"/>
+                        <field name="ua_default_kfk_id" invisible="not ua_budget_is_state_sector"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_list_budget" model="ir.ui.view">
+        <field name="name">account.account.list.budget</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_list"/>
+        <field name="arch" type="xml">
+            <field name="account_type" position="after">
+                <field name="ua_fund_type" optional="hide"/>
+                <field name="ua_default_kekv_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+</odoo>

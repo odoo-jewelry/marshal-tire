@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="seq_currency_exchange" model="ir.sequence">
+        <field name="name">Купівля/продаж валюти</field>
+        <field name="code">l10n_ua.currency.exchange</field>
+        <field name="prefix">ВАЛ-</field>
+        <field name="padding">4</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,2281 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_hr_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260103\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-05 20:14+0000\n"
+"PO-Revision-Date: 2026-01-05 20:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__military_accounting_applicable
+msgid "Підлягає військовому обліку"
+msgstr "Підлягає військовому обліку"
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+#: code:addons/l10n_ua_hr_base/models/hr_employee.py:0
+msgid ""
+"Military accounting applies to citizens of Ukraine only (art. 1 of Law No "
+"2232-XII). %(employee)s has the nationality %(country)s — clear the military"
+" register category or correct the nationality."
+msgstr ""
+"Військовий облік ведеться лише щодо громадян України (ст. 1 Закону № "
+"2232-XII). У %(employee)s зазначено громадянство %(country)s — приберіть "
+"категорію військового обліку або виправте громадянство."
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__message_needaction
+msgid "Action Needed"
+msgstr "Потрібна дія"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_education_level__active
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__active
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_kp2010__active
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_rank__active
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_tcc__active
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_tariff_grade__active
+msgid "Active"
+msgstr "Активний"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__activity_ids
+msgid "Activities"
+msgstr "Активності"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Оформлення виключення активності"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__activity_state
+msgid "Activity State"
+msgstr "Стан активності"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Іконка типу активності"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__registration_same_as_actual
+msgid ""
+"When checked, registration address fields are automatically copied from "
+"native Odoo private_* fields."
+msgstr ""
+"Якщо увімкнено, адреса реєстрації автоматично копіюється з приватної адреси "
+"проживання та приховується з форми."
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_tcc__address
+msgid "Address"
+msgstr "Адреса"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Addresses"
+msgstr "Адреси"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__age
+msgid "Age"
+msgstr "Вік"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_form
+msgid "Approval"
+msgstr "Затвердження"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_form
+msgid "Approve"
+msgstr "Затвердити"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_staffing_table__state__approved
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_search
+msgid "Approved"
+msgstr "Затверджено"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_form
+msgid "Archive"
+msgstr "Архівувати"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_staffing_table__state__archived
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_search
+msgid "Archived"
+msgstr "Архівовано"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__message_attachment_count
+msgid "Attachment Count"
+msgstr "Кількість вкладень"
+
+#. module: l10n_ua_hr_base
+#: model:hr.education.level,name:l10n_ua_hr_base.education_level_bachelor
+msgid "Bachelor's Degree"
+msgstr "Бакалавр"
+
+#. module: l10n_ua_hr_base
+#: model:hr.education.level,name:l10n_ua_hr_base.education_level_basic_secondary
+msgid "Basic Secondary Education"
+msgstr "Базова середня освіта"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.constraint,message:l10n_ua_hr_base.constraint_hr_employee_benefit_code_uniq
+msgid "Benefit code must be unique!"
+msgstr "Код пільги повинен бути унікальним!"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__benefit_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Benefits"
+msgstr "Пільги"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__birth_certificate_number
+msgid "Birth Certificate Number"
+msgstr "Номер свідоцтва про народження"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__birthday
+msgid "Birthday"
+msgstr "Дата народження"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_department__department_type__branch
+msgid "Branch"
+msgstr "Філія"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_brigadier_general
+msgid "Brigadier General"
+msgstr "Бригадний генерал"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_captain
+msgid "Captain"
+msgstr "Капітан"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_rank__category
+msgid "Category"
+msgstr "Категорія"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__chornobyl_category__1
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__military_category__1
+msgid "Category 1"
+msgstr "Категорія 1"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__chornobyl_category__2
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__military_category__2
+msgid "Category 2"
+msgstr "Категорія 2"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__chornobyl_category__3
+msgid "Category 3"
+msgstr "Категорія 3"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__chornobyl_category__4
+msgid "Category 4"
+msgstr "Категорія 4"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_res_company__accountant_id
+msgid "Chief Accountant"
+msgstr "Головний бухгалтер"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_chief_master_sergeant
+msgid "Chief Master Sergeant"
+msgstr "Головний майстер-сержант"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_chief_sergeant
+msgid "Chief Sergeant"
+msgstr "Головний сержант"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_res_company__accountant_id
+msgid "Chief accountant for document signing"
+msgstr "Головний бухгалтер для підпису документів"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee_child__is_dependent
+msgid "Child is a dependent (for PSP calculation)"
+msgstr "Дитина на утриманні (для розрахунку ПСП)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee_child__is_disabled
+msgid "Child with disability (for PSP calculation)"
+msgstr "Дитина з інвалідністю (для розрахунку ПСП)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__children_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Children"
+msgstr "Діти"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__children_count
+msgid "Children Count"
+msgstr "Кількість дітей"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefits_report__chornobyl_count
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_search_inherit_ua
+msgid "Chornobyl"
+msgstr "Чорнобилець"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__chornobyl_category
+msgid "Chornobyl Category"
+msgstr "Категорія чорнобильця"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_chornobyl_1
+msgid "Chornobyl Category 1"
+msgstr "Чорнобилець 1 категорії"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_chornobyl_2
+msgid "Chornobyl Category 2"
+msgstr "Чорнобилець 2 категорії"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_chornobyl_3
+msgid "Chornobyl Category 3"
+msgstr "Чорнобилець 3 категорії"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_chornobyl_4
+msgid "Chornobyl Category 4"
+msgstr "Чорнобилець 4 категорії"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_job__hazard_class__1
+msgid "Class 1 (Optimal)"
+msgstr "Клас 1 (Оптимальний)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_job__hazard_class__2
+msgid "Class 2 (Acceptable)"
+msgstr "Клас 2 (Допустимий)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_job__hazard_class__3_1
+msgid "Class 3.1 (Harmful)"
+msgstr "Клас 3.1 (Шкідливий)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_job__hazard_class__3_2
+msgid "Class 3.2 (Harmful)"
+msgstr "Клас 3.2 (Шкідливий)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_job__hazard_class__3_3
+msgid "Class 3.3 (Harmful)"
+msgstr "Клас 3.3 (Шкідливий)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_job__hazard_class__3_4
+msgid "Class 3.4 (Harmful)"
+msgstr "Клас 3.4 (Шкідливий)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_job__hazard_class__4
+msgid "Class 4 (Dangerous)"
+msgstr "Клас 4 (Небезпечний)"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_kp2010_search
+msgid "Classifier of Professions"
+msgstr "Класифікатор професій"
+
+#. module: l10n_ua_hr_base
+#: model:ir.actions.act_window,name:l10n_ua_hr_base.action_hr_kp2010
+#: model:ir.model,name:l10n_ua_hr_base.model_hr_kp2010
+msgid "Classifier of Professions (KP 2010)"
+msgstr "Класифікатор професій (КП 2010)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.ui.menu,name:l10n_ua_hr_base.menu_hr_ua_classifiers
+msgid "Classifiers"
+msgstr "Класифікатори"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_education_level__code
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__code
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_kp2010__code
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_rank__code
+msgid "Code"
+msgstr "Код"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_job__kp_code
+msgid "Code from Classifier of Professions (KP 2010)"
+msgstr "Код з Класифікатора професій (КП 2010)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_department__koatuu_code
+msgid ""
+"Code of the Classification of Administrative-Territorial Units of Ukraine"
+msgstr "Код Класифікатора адміністративно-територіальних одиниць України"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_tariff_grade__coefficient
+msgid "Coefficient"
+msgstr "Коефіцієнт"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__res_company__ownership_form__collective
+msgid "Collective"
+msgstr "Колективна"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_colonel
+msgid "Colonel"
+msgstr "Полковник"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_combat_veteran
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__veteran_status__combat
+msgid "Combat Veteran"
+msgstr "Учасник бойових дій"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__res_company__ownership_form__communal
+msgid "Communal"
+msgstr "Комунальна"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model,name:l10n_ua_hr_base.model_res_company
+msgid "Companies"
+msgstr "Компанії"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefits_report__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_list_report__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_military_report__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__work_experience_company
+msgid "Company Experience (years)"
+msgstr "Стаж в компанії (роки)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_res_company__director_id
+msgid "Company director for document signing"
+msgstr "Директор компанії для підпису документів"
+
+#. module: l10n_ua_hr_base
+#: model:hr.education.level,name:l10n_ua_hr_base.education_level_complete_secondary
+msgid "Complete Secondary Education"
+msgstr "Повна загальна середня освіта"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_base.action_hr_staffing_table
+msgid "Create your first staffing table entry"
+msgstr "Створіть перший запис штатного розпису"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_education_level__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_kp2010__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_rank__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_tcc__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_tariff_grade__create_uid
+msgid "Created by"
+msgstr "Створено"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_education_level__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_kp2010__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_rank__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_tcc__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_tariff_grade__create_date
+msgid "Created on"
+msgstr "Дата створення"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_job__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_tariff_grade__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_job__probation_days
+msgid "Default probation period in days"
+msgstr "Випробувальний термін за замовчуванням (дні)"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_base.action_hr_staffing_table
+msgid ""
+"Define positions, staff units, and salaries for your organization structure."
+msgstr ""
+"Визначте посади, штатні одиниці та оклади для структури вашої організації."
+
+#. module: l10n_ua_hr_base
+#: model:ir.model,name:l10n_ua_hr_base.model_hr_department
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__department_id
+msgid "Department"
+msgstr "Відділ"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_department__head_employee_id
+msgid "Department Head"
+msgstr "Керівник підрозділу"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_department__department_type
+msgid "Department Type"
+msgstr "Тип підрозділу"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__is_dependent
+msgid "Dependent"
+msgstr "Утриманець"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_employee_child_search
+msgid "Dependents"
+msgstr "Утриманці"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__dependents_count
+msgid "Dependents Count"
+msgstr "Кількість утриманців"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__description
+msgid "Description"
+msgstr "Опис"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Diploma"
+msgstr "Диплом"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__diploma_date
+msgid "Diploma Date"
+msgstr "Дата видачі диплому"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__diploma_number
+msgid "Diploma Number"
+msgstr "Номер диплому"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__diploma_series
+msgid "Diploma Series"
+msgstr "Серія диплому"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_res_company__director_id
+msgid "Director"
+msgstr "Директор"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Disability"
+msgstr "Інвалідність"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__disability_date_from
+msgid "Disability From"
+msgstr "Інвалідність з"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__disability_group
+msgid "Disability Group"
+msgstr "Група інвалідності"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_disability_1
+msgid "Disability Group I"
+msgstr "Інвалідність I групи"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_disability_2
+msgid "Disability Group II"
+msgstr "Інвалідність II групи"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_disability_3
+msgid "Disability Group III"
+msgstr "Інвалідність III групи"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__disability_reason
+msgid "Disability Reason"
+msgstr "Причина інвалідності"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__disability_date_to
+msgid "Disability Until"
+msgstr "Інвалідність до"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_employee_child_search
+msgid "Disabled"
+msgstr "З інвалідністю"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__is_disabled
+msgid "Disabled Child"
+msgstr "Дитина з інвалідністю"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_department__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_education_level__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_job__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_kp2010__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_rank__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_tcc__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_tariff_grade__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_res_company__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__marital_status_ua__divorced
+msgid "Divorced"
+msgstr "Розлучений/а"
+
+#. module: l10n_ua_hr_base
+#: model:hr.education.level,name:l10n_ua_hr_base.education_level_phd
+msgid "Doctor of Philosophy (PhD)"
+msgstr "Доктор філософії (PhD)"
+
+#. module: l10n_ua_hr_base
+#: model:hr.education.level,name:l10n_ua_hr_base.education_level_doctor_science
+msgid "Doctor of Science"
+msgstr "Доктор наук"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__document_type
+msgid "Document Type"
+msgstr "Тип документа"
+
+#. module: l10n_ua_hr_base
+#: model:ir.ui.menu,name:l10n_ua_hr_base.menu_hr_documents_root
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Documents"
+msgstr "Документи"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee_benefits_report__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee_list_report__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee_military_report__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_staffing_table__state__draft
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.hr_employee_benefits_report_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.hr_employee_list_report_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.hr_employee_military_report_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_search
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_department__edrpou
+msgid "EDRPOU"
+msgstr "ЄДРПОУ"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_department__edrpou
+msgid "EDRPOU code if the branch is a separate legal entity"
+msgstr "Код ЄДРПОУ, якщо філія є окремою юридичною особою"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Education"
+msgstr "Освіта"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model,name:l10n_ua_hr_base.model_hr_education_level
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__education_level_id
+msgid "Education Level"
+msgstr "Рівень освіти"
+
+#. module: l10n_ua_hr_base
+#: model:ir.actions.act_window,name:l10n_ua_hr_base.action_hr_education_level
+#: model:ir.ui.menu,name:l10n_ua_hr_base.menu_hr_education_level
+msgid "Education Levels"
+msgstr "Рівні освіти"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.constraint,message:l10n_ua_hr_base.constraint_hr_education_level_code_uniq
+msgid "Education level code must be unique!"
+msgstr "Код рівня освіти повинен бути унікальним!"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__education_institution
+msgid "Educational Institution"
+msgstr "Навчальний заклад"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__date_from
+msgid "Effective From"
+msgstr "Діє з"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_tcc__email
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.report_hr_employee_list_document
+msgid "Email"
+msgstr "Електронна пошта"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model,name:l10n_ua_hr_base.model_hr_employee
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__employee_id
+msgid "Employee"
+msgstr "Співробітник"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model,name:l10n_ua_hr_base.model_hr_employee_benefit
+msgid "Employee Benefit Type"
+msgstr "Тип пільги працівника"
+
+#. module: l10n_ua_hr_base
+#: model:ir.actions.act_window,name:l10n_ua_hr_base.action_hr_employee_benefit
+#: model:ir.ui.menu,name:l10n_ua_hr_base.menu_hr_employee_benefit
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_employee_benefit_search
+msgid "Employee Benefits"
+msgstr "Пільги працівників"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model,name:l10n_ua_hr_base.model_hr_employee_child
+msgid "Employee Child"
+msgstr "Дитина працівника"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_employee_child_search
+msgid "Employee Children"
+msgstr "Діти працівників"
+
+#. module: l10n_ua_hr_base
+#: model:ir.actions.report,name:l10n_ua_hr_base.action_report_hr_employee_list
+msgid "Employee List"
+msgstr "Список працівників"
+
+#. module: l10n_ua_hr_base
+#: model:ir.actions.report,name:l10n_ua_hr_base.action_report_hr_employee_benefits
+msgid "Employees with Benefits"
+msgstr "Працівники з пільгами"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__military_status__exempt
+msgid "Exempt"
+msgstr "Звільнений від служби"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Experience & Bank"
+msgstr "Стаж та банк"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Family"
+msgstr "Сім'я"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee_child__gender__female
+msgid "Female"
+msgstr "Жіноча"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__filled_units
+msgid "Filled Units"
+msgstr "Зайнято одиниць"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__military_fitness__fit
+msgid "Fit for Service"
+msgstr "Придатний до служби"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Партнери)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Іконка Font Awesome, напр. fa-tasks"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__passport_valid_until
+msgid "For ID cards only"
+msgstr "Тільки для ID-карток"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__passport_series
+msgid "For old format passports only"
+msgstr "Тільки для паспортів старого зразка"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__name
+msgid "Full Name"
+msgstr "Повне ім'я"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__gender
+msgid "Gender"
+msgstr "Стать"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_general
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_military_rank__category__general
+msgid "General"
+msgstr "Генерал"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_tariff_grade__grade
+msgid "Grade"
+msgstr "Розряд"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_kp2010__group_code
+msgid "Group Code"
+msgstr "Код групи"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__disability_group__1
+msgid "Group I"
+msgstr "Група I"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__disability_group__2
+msgid "Group II"
+msgstr "Група II"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__disability_group__3
+msgid "Group III"
+msgstr "Група III"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_res_company__hr_manager_id
+msgid "HR Manager"
+msgstr "Менеджер з персоналу"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_res_company__hr_manager_id
+msgid "HR department head for document signing"
+msgstr "Керівник відділу кадрів для підпису документів"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__has_message
+msgid "Has Message"
+msgstr "Є повідомлення"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_search
+msgid "Has Vacancies"
+msgstr "Є вакансії"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_job__hazard_class
+msgid "Hazard Class"
+msgstr "Клас шкідливості"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_job__work_conditions__hazardous
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_kp2010__work_conditions__hazardous
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_kp2010_search
+msgid "Hazardous"
+msgstr "Шкідливі"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_department__department_type__head
+msgid "Head Office"
+msgstr "Головний офіс"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_department__head_employee_id
+msgid "Head of the department"
+msgstr "Керівник підрозділу"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_job__work_conditions__heavy
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_kp2010__work_conditions__heavy
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_kp2010_search
+msgid "Heavy"
+msgstr "Важкі"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_hero_ukraine
+msgid "Hero of Ukraine"
+msgstr "Герой України"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__hire_date
+msgid ""
+"Employee hire date. Derived from the contract versions "
+"(hr.version.contract_date_start): the start of the current continuous "
+"employment spell. Correct it on the contract version, not here — the field "
+"stays writable for data imports only."
+msgstr ""
+"Дата прийняття на роботу. Береться з версій трудового договору "
+"(hr.version.contract_date_start) — початок поточного безперервного періоду "
+"зайнятості. Виправляйте у версії контракту, а не тут — поле лишається "
+"доступним для запису тільки для імпорту даних."
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__hire_date
+msgid "Hire Date"
+msgstr "Дата прийняття"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.report_hr_employee_p2_document
+msgid "I. ЗАГАЛЬНІ ВІДОМОСТІ"
+msgstr ""
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_department__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_education_level__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_job__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_kp2010__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_rank__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_tcc__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_tariff_grade__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_res_company__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__document_type__id_card
+msgid "ID Card"
+msgstr "ID-картка"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.report_hr_employee_p2_document
+msgid "ID-картка №"
+msgstr ""
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.report_hr_employee_p2_document
+msgid "II. ВІДОМОСТІ ПРО ВІЙСЬКОВИЙ ОБЛІК"
+msgstr ""
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.report_hr_employee_p2_document
+msgid "III. ПРИЙНЯТТЯ НА РОБОТУ І ПЕРЕВЕДЕННЯ"
+msgstr ""
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.report_hr_employee_p2_document
+msgid "IV. ВІДПУСТКИ"
+msgstr ""
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__activity_exception_icon
+msgid "Icon"
+msgstr "Іконка"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Іконка для позначення виключної активності."
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Identity Document"
+msgstr "Документ, що посвідчує особу"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо позначено, нові повідомлення потребують вашої уваги."
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__message_has_error
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_base.action_hr_kp2010
+msgid "Import the Classifier of Professions"
+msgstr "Імпорт Класифікатора професій"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee_benefit__psp_type__150
+msgid "Increased (150%)"
+msgstr "Підвищена (150%)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__insurance_experience
+msgid "Insurance Experience (years)"
+msgstr "Страховий стаж (роки)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__insurance_experience
+msgid "Insurance experience for sick leave calculation"
+msgstr "Страховий стаж для розрахунку лікарняних"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__message_is_follower
+msgid "Is Follower"
+msgstr "Є підписником"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_department__is_separate_unit
+msgid "Is a separate structural unit (for PFU reporting)"
+msgstr "Є відокремленим структурним підрозділом (для звітності ПФУ)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__passport_issued_date
+msgid "Issue Date"
+msgstr "Дата видачі"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__passport_issued_by
+msgid "Issued By"
+msgstr "Ким виданий"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model,name:l10n_ua_hr_base.model_hr_job
+msgid "Job Position"
+msgstr "Вакансія"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_junior_lieutenant
+msgid "Junior Lieutenant"
+msgstr "Молодший лейтенант"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_junior_sergeant
+msgid "Junior Sergeant"
+msgstr "Молодший сержант"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_department__koatuu_code
+msgid "KOATUU Code"
+msgstr "Код КОАТУУ"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_job__kp_code
+msgid "KP Code"
+msgstr "Код КП"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_job__kp_name
+msgid "KP Name"
+msgstr "Назва КП"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_labor_veteran
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__veteran_status__labor
+msgid "Labor Veteran"
+msgstr "Ветеран праці"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_education_level__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_kp2010__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_rank__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_tcc__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_tariff_grade__write_uid
+msgid "Last Updated by"
+msgstr "Останнє оновлення"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_education_level__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_kp2010__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_rank__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_tcc__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_tariff_grade__write_date
+msgid "Last Updated on"
+msgstr "Дата останнього оновлення"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__military_status__liable
+msgid "Liable for Military Service"
+msgstr "Військовозобов'язаний"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_lieutenant
+msgid "Lieutenant"
+msgstr "Лейтенант"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_lieutenant_colonel
+msgid "Lieutenant Colonel"
+msgstr "Підполковник"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_lieutenant_general
+msgid "Lieutenant General"
+msgstr "Генерал-лейтенант"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__military_fitness__limited
+msgid "Limited Fitness"
+msgstr "Обмежено придатний"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__disability_document
+msgid "MSEC Document"
+msgstr "Документ МСЕК"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_major
+msgid "Major"
+msgstr "Майор"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_major_general
+msgid "Major General"
+msgstr "Генерал-майор"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_kp2010__group_code
+msgid "Major group code (1-9)"
+msgstr "Код основної групи (1-9)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee_child__gender__male
+msgid "Male"
+msgstr "Чоловіча"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Marital Status"
+msgstr "Сімейний стан"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__marital_status_ua
+msgid "Marital Status (UA)"
+msgstr "Сімейний стан"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__marital_status_ua__married
+msgid "Married"
+msgstr "Одружений/а"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_master_sergeant
+msgid "Master Sergeant"
+msgstr "Головний сержант"
+
+#. module: l10n_ua_hr_base
+#: model:hr.education.level,name:l10n_ua_hr_base.education_level_master
+msgid "Master's Degree"
+msgstr "Магістр"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_form
+msgid "Max"
+msgstr "Макс"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee_benefit__psp_type__200
+msgid "Maximum (200%)"
+msgstr "Максимальна (200%)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_job__max_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__salary_max
+msgid "Maximum Salary"
+msgstr "Максимальний оклад"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_job__max_salary
+msgid "Maximum salary for this position"
+msgstr "Максимальний оклад для цієї посади"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__salary_max
+msgid "Maximum salary for this position (salary range)"
+msgstr "Максимальний оклад для цієї посади (діапазон окладу)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__disability_document
+msgid "Medical-Social Expert Commission document"
+msgstr "Документ медико-соціальної експертної комісії"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставки повідомлення"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: l10n_ua_hr_base
+#: model:ir.ui.menu,name:l10n_ua_hr_base.menu_hr_ua_military
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Military Accounting"
+msgstr "Військовий облік"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__military_category
+msgid "Military Category"
+msgstr "Категорія обліку"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__military_document_number
+msgid "Military Document Number"
+msgstr "Номер військового документа"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Military Documents"
+msgstr "Військові документи"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__military_fitness
+msgid "Military Fitness"
+msgstr "Придатність до служби"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_search_inherit_ua
+msgid "Military Liable"
+msgstr "Військовозобов'язаний"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__military_specialty
+msgid "Military Occupational Specialty"
+msgstr "Військово-облікова спеціальність"
+
+#. module: l10n_ua_hr_base
+#: model:ir.actions.report,name:l10n_ua_hr_base.action_report_hr_employee_military
+msgid "Military Personnel"
+msgstr "Військовозобов'язані"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model,name:l10n_ua_hr_base.model_hr_military_rank
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__military_rank_id
+msgid "Military Rank"
+msgstr "Військове звання"
+
+#. module: l10n_ua_hr_base
+#: model:ir.actions.act_window,name:l10n_ua_hr_base.action_hr_military_rank
+#: model:ir.ui.menu,name:l10n_ua_hr_base.menu_hr_military_rank
+msgid "Military Ranks"
+msgstr "Військові звання"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__military_specialty
+msgid "Military Specialty (VOS)"
+msgstr "ВОС (Військово-облікова спеціальність)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__military_status
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Military Status"
+msgstr "Військовий статус"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.constraint,message:l10n_ua_hr_base.constraint_hr_military_rank_code_uniq
+msgid "Military rank code must be unique!"
+msgstr "Код військового звання повинен бути унікальним!"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_form
+msgid "Min"
+msgstr "Мін"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_job__min_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__salary_min
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_tariff_grade__min_salary
+msgid "Minimum Salary"
+msgstr "Мінімальна ставка"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_job__min_salary
+msgid "Minimum salary for this position"
+msgstr "Мінімальний оклад для цієї посади"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__salary_min
+msgid "Minimum salary for this position (salary range)"
+msgstr "Мінімальний оклад для цієї посади (діапазон окладу)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__res_company__ownership_form__mixed
+msgid "Mixed"
+msgstr "Змішана"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Термін моєї активності"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_education_level__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_kp2010__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefits_report__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_list_report__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_military_report__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_rank__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_tcc__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_tariff_grade__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_job__kp_name
+msgid "Name according to Classifier of Professions"
+msgstr "Назва згідно з Класифікатором професій"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Подія календаря наступної активності"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Термін наступної активності"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__activity_summary
+msgid "Next Activity Summary"
+msgstr "Опис наступної активності"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__activity_type_id
+msgid "Next Activity Type"
+msgstr "Тип наступної активності"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee_benefit__psp_type__none
+msgid "No PSP"
+msgstr "Без ПСП"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__chornobyl_category__none
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__disability_group__none
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__veteran_status__none
+msgid "None"
+msgstr "Немає"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_job__work_conditions__normal
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_kp2010__work_conditions__normal
+msgid "Normal"
+msgstr "Нормальні"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__military_status__not_applicable
+msgid "Not Applicable"
+msgstr "Не застосовується"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__dependents_count
+msgid "Number of dependents for PSP calculation"
+msgstr "Кількість утриманців для розрахунку ПСП"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__message_has_error_counter
+msgid "Number of errors"
+msgstr "Кількість помилок"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Кількість повідомлень, що потребують дії"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилкою доставки"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__units
+msgid "Number of staff units (e.g., 0.5, 1.0, 2.0)"
+msgstr "Кількість штатних одиниць (напр., 0.5, 1.0, 2.0)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_military_rank__category__officer
+msgid "Officer"
+msgstr "Офіцер"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__order_date
+msgid "Order Date"
+msgstr "Дата наказу"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__order_number
+msgid "Order Number"
+msgstr "№ наказу"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__document_type__other
+msgid "Other"
+msgstr "Інший"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__psp_multiplier
+msgid "PSP Multiplier"
+msgstr "Множник ПСП"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__psp_type
+msgid "PSP Type"
+msgstr "Тип ПСП"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_disabled_child
+msgid "Parent of Disabled Child"
+msgstr "Батько дитини з інвалідністю"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__document_type__passport
+msgid "Passport (old format)"
+msgstr "Паспорт (старий зразок)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__passport_series
+msgid "Passport Series"
+msgstr "Серія паспорта"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__passport_number
+msgid "Passport/ID Number"
+msgstr "Номер паспорта/ID"
+
+#. module: l10n_ua_hr_base
+#: model:ir.actions.report,name:l10n_ua_hr_base.action_report_hr_employee_p2
+msgid "Personal Card P-2"
+msgstr "Особова картка П-2"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_tcc__phone
+msgid "Phone"
+msgstr "Телефон"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__job_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_form
+msgid "Position"
+msgstr "Посада"
+
+#. module: l10n_ua_hr_base
+#: model:hr.education.level,name:l10n_ua_hr_base.education_level_primary
+msgid "Primary Education"
+msgstr "Початкова освіта"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__res_company__ownership_form__private
+msgid "Private"
+msgstr "Солдат"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_job__probation_days
+msgid "Probation Period (days)"
+msgstr "Випробувальний термін (дні)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_job__kp_id
+msgid "Profession (KP)"
+msgstr "Професія (КП)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_job__kp_id
+msgid "Profession from Classifier of Professions 2010"
+msgstr "Професія з Класифікатора професій 2010"
+
+#. module: l10n_ua_hr_base
+#: model:hr.education.level,name:l10n_ua_hr_base.education_level_professional_prehigher
+msgid "Professional Pre-Higher Education"
+msgstr "Фахова передвища освіта"
+
+#. module: l10n_ua_hr_base
+#: model:ir.ui.menu,name:l10n_ua_hr_base.menu_hr_kp2010
+msgid "Professions (KP 2010)"
+msgstr "Професії (КП 2010)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__rnokpp
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_child__rnokpp
+msgid "RNOKPP (IPN)"
+msgstr "РНОКПП (ІПН)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.constraint,message:l10n_ua_hr_base.constraint_hr_employee_rnokpp_uniq
+msgid "RNOKPP (IPN) must be unique!"
+msgstr "РНОКПП (ІПН) повинен бути унікальним!"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__passport_record_number
+msgid "Record Number"
+msgstr "Номер запису"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_tcc__region_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Region"
+msgstr "Область"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Registration Address"
+msgstr "Адреса реєстрації"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__registration_city
+msgid "Registration City"
+msgstr "Населений пункт реєстрації"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee_child__rnokpp
+msgid "Registration Number of the Taxpayer Account Card"
+msgstr "Реєстраційний номер облікової картки платника податків"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__rnokpp
+msgid ""
+"Registration Number of the Taxpayer Account Card (Individual Tax Number)"
+msgstr "Реєстраційний номер облікової картки платника податків (ІПН)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__registration_region_id
+msgid "Registration Region"
+msgstr "Область реєстрації"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__registration_zip
+msgid "Registration ZIP"
+msgstr "Поштовий індекс реєстрації"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__military_category__removed
+msgid "Removed from Register"
+msgstr "Знятий з обліку"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_department__department_type__representative
+msgid "Representative Office"
+msgstr "Представництво"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_military_report__reserved_count
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__military_status__reserved
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_search_inherit_ua
+msgid "Reserved"
+msgstr "Заброньований"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__military_reservation
+msgid "Reserved (Booking)"
+msgstr "Бронювання"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__military_reservation_until
+msgid "Reserved Until"
+msgstr "Заброньований до"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__military_reservplus_id
+msgid "Reserv+ ID"
+msgstr "Ідентифікатор Резерв+"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_company_form_inherit_ua_hr
+msgid "Responsible Persons"
+msgstr "Відповідальні особи"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__activity_user_id
+msgid "Responsible User"
+msgstr "Відповідальний користувач"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Помилка доставки SMS"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_form
+msgid "Salary"
+msgstr "Оклад"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_form
+msgid "Salary Range"
+msgstr "Діапазон окладу"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_kanban
+msgid "Salary:"
+msgstr "Оклад:"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__registration_same_as_actual
+msgid "Registration Address Same as Private Address"
+msgstr "Адреса реєстрації збігається з адресою проживання"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_kp2010__section_code
+msgid "Section Code"
+msgstr "Код розділу"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_senior_lieutenant
+msgid "Senior Lieutenant"
+msgstr "Старший лейтенант"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_senior_master_sergeant
+msgid "Senior Master Sergeant"
+msgstr "Старший майстер-сержант"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_senior_sergeant
+msgid "Senior Sergeant"
+msgstr "Старший сержант"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_senior_soldier
+msgid "Senior Soldier"
+msgstr "Старший солдат"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_department__is_separate_unit
+msgid "Separate Unit"
+msgstr "Відокремлений підрозділ"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_education_level__sequence
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefit__sequence
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_military_rank__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_sergeant
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_military_rank__category__sergeant
+msgid "Sergeant"
+msgstr "Сержант"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_form
+msgid "Set to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__marital_status_ua__single
+msgid "Single"
+msgstr "Неодружений/а"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_single_parent
+msgid "Single Parent"
+msgstr "Одинокий батько/мати"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_soldier
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_military_rank__category__soldier
+msgid "Soldier"
+msgstr "Солдат"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__education_specialty
+msgid "Specialty"
+msgstr "Спеціальність"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__spouse_name
+msgid "Spouse Name"
+msgstr "ПІБ чоловіка/дружини"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__spouse_rnokpp
+msgid "Spouse RNOKPP"
+msgstr "РНОКПП чоловіка/дружини"
+
+#. module: l10n_ua_hr_base
+#: model:hr.military.rank,name:l10n_ua_hr_base.military_rank_staff_sergeant
+msgid "Staff Sergeant"
+msgstr "Штаб-сержант"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__units
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_form
+msgid "Staff Units"
+msgstr "Штатні одиниці"
+
+#. module: l10n_ua_hr_base
+#: model:ir.actions.act_window,name:l10n_ua_hr_base.action_hr_staffing_table
+#: model:ir.actions.report,name:l10n_ua_hr_base.action_report_hr_staffing_table
+#: model:ir.model,name:l10n_ua_hr_base.model_hr_staffing_table
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_search
+msgid "Staffing Table"
+msgstr "Штатний розпис"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee_benefit__psp_type__standard
+msgid "Standard (50%)"
+msgstr "Стандартна (50%)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__salary
+msgid "Standard salary for this position"
+msgstr "Стандартний оклад для цієї посади"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefits_report__state
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_list_report__state
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_military_report__state
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__res_company__ownership_form__state
+msgid "State"
+msgstr "Статус"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Statistics"
+msgstr "Статистика"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__state
+msgid "Status"
+msgstr "Статус"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Статус на основі активностей\n"
+"Прострочено: Термін вже минув\n"
+"Сьогодні: Дата активності сьогодні\n"
+"Заплановано: Майбутні активності."
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__military_tcc_id
+msgid "TCC"
+msgstr "ТЦК"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model,name:l10n_ua_hr_base.model_hr_tariff_grade
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_job__tariff_grade_id
+msgid "Tariff Grade"
+msgstr "Тарифний розряд"
+
+#. module: l10n_ua_hr_base
+#: model:ir.actions.act_window,name:l10n_ua_hr_base.action_hr_tariff_grade
+#: model:ir.ui.menu,name:l10n_ua_hr_base.menu_hr_tariff_grade
+msgid "Tariff Grades"
+msgstr "Тарифні розряди"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.constraint,message:l10n_ua_hr_base.constraint_hr_tariff_grade_grade_uniq
+msgid "Tariff grade must be unique!"
+msgstr "Тарифний розряд повинен бути унікальним!"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Tax Identification"
+msgstr "Податкова ідентифікація"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__military_tcc_id
+msgid "Territorial Recruitment Center"
+msgstr "Територіальний центр комплектування"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model,name:l10n_ua_hr_base.model_hr_military_tcc
+msgid "Territorial Recruitment Center (TCC)"
+msgstr "Територіальний центр комплектування (ТЦК)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.actions.act_window,name:l10n_ua_hr_base.action_hr_military_tcc
+#: model:ir.ui.menu,name:l10n_ua_hr_base.menu_hr_military_tcc
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_military_tcc_search
+msgid "Territorial Recruitment Centers"
+msgstr "Територіальні центри комплектування"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_base.action_hr_kp2010
+msgid ""
+"The KP 2010 classifier contains Ukrainian profession codes required for "
+"official reporting."
+msgstr ""
+"Класифікатор КП 2010 містить українські коди професій, необхідні для "
+"офіційної звітності."
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__total_salary_fund
+msgid "Total Salary Fund"
+msgstr "Загальний ФОП"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__work_experience_total
+msgid "Total Work Experience (years)"
+msgstr "Загальний стаж (роки)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__work_experience_total
+msgid "Total work experience in years"
+msgstr "Загальний стаж роботи в роках"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_two_children
+msgid "Two or More Children"
+msgstr "Двоє і більше дітей"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee_benefit__psp_type
+msgid "Type of Personal Income Tax Social Benefit (PSP)"
+msgstr "Тип податкової соціальної пільги (ПСП)"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Тип виключної активності в записі."
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_kp2010__work_conditions
+msgid "Typical Work Conditions"
+msgstr "Типові умови праці"
+
+#. module: l10n_ua_hr_base
+#: model:ir.ui.menu,name:l10n_ua_hr_base.menu_hr_ua_configuration
+msgid "Ukraine"
+msgstr "Україна"
+
+#. module: l10n_ua_hr_base
+#: model:res.groups,name:l10n_ua_hr_base.group_hr_ua_manager
+msgid "Ukraine HR: Manager"
+msgstr "HR Україна: Менеджер"
+
+#. module: l10n_ua_hr_base
+#: model:res.groups,name:l10n_ua_hr_base.group_hr_ua_officer
+msgid "Ukraine HR: Officer"
+msgstr "HR Україна: Офіцер"
+
+#. module: l10n_ua_hr_base
+#: model:res.groups,name:l10n_ua_hr_base.group_hr_ua_user
+msgid "Ukraine HR: User"
+msgstr "HR Україна: Користувач"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_job_form_inherit_ua
+msgid "Ukrainian Classification"
+msgstr "Українська класифікація"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_company_form_inherit_ua_hr
+msgid "Ukrainian HR"
+msgstr "HR Україна"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__military_fitness__unfit
+msgid "Unfit for Service"
+msgstr "Непридатний до служби"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__passport_record_number
+msgid "Unique record number in the register (for ID cards)"
+msgstr "Унікальний номер запису в реєстрі (для ID-карток)"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_kanban
+msgid "Units:"
+msgstr "Одиниць:"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.report_hr_employee_p2_document
+msgid "V. ДОДАТКОВІ ВІДОМОСТІ"
+msgstr ""
+
+#. module: l10n_ua_hr_base
+#: model:ir.actions.report,name:l10n_ua_hr_base.action_report_hr_vacancies
+msgid "Vacancies"
+msgstr "Вакансії"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__vacant_units
+msgid "Vacant Units"
+msgstr "Вакантних одиниць"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__passport_valid_until
+msgid "Valid Until"
+msgstr "Дійсний до"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_form
+msgid "Validity"
+msgstr "Термін дії"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__veteran_status
+msgid "Veteran Status"
+msgstr "Статус ветерана"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefits_report__veteran_count
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_search_inherit_ua
+msgid "Veterans"
+msgstr "Ветерани"
+
+#. module: l10n_ua_hr_base
+#: model:hr.education.level,name:l10n_ua_hr_base.education_level_vocational
+msgid "Vocational Education"
+msgstr "Професійно-технічна освіта"
+
+#. module: l10n_ua_hr_base
+#: model:hr.employee.benefit,name:l10n_ua_hr_base.benefit_war_veteran
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__veteran_status__war
+msgid "War Veteran"
+msgstr "Ветеран війни"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__website_message_ids
+msgid "Website Messages"
+msgstr "Повідомлення веб-сайту"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__website_message_ids
+msgid "Website communication history"
+msgstr "Історія комунікації веб-сайту"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee__marital_status_ua__widowed
+msgid "Widowed"
+msgstr "Вдівець/вдова"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefits_report__disabled_count
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_search_inherit_ua
+msgid "With Disability"
+msgstr "З інвалідністю"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_employee_benefit_search
+msgid "With PSP"
+msgstr "З ПСП"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_job__work_conditions
+msgid "Work Conditions"
+msgstr "Умови праці"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Work Experience"
+msgstr "Стаж роботи"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefits_report__date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_list_report__date
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_military_report__date
+msgid "As of Date"
+msgstr "Станом на дату"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_benefits_report__employee_count
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_list_report__employee_count
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee_military_report__employee_count
+msgid "Total"
+msgstr "Всього"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee_benefits_report__state__generated
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee_list_report__state__generated
+#: model:ir.model.fields.selection,name:l10n_ua_hr_base.selection__hr_employee_military_report__state__generated
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.hr_employee_benefits_report_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.hr_employee_list_report_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.hr_employee_military_report_view_search
+msgid "Generated"
+msgstr "Сформовано"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__employee_number
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Personnel Number"
+msgstr "Табельний номер"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Generate"
+msgstr "Згенерувати"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_employee__employee_number
+msgid ""
+"Personnel number of the employee according to Ukrainian legislation "
+"(Табельний номер)"
+msgstr "Табельний номер працівника згідно з українським законодавством"
+
+#. module: l10n_ua_hr_base
+#: model:ir.sequence,name:l10n_ua_hr_base.seq_hr_employee_number
+msgid "Employee Personnel Number"
+msgstr "Табельний номер співробітника"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "City"
+msgstr "Місто"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "ZIP"
+msgstr "Індекс"
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Street..."
+msgstr "Вулиця..."
+
+#. module: l10n_ua_hr_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_employee_form_inherit_ua
+msgid "Street 2..."
+msgstr "Вулиця 2..."
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__registration_street
+msgid "Registration Street"
+msgstr "Вулиця реєстрації"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_employee__registration_street2
+msgid "Registration Street 2"
+msgstr "Вулиця реєстрації 2"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.constraint,message:l10n_ua_hr_base.constraint_hr_staffing_table_one_approved_line_per_start_date
+msgid ""
+"This position already has an approved staffing line starting on that date. "
+"Correct the existing line instead of adding a second one."
+msgstr ""
+"Ця позиція вже має затверджений рядок штатного розпису, що починається цією "
+"датою. Виправте наявний рядок замість того, щоб додавати другий."
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__date_end
+msgid "Effective Until"
+msgstr "Діє до"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__date_to
+msgid "Position Discontinued"
+msgstr "Посаду скасовано"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_base.field_hr_staffing_table__is_current
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_base.view_hr_staffing_table_search
+msgid "In Force"
+msgstr "Чинні"
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__date_to
+msgid ""
+"Set only when the position itself ends and no new line follows. A line is "
+"superseded by the next approved line of the same position on its own, and "
+"needs no end date for that."
+msgstr ""
+"Заповнюйте лише тоді, коли посада скасовується і наступного рядка не буде. "
+"Рядок і без цього перестає діяти, коли починається наступний затверджений "
+"рядок тієї самої позиції."
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__date_end
+msgid ""
+"Last day this line applies: the day before the next approved line of this "
+"position starts, or the day the position was discontinued, whichever comes "
+"first."
+msgstr ""
+"Останній день дії цього рядка: день перед початком наступного затвердженого "
+"рядка цієї позиції або день скасування посади — залежно від того, що настає "
+"раніше."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+#: code:addons/l10n_ua_hr_base/models/hr_staffing_table.py:0
+msgid ""
+"This staffing line applies from %(date)s, which is already past. Any payslip"
+" recalculated for a period from that date will use it — let payroll know "
+"before that happens."
+msgstr ""
+"Цей рядок штатного розпису діє з %(date)s, тобто заднім числом. Будь-який "
+"розрахунковий листок, перерахований за період від цієї дати, братиме саме "
+"його — попередьте бухгалтерію, перш ніж це станеться."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+#: code:addons/l10n_ua_hr_base/models/hr_staffing_table.py:0
+msgid ""
+"An approved staffing line cannot be archived: it is what payslips are "
+"calculated from, and removing it would quietly return the position to the "
+"salary of the period before. Use \"Set to Draft\" to undo an approval, or "
+"fill in \"Position Discontinued\" if the position itself has ended."
+msgstr ""
+"Затверджений рядок штатного розпису не можна архівувати: саме з нього "
+"рахуються розрахункові листки, і його вилучення тихо повернуло б позиції "
+"оклад попереднього періоду. Щоб скасувати затвердження, скористайтесь "
+"кнопкою «В чернетку», а якщо посада справді припинила існувати — заповніть "
+"«Посаду скасовано»."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+#: code:addons/l10n_ua_hr_base/models/hr_staffing_table.py:0
+msgid ""
+"An approved staffing line cannot be deleted: payslips are calculated from "
+"it, and removing it would change what every recalculation of those periods "
+"produces — leaving nothing behind to explain why. Use \"Set to Draft\" first"
+" if the line was approved by mistake."
+msgstr ""
+"Затверджений рядок штатного розпису не можна видалити: саме з нього "
+"рахуються розрахункові листки, і його вилучення змінило б результат кожного "
+"перерахунку за ті періоди, не лишивши жодного пояснення. Якщо рядок "
+"затверджено помилково — спершу поверніть його кнопкою «В чернетку»."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+#: code:addons/l10n_ua_hr_base/models/hr_staffing_table.py:0
+msgid ""
+"This line has already been superseded by the approved line of %(date)s, so "
+"it is history: the payslips of its period are calculated from it. Undo the "
+"later approval first, if that is what you meant."
+msgstr ""
+"Цей рядок уже витіснено затвердженим рядком від %(date)s, тобто він став "
+"історією: саме з нього рахуються листки свого періоду. Якщо ви мали на увазі"
+" саме це — спершу скасуйте затвердження пізнішого рядка."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+#: code:addons/l10n_ua_hr_base/models/hr_staffing_table.py:0
+msgid ""
+"This position is discontinued on %(date)s while %(units)s staff unit(s) are "
+"still filled. From that date the staffing table has no answer for it, and an"
+" employee whose wage comes from the table is calculated at zero. Move them "
+"before then, or lift the date."
+msgstr ""
+"Посаду скасовано з %(date)s, але %(units)s штатної одиниці досі зайнято. "
+"Після цієї дати штатний розпис не дає для неї відповіді, і працівник, чий "
+"оклад береться з розпису, рахуватиметься як нуль. Переведіть таких "
+"працівників до цієї дати або зніміть її."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+#: code:addons/l10n_ua_hr_base/models/hr_staffing_table.py:0
+msgid ""
+"This line no longer covers the periods it did: it now starts on %(date)s. A "
+"payslip recalculated for a month it used to cover falls through to an "
+"earlier line, or to nothing at all."
+msgstr ""
+"Цей рядок більше не покриває періоди, які покривав: тепер він діє з "
+"%(date)s. Розрахунковий листок, перерахований за місяць, який він раніше "
+"покривав, провалиться на давніший рядок або взагалі ні на що."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+msgid ""
+"A position cannot be discontinued on %(discontinued)s, before the staffing "
+"line describing it starts on %(start)s."
+msgstr ""
+"Посаду не можна скасувати %(discontinued)s: рядок штатного розпису, який її "
+"описує, починає діяти лише %(start)s."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+msgid ""
+"The staffing line \"%(position)s\" states its salary in %(currency)s, and no"
+" rate for that currency is on file for %(date)s. Without one the salary "
+"would enter payroll as though it were hryvnia. Add the rate to the currency "
+"table."
+msgstr ""
+"Рядок штатного розпису «%(position)s» задає оклад у %(currency)s, а курс "
+"цієї валюти на %(date)s не внесений. Без курсу оклад потрапив би в "
+"розрахунок як гривневий. Внесіть курс у довідник валют."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+msgid ""
+"This position already has an approved staffing line starting on %(date)s. "
+"Two of them leave the salary payroll reads undefined — correct the "
+"existing line instead of adding a second one."
+msgstr ""
+"Ця позиція вже має затверджений рядок штатного розпису, що починається "
+"%(date)s. Два таких рядки роблять оклад, який читає розрахунок зарплати, "
+"невизначеним — виправте наявний рядок замість того, щоб додавати другий."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+msgid ""
+"Several approved staffing lines of this position start on %(date)s (lines "
+"%(ids)s). Payroll reads whichever of them the database happens to return "
+"first, so the salary this position pays is undefined, and a recalculated "
+"payslip may not repeat what was paid. Correct the start dates, or set all "
+"but one back to draft."
+msgstr ""
+"Кілька затверджених рядків штатного розпису цієї позиції починаються "
+"%(date)s (рядки %(ids)s). Розрахунок зарплати бере той із них, який база "
+"поверне першим, тож оклад цієї позиції невизначений, і перерахований "
+"розрахунковий листок може не повторити вже виплаченого. Виправте дати "
+"початку або поверніть усі рядки, крім одного, у чернетку."
+
+#. module: l10n_ua_hr_base
+#: model:ir.model.fields,help:l10n_ua_hr_base.field_hr_staffing_table__currency_id
+msgid ""
+"The currency the salary on this line is stated in. It follows the "
+"company of the line; set it by hand only for a position genuinely "
+"priced in another currency."
+msgstr ""
+"Валюта, у якій задано оклад цього рядка. Береться від компанії рядка; "
+"змінюйте вручну лише для посади, оклад якої справді визначено в іншій "
+"валюті."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+msgid "Salary in another currency"
+msgstr "Оклад в іншій валюті"
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+msgid ""
+"This line states its salary in %(currency)s, while %(company)s keeps "
+"its accounts in %(company_currency)s. Payroll converts the figure at "
+"the rate of the period it calculates, so what is entered here is not "
+"what is paid. Leave it only if the position is genuinely priced in "
+"%(currency)s."
+msgstr ""
+"Цей рядок задає оклад у %(currency)s, тоді як %(company)s веде облік у "
+"%(company_currency)s. Розрахунок зарплати перерахує суму за курсом "
+"періоду, який обчислює, тож введене тут — не те, що буде виплачено. "
+"Лишайте так, лише якщо оклад посади справді визначено в %(currency)s."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+msgid ""
+"This staffing line states its salary in %(currency)s, while %(company)s "
+"keeps its accounts in %(company_currency)s, and no rate for "
+"%(currency)s is on file at all. Payroll cannot convert the figure: the "
+"position would either stop every payslip that reaches it or enter the "
+"calculation as though the number were %(company_currency)s. Set the "
+"currency of the company, or add the rate to the currency table first."
+msgstr ""
+"Цей рядок штатного розпису задає оклад у %(currency)s, тоді як "
+"%(company)s веде облік у %(company_currency)s, а курсу %(currency)s "
+"немає в довіднику взагалі. Розрахунок зарплати не може перерахувати "
+"суму: посада або зупинятиме кожен розрахунковий листок, який її "
+"зачепить, або потрапить у розрахунок так, ніби число задано в "
+"%(company_currency)s. Задайте валюту компанії або спершу внесіть курс у "
+"довідник валют."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+msgid ""
+"The salary on this line is stated in %(currency)s, not in "
+"%(company_currency)s, the currency of %(company)s. Payroll converts it "
+"at the rate of the period it calculates. If the position is not priced "
+"in %(currency)s, correct the currency here — the figure enters payslips "
+"as it stands."
+msgstr ""
+"Оклад цього рядка задано в %(currency)s, а не в %(company_currency)s — "
+"валюті %(company)s. Розрахунок зарплати перераховує його за курсом "
+"періоду, який обчислює. Якщо оклад посади не визначено в %(currency)s, "
+"виправте валюту тут: число потрапляє в розрахункові листки як є."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+msgid ""
+"The salary on this line was stated in %(old)s, the currency of "
+"whichever company was selected when it was created, while the line "
+"belongs to %(company)s and its salary was entered, read and printed as "
+"%(new)s. No rate for %(old)s was ever on file, so nothing could convert "
+"the figure and every payslip that reached this position stopped. The "
+"currency now says what the number always meant."
+msgstr ""
+"Оклад цього рядка був заданий у %(old)s — валюті тієї компанії, яка "
+"була вибрана під час створення, — тоді як рядок належить %(company)s, а "
+"його оклад вносили, читали й друкували як %(new)s. Курсу %(old)s у "
+"довіднику не було ніколи, тож перерахувати суму не міг ніхто, і кожен "
+"розрахунковий листок, який діставався цієї посади, зупинявся. Тепер "
+"валюта говорить те, що число означало завжди."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+msgid ""
+"The salary on this line is stated in %(currency)s, not in "
+"%(company_currency)s, the currency of %(company)s. Until now the "
+"currency was filled in from the company selected at the time of "
+"writing, not from the line, so this may never have been intended — and "
+"payroll converts the figure at the rate of the period it calculates, "
+"which is not what an officer entering a hryvnia salary expects. A rate "
+"is on file, so the number has been reaching payslips multiplied by it. "
+"Check it: if the position is not priced in %(currency)s, correct the "
+"currency here."
+msgstr ""
+"Оклад цього рядка задано в %(currency)s, а не в %(company_currency)s — "
+"валюті %(company)s. Досі валюта підставлялася від компанії, вибраної на "
+"момент внесення, а не від самого рядка, тож наміру могло й не бути, — а "
+"розрахунок зарплати перераховує суму за курсом періоду, який обчислює, "
+"чого кадровик, що вносив гривневий оклад, не чекає. Курс у довіднику є, "
+"тож число потрапляло в листки помноженим на нього. Перевірте: якщо "
+"оклад посади не визначено в %(currency)s, виправте валюту тут."
+
+#. module: l10n_ua_hr_base
+#. odoo-python
+msgid ""
+"The salary on this line named no currency at all, so everything that "
+"read it — payroll, the printed staffing table — took the figure for "
+"%(new)s, the currency of %(company)s. The currency now says what the "
+"number always meant."
+msgstr ""
+"Оклад цього рядка не називав жодної валюти, тож усе, що його читало, — "
+"розрахунок зарплати, друкований штатний розпис — брало число за "
+"%(new)s, валюту %(company)s. Тепер валюта говорить те, що число "
+"означало завжди."

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_l10n_ua_prro"
+              name="PRRO"
+              parent="l10n_ua_account_base.menu_l10n_ua_root"
+              sequence="50"/>
+
+    <menuitem id="menu_l10n_ua_prro_config"
+              name="Configurations"
+              parent="menu_l10n_ua_prro"
+              action="l10n_ua_prro_config_action"
+              sequence="10"/>
+
+    <menuitem id="menu_l10n_ua_prro_shifts"
+              name="Shifts"
+              parent="menu_l10n_ua_prro"
+              action="l10n_ua_prro_shift_action"
+              sequence="20"/>
+
+    <menuitem id="menu_l10n_ua_prro_receipts"
+              name="Receipts"
+              parent="menu_l10n_ua_prro"
+              action="l10n_ua_prro_receipt_action"
+              sequence="30"/>
+
+</odoo>

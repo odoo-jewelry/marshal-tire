@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_move_form_ua" model="ir.ui.view">
+        <field name="name">account.move.form.ua</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <field name="ref" position="after">
+                <field name="ua_doc_type"/>
+                <field name="ua_doc_number"/>
+                <field name="ua_doc_date"/>
+                <field name="ua_counterparty_doc"/>
+            </field>
+            <xpath expr="//field[@name='amount_residual']" position="after">
+                <field name="l10n_ua_discount_total"
+                       invisible="l10n_ua_discount_total == 0"/>
+                <field name="l10n_ua_amount_words" colspan="2" nolabel="0"
+                       invisible="not l10n_ua_amount_words"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Колонка «Узгодження» у списку елементів журналу — це matching_number:
+         Char із міткою групи узгодження («20», «P1»), а не сума. Стандартний
+         підпис «Matching» перекладено як «Узгодження», тож колонка з коротким
+         числом читається як грошова і виглядає помилковою (#169). Уточнюємо
+         підпис; переклад — в i18n/uk_UA.po. -->
+    <record id="view_move_line_tree_ua" model="ir.ui.view">
+        <field name="name">account.move.line.list.ua</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree"/>
+        <field name="arch" type="xml">
+            <field name="matching_number" position="attributes">
+                <attribute name="string">Matching Number</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>

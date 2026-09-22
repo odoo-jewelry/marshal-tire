@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="869px" preserveAspectRatio="none" style="width:1556px;height:869px;background:#FEFEFE;" version="1.1" viewBox="0 0 1556 869" width="1556px" zoomAndPan="magnify"><defs><filter height="300%" id="f112pkl8b2x3bn" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="401" x="581" y="19.2419">Архітектура HR модулів Ukrainian Localization</text><!--MD5=[323422cf916f5a5bd97c268e3b0ad324]
+cluster Базові модулі--><polygon fill="#FEFEFE" filter="url(#f112pkl8b2x3bn)" points="334.71,48.5158,442.71,48.5158,449.71,73.5838,498.71,73.5838,498.71,295.0158,334.71,295.0158,334.71,48.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="334.71" x2="449.71" y1="73.5838" y2="73.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="102" x="338.71" y="65.4818">Базові модулі</text><!--MD5=[b4e54206fc85c7e74a8ab003cc501898]
+cluster Кадрові процеси--><polygon fill="#FEFEFE" filter="url(#f112pkl8b2x3bn)" points="34.71,404.0158,163.71,404.0158,170.71,429.0838,509.71,429.0838,509.71,690.0158,34.71,690.0158,34.71,404.0158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="34.71" x2="170.71" y1="429.0838" y2="429.0838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="123" x="38.71" y="420.9818">Кадрові процеси</text><!--MD5=[34203d40aa6762dd9d3ef1faf87ea553]
+cluster Облік часу--><polygon fill="#FEFEFE" filter="url(#f112pkl8b2x3bn)" points="737.71,404.0158,821.71,404.0158,828.71,429.0838,987.71,429.0838,987.71,690.0158,737.71,690.0158,737.71,404.0158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="737.71" x2="828.71" y1="429.0838" y2="429.0838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="78" x="741.71" y="420.9818">Облік часу</text><!--MD5=[ea6ae5c32e81e629dee0dcc76208e860]
+cluster Зарплата та звітність--><polygon fill="#FEFEFE" filter="url(#f112pkl8b2x3bn)" points="533.71,597.0158,697.71,597.0158,704.71,622.0838,713.71,622.0838,713.71,852.5158,533.71,852.5158,533.71,597.0158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="533.71" x2="704.71" y1="622.0838" y2="622.0838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="158" x="537.71" y="613.9818">Зарплата та звітність</text><!--MD5=[303468e7f9d99860ae9c4b72d37a9151]
+entity hr--><rect fill="#ADD8E6" filter="url(#f112pkl8b2x3bn)" height="39.0679" style="stroke: #A80036; stroke-width: 1.5;" width="93" x="378.21" y="86.5158"/><rect fill="#ADD8E6" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="373.21" y="91.5158"/><rect fill="#ADD8E6" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="373.21" y="115.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="388.21" y="111.4818">l10n_ua_hr</text><!--MD5=[21ab09ffd5d05f413c587b952aee3778]
+entity base--><rect fill="#ADD8E6" filter="url(#f112pkl8b2x3bn)" height="39.0679" style="stroke: #A80036; stroke-width: 1.5;" width="131" x="351.21" y="240.0158"/><rect fill="#ADD8E6" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="346.21" y="245.0158"/><rect fill="#ADD8E6" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="346.21" y="269.0838"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="111" x="361.21" y="264.9818">l10n_ua_hr_base</text><!--MD5=[8902d1e7d52557579a01ce3a1896f573]
+entity contract--><rect fill="#90EE90" filter="url(#f112pkl8b2x3bn)" height="39.0679" style="stroke: #A80036; stroke-width: 1.5;" width="154" x="339.71" y="442.0158"/><rect fill="#90EE90" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="334.71" y="447.0158"/><rect fill="#90EE90" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="334.71" y="471.0838"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="134" x="349.71" y="466.9818">l10n_ua_hr_contract</text><!--MD5=[57a5b41ed6b3ba96fe9b4a740eb3fdc7]
+entity docs--><rect fill="#FFFFE0" filter="url(#f112pkl8b2x3bn)" height="39.0679" style="stroke: #A80036; stroke-width: 1.5;" width="174" x="319.71" y="635.0158"/><rect fill="#FFFFE0" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="314.71" y="640.0158"/><rect fill="#FFFFE0" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="314.71" y="664.0838"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="154" x="329.71" y="659.9818">l10n_ua_hr_documents</text><!--MD5=[09a3034c6132b7935065d20c38063c47]
+entity certs--><rect fill="#FFFFE0" filter="url(#f112pkl8b2x3bn)" height="39.0679" style="stroke: #A80036; stroke-width: 1.5;" width="254" x="50.71" y="442.0158"/><rect fill="#FFFFE0" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="45.71" y="447.0158"/><rect fill="#FFFFE0" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="45.71" y="471.0838"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="234" x="60.71" y="466.9818">l10n_ua_hr_documents_certificates</text><!--MD5=[1056c8bbf50892a38617454c4c92233b]
+entity holidays--><rect fill="#F08080" filter="url(#f112pkl8b2x3bn)" height="39.0679" style="stroke: #A80036; stroke-width: 1.5;" width="155" x="754.21" y="442.0158"/><rect fill="#F08080" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="749.21" y="447.0158"/><rect fill="#F08080" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="749.21" y="471.0838"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="135" x="764.21" y="466.9818">l10n_ua_hr_holidays</text><!--MD5=[014dced6116f709db6f74dc64f13872c]
+entity timesheet--><rect fill="#F08080" filter="url(#f112pkl8b2x3bn)" height="39.0679" style="stroke: #A80036; stroke-width: 1.5;" width="218" x="753.71" y="635.0158"/><rect fill="#F08080" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="748.71" y="640.0158"/><rect fill="#F08080" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="748.71" y="664.0838"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="198" x="763.71" y="659.9818">l10n_ua_hr_attendance_sheet</text><!--MD5=[fc06d0eadb60b065c2c6c52f9b52d80f]
+entity salary--><rect fill="#DDA0DD" filter="url(#f112pkl8b2x3bn)" height="39.0679" style="stroke: #A80036; stroke-width: 1.5;" width="139" x="554.21" y="635.0158"/><rect fill="#DDA0DD" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="549.21" y="640.0158"/><rect fill="#DDA0DD" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="549.21" y="664.0838"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="119" x="564.21" y="659.9818">l10n_ua_hr_salary</text><!--MD5=[40ccd3f4eb67d6d1c0dfcd9d8f79f336]
+entity reports--><rect fill="#DDA0DD" filter="url(#f112pkl8b2x3bn)" height="39.0679" style="stroke: #A80036; stroke-width: 1.5;" width="148" x="549.71" y="797.5158"/><rect fill="#DDA0DD" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="544.71" y="802.5158"/><rect fill="#DDA0DD" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="544.71" y="826.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="128" x="559.71" y="822.4818">l10n_ua_hr_reports</text><path d="M515.21,83.5158 L515.21,102.0158 L471.46,106.0158 L515.21,110.0158 L515.21,128.9279 A0,0 0 0 0 515.21,128.9279 L686.21,128.9279 A0,0 0 0 0 686.21,128.9279 L686.21,93.5158 L676.21,83.5158 L515.21,83.5158 A0,0 0 0 0 515.21,83.5158 " fill="#FBFB77" filter="url(#f112pkl8b2x3bn)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M676.21,83.5158 L676.21,93.5158 L686.21,93.5158 L676.21,83.5158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="521.21" y="102.4129">Базовий модуль</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="150" x="521.21" y="120.1189">Залежність від Odoo HR</text><path d="M517.21,188.5158 L517.21,255.5158 L482.42,259.5158 L517.21,263.5158 L517.21,330.458 A0,0 0 0 0 517.21,330.458 L694.21,330.458 A0,0 0 0 0 694.21,330.458 L694.21,198.5158 L684.21,188.5158 L517.21,188.5158 A0,0 0 0 0 517.21,188.5158 " fill="#FBFB77" filter="url(#f112pkl8b2x3bn)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M684.21,188.5158 L684.21,198.5158 L694.21,198.5158 L684.21,188.5158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="77" x="523.21" y="207.4129">Працівники:</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="63" x="523.21" y="225.1189">- РНОКПП</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="60" x="523.21" y="242.8249">- Паспорт</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="115" x="523.21" y="260.5309">- Військовий облік</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="50" x="523.21" y="278.2369">- Пільги</text><line style="stroke: #A80036; stroke-width: 1.0;" x1="518.21" x2="693.21" y1="282.0459" y2="282.0459"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="156" x="523.21" y="299.9429">КП-2010 (9000+ професій)</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="103" x="523.21" y="317.649">Штатний розпис</text><path d="M1015.71,390.5158 L1015.71,532.458 L1151.71,532.458 L1151.71,400.5158 L1141.71,390.5158 L1015.71,390.5158 " fill="#FBFB77" filter="url(#f112pkl8b2x3bn)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1141.71,390.5158 L1141.71,400.5158 L1151.71,400.5158 L1141.71,390.5158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="115" x="1021.71" y="409.4129">Трудові договори:</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="94" x="1021.71" y="427.1189">- Безстроковий</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="75" x="1021.71" y="444.8249">- Строковий</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="36" x="1021.71" y="462.5309">- ЦПД</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="84" x="1021.71" y="480.2369">- Гіг-контракт</text><line style="stroke: #A80036; stroke-width: 1.0;" x1="1016.71" x2="1150.71" y1="484.0459" y2="484.0459"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="98" x="1021.71" y="501.9429">Графіки роботи</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="62" x="1021.71" y="519.649">Надбавки</text><path d="M1007.21,623.0158 L1007.21,686.1339 L1186.21,686.1339 L1186.21,633.0158 L1176.21,623.0158 L1007.21,623.0158 " fill="#FBFB77" filter="url(#f112pkl8b2x3bn)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1176.21,623.0158 L1176.21,633.0158 L1186.21,633.0158 L1176.21,623.0158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="158" x="1013.21" y="641.9129">Накази (П-1, П-3, П-4, П-5)</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="99" x="1013.21" y="659.6189">QWeb шаблони</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="94" x="1013.21" y="677.3249">Автонумерація</text><path d="M1186.71,421.0158 L1186.71,501.8399 L1300.71,501.8399 L1300.71,431.0158 L1290.71,421.0158 L1186.71,421.0158 " fill="#FBFB77" filter="url(#f112pkl8b2x3bn)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1290.71,421.0158 L1290.71,431.0158 L1300.71,431.0158 L1290.71,421.0158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="53" x="1192.71" y="439.9129">Довідки:</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="81" x="1192.71" y="457.6189">- Про роботу</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="93" x="1192.71" y="475.3249">- Про зарплату</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="71" x="1192.71" y="493.0309">- Для банку</text><path d="M1336.21,390.5158 L1336.21,532.458 L1467.21,532.458 L1467.21,400.5158 L1457.21,390.5158 L1336.21,390.5158 " fill="#FBFB77" filter="url(#f112pkl8b2x3bn)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1457.21,390.5158 L1457.21,400.5158 L1467.21,400.5158 L1457.21,390.5158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="64" x="1342.21" y="409.4129">Відпустки:</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="110" x="1342.21" y="427.1189">- Щорічна (24 дні)</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="74" x="1342.21" y="444.8249">- Додаткова</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="77" x="1342.21" y="462.5309">- Навчальна</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="107" x="1342.21" y="480.2369">- Без збереження</text><line style="stroke: #A80036; stroke-width: 1.0;" x1="1337.21" x2="1466.21" y1="484.0459" y2="484.0459"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="107" x="1342.21" y="501.9429">Лікарняні (е-ТВН)</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="1342.21" y="519.649">Графік відпусток</text><path d="M1221.71,632.0158 L1221.71,677.4279 L1345.71,677.4279 L1345.71,642.0158 L1335.71,632.0158 L1221.71,632.0158 " fill="#FBFB77" filter="url(#f112pkl8b2x3bn)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1335.71,632.0158 L1335.71,642.0158 L1345.71,642.0158 L1335.71,632.0158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="69" x="1227.71" y="650.9129">Табель П-5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="103" x="1227.71" y="668.6189">Автозаповнення</text><path d="M1380.71,592.5158 L1380.71,716.7519 L1544.71,716.7519 L1544.71,602.5158 L1534.71,592.5158 L1380.71,592.5158 " fill="#FBFB77" filter="url(#f112pkl8b2x3bn)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1534.71,592.5158 L1534.71,602.5158 L1544.71,602.5158 L1534.71,592.5158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="86" x="1386.71" y="611.4129">Нарахування:</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="74" x="1386.71" y="629.1189">- ПДФО 18%</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="44" x="1386.71" y="646.8249">- ВЗ 5%</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="59" x="1386.71" y="664.5309">- ЄСВ 22%</text><line style="stroke: #A80036; stroke-width: 1.0;" x1="1381.71" x2="1543.71" y1="668.3399" y2="668.3399"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="109" x="1386.71" y="686.2369">ПСП (50/75/100%)</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="143" x="1386.71" y="703.9429">Розрахунковий листок</text><path d="M732.71,776.5158 L732.71,813.0158 L697.89,817.0158 L732.71,821.0158 L732.71,857.3399 A0,0 0 0 0 732.71,857.3399 L840.71,857.3399 A0,0 0 0 0 840.71,857.3399 L840.71,786.5158 L830.71,776.5158 L732.71,776.5158 A0,0 0 0 0 732.71,776.5158 " fill="#FBFB77" filter="url(#f112pkl8b2x3bn)" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M830.71,776.5158 L830.71,786.5158 L840.71,786.5158 L830.71,776.5158 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="58" x="738.71" y="795.4129">Звітність:</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="33" x="738.71" y="813.1189">- 4ДФ</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="58" x="738.71" y="830.8249">- Звіт ЄСВ</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="87" x="738.71" y="848.5309">- XML експорт</text><!--MD5=[ea671e3186a9434ba92804fd4592c348]
+link hr to base--><path d="M423.73,125.5958 C422.28,153.0758 419.56,204.5758 417.97,234.7658 " fill="none" id="hr-&gt;base" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="417.7,239.7858,422.1583,231.0038,417.9575,234.7925,414.1689,230.5918,417.7,239.7858" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[4822038d082ef193830cf627f2d54762]
+link base to contract--><path d="M416.71,279.3358 C416.71,315.9058 416.71,396.5158 416.71,436.7358 " fill="none" id="base-&gt;contract" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="416.71,441.8958,420.71,432.8958,416.71,436.8958,412.71,432.8958,416.71,441.8958" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[fb4a44ef899e87451f40babd990b161f]
+link base to docs--><path d="M350.86,261.1358 C261.92,265.9558 106.21,289.3458 33.71,390.5158 C-3.05,441.8158 -3.4,481.4658 33.71,532.5158 C97.39,620.1158 225.96,645.5658 314.19,652.2858 " fill="none" id="base-&gt;docs" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="319.41,652.6658,310.7188,648.033,314.4228,652.3086,310.1472,656.0126,319.41,652.6658" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[4c0d60a3d5f1b9aa1fa16d447610bf75]
+link base to holidays--><path d="M435.12,279.1458 C451.1,294.5058 475.42,316.0558 499.71,330.5158 C584.38,380.9158 692.12,418.8958 761.5,440.4258 " fill="none" id="base-&gt;holidays" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="766.43,441.9458,759.0206,435.4573,761.6548,440.4634,756.6487,443.0976,766.43,441.9458" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[2ce97d17e828367c5a1d85f109b25698]
+link base to timesheet--><path d="M432.82,279.0458 C448.23,295.4558 473.03,318.5958 499.71,330.5158 C587.2,369.5958 863.85,318.1958 926.71,390.5158 C987.91,460.9158 915.72,580.2758 880.21,630.3358 " fill="none" id="base-&gt;timesheet" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="877.09,634.6758,885.5893,629.6998,880.007,630.6149,879.0919,625.0326,877.09,634.6758" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d94bce0ad3afe2f4b5aa7a3cc051f114]
+link base to certs--><path d="M394.23,279.3358 C349.81,316.5058 251.03,399.1658 203.82,438.6658 " fill="none" id="base-&gt;certs" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="199.96,441.8958,209.4248,439.1724,203.7894,438.6809,204.2809,433.0454,199.96,441.8958" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7c0008cc461b723edd1a1299a8b83350]
+link contract to docs--><path d="M415.73,481.1758 C413.91,515.9758 410,590.7558 407.98,629.3558 " fill="none" id="contract-&gt;docs" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="407.69,634.7758,412.1483,625.9938,407.9475,629.7825,404.1589,625.5818,407.69,634.7758" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[56325385258b6f9c49a1be6a5d8d8b02]
+link contract to salary--><path d="M436.94,481.1758 C475.27,516.5558 558.36,593.2158 599.55,631.2258 " fill="none" id="contract-&gt;salary" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="603.4,634.7758,599.5145,625.7258,599.7315,631.3785,594.0788,631.5955,603.4,634.7758" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[18af8372494949e98299e628dd2b7f38]
+link salary to reports--><path d="M623.71,674.2458 C623.71,703.4758 623.71,759.9358 623.71,792.0858 " fill="none" id="salary-&gt;reports" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="623.71,797.4058,627.71,788.4058,623.71,792.4058,619.71,788.4058,623.71,797.4058" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[374738c2b12e13a74908d2d76783ead6]
+link holidays to timesheet--><path d="M834.74,481.1758 C840.41,516.1258 852.62,591.3658 858.87,629.8258 " fill="none" id="holidays-&gt;timesheet" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="859.67,634.7758,862.1807,625.2524,858.8711,629.8401,854.2834,626.5305,859.67,634.7758" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[c95be9c95c82aa9b461e7467739cd868]
+link contract to GMN122--><path d="M452.89,441.9358 C543.07,395.8658 783.97,289.6458 970.21,360.5158 C987.96,367.2658 1004.71,378.2158 1019.6,390.4558 " fill="none" id="contract-GMN122" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[6fd081222356c7799977cae8e7320a20]
+link docs to GMN125--><path d="M428.17,634.7658 C454.74,611.8058 502.47,575.1958 551.21,560.7658 C640.49,534.3358 881.8,531.5758 970.21,560.7658 C1007.33,573.0258 1042.45,600.8358 1066.23,623.0058 " fill="none" id="docs-GMN125" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[ce5c537fee65198d8b7307d01c13760c]
+link certs to GMN128--><path d="M199.94,441.9458 C229.54,417.3358 284.63,376.3758 340.21,360.5158 C426.97,335.7558 1069.73,323.9458 1152.21,360.5158 C1180.22,372.9358 1203.31,398.6358 1219.28,421.0058 " fill="none" id="certs-GMN128" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[7f3c7d1f1273be16da508e0cbf3a39ea]
+link holidays to GMN131--><path d="M857.43,441.9158 C891.54,417.2658 954.65,376.2658 1016.21,360.5158 C1077.57,344.8158 1242.73,336.2058 1301.21,360.5158 C1317.54,367.3058 1332.59,378.1758 1345.8,390.3258 " fill="none" id="holidays-GMN131" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[154e7b6b8795151e47722837f1432e98]
+link timesheet to GMN134--><path d="M884.17,634.7658 C910.74,611.8058 958.47,575.1958 1007.21,560.7658 C1083.5,538.1858 1112.42,531.0458 1186.21,560.7658 C1221.5,574.9758 1251.17,608.7458 1268.2,631.6258 " fill="none" id="timesheet-GMN134" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[2a66bf3b02cc63fba996aa9d8f3da369]
+link salary to GMN137--><path d="M642.89,634.8058 C666.72,611.8658 709.82,575.2958 755.21,560.7658 C817.75,540.7558 1284.28,538.9358 1346.21,560.7658 C1365.8,567.6658 1384.52,579.4158 1401.01,592.2958 " fill="none" id="salary-GMN137" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[e9ec32e006389e7c0ba9ba91916a3435]
+@startuml module_architecture
+skinparam backgroundColor #FEFEFE
+skinparam componentStyle rectangle
+
+title Архітектура HR модулів Ukrainian Localization
+
+package "Базові модулі" {
+    [l10n_ua_hr] as hr #LightBlue
+    [l10n_ua_hr_base] as base #LightBlue
+}
+
+package "Кадрові процеси" {
+    [l10n_ua_hr_contract] as contract #LightGreen
+    [l10n_ua_hr_documents] as docs #LightYellow
+    [l10n_ua_hr_documents_certificates] as certs #LightYellow
+}
+
+package "Облік часу" {
+    [l10n_ua_hr_holidays] as holidays #LightCoral
+    [l10n_ua_hr_attendance_sheet] as timesheet #LightCoral
+}
+
+package "Зарплата та звітність" {
+    [l10n_ua_hr_salary] as salary #Plum
+    [l10n_ua_hr_reports] as reports #Plum
+}
+
+hr - -> base
+
+base - -> contract
+base - -> docs
+base - -> holidays
+base - -> timesheet
+base - -> certs
+
+contract - -> docs
+contract - -> salary
+
+salary - -> reports
+
+holidays - -> timesheet
+
+note right of hr
+  Базовий модуль
+  Залежність від Odoo HR
+end note
+
+note right of base
+  Працівники:
+  - РНОКПП
+  - Паспорт
+  - Військовий облік
+  - Пільги
+  - - - -
+  КП-2010 (9000+ професій)
+  Штатний розпис
+end note
+
+note right of contract
+  Трудові договори:
+  - Безстроковий
+  - Строковий
+  - ЦПД
+  - Гіг-контракт
+  - - - -
+  Графіки роботи
+  Надбавки
+end note
+
+note right of docs
+  Накази (П-1, П-3, П-4, П-5)
+  QWeb шаблони
+  Автонумерація
+end note
+
+note right of certs
+  Довідки:
+  - Про роботу
+  - Про зарплату
+  - Для банку
+end note
+
+note right of holidays
+  Відпустки:
+  - Щорічна (24 дні)
+  - Додаткова
+  - Навчальна
+  - Без збереження
+  - - - -
+  Лікарняні (е-ТВН)
+  Графік відпусток
+end note
+
+note right of timesheet
+  Табель П-5
+  Автозаповнення
+end note
+
+note right of salary
+  Нарахування:
+  - ПДФО 18%
+  - ВЗ 5%
+  - ЄСВ 22%
+  - - - -
+  ПСП (50/75/100%)
+  Розрахунковий листок
+end note
+
+note right of reports
+  Звітність:
+  - 4ДФ
+  - Звіт ЄСВ
+  - XML експорт
+end note
+
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 UTC 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.9+10-Ubuntu-124.04
+Operating System: Linux
+Default Encoding: UTF-8
+Language: uk
+Country: UA
+--></g></svg>

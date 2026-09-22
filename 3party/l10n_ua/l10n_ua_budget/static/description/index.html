@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #0057b8;">Україна — Бюджетна установа</h2>
+        <h3 class="oe_slogan" style="color: #1a1a1a;">Повний стек обліку для розпорядників бюджетних коштів</h3>
+        <div class="oe_span12">
+            <p class="oe_mt32 text-center" style="font-size: 18px;">
+                Класифікатори, кошториси, ДКСУ-інтеграція і офіційні форми звітності
+                в одному пакеті. Заміна 1С:БГУ для бюджетних установ.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Що включено</h2>
+
+        <div class="oe_span6">
+            <h3><i class="fa fa-th-list"></i> l10n_ua_budget_base</h3>
+            <ul>
+                <li>КЕКВ — економічна класифікація (~55 кодів з ієрархією)</li>
+                <li>КФК — функціональна класифікація (~75 кодів, COFOG)</li>
+                <li>КПКВК — програмна класифікація</li>
+                <li>КВКВ — відомча класифікація (ГРБК)</li>
+                <li>Розширення account.account/move.line з аналітикою фонду</li>
+                <li>Валідація узгодженості фонду рядка з обмеженням рахунку</li>
+            </ul>
+
+            <h3><i class="fa fa-book"></i> l10n_ua_budget_chart_template</h3>
+            <ul>
+                <li>План рахунків Наказу Мінфіну № 1203</li>
+                <li>~115 субрахунків класів 1-8 + позабалансові</li>
+                <li>Готові журнали для держсектору</li>
+            </ul>
+        </div>
+
+        <div class="oe_span6">
+            <h3><i class="fa fa-calculator"></i> l10n_ua_budget_estimate</h3>
+            <ul>
+                <li>Документ «Кошторис» з повним lifecycle (draft → approved → executed)</li>
+                <li>Помісячний розпис → автоматичні квартальні і річний підсумки</li>
+                <li>Касове виконання — агрегація з проводок (план vs факт)</li>
+                <li>Окремий розрахунок по загальному та спеціальному фондах</li>
+                <li>Mail.thread / activity для аудиту</li>
+                <li>Довідки про зміни через parent_estimate_id</li>
+            </ul>
+
+            <h3><i class="fa fa-bank"></i> l10n_ua_budget_treasury</h3>
+            <ul>
+                <li>Довідник органів ДКСУ (27 установ)</li>
+                <li>Тип казначейського рахунку на account.journal</li>
+                <li>Автоматичний контроль ліміту асигнувань на проведенні платежу</li>
+                <li>Імпорт виписки ДКСУ (CSV / DBF через plugin)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3><i class="fa fa-print"></i> l10n_ua_budget_reports</h3>
+            <ul>
+                <li>Друкована форма Кошторису (Наказ Мінфіну № 44 від 28.01.2002)</li>
+                <li>Форма 2д — Звіт про виконання загального фонду</li>
+                <li>Форма 2м — Виконання загального фонду місцевих бюджетів</li>
+                <li>Форма 4-1д / 4-2д — Звіти спецфонду</li>
+                <li>Форма 7д — Заборгованість за бюджетними коштами</li>
+                <li>Форма 9д — Дебіторська заборгованість</li>
+                <li>Меморіальні ордери 1-17 (накопичувальні відомості)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Як виглядає кошторис</h2>
+        <div class="oe_span12 text-center">
+            <img src="01_estimate_form.png" alt="Форма кошторису з рядками КЕКВ"
+                 style="max-width:100%; height:auto; border:1px solid #dfdfdf;
+                        box-shadow:0 2px 8px rgba(0,0,0,0.1);"/>
+        </div>
+        <div class="oe_span12 oe_mt32">
+            <p class="text-center" style="font-size:14px; color:#666;">
+                Кошторис із помісячним розписом по КЕКВ, автоматичним розрахунком
+                квартальних і річних підсумків, касовим виконанням
+                (агрегація з проводок з аналітикою КЕКВ/Фонд).
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Для кого</h2>
+
+        <div class="oe_span4">
+            <div class="text-center">
+                <i class="fa fa-graduation-cap fa-3x" style="color: #0057b8;"></i>
+                <h4>Освіта</h4>
+                <p>ЗДО, ЗЗСО, ПТУ, ЗВО. Кошториси, фонди, КПКВК для МОН (220).</p>
+            </div>
+        </div>
+
+        <div class="oe_span4">
+            <div class="text-center">
+                <i class="fa fa-medkit fa-3x" style="color: #0057b8;"></i>
+                <h4>Медицина</h4>
+                <p>ЦПМСД, лікарні. Кошториси + НСЗУ-капітація як одне ціле.</p>
+            </div>
+        </div>
+
+        <div class="oe_span4">
+            <div class="text-center">
+                <i class="fa fa-building fa-3x" style="color: #0057b8;"></i>
+                <h4>ОМС та держоргани</h4>
+                <p>Міські/селищні ради, виконкоми, держустанови всіх рівнів.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Нормативна база</h2>
+        <div class="oe_span12">
+            <ul>
+                <li>Бюджетний кодекс України № 2456-VI</li>
+                <li>Наказ Мінфіну № 11 від 14.01.2011 — Бюджетна класифікація</li>
+                <li>Наказ Мінфіну № 333 від 12.03.2012 — Інструкція з КЕКВ</li>
+                <li>Наказ Мінфіну № 1203 від 31.12.2013 — План рахунків держсектору</li>
+                <li>Наказ Мінфіну № 44 від 28.01.2002 — Порядок складання кошторисів</li>
+                <li>Наказ Мінфіну № 44 від 24.01.2012 — Бюджетна звітність</li>
+                <li>Наказ Мінфіну № 938 від 28.10.2015 — Казначейське обслуговування</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Чому це краще за 1С</h2>
+
+        <div class="oe_span4">
+            <div class="text-center">
+                <i class="fa fa-globe fa-3x" style="color: #0057b8;"></i>
+                <h4>Веб-доступ</h4>
+                <p>Робота з будь-якого пристрою, без VPN до сервера 1С.</p>
+            </div>
+        </div>
+
+        <div class="oe_span4">
+            <div class="text-center">
+                <i class="fa fa-code fa-3x" style="color: #0057b8;"></i>
+                <h4>Open source</h4>
+                <p>LGPL-3 — без vendor lock-in, можна адаптувати під свої потреби.</p>
+            </div>
+        </div>
+
+        <div class="oe_span4">
+            <div class="text-center">
+                <i class="fa fa-shield fa-3x" style="color: #0057b8;"></i>
+                <h4>Контроль ліміту</h4>
+                <p>Автоматична перевірка асигнувань — неможливо проводити понад план (ПКМУ 1608).</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_separator"></section>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_prro_receipt_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.prro.receipt.form</field>
+        <field name="model">l10n_ua.prro.receipt</field>
+        <field name="arch" type="xml">
+            <form string="PRRO Receipt">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="fiscal_number"/>
+                            <field name="local_number"/>
+                            <field name="shift_id"/>
+                            <field name="receipt_type"/>
+                        </group>
+                        <group>
+                            <field name="payment_type"/>
+                            <field name="cash_amount"/>
+                            <field name="card_amount"/>
+                            <field name="total_amount"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="uktzed_code"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
+                                    <field name="discount"/>
+                                    <field name="tax_rate"/>
+                                    <field name="subtotal" sum="Total"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group>
+                        <field name="qr_code" widget="url"/>
+                        <field name="pos_order_id"/>
+                    </group>
+                    <field name="error_message" readonly="1" invisible="not error_message"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_prro_receipt_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.prro.receipt.list</field>
+        <field name="model">l10n_ua.prro.receipt</field>
+        <field name="arch" type="xml">
+            <list string="PRRO Receipts">
+                <field name="fiscal_number"/>
+                <field name="shift_id"/>
+                <field name="receipt_type"/>
+                <field name="payment_type"/>
+                <field name="total_amount" sum="Total"/>
+                <field name="state"/>
+                <field name="create_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_prro_receipt_action" model="ir.actions.act_window">
+        <field name="name">PRRO Receipts</field>
+        <field name="res_model">l10n_ua.prro.receipt</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

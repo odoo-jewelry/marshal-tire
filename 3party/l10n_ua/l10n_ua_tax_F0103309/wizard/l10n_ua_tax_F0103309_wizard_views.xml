@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Extend base wizard form for F0103309 -->
+    <record id="l10n_ua_tax_document_wizard_view_form_F0103309" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.document.wizard.form.F0103309</field>
+        <field name="model">l10n_ua.tax.document.wizard</field>
+        <field name="inherit_id" ref="l10n_ua_tax_cabinet.l10n_ua_tax_document_wizard_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Add F0103309 specific fields - shown when document_type_code is F0103309 -->
+            <xpath expr="//group[@name='document_specific_fields']" position="inside">
+                <group string="Single Tax Declaration (F0103309)" colspan="2">
+                    <group string="Declaration Settings">
+                        <field name="declaration_type"/>
+                        <field name="fop_group"/>
+                        <field name="tax_rate"/>
+                        <field name="military_rate"/>
+                    </group>
+                    <group string="Tax Office">
+                        <field name="tax_office_id" options="{'no_create': True}"/>
+                        <field name="has_employees"/>
+                        <field name="employee_count" invisible="not has_employees"/>
+                    </group>
+                </group>
+
+                <group string="Activity Codes (KVED)" colspan="2">
+                    <field name="activity_ids" nolabel="1" colspan="2">
+                        <list editable="bottom">
+                            <field name="kved_id" options="{'no_create': True}"/>
+                            <field name="is_primary"/>
+                        </list>
+                    </field>
+                </group>
+
+                <group string="Fill from Bank Transactions" colspan="2">
+                    <group>
+                        <field name="journal_ids" widget="many2many_tags"
+                               options="{'no_create': True}"
+                               placeholder="Select bank accounts..."/>
+                    </group>
+                    <group>
+                        <button name="action_fill_from_bank" string="Fill Income from Bank"
+                                type="object" class="btn-secondary"
+                                help="Compute total income from bank transactions for the period"/>
+                        <button name="action_fill_prev_payments" string="Load Previous Payments"
+                                type="object" class="btn-secondary"
+                                help="Try to load tax payments from previous declarations"/>
+                    </group>
+                </group>
+
+                <group string="Income (Section 5)" colspan="2">
+                    <group>
+                        <field name="income_total"/>
+                    </group>
+                    <group>
+                        <div class="text-muted">
+                            <p>R006G3 - Total income for the reporting period</p>
+                        </div>
+                    </group>
+                </group>
+
+                <group string="Single Tax (Section 6)" colspan="2">
+                    <group>
+                        <field name="tax_amount" readonly="1"/>
+                        <field name="tax_paid_prev"/>
+                        <field name="tax_to_pay" readonly="1"/>
+                    </group>
+                    <group>
+                        <div class="text-muted">
+                            <p>R011G3 - Tax calculated (income × rate)</p>
+                            <p>R013G3 - Tax paid in previous quarters</p>
+                            <p>R0141G3 - Tax to pay this period</p>
+                        </div>
+                    </group>
+                </group>
+
+                <group string="Military Tax (Section 7)" colspan="2">
+                    <group>
+                        <field name="military_amount" readonly="1"/>
+                        <field name="military_paid_prev"/>
+                        <field name="military_to_pay" readonly="1"/>
+                    </group>
+                    <group>
+                        <div class="text-muted">
+                            <p>R023G3 - Military tax (income × 1%)</p>
+                            <p>R024G3 - Military tax paid previously</p>
+                            <p>R025G3 - Military tax to pay</p>
+                        </div>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

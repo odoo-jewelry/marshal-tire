@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- A report belongs to whoever asked for it. Nothing in the ORM enforces
+         that on its own: the TransientModel docstring promises records are
+         "only accessible to their creator", but there is no such mechanism —
+         Odoo declares the rule per model where it matters (see
+         base/security/base_security.xml for payment.capture.wizard and
+         res.users.identitycheck). Without these two rules any Inventory user
+         could read, and print, every report anyone in the database had built.
+
+         The rules are global on purpose (no groups): global rules intersect,
+         so no other module can widen them by adding a group rule of its own.
+    -->
+    <record id="rule_material_report_wizard_own" model="ir.rule">
+        <field name="name">Material report: own reports only</field>
+        <field name="model_id" ref="model_l10n_ua_material_report_wizard"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+    </record>
+
+    <record id="rule_material_report_line_own" model="ir.rule">
+        <field name="name">Material report lines: own reports only</field>
+        <field name="model_id" ref="model_l10n_ua_material_report_line"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+    </record>
+
+    <!-- The report is a document of one company: it is filed for one store,
+         its figures come from the moves of that company and its amounts from
+         that company's cost prices. Being the author of a report is therefore
+         not enough to see it — the company it was built for has to be one of
+         those selected in the switcher, or a reader who changes company would
+         go on looking at the previous company's numbers.
+
+         Written as `company_ids` rather than the active company alone, which
+         is how the whole of Odoo reads multi-company data (see
+         stock/security/stock_security.xml): what is selected in the switcher is
+         what is on screen, one company or several.
+
+         Global rules again, and they intersect with the ones above: a report is
+         visible when it is both yours and of a company you have selected.
+    -->
+    <record id="rule_material_report_wizard_company" model="ir.rule">
+        <field name="name">Material report: multi-company</field>
+        <field name="model_id" ref="model_l10n_ua_material_report_wizard"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_material_report_line_company" model="ir.rule">
+        <field name="name">Material report lines: multi-company</field>
+        <field name="model_id" ref="model_l10n_ua_material_report_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>

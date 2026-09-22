@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_psp_parameters_view_form" model="ir.ui.view">
+        <field name="name">hr.psp.parameters.form</field>
+        <field name="model">hr.psp.parameters</field>
+        <field name="arch" type="xml">
+            <form string="PSP Parameters">
+                <sheet>
+                    <group>
+                        <group string="Period">
+                            <field name="year"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="active"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Base Values">
+                            <field name="subsistence_minimum"/>
+                            <field name="min_wage"/>
+			    <field name="min_hourly_wage"/>
+                            <field name="max_esv_base"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="PSP Amounts (Computed)">
+                            <field name="psp_standard"/>
+                            <field name="psp_150"/>
+                            <field name="psp_200"/>
+                            <field name="income_limit"/>
+                        </group>
+                        <group string="Tax Rates">
+                            <field name="pdfo_rate"/>
+                            <field name="military_tax_rate"/>
+                            <field name="esv_rate"/>
+                        </group>
+                        <group string="Множники доплат (табель)">
+                            <field name="night_surcharge_rate"/>
+                            <field name="overtime_multiplier"/>
+                            <field name="holiday_multiplier"/>
+                        </group>
+                        <group string="Індексація">
+                            <field name="indexation_threshold"/>
+                        </group>
+                        <group string="Натуральний дохід">
+                            <field name="natural_coef_for_military"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_psp_parameters_view_tree" model="ir.ui.view">
+        <field name="name">hr.psp.parameters.tree</field>
+        <field name="model">hr.psp.parameters</field>
+        <field name="arch" type="xml">
+            <list string="PSP Parameters">
+                <field name="year"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="subsistence_minimum"/>
+                <field name="min_wage"/>
+		<field name="min_hourly_wage"/>
+                <field name="psp_standard"/>
+                <field name="income_limit"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hr_psp_parameters" model="ir.actions.act_window">
+        <field name="name">PSP Parameters</field>
+        <field name="res_model">hr.psp.parameters</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Configure PSP parameters for each period
+            </p>
+            <p>
+                PSP (Податкова соціальна пільга) parameters include subsistence minimum,
+                minimum wage, and tax rates.
+            </p>
+        </field>
+    </record>
+
+</odoo>

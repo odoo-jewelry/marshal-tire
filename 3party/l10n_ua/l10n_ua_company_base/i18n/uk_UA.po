@@ -1,0 +1,121 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_company_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,help:l10n_ua_company_base.field_res_company__koatuu
+msgid "Code of the Classification of Administrative-Territorial Units of Ukraine"
+msgstr "Код Класифікатора адміністративно-територіальних одиниць України"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,help:l10n_ua_company_base.field_res_company__pension_fund_code
+msgid "Code of the pension fund office (PFU)"
+msgstr "Код відділення пенсійного фонду (ПФУ)"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,help:l10n_ua_company_base.field_res_company__tax_office_code
+msgid "Code of the tax office (DPI)"
+msgstr "Код податкової інспекції (ДПІ)"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,field_description:l10n_ua_company_base.field_res_company__edrpou
+msgid "EDRPOU"
+msgstr "ЄДРПОУ"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,field_description:l10n_ua_company_base.field_res_company__katottg
+msgid "KATOTTG"
+msgstr "КАТОТТГ"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,field_description:l10n_ua_company_base.field_res_company__koatuu
+msgid "KOATUU"
+msgstr "КОАТУУ"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,field_description:l10n_ua_company_base.field_res_company__legal_address
+#: model_terms:ir.ui.view,arch_db:l10n_ua_company_base.view_company_form_inherit_ua
+msgid "Legal Address"
+msgstr "Юридична адреса"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,field_description:l10n_ua_company_base.field_res_company__kved_main
+msgid "Main KVED"
+msgstr "Основний КВЕД"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,help:l10n_ua_company_base.field_res_company__kved_main
+msgid "Main economic activity code (KVED)"
+msgstr "Код основного виду економічної діяльності (КВЕД)"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,field_description:l10n_ua_company_base.field_res_company__ownership_form
+msgid "Ownership Form"
+msgstr "Форма власності"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,field_description:l10n_ua_company_base.field_res_company__pension_fund_code
+msgid "Pension Fund Code"
+msgstr "Код пенсійного фонду"
+
+#. module: l10n_ua_company_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_company_base.view_company_form_inherit_ua
+msgid "Registration"
+msgstr "Реєстраційні дані"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,field_description:l10n_ua_company_base.field_res_company__tax_office_code
+msgid "Tax Office Code"
+msgstr "Код податкової"
+
+#. module: l10n_ua_company_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_company_base.view_company_form_inherit_ua
+msgid "Tax & Pension"
+msgstr "Податкова та ПФУ"
+
+#. module: l10n_ua_company_base
+#: model_terms:ir.ui.view,arch_db:l10n_ua_company_base.view_company_form_inherit_ua
+msgid "Ukrainian Company"
+msgstr "Українські реквізити"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields,help:l10n_ua_company_base.field_res_company__edrpou
+msgid "Unified State Register of Enterprises and Organizations of Ukraine code"
+msgstr "Код за Єдиним державним реєстром підприємств та організацій України"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields.selection,name:l10n_ua_company_base.selection__res_company__ownership_form__private
+msgid "Private"
+msgstr "Приватна"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields.selection,name:l10n_ua_company_base.selection__res_company__ownership_form__state
+msgid "State"
+msgstr "Державна"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields.selection,name:l10n_ua_company_base.selection__res_company__ownership_form__communal
+msgid "Communal"
+msgstr "Комунальна"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields.selection,name:l10n_ua_company_base.selection__res_company__ownership_form__collective
+msgid "Collective"
+msgstr "Колективна"
+
+#. module: l10n_ua_company_base
+#: model:ir.model.fields.selection,name:l10n_ua_company_base.selection__res_company__ownership_form__mixed
+msgid "Mixed"
+msgstr "Змішана"

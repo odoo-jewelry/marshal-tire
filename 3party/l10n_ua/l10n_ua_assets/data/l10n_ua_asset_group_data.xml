@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="asset_group_1" model="l10n_ua.asset.group">
+        <field name="code">1</field>
+        <field name="name">Land plots</field>
+        <field name="min_useful_life">0</field>
+        <field name="description">Land plots (not depreciated)</field>
+    </record>
+
+    <record id="asset_group_2" model="l10n_ua.asset.group">
+        <field name="code">2</field>
+        <field name="name">Capital expenditures on land improvement</field>
+        <field name="min_useful_life">15</field>
+    </record>
+
+    <record id="asset_group_3" model="l10n_ua.asset.group">
+        <field name="code">3</field>
+        <field name="name">Buildings, structures, transmission devices</field>
+        <field name="min_useful_life">20</field>
+    </record>
+
+    <record id="asset_group_4" model="l10n_ua.asset.group">
+        <field name="code">4</field>
+        <field name="name">Machinery and equipment</field>
+        <field name="min_useful_life">5</field>
+    </record>
+
+    <record id="asset_group_5" model="l10n_ua.asset.group">
+        <field name="code">5</field>
+        <field name="name">Vehicles</field>
+        <field name="min_useful_life">5</field>
+    </record>
+
+    <record id="asset_group_6" model="l10n_ua.asset.group">
+        <field name="code">6</field>
+        <field name="name">Tools, devices, inventory</field>
+        <field name="min_useful_life">4</field>
+    </record>
+
+    <record id="asset_group_7" model="l10n_ua.asset.group">
+        <field name="code">7</field>
+        <field name="name">Animals</field>
+        <field name="min_useful_life">6</field>
+    </record>
+
+    <record id="asset_group_8" model="l10n_ua.asset.group">
+        <field name="code">8</field>
+        <field name="name">Perennial plantings</field>
+        <field name="min_useful_life">10</field>
+    </record>
+
+    <record id="asset_group_9" model="l10n_ua.asset.group">
+        <field name="code">9</field>
+        <field name="name">Other fixed assets</field>
+        <field name="min_useful_life">12</field>
+    </record>
+
+    <record id="asset_group_10" model="l10n_ua.asset.group">
+        <field name="code">10</field>
+        <field name="name">Library funds</field>
+        <field name="min_useful_life">0</field>
+    </record>
+
+    <record id="asset_group_11" model="l10n_ua.asset.group">
+        <field name="code">11</field>
+        <field name="name">MNMA</field>
+        <field name="min_useful_life">0</field>
+    </record>
+
+    <record id="asset_group_12" model="l10n_ua.asset.group">
+        <field name="code">12</field>
+        <field name="name">Temporary structures</field>
+        <field name="min_useful_life">5</field>
+    </record>
+
+    <record id="asset_group_13" model="l10n_ua.asset.group">
+        <field name="code">13</field>
+        <field name="name">Natural resources</field>
+        <field name="min_useful_life">0</field>
+    </record>
+
+    <record id="asset_group_14" model="l10n_ua.asset.group">
+        <field name="code">14</field>
+        <field name="name">Inventory packaging</field>
+        <field name="min_useful_life">6</field>
+    </record>
+
+    <record id="asset_group_15" model="l10n_ua.asset.group">
+        <field name="code">15</field>
+        <field name="name">Items for rent</field>
+        <field name="min_useful_life">5</field>
+    </record>
+
+    <record id="asset_group_16" model="l10n_ua.asset.group">
+        <field name="code">16</field>
+        <field name="name">Long-term biological assets</field>
+        <field name="min_useful_life">7</field>
+    </record>
+
+</odoo>

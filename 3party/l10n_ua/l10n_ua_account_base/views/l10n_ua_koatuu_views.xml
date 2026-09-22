@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_koatuu_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.koatuu.form</field>
+        <field name="model">l10n_ua.koatuu</field>
+        <field name="arch" type="xml">
+            <form string="KOATUU">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="level"/>
+                            <field name="category"/>
+                        </group>
+                        <group>
+                            <field name="parent_id"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_koatuu_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.koatuu.list</field>
+        <field name="model">l10n_ua.koatuu</field>
+        <field name="arch" type="xml">
+            <list string="KOATUU">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="level"/>
+                <field name="category"/>
+                <field name="parent_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_koatuu_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.koatuu.search</field>
+        <field name="model">l10n_ua.koatuu</field>
+        <field name="arch" type="xml">
+            <search string="KOATUU">
+                <field name="name" string="KOATUU"/>
+                <field name="code"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="l10n_ua_koatuu_action" model="ir.actions.act_window">
+        <field name="name">KOATUU/KATOTTG</field>
+        <field name="res_model">l10n_ua.koatuu</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No KOATUU records found
+            </p>
+            <p>
+                KOATUU/KATOTTG is the Ukrainian classification of administrative-territorial units.
+            </p>
+        </field>
+    </record>
+
+</odoo>

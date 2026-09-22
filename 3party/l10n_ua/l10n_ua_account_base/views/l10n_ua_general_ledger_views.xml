@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_general_ledger_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.general.ledger.form</field>
+        <field name="model">l10n_ua.general.ledger</field>
+        <field name="arch" type="xml">
+            <form string="General Ledger">
+                <header>
+                    <button name="action_compute" string="Compute" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_draft" string="Set to Draft" type="object" invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="year"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                    <notebook>
+                        <page string="Accounts" name="lines">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="account_id"/>
+                                    <field name="opening_debit" sum="Opening Dr"/>
+                                    <field name="opening_credit" sum="Opening Cr"/>
+                                    <field name="total_debit" sum="Turnover Dr"/>
+                                    <field name="total_credit" sum="Turnover Cr"/>
+                                    <field name="closing_debit" sum="Closing Dr"/>
+                                    <field name="closing_credit" sum="Closing Cr"/>
+                                    <field name="m01_debit" optional="hide"/>
+                                    <field name="m01_credit" optional="hide"/>
+                                    <field name="m02_debit" optional="hide"/>
+                                    <field name="m02_credit" optional="hide"/>
+                                    <field name="m03_debit" optional="hide"/>
+                                    <field name="m03_credit" optional="hide"/>
+                                    <field name="m04_debit" optional="hide"/>
+                                    <field name="m04_credit" optional="hide"/>
+                                    <field name="m05_debit" optional="hide"/>
+                                    <field name="m05_credit" optional="hide"/>
+                                    <field name="m06_debit" optional="hide"/>
+                                    <field name="m06_credit" optional="hide"/>
+                                    <field name="m07_debit" optional="hide"/>
+                                    <field name="m07_credit" optional="hide"/>
+                                    <field name="m08_debit" optional="hide"/>
+                                    <field name="m08_credit" optional="hide"/>
+                                    <field name="m09_debit" optional="hide"/>
+                                    <field name="m09_credit" optional="hide"/>
+                                    <field name="m10_debit" optional="hide"/>
+                                    <field name="m10_credit" optional="hide"/>
+                                    <field name="m11_debit" optional="hide"/>
+                                    <field name="m11_credit" optional="hide"/>
+                                    <field name="m12_debit" optional="hide"/>
+                                    <field name="m12_credit" optional="hide"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_general_ledger_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.general.ledger.list</field>
+        <field name="model">l10n_ua.general.ledger</field>
+        <field name="arch" type="xml">
+            <list string="General Ledger">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_general_ledger_action" model="ir.actions.act_window">
+        <field name="name">General Ledger</field>
+        <field name="res_model">l10n_ua.general.ledger</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

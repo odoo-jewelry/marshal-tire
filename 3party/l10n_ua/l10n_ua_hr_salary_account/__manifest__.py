@@ -1,0 +1,25 @@
+{
+    'name': 'Ukraine - HR Salary Accounting',
+    'version': '19.0.1.1.1',
+    'category': 'Human Resources/Localization',
+    'summary': 'Автоматичне створення проводок при нарахуванні зарплати',
+    'author': 'NDEV',
+    'website': 'https://many2one.online',
+    'license': 'LGPL-3',
+    'depends': [
+        'l10n_ua_hr_salary',
+        'account',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'security/multicompany_security.xml',
+        'data/hr_salary_account_data.xml',
+        'views/hr_salary_account_config_views.xml',
+        'views/hr_department_views.xml',
+        'views/hr_version_views.xml',
+        'views/hr_payslip_views.xml',
+        'views/hr_payslip_run_views.xml',
+    ],
+    'installable': True,
+    'auto_install': False,
+}

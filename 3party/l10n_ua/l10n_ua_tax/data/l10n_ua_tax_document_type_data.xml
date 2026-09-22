@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Declarations -->
+        <record id="tax_document_type_ep_declaration_v9" model="l10n_ua.tax.document.type">
+            <field name="name">Single Tax Declaration (FOP) v9</field>
+            <field name="code">F0103309</field>
+            <field name="category">declaration</field>
+            <field name="sequence">9</field>
+        </record>
+
+        <record id="tax_document_type_ep_declaration" model="l10n_ua.tax.document.type">
+            <field name="name">Single Tax Declaration (FOP) v5</field>
+            <field name="code">F0103405</field>
+            <field name="category">declaration</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="tax_document_type_esv_declaration" model="l10n_ua.tax.document.type">
+            <field name="name">ESV Report</field>
+            <field name="code">F0103308</field>
+            <field name="category">declaration</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="tax_document_type_vat_declaration" model="l10n_ua.tax.document.type">
+            <field name="name">VAT Declaration</field>
+            <field name="code">F0100210</field>
+            <field name="category">declaration</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="tax_document_type_income_declaration" model="l10n_ua.tax.document.type">
+            <field name="name">Income Tax Declaration</field>
+            <field name="code">F0100106</field>
+            <field name="category">declaration</field>
+            <field name="sequence">40</field>
+        </record>
+
+        <!-- Receipts -->
+        <record id="tax_document_type_receipt_1" model="l10n_ua.tax.document.type">
+            <field name="name">Receipt Type 1 (Accepted)</field>
+            <field name="code">RECEIPT_1</field>
+            <field name="category">receipt</field>
+            <field name="sequence">100</field>
+            <field name="description">Confirmation of document acceptance</field>
+        </record>
+
+        <record id="tax_document_type_receipt_2" model="l10n_ua.tax.document.type">
+            <field name="name">Receipt Type 2 (Registered)</field>
+            <field name="code">RECEIPT_2</field>
+            <field name="category">receipt</field>
+            <field name="sequence">110</field>
+            <field name="description">Confirmation of document registration</field>
+        </record>
+
+        <!-- Notifications -->
+        <record id="tax_document_type_notification" model="l10n_ua.tax.document.type">
+            <field name="name">Tax Notification</field>
+            <field name="code">NOTIFICATION</field>
+            <field name="category">notification</field>
+            <field name="sequence">200</field>
+        </record>
+
+        <!-- Tax invoices -->
+        <record id="tax_document_type_tax_invoice" model="l10n_ua.tax.document.type">
+            <field name="name">Tax Invoice</field>
+            <field name="code">J1201010</field>
+            <field name="category">report</field>
+            <field name="sequence">300</field>
+        </record>
+
+        <record id="tax_document_type_adjustment_calc" model="l10n_ua.tax.document.type">
+            <field name="name">Adjustment Calculation</field>
+            <field name="code">J1201210</field>
+            <field name="category">report</field>
+            <field name="sequence">310</field>
+        </record>
+
+        <!-- Other -->
+        <record id="tax_document_type_other" model="l10n_ua.tax.document.type">
+            <field name="name">Other Document</field>
+            <field name="code">OTHER</field>
+            <field name="category">other</field>
+            <field name="sequence">900</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_form_ua" model="ir.ui.view">
+        <field name="name">res.partner.form.ua</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="vat" position="after">
+                <field name="edrpou" placeholder="12345678"/>
+                <field name="ipn" placeholder="1234567890"/>
+                <field name="legal_form"/>
+                <field name="is_vat_payer"/>
+                <field name="vat_certificate" invisible="not is_vat_payer"/>
+            </field>
+            <page name="internal_notes" position="before">
+                <page string="Реквізити" name="ua_requisites">
+                    <group>
+                        <group string="Керівництво">
+                            <field name="l10n_ua_chief_name"/>
+                            <field name="l10n_ua_chief_position"/>
+                            <field name="l10n_ua_accountant_name"/>
+                        </group>
+                        <group string="Адреси">
+                            <field name="l10n_ua_legal_address"/>
+                        </group>
+                    </group>
+                </page>
+                <page string="KVED" name="kved">
+                    <group>
+                        <field name="primary_kved_id"/>
+                    </group>
+                    <field name="kved_ids" widget="many2many_tags"/>
+                </page>
+            </page>
+        </field>
+    </record>
+
+    <record id="view_partner_list_ua" model="ir.ui.view">
+        <field name="name">res.partner.list.ua</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="phone" position="after">
+                <field name="edrpou" optional="hide"/>
+                <field name="ipn" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_partner_search_ua" model="ir.ui.view">
+        <field name="name">res.partner.search.ua</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="edrpou"/>
+                <field name="ipn"/>
+            </field>
+            <filter name="type_company" position="after">
+                <filter name="vat_payer" string="VAT Payers" domain="[('is_vat_payer', '=', True)]"/>
+            </filter>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Sequence for Sick Leave -->
+        <record id="sequence_hr_sick_leave" model="ir.sequence">
+            <field name="name">Sick Leave</field>
+            <field name="code">hr.sick.leave</field>
+            <field name="prefix">SL/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

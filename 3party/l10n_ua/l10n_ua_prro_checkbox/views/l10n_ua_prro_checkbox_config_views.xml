@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_prro_checkbox_config_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.prro.checkbox.config.form</field>
+        <field name="model">l10n_ua.prro.checkbox.config</field>
+        <field name="arch" type="xml">
+            <form string="Checkbox Configuration">
+                <header>
+                    <button name="action_test_connection" string="Test Connection" type="object"/>
+                    <button name="action_authenticate" string="Authenticate" type="object" class="btn-primary"/>
+                    <button name="action_open_shift" string="Open Shift" type="object" class="btn-success"/>
+                    <button name="action_close_shift" string="Close Shift (Z-Report)" type="object" class="btn-danger"/>
+                    <button name="action_x_report" string="X-Report" type="object"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="General">
+                            <field name="name"/>
+                            <field name="prro_config_id"/>
+                        </group>
+                        <group string="Credentials">
+                            <field name="license_key" password="True"/>
+                            <field name="auth_type" widget="radio"/>
+                            <field name="cashier_login" invisible="auth_type != 'login'"/>
+                            <field name="cashier_password" password="True" invisible="auth_type != 'login'"/>
+                            <field name="cashier_pin" password="True" invisible="auth_type != 'pin'"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Cash Register">
+                            <field name="cash_register_id"/>
+                            <field name="cash_register_fiscal_number"/>
+                        </group>
+                        <group string="Token">
+                            <field name="access_token" password="True"/>
+                            <field name="token_expiry"/>
+                        </group>
+                    </group>
+                    <field name="error_message" readonly="1" invisible="not error_message"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_prro_checkbox_config_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.prro.checkbox.config.list</field>
+        <field name="model">l10n_ua.prro.checkbox.config</field>
+        <field name="arch" type="xml">
+            <list string="Checkbox Configurations">
+                <field name="name"/>
+                <field name="prro_config_id"/>
+                <field name="cash_register_fiscal_number"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_prro_checkbox_config_action" model="ir.actions.act_window">
+        <field name="name">Checkbox</field>
+        <field name="res_model">l10n_ua.prro.checkbox.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

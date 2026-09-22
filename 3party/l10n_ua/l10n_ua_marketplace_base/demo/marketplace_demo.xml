@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Demo Backends -->
+        <record id="demo_backend_rozetka" model="marketplace.backend">
+            <field name="name">Rozetka Demo Store</field>
+            <field name="marketplace_type">rozetka</field>
+            <field name="code">rozetka_demo</field>
+            <field name="state">active</field>
+            <field name="api_url">https://api.seller.rozetka.com.ua</field>
+            <field name="api_key">demo_api_key_12345</field>
+            <field name="webhook_enabled">True</field>
+            <field name="feed_enabled">True</field>
+            <field name="feed_format">yml</field>
+            <field name="sync_stock_enabled">True</field>
+            <field name="sync_stock_interval">30</field>
+            <field name="sync_prices_enabled">True</field>
+            <field name="sync_prices_interval">60</field>
+            <field name="import_orders_enabled">True</field>
+            <field name="import_orders_interval">15</field>
+            <field name="auto_create_sale_order">True</field>
+            <field name="auto_confirm_sale_order">False</field>
+            <field name="partner_creation_mode">search_create</field>
+        </record>
+
+        <record id="demo_backend_prom" model="marketplace.backend">
+            <field name="name">Prom.ua Main</field>
+            <field name="marketplace_type">prom</field>
+            <field name="code">prom_main</field>
+            <field name="state">active</field>
+            <field name="api_url">https://my.prom.ua/api/v1</field>
+            <field name="api_key">prom_token_abc123</field>
+            <field name="webhook_enabled">True</field>
+            <field name="feed_enabled">True</field>
+            <field name="sync_stock_enabled">True</field>
+            <field name="import_orders_enabled">True</field>
+            <field name="auto_create_sale_order">True</field>
+        </record>
+
+        <record id="demo_backend_epicentr" model="marketplace.backend">
+            <field name="name">Epicentr K</field>
+            <field name="marketplace_type">epicentr</field>
+            <field name="code">epicentr_k</field>
+            <field name="state">draft</field>
+            <field name="api_url">https://api.epicentrk.ua</field>
+        </record>
+
+        <!-- Demo Categories -->
+        <record id="demo_category_electronics" model="marketplace.category">
+            <field name="name">Електроніка</field>
+            <field name="marketplace_type">rozetka</field>
+            <field name="external_id">4306</field>
+        </record>
+
+        <record id="demo_category_phones" model="marketplace.category">
+            <field name="name">Смартфони</field>
+            <field name="marketplace_type">rozetka</field>
+            <field name="external_id">80003</field>
+            <field name="parent_id" ref="demo_category_electronics"/>
+        </record>
+
+        <record id="demo_category_laptops" model="marketplace.category">
+            <field name="name">Ноутбуки</field>
+            <field name="marketplace_type">rozetka</field>
+            <field name="external_id">80004</field>
+            <field name="parent_id" ref="demo_category_electronics"/>
+        </record>
+
+        <record id="demo_category_home" model="marketplace.category">
+            <field name="name">Дім і сад</field>
+            <field name="marketplace_type">rozetka</field>
+            <field name="external_id">2394</field>
+        </record>
+
+        <record id="demo_category_prom_phones" model="marketplace.category">
+            <field name="name">Мобільні телефони</field>
+            <field name="marketplace_type">prom</field>
+            <field name="external_id">502</field>
+        </record>
+
+        <!-- Demo Partner (Customer) -->
+        <record id="demo_partner_customer1" model="res.partner">
+            <field name="name">Іван Петренко</field>
+            <field name="phone">+380501234567</field>
+            <field name="email">ivan.petrenko@gmail.com</field>
+            <field name="street">вул. Хрещатик, 22, кв. 15</field>
+            <field name="city">Київ</field>
+            <field name="zip">01001</field>
+            <field name="is_marketplace_customer">True</field>
+            <field name="marketplace_source">rozetka</field>
+            <field name="marketplace_customer_id">12345678</field>
+        </record>
+
+        <record id="demo_partner_customer2" model="res.partner">
+            <field name="name">Олена Коваленко</field>
+            <field name="phone">+380671112233</field>
+            <field name="email">olena.kovalenko@ukr.net</field>
+            <field name="street">пр. Соборності, 7</field>
+            <field name="city">Львів</field>
+            <field name="zip">79000</field>
+            <field name="is_marketplace_customer">True</field>
+            <field name="marketplace_source">prom</field>
+        </record>
+
+        <record id="demo_partner_customer3" model="res.partner">
+            <field name="name">Михайло Шевченко</field>
+            <field name="phone">+380939998877</field>
+            <field name="city">Одеса</field>
+            <field name="is_marketplace_customer">True</field>
+            <field name="marketplace_source">rozetka</field>
+        </record>
+
+        <!-- Demo Orders -->
+        <record id="demo_order_1" model="marketplace.order">
+            <field name="name">RZ-2024-001234</field>
+            <field name="backend_id" ref="demo_backend_rozetka"/>
+            <field name="external_id">123456789</field>
+            <field name="partner_id" ref="demo_partner_customer1"/>
+            <field name="state">confirmed</field>
+            <field name="marketplace_state">delivered</field>
+            <field name="order_date" eval="(datetime.now() - timedelta(days=2)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="amount_total">15999.00</field>
+            <field name="amount_delivery">75.00</field>
+            <field name="delivery_method">Нова Пошта</field>
+            <field name="delivery_address">Київ, відділення №25</field>
+            <field name="payment_method">Оплата при отриманні</field>
+            <field name="customer_name">Іван Петренко</field>
+            <field name="customer_phone">+380501234567</field>
+        </record>
+
+        <record id="demo_order_2" model="marketplace.order">
+            <field name="name">RZ-2024-001235</field>
+            <field name="backend_id" ref="demo_backend_rozetka"/>
+            <field name="external_id">123456790</field>
+            <field name="partner_id" ref="demo_partner_customer3"/>
+            <field name="state">new</field>
+            <field name="marketplace_state">pending</field>
+            <field name="order_date" eval="datetime.now().strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="amount_total">3450.00</field>
+            <field name="amount_delivery">0.00</field>
+            <field name="delivery_method">Самовивіз</field>
+            <field name="payment_method">Карткою онлайн</field>
+            <field name="customer_name">Михайло Шевченко</field>
+            <field name="customer_phone">+380939998877</field>
+        </record>
+
+        <record id="demo_order_3" model="marketplace.order">
+            <field name="name">PROM-87654</field>
+            <field name="backend_id" ref="demo_backend_prom"/>
+            <field name="external_id">87654321</field>
+            <field name="partner_id" ref="demo_partner_customer2"/>
+            <field name="state">processing</field>
+            <field name="marketplace_state">processing</field>
+            <field name="order_date" eval="(datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="amount_total">8750.00</field>
+            <field name="amount_delivery">120.00</field>
+            <field name="delivery_method">УкрПошта</field>
+            <field name="delivery_address">Львів, вул. Личаківська 15</field>
+            <field name="payment_method">Передплата</field>
+            <field name="customer_name">Олена Коваленко</field>
+            <field name="customer_phone">+380671112233</field>
+        </record>
+
+        <record id="demo_order_4" model="marketplace.order">
+            <field name="name">RZ-2024-001200</field>
+            <field name="backend_id" ref="demo_backend_rozetka"/>
+            <field name="external_id">123456700</field>
+            <field name="state">done</field>
+            <field name="marketplace_state">received</field>
+            <field name="order_date" eval="(datetime.now() - timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="amount_total">24500.00</field>
+            <field name="delivery_method">Нова Пошта</field>
+            <field name="customer_name">Анна Бойко</field>
+            <field name="customer_phone">+380661234567</field>
+        </record>
+
+        <record id="demo_order_5" model="marketplace.order">
+            <field name="name">PROM-87600</field>
+            <field name="backend_id" ref="demo_backend_prom"/>
+            <field name="external_id">87600001</field>
+            <field name="state">cancelled</field>
+            <field name="marketplace_state">cancelled</field>
+            <field name="order_date" eval="(datetime.now() - timedelta(days=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="amount_total">1200.00</field>
+            <field name="customer_name">Тест Клієнт</field>
+        </record>
+
+        <!-- Demo Pricelist -->
+        <record id="demo_pricelist_rozetka" model="marketplace.pricelist">
+            <field name="name">Rozetka - Основний прайс</field>
+            <field name="backend_id" ref="demo_backend_rozetka"/>
+            <field name="price_margin">10.0</field>
+            <field name="price_round">1.0</field>
+            <field name="min_price">100.0</field>
+            <field name="include_out_of_stock">False</field>
+            <field name="min_qty_available">1</field>
+        </record>
+
+        <record id="demo_pricelist_prom" model="marketplace.pricelist">
+            <field name="name">Prom - Всі товари</field>
+            <field name="backend_id" ref="demo_backend_prom"/>
+            <field name="price_margin">5.0</field>
+            <field name="include_out_of_stock">True</field>
+        </record>
+
+    </data>
+</odoo>

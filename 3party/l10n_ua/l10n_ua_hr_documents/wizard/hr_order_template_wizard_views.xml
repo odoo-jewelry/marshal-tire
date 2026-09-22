@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_order_template_wizard_form" model="ir.ui.view">
+        <field name="name">hr.order.template.wizard.form</field>
+        <field name="model">hr.order.template.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Select Template">
+                <group>
+                    <field name="order_id" invisible="1"/>
+                    <field name="order_type" invisible="1"/>
+                    <field name="template_id" options="{'no_create': True}"/>
+                </group>
+                <footer>
+                    <button name="action_apply_template" string="Apply" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

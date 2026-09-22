@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_budget_form_2d" model="ir.actions.report">
+        <field name="name">Форма 2д</field>
+        <field name="model">l10n_ua.budget.estimate</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_budget_reports.budget_form_2d_template</field>
+        <field name="report_file">l10n_ua_budget_reports.budget_form_2d_template</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <template id="budget_form_2d_template">
+        <t t-call="web.html_container">
+            <t t-set="estimate" t-value="env['l10n_ua.budget.estimate'].browse(data.get('estimate_id'))"/>
+            <t t-set="period_label" t-value="data.get('period_label')"/>
+            <t t-set="date_from" t-value="data.get('date_from')"/>
+            <t t-set="date_to" t-value="data.get('date_to')"/>
+            <t t-set="wizard" t-value="env['l10n_ua.budget.form_2d.wizard'].new({'estimate_id': estimate.id, 'period': data.get('period')})"/>
+            <t t-set="report_lines" t-value="wizard.get_report_data()"/>
+
+            <t t-call="web.external_layout">
+                <div class="page" style="font-size:11px;">
+                    <h2 style="text-align:center; margin-bottom:0;">Форма 2д</h2>
+                    <p style="text-align:center; margin-top:0;">
+                        Звіт про надходження та використання коштів загального фонду<br/>
+                        за <t t-out="period_label"/> <t t-out="estimate.year"/> року
+                    </p>
+
+                    <table class="table table-sm" style="margin-bottom:8px;">
+                        <tr>
+                            <td style="border:none; width:50%;">
+                                <strong>Установа:</strong> <t t-out="estimate.company_id.name"/><br/>
+                                <strong>ЄДРПОУ:</strong> <t t-out="estimate.company_id.vat or '—'"/>
+                            </td>
+                            <td style="border:none;">
+                                <strong>Кошторис №:</strong> <t t-out="estimate.name"/><br/>
+                                <strong>Період:</strong> <t t-out="date_from"/> — <t t-out="date_to"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="table table-bordered table-sm" style="font-size:10px;">
+                        <thead>
+                            <tr style="background:#f0f0f0;">
+                                <th>КЕКВ</th>
+                                <th>Призначення</th>
+                                <th class="text-end">План</th>
+                                <th class="text-end">Касове виконання</th>
+                                <th class="text-end">Залишок</th>
+                                <th class="text-end">% виконання</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="sum_plan" t-value="0"/>
+                            <t t-set="sum_actual" t-value="0"/>
+                            <tr t-foreach="report_lines" t-as="rl">
+                                <td><strong t-out="rl['kekv_code']"/></td>
+                                <td><t t-out="rl['kekv_name']"/></td>
+                                <td class="text-end"><t t-out="'{:,.2f}'.format(rl['plan']).replace(',', ' ')"/></td>
+                                <td class="text-end"><t t-out="'{:,.2f}'.format(rl['actual']).replace(',', ' ')"/></td>
+                                <td class="text-end"><t t-out="'{:,.2f}'.format(rl['variance']).replace(',', ' ')"/></td>
+                                <td class="text-end"><t t-out="'{:,.1f}'.format(rl['variance_pct'])"/>%</td>
+                                <t t-set="sum_plan" t-value="sum_plan + rl['plan']"/>
+                                <t t-set="sum_actual" t-value="sum_actual + rl['actual']"/>
+                            </tr>
+                            <tr style="background:#f8f8f8;">
+                                <td colspan="2"><strong>РАЗОМ</strong></td>
+                                <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum_plan).replace(',', ' ')"/></strong></td>
+                                <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum_actual).replace(',', ' ')"/></strong></td>
+                                <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum_plan - sum_actual).replace(',', ' ')"/></strong></td>
+                                <td class="text-end"><strong>
+                                    <t t-out="'{:,.1f}'.format((sum_actual / sum_plan * 100.0) if sum_plan else 0.0)"/>%
+                                </strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="margin-top:40px;">
+                        <table style="width:100%;">
+                            <tr>
+                                <td style="width:50%; border:none;">
+                                    Керівник установи<br/>
+                                    ________________ /__________________/
+                                </td>
+                                <td style="width:50%; border:none;">
+                                    Головний бухгалтер<br/>
+                                    ________________ /__________________/
+                                </td>
+                            </tr>
+                        </table>
+                        <p style="margin-top:20px;">
+                            «___» ______________ <t t-out="estimate.year"/> року
+                        </p>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

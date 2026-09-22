@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_report_headcount_view_form" model="ir.ui.view">
+        <field name="name">hr.report.headcount.form</field>
+        <field name="model">hr.report.headcount</field>
+        <field name="arch" type="xml">
+            <form string="Average Headcount Report">
+                <header>
+                    <button name="action_generate" string="Generate" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_draft" string="Set to Draft" type="object"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,generated"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Period">
+                            <field name="year"/>
+                            <field name="month"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Results">
+                            <field name="avg_headcount"/>
+                            <field name="avg_headcount_full"/>
+                            <field name="total_calendar_days"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Daily Data" name="lines">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="date"/>
+                                    <field name="day_of_week"/>
+                                    <field name="headcount"/>
+                                    <field name="fte_count"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes" placeholder="Additional notes..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_report_headcount_view_list" model="ir.ui.view">
+        <field name="name">hr.report.headcount.list</field>
+        <field name="model">hr.report.headcount</field>
+        <field name="arch" type="xml">
+            <list string="Average Headcount Reports">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="month"/>
+                <field name="avg_headcount"/>
+                <field name="avg_headcount_full"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'generated'"
+                       decoration-info="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_report_headcount_view_search" model="ir.ui.view">
+        <field name="name">hr.report.headcount.search</field>
+        <field name="model">hr.report.headcount</field>
+        <field name="arch" type="xml">
+            <search string="Average Headcount">
+                <field name="name"/>
+                <field name="year"/>
+                <filter string="Draft" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Generated" name="filter_generated" domain="[('state', '=', 'generated')]"/>
+                <separator/>
+                <group>
+                    <filter string="Year" name="groupby_year" domain="[]" context="{'group_by': 'year'}"/>
+                    <filter string="Status" name="groupby_state" domain="[]" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_report_headcount" model="ir.actions.act_window">
+        <field name="name">Average Headcount Reports</field>
+        <field name="res_model">hr.report.headcount</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create an average headcount report
+            </p>
+            <p>
+                This report calculates the average number of employees
+                for a given month according to Ukrainian methodology.
+            </p>
+        </field>
+    </record>
+
+</odoo>

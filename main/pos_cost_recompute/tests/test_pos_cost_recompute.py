@@ -585,8 +585,8 @@ class TestPosCostRecompute(TestPoSCommon):
         self._start_pos_session(self.cash_pm1 | self.bank_pm1, 0)
         orders[0].action_prepare_correction()
         operation.action_preview()
-        self.assertEqual(operation.skipped_count, 1)
-        self.assertEqual(operation.line_ids.filtered(lambda line: line.status == "skipped").order_id, orders[0])
+        self.assertEqual(operation.skipped_count, 0)
+        self.assertEqual(operation.line_ids.order_id, orders)
 
     def test_product_cost_reads_order_company(self):
         order = self._orders()

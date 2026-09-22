@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Reconciliation Act Report Action -->
+    <record id="action_report_reconciliation_act" model="ir.actions.report">
+        <field name="name">Reconciliation Statement</field>
+        <field name="model">l10n_ua.reconciliation.act.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_accounting.report_reconciliation_act_document</field>
+        <field name="report_file">l10n_ua_accounting.report_reconciliation_act_document</field>
+        <field name="print_report_name">'Акт_звірки_%s_%s-%s' % (object.partner_id.name, object.date_from, object.date_to)</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+    <!-- Reconciliation Act Report Template -->
+    <template id="report_reconciliation_act_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="wizard">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+                        <div class="ua-report-title">
+                            АКТ ЗВІРКИ ВЗАЄМОРОЗРАХУНКІВ
+                        </div>
+
+                        <div class="ua-report-subtitle">
+                            за період з
+                            <span t-field="wizard.date_from" t-options='{"widget": "date"}'/>
+                            по
+                            <span t-field="wizard.date_to" t-options='{"widget": "date"}'/>
+                        </div>
+
+                        <!-- Parties -->
+                        <div class="row mt-4 mb-4">
+                            <div class="col-6">
+                                <div class="bold mb-2">Замовник:</div>
+                                <div t-field="wizard.company_id.name"/>
+                                <div t-if="wizard.company_id.company_registry">
+                                    ЄДРПОУ: <span t-field="wizard.company_id.company_registry"/>
+                                </div>
+                                <div t-if="wizard.company_id.vat">
+                                    ІПН: <span t-field="wizard.company_id.vat"/>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="bold mb-2">Виконавець:</div>
+                                <div t-field="wizard.partner_id.name"/>
+                                <div t-if="wizard.partner_id.company_registry">
+                                    ЄДРПОУ: <span t-field="wizard.partner_id.company_registry"/>
+                                </div>
+                                <div t-if="wizard.partner_id.vat">
+                                    ІПН: <span t-field="wizard.partner_id.vat"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reconciliation Data -->
+                        <t t-set="data" t-value="wizard._get_report_data()"/>
+
+                        <div class="mb-3">
+                            <span class="bold">Тип розрахунків: </span>
+                            <t t-if="wizard.account_type == 'receivable'">Дебіторська заборгованість</t>
+                            <t t-if="wizard.account_type == 'payable'">Кредиторська заборгованість</t>
+                            <t t-if="wizard.account_type == 'both'">Всі розрахунки</t>
+                        </div>
+
+                        <!-- Summary -->
+                        <table class="mb-4" style="width: 50%;">
+                            <tr>
+                                <td class="bold">Сальдо на початок періоду:</td>
+                                <td class="text-right money" t-esc="'%.2f' % data['opening_balance']"/>
+                                <td>грн.</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Обороти (дебет):</td>
+                                <td class="text-right money" t-esc="'%.2f' % data['total_debit']"/>
+                                <td>грн.</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Обороти (кредит):</td>
+                                <td class="text-right money" t-esc="'%.2f' % data['total_credit']"/>
+                                <td>грн.</td>
+                            </tr>
+                            <tr style="border-top: 2px solid black;">
+                                <td class="bold">Сальдо на кінець періоду:</td>
+                                <td class="text-right money bold" t-esc="'%.2f' % data['closing_balance']"/>
+                                <td>грн.</td>
+                            </tr>
+                        </table>
+
+                        <!-- Detail table -->
+                        <t t-if="data['lines']">
+                            <div class="bold mb-2">Деталізація операцій:</div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width: 80px;">Дата</th>
+                                        <th style="width: 100px;">Документ</th>
+                                        <th>Опис</th>
+                                        <th style="width: 100px;">Дебет</th>
+                                        <th style="width: 100px;">Кредит</th>
+                                        <th style="width: 100px;">Сальдо</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Opening balance row -->
+                                    <tr>
+                                        <td><span t-field="wizard.date_from" t-options='{"widget": "date"}'/></td>
+                                        <td>-</td>
+                                        <td class="italic">Сальдо на початок</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="text-right money" t-esc="'%.2f' % data['opening_balance']"/>
+                                    </tr>
+
+                                    <!-- Transactions -->
+                                    <t t-foreach="data['lines']" t-as="line">
+                                        <tr>
+                                            <td class="text-center" t-esc="line['date']"/>
+                                            <td t-esc="line['ref']"/>
+                                            <td t-esc="line['name']"/>
+                                            <td class="text-right money">
+                                                <t t-if="line['debit']">
+                                                    <t t-esc="'%.2f' % line['debit']"/>
+                                                </t>
+                                            </td>
+                                            <td class="text-right money">
+                                                <t t-if="line['credit']">
+                                                    <t t-esc="'%.2f' % line['credit']"/>
+                                                </t>
+                                            </td>
+                                            <td class="text-right money" t-esc="'%.2f' % line['balance']"/>
+                                        </tr>
+                                    </t>
+
+                                    <!-- Totals -->
+                                    <tr style="border-top: 2px solid black;">
+                                        <td colspan="3" class="text-right bold">Разом:</td>
+                                        <td class="text-right money bold" t-esc="'%.2f' % data['total_debit']"/>
+                                        <td class="text-right money bold" t-esc="'%.2f' % data['total_credit']"/>
+                                        <td class="text-right money bold" t-esc="'%.2f' % data['closing_balance']"/>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+
+                        <!-- Balance interpretation -->
+                        <div class="mt-4 mb-4">
+                            <t t-if="data['closing_balance'] > 0">
+                                <span class="bold">Заборгованість на користь </span>
+                                <span t-field="wizard.company_id.name"/>
+                                <span> становить </span>
+                                <span class="bold" t-esc="'%.2f' % data['closing_balance']"/> грн.
+                            </t>
+                            <t t-elif="data['closing_balance'] &lt; 0">
+                                <span class="bold">Заборгованість на користь </span>
+                                <span t-field="wizard.partner_id.name"/>
+                                <span> становить </span>
+                                <span class="bold" t-esc="'%.2f' % abs(data['closing_balance'])"/> грн.
+                            </t>
+                            <t t-else="">
+                                <span class="bold">Взаємні зобов'язання сторін відсутні.</span>
+                            </t>
+                        </div>
+
+                        <!-- Signatures -->
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <div class="bold mb-3">Від Замовника:</div>
+                                <div class="company-name mb-2" t-field="wizard.company_id.name"/>
+                                <div class="signature-row">
+                                    <span>Підпис</span>
+                                    <span class="signature-line"></span>
+                                </div>
+                                <div class="signature-row">
+                                    <span>ПІБ</span>
+                                    <span class="signature-line"></span>
+                                </div>
+                                <div class="text-center mt-2">М.П.</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="bold mb-3">Від Виконавця:</div>
+                                <div class="company-name mb-2" t-field="wizard.partner_id.name"/>
+                                <div class="signature-row">
+                                    <span>Підпис</span>
+                                    <span class="signature-line"></span>
+                                </div>
+                                <div class="signature-row">
+                                    <span>ПІБ</span>
+                                    <span class="signature-line"></span>
+                                </div>
+                                <div class="text-center mt-2">М.П.</div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 small text-center">
+                            Акт складено у двох примірниках, по одному для кожної сторони.
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

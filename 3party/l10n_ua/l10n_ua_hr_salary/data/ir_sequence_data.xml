@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="seq_hr_payslip" model="ir.sequence">
+            <field name="name">Payslip</field>
+            <field name="code">hr.payslip</field>
+            <field name="prefix">РЛ-%(year)s-</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_hr_salary_deposit" model="ir.sequence">
+            <field name="name">Salary Deposit</field>
+            <field name="code">hr.salary.deposit</field>
+            <field name="prefix">ДЕП/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+	<record id="seq_hr_salary_advance" model="ir.sequence">
+            <field name="name">Salary Advance</field>
+            <field name="code">hr.salary.advance</field>
+            <field name="prefix">АВ/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        
+    </data>
+</odoo>

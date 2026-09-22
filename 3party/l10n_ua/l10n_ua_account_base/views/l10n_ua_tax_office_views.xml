@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tax Office Tree View -->
+    <record id="l10n_ua_tax_office_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.office.list</field>
+        <field name="model">l10n_ua.tax.office</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="short_name"/>
+                <field name="office_type"/>
+                <field name="parent_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Tax Office Form View -->
+    <record id="l10n_ua_tax_office_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.office.form</field>
+        <field name="model">l10n_ua.tax.office</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Tax Office Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="short_name"/>
+                            <field name="office_type"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="c_reg" readonly="1"/>
+                            <field name="c_raj" readonly="1"/>
+                            <field name="parent_id"/>
+                            <field name="region_id"/>
+                        </group>
+                    </group>
+                    <group string="Contact Information">
+                        <field name="address"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                    </group>
+                    <notebook>
+                        <page string="Child Offices" invisible="office_type == 'district'">
+                            <field name="child_ids">
+                                <list>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="office_type"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tax Office Search View -->
+    <record id="l10n_ua_tax_office_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.office.search</field>
+        <field name="model">l10n_ua.tax.office</field>
+        <field name="arch" type="xml">
+            <search string="Tax Offices">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="short_name"/>
+                <field name="parent_id"/>
+                <separator/>
+                <filter string="Active" name="filter_active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="filter_archived" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Central" name="filter_central" domain="[('office_type', '=', 'central')]"/>
+                <filter string="Regional" name="filter_regional" domain="[('office_type', '=', 'regional')]"/>
+                <filter string="District" name="filter_district" domain="[('office_type', '=', 'district')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Tax Office Action -->
+    <record id="l10n_ua_tax_office_action" model="ir.actions.act_window">
+        <field name="name">Tax Offices</field>
+        <field name="res_model">l10n_ua.tax.office</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'active_test': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a tax office
+            </p>
+            <p>
+                Ukrainian tax offices (ДПІ) directory.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Типова ступінчаста шкала надбавки за вислугу років.
+             Розмір у комерційному секторі визначає роботодавець — редагуйте
+             ступені під власне положення про оплату праці. -->
+        <record id="seniority_scale_default" model="hr.seniority.scale">
+            <field name="name">Основна шкала вислуги</field>
+        </record>
+
+        <record id="seniority_scale_line_3" model="hr.seniority.scale.line">
+            <field name="scale_id" ref="seniority_scale_default"/>
+            <field name="years_from">3</field>
+            <field name="percent">10</field>
+        </record>
+        <record id="seniority_scale_line_5" model="hr.seniority.scale.line">
+            <field name="scale_id" ref="seniority_scale_default"/>
+            <field name="years_from">5</field>
+            <field name="percent">15</field>
+        </record>
+        <record id="seniority_scale_line_10" model="hr.seniority.scale.line">
+            <field name="scale_id" ref="seniority_scale_default"/>
+            <field name="years_from">10</field>
+            <field name="percent">20</field>
+        </record>
+        <record id="seniority_scale_line_15" model="hr.seniority.scale.line">
+            <field name="scale_id" ref="seniority_scale_default"/>
+            <field name="years_from">15</field>
+            <field name="percent">25</field>
+        </record>
+        <record id="seniority_scale_line_20" model="hr.seniority.scale.line">
+            <field name="scale_id" ref="seniority_scale_default"/>
+            <field name="years_from">20</field>
+            <field name="percent">30</field>
+        </record>
+
+    </data>
+</odoo>

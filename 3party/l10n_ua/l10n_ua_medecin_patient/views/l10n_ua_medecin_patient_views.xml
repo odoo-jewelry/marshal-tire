@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_patient_list" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.patient.list</field>
+        <field name="model">l10n_ua.medecin.patient</field>
+        <field name="arch" type="xml">
+            <list string="Пацієнти" decoration-muted="not active">
+                <field name="patient_card_no"/>
+                <field name="partner_id"/>
+                <field name="birthdate" optional="show"/>
+                <field name="age" optional="show"/>
+                <field name="age_category" optional="hide"/>
+                <field name="gender" optional="hide"/>
+                <field name="active_doctor_id" optional="show"/>
+                <field name="rnokpp" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_patient_form" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.patient.form</field>
+        <field name="model">l10n_ua.medecin.patient</field>
+        <field name="arch" type="xml">
+            <form string="Пацієнт">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="display_name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="patient_card_no"/>
+                            <field name="birthdate"/>
+                            <field name="age" readonly="1"/>
+                            <field name="age_category" readonly="1"/>
+                            <field name="gender"/>
+                        </group>
+                        <group>
+                            <field name="rnokpp"/>
+                            <field name="birth_certificate_no"/>
+                            <field name="active_doctor_id" readonly="1"/>
+                            <field name="active_declaration_id" readonly="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Декларації" name="declarations">
+                            <field name="declaration_ids" readonly="1">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="doctor_id"/>
+                                    <field name="date_signed"/>
+                                    <field name="date_start"/>
+                                    <field name="date_terminated"/>
+                                    <field name="state" widget="badge"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Примітки" name="notes">
+                            <field name="note" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_patient_search" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.patient.search</field>
+        <field name="model">l10n_ua.medecin.patient</field>
+        <field name="arch" type="xml">
+            <search string="Пошук пацієнтів">
+                <field name="partner_id"/>
+                <field name="patient_card_no"/>
+                <field name="rnokpp"/>
+                <field name="active_doctor_id"/>
+                <filter string="З активною декларацією" name="filter_with_decl"
+                        domain="[('active_declaration_id', '!=', False)]"/>
+                <filter string="Без декларації" name="filter_no_decl"
+                        domain="[('active_declaration_id', '=', False)]"/>
+                <group>
+                    <filter string="Лікар" name="groupby_doctor" domain="[]"
+                            context="{'group_by': 'active_doctor_id'}"/>
+                    <filter string="Вікова категорія" name="groupby_age" domain="[]"
+                            context="{'group_by': 'age_category'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_patient" model="ir.actions.act_window">
+        <field name="name">Пацієнти</field>
+        <field name="res_model">l10n_ua.medecin.patient</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

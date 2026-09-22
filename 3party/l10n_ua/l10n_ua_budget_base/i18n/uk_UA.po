@@ -1,0 +1,26 @@
+#. Translations for l10n_ua_budget_base — Ukrainian (uk_UA)
+#. Most user-facing strings are already in Ukrainian in the source.
+#. Generic English labels that need translation are listed below.
+msgid ""
+msgstr ""
+"Project-Id-Version: l10n_ua_budget_base 19.0.1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: l10n_ua_budget_base
+#: model:ir.model.fields,field_description:l10n_ua_budget_base.field_account_account__ua_budget_is_state_sector
+msgid "State Sector Account"
+msgstr "Рахунок держсектору"
+
+#. module: l10n_ua_budget_base
+#: model:ir.model.fields,field_description:l10n_ua_budget_base.field_account_account__ua_default_kekv_id
+msgid "Default КЕКВ"
+msgstr "КЕКВ за замовчуванням"
+
+#. module: l10n_ua_budget_base
+#: model:ir.model.fields,field_description:l10n_ua_budget_base.field_account_account__ua_default_kfk_id
+msgid "Default КФК"
+msgstr "КФК за замовчуванням"

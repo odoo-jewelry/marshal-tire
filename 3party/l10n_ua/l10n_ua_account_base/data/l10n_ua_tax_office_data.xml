@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Central Office -->
+        <record id="tax_office_central" model="l10n_ua.tax.office">
+            <field name="code">0000</field>
+            <field name="name">Державна податкова служба України</field>
+            <field name="short_name">ДПС України</field>
+            <field name="office_type">central</field>
+        </record>
+
+        <!-- Regional Offices (ГУ ДПС) - 2025 structure -->
+
+        <!-- Vinnytsia Region - 02 -->
+        <record id="tax_office_0200" model="l10n_ua.tax.office">
+            <field name="code">0200</field>
+            <field name="name">Головне управління ДПС у Вінницькій області</field>
+            <field name="short_name">ГУ ДПС у Вінницькій обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Volyn Region - 03 -->
+        <record id="tax_office_0300" model="l10n_ua.tax.office">
+            <field name="code">0300</field>
+            <field name="name">Головне управління ДПС у Волинській області</field>
+            <field name="short_name">ГУ ДПС у Волинській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Dnipropetrovsk Region - 04 -->
+        <record id="tax_office_0400" model="l10n_ua.tax.office">
+            <field name="code">0400</field>
+            <field name="name">Головне управління ДПС у Дніпропетровській області</field>
+            <field name="short_name">ГУ ДПС у Дніпропетровській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Donetsk Region - 05 -->
+        <record id="tax_office_0500" model="l10n_ua.tax.office">
+            <field name="code">0500</field>
+            <field name="name">Головне управління ДПС у Донецькій області</field>
+            <field name="short_name">ГУ ДПС у Донецькій обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Zhytomyr Region - 06 -->
+        <record id="tax_office_0600" model="l10n_ua.tax.office">
+            <field name="code">0600</field>
+            <field name="name">Головне управління ДПС у Житомирській області</field>
+            <field name="short_name">ГУ ДПС у Житомирській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Zakarpattia Region - 07 -->
+        <record id="tax_office_0700" model="l10n_ua.tax.office">
+            <field name="code">0700</field>
+            <field name="name">Головне управління ДПС у Закарпатській області</field>
+            <field name="short_name">ГУ ДПС у Закарпатській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Zaporizhzhia Region - 08 -->
+        <record id="tax_office_0800" model="l10n_ua.tax.office">
+            <field name="code">0800</field>
+            <field name="name">Головне управління ДПС у Запорізькій області</field>
+            <field name="short_name">ГУ ДПС у Запорізькій обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Ivano-Frankivsk Region - 09 -->
+        <record id="tax_office_0900" model="l10n_ua.tax.office">
+            <field name="code">0900</field>
+            <field name="name">Головне управління ДПС в Івано-Франківській області</field>
+            <field name="short_name">ГУ ДПС в Івано-Франківській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Kyiv Region - 10 -->
+        <record id="tax_office_1000" model="l10n_ua.tax.office">
+            <field name="code">1000</field>
+            <field name="name">Головне управління ДПС у Київській області</field>
+            <field name="short_name">ГУ ДПС у Київській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Kirovohrad Region - 11 -->
+        <record id="tax_office_1100" model="l10n_ua.tax.office">
+            <field name="code">1100</field>
+            <field name="name">Головне управління ДПС у Кіровоградській області</field>
+            <field name="short_name">ГУ ДПС у Кіровоградській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Luhansk Region - 12 -->
+        <record id="tax_office_1200" model="l10n_ua.tax.office">
+            <field name="code">1200</field>
+            <field name="name">Головне управління ДПС у Луганській області</field>
+            <field name="short_name">ГУ ДПС у Луганській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Lviv Region - 13 -->
+        <record id="tax_office_1300" model="l10n_ua.tax.office">
+            <field name="code">1300</field>
+            <field name="name">Головне управління ДПС у Львівській області</field>
+            <field name="short_name">ГУ ДПС у Львівській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Mykolaiv Region - 14 -->
+        <record id="tax_office_1400" model="l10n_ua.tax.office">
+            <field name="code">1400</field>
+            <field name="name">Головне управління ДПС у Миколаївській області</field>
+            <field name="short_name">ГУ ДПС у Миколаївській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Odesa Region - 15 -->
+        <record id="tax_office_1500" model="l10n_ua.tax.office">
+            <field name="code">1500</field>
+            <field name="name">Головне управління ДПС в Одеській області</field>
+            <field name="short_name">ГУ ДПС в Одеській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Poltava Region - 16 -->
+        <record id="tax_office_1600" model="l10n_ua.tax.office">
+            <field name="code">1600</field>
+            <field name="name">Головне управління ДПС у Полтавській області</field>
+            <field name="short_name">ГУ ДПС у Полтавській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Rivne Region - 17 -->
+        <record id="tax_office_1700" model="l10n_ua.tax.office">
+            <field name="code">1700</field>
+            <field name="name">Головне управління ДПС у Рівненській області</field>
+            <field name="short_name">ГУ ДПС у Рівненській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Sumy Region - 18 -->
+        <record id="tax_office_1800" model="l10n_ua.tax.office">
+            <field name="code">1800</field>
+            <field name="name">Головне управління ДПС у Сумській області</field>
+            <field name="short_name">ГУ ДПС у Сумській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Ternopil Region - 19 -->
+        <record id="tax_office_1900" model="l10n_ua.tax.office">
+            <field name="code">1900</field>
+            <field name="name">Головне управління ДПС у Тернопільській області</field>
+            <field name="short_name">ГУ ДПС у Тернопільській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Kharkiv Region - 20 -->
+        <record id="tax_office_2000" model="l10n_ua.tax.office">
+            <field name="code">2000</field>
+            <field name="name">Головне управління ДПС у Харківській області</field>
+            <field name="short_name">ГУ ДПС у Харківській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Kherson Region - 21 -->
+        <record id="tax_office_2100" model="l10n_ua.tax.office">
+            <field name="code">2100</field>
+            <field name="name">Головне управління ДПС у Херсонській області</field>
+            <field name="short_name">ГУ ДПС у Херсонській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Khmelnytskyi Region - 22 -->
+        <record id="tax_office_2200" model="l10n_ua.tax.office">
+            <field name="code">2200</field>
+            <field name="name">Головне управління ДПС у Хмельницькій області</field>
+            <field name="short_name">ГУ ДПС у Хмельницькій обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Cherkasy Region - 23 -->
+        <record id="tax_office_2300" model="l10n_ua.tax.office">
+            <field name="code">2300</field>
+            <field name="name">Головне управління ДПС у Черкаській області</field>
+            <field name="short_name">ГУ ДПС у Черкаській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Chernivtsi Region - 24 -->
+        <record id="tax_office_2400" model="l10n_ua.tax.office">
+            <field name="code">2400</field>
+            <field name="name">Головне управління ДПС у Чернівецькій області</field>
+            <field name="short_name">ГУ ДПС у Чернівецькій обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Chernihiv Region - 25 -->
+        <record id="tax_office_2500" model="l10n_ua.tax.office">
+            <field name="code">2500</field>
+            <field name="name">Головне управління ДПС у Чернігівській області</field>
+            <field name="short_name">ГУ ДПС у Чернігівській обл.</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Kyiv City - 26 -->
+        <record id="tax_office_2600" model="l10n_ua.tax.office">
+            <field name="code">2600</field>
+            <field name="name">Головне управління ДПС у м. Києві</field>
+            <field name="short_name">ГУ ДПС у м. Києві</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+        </record>
+
+        <!-- Sample District Offices for Kyiv City (2025 structure) -->
+        <record id="tax_office_2601" model="l10n_ua.tax.office">
+            <field name="code">2601</field>
+            <field name="name">ДПІ у Голосіївському районі ГУ ДПС у м. Києві</field>
+            <field name="short_name">ДПІ Голосіївський р-н</field>
+            <field name="office_type">district</field>
+            <field name="parent_id" ref="tax_office_2600"/>
+        </record>
+
+        <record id="tax_office_2602" model="l10n_ua.tax.office">
+            <field name="code">2602</field>
+            <field name="name">ДПІ у Дарницькому районі ГУ ДПС у м. Києві</field>
+            <field name="short_name">ДПІ Дарницький р-н</field>
+            <field name="office_type">district</field>
+            <field name="parent_id" ref="tax_office_2600"/>
+        </record>
+
+        <record id="tax_office_2603" model="l10n_ua.tax.office">
+            <field name="code">2603</field>
+            <field name="name">ДПІ у Деснянському районі ГУ ДПС у м. Києві</field>
+            <field name="short_name">ДПІ Деснянський р-н</field>
+            <field name="office_type">district</field>
+            <field name="parent_id" ref="tax_office_2600"/>
+        </record>
+
+        <record id="tax_office_2604" model="l10n_ua.tax.office">
+            <field name="code">2604</field>
+            <field name="name">ДПІ у Дніпровському районі ГУ ДПС у м. Києві</field>
+            <field name="short_name">ДПІ Дніпровський р-н</field>
+            <field name="office_type">district</field>
+            <field name="parent_id" ref="tax_office_2600"/>
+        </record>
+
+        <record id="tax_office_2605" model="l10n_ua.tax.office">
+            <field name="code">2605</field>
+            <field name="name">ДПІ в Оболонському районі ГУ ДПС у м. Києві</field>
+            <field name="short_name">ДПІ Оболонський р-н</field>
+            <field name="office_type">district</field>
+            <field name="parent_id" ref="tax_office_2600"/>
+        </record>
+
+        <record id="tax_office_2606" model="l10n_ua.tax.office">
+            <field name="code">2606</field>
+            <field name="name">ДПІ у Печерському районі ГУ ДПС у м. Києві</field>
+            <field name="short_name">ДПІ Печерський р-н</field>
+            <field name="office_type">district</field>
+            <field name="parent_id" ref="tax_office_2600"/>
+        </record>
+
+        <record id="tax_office_2607" model="l10n_ua.tax.office">
+            <field name="code">2607</field>
+            <field name="name">ДПІ у Подільському районі ГУ ДПС у м. Києві</field>
+            <field name="short_name">ДПІ Подільський р-н</field>
+            <field name="office_type">district</field>
+            <field name="parent_id" ref="tax_office_2600"/>
+        </record>
+
+        <record id="tax_office_2608" model="l10n_ua.tax.office">
+            <field name="code">2608</field>
+            <field name="name">ДПІ у Святошинському районі ГУ ДПС у м. Києві</field>
+            <field name="short_name">ДПІ Святошинський р-н</field>
+            <field name="office_type">district</field>
+            <field name="parent_id" ref="tax_office_2600"/>
+        </record>
+
+        <record id="tax_office_2609" model="l10n_ua.tax.office">
+            <field name="code">2609</field>
+            <field name="name">ДПІ у Солом'янському районі ГУ ДПС у м. Києві</field>
+            <field name="short_name">ДПІ Солом'янський р-н</field>
+            <field name="office_type">district</field>
+            <field name="parent_id" ref="tax_office_2600"/>
+        </record>
+
+        <record id="tax_office_2610" model="l10n_ua.tax.office">
+            <field name="code">2610</field>
+            <field name="name">ДПІ у Шевченківському районі ГУ ДПС у м. Києві</field>
+            <field name="short_name">ДПІ Шевченківський р-н</field>
+            <field name="office_type">district</field>
+            <field name="parent_id" ref="tax_office_2600"/>
+        </record>
+
+        <!-- Crimea (temporarily occupied) - 01 -->
+        <record id="tax_office_0100" model="l10n_ua.tax.office">
+            <field name="code">0100</field>
+            <field name="name">Головне управління ДПС в Автономній Республіці Крим та м. Севастополі</field>
+            <field name="short_name">ГУ ДПС в АР Крим</field>
+            <field name="office_type">regional</field>
+            <field name="parent_id" ref="tax_office_central"/>
+            <field name="active">False</field>
+        </record>
+
+    </data>
+</odoo>

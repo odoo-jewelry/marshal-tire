@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Bank UA Dashboard Kanban View -->
+    <record id="l10n_ua_bank_journal_dashboard_kanban" model="ir.ui.view">
+        <field name="name">account.journal.ua.bank.dashboard.kanban</field>
+        <field name="model">account.journal</field>
+        <field name="arch" type="xml">
+            <kanban can_open="0" highlight_color="color" class="o_kanban_dashboard o_account_kanban" create="false">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="color"/>
+                <field name="currency_id"/>
+                <field name="ua_bank_balance"/>
+                <field name="ua_bank_balance_graph"/>
+                <field name="ua_bank_statement_count"/>
+                <field name="ua_bank_last_sync"/>
+                <field name="ua_bank_has_online_config"/>
+                <field name="ua_bank_has_file_config"/>
+                <templates>
+                    <t t-name="menu">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 class="o_kanban_card_manage_title">
+                                        <span>View</span>
+                                    </h5>
+                                    <div>
+                                        <a name="action_open_transactions" type="object">Transactions</a>
+                                    </div>
+                                    <div>
+                                        <a name="action_open_bank_statements" type="object">Bank Statements</a>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h5 class="o_kanban_card_manage_title">
+                                        <span>Settings</span>
+                                    </h5>
+                                    <div>
+                                        <a type="open">Configuration</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row o_kanban_card_manage_settings">
+                                <field name="color" widget="kanban_color_picker" class="col-6"/>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-name="card">
+                        <!-- Title -->
+                        <div class="o_primary o_text_overflow fs-4 fw-bold mb-3">
+                            <a name="action_open_bank_statements" type="object">
+                                <field name="name"/>
+                            </a>
+                        </div>
+                        <!-- Balance and Stats Row -->
+                        <div class="row">
+                            <div class="col">
+                                <span>Balance</span>
+                            </div>
+                            <div class="col-auto text-end">
+                                <span class="fw-bold" dir="ltr">
+                                    <field name="ua_bank_balance" widget="monetary"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col">
+                                <a name="action_open_transactions" type="object">
+                                    <span><field name="ua_bank_statement_count"/> Transactions</span>
+                                </a>
+                            </div>
+                            <div class="col-auto text-end text-muted" t-if="record.ua_bank_last_sync.raw_value">
+                                <span>Last: <field name="ua_bank_last_sync" widget="date"/></span>
+                            </div>
+                        </div>
+                        <!-- Graph Row -->
+                        <div class="row mt-3">
+                            <field name="ua_bank_balance_graph" graph_type="line" widget="dashboard_graph"/>
+                        </div>
+                        <!-- Дії: онлайн-синхронізація та/або імпорт з файлу -->
+                        <div class="row mt-3">
+                            <div class="col" t-if="record.ua_bank_has_online_config.raw_value">
+                                <button name="action_new_sync_job" type="object" class="btn btn-primary w-100">
+                                    <i class="fa fa-refresh me-1"/> Sync
+                                </button>
+                            </div>
+                            <div class="col" t-if="record.ua_bank_has_file_config.raw_value">
+                                <button name="action_import_bank_file" type="object" class="btn btn-secondary w-100">
+                                    <i class="fa fa-upload me-1"/> Import File
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row mt-2" t-if="!record.ua_bank_has_online_config.raw_value and !record.ua_bank_has_file_config.raw_value">
+                            <div class="col">
+                                <button name="action_new_sync_job" type="object" class="btn btn-link w-100">
+                                    <i class="fa fa-cog me-1"/> Configure Bank Sync
+                                </button>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Bank UA Dashboard Action -->
+    <record id="l10n_ua_bank_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Bank Dashboard</field>
+        <field name="res_model">account.journal</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[('type', '=', 'bank')]</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'kanban', 'view_id': ref('l10n_ua_bank_journal_dashboard_kanban')})]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Configure your bank journals
+            </p>
+            <p>
+                Create bank journals to track your bank accounts and sync transactions from Ukrainian banks.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- NBU QR BCD template (Постанова НБУ від 01.02.2021 №11) -->
+        <record model="ir.config_parameter" id="nbu_qr_template">
+            <field name="key">l10n_ua.nbu_qr_template</field>
+            <field name="value">BCD\r\n002\r\n2\r\nUCT\r\n\r\n{name}\r\n{account}\r\n{currency}{amount:.2f}\r\n{edrpou}\r\n\r\n\r\nОплата згідно з рахунком {number} від {date}\r\n\r\n</field>
+        </record>
+
+    </data>
+</odoo>

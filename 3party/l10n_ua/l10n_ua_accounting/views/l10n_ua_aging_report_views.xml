@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Aging Report Form -->
+    <record id="l10n_ua_aging_report_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.aging.report.form</field>
+        <field name="model">l10n_ua.aging.report</field>
+        <field name="arch" type="xml">
+            <form string="Звіт про заборгованість">
+                <header>
+                    <button name="action_compute" string="Розрахувати" type="object"
+                            class="btn-primary" invisible="state == 'confirmed'"/>
+                    <button name="action_export_xlsx" string="Експорт XLSX" type="object"
+                            icon="fa-file-excel-o" invisible="state == 'draft'"/>
+                    <button name="action_confirm" string="Підтвердити" type="object"
+                            class="btn-primary" invisible="state != 'calculated'"/>
+                    <button name="action_draft" string="Повернути в чернетку" type="object"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,calculated,confirmed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="True"/></h1>
+                    </div>
+                    <group>
+                        <group string="Параметри">
+                            <field name="date" readonly="state == 'confirmed'"/>
+                            <field name="report_type" readonly="state == 'confirmed'"/>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   readonly="state == 'confirmed'"/>
+                        </group>
+                        <group string="Підсумки">
+                            <field name="partner_count"/>
+                            <field name="total_amount"/>
+                            <field name="total_over_90" string="Прострочено >90 дн."/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Рядки" name="lines">
+                            <field name="line_ids" readonly="True">
+                                <list decoration-danger="amount_over_90 &gt; 0"
+                                      decoration-warning="amount_61_90 &gt; 0 and amount_over_90 == 0">
+                                    <field name="partner_id"/>
+                                    <field name="account_type"/>
+                                    <field name="total_amount" sum="Усього"/>
+                                    <field name="amount_current" sum="Усього" optional="show"/>
+                                    <field name="amount_1_7" sum="Усього" optional="show"/>
+                                    <field name="amount_8_14" sum="Усього" optional="show"/>
+                                    <field name="amount_15_30" sum="Усього" optional="show"/>
+                                    <field name="amount_31_60" sum="Усього" optional="show"/>
+                                    <field name="amount_61_90" sum="Усього" optional="show"/>
+                                    <field name="amount_over_90" sum="Усього" optional="show"/>
+                                    <field name="move_line_count" optional="hide"/>
+                                    <button name="action_view_move_lines" type="object"
+                                            string="Проводки" icon="fa-list"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Зведені підсумки" name="summary">
+                            <group>
+                                <group string="Поточна та короткострокова">
+                                    <field name="total_current"/>
+                                    <field name="total_1_7"/>
+                                    <field name="total_8_14"/>
+                                    <field name="total_15_30"/>
+                                </group>
+                                <group string="Довгострокова прострочена">
+                                    <field name="total_31_60"/>
+                                    <field name="total_61_90"/>
+                                    <field name="total_over_90"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Aging Report List -->
+    <record id="l10n_ua_aging_report_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.aging.report.list</field>
+        <field name="model">l10n_ua.aging.report</field>
+        <field name="arch" type="xml">
+            <list string="Звіти про заборгованість">
+                <field name="date"/>
+                <field name="report_type"/>
+                <field name="partner_count" string="Контрагентів"/>
+                <field name="total_amount" sum="Усього"/>
+                <field name="total_over_90" string=">90 дн." sum="Усього"
+                       optional="show"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'confirmed'"
+                       decoration-info="state == 'calculated'"
+                       decoration-warning="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Aging Report Search -->
+    <record id="l10n_ua_aging_report_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.aging.report.search</field>
+        <field name="model">l10n_ua.aging.report</field>
+        <field name="arch" type="xml">
+            <search string="Звіти про заборгованість">
+                <field name="date"/>
+
+                <filter string="Дебіторська" name="filter_receivable"
+                        domain="[('report_type', '=', 'receivable')]"/>
+                <filter string="Кредиторська" name="filter_payable"
+                        domain="[('report_type', '=', 'payable')]"/>
+                <separator/>
+                <filter string="Чернетка" name="filter_draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter string="Розраховано" name="filter_calculated"
+                        domain="[('state', '=', 'calculated')]"/>
+                <filter string="Підтверджено" name="filter_confirmed"
+                        domain="[('state', '=', 'confirmed')]"/>
+
+                <group>
+                    <filter string="Тип" name="groupby_type" domain="[]"
+                            context="{'group_by': 'report_type'}"/>
+                    <filter string="Місяць" name="groupby_date" domain="[]"
+                            context="{'group_by': 'date:month'}"/>
+                    <filter string="Стан" name="groupby_state" domain="[]"
+                            context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="l10n_ua_aging_report_action" model="ir.actions.act_window">
+        <field name="name">Заборгованість</field>
+        <field name="res_model">l10n_ua.aging.report</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="l10n_ua_aging_report_view_search"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,185 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_bank_privat
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260103\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-22 19:18+0000\n"
+"PO-Revision-Date: 2026-01-22 19:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,field_description:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__privat_api_token
+msgid "API Token"
+msgstr "API токен"
+
+#. module: l10n_ua_bank_privat
+#. odoo-python
+#: code:addons/l10n_ua_bank_privat/models/l10n_ua_bank_privat_config.py:0
+msgid "API returned error: %s"
+msgstr "API повернув помилку: %s"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,field_description:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__privat_account_iban
+msgid "Account IBAN"
+msgstr "IBAN рахунку"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,help:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__privat_account_iban
+msgid "Account IBAN (UA + 27 digits)"
+msgstr "IBAN рахунку (UA + 27 цифр)"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model,name:l10n_ua_bank_privat.model_l10n_ua_bank_sync_config
+msgid "Bank Sync Configuration"
+msgstr "Налаштування синхронізації банку"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,field_description:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__privat_card_number
+msgid "Card Number"
+msgstr "Номер картки"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,help:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__privat_card_number
+msgid "Card number for statement retrieval (16 digits)"
+msgstr "Номер картки для отримання виписки (16 цифр)"
+
+#. module: l10n_ua_bank_privat
+#. odoo-python
+#: code:addons/l10n_ua_bank_privat/models/l10n_ua_bank_privat_config.py:0
+msgid "Card number is required for Merchant API"
+msgstr "Номер картки обов'язковий для Merchant API"
+
+#. module: l10n_ua_bank_privat
+#. odoo-python
+#: code:addons/l10n_ua_bank_privat/models/l10n_ua_bank_privat_config.py:0
+msgid "Connected! Account: %s, Balance: %s %s"
+msgstr "Підключено! Рахунок: %s, Баланс: %s %s"
+
+#. module: l10n_ua_bank_privat
+#. odoo-python
+#: code:addons/l10n_ua_bank_privat/models/l10n_ua_bank_privat_config.py:0
+msgid "Connection failed: %s"
+msgstr "Помилка підключення: %s"
+
+#. module: l10n_ua_bank_privat
+#. odoo-python
+#: code:addons/l10n_ua_bank_privat/models/l10n_ua_bank_privat_config.py:0
+msgid "Connection to PrivatBank API successful!"
+msgstr "Підключення до API ПриватБанку успішне!"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,field_description:l10n_ua_bank_privat.field_l10n_ua_bank_statement__display_name
+#: model:ir.model.fields,field_description:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,field_description:l10n_ua_bank_privat.field_l10n_ua_bank_statement__id
+#: model:ir.model.fields,field_description:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,help:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__privat_merchant_id
+msgid "Legacy merchant ID (for old API)"
+msgstr "Застарілий merchant ID (для старого API)"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,help:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__privat_merchant_password
+msgid "Legacy merchant password (for old API)"
+msgstr "Застарілий пароль merchant (для старого API)"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,field_description:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__privat_merchant_id
+msgid "Merchant ID"
+msgstr "Merchant ID"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,field_description:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__privat_merchant_password
+msgid "Merchant Password"
+msgstr "Пароль Merchant"
+
+#. module: l10n_ua_bank_privat
+#. odoo-python
+#: code:addons/l10n_ua_bank_privat/models/l10n_ua_bank_privat_config.py:0
+msgid "Please configure API Token"
+msgstr "Будь ласка, налаштуйте API токен"
+
+#. module: l10n_ua_bank_privat
+#. odoo-python
+#: code:addons/l10n_ua_bank_privat/models/l10n_ua_bank_privat_config.py:0
+msgid "Please configure PrivatBank API Token or Merchant credentials"
+msgstr "Будь ласка, налаштуйте API токен ПриватБанку або облікові дані Merchant"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields.selection,name:l10n_ua_bank_privat.selection__l10n_ua_bank_statement__sync_provider__privat
+#: model:ir.model.fields.selection,name:l10n_ua_bank_privat.selection__l10n_ua_bank_sync_config__provider__privat
+msgid "PrivatBank"
+msgstr "ПриватБанк"
+
+#. module: l10n_ua_bank_privat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_privat.l10n_ua_bank_sync_config_view_form_privat
+msgid "PrivatBank API (Autoclient)"
+msgstr "API ПриватБанку (Автоклієнт)"
+
+#. module: l10n_ua_bank_privat
+#. odoo-python
+#: code:addons/l10n_ua_bank_privat/models/l10n_ua_bank_privat_config.py:0
+msgid "PrivatBank API error: %s"
+msgstr "Помилка API ПриватБанку: %s"
+
+#. module: l10n_ua_bank_privat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_privat.l10n_ua_bank_sync_config_view_form_privat
+msgid "PrivatBank Legacy (Merchant)"
+msgstr "ПриватБанк Legacy (Merchant)"
+
+#. module: l10n_ua_bank_privat
+#. odoo-python
+#: code:addons/l10n_ua_bank_privat/models/l10n_ua_bank_privat_config.py:0
+msgid "PrivatBank Merchant API error"
+msgstr "Помилка Merchant API ПриватБанку"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,field_description:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__provider
+msgid "Provider"
+msgstr "Провайдер"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,field_description:l10n_ua_bank_privat.field_l10n_ua_bank_statement__sync_provider
+msgid "Source"
+msgstr "Джерело"
+
+#. module: l10n_ua_bank_privat
+#. odoo-python
+#: code:addons/l10n_ua_bank_privat/models/l10n_ua_bank_privat_config.py:0
+msgid "Success"
+msgstr "Успіх"
+
+#. module: l10n_ua_bank_privat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_privat.l10n_ua_bank_sync_config_view_form_privat
+msgid "Test Connection"
+msgstr "Перевірити підключення"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model.fields,help:l10n_ua_bank_privat.field_l10n_ua_bank_sync_config__privat_api_token
+msgid "Token from Privat24 Business Autoclient"
+msgstr "Токен з Приват24 Бізнес Автоклієнт"
+
+#. module: l10n_ua_bank_privat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_privat.l10n_ua_bank_sync_config_view_form_privat
+msgid "UA000000000000000000000000000"
+msgstr "UA000000000000000000000000000"
+
+#. module: l10n_ua_bank_privat
+#: model:ir.model,name:l10n_ua_bank_privat.model_l10n_ua_bank_statement
+msgid "Ukrainian Bank Statement"
+msgstr "Українська банківська виписка"

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Demo Company -->
+        <record id="demo_ua_company" model="res.company">
+            <field name="name">ТОВ "Демо Компанія"</field>
+            <field name="street">вул. Хрещатик, 1</field>
+            <field name="city">Київ</field>
+            <field name="zip">01001</field>
+            <field name="country_id" ref="base.ua"/>
+            <field name="vat">1234567890</field>
+            <field name="phone">+380 44 123 45 67</field>
+            <field name="email">info@demo-company.ua</field>
+        </record>
+
+        <!-- Demo Departments -->
+        <record id="demo_department_admin" model="hr.department">
+            <field name="name">Адміністрація</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_type">head</field>
+        </record>
+
+        <record id="demo_department_it" model="hr.department">
+            <field name="name">Відділ ІТ</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="parent_id" ref="demo_department_admin"/>
+        </record>
+
+        <record id="demo_department_hr" model="hr.department">
+            <field name="name">Відділ кадрів</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="parent_id" ref="demo_department_admin"/>
+        </record>
+
+        <record id="demo_department_accounting" model="hr.department">
+            <field name="name">Бухгалтерія</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="parent_id" ref="demo_department_admin"/>
+        </record>
+
+        <!-- Demo Jobs -->
+        <record id="demo_job_director" model="hr.job">
+            <field name="name">Директор</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_admin"/>
+        </record>
+
+        <record id="demo_job_hr_manager" model="hr.job">
+            <field name="name">Начальник відділу кадрів</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_hr"/>
+        </record>
+
+        <record id="demo_job_hr_specialist" model="hr.job">
+            <field name="name">Спеціаліст з кадрів</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_hr"/>
+        </record>
+
+        <record id="demo_job_accountant" model="hr.job">
+            <field name="name">Головний бухгалтер</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_accounting"/>
+        </record>
+
+        <record id="demo_job_it_admin" model="hr.job">
+            <field name="name">Системний адміністратор</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_it"/>
+        </record>
+
+        <record id="demo_job_developer" model="hr.job">
+            <field name="name">Програміст</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_it"/>
+        </record>
+
+        <!-- Demo Employees -->
+        <record id="demo_employee_director" model="hr.employee">
+            <field name="name">Петренко Іван Васильович</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_admin"/>
+            <field name="job_id" ref="demo_job_director"/>
+            <field name="employee_number">001</field>
+            <field name="rnokpp">1234567899</field>
+            <field name="document_type">id_card</field>
+            <field name="passport_id">123456789</field>
+            <field name="passport_issued_by">1234</field>
+            <field name="passport_issued_date">2020-01-15</field>
+            <field name="birthday">1975-05-20</field>
+            <field name="marital">married</field>
+            <field name="education_level_id" ref="l10n_ua_hr_base.education_level_master"/>
+            <field name="study_school">Київський національний університет</field>
+            <field name="study_field">Менеджмент</field>
+            <field name="private_street">вул. Хрещатик, 1</field>
+            <field name="private_street2">кв. 10</field>
+            <field name="private_city">Київ</field>
+            <field name="private_zip">01001</field>
+            <field name="registration_same_as_actual" eval="True"/>
+            <field name="date_version" eval="'2015-01-10'"/>
+            <field name="contract_date_start" eval="'2015-01-10'"/>
+            <field name="military_status">liable</field>
+            <field name="military_category">1</field>
+            <field name="military_rank_id" ref="l10n_ua_hr_base.military_rank_captain"/>
+            <field name="military_fitness">fit</field>
+            <field name="mobile_phone">+380501234567</field>
+            <field name="work_email">director@demo.ua</field>
+        </record>
+
+        <record id="demo_employee_hr_manager" model="hr.employee">
+            <field name="name">Коваленко Марія Петрівна</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_hr"/>
+            <field name="job_id" ref="demo_job_hr_manager"/>
+            <field name="employee_number">002</field>
+            <field name="rnokpp">2345678902</field>
+            <field name="document_type">id_card</field>
+            <field name="passport_id">234567890</field>
+            <field name="passport_issued_by">1234</field>
+            <field name="passport_issued_date">2019-03-20</field>
+            <field name="birthday">1985-08-15</field>
+            <field name="marital">married</field>
+            <field name="education_level_id" ref="l10n_ua_hr_base.education_level_master"/>
+            <field name="study_school">Національний університет "Львівська політехніка"</field>
+            <field name="study_field">Управління персоналом</field>
+            <field name="private_street">вул. Велика Васильківська, 25</field>
+            <field name="private_street2">кв. 5</field>
+            <field name="private_city">Київ</field>
+            <field name="private_zip">01004</field>
+            <field name="registration_same_as_actual" eval="True"/>
+            <field name="date_version" eval="'2018-06-01'"/>
+            <field name="contract_date_start" eval="'2018-06-01'"/>
+            <field name="military_status">not_applicable</field>
+            <field name="mobile_phone">+380502345678</field>
+            <field name="work_email">hr@demo.ua</field>
+        </record>
+
+        <record id="demo_employee_accountant" model="hr.employee">
+            <field name="name">Шевченко Олена Миколаївна</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_accounting"/>
+            <field name="job_id" ref="demo_job_accountant"/>
+            <field name="employee_number">003</field>
+            <field name="rnokpp">3456789014</field>
+            <field name="document_type">id_card</field>
+            <field name="passport_id">345678901</field>
+            <field name="passport_issued_by">1234</field>
+            <field name="passport_issued_date">2021-07-10</field>
+            <field name="birthday">1980-12-03</field>
+            <field name="marital">divorced</field>
+            <field name="education_level_id" ref="l10n_ua_hr_base.education_level_master"/>
+            <field name="study_school">Київський національний економічний університет</field>
+            <field name="study_field">Облік і аудит</field>
+            <field name="private_street">вул. Саксаганського, 100</field>
+            <field name="private_street2">кв. 15</field>
+            <field name="private_city">Київ</field>
+            <field name="private_zip">01033</field>
+            <field name="registration_same_as_actual" eval="True"/>
+            <field name="date_version" eval="'2016-09-01'"/>
+            <field name="contract_date_start" eval="'2016-09-01'"/>
+            <field name="military_status">not_applicable</field>
+            <field name="mobile_phone">+380503456789</field>
+            <field name="work_email">accountant@demo.ua</field>
+        </record>
+
+        <record id="demo_employee_it_admin" model="hr.employee">
+            <field name="name">Бондаренко Олексій Сергійович</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_it"/>
+            <field name="job_id" ref="demo_job_it_admin"/>
+            <field name="employee_number">004</field>
+            <field name="rnokpp">4567890120</field>
+            <field name="document_type">id_card</field>
+            <field name="passport_id">456789012</field>
+            <field name="passport_issued_by">1234</field>
+            <field name="passport_issued_date">2022-02-28</field>
+            <field name="birthday">1990-04-25</field>
+            <field name="marital">single</field>
+            <field name="education_level_id" ref="l10n_ua_hr_base.education_level_bachelor"/>
+            <field name="study_school">НТУУ "КПІ"</field>
+            <field name="study_field">Комп'ютерні науки</field>
+            <field name="private_street">пр. Перемоги, 37</field>
+            <field name="private_street2">кв. 88</field>
+            <field name="private_city">Київ</field>
+            <field name="private_zip">03056</field>
+            <field name="registration_same_as_actual" eval="True"/>
+            <field name="date_version" eval="'2020-03-15'"/>
+            <field name="contract_date_start" eval="'2020-03-15'"/>
+            <field name="military_status">liable</field>
+            <field name="military_category">1</field>
+            <field name="military_rank_id" ref="l10n_ua_hr_base.military_rank_soldier"/>
+            <field name="military_fitness">fit</field>
+            <field name="military_reservation" eval="True"/>
+            <field name="military_reservation_until">2025-12-31</field>
+            <field name="mobile_phone">+380504567890</field>
+            <field name="work_email">admin@demo.ua</field>
+        </record>
+
+        <record id="demo_employee_developer" model="hr.employee">
+            <field name="name">Мельник Андрій Олександрович</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_it"/>
+            <field name="job_id" ref="demo_job_developer"/>
+            <field name="employee_number">005</field>
+            <field name="rnokpp">5678901233</field>
+            <field name="document_type">id_card</field>
+            <field name="passport_id">567890123</field>
+            <field name="passport_issued_by">1234</field>
+            <field name="passport_issued_date">2023-05-15</field>
+            <field name="birthday">1995-11-10</field>
+            <field name="marital">married</field>
+            <field name="spouse_complete_name">Мельник Ірина Вікторівна</field>
+            <field name="education_level_id" ref="l10n_ua_hr_base.education_level_master"/>
+            <field name="study_school">НТУУ "КПІ"</field>
+            <field name="study_field">Програмна інженерія</field>
+            <field name="private_street">вул. Борщагівська, 150</field>
+            <field name="private_street2">кв. 42</field>
+            <field name="private_city">Київ</field>
+            <field name="private_zip">03056</field>
+            <field name="registration_same_as_actual" eval="True"/>
+            <field name="date_version" eval="'2021-08-01'"/>
+            <field name="contract_date_start" eval="'2021-08-01'"/>
+            <field name="military_status">liable</field>
+            <field name="military_category">2</field>
+            <field name="military_rank_id" ref="l10n_ua_hr_base.military_rank_junior_sergeant"/>
+            <field name="military_fitness">fit</field>
+            <field name="mobile_phone">+380505678901</field>
+            <field name="work_email">developer@demo.ua</field>
+            <field name="veteran_status">combat</field>
+        </record>
+
+        <record id="demo_employee_hr_specialist" model="hr.employee">
+            <field name="name">Ткаченко Наталія Ігорівна</field>
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_hr"/>
+            <field name="job_id" ref="demo_job_hr_specialist"/>
+            <field name="employee_number">006</field>
+            <field name="rnokpp">6789012344</field>
+            <field name="document_type">id_card</field>
+            <field name="passport_id">678901234</field>
+            <field name="passport_issued_by">1234</field>
+            <field name="passport_issued_date">2020-11-20</field>
+            <field name="birthday">1992-07-18</field>
+            <field name="marital">single</field>
+            <field name="education_level_id" ref="l10n_ua_hr_base.education_level_bachelor"/>
+            <field name="study_school">Київський національний університет</field>
+            <field name="study_field">Психологія</field>
+            <field name="private_street">вул. Льва Толстого, 5</field>
+            <field name="private_street2">кв. 20</field>
+            <field name="private_city">Київ</field>
+            <field name="private_zip">01004</field>
+            <field name="registration_street">вул. Городоцька, 210</field>
+            <field name="registration_street2">кв. 7</field>
+            <field name="registration_city">Львів</field>
+            <field name="registration_zip">79000</field>
+            <field name="registration_same_as_actual" eval="False"/>
+            <field name="date_version" eval="'2022-01-10'"/>
+            <field name="contract_date_start" eval="'2022-01-10'"/>
+            <field name="military_status">not_applicable</field>
+            <field name="disability_group">3</field>
+            <field name="disability_reason">Загальне захворювання</field>
+            <field name="disability_date_from">2021-01-01</field>
+            <field name="disability_date_to">2026-01-01</field>
+            <field name="mobile_phone">+380506789012</field>
+            <field name="work_email">hr.specialist@demo.ua</field>
+        </record>
+
+        <!-- Demo Children -->
+        <record id="demo_child_1" model="hr.employee.child">
+            <field name="employee_id" ref="demo_employee_developer"/>
+            <field name="name">Мельник Софія Андріївна</field>
+            <field name="birthday">2022-03-15</field>
+            <field name="gender">female</field>
+            <field name="is_dependent" eval="True"/>
+        </record>
+
+        <record id="demo_child_2" model="hr.employee.child">
+            <field name="employee_id" ref="demo_employee_director"/>
+            <field name="name">Петренко Максим Іванович</field>
+            <field name="birthday">2005-09-01</field>
+            <field name="gender">male</field>
+            <field name="is_dependent" eval="False"/>
+        </record>
+
+        <record id="demo_child_3" model="hr.employee.child">
+            <field name="employee_id" ref="demo_employee_director"/>
+            <field name="name">Петренко Анна Іванівна</field>
+            <field name="birthday">2010-06-20</field>
+            <field name="gender">female</field>
+            <field name="is_dependent" eval="True"/>
+        </record>
+
+        <!-- Demo Staffing Table -->
+        <record id="demo_staffing_director" model="hr.staffing.table">
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_admin"/>
+            <field name="job_id" ref="demo_job_director"/>
+            <field name="units">1</field>
+            <field name="salary">100000</field>
+            <field name="date_from">2024-01-01</field>
+            <field name="state">approved</field>
+        </record>
+
+        <record id="demo_staffing_hr_manager" model="hr.staffing.table">
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_hr"/>
+            <field name="job_id" ref="demo_job_hr_manager"/>
+            <field name="units">1</field>
+            <field name="salary">45000</field>
+            <field name="date_from">2024-01-01</field>
+            <field name="state">approved</field>
+        </record>
+
+        <record id="demo_staffing_hr_specialist" model="hr.staffing.table">
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_hr"/>
+            <field name="job_id" ref="demo_job_hr_specialist"/>
+            <field name="units">2</field>
+            <field name="salary">25000</field>
+            <field name="date_from">2024-01-01</field>
+            <field name="state">approved</field>
+        </record>
+
+        <record id="demo_staffing_accountant" model="hr.staffing.table">
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_accounting"/>
+            <field name="job_id" ref="demo_job_accountant"/>
+            <field name="units">1</field>
+            <field name="salary">50000</field>
+            <field name="date_from">2024-01-01</field>
+            <field name="state">approved</field>
+        </record>
+
+        <record id="demo_staffing_it_admin" model="hr.staffing.table">
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_it"/>
+            <field name="job_id" ref="demo_job_it_admin"/>
+            <field name="units">1</field>
+            <field name="salary">40000</field>
+            <field name="date_from">2024-01-01</field>
+            <field name="state">approved</field>
+        </record>
+
+        <record id="demo_staffing_developer" model="hr.staffing.table">
+            <field name="company_id" ref="demo_ua_company"/>
+            <field name="department_id" ref="demo_department_it"/>
+            <field name="job_id" ref="demo_job_developer"/>
+            <field name="units">3</field>
+            <field name="salary">55000</field>
+            <field name="date_from">2024-01-01</field>
+            <field name="state">approved</field>
+        </record>
+
+        <!-- HR Orders demo data moved to l10n_ua_hr_documents -->
+
+    </data>
+</odoo>

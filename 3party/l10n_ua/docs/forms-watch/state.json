@@ -1,0 +1,9 @@
+{
+  "dataset_id": "f0b2d3a3-d9af-4884-815e-8590becf1a65",
+  "metadata_modified": "2026-07-01T11:52:14.959141",
+  "csv_resource_id": "c4e5b5d4-0ebb-4faa-9147-9abd7c5c5f99",
+  "csv_filename": "reestr_form_2026-06-29_deklar.csv",
+  "csv_last_modified": "2026-07-01T11:50:58.117801",
+  "forms_count": 158,
+  "captured_by": "commit that adds docs/forms-watch-playbook.md"
+}

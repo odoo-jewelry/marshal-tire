@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Multi-company record rules (issue #178).
+             UA bank-sync records carry company_id but had no multi-company
+             ir.rule, so they leaked across ALL companies (incl. non-UA ones).
+             These global rules scope each record to the user's allowed
+             companies. company_id is directly stored on config and
+             stored-related on job (config_id.company_id). Standard Odoo
+             pattern (see VAT rule). -->
+
+        <record id="l10n_ua_bank_sync_config_company_rule" model="ir.rule">
+            <field name="name">Конфігурація банк-синку: multi-company</field>
+            <field name="model_id" ref="model_l10n_ua_bank_sync_config"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+            </field>
+        </record>
+
+        <record id="l10n_ua_bank_sync_job_company_rule" model="ir.rule">
+            <field name="name">Завдання синхронізації: multi-company</field>
+            <field name="model_id" ref="model_l10n_ua_bank_sync_job"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+            </field>
+        </record>
+
+    </data>
+</odoo>

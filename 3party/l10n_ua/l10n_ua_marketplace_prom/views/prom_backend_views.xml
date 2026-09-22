@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Prom.ua Backend Form View Extension -->
+    <record id="marketplace_backend_view_form_prom" model="ir.ui.view">
+        <field name="name">marketplace.backend.form.prom</field>
+        <field name="model">marketplace.backend</field>
+        <field name="inherit_id" ref="l10n_ua_marketplace_base.marketplace_backend_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Add Prom.ua-specific fields after api_token_expiry -->
+            <xpath expr="//field[@name='api_token_expiry']" position="after">
+                <field name="prom_company_id" readonly="1" invisible="marketplace_type != 'prom'"/>
+            </xpath>
+
+            <!-- Add Import Products button for Prom.ua -->
+            <xpath expr="//button[@name='action_sync_prices_now']" position="after">
+                <button name="action_import_products" type="object" string="Import Products"
+                        class="btn-secondary" invisible="marketplace_type != 'prom' or state != 'active'"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_kpkvk_import"
+              name="Імпорт КПКВК"
+              parent="l10n_ua_budget_base.menu_l10n_ua_budget_root"
+              action="action_kpkvk_import"
+              sequence="80"
+              groups="l10n_ua_budget_base.group_ua_budget_manager"/>
+</odoo>

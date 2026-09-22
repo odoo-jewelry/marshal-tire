@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- QR-код / посилання Monobank на друкованому рахунку -->
+    <template id="report_invoice_document_mono_acquiring"
+              inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@name='qr_code_placeholder']" position="after">
+            <t t-if="o.move_type == 'out_invoice' and o.mono_payment_link">
+                <div id="mono_qrcode"
+                     class="d-flex mb-3 avoid-page-break-inside">
+                    <div class="qrcode me-3">
+                        <img t-att-src="o._get_mono_qr_barcode_url()"
+                             style="width: 180px; height: 180px;"/>
+                    </div>
+                    <div class="d-inline text-muted lh-sm fst-italic">
+                        <p>Або оплатіть карткою:<br/>скануйте QR-код Monobank
+                            або перейдіть за посиланням</p>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

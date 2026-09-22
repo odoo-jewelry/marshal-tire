@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_timesheet_view_form" model="ir.ui.view">
+        <field name="name">hr.timesheet.form</field>
+        <field name="model">hr.timesheet</field>
+        <field name="arch" type="xml">
+            <form string="Timesheet">
+                <header>
+                    <button name="action_generate_lines" string="Generate Lines" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_confirm" string="Confirm" type="object"
+                            invisible="state != 'draft'"/>
+                    <button name="action_approve" string="Approve" type="object"
+                            class="btn-primary" invisible="state != 'confirmed'"/>
+                    <button name="action_draft" string="Set to Draft" type="object"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="year"/>
+                            <field name="month"/>
+                            <field name="department_id"
+                                   domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]"/>
+                        </group>
+                        <group>
+                            <field name="responsible_id"/>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   domain="[('id', 'in', allowed_company_ids)]"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="total_employees"/>
+                            <field name="total_worked_days"/>
+                            <field name="total_worked_hours"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Employees" name="employees">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="employee_id"/>
+                                    <field name="department_id"/>
+                                    <field name="job_id"/>
+                                    <field name="scheduled_days"/>
+                                    <field name="worked_days"/>
+                                    <field name="worked_hours" sum="Total"/>
+                                    <field name="overtime_hours" sum="Total" optional="show"/>
+                                    <field name="night_hours" sum="Total" optional="hide"/>
+                                    <field name="vacation_days" optional="show"/>
+                                    <field name="sick_days" optional="show"/>
+                                    <field name="absence_days" optional="show"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_timesheet_view_tree" model="ir.ui.view">
+        <field name="name">hr.timesheet.tree</field>
+        <field name="model">hr.timesheet</field>
+        <field name="arch" type="xml">
+            <list string="Timesheets">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="month"/>
+                <field name="department_id"/>
+                <field name="total_employees"/>
+                <field name="total_worked_hours" sum="Total"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'approved'"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'confirmed'"/>
+            </list>
+        </field>
+    </record>
+
+<record id="hr_timesheet_line_view_form" model="ir.ui.view">
+        <field name="name">hr.timesheet.line.form</field>
+        <field name="model">hr.timesheet.line</field>
+        <field name="arch" type="xml">
+            <form string="Timesheet Line">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="department_id"/>
+                            <field name="job_id"/>
+                        </group>
+                        <group>
+                            <field name="scheduled_days"/>
+                            <field name="worked_days"/>
+                            <field name="worked_hours"/>
+                            <field name="overtime_hours"/>
+                            <field name="night_hours"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Days" name="days">
+                            <field name="day_ids">
+                                <list editable="bottom">
+                                    <field name="day_number"/>
+                                    <field name="date"/>
+                                    <field name="code_id"/>
+                                    <field name="hours"/>
+                                    <field name="overtime_hours"/>
+                                    <field name="night_hours"/>
+                                    <field name="notes"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_timesheet" model="ir.actions.act_window">
+        <field name="name">Timesheets</field>
+        <field name="res_model">hr.timesheet</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a monthly timesheet
+            </p>
+        </field>
+    </record>
+
+</odoo>

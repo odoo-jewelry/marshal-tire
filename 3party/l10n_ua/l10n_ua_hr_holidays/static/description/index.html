@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<section style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px;">
+
+<h1 style="color: #875A7B; border-bottom: 3px solid #875A7B; padding-bottom: 15px; font-size: 2em;">Ukraine - HR Holidays</h1>
+
+<div style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #875A7B;">
+    <strong style="font-size: 1.3em;">Модуль відпусток та лікарняних для Odoo 19</strong><br/><br/>
+    Повна система управління відпустками та лікарняними відповідно до <strong>Закону України «Про відпустки» № 504/96-ВР</strong>, 
+    <strong>КЗпП України</strong> та <strong>Постанови КМУ № 100</strong> про обчислення середньої заробітної плати.
+    Облік залишків відпусток, графік відпусток, розрахунок лікарняних з підтримкою е-ТВН.
+</div>
+
+<div style="display: flex; gap: 15px; flex-wrap: wrap; margin: 25px 0;">
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px; border: 1px solid #e0e0e0;">
+        <div style="font-size: 2em; color: #875A7B; font-weight: bold;">14</div>
+        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Типів відпусток</div>
+    </div>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px; border: 1px solid #e0e0e0;">
+        <div style="font-size: 2em; color: #875A7B; font-weight: bold;">7</div>
+        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Типів лікарняних</div>
+    </div>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px; border: 1px solid #e0e0e0;">
+        <div style="font-size: 2em; color: #875A7B; font-weight: bold;">е-ТВН</div>
+        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Підтримка</div>
+    </div>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px; border: 1px solid #e0e0e0;">
+        <div style="font-size: 2em; color: #875A7B; font-weight: bold;">100%</div>
+        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Українська</div>
+    </div>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Нормативна база</h2>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Закон України «Про відпустки»</strong> — № 504/96-ВР від 15.11.1996</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Кодекс законів про працю України</strong> — регулювання трудових відносин</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Постанова КМУ № 100</strong> — порядок обчислення середньої заробітної плати</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Закон про загальнообов'язкове соціальне страхування</strong> — оплата лікарняних</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Типи відпусток</h2>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+    <tr><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Категорія</th><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Опис</th><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Днів</th></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Щорічна основна</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Основна щорічна оплачувана відпустка (мінімум 24 к.д.)</td><td style="border: 1px solid #ddd; padding: 12px;">24</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>За шкідливі умови</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Додаткова за роботу зі шкідливими умовами праці</td><td style="border: 1px solid #ddd; padding: 12px;">до 35</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>За особливий характер праці</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Додаткова за особливий характер роботи</td><td style="border: 1px solid #ddd; padding: 12px;">до 7</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>За ненормований день</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Додаткова за ненормований робочий день</td><td style="border: 1px solid #ddd; padding: 12px;">до 7</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Навчальна</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Для здобуття освіти (за довідкою-викликом)</td><td style="border: 1px solid #ddd; padding: 12px;">залежно від рівня</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>Творча</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Для завершення дисертації, написання підручника</td><td style="border: 1px solid #ddd; padding: 12px;">до 6 міс.</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Соціальна (на дітей)</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Додаткова працівникам з дітьми</td><td style="border: 1px solid #ddd; padding: 12px;">10</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>Без збереження (за згодою)</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Неоплачувана відпустка за згодою сторін</td><td style="border: 1px solid #ddd; padding: 12px;">до 15</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Без збереження (обов'язкова)</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Весілля (10 днів), похорон (7 днів), догляд за хворим (30 днів)</td><td style="border: 1px solid #ddd; padding: 12px;">-</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>Декретна</strong></td><td style="border: 1px solid #ddd; padding: 12px;">У зв'язку з вагітністю та пологами (126/140 днів)</td><td style="border: 1px solid #ddd; padding: 12px;">126-140</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>По догляду за дитиною</strong></td><td style="border: 1px solid #ddd; padding: 12px;">До досягнення дитиною 3 (6) років</td><td style="border: 1px solid #ddd; padding: 12px;">-</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>Чорнобильцям</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Додаткова постраждалим від Чорнобиля</td><td style="border: 1px solid #ddd; padding: 12px;">16</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Ветеранам</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Додаткова ветеранам війни</td><td style="border: 1px solid #ddd; padding: 12px;">14</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>Лікарняний</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Тимчасова непрацездатність</td><td style="border: 1px solid #ddd; padding: 12px;">-</td></tr>
+</table>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Ключові правила обліку</h2>
+
+<div style="background: #fff3cd; padding: 15px; border-radius: 5px; margin: 15px 0; border: 1px solid #ffc107;">
+    <strong>Важливо:</strong> Святкові та неробочі дні <strong>не включаються</strong> до тривалості відпустки (автоматичне виключення).
+</div>
+
+<div style="display: flex; gap: 30px; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #555; margin-top: 25px;">Право на відпустку</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Перша відпустка</strong> — через 6 місяців безперервної роботи</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Мінімальна частина</strong> — не менше 14 календарних днів</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Перенесення</strong> — не більше 2 років поспіль</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Графік відпусток</strong> — затверджується до 5 січня</li>
+        </ul>
+    </div>
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #555; margin-top: 25px;">Компенсація</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>При звільненні</strong> — за всі невикористані дні</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Без звільнення</strong> — тільки за дні понад 24</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Умова</strong> — використано мінімум 24 дні за рік</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Виплата</strong> — не пізніше 3 днів до початку</li>
+        </ul>
+    </div>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Налаштування типів відпусток</h2>
+
+<div style="display: flex; gap: 30px; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #555; margin-top: 25px;">Основні параметри</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Категорія UA (annual_basic, annual_hazardous тощо)</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Кількість днів на рік</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Календарні дні (святкові виключаються)</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Мінімальний безперервний період (14 днів)</li>
+        </ul>
+    </div>
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #555; margin-top: 25px;">Додаткові параметри</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Максимум років перенесення (за замовч. 2)</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Потребує стажу 6 місяців</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Оплачувана / неоплачувана</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Джерело оплати (роботодавець / ФСС)</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Максимум додаткових днів</li>
+        </ul>
+    </div>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Баланс відпусток</h2>
+
+<p>Облік залишків відпусток по кожному працівнику:</p>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Належить днів</strong> — кількість днів на рік</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Перенесено з минулого року</strong> — невикористані дні</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Всього доступно</strong> — автоматичний розрахунок</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Використано</strong> — затверджені відпустки</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Заплановано</strong> — відпустки на розгляді</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Залишок</strong> — доступно для використання</li>
+</ul>
+
+<h3 style="color: #555; margin-top: 25px;">Компенсація при звільненні</h3>
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Автоматичний розрахунок компенсації за невикористані дні</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">На основі середньоденної зарплати</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Кнопка "Розрахувати компенсацію"</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Графік відпусток</h2>
+
+<p>Річне планування відпусток працівників:</p>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Планування по місяцях/кварталах</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Прив'язка до типу відпустки</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Статус виконання</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Фактичні дати використання</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Лікарняні листки</h2>
+
+<p>Повноцінна система обліку та розрахунку лікарняних:</p>
+
+<h3 style="color: #555; margin-top: 25px;">Типи лікарняних</h3>
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+    <tr><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Тип</th><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Опис</th></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">Захворювання</td><td style="border: 1px solid #ddd; padding: 12px;">Загальне захворювання</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">Травма</td><td style="border: 1px solid #ddd; padding: 12px;">Побутова або виробнича травма</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">Догляд за дитиною</td><td style="border: 1px solid #ddd; padding: 12px;">Догляд за хворою дитиною</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">Вагітність та пологи</td><td style="border: 1px solid #ddd; padding: 12px;">Декретний лікарняний</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">Карантин</td><td style="border: 1px solid #ddd; padding: 12px;">Ізоляція через карантин</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">Протезування</td><td style="border: 1px solid #ddd; padding: 12px;">Стаціонарне протезування</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">Санаторне лікування</td><td style="border: 1px solid #ddd; padding: 12px;">Реабілітація в санаторії</td></tr>
+</table>
+
+<h3 style="color: #555; margin-top: 25px;">е-ТВН (електронний лікарняний)</h3>
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Підтримка електронних лікарняних листків</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Номер е-ТВН з системи ПФУ</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Код діагнозу МКХ-10</li>
+</ul>
+
+<h3 style="color: #555; margin-top: 25px;">Розрахунок оплати</h3>
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+    <tr><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Страховий стаж</th><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Відсоток оплати</th></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">до 3 років</td><td style="border: 1px solid #ddd; padding: 12px;">50%</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">3-5 років</td><td style="border: 1px solid #ddd; padding: 12px;">60%</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">5-8 років</td><td style="border: 1px solid #ddd; padding: 12px;">70%</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">8+ років</td><td style="border: 1px solid #ddd; padding: 12px;">100%</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">Вагітність та пологи</td><td style="border: 1px solid #ddd; padding: 12px;">100%</td></tr>
+</table>
+
+<h3 style="color: #555; margin-top: 25px;">Джерела оплати</h3>
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Роботодавець</strong> — перші 5 днів</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>ФСС</strong> — з 6-го дня</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Вагітність</strong> — 100% за рахунок ФСС</li>
+</ul>
+
+<h3 style="color: #555; margin-top: 25px;">Автоматичні розрахунки</h3>
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Кількість календарних днів</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Відсоток оплати на основі стажу</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Середньоденна зарплата (за 12 місяців)</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Сума за рахунок роботодавця</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Сума за рахунок ФСС</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Загальна сума</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Розрахунок відпускних (Постанова КМУ № 100)</h2>
+
+<div style="background: #e7f3ff; padding: 15px; border-radius: 5px; margin: 15px 0; border: 1px solid #b3d7ff;">
+    <strong>Формула:</strong> Відпускні = СДЗ × Кількість календарних днів відпустки<br/>
+    <strong>СДЗ</strong> = Сумарний заробіток за 12 місяців ÷ (Календарні дні − Святкові дні − Виключені періоди)
+</div>
+
+<div style="display: flex; gap: 30px; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #555; margin-top: 25px;">Включаються до розрахунку</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Основна зарплата</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Доплати та надбавки</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Премії (пропорційно)</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Індексація</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Оплата за роботу у вихідні</li>
+        </ul>
+    </div>
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #555; margin-top: 25px;">Не включаються</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Разові виплати (матдопомога)</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Компенсація за невикористану відпустку</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Лікарняні</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Оплата простою</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Вихідна допомога</li>
+        </ul>
+    </div>
+</div>
+
+<h3 style="color: #555; margin-top: 25px;">Виключені періоди</h3>
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Лікарняні</strong> — дні тимчасової непрацездатності</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Відпустки без збереження</strong> — понад 14 днів на рік</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Святкові дні</strong> — автоматично виключаються з знаменника</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Fallback</strong> — оклад з договору / 29.3 якщо немає розрахункових листків</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Workflow лікарняного</h2>
+
+<div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0;">
+    <div style="background: #f8f9fa; padding: 15px 25px; border-radius: 25px; border: 2px solid #875A7B;">
+        <strong>Чернетка</strong>
+    </div>
+    <div style="font-size: 1.5em; color: #875A7B;">→</div>
+    <div style="background: #fff3cd; padding: 15px 25px; border-radius: 25px; border: 2px solid #ffc107;">
+        <strong>Підтверджено</strong>
+    </div>
+    <div style="font-size: 1.5em; color: #875A7B;">→</div>
+    <div style="background: #d4edda; padding: 15px 25px; border-radius: 25px; border: 2px solid #28a745;">
+        <strong>Оплачено</strong>
+    </div>
+</div>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Автоматичне створення hr.leave при підтвердженні</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Прив'язка до типу "Лікарняний"</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Автоматичне затвердження відпустки</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Інтеграція</h2>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>hr_holidays</strong> — базовий модуль Odoo відпусток</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>hr.payslip</strong> — для розрахунку середньої зарплати</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>hr.contract</strong> — fallback для окладу</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>insurance_experience</strong> — страховий стаж працівника</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Залежності</h2>
+
+<div style="background: #e7f3ff; padding: 15px; border-radius: 5px; margin: 15px 0; border: 1px solid #b3d7ff;">
+    <strong>Потребує:</strong>
+    <ul style="margin: 10px 0 0 20px;">
+        <li>hr_holidays — базовий модуль Odoo відпусток</li>
+        <li>l10n_ua_hr_base — базовий модуль української HR локалізації</li>
+    </ul>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">🫙 Підтримати проект</h2>
+
+<div style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); padding: 25px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #ffc107;">
+    <h3 style="color: #856404; margin-top: 0;">Збір на українську локалізацію Odoo — заміна 1С для бізнесу</h3>
+    <p style="margin-bottom: 15px;">Привіт! Створюю <strong>відкриті модулі української локалізації Odoo</strong> для повноцінної заміни 1С:</p>
+    <ul style="list-style: none; padding: 0; margin: 15px 0;">
+        <li style="padding: 8px 0;">📊 <strong>Бухгалтерський та фінансовий облік</strong> за українськими стандартами</li>
+        <li style="padding: 8px 0;">📋 <strong>Податкова звітність</strong> та електронний документообіг</li>
+        <li style="padding: 8px 0;">👥 <strong>HR-модуль (заміна ЗУП)</strong> — кадри, зарплата, табелі</li>
+        <li style="padding: 8px 0;">🏭 <strong>Операційний облік</strong> — склад, виробництво, продажі</li>
+    </ul>
+    <p><strong>Навіщо це потрібно:</strong> тисячі українських компаній досі сидять на російському софті, бо немає повноцінної альтернативи. Odoo — це потужна європейська ERP з відкритим кодом, але без якісної української локалізації перехід неможливий.</p>
+    <p><strong>Куди підуть кошти:</strong> розробка та тестування модулів, документація українською, підтримка спільноти.</p>
+    <p style="margin-bottom: 0;"><strong>Модулі будуть у відкритому доступі</strong> — для всіх, хто хоче позбутися російських технологій.</p>
+    <p style="margin-top: 15px; margin-bottom: 0;"><strong>Дякую за підтримку! 🙏</strong></p>
+    <p style="margin-top:10px; text-align:center"><img src="monobank_qr.png" alt="QR код для підтримки на Monobank" style="width:150px; height:150px;"/><br/><strong>Скануйте QR для підтримки на Monobank</strong></p>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Підтримка</h2>
+
+<div style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #875A7B;">
+    <strong>Автор:</strong> Svyatoslav Nadozirny<br/>
+    <strong>Веб-сайт:</strong> <a href="https://many2one.online">https://many2one.online</a><br/>
+    <strong>Email:</strong> support@many2one.online
+</div>
+
+</section>
+</body>
+</html>

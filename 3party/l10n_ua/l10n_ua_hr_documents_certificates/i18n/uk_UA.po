@@ -1,0 +1,834 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_hr_documents_certificates
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260103\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-05 19:43+0000\n"
+"PO-Revision-Date: 2026-01-05 19:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:hr.certificate.type,template_body:l10n_ua_hr_documents_certificates.certificate_type_income
+msgid ""
+"\n"
+"<div style=\"font-family: Times New Roman, serif; font-size: 14pt; line-height: 1.5;\">\n"
+"    <div style=\"text-align: center; margin-bottom: 20px;\">\n"
+"        <strong>{company_name}</strong><br/>\n"
+"        <span style=\"font-size: 12pt;\">{company_address}</span><br/>\n"
+"        <span style=\"font-size: 12pt;\">ЄДРПОУ: {company_edrpou}</span>\n"
+"    </div>\n"
+"\n"
+"    <div style=\"text-align: center; margin: 30px 0;\">\n"
+"        <h2 style=\"margin: 0;\">ДОВІДКА</h2>\n"
+"        <p style=\"margin: 5px 0;\">про доходи</p>\n"
+"        <p style=\"margin: 5px 0;\">№ {certificate_number} від {certificate_date}</p>\n"
+"    </div>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        Видана <strong>{employee_name}</strong>, РНОКПП: {employee_rnokpp},\n"
+"        у тому, що він(вона) працює в {company_name} на посаді <strong>{employee_position}</strong>.\n"
+"    </p>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        За період з {period_from} по {period_to} отримав(ла) дохід у розмірі\n"
+"        <strong>{total_income} грн.</strong>\n"
+"    </p>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        Довідка видана {destination}.\n"
+"    </p>\n"
+"\n"
+"    <div style=\"margin-top: 50px;\">\n"
+"        <table style=\"width: 100%; border: none;\">\n"
+"            <tr>\n"
+"                <td style=\"width: 50%;\">{company_director_position}</td>\n"
+"                <td style=\"width: 50%; text-align: right;\">________________ {company_director}</td>\n"
+"            </tr>\n"
+"            <tr>\n"
+"                <td style=\"width: 50%;\">Головний бухгалтер</td>\n"
+"                <td style=\"width: 50%; text-align: right;\">________________</td>\n"
+"            </tr>\n"
+"        </table>\n"
+"    </div>\n"
+"\n"
+"    <p style=\"margin-top: 30px; font-size: 12pt;\">М.П.</p>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:hr.certificate.type,template_body:l10n_ua_hr_documents_certificates.certificate_type_salary
+msgid ""
+"\n"
+"<div style=\"font-family: Times New Roman, serif; font-size: 14pt; line-height: 1.5;\">\n"
+"    <div style=\"text-align: center; margin-bottom: 20px;\">\n"
+"        <strong>{company_name}</strong><br/>\n"
+"        <span style=\"font-size: 12pt;\">{company_address}</span><br/>\n"
+"        <span style=\"font-size: 12pt;\">ЄДРПОУ: {company_edrpou}</span>\n"
+"    </div>\n"
+"\n"
+"    <div style=\"text-align: center; margin: 30px 0;\">\n"
+"        <h2 style=\"margin: 0;\">ДОВІДКА</h2>\n"
+"        <p style=\"margin: 5px 0;\">про заробітну плату</p>\n"
+"        <p style=\"margin: 5px 0;\">№ {certificate_number} від {certificate_date}</p>\n"
+"    </div>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        Видана <strong>{employee_name}</strong> у тому, що він(вона) дійсно працює\n"
+"        в {company_name} на посаді <strong>{employee_position}</strong>.\n"
+"    </p>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        Посадовий оклад (заробітна плата) становить <strong>{salary_amount} грн.</strong> на місяць.\n"
+"    </p>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        Довідка видана {destination}.\n"
+"    </p>\n"
+"\n"
+"    <div style=\"margin-top: 50px;\">\n"
+"        <table style=\"width: 100%; border: none;\">\n"
+"            <tr>\n"
+"                <td style=\"width: 50%;\">{company_director_position}</td>\n"
+"                <td style=\"width: 50%; text-align: right;\">________________ {company_director}</td>\n"
+"            </tr>\n"
+"            <tr>\n"
+"                <td style=\"width: 50%;\">Головний бухгалтер</td>\n"
+"                <td style=\"width: 50%; text-align: right;\">________________</td>\n"
+"            </tr>\n"
+"        </table>\n"
+"    </div>\n"
+"\n"
+"    <p style=\"margin-top: 30px; font-size: 12pt;\">М.П.</p>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:hr.certificate.type,template_body:l10n_ua_hr_documents_certificates.certificate_type_experience
+msgid ""
+"\n"
+"<div style=\"font-family: Times New Roman, serif; font-size: 14pt; line-height: 1.5;\">\n"
+"    <div style=\"text-align: center; margin-bottom: 20px;\">\n"
+"        <strong>{company_name}</strong><br/>\n"
+"        <span style=\"font-size: 12pt;\">{company_address}</span><br/>\n"
+"        <span style=\"font-size: 12pt;\">ЄДРПОУ: {company_edrpou}</span>\n"
+"    </div>\n"
+"\n"
+"    <div style=\"text-align: center; margin: 30px 0;\">\n"
+"        <h2 style=\"margin: 0;\">ДОВІДКА</h2>\n"
+"        <p style=\"margin: 5px 0;\">про стаж роботи</p>\n"
+"        <p style=\"margin: 5px 0;\">№ {certificate_number} від {certificate_date}</p>\n"
+"    </div>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        Видана <strong>{employee_name}</strong> у тому, що він(вона) працює\n"
+"        в {company_name} з {employee_hire_date} по теперішній час.\n"
+"    </p>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        Загальний стаж роботи на підприємстві становить <strong>{work_experience}</strong>.\n"
+"    </p>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        Довідка видана {destination}.\n"
+"    </p>\n"
+"\n"
+"    <div style=\"margin-top: 50px;\">\n"
+"        <table style=\"width: 100%; border: none;\">\n"
+"            <tr>\n"
+"                <td style=\"width: 50%;\">{company_director_position}</td>\n"
+"                <td style=\"width: 50%; text-align: right;\">________________ {company_director}</td>\n"
+"            </tr>\n"
+"        </table>\n"
+"    </div>\n"
+"\n"
+"    <p style=\"margin-top: 30px; font-size: 12pt;\">М.П.</p>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:hr.certificate.type,template_body:l10n_ua_hr_documents_certificates.certificate_type_employment
+msgid ""
+"\n"
+"<div style=\"font-family: Times New Roman, serif; font-size: 14pt; line-height: 1.5;\">\n"
+"    <div style=\"text-align: center; margin-bottom: 20px;\">\n"
+"        <strong>{company_name}</strong><br/>\n"
+"        <span style=\"font-size: 12pt;\">{company_address}</span><br/>\n"
+"        <span style=\"font-size: 12pt;\">ЄДРПОУ: {company_edrpou}</span>\n"
+"    </div>\n"
+"\n"
+"    <div style=\"text-align: center; margin: 30px 0;\">\n"
+"        <h2 style=\"margin: 0;\">ДОВІДКА</h2>\n"
+"        <p style=\"margin: 5px 0;\">№ {certificate_number} від {certificate_date}</p>\n"
+"    </div>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        Видана <strong>{employee_name}</strong> у тому, що він(вона) дійсно працює\n"
+"        в {company_name} на посаді <strong>{employee_position}</strong>\n"
+"        з {employee_hire_date} по теперішній час.\n"
+"    </p>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        Довідка видана {destination}.\n"
+"    </p>\n"
+"\n"
+"    <div style=\"margin-top: 50px;\">\n"
+"        <table style=\"width: 100%; border: none;\">\n"
+"            <tr>\n"
+"                <td style=\"width: 50%;\">{company_director_position}</td>\n"
+"                <td style=\"width: 50%; text-align: right;\">________________ {company_director}</td>\n"
+"            </tr>\n"
+"        </table>\n"
+"    </div>\n"
+"\n"
+"    <p style=\"margin-top: 30px; font-size: 12pt;\">М.П.</p>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:hr.certificate.type,template_body:l10n_ua_hr_documents_certificates.certificate_type_character
+msgid ""
+"\n"
+"<div style=\"font-family: Times New Roman, serif; font-size: 14pt; line-height: 1.5;\">\n"
+"    <div style=\"text-align: center; margin: 30px 0;\">\n"
+"        <h2 style=\"margin: 0;\">ХАРАКТЕРИСТИКА</h2>\n"
+"        <p style=\"margin: 5px 0;\">№ {certificate_number}</p>\n"
+"    </div>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        <strong>{employee_name}</strong> працює в {company_name}\n"
+"        на посаді <strong>{employee_position}</strong> з {employee_hire_date}.\n"
+"    </p>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        За час роботи зарекомендував(ла) себе як відповідальний,\n"
+"        дисциплінований працівник, який сумлінно виконує свої посадові обов'язки.\n"
+"    </p>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        Має високий рівень професійної підготовки, постійно підвищує свою кваліфікацію.\n"
+"        До виконання доручень ставиться відповідально.\n"
+"    </p>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        У колективі користується повагою. Комунікабельний(на),\n"
+"        вміє працювати в команді.\n"
+"    </p>\n"
+"\n"
+"    <p style=\"text-indent: 40px; text-align: justify;\">\n"
+"        Характеристика видана {destination}.\n"
+"    </p>\n"
+"\n"
+"    <div style=\"margin-top: 50px;\">\n"
+"        <table style=\"width: 100%; border: none;\">\n"
+"            <tr>\n"
+"                <td style=\"width: 50%;\">{company_director_position}</td>\n"
+"                <td style=\"width: 50%; text-align: right;\">________________ {company_director}</td>\n"
+"            </tr>\n"
+"        </table>\n"
+"    </div>\n"
+"\n"
+"    <p style=\"margin-top: 20px;\">{certificate_date}</p>\n"
+"    <p style=\"font-size: 12pt;\">М.П.</p>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__message_needaction
+msgid "Action Needed"
+msgstr "Потрібна дія"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__active
+msgid "Active"
+msgstr "Активний"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_ids
+msgid "Activities"
+msgstr "Активності"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Оформлення виключення активності"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_state
+msgid "Activity State"
+msgstr "Стан активності"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Іконка типу активності"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_form
+msgid "Approve"
+msgstr "Затвердити"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents_certificates.selection__hr_certificate__state__approved
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_search
+msgid "Approved"
+msgstr "Затверджено"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_type_view_form
+msgid "Archived"
+msgstr "Архівовано"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__message_attachment_count
+msgid "Attachment Count"
+msgstr "Кількість вкладень"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate_type__template_body
+msgid ""
+"Available placeholders:\n"
+"        {company_name} - Company name\n"
+"        {company_director} - Company director name\n"
+"        {company_director_position} - Director position\n"
+"        {company_address} - Company address\n"
+"        {company_edrpou} - Company EDRPOU code\n"
+"        {company_phone} - Company phone\n"
+"        {employee_name} - Employee full name\n"
+"        {employee_name_genitive} - Employee name in genitive case\n"
+"        {employee_position} - Employee job position\n"
+"        {employee_department} - Employee department\n"
+"        {employee_hire_date} - Hire date\n"
+"        {employee_rnokpp} - Employee RNOKPP (Tax ID)\n"
+"        {employee_passport} - Employee passport\n"
+"        {salary_amount} - Current salary\n"
+"        {salary_words} - Salary in words\n"
+"        {work_experience} - Work experience at company\n"
+"        {certificate_number} - Certificate number\n"
+"        {certificate_date} - Certificate issue date\n"
+"        {certificate_date_words} - Issue date in words\n"
+"        {destination} - Certificate destination (за місцем вимоги)\n"
+"        {period_from} - Period start (for salary certificates)\n"
+"        {period_to} - Period end (for salary certificates)\n"
+"        {total_income} - Total income for period\n"
+"        {total_income_words} - Total income in words\n"
+"        {current_date} - Current date\n"
+"        "
+msgstr ""
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents_certificates.selection__hr_certificate__state__cancelled
+msgid "Cancelled"
+msgstr "Скасовано"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.actions.report,name:l10n_ua_hr_documents_certificates.action_report_hr_certificate
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_form
+msgid "Certificate"
+msgstr "Довідка"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__body
+msgid "Certificate Body"
+msgstr "Тіло довідки"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_form
+msgid "Certificate Content"
+msgstr "Зміст довідки"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__certificate_type_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_type_view_form
+msgid "Certificate Type"
+msgstr "Тип довідки"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_type_view_form
+msgid "Certificate Type Name"
+msgstr "Назва типу довідки"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.actions.act_window,name:l10n_ua_hr_documents_certificates.action_hr_certificate_type
+#: model:ir.ui.menu,name:l10n_ua_hr_documents_certificates.menu_hr_certificate_type
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_type_view_tree
+msgid "Certificate Types"
+msgstr "Типи довідок"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__body
+msgid "Certificate content. Loaded from template, can be edited."
+msgstr "Зміст довідки. Завантажується з шаблону, можна редагувати."
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_documents_certificates.action_hr_certificate_type
+msgid ""
+"Certificate types define templates for standard HR documents like\n"
+"                employment certificates, salary certificates, etc."
+msgstr ""
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.actions.act_window,name:l10n_ua_hr_documents_certificates.action_hr_certificate
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_employee__certificate_ids
+#: model:ir.ui.menu,name:l10n_ua_hr_documents_certificates.menu_hr_certificate
+#: model:ir.ui.menu,name:l10n_ua_hr_documents_certificates.menu_hr_certificates_root
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_type_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_tree
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_employee_view_form_certificates
+msgid "Certificates"
+msgstr "Довідки"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__certificates_count
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_employee__certificates_count
+msgid "Certificates Count"
+msgstr "Кількість довідок"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__code
+msgid "Code"
+msgstr "Код"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_documents_certificates.action_hr_certificate
+msgid ""
+"Create certificates for employees: employment certificates,\n"
+"                    salary certificates, income references, and more."
+msgstr ""
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_documents_certificates.action_hr_certificate_type
+msgid "Create your first certificate type"
+msgstr "Створіть перший тип довідки"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__salary_amount
+msgid "Current Salary"
+msgstr "Поточний оклад"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate_type__report_id
+msgid "Custom report template for this certificate type"
+msgstr "Власний шаблон звіту для цього типу довідки"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__description
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_type_view_form
+msgid "Description"
+msgstr "Опис"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__destination
+msgid "Destination"
+msgstr "Призначення"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_employee__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__sequence_id
+msgid "Document Sequence"
+msgstr "Послідовність документів"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents_certificates.selection__hr_certificate__state__draft
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_search
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model,name:l10n_ua_hr_documents_certificates.model_hr_employee
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__employee_id
+msgid "Employee"
+msgstr "Співробітник"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Партнери)"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Іконка Font Awesome, напр. fa-tasks"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model,name:l10n_ua_hr_documents_certificates.model_hr_certificate
+msgid "HR Certificate"
+msgstr "Довідка"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model,name:l10n_ua_hr_documents_certificates.model_hr_certificate_type
+msgid "HR Certificate Type"
+msgstr "Тип довідки"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__has_message
+msgid "Has Message"
+msgstr "Має повідомлення"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_employee__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_exception_icon
+msgid "Icon"
+msgstr "Іконка"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Іконка для позначення виключної активності."
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__requires_destination
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate_type__requires_destination
+msgid "If checked, destination field is required"
+msgstr "Якщо позначено, поле призначення є обов'язковим"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо позначено, нові повідомлення потребують вашої уваги."
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__requires_period
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate_type__requires_period
+msgid "If checked, period dates are required"
+msgstr "Якщо позначено, дати періоду є обов'язковими"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__requires_salary_info
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate_type__requires_salary_info
+msgid "If checked, salary data will be included"
+msgstr "Якщо позначено, дані про зарплату будуть включені"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__message_has_error
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__notes
+msgid "Internal Notes"
+msgstr "Внутрішні примітки"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_form
+msgid "Internal notes..."
+msgstr "Внутрішні примітки..."
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__message_is_follower
+msgid "Is Follower"
+msgstr "Є підписником"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_form
+msgid "Issue"
+msgstr "Видати"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__issue_date
+msgid "Issue Date"
+msgstr "Дата видачі"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_documents_certificates.action_hr_certificate
+msgid "Issue a new certificate"
+msgstr "Видати нову довідку"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents_certificates.selection__hr_certificate__state__issued
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_search
+msgid "Issued"
+msgstr "Видано"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__issued_by
+msgid "Issued By"
+msgstr "Ким видано"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__write_uid
+msgid "Last Updated by"
+msgstr "Оновив"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__write_date
+msgid "Last Updated on"
+msgstr "Оновлено"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставки повідомлення"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Термін моєї активності"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Подія календаря наступної активності"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Термін наступної активності"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_summary
+msgid "Next Activity Summary"
+msgstr "Опис наступної активності"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_type_id
+msgid "Next Activity Type"
+msgstr "Тип наступної активності"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_form
+msgid "Notes"
+msgstr "Примітки"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__name
+msgid "Number"
+msgstr "Номер"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__copies_count
+msgid "Number of Copies"
+msgstr "Кількість копій"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate_type__validity_days
+msgid "Number of days the certificate is valid"
+msgstr "Кількість днів дії довідки"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__message_has_error_counter
+msgid "Number of errors"
+msgstr "Кількість помилок"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Кількість повідомлень, що потребують дії"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилкою доставки"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__period_from
+msgid "Period From"
+msgstr "Період з"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__period_to
+msgid "Period To"
+msgstr "Період до"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_form
+msgid "Print"
+msgstr "Друк"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_form
+msgid "Reload Template"
+msgstr "Перезавантажити шаблон"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__report_id
+msgid "Report Template"
+msgstr "Шаблон звіту"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__request_date
+msgid "Request Date"
+msgstr "Дата запиту"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__requires_destination
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__requires_destination
+msgid "Requires Destination"
+msgstr "Потребує призначення"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__requires_period
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__requires_period
+msgid "Requires Period"
+msgstr "Потребує період"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__requires_salary_info
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__requires_salary_info
+msgid "Requires Salary Information"
+msgstr "Потребує інформацію про зарплату"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_user_id
+msgid "Responsible User"
+msgstr "Відповідальний"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Помилка доставки SMS"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate_type__sequence_id
+msgid "Sequence used for numbering certificates of this type"
+msgstr "Послідовність для нумерації довідок цього типу"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_view_form
+msgid "Set to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__state
+msgid "Status"
+msgstr "Статус"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: l10n_ua_hr_documents_certificates
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents_certificates.hr_certificate_type_view_form
+msgid "Template"
+msgstr "Шаблон"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__template_body
+msgid "Template Body"
+msgstr "Тіло шаблону"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__total_income
+msgid "Total Income (Period)"
+msgstr "Загальний дохід (за період)"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__total_income
+msgid "Total income for the specified period"
+msgstr "Загальний дохід за вказаний період"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Тип виключної активності в записі."
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__valid_until
+msgid "Valid Until"
+msgstr "Дійсний до"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate_type__validity_days
+msgid "Validity (days)"
+msgstr "Термін дії (дні)"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents_certificates.field_hr_certificate__website_message_ids
+msgid "Website Messages"
+msgstr "Повідомлення веб-сайту"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__website_message_ids
+msgid "Website communication history"
+msgstr "Історія комунікації веб-сайту"
+
+#. module: l10n_ua_hr_documents_certificates
+#: model:ir.model.fields,help:l10n_ua_hr_documents_certificates.field_hr_certificate__destination
+msgid "Where the certificate will be presented"
+msgstr "Куди буде подано довідку"

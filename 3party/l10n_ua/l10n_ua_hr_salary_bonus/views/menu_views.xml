@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Bonus submenu under Salary module -->
+    <menuitem id="menu_hr_bonus_root"
+              name="Bonuses"
+              parent="l10n_ua_hr_salary.menu_hr_payroll_root"
+              sequence="30"/>
+
+    <menuitem id="menu_hr_bonus"
+              name="Bonuses"
+              parent="menu_hr_bonus_root"
+              action="action_hr_bonus"
+              sequence="10"/>
+
+    <menuitem id="menu_hr_bonus_type"
+              name="Bonus Types"
+              parent="menu_hr_bonus_root"
+              action="action_hr_bonus_type"
+              sequence="20"
+              groups="l10n_ua_hr_base.group_hr_ua_manager"/>
+
+</odoo>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- МШП Form View -->
+    <record id="l10n_ua_mshp_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.mshp.form</field>
+        <field name="model">l10n_ua.mshp</field>
+        <field name="arch" type="xml">
+            <form string="МШП">
+                <header>
+                    <button name="action_transfer" string="Передати в експлуатацію"
+                            type="object" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_write_off" string="Списати"
+                            type="object" class="btn-danger"
+                            invisible="state != 'in_use'"/>
+                    <button name="action_draft" string="Повернути в чернетку"
+                            type="object"
+                            invisible="state == 'draft'"
+                            confirm="Повернути МШП в чернетку? Проводку буде сторновано, номери актів скинуто."/>
+                    <button name="action_print_writeoff_act" type="object"
+                            string="Друк акту списання"
+                            class="btn-secondary"
+                            invisible="state != 'written_off'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,in_use,written_off"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_move" type="object"
+                                class="oe_stat_button" icon="fa-book"
+                                invisible="not move_id">
+                            <span>Проводка</span>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="product_id"/>
+                            <field name="date"/>
+                            <field name="transfer_number" readonly="1"
+                                   invisible="not transfer_number"/>
+                        </group>
+                        <group>
+                            <field name="quantity"/>
+                            <field name="unit_cost"/>
+                            <field name="total_cost"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Відповідальність">
+                            <field name="employee_id"/>
+                            <field name="department_id"/>
+                            <field name="location"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Проводка (Дт витрати / Кт 22)">
+                            <field name="journal_id"/>
+                            <field name="expense_account_id"/>
+                            <field name="stock_account_id"/>
+                        </group>
+                    </group>
+                    <group string="Списання"
+                           invisible="state != 'written_off'">
+                        <field name="writeoff_date" readonly="1"/>
+                        <field name="writeoff_act_number" readonly="1"/>
+                        <field name="writeoff_reason"/>
+                    </group>
+                    <field name="notes" placeholder="Примітки..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- МШП List View -->
+    <record id="l10n_ua_mshp_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.mshp.list</field>
+        <field name="model">l10n_ua.mshp</field>
+        <field name="arch" type="xml">
+            <list string="МШП" decoration-muted="state == 'written_off'">
+                <field name="transfer_number" string="№"/>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="quantity" sum="Всього"/>
+                <field name="unit_cost"/>
+                <field name="total_cost" sum="Всього"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'in_use'"
+                       decoration-info="state == 'draft'"
+                       decoration-muted="state == 'written_off'"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- МШП Search View -->
+    <record id="l10n_ua_mshp_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.mshp.search</field>
+        <field name="model">l10n_ua.mshp</field>
+        <field name="arch" type="xml">
+            <search string="МШП">
+                <field name="name"/>
+                <field name="transfer_number"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+
+                <filter string="Чернетка" name="filter_draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter string="В експлуатації" name="filter_in_use"
+                        domain="[('state', '=', 'in_use')]"/>
+                <filter string="Списано" name="filter_written_off"
+                        domain="[('state', '=', 'written_off')]"/>
+                <separator/>
+
+                <group>
+                    <filter string="МВО" name="groupby_employee" domain="[]"
+                            context="{'group_by': 'employee_id'}"/>
+                    <filter string="Підрозділ" name="groupby_department" domain="[]"
+                            context="{'group_by': 'department_id'}"/>
+                    <filter string="Стан" name="groupby_state" domain="[]"
+                            context="{'group_by': 'state'}"/>
+                    <filter string="Дата передачі" name="groupby_date" domain="[]"
+                            context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- МШП Action -->
+    <record id="l10n_ua_mshp_action" model="ir.actions.act_window">
+        <field name="name">МШП</field>
+        <field name="res_model">l10n_ua.mshp</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="l10n_ua_mshp_view_search"/>
+    </record>
+
+    <!-- Реєстр МШП в експлуатації за МВО -->
+    <record id="l10n_ua_mshp_register_action" model="ir.actions.act_window">
+        <field name="name">Реєстр МШП в експлуатації</field>
+        <field name="res_model">l10n_ua.mshp</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="l10n_ua_mshp_view_search"/>
+        <field name="domain">[('state', '=', 'in_use')]</field>
+        <field name="context">{'search_default_groupby_employee': 1}</field>
+    </record>
+
+</odoo>

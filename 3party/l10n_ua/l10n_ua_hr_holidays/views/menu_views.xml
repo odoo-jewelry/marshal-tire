@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="menu_hr_sick_leave"
+              name="Sick Leaves"
+              parent="hr_holidays.menu_hr_holidays_management"
+              action="action_hr_sick_leave"
+              sequence="20"/>
+
+    <menuitem id="menu_hr_vacation_balance"
+              name="Vacation Balances"
+              parent="hr_holidays.menu_hr_holidays_management"
+              action="action_hr_vacation_balance"
+              sequence="30"/>
+
+    <menuitem id="menu_hr_vacation_schedule"
+              name="Vacation Schedules"
+              parent="hr_holidays.menu_hr_holidays_management"
+              action="action_hr_vacation_schedule"
+              sequence="40"/>
+
+    <menuitem id="menu_hr_vacation_calendar"
+              name="Vacation Calendar"
+              parent="hr_holidays.menu_hr_holidays_management"
+              action="action_hr_vacation_schedule_line_calendar"
+              sequence="45"/>
+
+    <menuitem id="menu_hr_employee_vacation_summary_report"
+              name="Підсумок відпусток"
+              action="action_hr_employee_vacation_summary_report"
+              parent="hr.hr_menu_hr_reports"
+              sequence="90"/>
+</odoo>

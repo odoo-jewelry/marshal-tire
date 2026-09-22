@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Multi-company record rules (issue #178).
+             PRRO records must be scoped to the user's allowed companies —
+             without these rules the records were visible across ALL companies,
+             including non-UA ones. Standard Odoo pattern (see l10n_ua_account_vat). -->
+
+        <record id="l10n_ua_prro_config_company_rule" model="ir.rule">
+            <field name="name">ПРРО конфіг: multi-company</field>
+            <field name="model_id" ref="model_l10n_ua_prro_config"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+            </field>
+        </record>
+
+        <!-- Shift has no own company_id — scope via config_id.company_id. -->
+        <record id="l10n_ua_prro_shift_company_rule" model="ir.rule">
+            <field name="name">ПРРО зміна: multi-company</field>
+            <field name="model_id" ref="model_l10n_ua_prro_shift"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                [('config_id.company_id', 'in', company_ids)]
+            </field>
+        </record>
+
+        <!-- Receipt has no own company_id — scope via shift_id.config_id.company_id. -->
+        <record id="l10n_ua_prro_receipt_company_rule" model="ir.rule">
+            <field name="name">ПРРО чек: multi-company</field>
+            <field name="model_id" ref="model_l10n_ua_prro_receipt"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                [('shift_id.config_id.company_id', 'in', company_ids)]
+            </field>
+        </record>
+
+    </data>
+</odoo>

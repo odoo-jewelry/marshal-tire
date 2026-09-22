@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_l10n_ua_kekv_list" model="ir.ui.view">
+        <field name="name">l10n_ua.kekv.list</field>
+        <field name="model">l10n_ua.kekv</field>
+        <field name="arch" type="xml">
+            <list string="КЕКВ" decoration-info="not parent_id">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="expense_type"/>
+                <field name="parent_id" optional="show"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_l10n_ua_kekv_form" model="ir.ui.view">
+        <field name="name">l10n_ua.kekv.form</field>
+        <field name="model">l10n_ua.kekv</field>
+        <field name="arch" type="xml">
+            <form string="КЕКВ">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="parent_id"/>
+                            <field name="expense_type"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                            <field name="full_name" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Опис">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Дочірні коди">
+                            <field name="child_ids">
+                                <list>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="expense_type"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_l10n_ua_kekv_search" model="ir.ui.view">
+        <field name="name">l10n_ua.kekv.search</field>
+        <field name="model">l10n_ua.kekv</field>
+        <field name="arch" type="xml">
+            <search string="Пошук КЕКВ">
+                <field name="code"/>
+                <field name="name"/>
+                <filter string="Поточні" name="filter_current" domain="[('expense_type', '=', 'current')]"/>
+                <filter string="Капітальні" name="filter_capital" domain="[('expense_type', '=', 'capital')]"/>
+                <filter string="Кредитування" name="filter_lending" domain="[('expense_type', '=', 'lending')]"/>
+                <separator/>
+                <filter string="Тільки верхній рівень" name="filter_top" domain="[('parent_id', '=', False)]"/>
+                <group>
+                    <filter string="Батьківським кодом" name="groupby_parent" domain="[]" context="{'group_by': 'parent_id'}"/>
+                    <filter string="Типом видатків" name="groupby_type" domain="[]" context="{'group_by': 'expense_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_l10n_ua_kekv" model="ir.actions.act_window">
+        <field name="name">КЕКВ</field>
+        <field name="res_model">l10n_ua.kekv</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_filter_top': 1}</field>
+    </record>
+</odoo>

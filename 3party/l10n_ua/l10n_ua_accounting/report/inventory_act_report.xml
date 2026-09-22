@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Report action for Inventory Act -->
+    <record id="action_report_inventory_act" model="ir.actions.report">
+        <field name="name">Інвентаризаційний опис</field>
+        <field name="model">l10n_ua.inventory.act.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_accounting.report_inventory_act</field>
+        <field name="report_file">l10n_ua_accounting.report_inventory_act</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- QWeb template -->
+    <template id="report_inventory_act">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="wizard">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+
+                        <!-- Header -->
+                        <div class="ua-report-header">
+                            <div class="form-number-box">
+                                Типова форма № ІНВ-3
+                            </div>
+                            <div class="company-header">
+                                <span class="company-name" t-field="wizard.company_id.name"/>
+                                <br/>
+                                <t t-if="wizard.company_id.partner_id.edrpou">
+                                    <span class="company-code">ЄДРПОУ: <t t-esc="wizard.company_id.partner_id.edrpou"/></span>
+                                </t>
+                            </div>
+                        </div>
+
+                        <div class="ua-report-title">
+                            ІНВЕНТАРИЗАЦІЙНИЙ ОПИС
+                        </div>
+                        <div class="ua-report-subtitle">
+                            товарно-матеріальних цінностей
+                        </div>
+
+                        <!-- Order info -->
+                        <table class="no-border-all" style="margin: 10px 0;">
+                            <tr>
+                                <td style="width: 50%;">
+                                    Місце зберігання: <span class="underline" t-field="wizard.location_id.complete_name"/>
+                                </td>
+                                <td style="width: 50%;">
+                                    Дата інвентаризації: <span class="bold" t-field="wizard.date"/>
+                                </td>
+                            </tr>
+                            <t t-if="wizard.order_number">
+                                <tr>
+                                    <td colspan="2">
+                                        На підставі наказу № <span class="bold" t-esc="wizard.order_number"/>
+                                        <t t-if="wizard.order_date">
+                                            від <span t-field="wizard.order_date"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+
+                        <!-- Inventory lines table -->
+                        <t t-set="lines" t-value="wizard._get_inventory_lines()"/>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%;">№ п/п</th>
+                                    <th style="width: 30%;">Найменування</th>
+                                    <th style="width: 10%;">Код</th>
+                                    <th style="width: 8%;">Од. вим.</th>
+                                    <th style="width: 10%;">Партія/Серія</th>
+                                    <th style="width: 12%;">За даними<br/>бух. обліку</th>
+                                    <th style="width: 12%;">Фактична<br/>наявність</th>
+                                    <th style="width: 13%;">Різниця<br/>(+/-)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="lines" t-as="line">
+                                    <tr>
+                                        <td class="text-center"><t t-esc="line['num']"/></td>
+                                        <td><t t-esc="line['product_name']"/></td>
+                                        <td class="text-center"><t t-esc="line['product_code']"/></td>
+                                        <td class="text-center"><t t-esc="line['uom']"/></td>
+                                        <td class="text-center"><t t-esc="line['lot']"/></td>
+                                        <td class="text-right"><t t-esc="'%.2f' % line['accounting_qty']"/></td>
+                                        <td class="text-right"><t t-esc="'%.2f' % line['actual_qty']"/></td>
+                                        <td class="text-right">
+                                            <t t-if="line['difference'] != 0">
+                                                <t t-esc="'%+.2f' % line['difference']"/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <t t-if="not lines">
+                                    <tr>
+                                        <td colspan="8" class="text-center italic">
+                                            Немає даних для відображення
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tfoot>
+                                <tr class="bold">
+                                    <td colspan="5" class="text-right">Разом:</td>
+                                    <td class="text-right">
+                                        <t t-esc="'%.2f' % sum(l['accounting_qty'] for l in lines)"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-esc="'%.2f' % sum(l['actual_qty'] for l in lines)"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <t t-set="total_diff" t-value="sum(l['difference'] for l in lines)"/>
+                                        <t t-if="total_diff != 0">
+                                            <t t-esc="'%+.2f' % total_diff"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <p style="margin-top: 10px; font-size: 9pt;">
+                            Всього найменувань: <span class="bold" t-esc="len(lines)"/>
+                        </p>
+
+                        <!-- Commission signatures -->
+                        <div class="signature-block">
+                            <t t-if="wizard.commission_head">
+                                <div class="signature-row">
+                                    Голова комісії:
+                                    <span class="signature-line"></span>
+                                    <span t-esc="wizard.commission_head"/>
+                                </div>
+                            </t>
+                            <t t-if="wizard.commission_members">
+                                <t t-foreach="wizard.commission_members.strip().split('\n')" t-as="member">
+                                    <div class="signature-row">
+                                        Член комісії:
+                                        <span class="signature-line"></span>
+                                        <span t-esc="member.strip()"/>
+                                    </div>
+                                </t>
+                            </t>
+                        </div>
+
+                        <!-- MVO signature -->
+                        <t t-if="wizard.responsible_person">
+                            <div class="signature-block">
+                                <p>
+                                    Всі товарно-матеріальні цінності, пойменовані в цьому
+                                    інвентаризаційному описі, комісією перевірені в натурі
+                                    в моїй (нашій) присутності і внесені в опис, у зв'язку
+                                    з чим претензій до інвентаризаційної комісії не маю (не маємо).
+                                </p>
+                                <div class="signature-row">
+                                    Матеріально відповідальна особа:
+                                    <span class="signature-line"></span>
+                                    <span t-esc="wizard.responsible_person"/>
+                                </div>
+                            </div>
+                        </t>
+
+                        <div style="margin-top: 15px; font-size: 9pt;">
+                            Дата складання: <span t-field="wizard.date"/>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

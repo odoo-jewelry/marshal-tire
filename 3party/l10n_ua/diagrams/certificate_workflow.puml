@@ -1,0 +1,21 @@
+@startuml certificate_workflow
+skinparam backgroundColor #FEFEFE
+
+title Життєвий цикл довідки (hr.certificate)
+
+[*] --> draft : Створення
+
+state "Чернетка" as draft #LightBlue
+state "Затверджено" as approved #LightYellow
+state "Видано" as issued #LightGreen
+state "Скасовано" as cancelled #LightCoral
+
+draft --> approved : Затвердити
+draft --> cancelled : Скасувати
+approved --> issued : Видати
+approved --> draft : Повернути
+approved --> cancelled : Скасувати
+
+issued --> [*]
+
+@enduml

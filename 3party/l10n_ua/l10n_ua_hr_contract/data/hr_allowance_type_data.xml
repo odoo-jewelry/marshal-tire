@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="allowance_type_seniority" model="hr.allowance.type">
+            <field name="name">За вислугу років</field>
+            <field name="code">SENIORITY</field>
+            <field name="category">seniority</field>
+            <field name="sequence">10</field>
+            <field name="is_taxable">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="default_percent">10</field>
+            <field name="description">Надбавка за стаж роботи на підприємстві</field>
+        </record>
+        
+        <record id="allowance_type_hazard" model="hr.allowance.type">
+            <field name="name">За шкідливі умови праці</field>
+            <field name="code">HAZARD</field>
+            <field name="category">hazard</field>
+            <field name="sequence">20</field>
+            <field name="is_taxable">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="default_percent">12</field>
+            <field name="description">Надбавка за роботу у шкідливих та важких умовах праці</field>
+        </record>
+        
+        <record id="allowance_type_intensity" model="hr.allowance.type">
+            <field name="name">За інтенсивність праці</field>
+            <field name="code">INTENSITY</field>
+            <field name="category">intensity</field>
+            <field name="sequence">30</field>
+            <field name="is_taxable">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="default_percent">15</field>
+            <field name="description">Надбавка за високу інтенсивність праці</field>
+        </record>
+        
+        <record id="allowance_type_night" model="hr.allowance.type">
+            <field name="name">За роботу в нічний час</field>
+            <field name="code">NIGHT</field>
+            <field name="category">night</field>
+            <field name="sequence">40</field>
+            <field name="is_taxable">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="default_percent">40</field>
+            <field name="description">Доплата за роботу в нічний час (з 22:00 до 06:00)</field>
+        </record>
+        
+        <record id="allowance_type_qualification" model="hr.allowance.type">
+            <field name="name">За високу кваліфікацію</field>
+            <field name="code">QUALIFICATION</field>
+            <field name="category">qualification</field>
+            <field name="sequence">50</field>
+            <field name="is_taxable">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="default_percent">20</field>
+            <field name="description">Надбавка за високу професійну майстерність</field>
+        </record>
+        
+        <record id="allowance_type_secret" model="hr.allowance.type">
+            <field name="name">За роботу з державною таємницею</field>
+            <field name="code">SECRET</field>
+            <field name="category">personal</field>
+            <field name="sequence">60</field>
+            <field name="is_taxable">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="default_percent">15</field>
+            <field name="description">Надбавка за роботу з документами, що містять державну таємницю</field>
+        </record>
+        
+        <record id="allowance_type_combining" model="hr.allowance.type">
+            <field name="name">За суміщення професій</field>
+            <field name="code">COMBINING</field>
+            <field name="category">other</field>
+            <field name="sequence">70</field>
+            <field name="is_taxable">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="default_percent">50</field>
+            <field name="description">Доплата за суміщення професій (посад)</field>
+        </record>
+        
+        <record id="allowance_type_expansion" model="hr.allowance.type">
+            <field name="name">За розширення зони обслуговування</field>
+            <field name="code">EXPANSION</field>
+            <field name="category">other</field>
+            <field name="sequence">80</field>
+            <field name="is_taxable">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="default_percent">30</field>
+            <field name="description">Доплата за розширення зони обслуговування або збільшення обсягу робіт</field>
+        </record>
+        
+        <record id="allowance_type_temporary" model="hr.allowance.type">
+            <field name="name">За виконання обов'язків тимчасово відсутнього</field>
+            <field name="code">TEMPORARY</field>
+            <field name="category">other</field>
+            <field name="sequence">90</field>
+            <field name="is_taxable">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="default_percent">50</field>
+            <field name="description">Доплата за виконання обов'язків тимчасово відсутнього працівника</field>
+        </record>
+        
+        <record id="allowance_type_personal" model="hr.allowance.type">
+            <field name="name">Персональна надбавка</field>
+            <field name="code">PERSONAL</field>
+            <field name="category">personal</field>
+            <field name="sequence">100</field>
+            <field name="is_taxable">True</field>
+            <field name="is_esv_base">True</field>
+            <field name="description">Індивідуальна надбавка за особливі досягнення</field>
+        </record>
+        
+    </data>
+</odoo>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Subconto Type Views -->
+    <record id="l10n_ua_subconto_type_form_view" model="ir.ui.view">
+        <field name="name">l10n_ua.subconto.type.form</field>
+        <field name="model">l10n_ua.subconto.type</field>
+        <field name="arch" type="xml">
+            <form string="Subconto Type">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g., Partners"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="model_id" options="{'no_create': True}"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="field_name"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_subconto_type_list_view" model="ir.ui.view">
+        <field name="name">l10n_ua.subconto.type.list</field>
+        <field name="model">l10n_ua.subconto.type</field>
+        <field name="arch" type="xml">
+            <list string="Subconto Types">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="field_name"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_subconto_type_search_view" model="ir.ui.view">
+        <field name="name">l10n_ua.subconto.type.search</field>
+        <field name="model">l10n_ua.subconto.type</field>
+        <field name="arch" type="xml">
+            <search string="Subconto Types">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="model_id"/>
+                <filter string="Active" name="filter_active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="filter_archived" domain="[('active', '=', False)]"/>
+                <separator/>
+                <group>
+                    <filter string="Model" name="groupby_model" domain="[]" context="{'group_by': 'model_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="l10n_ua_subconto_type_action" model="ir.actions.act_window">
+        <field name="name">Subconto Types</field>
+        <field name="res_model">l10n_ua.subconto.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="l10n_ua_subconto_type_search_view"/>
+        <field name="context">{'search_default_filter_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a Subconto Type
+            </p>
+            <p>
+                Subconto types define analytical dimensions for accounts.
+                Each type references an Odoo model (e.g., res.partner, product.product).
+            </p>
+        </field>
+    </record>
+
+    <!-- Account Subconto Configuration Views -->
+    <record id="l10n_ua_account_subconto_form_view" model="ir.ui.view">
+        <field name="name">l10n_ua.account.subconto.form</field>
+        <field name="model">l10n_ua.account.subconto</field>
+        <field name="arch" type="xml">
+            <form string="Account Subconto">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="account_id"/>
+                            <field name="subconto_type_id"/>
+                        </group>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="required"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_account_subconto_list_view" model="ir.ui.view">
+        <field name="name">l10n_ua.account.subconto.list</field>
+        <field name="model">l10n_ua.account.subconto</field>
+        <field name="arch" type="xml">
+            <list string="Account Subconto" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="subconto_type_id"/>
+                <field name="required"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Extend Account Form to show Subconto configuration -->
+    <record id="view_account_form_subconto" model="ir.ui.view">
+        <field name="name">account.account.form.subconto</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <notebook position="inside">
+                    <page string="Subconto" name="subconto">
+                        <field name="subconto_ids" context="{'default_account_id': id}">
+                            <list editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="subconto_type_id"/>
+                                <field name="required"/>
+                            </list>
+                        </field>
+                        <div class="text-muted">
+                            Define analytical dimensions (subconto) for this account.
+                            Required subconto must be filled for all journal entries.
+                        </div>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Move Line Subconto Views (for viewing in journal entries) -->
+    <record id="l10n_ua_move_line_subconto_list_view" model="ir.ui.view">
+        <field name="name">l10n_ua.move.line.subconto.list</field>
+        <field name="model">l10n_ua.move.line.subconto</field>
+        <field name="arch" type="xml">
+            <list string="Subconto Values" editable="bottom">
+                <field name="subconto_type_id"/>
+                <field name="res_model" column_invisible="1"/>
+                <field name="res_id"/>
+                <field name="display_name" string="Value"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Extend Move Line Form to show Subconto values -->
+    <record id="view_move_line_form_subconto" model="ir.ui.view">
+        <field name="name">account.move.line.form.subconto</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <notebook position="inside">
+                    <page string="Subconto" name="subconto">
+                        <group>
+                            <group string="Quick Fields" name="subconto_quick_fields">
+                                <field name="subconto_partner_id"/>
+                                <field name="subconto_product_id"/>
+                            </group>
+                        </group>
+                        <separator string="All Subconto Values"/>
+                        <field name="subconto_ids">
+                            <list editable="bottom">
+                                <field name="subconto_type_id"/>
+                                <field name="res_model" column_invisible="1"/>
+                                <field name="res_id"/>
+                                <field name="display_name" string="Value"/>
+                            </list>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_timesheet_code_view_form" model="ir.ui.view">
+        <field name="name">hr.timesheet.code.form</field>
+        <field name="model">hr.timesheet.code</field>
+        <field name="arch" type="xml">
+            <form string="Timesheet Code">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="code_type"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="is_worked"/>
+                            <field name="is_paid"/>
+                            <field name="default_hours"/>
+                            <field name="color"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_timesheet_code_view_tree" model="ir.ui.view">
+        <field name="name">hr.timesheet.code.tree</field>
+        <field name="model">hr.timesheet.code</field>
+        <field name="arch" type="xml">
+            <list string="Timesheet Codes">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="code_type"/>
+                <field name="is_worked"/>
+                <field name="is_paid"/>
+                <field name="default_hours"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hr_timesheet_code" model="ir.actions.act_window">
+        <field name="name">Timesheet Codes</field>
+        <field name="res_model">hr.timesheet.code</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

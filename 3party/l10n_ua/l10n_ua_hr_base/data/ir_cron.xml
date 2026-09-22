@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="ir_cron_check_military_reservation_expired" model="ir.cron">
+            <field name="name">HR UA: Check Expired Military Reservations</field>
+            <field name="model_id" ref="model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_check_military_reservation_expired()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="ir_cron_check_military_mlk_retest" model="ir.cron">
+            <field name="name">HR UA: Перевірка дат повторного ВЛК</field>
+            <field name="model_id" ref="model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_check_military_mlk_retest()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <!-- п. 35 Порядку № 1487: сім днів на відмітку у Списках про
+             досягнення граничного віку перебування в запасі. -->
+        <record id="ir_cron_mark_military_age_excluded" model="ir.cron">
+            <field name="name">HR UA: Відмітка «виключено з військового обліку за віком»</field>
+            <field name="model_id" ref="model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_mark_military_age_excluded()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <!-- п. 34 Порядку № 1487: сім днів на повідомлення про прийняття /
+             звільнення, до 5 числа наступного місяця — про зміну даних. -->
+        <record id="ir_cron_check_military_notification_deadlines" model="ir.cron">
+            <field name="name">HR UA: Контроль строків повідомлень до ТЦК</field>
+            <field name="model_id" ref="model_hr_military_notification"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_check_notification_deadlines()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_version_amendment_view_form" model="ir.ui.view">
+        <field name="name">hr.version.amendment.form</field>
+        <field name="model">hr.version.amendment</field>
+        <field name="arch" type="xml">
+            <form string="Amendment">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_draft" string="Reset to Draft" type="object"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="display_name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="version_id"/>
+                            <field name="employee_id"/>
+                            <field name="amendment_type"/>
+                        </group>
+                        <group>
+                            <field name="amendment_date"/>
+                            <field name="effective_date"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="order_number"/>
+                            <field name="order_date"/>
+                            <field name="amendment_number"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="old_values"/>
+                        </group>
+                        <group>
+                            <field name="new_values"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_version_amendment_view_list" model="ir.ui.view">
+        <field name="name">hr.version.amendment.list</field>
+        <field name="model">hr.version.amendment</field>
+        <field name="arch" type="xml">
+            <list string="Amendments">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="amendment_type"/>
+                <field name="amendment_date"/>
+                <field name="effective_date"/>
+                <field name="order_number"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'confirmed'"
+                       decoration-info="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hr_version_amendment" model="ir.actions.act_window">
+        <field name="name">Amendments</field>
+        <field name="res_model">hr.version.amendment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

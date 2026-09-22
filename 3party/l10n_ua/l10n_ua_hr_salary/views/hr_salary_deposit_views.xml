@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_salary_deposit_view_form" model="ir.ui.view">
+        <field name="name">hr.salary.deposit.form</field>
+        <field name="model">hr.salary.deposit</field>
+        <field name="arch" type="xml">
+            <form string="Депонент">
+                <header>
+                    <button name="action_pay_full" string="Виплатити повністю"
+                            type="object" class="btn-primary"
+                            invisible="state == 'paid'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="deposited,partial,paid"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="source_payslip_id"/>
+                            <field name="deposit_date"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="amount"/>
+                            <field name="paid_amount"/>
+                            <field name="residual"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Виплати" name="payments">
+                            <field name="payment_ids">
+                                <list editable="bottom">
+                                    <field name="payment_date"/>
+                                    <field name="amount"/>
+                                    <field name="note"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_salary_deposit_view_tree" model="ir.ui.view">
+        <field name="name">hr.salary.deposit.list</field>
+        <field name="model">hr.salary.deposit</field>
+        <field name="arch" type="xml">
+            <list string="Депоненти" decoration-success="state == 'paid'"
+                  decoration-warning="state == 'partial'">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="deposit_date"/>
+                <field name="amount" sum="Total"/>
+                <field name="paid_amount" sum="Paid"/>
+                <field name="residual" sum="Residual"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'paid'"
+                       decoration-warning="state == 'partial'"
+                       decoration-info="state == 'deposited'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_salary_deposit_view_search" model="ir.ui.view">
+        <field name="name">hr.salary.deposit.search</field>
+        <field name="model">hr.salary.deposit</field>
+        <field name="arch" type="xml">
+            <search string="Депоненти">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <filter string="Не погашені" name="filter_open"
+                        domain="[('state', '!=', 'paid')]"/>
+                <separator/>
+                <filter string="Депоновано" name="filter_deposited"
+                        domain="[('state', '=', 'deposited')]"/>
+                <filter string="Частково" name="filter_partial"
+                        domain="[('state', '=', 'partial')]"/>
+                <filter string="Погашено" name="filter_paid"
+                        domain="[('state', '=', 'paid')]"/>
+                <group>
+                    <filter string="Employee" name="groupby_employee"
+                            domain="[]" context="{'group_by': 'employee_id'}"/>
+                    <filter string="Status" name="groupby_state"
+                            domain="[]" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_salary_deposit" model="ir.actions.act_window">
+        <field name="name">Депоненти</field>
+        <field name="res_model">hr.salary.deposit</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_filter_open': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Немає депонованих сум
+            </p>
+            <p>
+                Депонент — нарахована, але невиплачена у строк заробітна плата.
+                Створюється з розрахункового листка кнопкою «Депонувати».
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_hr_salary_deposit"
+              name="Депоненти"
+              parent="menu_hr_payroll_root"
+              action="action_hr_salary_deposit"
+              sequence="45"
+              groups="l10n_ua_hr_base.group_hr_ua_officer"/>
+
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Rozetka Backend Form View Extension -->
+    <record id="marketplace_backend_view_form_rozetka" model="ir.ui.view">
+        <field name="name">marketplace.backend.form.rozetka</field>
+        <field name="model">marketplace.backend</field>
+        <field name="inherit_id" ref="l10n_ua_marketplace_base.marketplace_backend_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Add Rozetka-specific fields after api_token_expiry -->
+            <xpath expr="//field[@name='api_token_expiry']" position="after">
+                <field name="rozetka_seller_id" invisible="marketplace_type != 'rozetka'"/>
+                <field name="rozetka_client_id" invisible="marketplace_type != 'rozetka'"
+                       groups="base.group_system"/>
+                <field name="rozetka_username" invisible="marketplace_type != 'rozetka'"/>
+                <field name="rozetka_password" password="True" invisible="marketplace_type != 'rozetka'"
+                       groups="base.group_system"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

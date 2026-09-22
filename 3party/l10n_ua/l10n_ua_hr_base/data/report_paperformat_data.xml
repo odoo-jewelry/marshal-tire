@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Ukrainian A4 Paper Format for reports -->
+    <record id="paperformat_a4_ua" model="report.paperformat">
+        <field name="name">A4 Ukrainian</field>
+        <field name="default">False</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">20</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">20</field>
+        <field name="margin_right">15</field>
+        <field name="header_line">False</field>
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!-- Альбомна орієнтація для широких державних форм: Списки персонального
+         військового обліку (додаток 5 до Порядку № 1487) мають 18 граф і в
+         книжкову сторінку не вміщаються. -->
+    <record id="paperformat_a4_ua_landscape" model="report.paperformat">
+        <field name="name">A4 Ukrainian (Landscape)</field>
+        <field name="default">False</field>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">12</field>
+        <field name="margin_bottom">12</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">8</field>
+        <field name="header_line">False</field>
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+</odoo>

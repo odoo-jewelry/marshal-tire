@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_min_wage_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.min.wage.list</field>
+        <field name="model">l10n_ua.min.wage</field>
+        <field name="arch" type="xml">
+            <list editable="top">
+                <field name="date_from"/>
+                <field name="amount"/>
+                <field name="legal_basis" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_min_wage_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.min.wage.search</field>
+        <field name="model">l10n_ua.min.wage</field>
+        <field name="arch" type="xml">
+            <search string="Мінімальна заробітна плата">
+                <field name="legal_basis"/>
+                <group>
+                    <filter string="Рік" name="groupby_year" domain="[]" context="{'group_by': 'date_from:year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="l10n_ua_min_wage_action" model="ir.actions.act_window">
+        <field name="name">Мінімальна заробітна плата</field>
+        <field name="res_model">l10n_ua.min.wage</field>
+        <field name="view_mode">list</field>
+        <field name="search_view_id" ref="l10n_ua_min_wage_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Додайте розмір мінімальної заробітної плати
+            </p>
+            <p>
+                Від неї рахуються мінімальний ЄСВ і ліміти доходу платників єдиного
+                податку. На новий рік додайте запис із датою початку дії.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_ua_tax_min_wage"
+              name="Мінімальна заробітна плата"
+              parent="menu_ua_tax_config"
+              action="l10n_ua_min_wage_action"
+              sequence="12"/>
+
+</odoo>

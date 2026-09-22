@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_encounter"
+              name="Прийоми"
+              parent="l10n_ua_medecin_base.menu_medecin_root"
+              action="action_encounter"
+              sequence="15"/>
+
+    <menuitem id="menu_condition"
+              name="Хронічні стани"
+              parent="l10n_ua_medecin_base.menu_medecin_root"
+              action="action_condition"
+              sequence="40"/>
+
+    <menuitem id="menu_allergy"
+              name="Алергії"
+              parent="l10n_ua_medecin_base.menu_medecin_root"
+              action="action_allergy"
+              sequence="45"/>
+
+    <menuitem id="menu_icd10"
+              name="МКХ-10"
+              parent="l10n_ua_medecin_base.menu_medecin_config"
+              action="action_icd10"
+              sequence="40"/>
+</odoo>

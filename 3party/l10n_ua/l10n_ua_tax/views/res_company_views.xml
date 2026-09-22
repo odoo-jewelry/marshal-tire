@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_company_form_ua_tax" model="ir.ui.view">
+        <field name="name">res.company.form.ua.tax</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_info']" position="after">
+                <page string="Ukrainian Tax Settings" name="ua_tax_settings">
+                    <group>
+                        <group string="Company Type">
+                            <field name="l10n_ua_legal_form_id" options="{'no_create': True}"/>
+                            <field name="l10n_ua_is_fop" invisible="1"/>
+                        </group>
+                        <group string="Tax Office">
+                            <field name="l10n_ua_tax_office_id" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <group string="FOP Settings (Single Tax)" invisible="not l10n_ua_is_fop">
+                        <group>
+                            <field name="l10n_ua_fop_group"/>
+                            <field name="l10n_ua_tax_rate"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

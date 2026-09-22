@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Status Mapping Form View -->
+    <record id="marketplace_status_mapping_view_form" model="ir.ui.view">
+        <field name="name">marketplace.status.mapping.form</field>
+        <field name="model">marketplace.status.mapping</field>
+        <field name="arch" type="xml">
+            <form string="Status Mapping">
+                <sheet>
+                    <group>
+                        <group string="Marketplace Status">
+                            <field name="backend_id"/>
+                            <field name="marketplace_type" readonly="1"/>
+                            <field name="external_code"/>
+                            <field name="external_name"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group string="Odoo Mapping">
+                            <field name="internal_state"/>
+                            <field name="sync_to_marketplace"/>
+                            <field name="sync_from_marketplace"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Status Mapping Tree View -->
+    <record id="marketplace_status_mapping_view_tree" model="ir.ui.view">
+        <field name="name">marketplace.status.mapping.tree</field>
+        <field name="model">marketplace.status.mapping</field>
+        <field name="arch" type="xml">
+            <list string="Status Mappings" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="backend_id"/>
+                <field name="external_code"/>
+                <field name="external_name"/>
+                <field name="internal_state"/>
+                <field name="sync_to_marketplace"/>
+                <field name="sync_from_marketplace"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Status Mapping Search View -->
+    <record id="marketplace_status_mapping_view_search" model="ir.ui.view">
+        <field name="name">marketplace.status.mapping.search</field>
+        <field name="model">marketplace.status.mapping</field>
+        <field name="arch" type="xml">
+            <search string="Status Mappings">
+                <field name="external_code"/>
+                <field name="external_name"/>
+                <field name="backend_id"/>
+                <filter string="Active" name="filter_active" domain="[('active', '=', True)]"/>
+                <filter string="Push to Marketplace" name="filter_push" domain="[('sync_to_marketplace', '=', True)]"/>
+                <filter string="Pull from Marketplace" name="filter_pull" domain="[('sync_from_marketplace', '=', True)]"/>
+                <separator/>
+                <group>
+                    <filter string="Backend" name="groupby_backend" domain="[]"
+                            context="{'group_by': 'backend_id'}"/>
+                    <filter string="Marketplace" name="groupby_type" domain="[]"
+                            context="{'group_by': 'marketplace_type'}"/>
+                    <filter string="Odoo State" name="groupby_state" domain="[]"
+                            context="{'group_by': 'internal_state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Status Mapping Action -->
+    <record id="marketplace_status_mapping_action" model="ir.actions.act_window">
+        <field name="name">Status Mappings</field>
+        <field name="res_model">marketplace.status.mapping</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_filter_active': 1}</field>
+    </record>
+
+    <!-- ============================================== -->
+    <!-- Payment Status Views -->
+    <!-- ============================================== -->
+
+    <!-- Payment Status Form View -->
+    <record id="marketplace_payment_status_view_form" model="ir.ui.view">
+        <field name="name">marketplace.payment.status.form</field>
+        <field name="model">marketplace.payment.status</field>
+        <field name="arch" type="xml">
+            <form string="Payment Status">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="marketplace_type"/>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="is_paid"/>
+                            <field name="is_pending"/>
+                            <field name="is_failed"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Payment Status Tree View -->
+    <record id="marketplace_payment_status_view_tree" model="ir.ui.view">
+        <field name="name">marketplace.payment.status.tree</field>
+        <field name="model">marketplace.payment.status</field>
+        <field name="arch" type="xml">
+            <list string="Payment Statuses" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="marketplace_type"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="is_paid"/>
+                <field name="is_pending"/>
+                <field name="is_failed"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Payment Status Search View -->
+    <record id="marketplace_payment_status_view_search" model="ir.ui.view">
+        <field name="name">marketplace.payment.status.search</field>
+        <field name="model">marketplace.payment.status</field>
+        <field name="arch" type="xml">
+            <search string="Payment Statuses">
+                <field name="code"/>
+                <field name="name"/>
+                <filter string="Paid" name="filter_paid" domain="[('is_paid', '=', True)]"/>
+                <filter string="Pending" name="filter_pending" domain="[('is_pending', '=', True)]"/>
+                <filter string="Failed" name="filter_failed" domain="[('is_failed', '=', True)]"/>
+                <separator/>
+                <group>
+                    <filter string="Marketplace" name="groupby_type" domain="[]"
+                            context="{'group_by': 'marketplace_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Payment Status Action -->
+    <record id="marketplace_payment_status_action" model="ir.actions.act_window">
+        <field name="name">Payment Statuses</field>
+        <field name="res_model">marketplace.payment.status</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

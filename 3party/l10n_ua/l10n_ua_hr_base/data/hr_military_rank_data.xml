@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Soldiers -->
+        <record id="military_rank_soldier" model="hr.military.rank">
+            <field name="name">Soldier</field>
+            <field name="code">S01</field>
+            <field name="category">soldier</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="military_rank_senior_soldier" model="hr.military.rank">
+            <field name="name">Senior Soldier</field>
+            <field name="code">S02</field>
+            <field name="category">soldier</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <!-- Sergeants -->
+        <record id="military_rank_junior_sergeant" model="hr.military.rank">
+            <field name="name">Junior Sergeant</field>
+            <field name="code">N01</field>
+            <field name="category">sergeant</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="military_rank_sergeant" model="hr.military.rank">
+            <field name="name">Sergeant</field>
+            <field name="code">N02</field>
+            <field name="category">sergeant</field>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="military_rank_senior_sergeant" model="hr.military.rank">
+            <field name="name">Senior Sergeant</field>
+            <field name="code">N03</field>
+            <field name="category">sergeant</field>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="military_rank_chief_sergeant" model="hr.military.rank">
+            <field name="name">Chief Sergeant</field>
+            <field name="code">N04</field>
+            <field name="category">sergeant</field>
+            <field name="sequence">60</field>
+        </record>
+
+        <record id="military_rank_staff_sergeant" model="hr.military.rank">
+            <field name="name">Staff Sergeant</field>
+            <field name="code">N05</field>
+            <field name="category">sergeant</field>
+            <field name="sequence">70</field>
+        </record>
+
+        <record id="military_rank_master_sergeant" model="hr.military.rank">
+            <field name="name">Master Sergeant</field>
+            <field name="code">N06</field>
+            <field name="category">sergeant</field>
+            <field name="sequence">80</field>
+        </record>
+
+        <record id="military_rank_senior_master_sergeant" model="hr.military.rank">
+            <field name="name">Senior Master Sergeant</field>
+            <field name="code">N07</field>
+            <field name="category">sergeant</field>
+            <field name="sequence">90</field>
+        </record>
+
+        <record id="military_rank_chief_master_sergeant" model="hr.military.rank">
+            <field name="name">Chief Master Sergeant</field>
+            <field name="code">N08</field>
+            <field name="category">sergeant</field>
+            <field name="sequence">100</field>
+        </record>
+
+        <!-- Officers -->
+        <record id="military_rank_junior_lieutenant" model="hr.military.rank">
+            <field name="name">Junior Lieutenant</field>
+            <field name="code">O01</field>
+            <field name="category">officer</field>
+            <field name="sequence">110</field>
+        </record>
+
+        <record id="military_rank_lieutenant" model="hr.military.rank">
+            <field name="name">Lieutenant</field>
+            <field name="code">O02</field>
+            <field name="category">officer</field>
+            <field name="sequence">120</field>
+        </record>
+
+        <record id="military_rank_senior_lieutenant" model="hr.military.rank">
+            <field name="name">Senior Lieutenant</field>
+            <field name="code">O03</field>
+            <field name="category">officer</field>
+            <field name="sequence">130</field>
+        </record>
+
+        <record id="military_rank_captain" model="hr.military.rank">
+            <field name="name">Captain</field>
+            <field name="code">O04</field>
+            <field name="category">officer</field>
+            <field name="sequence">140</field>
+        </record>
+
+        <record id="military_rank_major" model="hr.military.rank">
+            <field name="name">Major</field>
+            <field name="code">O05</field>
+            <field name="category">officer</field>
+            <field name="sequence">150</field>
+        </record>
+
+        <record id="military_rank_lieutenant_colonel" model="hr.military.rank">
+            <field name="name">Lieutenant Colonel</field>
+            <field name="code">O06</field>
+            <field name="category">officer</field>
+            <field name="sequence">160</field>
+        </record>
+
+        <record id="military_rank_colonel" model="hr.military.rank">
+            <field name="name">Colonel</field>
+            <field name="code">O07</field>
+            <field name="category">officer</field>
+            <field name="sequence">170</field>
+        </record>
+
+        <!-- Generals -->
+        <record id="military_rank_brigadier_general" model="hr.military.rank">
+            <field name="name">Brigadier General</field>
+            <field name="code">G01</field>
+            <field name="category">general</field>
+            <field name="sequence">180</field>
+        </record>
+
+        <record id="military_rank_major_general" model="hr.military.rank">
+            <field name="name">Major General</field>
+            <field name="code">G02</field>
+            <field name="category">general</field>
+            <field name="sequence">190</field>
+        </record>
+
+        <record id="military_rank_lieutenant_general" model="hr.military.rank">
+            <field name="name">Lieutenant General</field>
+            <field name="code">G03</field>
+            <field name="category">general</field>
+            <field name="sequence">200</field>
+        </record>
+
+        <record id="military_rank_general" model="hr.military.rank">
+            <field name="name">General</field>
+            <field name="code">G04</field>
+            <field name="category">general</field>
+            <field name="sequence">210</field>
+        </record>
+
+    </data>
+</odoo>

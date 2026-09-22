@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_delivery_carrier_form_np" model="ir.ui.view">
+        <field name="name">delivery.carrier.form.novaposhta</field>
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="l10n_ua_delivery_base.view_delivery_carrier_form_ua"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='ua_settings']//field[@name='ua_api_key']" position="after">
+                <field name="np_api_url" invisible="ua_carrier_type != 'novaposhta'"/>
+            </xpath>
+            <xpath expr="//page[@name='ua_settings']" position="inside">
+                <group string="Nova Poshta Actions" invisible="ua_carrier_type != 'novaposhta'">
+                    <button name="np_sync_warehouses" string="Sync Warehouses" type="object" class="btn-secondary"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

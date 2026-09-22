@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 900px; margin: 0 auto; color: #333;">
+    
+    <div style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #005BBB 0%, #FFD500 100%); border-radius: 8px; margin-bottom: 30px;">
+        <h1 style="color: white; margin: 0; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Україна - Податковий кабінет</h1>
+        <p style="color: white; font-size: 1.2em; margin-top: 10px;">Інтеграція з cabinet.tax.gov.ua через КЕП</p>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin-bottom: 25px;">
+        <h2 style="color: #005BBB; margin-top: 0;">Опис модуля</h2>
+        <p>Модуль забезпечує інтеграцію Odoo з електронним кабінетом платника податків (cabinet.tax.gov.ua).
+        Дозволяє синхронізувати податкові документи (декларації, звіти, квитанції) з використанням
+        КЕП (кваліфікованого електронного підпису) від ІІТ.</p>
+    </div>
+
+    <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #005BBB; margin-top: 0;">Основні можливості</h3>
+        <ul>
+            <li><strong>Синхронізація документів</strong> — автоматичне завантаження з податкового кабінету</li>
+            <li><strong>Підтримка КЕП</strong> — автентифікація через кваліфікований електронний підпис</li>
+            <li><strong>Зберігання документів</strong> — декларації, звіти, квитанції в Odoo</li>
+            <li><strong>Перегляд XML</strong> — вбудований переглядач XML документів</li>
+            <li><strong>Категоризація</strong> — документи за типом та періодом</li>
+            <li><strong>Ручне завантаження</strong> — імпорт XML та PDF файлів</li>
+            <li><strong>Типи документів</strong> — довідник типів податкових документів</li>
+            <li><strong>Безпека</strong> — пароль КЕП не зберігається</li>
+        </ul>
+    </div>
+
+    <div style="background: #d4edda; padding: 20px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #28a745;">
+        <h3 style="color: #155724; margin-top: 0;">📄 Генерація документів</h3>
+        <p>Для створення податкових документів (декларацій, звітів) необхідно встановити додаткові модулі:</p>
+        <ul>
+            <li><strong>l10n_ua_tax_F0103309</strong> — Декларація платника єдиного податку (форма F0103309) для ФОП</li>
+        </ul>
+        <p style="margin-bottom: 0; color: #155724;"><em>Модулі генерації документів встановлюються автоматично разом з цим модулем.</em></p>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #005BBB; margin-top: 0;">Скріншоти</h3>
+        <p style="text-align: center;"><img src="01 tax cabinet connector.png" style="max-width: 100%; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/></p>
+        <p style="text-align: center; color: #666;"><em>Налаштування підключення до податкового кабінету з КЕП</em></p>
+        
+        <p style="text-align: center;"><img src="02 tax document types.png" style="max-width: 100%; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/></p>
+        <p style="text-align: center; color: #666;"><em>Довідник типів податкових документів</em></p>
+        
+        <p style="text-align: center;"><img src="03 documents download from cabinet.png" style="max-width: 100%; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/></p>
+        <p style="text-align: center; color: #666;"><em>Завантаження документів з податкового кабінету</em></p>
+        
+        <p style="text-align: center;"><img src="04 downloaded document with pdf.png" style="max-width: 100%; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/></p>
+        <p style="text-align: center; color: #666;"><em>Завантажений документ з PDF вкладенням</em></p>
+        
+        <p style="text-align: center;"><img src="05 downloaded xml document.png" style="max-width: 100%; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/></p>
+        <p style="text-align: center; color: #666;"><em>Перегляд XML документа</em></p>
+        
+        <p style="text-align: center;"><img src="06 create declaration.png" style="max-width: 100%; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/></p>
+        <p style="text-align: center; color: #666;"><em>Створення податкової декларації</em></p>
+    </div>
+
+    <div style="background: #fff3cd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #856404; margin-top: 0;">Вимоги: Бібліотека IIT EUSignCP</h3>
+        <p>Для роботи з КЕП необхідно встановити бібліотеку <strong>IIT EUSignCP</strong> від Інституту Інформаційних Технологій:</p>
+        <ul>
+            <li><strong>Завантаження:</strong> <a href="https://iit.com.ua/downloads" target="_blank">iit.com.ua/downloads</a></li>
+            <li><strong>Встановлення:</strong> <code>sudo mkdir -p /opt/iit/eu/sw && cp -r EUSignCP-Linux/sw/x64/* /opt/iit/eu/sw/</code></li>
+            <li><strong>Залежності:</strong> <code>sudo apt-get install libssl-dev libcurl4-openssl-dev</code></li>
+            <li><strong>Сертифікати АЦСК:</strong> <a href="https://acskidd.gov.ua/download/CACertificates.p7b" target="_blank">acskidd.gov.ua</a></li>
+        </ul>
+        <h4 style="color: #856404;">Підтримувані формати ключів КЕП</h4>
+        <ul>
+            <li><code>.dat</code> — файловий ключ ІІТ</li>
+            <li><code>.jks</code> — Java KeyStore</li>
+            <li><code>.pfx</code> / <code>.p12</code> — PKCS#12</li>
+            <li><code>.zs2</code> — захищене сховище ключів ІІТ</li>
+        </ul>
+    </div>
+
+    <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #005BBB; margin-top: 0;">Docker</h3>
+        <p>Для використання в Docker додайте до Dockerfile:</p>
+        <pre style="background: #f5f5f5; padding: 15px; border-radius: 5px; font-size: 12px; overflow-x: auto;">RUN apt-get update && apt-get install -y libssl-dev libcurl4-openssl-dev wget unzip
+RUN mkdir -p /opt/iit/eu/sw /opt/iit/certificates \
+    && cd /tmp \
+    && wget -q https://iit.com.ua/download/productfiles/EUSignCP-Linux-20241205.zip \
+    && unzip -q EUSignCP-Linux-20241205.zip \
+    && cp -r EUSignCP-Linux/sw/x64/* /opt/iit/eu/sw/ \
+    && chmod -R 755 /opt/iit/eu/sw
+RUN cd /opt/iit/certificates && wget -q https://acskidd.gov.ua/download/CACertificates.p7b
+ENV IIT_LIB_PATH=/opt/iit/eu/sw
+ENV IIT_CERT_PATH=/opt/iit/certificates</pre>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #005BBB; margin-top: 0;">Корисні посилання</h3>
+        <ul>
+            <li><a href="https://cabinet.tax.gov.ua/" target="_blank">Електронний кабінет платника податків https://cabinet.tax.gov.ua/</a></li>
+            <li><a href="https://iit.com.ua/downloads" target="_blank">Бібліотека IIT EUSignCP https://iit.com.ua/downloads</a></li>
+            <li><a href="https://acskidd.gov.ua/" target="_blank">АЦСК ІДД ДПС України https://acskidd.gov.ua/</a></li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; padding: 20px; background: #005BBB; border-radius: 8px; color: white;">
+        <p style="margin: 0;">Розроблено для Odoo 19 Community Edition</p>
+    </div>
+
+    <div style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); padding: 25px; border-radius: 8px; margin: 25px 0; border-left: 4px solid #ffc107;">
+        <h3 style="color: #856404; margin-top: 0;">🫙 Збір на українську локалізацію Odoo — заміна 1С для бізнесу</h3>
+        <p style="margin-bottom: 15px;">Привіт! Створюю <strong>відкриті модулі української локалізації Odoo</strong> для повноцінної заміни 1С:</p>
+        <ul style="list-style: none; padding: 0; margin: 15px 0;">
+            <li style="padding: 8px 0;">📊 <strong>Бухгалтерський та фінансовий облік</strong> за українськими стандартами</li>
+            <li style="padding: 8px 0;">📋 <strong>Податкова звітність</strong> та електронний документообіг</li>
+            <li style="padding: 8px 0;">👥 <strong>HR-модуль (заміна ЗУП)</strong> — кадри, зарплата, табелі</li>
+            <li style="padding: 8px 0;">🏭 <strong>Операційний облік</strong> — склад, виробництво, продажі</li>
+        </ul>
+        <p><strong>Навіщо це потрібно:</strong> тисячі українських компаній досі сидять на російському софті, бо немає повноцінної альтернативи. Odoo — це потужна європейська ERP з відкритим кодом, але без якісної української локалізації перехід неможливий.</p>
+        <p><strong>Куди підуть кошти:</strong> розробка та тестування модулів, документація українською, підтримка спільноти.</p>
+        <p style="margin-bottom: 0;"><strong>Модулі будуть у відкритому доступі</strong> — для всіх, хто хоче позбутися російських технологій.</p>
+        <p style="margin-top: 15px; margin-bottom: 0;"><strong>Дякую за підтримку! 🙏</strong></p>
+        <p style="margin-top:10px; text-align:center"><img src="monobank_qr.png" alt="QR код для підтримки на Monobank" style="width:150px; height:150px;"/><br/><strong>Скануйте QR для підтримки на Monobank</strong></p>
+    </div>
+
+</div>
+</body>
+</html>

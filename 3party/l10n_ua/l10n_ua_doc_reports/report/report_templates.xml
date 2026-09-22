@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Paper format for Ukrainian accounting reports - A4, minimal margins -->
+    <record id="paperformat_ua_report" model="report.paperformat">
+        <field name="name">Ukrainian Report A4</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">20</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">25</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!-- Base styles for Ukrainian accounting reports -->
+    <template id="report_ua_styles">
+        <style>
+            /* Page setup for A4 portrait */
+            @page {
+                size: A4 portrait;
+                margin: 10mm 15mm 10mm 20mm;
+            }
+
+            /* Ukrainian accounting report styles */
+            .ua-report {
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 10pt;
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ua-report table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .ua-report th, .ua-report td {
+                border: 1px solid black;
+                padding: 3px 5px;
+                vertical-align: top;
+            }
+            .ua-report th {
+                background-color: #f0f0f0;
+                text-align: center;
+                font-weight: bold;
+            }
+            .ua-report .text-center { text-align: center; }
+            .ua-report .text-right { text-align: right; }
+            .ua-report .text-left { text-align: left; }
+            .ua-report .bold { font-weight: bold; }
+            .ua-report .italic { font-style: italic; }
+            .ua-report .underline { text-decoration: underline; }
+            .ua-report .no-border { border: none !important; }
+            .ua-report .border-bottom { border-bottom: 1px solid black; }
+            .ua-report .small { font-size: 8pt; }
+            .ua-report .large { font-size: 12pt; }
+
+            /* Header styles */
+            .ua-report-header {
+                margin-bottom: 15px;
+            }
+            .ua-report-title {
+                font-size: 14pt;
+                font-weight: bold;
+                text-align: center;
+                margin: 10px 0;
+            }
+            .ua-report-subtitle {
+                text-align: center;
+                font-size: 10pt;
+                margin: 5px 0;
+            }
+
+            /* Form number box */
+            .form-number-box {
+                float: right;
+                border: 1px solid black;
+                padding: 5px;
+                text-align: center;
+                font-size: 9pt;
+            }
+
+            /* Signature lines */
+            .signature-line {
+                display: inline-block;
+                border-bottom: 1px solid black;
+                min-width: 150px;
+                margin: 0 10px;
+            }
+            .signature-block {
+                margin-top: 20px;
+            }
+            .signature-row {
+                margin: 15px 0;
+            }
+
+            /* Amount in words */
+            .amount-words {
+                font-style: italic;
+                border-bottom: 1px solid black;
+            }
+
+            /* Monetary amounts */
+            .money {
+                text-align: right;
+                white-space: nowrap;
+            }
+
+            /* Company header */
+            .company-header {
+                margin-bottom: 10px;
+            }
+            .company-name {
+                font-weight: bold;
+            }
+            .company-code {
+                font-size: 9pt;
+            }
+
+            /* Info table without borders (for supplier/buyer blocks) */
+            .ua-report table.no-border-all,
+            .ua-report table.no-border-all th,
+            .ua-report table.no-border-all td {
+                border: none !important;
+                padding: 1px 5px;
+            }
+        </style>
+    </template>
+
+    <!-- Reusable supplier info block -->
+    <template id="report_ua_supplier_block">
+        <!--
+            Expects: company (res.company)
+            Renders: company name, bank, IBAN, address, EDRPOU, IPN, phone
+        -->
+        <t t-set="partner" t-value="company.partner_id"/>
+        <t t-set="bank" t-value="partner.bank_ids[:1]"/>
+        <div style="margin-bottom: 8px;">
+            <strong t-field="company.name"/><br/>
+            <t t-if="bank">
+                <span>IBAN: <span t-field="bank.acc_number"/></span><br/>
+                <t t-if="bank.bank_id">
+                    <span>в банку <span t-field="bank.bank_id.name"/></span>
+                    <t t-if="bank.bank_id.bic">
+                        <span>, МФО <span t-field="bank.bank_id.bic"/></span>
+                    </t>
+                    <br/>
+                </t>
+            </t>
+            <t t-if="partner.l10n_ua_legal_address">
+                <span>Адреса: <span t-field="partner.l10n_ua_legal_address"/></span><br/>
+            </t>
+            <t t-elif="partner.contact_address">
+                <span>Адреса: <span t-esc="partner.contact_address"/></span><br/>
+            </t>
+            <t t-if="partner.phone">
+                <span>тел. <span t-field="partner.phone"/></span><br/>
+            </t>
+            <t t-if="partner.edrpou">
+                <span>ЄДРПОУ: <span t-field="partner.edrpou"/></span>
+            </t>
+            <t t-if="partner.ipn">
+                <span>, ІПН: <span t-field="partner.ipn"/></span>
+            </t>
+            <t t-if="partner.is_vat_payer">
+                <span>, платник ПДВ</span>
+            </t>
+        </div>
+    </template>
+
+    <!-- Reusable buyer/partner info block -->
+    <template id="report_ua_buyer_block">
+        <!--
+            Expects: partner (res.partner)
+            Renders: partner name, EDRPOU, IPN, address, phone
+        -->
+        <div style="margin-bottom: 8px;">
+            <strong t-field="partner.name"/><br/>
+            <t t-if="partner.l10n_ua_legal_address">
+                <span>Адреса: <span t-field="partner.l10n_ua_legal_address"/></span><br/>
+            </t>
+            <t t-elif="partner.contact_address">
+                <span>Адреса: <span t-esc="partner.contact_address"/></span><br/>
+            </t>
+            <t t-if="partner.phone">
+                <span>тел. <span t-esc="partner.phone or ''"/></span><br/>
+            </t>
+            <t t-if="partner.edrpou">
+                <span>ЄДРПОУ: <span t-field="partner.edrpou"/></span>
+            </t>
+            <t t-if="partner.ipn">
+                <span>, ІПН: <span t-field="partner.ipn"/></span>
+            </t>
+        </div>
+    </template>
+
+</odoo>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Service Act Report Action -->
+    <record id="action_report_service_act" model="ir.actions.report">
+        <field name="name">Service Act</field>
+        <field name="model">l10n_ua.service.act</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_accounting.report_service_act_document</field>
+        <field name="report_file">l10n_ua_accounting.report_service_act_document</field>
+        <field name="print_report_name">'Акт_%s_%s' % (object.name, object.partner_id.name)</field>
+        <field name="binding_model_id" ref="model_l10n_ua_service_act"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+    <!-- Service Act Report Template -->
+    <template id="report_service_act_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="act">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+                        <!-- Header -->
+                        <div class="ua-report-title">
+                            АКТ<br/>
+                            наданих послуг (виконаних робіт)
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <strong>№ <span t-field="act.name"/></strong>
+                            </div>
+                            <div class="col-6 text-right">
+                                від <span t-field="act.date" t-options='{"widget": "date"}'/>
+                            </div>
+                        </div>
+
+                        <!-- Contract reference -->
+                        <div class="mb-3" t-if="act.contract_number">
+                            <span>До договору № </span>
+                            <span t-field="act.contract_number"/>
+                            <t t-if="act.contract_date">
+                                <span> від </span>
+                                <span t-field="act.contract_date" t-options='{"widget": "date"}'/>
+                            </t>
+                        </div>
+
+                        <!-- Parties -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <p>
+                                    <strong>Виконавець: </strong>
+                                    <span t-field="act.company_id.name"/>
+                                    <t t-if="act.company_id.company_registry">
+                                        , ЄДРПОУ: <span t-field="act.company_id.company_registry"/>
+                                    </t>
+                                </p>
+                                <p>
+                                    <strong>Замовник: </strong>
+                                    <span t-field="act.partner_id.name"/>
+                                    <t t-if="act.partner_id.company_registry">
+                                        , ЄДРПОУ: <span t-field="act.partner_id.company_registry"/>
+                                    </t>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Period -->
+                        <div class="mb-3" t-if="act.period_from or act.period_to">
+                            <span>Період надання послуг: </span>
+                            <t t-if="act.period_from">
+                                з <span t-field="act.period_from" t-options='{"widget": "date"}'/>
+                            </t>
+                            <t t-if="act.period_to">
+                                по <span t-field="act.period_to" t-options='{"widget": "date"}'/>
+                            </t>
+                        </div>
+
+                        <!-- Lines table -->
+                        <table class="mb-4">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%;">№</th>
+                                    <th style="width: 45%;">Найменування послуги (роботи)</th>
+                                    <th style="width: 10%;">Од. виміру</th>
+                                    <th style="width: 10%;">Кількість</th>
+                                    <th style="width: 15%;">Ціна, грн</th>
+                                    <th style="width: 15%;">Сума, грн</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="act.line_ids" t-as="line">
+                                    <tr>
+                                        <td class="text-center" t-esc="line_index + 1"/>
+                                        <td><span t-field="line.name"/></td>
+                                        <td class="text-center" t-esc="line.uom_id.name if line.uom_id else '-'"/>
+                                        <td class="text-center" t-esc="'%.2f' % line.quantity"/>
+                                        <td class="text-right" t-esc="'%.2f' % line.price_unit"/>
+                                        <td class="text-right" t-esc="'%.2f' % line.price_subtotal"/>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="5" class="text-right bold">Разом без ПДВ:</td>
+                                    <td class="text-right bold" t-esc="'%.2f' % act.amount_untaxed"/>
+                                </tr>
+                                <tr t-if="act.amount_tax">
+                                    <td colspan="5" class="text-right bold">ПДВ 20%:</td>
+                                    <td class="text-right bold" t-esc="'%.2f' % act.amount_tax"/>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="text-right bold">Всього:</td>
+                                    <td class="text-right bold" t-esc="'%.2f' % act.amount_total"/>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <!-- Total in words -->
+                        <div class="mb-4">
+                            <strong>Загальна вартість послуг складає: </strong>
+                            <span t-esc="'%.2f' % act.amount_total"/> грн.
+                            <t t-if="act.amount_tax">
+                                <span>, у т.ч. ПДВ </span>
+                                <span t-esc="'%.2f' % act.amount_tax"/> грн.
+                            </t>
+                        </div>
+
+                        <!-- Standard text -->
+                        <div class="mb-4">
+                            <p>
+                                Послуги надані в повному обсязі. Замовник претензій до обсягу, якості
+                                та строків надання послуг не має.
+                            </p>
+                        </div>
+
+                        <!-- Notes -->
+                        <div class="mb-4" t-if="act.note">
+                            <strong>Примітки: </strong>
+                            <span t-field="act.note"/>
+                        </div>
+
+                        <!-- Signatures -->
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <div class="bold mb-3">Від Виконавця:</div>
+                                <div class="company-name mb-2" t-field="act.company_id.name"/>
+                                <div class="signature-row">
+                                    <span>Підпис</span>
+                                    <span class="signature-line"></span>
+                                </div>
+                                <div class="signature-row">
+                                    <span>ПІБ</span>
+                                    <span class="signature-line"></span>
+                                </div>
+                                <div class="text-center mt-2">М.П.</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="bold mb-3">Від Замовника:</div>
+                                <div class="company-name mb-2" t-field="act.partner_id.name"/>
+                                <div class="signature-row">
+                                    <span>Підпис</span>
+                                    <span class="signature-line"></span>
+                                </div>
+                                <div class="signature-row">
+                                    <span>ПІБ</span>
+                                    <span class="signature-line"></span>
+                                </div>
+                                <div class="text-center mt-2">М.П.</div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

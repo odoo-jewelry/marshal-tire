@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- HR Orders Menu -->
+    <menuitem id="menu_hr_order"
+              name="HR Orders"
+              action="action_hr_order"
+              parent="l10n_ua_hr_base.menu_hr_documents_root"
+              sequence="20"/>
+
+    <!-- Order Templates Menu -->
+    <menuitem id="menu_hr_order_template"
+              name="Order Templates"
+              action="action_hr_order_template"
+              parent="l10n_ua_hr_base.menu_hr_documents_root"
+              sequence="25"/>
+
+    <!-- Personal Files Menu -->
+    <menuitem id="menu_hr_personal_file"
+              name="Personal Files"
+              parent="l10n_ua_hr_base.menu_hr_documents_root"
+              action="action_hr_personal_file"
+              sequence="30"/>
+
+    <!-- Configuration under HR Configuration -->
+    <menuitem id="menu_hr_order_type"
+              name="Order Types"
+              parent="hr.menu_human_resources_configuration"
+              action="action_hr_order_type"
+              sequence="50"/>
+
+</odoo>

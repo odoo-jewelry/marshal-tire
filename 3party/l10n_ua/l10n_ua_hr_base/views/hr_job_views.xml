@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_job_form_inherit_ua" model="ir.ui.view">
+        <field name="name">hr.job.form.inherit.ua</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <!-- Add Ukrainian page before Details -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Україна" name="ukraine_page">
+                    <group>
+                        <group string="Загальне">
+                            <field name="department_id"
+                                   domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="contract_type_id"/>
+                        </group>
+                        <group string="Класифікатор професій (КП)">
+                            <field name="kp_id" string="Професія"/>
+                            <field name="kp_code" readonly="1"/>
+                            <field name="kp_name" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Умови праці">
+                            <field name="work_conditions"/>
+                            <field name="hazard_class" invisible="work_conditions == 'normal'"/>
+                            <field name="tariff_grade_id"/>
+                        </group>
+                        <group string="Оплата та умови">
+                            <field name="min_salary" string="Мін. ставка"/>
+                            <field name="max_salary" string="Макс. оклад"/>
+                            <field name="probation_days" string="Випробувальний термін"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            <!-- Move Ukraine page to first position -->
+            <xpath expr="//page[@name='ukraine_page']" position="attributes">
+                <attribute name="autofocus">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_hr_job_tree_inherit_ua" model="ir.ui.view">
+        <field name="name">hr.job.tree.inherit.ua</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="kp_code" optional="show"/>
+                <field name="department_id" optional="show"/>
+                <field name="work_conditions" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

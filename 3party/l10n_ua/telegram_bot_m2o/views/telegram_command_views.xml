@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Command Form View -->
+    <record id="telegram_bot_command_view_form" model="ir.ui.view">
+        <field name="name">telegram.bot.command.form</field>
+        <field name="model">telegram.bot.command</field>
+        <field name="arch" type="xml">
+            <form string="Bot Command">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="command_name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Command Settings">
+                            <field name="bot_id" readonly="1"/>
+                            <field name="description"/>
+                            <field name="trigger_type"/>
+                            <field name="trigger_keywords" placeholder="keyword1&#10;keyword2"/>
+                            <field name="callback_data"/>
+                            <field name="show_in_menu"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Lead Creation">
+                            <field name="create_lead"/>
+                            <field name="lead_name_template" placeholder="Lead from {first_name}"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Responses" name="responses">
+                            <field name="response_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="response_type"/>
+                                    <field name="text"/>
+                                    <field name="input_field"/>
+                                    <field name="delay_seconds"/>
+                                </list>
+                            </field>
+                            <p class="text-muted">
+                                Variables: {first_name}, {last_name}, {user_name}, {full_name}, {chat_id}, {message}
+                            </p>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Command List View -->
+    <record id="telegram_bot_command_view_list" model="ir.ui.view">
+        <field name="name">telegram.bot.command.list</field>
+        <field name="model">telegram.bot.command</field>
+        <field name="arch" type="xml">
+            <list string="Commands">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="trigger_type"/>
+                <field name="bot_id"/>
+                <field name="show_in_menu"/>
+                <field name="create_lead"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Command Action -->
+    <record id="telegram_bot_command_action" model="ir.actions.act_window">
+        <field name="name">Commands</field>
+        <field name="res_model">telegram.bot.command</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Response Form View -->
+    <record id="telegram_bot_response_view_form" model="ir.ui.view">
+        <field name="name">telegram.bot.response.form</field>
+        <field name="model">telegram.bot.response</field>
+        <field name="arch" type="xml">
+            <form string="Response">
+                <sheet>
+                    <group>
+                        <group string="Response">
+                            <field name="command_id" readonly="1"/>
+                            <field name="sequence"/>
+                            <field name="response_type"/>
+                            <field name="delay_seconds"/>
+                        </group>
+                        <group string="Content">
+                            <field name="text"/>
+                            <field name="parse_mode"/>
+                            <field name="image" widget="image"/>
+                            <field name="file" filename="file_filename"/>
+                            <field name="file_filename"/>
+                            <field name="latitude"/>
+                            <field name="longitude"/>
+                        </group>
+                    </group>
+
+                    <group string="Input Request">
+                        <field name="input_field" placeholder="phone, email, name..."/>
+                        <field name="input_prompt"/>
+                    </group>
+
+                    <group string="Buttons">
+                        <field name="buttons_per_row"/>
+                        <field name="button_ids">
+                            <list editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="label"/>
+                                <field name="button_type"/>
+                                <field name="url"/>
+                                <field name="callback_data"/>
+                                <field name="next_command_id"/>
+                            </list>
+                        </field>
+                    </group>
+
+                    <group string="Next Action">
+                        <field name="next_command_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Button Form View -->
+    <record id="telegram_bot_button_view_form" model="ir.ui.view">
+        <field name="name">telegram.bot.button.form</field>
+        <field name="model">telegram.bot.button</field>
+        <field name="arch" type="xml">
+            <form string="Button">
+                <group>
+                    <field name="label"/>
+                    <field name="button_type"/>
+                    <field name="url"/>
+                    <field name="callback_data"/>
+                    <field name="next_command_id"/>
+                    <field name="sequence"/>
+                    <field name="new_row"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>

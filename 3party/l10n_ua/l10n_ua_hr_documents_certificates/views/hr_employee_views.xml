@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_employee_view_form_certificates" model="ir.ui.view">
+            <field name="name">hr.employee.form.certificates</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="priority">60</field>
+            <field name="arch" type="xml">
+                <!-- Add smart button for certificates -->
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_open_certificates"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-certificate"
+                            invisible="certificates_count == 0">
+                        <field name="certificates_count" widget="statinfo" string="Довідки"/>
+                    </button>
+                </xpath>
+                <!-- Add "New Certificate" button in header -->
+                <xpath expr="//header" position="inside">
+                        <button name="action_create_certificate"
+                                type="object"
+                                string="Нова довідка"
+                                class="btn-primary"
+                                icon="fa-plus"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

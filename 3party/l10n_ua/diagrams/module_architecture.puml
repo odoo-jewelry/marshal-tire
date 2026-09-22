@@ -1,0 +1,116 @@
+@startuml module_architecture
+skinparam backgroundColor #FEFEFE
+skinparam componentStyle rectangle
+
+title Архітектура HR модулів Ukrainian Localization
+
+package "Базові модулі" {
+    [l10n_ua_hr] as hr #LightBlue
+    [l10n_ua_hr_base] as base #LightBlue
+}
+
+package "Кадрові процеси" {
+    [l10n_ua_hr_contract] as contract #LightGreen
+    [l10n_ua_hr_documents] as docs #LightYellow
+    [l10n_ua_hr_documents_certificates] as certs #LightYellow
+}
+
+package "Облік часу" {
+    [l10n_ua_hr_holidays] as holidays #LightCoral
+    [l10n_ua_hr_attendance_sheet] as timesheet #LightCoral
+}
+
+package "Зарплата та звітність" {
+    [l10n_ua_hr_salary] as salary #Plum
+    [l10n_ua_hr_reports] as reports #Plum
+}
+
+hr --> base
+
+base --> contract
+base --> docs
+base --> holidays
+base --> timesheet
+base --> certs
+
+contract --> docs
+contract --> salary
+
+salary --> reports
+
+holidays --> timesheet
+
+note right of hr
+  Базовий модуль
+  Залежність від Odoo HR
+end note
+
+note right of base
+  Працівники:
+  - РНОКПП
+  - Паспорт
+  - Військовий облік
+  - Пільги
+  ----
+  КП-2010 (9000+ професій)
+  Штатний розпис
+end note
+
+note right of contract
+  Трудові договори:
+  - Безстроковий
+  - Строковий
+  - ЦПД
+  - Гіг-контракт
+  ----
+  Графіки роботи
+  Надбавки
+end note
+
+note right of docs
+  Накази (П-1, П-3, П-4, П-5)
+  QWeb шаблони
+  Автонумерація
+end note
+
+note right of certs
+  Довідки:
+  - Про роботу
+  - Про зарплату
+  - Для банку
+end note
+
+note right of holidays
+  Відпустки:
+  - Щорічна (24 дні)
+  - Додаткова
+  - Навчальна
+  - Без збереження
+  ----
+  Лікарняні (е-ТВН)
+  Графік відпусток
+end note
+
+note right of timesheet
+  Табель П-5
+  Автозаповнення
+end note
+
+note right of salary
+  Нарахування:
+  - ПДФО 18%
+  - ВЗ 5%
+  - ЄСВ 22%
+  ----
+  ПСП (50/75/100%)
+  Розрахунковий листок
+end note
+
+note right of reports
+  Звітність:
+  - 4ДФ
+  - Звіт ЄСВ
+  - XML експорт
+end note
+
+@enduml

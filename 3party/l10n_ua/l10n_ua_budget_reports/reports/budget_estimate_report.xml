@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Report action for l10n_ua.budget.estimate -->
+    <record id="action_report_budget_estimate" model="ir.actions.report">
+        <field name="name">Кошторис (форма)</field>
+        <field name="model">l10n_ua.budget.estimate</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_budget_reports.budget_estimate_template</field>
+        <field name="report_file">l10n_ua_budget_reports.budget_estimate_template</field>
+        <field name="binding_model_id" ref="l10n_ua_budget_estimate.model_l10n_ua_budget_estimate"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <template id="budget_estimate_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-size:11px;">
+                        <h2 style="text-align:center; margin-bottom:0;">КОШТОРИС</h2>
+                        <p style="text-align:center; margin-top:0;">
+                            на <t t-out="doc.year"/> рік
+                            <t t-if="doc.is_amendment"> (довідка про зміни)</t>
+                        </p>
+
+                        <table class="table table-sm" style="margin-bottom:8px;">
+                            <tr>
+                                <td style="border:none; width:50%;">
+                                    <strong>Установа:</strong> <t t-out="doc.company_id.name"/>
+                                    <br/>
+                                    <strong>ЄДРПОУ:</strong> <t t-out="doc.company_id.vat or '—'"/>
+                                </td>
+                                <td style="border:none;">
+                                    <strong>КПКВК:</strong> <t t-out="doc.kpkvk_id.code or '—'"/>
+                                    <t t-if="doc.kpkvk_id.name"> «<t t-out="doc.kpkvk_id.name"/>»</t>
+                                    <br/>
+                                    <strong>ГРБК (КВКВ):</strong> <t t-out="doc.kvkv_id.display_name or '—'"/>
+                                    <br/>
+                                    <strong>КФК:</strong> <t t-out="doc.kfk_id.display_name or '—'"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:none;">
+                                    <strong>Номер:</strong> <t t-out="doc.name"/>
+                                </td>
+                                <td style="border:none;">
+                                    <strong>Стан:</strong>
+                                    <t t-out="dict(doc._fields['state'].selection).get(doc.state)"/>
+                                    <t t-if="doc.approval_date">
+                                        (затверджено <t t-out="doc.approval_date"/>)
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <t t-set="currency_symbol" t-value="doc.currency_id.symbol or 'грн'"/>
+
+                        <!-- ====== Загальний фонд ====== -->
+                        <t t-set="general_lines" t-value="doc.line_ids.filtered(lambda l: l.fund_type == 'general')"/>
+                        <t t-if="general_lines">
+                            <h4 style="margin-top:12px; margin-bottom:4px;">Загальний фонд</h4>
+                            <table class="table table-bordered table-sm" style="font-size:10px;">
+                                <thead>
+                                    <tr style="background:#f0f0f0;">
+                                        <th>КЕКВ</th>
+                                        <th>Призначення</th>
+                                        <th class="text-end">I кв.</th>
+                                        <th class="text-end">II кв.</th>
+                                        <th class="text-end">III кв.</th>
+                                        <th class="text-end">IV кв.</th>
+                                        <th class="text-end"><strong>Усього</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="general_lines" t-as="line">
+                                        <td><strong t-out="line.kekv_code"/></td>
+                                        <td><t t-out="line.kekv_id.name"/>
+                                            <t t-if="line.name"> — <t t-out="line.name"/></t></td>
+                                        <td class="text-end"><t t-out="'{:,.2f}'.format(line.q1).replace(',', ' ')"/></td>
+                                        <td class="text-end"><t t-out="'{:,.2f}'.format(line.q2).replace(',', ' ')"/></td>
+                                        <td class="text-end"><t t-out="'{:,.2f}'.format(line.q3).replace(',', ' ')"/></td>
+                                        <td class="text-end"><t t-out="'{:,.2f}'.format(line.q4).replace(',', ' ')"/></td>
+                                        <td class="text-end"><strong><t t-out="'{:,.2f}'.format(line.amount_planned).replace(',', ' ')"/></strong></td>
+                                    </tr>
+                                    <tr style="background:#f8f8f8;">
+                                        <td colspan="2"><strong>Разом по загальному фонду</strong></td>
+                                        <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum(general_lines.mapped('q1'))).replace(',', ' ')"/></strong></td>
+                                        <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum(general_lines.mapped('q2'))).replace(',', ' ')"/></strong></td>
+                                        <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum(general_lines.mapped('q3'))).replace(',', ' ')"/></strong></td>
+                                        <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum(general_lines.mapped('q4'))).replace(',', ' ')"/></strong></td>
+                                        <td class="text-end"><strong><t t-out="'{:,.2f}'.format(doc.total_general).replace(',', ' ')"/></strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+
+                        <!-- ====== Спеціальний фонд ====== -->
+                        <t t-set="special_lines" t-value="doc.line_ids.filtered(lambda l: l.fund_type == 'special')"/>
+                        <t t-if="special_lines">
+                            <h4 style="margin-top:12px; margin-bottom:4px;">Спеціальний фонд</h4>
+                            <table class="table table-bordered table-sm" style="font-size:10px;">
+                                <thead>
+                                    <tr style="background:#f0f0f0;">
+                                        <th>КЕКВ</th>
+                                        <th>Призначення</th>
+                                        <th class="text-end">I кв.</th>
+                                        <th class="text-end">II кв.</th>
+                                        <th class="text-end">III кв.</th>
+                                        <th class="text-end">IV кв.</th>
+                                        <th class="text-end"><strong>Усього</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="special_lines" t-as="line">
+                                        <td><strong t-out="line.kekv_code"/></td>
+                                        <td><t t-out="line.kekv_id.name"/>
+                                            <t t-if="line.name"> — <t t-out="line.name"/></t></td>
+                                        <td class="text-end"><t t-out="'{:,.2f}'.format(line.q1).replace(',', ' ')"/></td>
+                                        <td class="text-end"><t t-out="'{:,.2f}'.format(line.q2).replace(',', ' ')"/></td>
+                                        <td class="text-end"><t t-out="'{:,.2f}'.format(line.q3).replace(',', ' ')"/></td>
+                                        <td class="text-end"><t t-out="'{:,.2f}'.format(line.q4).replace(',', ' ')"/></td>
+                                        <td class="text-end"><strong><t t-out="'{:,.2f}'.format(line.amount_planned).replace(',', ' ')"/></strong></td>
+                                    </tr>
+                                    <tr style="background:#f8f8f8;">
+                                        <td colspan="2"><strong>Разом по спеціальному фонду</strong></td>
+                                        <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum(special_lines.mapped('q1'))).replace(',', ' ')"/></strong></td>
+                                        <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum(special_lines.mapped('q2'))).replace(',', ' ')"/></strong></td>
+                                        <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum(special_lines.mapped('q3'))).replace(',', ' ')"/></strong></td>
+                                        <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum(special_lines.mapped('q4'))).replace(',', ' ')"/></strong></td>
+                                        <td class="text-end"><strong><t t-out="'{:,.2f}'.format(doc.total_special).replace(',', ' ')"/></strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+
+                        <!-- ====== Загальний підсумок ====== -->
+                        <table class="table table-sm" style="margin-top:8px;">
+                            <tr>
+                                <td style="border:none; text-align:right; width:80%;"><strong>УСЬОГО ПО КОШТОРИСУ:</strong></td>
+                                <td style="border:none; text-align:right;">
+                                    <strong><t t-out="'{:,.2f}'.format(doc.total_planned).replace(',', ' ')"/> <t t-out="currency_symbol"/></strong>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- ====== Підписи ====== -->
+                        <div style="margin-top:40px;">
+                            <table style="width:100%;">
+                                <tr>
+                                    <td style="width:50%; border:none;">
+                                        Керівник установи<br/>
+                                        ________________ /__________________/<br/>
+                                        <span style="font-size:9px;">(підпис) (ПІБ)</span>
+                                    </td>
+                                    <td style="width:50%; border:none;">
+                                        Головний бухгалтер<br/>
+                                        ________________ /__________________/<br/>
+                                        <span style="font-size:9px;">(підпис) (ПІБ)</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <p style="margin-top:20px;">
+                                «___» ______________ <t t-out="doc.year"/> року
+                            </p>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

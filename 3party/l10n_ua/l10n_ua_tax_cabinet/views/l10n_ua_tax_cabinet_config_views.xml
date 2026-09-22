@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_tax_cabinet_config_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.cabinet.config.form</field>
+        <field name="model">l10n_ua.tax.cabinet.config</field>
+        <field name="arch" type="xml">
+            <form string="Tax Cabinet Configuration">
+                <header>
+                    <button name="action_test_connection" string="Test Connection" type="object"
+                            class="btn-secondary"/>
+                    <button name="action_open_sync_wizard" string="Sync Documents" type="object"
+                            class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(l10n_ua_tax.l10n_ua_tax_document_action)d" type="action"
+                                class="oe_stat_button" icon="fa-file-text-o"
+                                context="{'search_default_company_id': company_id}">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Documents</span>
+                            </div>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <widget name="web_ribbon" title="TEST MODE" bg_color="text-bg-warning"
+                            invisible="not use_test_environment"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Tax Cabinet Connection"/></h1>
+                    </div>
+                    <group>
+                        <group string="Company">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="taxpayer_code"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group string="Sync Settings">
+                            <field name="auto_download_pdf"/>
+                            <field name="auto_download_xml"/>
+                            <field name="last_sync_date"/>
+                            <field name="use_test_environment"/>
+                        </group>
+                    </group>
+
+                    <div class="alert alert-info" role="alert">
+                        <p><strong>КЕП-підпис у браузері</strong></p>
+                        <p>
+                            Ключ КЕП і пароль на сервері не зберігаються. Під час перевірки
+                            з'єднання, синхронізації чи подання ви обираєте файл-ключ і вводите
+                            пароль у діалозі підпису — підпис рахується у вашому браузері, як
+                            під час входу до електронного кабінету.
+                        </p>
+                        <p class="text-muted"><em>
+                            Бібліотека підпису IIT і список ЦСК мають лежати в
+                            <code>l10n_ua_sign/static/src/lib/euscp</code> (див. README там).
+                        </em></p>
+                        <hr/>
+                        <p><strong>Useful Links:</strong></p>
+                        <ul>
+                            <li>Tax Cabinet: https://cabinet.tax.gov.ua</li>
+                            <li>Test API: https://cabinet.tax.gov.ua:9443</li>
+                            <li>IIT EUSignCP Library: https://iit.com.ua/downloads</li>
+                            <li>DPS Ukraine CA: https://acskidd.gov.ua</li>
+                        </ul>
+                        <p class="text-muted"><em>
+                            <strong>Test Mode:</strong> Enable "Use Test Environment" to submit documents to the test API.
+                            Documents submitted in test mode are NOT fiscal and do not go to the real tax office.
+                        </em></p>
+                    </div>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_tax_cabinet_config_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.cabinet.config.list</field>
+        <field name="model">l10n_ua.tax.cabinet.config</field>
+        <field name="arch" type="xml">
+            <list string="Tax Cabinet Configurations" decoration-warning="use_test_environment">
+                <field name="name"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="taxpayer_code"/>
+                <field name="use_test_environment" string="Test"/>
+                <field name="last_sync_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_tax_cabinet_config_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.cabinet.config.search</field>
+        <field name="model">l10n_ua.tax.cabinet.config</field>
+        <field name="arch" type="xml">
+            <search string="Tax Cabinet Configurations">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="taxpayer_code"/>
+                <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="l10n_ua_tax_cabinet_config_action" model="ir.actions.act_window">
+        <field name="name">Cabinet Connections</field>
+        <field name="res_model">l10n_ua.tax.cabinet.config</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Tax Cabinet connection
+            </p>
+            <p>
+                Configure connection to cabinet.tax.gov.ua for syncing tax documents using KEP (qualified electronic signature).
+            </p>
+        </field>
+    </record>
+
+</odoo>

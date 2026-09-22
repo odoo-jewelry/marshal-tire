@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Видаткова накладна report action -->
+    <record id="action_report_vydatkova" model="ir.actions.report">
+        <field name="name">Видаткова накладна</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_doc_reports.report_vydatkova_document</field>
+        <field name="report_file">l10n_ua_doc_reports.report_vydatkova_document</field>
+        <field name="print_report_name">'Видаткова_накладна_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+    <template id="report_vydatkova_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+                        <t t-set="company" t-value="o.company_id"/>
+                        <t t-set="partner" t-value="o.partner_id"/>
+                        <t t-set="comp_partner" t-value="company.partner_id"/>
+                        <t t-set="bank" t-value="comp_partner.bank_ids[:1]"/>
+                        <t t-set="lines" t-value="o._get_ua_report_lines()"/>
+                        <t t-set="has_discount" t-value="any(l.discount for l in lines)"/>
+
+                        <!-- Title -->
+                        <div class="ua-report-title" style="margin: 10px 0;">
+                            Видаткова накладна № <span t-field="o.name"/><br/>
+                            <span style="font-size: 11pt;">
+                                від <span t-esc="o._get_ua_date_formatted()"/> року
+                            </span>
+                        </div>
+
+                        <!-- Supplier block -->
+                        <table class="no-border-all" style="margin-bottom: 5px;">
+                            <tr>
+                                <td style="width: 15%; vertical-align: top;"><u>Постачальник:</u></td>
+                                <td style="width: 85%;">
+                                    <strong t-field="company.name"/><br/>
+                                    <t t-if="bank">
+                                        IBAN: <span t-field="bank.acc_number"/><br/>
+                                        <t t-if="bank.bank_id">
+                                            в банку <span t-field="bank.bank_id.name"/>
+                                            <t t-if="bank.bank_id.bic">, МФО <span t-field="bank.bank_id.bic"/></t>
+                                            <br/>
+                                        </t>
+                                    </t>
+                                    <t t-if="comp_partner.l10n_ua_legal_address">
+                                        Адреса: <span t-field="comp_partner.l10n_ua_legal_address"/><br/>
+                                    </t>
+                                    <t t-elif="comp_partner.contact_address">
+                                        Адреса: <span t-esc="comp_partner.contact_address"/><br/>
+                                    </t>
+                                    <t t-if="comp_partner.phone">
+                                        тел. <span t-field="comp_partner.phone"/><br/>
+                                    </t>
+                                    <t t-if="comp_partner.edrpou">
+                                        ЄДРПОУ: <span t-field="comp_partner.edrpou"/>
+                                    </t>
+                                    <t t-if="comp_partner.ipn">
+                                        , ІПН: <span t-field="comp_partner.ipn"/>
+                                    </t>
+                                    <t t-if="comp_partner.is_vat_payer">
+                                        , платник ПДВ
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Buyer block -->
+                        <t t-set="partner_bank" t-value="partner.bank_ids[:1]"/>
+                        <table class="no-border-all" style="margin-bottom: 5px;">
+                            <tr>
+                                <td style="width: 15%; vertical-align: top;"><u>Покупець:</u></td>
+                                <td style="width: 85%;">
+                                    <strong t-field="partner.name"/><br/>
+                                    <t t-if="partner_bank">
+                                        IBAN: <span t-field="partner_bank.acc_number"/><br/>
+                                    </t>
+                                    <t t-if="partner.l10n_ua_legal_address">
+                                        Адреса: <span t-field="partner.l10n_ua_legal_address"/><br/>
+                                    </t>
+                                    <t t-if="partner.phone">
+                                        тел. <span t-esc="partner.phone"/><br/>
+                                    </t>
+                                    <t t-if="partner.edrpou">
+                                        ЄДРПОУ: <span t-field="partner.edrpou"/>
+                                    </t>
+                                    <t t-if="partner.ipn">
+                                        , ІПН: <span t-field="partner.ipn"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Contract reference -->
+                        <table class="no-border-all" style="margin-bottom: 10px;" t-if="o.ua_counterparty_doc">
+                            <tr>
+                                <td style="width: 15%;"><u>Договір:</u></td>
+                                <td style="width: 85%;"><strong t-field="o.ua_counterparty_doc"/></td>
+                            </tr>
+                        </table>
+
+                        <!-- Lines table -->
+                        <table style="margin-bottom: 10px;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%;">№</th>
+                                    <th style="width: 38%;">Найменування</th>
+                                    <th style="width: 10%;">Кількість</th>
+                                    <th style="width: 10%;">Од. вим.</th>
+                                    <th style="width: 12%;">Ціна, грн</th>
+                                    <th t-if="has_discount" style="width: 10%;">Знижка, %</th>
+                                    <th style="width: 15%;">Сума, грн</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="row_num" t-value="0"/>
+                                <t t-foreach="lines" t-as="line">
+                                    <t t-set="row_num" t-value="row_num + 1"/>
+                                    <tr>
+                                        <td class="text-center" t-esc="row_num"/>
+                                        <td><span t-field="line.name"/></td>
+                                        <td class="text-right" t-esc="'%.2f' % line.quantity"/>
+                                        <td class="text-center" t-esc="line.product_uom_id.name if line.product_uom_id else '-'"/>
+                                        <td class="text-right" t-esc="'%.2f' % line.price_unit"/>
+                                        <td t-if="has_discount" class="text-right" t-esc="'%.1f' % line.discount if line.discount else ''"/>
+                                        <td class="text-right" t-esc="'%.2f' % line.price_subtotal"/>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td t-att-colspan="6 if has_discount else 5" class="text-right bold" style="border: none !important;">Разом без ПДВ:</td>
+                                    <td class="text-right bold" t-esc="'%.2f' % o.amount_untaxed"/>
+                                </tr>
+                                <tr t-if="o.amount_tax">
+                                    <td t-att-colspan="6 if has_discount else 5" class="text-right bold" style="border: none !important;">ПДВ:</td>
+                                    <td class="text-right bold" t-esc="'%.2f' % o.amount_tax"/>
+                                </tr>
+                                <tr t-if="not o.amount_tax">
+                                    <td t-att-colspan="6 if has_discount else 5" class="text-right" style="border: none !important;">ПДВ не нараховується</td>
+                                    <td class="text-right">—</td>
+                                </tr>
+                                <tr>
+                                    <td t-att-colspan="6 if has_discount else 5" class="text-right bold" style="border: none !important;">Всього:</td>
+                                    <td class="text-right bold" t-esc="'%.2f' % o.amount_total"/>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <!-- Summary -->
+                        <div style="margin-bottom: 10px;">
+                            <p>
+                                Всього найменувань <strong t-esc="len(lines)"/>, на суму:
+                                <strong t-esc="'%.2f' % o.amount_total"/> грн.
+                            </p>
+                            <t t-if="o.l10n_ua_amount_words">
+                                <p><strong t-esc="o.l10n_ua_amount_words.capitalize()"/></p>
+                            </t>
+                        </div>
+
+                        <div t-if="o.l10n_ua_discount_total" style="margin-bottom: 10px;">
+                            <p>Сума знижки: <strong t-esc="'%.2f' % o.l10n_ua_discount_total"/> грн.</p>
+                        </div>
+
+                        <!-- Signatures -->
+                        <div class="row" style="margin-top: 30px;">
+                            <div class="col-6">
+                                <div class="bold" style="margin-bottom: 5px;">Від постачальника*</div>
+                                <div class="small italic">* Відповідальний за здійснення господарської<br/>операції та правильність її оформлення</div>
+                                <div style="margin-top: 20px;">
+                                    <t t-if="comp_partner.l10n_ua_chief_position">
+                                        <span t-field="comp_partner.l10n_ua_chief_position"/>
+                                    </t>
+                                    <span class="signature-line"></span>
+                                    <t t-if="comp_partner.l10n_ua_chief_name">
+                                        / <span t-field="comp_partner.l10n_ua_chief_name"/>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="bold" style="margin-bottom: 5px;">Отримав(ла)</div>
+                                <div style="margin-top: 35px;">
+                                    <span class="signature-line"></span>
+                                </div>
+                                <div style="margin-top: 10px;">
+                                    За довіреністю ___ № ____ від ___________
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

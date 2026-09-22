@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Root Menu.
+         Гейтуємо кожен action-листок (не лише корінь): Odoo показує предків
+         будь-якого ВИДИМОГО листка, тож негейтований листок «витягнув» би
+         апп-тайл назад для користувача без telegram-груп (див. issue #191,
+         docs/menu_architecture.md). Операційне → user, конфіг → manager. -->
+    <menuitem id="menu_telegram_bot_root"
+              name="Telegram"
+              sequence="65"
+              groups="group_telegram_bot_user"
+              web_icon="telegram_bot,static/description/icon.png"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_telegram_bot_config"
+              name="Configuration"
+              parent="menu_telegram_bot_root"
+              groups="group_telegram_bot_manager"
+              sequence="100"/>
+
+    <!-- Bots Menu -->
+    <menuitem id="menu_telegram_bot_bots"
+              name="Bots"
+              parent="menu_telegram_bot_config"
+              action="telegram_bot_action"
+              groups="group_telegram_bot_manager"
+              sequence="10"/>
+
+    <!-- Commands Menu -->
+    <menuitem id="menu_telegram_bot_commands"
+              name="Commands"
+              parent="menu_telegram_bot_config"
+              action="telegram_bot_command_action"
+              groups="group_telegram_bot_manager"
+              sequence="20"/>
+
+    <!-- Chats Menu -->
+    <menuitem id="menu_telegram_bot_chats"
+              name="Chats"
+              parent="menu_telegram_bot_root"
+              action="telegram_bot_chat_action"
+              groups="group_telegram_bot_user"
+              sequence="10"/>
+
+    <!-- Messages Menu -->
+    <menuitem id="menu_telegram_bot_messages"
+              name="Messages"
+              parent="menu_telegram_bot_root"
+              action="telegram_bot_message_action"
+              groups="group_telegram_bot_user"
+              sequence="20"/>
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_l10n_ua_delivery"
+              name="Delivery"
+              parent="l10n_ua_account_base.menu_l10n_ua_root"
+              sequence="60"/>
+
+    <menuitem id="menu_l10n_ua_delivery_warehouses"
+              name="Warehouses"
+              parent="menu_l10n_ua_delivery"
+              action="l10n_ua_delivery_warehouse_action"
+              sequence="10"/>
+
+</odoo>

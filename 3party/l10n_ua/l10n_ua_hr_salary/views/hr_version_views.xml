@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Поля індексації ЗП на сторінці "UA: Контракт" картки працівника (#138) -->
+    <record id="hr_employee_view_form_indexation" model="ir.ui.view">
+        <field name="name">hr.employee.form.indexation</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="l10n_ua_hr_contract.hr_employee_view_form_version_ua"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='diia_city_employee']" position="after">
+                <field name="indexation_enabled"/>
+                <field name="indexation_base_month" invisible="not indexation_enabled"/>
+                <field name="salary_form"/>
+                <field name="salary_currency_id"/>
+                <field name="seniority_enabled"/>
+                <field name="seniority_scale_id" invisible="not seniority_enabled"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

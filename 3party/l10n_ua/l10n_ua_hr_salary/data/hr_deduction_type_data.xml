@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="deduction_type_pdfo" model="hr.deduction.type">
+            <field name="name">ПДФО</field>
+            <field name="code">PDFO</field>
+            <field name="category">tax</field>
+            <field name="calculation_method">percent_base</field>
+            <field name="default_rate">18</field>
+            <field name="priority">1</field>
+            <field name="is_mandatory">True</field>
+            <field name="sequence">10</field>
+            <field name="description">Податок на доходи фізичних осіб (18%)</field>
+        </record>
+        
+        <record id="deduction_type_military" model="hr.deduction.type">
+            <field name="name">Військовий збір</field>
+            <field name="code">MILITARY</field>
+            <field name="category">tax</field>
+            <field name="calculation_method">percent_gross</field>
+            <field name="default_rate">5</field>
+            <field name="priority">2</field>
+            <field name="is_mandatory">True</field>
+            <field name="sequence">20</field>
+            <field name="description">Військовий збір (5%)</field>
+        </record>
+        
+        <record id="deduction_type_union" model="hr.deduction.type">
+            <field name="name">Профспілкові внески</field>
+            <field name="code">UNION</field>
+            <field name="category">union</field>
+            <field name="calculation_method">percent_gross</field>
+            <field name="default_rate">1</field>
+            <field name="priority">10</field>
+            <field name="max_percent">50</field>
+            <field name="sequence">30</field>
+            <field name="description">Членські внески до профспілки</field>
+        </record>
+        
+        <record id="deduction_type_alimony" model="hr.deduction.type">
+            <field name="name">Аліменти</field>
+            <field name="code">ALIMONY</field>
+            <field name="category">alimony</field>
+            <field name="calculation_method">percent_net</field>
+            <field name="priority">3</field>
+            <field name="max_percent">70</field>
+            <field name="sequence">40</field>
+            <field name="description">Утримання аліментів за виконавчим документом</field>
+        </record>
+        
+        <record id="deduction_type_loan" model="hr.deduction.type">
+            <field name="name">Погашення позики</field>
+            <field name="code">LOAN</field>
+            <field name="category">loan</field>
+            <field name="calculation_method">fixed</field>
+            <field name="priority">15</field>
+            <field name="max_percent">50</field>
+            <field name="sequence">50</field>
+            <field name="description">Утримання в рахунок погашення позики від роботодавця</field>
+        </record>
+        
+        <record id="deduction_type_advance" model="hr.deduction.type">
+            <field name="name">Утримання авансу</field>
+            <field name="code">ADVANCE</field>
+            <field name="category">advance</field>
+            <field name="calculation_method">fixed</field>
+            <field name="priority">20</field>
+            <field name="max_percent">50</field>
+            <field name="sequence">60</field>
+            <field name="description">Утримання раніше виплаченого авансу</field>
+        </record>
+        
+        <record id="deduction_type_damage" model="hr.deduction.type">
+            <field name="name">Відшкодування шкоди</field>
+            <field name="code">DAMAGE</field>
+            <field name="category">damage</field>
+            <field name="calculation_method">fixed</field>
+            <field name="priority">25</field>
+            <field name="max_percent">20</field>
+            <field name="sequence">70</field>
+            <field name="description">Утримання за завдану матеріальну шкоду</field>
+        </record>
+        
+        <record id="deduction_type_court" model="hr.deduction.type">
+            <field name="name">За рішенням суду</field>
+            <field name="code">COURT</field>
+            <field name="category">other</field>
+            <field name="calculation_method">fixed</field>
+            <field name="priority">5</field>
+            <field name="max_percent">50</field>
+            <field name="sequence">80</field>
+            <field name="description">Утримання за рішенням суду (крім аліментів)</field>
+        </record>
+        
+        <record id="deduction_type_other" model="hr.deduction.type">
+            <field name="name">Інші утримання</field>
+            <field name="code">OTHER</field>
+            <field name="category">other</field>
+            <field name="calculation_method">fixed</field>
+            <field name="priority">30</field>
+            <field name="max_percent">50</field>
+            <field name="sequence">100</field>
+        </record>
+        
+    </data>
+</odoo>

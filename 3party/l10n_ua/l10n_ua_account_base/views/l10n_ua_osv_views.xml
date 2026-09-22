@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_osv_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.osv.form</field>
+        <field name="model">l10n_ua.osv</field>
+        <field name="arch" type="xml">
+            <form string="Trial Balance (OSV)">
+                <header>
+                    <button name="action_compute" string="Compute" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_draft" string="Set to Draft" type="object" invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="osv_type"/>
+                            <field name="subconto_type_id"
+                                   invisible="osv_type != 'subconto'"
+                                   required="osv_type == 'subconto'"/>
+                            <field name="account_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="period_start"/>
+                            <field name="period_end"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="lines">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="currency_id" column_invisible="True"/>
+                                    <field name="account_id"/>
+                                    <field name="partner_id" optional="hide"/>
+                                    <field name="subconto_label" optional="show"/>
+                                    <field name="opening_debit" sum="Total"/>
+                                    <field name="opening_credit" sum="Total"/>
+                                    <field name="turnover_debit" sum="Total"/>
+                                    <field name="turnover_credit" sum="Total"/>
+                                    <field name="closing_debit" sum="Total"/>
+                                    <field name="closing_credit" sum="Total"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_osv_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.osv.list</field>
+        <field name="model">l10n_ua.osv</field>
+        <field name="arch" type="xml">
+            <list string="Trial Balance (OSV)">
+                <field name="name"/>
+                <field name="osv_type"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_osv_action" model="ir.actions.act_window">
+        <field name="name">Trial Balance (OSV)</field>
+        <field name="res_model">l10n_ua.osv</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Root Menu.
+         NB: gating a root/container alone does NOT hide the app — Odoo always
+         shows the ancestors of any visible (ungated) leaf. To hide the whole
+         app from non-members, every action-bearing LEAF menu carries the group.
+         See docs/menu_architecture.md (видимість). -->
+    <menuitem id="menu_marketplace_root"
+              name="Marketplaces"
+              web_icon="l10n_ua_marketplace_base,static/description/icon.png"
+              sequence="45"
+              groups="group_marketplace_user"/>
+
+    <!-- Orders Menu -->
+    <menuitem id="menu_marketplace_orders"
+              name="Orders"
+              parent="menu_marketplace_root"
+              action="marketplace_order_action"
+              sequence="10"
+              groups="group_marketplace_user"/>
+
+    <!-- Catalog Menu -->
+    <menuitem id="menu_marketplace_catalog"
+              name="Catalog"
+              parent="menu_marketplace_root"
+              sequence="20"/>
+
+    <menuitem id="menu_marketplace_pricelists"
+              name="Pricelists"
+              parent="menu_marketplace_catalog"
+              action="marketplace_pricelist_action"
+              sequence="10"
+              groups="group_marketplace_user"/>
+
+    <menuitem id="menu_marketplace_pricelist_items"
+              name="Products"
+              parent="menu_marketplace_catalog"
+              action="marketplace_pricelist_item_action"
+              sequence="20"
+              groups="group_marketplace_user"/>
+
+    <menuitem id="menu_marketplace_categories"
+              name="Categories"
+              parent="menu_marketplace_catalog"
+              action="marketplace_category_action"
+              sequence="30"
+              groups="group_marketplace_user"/>
+
+    <!-- Configuration Menu (manager-only) -->
+    <menuitem id="menu_marketplace_config"
+              name="Configuration"
+              parent="menu_marketplace_root"
+              sequence="90"/>
+
+    <menuitem id="menu_marketplace_backends"
+              name="Backends"
+              parent="menu_marketplace_config"
+              action="marketplace_backend_action"
+              sequence="10"
+              groups="group_marketplace_manager"/>
+
+    <menuitem id="menu_marketplace_status_mappings"
+              name="Status Mappings"
+              parent="menu_marketplace_config"
+              action="marketplace_status_mapping_action"
+              sequence="20"
+              groups="group_marketplace_manager"/>
+
+    <menuitem id="menu_marketplace_payment_statuses"
+              name="Payment Statuses"
+              parent="menu_marketplace_config"
+              action="marketplace_payment_status_action"
+              sequence="30"
+              groups="group_marketplace_manager"/>
+
+</odoo>

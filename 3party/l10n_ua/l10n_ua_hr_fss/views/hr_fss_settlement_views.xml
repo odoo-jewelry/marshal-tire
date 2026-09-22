@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_fss_settlement_view_form" model="ir.ui.view">
+        <field name="name">hr.fss.settlement.form</field>
+        <field name="model">hr.fss.settlement</field>
+        <field name="arch" type="xml">
+            <form string="Взаєморозрахунки з ФСС">
+                <header>
+                    <button name="action_gather_sick_leaves" string="Підтягнути лікарняні"
+                            type="object" invisible="state != 'draft'"/>
+                    <button name="action_submit" string="Подати заяву"
+                            type="object" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_register_reimbursement" string="Зафіксувати відшкодування"
+                            type="object" class="btn-primary"
+                            invisible="state not in ('submitted', 'partial')"/>
+                    <button name="action_write_off_unreimbursed" string="Сторно невідшкодованого"
+                            type="object"
+                            invisible="state not in ('partial', 'submitted') or residual &lt;= 0"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,reimbursed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="amount_accrued"/>
+                            <field name="amount_received"/>
+                            <field name="residual"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="date_submitted"/>
+                            <field name="date_reimbursed"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Лікарняні" name="sick_leaves">
+                            <field name="sick_leave_ids" readonly="1">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="employee_id"/>
+                                    <field name="date_from"/>
+                                    <field name="date_to"/>
+                                    <field name="fss_days"/>
+                                    <field name="fss_amount" sum="Total FSS"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Сторно / проводка" name="storno">
+                            <group>
+                                <field name="journal_id"/>
+                                <field name="expense_account_id"/>
+                                <field name="fss_receivable_account_id"/>
+                                <field name="storno_move_id" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_fss_settlement_view_tree" model="ir.ui.view">
+        <field name="name">hr.fss.settlement.list</field>
+        <field name="model">hr.fss.settlement</field>
+        <field name="arch" type="xml">
+            <list string="Взаєморозрахунки з ФСС"
+                  decoration-success="state == 'reimbursed'"
+                  decoration-warning="state == 'partial'"
+                  decoration-muted="state == 'written_off'">
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="amount_accrued" sum="Accrued"/>
+                <field name="amount_received" sum="Received"/>
+                <field name="residual" sum="Residual"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'reimbursed'"
+                       decoration-warning="state == 'partial'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_fss_settlement_action" model="ir.actions.act_window">
+        <field name="name">Взаєморозрахунки з ФСС</field>
+        <field name="res_model">hr.fss.settlement</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_hr_fss_settlement"
+              name="Взаєморозрахунки з ФСС"
+              parent="hr_holidays.menu_hr_holidays_management"
+              action="hr_fss_settlement_action"
+              sequence="25"
+              groups="l10n_ua_hr_base.group_hr_ua_officer"/>
+
+</odoo>

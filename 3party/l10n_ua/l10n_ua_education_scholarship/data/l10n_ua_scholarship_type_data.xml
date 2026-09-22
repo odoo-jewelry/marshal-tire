@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="scholarship_type_academic_basic" model="l10n_ua.scholarship.type">
+            <field name="name">Академічна (звичайна)</field>
+            <field name="code">ACAD</field>
+            <field name="kind">academic</field>
+            <field name="sequence">10</field>
+            <field name="is_taxable_pdfo" eval="False"/>
+            <field name="description">&lt;p&gt;Звичайна академічна стипендія за результатами навчання. Розміри встановлено постановою КМУ № 1047 від 28.12.2016.&lt;/p&gt;</field>
+        </record>
+
+        <record id="scholarship_type_academic_advanced" model="l10n_ua.scholarship.type">
+            <field name="name">Академічна (підвищена)</field>
+            <field name="code">ACAD_ADV</field>
+            <field name="kind">academic</field>
+            <field name="sequence">20</field>
+            <field name="description">&lt;p&gt;Підвищена академічна стипендія за відмінну успішність.&lt;/p&gt;</field>
+        </record>
+
+        <record id="scholarship_type_social" model="l10n_ua.scholarship.type">
+            <field name="name">Соціальна</field>
+            <field name="code">SOC</field>
+            <field name="kind">social</field>
+            <field name="sequence">30</field>
+            <field name="description">&lt;p&gt;Соціальна стипендія малозабезпеченим студентам.&lt;/p&gt;</field>
+        </record>
+
+        <record id="scholarship_type_presidential" model="l10n_ua.scholarship.type">
+            <field name="name">Президентська</field>
+            <field name="code">PRES</field>
+            <field name="kind">presidential</field>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="scholarship_type_rada" model="l10n_ua.scholarship.type">
+            <field name="name">Верховної Ради</field>
+            <field name="code">RADA</field>
+            <field name="kind">rada</field>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="scholarship_type_regional" model="l10n_ua.scholarship.type">
+            <field name="name">Обласна / місцева</field>
+            <field name="code">REG</field>
+            <field name="kind">regional</field>
+            <field name="sequence">60</field>
+        </record>
+
+        <!-- Розміри, чинні до підвищення 01.09.2026. -->
+        <record id="rate_academic_basic_professional_2022" model="l10n_ua.scholarship.rate">
+            <field name="scholarship_type_id" ref="scholarship_type_academic_basic"/>
+            <field name="institution_type">professional</field>
+            <field name="date_from">2022-01-01</field>
+            <field name="amount">1250</field>
+            <field name="legal_basis">Постанова КМУ № 1047 від 28.12.2016</field>
+        </record>
+        <record id="rate_academic_basic_pre_higher_2022" model="l10n_ua.scholarship.rate">
+            <field name="scholarship_type_id" ref="scholarship_type_academic_basic"/>
+            <field name="institution_type">pre_higher</field>
+            <field name="date_from">2022-01-01</field>
+            <field name="amount">1510</field>
+            <field name="legal_basis">Постанова КМУ № 1047 від 28.12.2016</field>
+        </record>
+        <record id="rate_academic_basic_higher_2022" model="l10n_ua.scholarship.rate">
+            <field name="scholarship_type_id" ref="scholarship_type_academic_basic"/>
+            <field name="institution_type">higher</field>
+            <field name="date_from">2022-01-01</field>
+            <field name="amount">2000</field>
+            <field name="legal_basis">Постанова КМУ № 1047 від 28.12.2016</field>
+        </record>
+        <record id="rate_academic_advanced_pre_higher_2022" model="l10n_ua.scholarship.rate">
+            <field name="scholarship_type_id" ref="scholarship_type_academic_advanced"/>
+            <field name="institution_type">pre_higher</field>
+            <field name="date_from">2022-01-01</field>
+            <field name="amount">2197</field>
+            <field name="legal_basis">Постанова КМУ № 1047 від 28.12.2016</field>
+        </record>
+        <record id="rate_academic_advanced_higher_2022" model="l10n_ua.scholarship.rate">
+            <field name="scholarship_type_id" ref="scholarship_type_academic_advanced"/>
+            <field name="institution_type">higher</field>
+            <field name="date_from">2022-01-01</field>
+            <field name="amount">2910</field>
+            <field name="legal_basis">Постанова КМУ № 1047 від 28.12.2016</field>
+        </record>
+
+        <!-- Подвоєні розміри з 01.09.2026, постанова КМУ № 314 від 12.03.2026. -->
+        <record id="rate_academic_basic_professional_2026" model="l10n_ua.scholarship.rate">
+            <field name="scholarship_type_id" ref="scholarship_type_academic_basic"/>
+            <field name="institution_type">professional</field>
+            <field name="date_from">2026-09-01</field>
+            <field name="amount">2500</field>
+            <field name="legal_basis">Постанова КМУ № 314 від 12.03.2026</field>
+        </record>
+        <record id="rate_academic_basic_pre_higher_2026" model="l10n_ua.scholarship.rate">
+            <field name="scholarship_type_id" ref="scholarship_type_academic_basic"/>
+            <field name="institution_type">pre_higher</field>
+            <field name="date_from">2026-09-01</field>
+            <field name="amount">3020</field>
+            <field name="legal_basis">Постанова КМУ № 314 від 12.03.2026</field>
+        </record>
+        <record id="rate_academic_basic_higher_2026" model="l10n_ua.scholarship.rate">
+            <field name="scholarship_type_id" ref="scholarship_type_academic_basic"/>
+            <field name="institution_type">higher</field>
+            <field name="date_from">2026-09-01</field>
+            <field name="amount">4000</field>
+            <field name="legal_basis">Постанова КМУ № 314 від 12.03.2026</field>
+        </record>
+        <record id="rate_academic_advanced_pre_higher_2026" model="l10n_ua.scholarship.rate">
+            <field name="scholarship_type_id" ref="scholarship_type_academic_advanced"/>
+            <field name="institution_type">pre_higher</field>
+            <field name="date_from">2026-09-01</field>
+            <field name="amount">4394</field>
+            <field name="legal_basis">Постанова КМУ № 314 від 12.03.2026</field>
+        </record>
+        <record id="rate_academic_advanced_higher_2026" model="l10n_ua.scholarship.rate">
+            <field name="scholarship_type_id" ref="scholarship_type_academic_advanced"/>
+            <field name="institution_type">higher</field>
+            <field name="date_from">2026-09-01</field>
+            <field name="amount">5820</field>
+            <field name="legal_basis">Постанова КМУ № 314 від 12.03.2026</field>
+        </record>
+    </data>
+</odoo>

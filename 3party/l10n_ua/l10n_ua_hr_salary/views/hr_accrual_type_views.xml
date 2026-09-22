@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_accrual_type_view_form" model="ir.ui.view">
+        <field name="name">hr.accrual.type.form</field>
+        <field name="model">hr.accrual.type</field>
+        <field name="arch" type="xml">
+            <form string="Accrual Type">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="category"/>
+                            <field name="calculation_method"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="is_basic_salary"/>
+                            <field name="is_taxable_pdfo"/>
+                            <field name="is_military_tax"/>
+                            <field name="is_esv_base"/>
+                            <field name="is_in_kind"/>
+                            <field name="d4_income_type"/>
+                        </group>
+                    </group>
+                    <group string="Accounting" groups="account.group_account_user">
+                        <field name="account_debit_id"/>
+                        <field name="account_credit_id"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_accrual_type_view_tree" model="ir.ui.view">
+        <field name="name">hr.accrual.type.tree</field>
+        <field name="model">hr.accrual.type</field>
+        <field name="arch" type="xml">
+            <list string="Accrual Types">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="is_taxable_pdfo"/>
+                <field name="is_esv_base"/>
+                <field name="d4_income_type"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hr_accrual_type" model="ir.actions.act_window">
+        <field name="name">Accrual Types</field>
+        <field name="res_model">hr.accrual.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

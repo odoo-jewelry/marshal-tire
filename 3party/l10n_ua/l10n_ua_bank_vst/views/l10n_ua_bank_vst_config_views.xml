@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="l10n_ua_bank_sync_config_view_form_vst" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.config.form.vst</field>
+        <field name="model">l10n_ua.bank.sync.config</field>
+        <field name="inherit_id" ref="l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_sync_now']" position="before">
+                <button name="action_vst_open_import" type="object"
+                        string="Імпорт виписки iBank 2 UA" class="btn-primary"
+                        invisible="provider != 'vst'"/>
+            </xpath>
+            <xpath expr="//group[@name='account_group']" position="after">
+                <group string="VST Bank (iBank 2 UA)" invisible="provider != 'vst'">
+                    <div colspan="2" class="text-muted">
+                        VST Bank (Банк Восток) — <b>файловий провайдер</b>: окремих
+                        API-налаштувань немає. Виписка експортується з iBank 2 UA
+                        у CSV («Виписки по поточним рахункам», windows-1251) і
+                        завантажується кнопкою <b>«Імпорт виписки iBank 2 UA»</b>
+                        вище. Зарплатний реєстр формується у модулі зарплати
+                        (формат iBank 2 UA).
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

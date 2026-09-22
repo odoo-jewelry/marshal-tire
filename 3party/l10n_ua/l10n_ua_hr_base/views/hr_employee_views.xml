@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_employee_form_inherit_ua" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.ua</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+
+	    <xpath expr="//field[@name='job_id']" position="before">
+                <field name="allowed_job_ids" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='job_id']" position="attributes">
+                <attribute name="domain">[('id', 'in', allowed_job_ids)]</attribute>
+	    </xpath>
+
+            <!-- Hide duplicate citizenship fields from core Personal page -->
+            <!-- We use Documents tab instead with more Ukrainian-specific fields -->
+            <xpath expr="//group[@name='citizenship']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <!-- Hide duplicate Family fields from core Personal page -->
+            <!-- We use Family tab instead with more Ukrainian-specific fields -->
+            <xpath expr="//group[@name='hr_family_group']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <!-- Hide duplicate Education fields from core Personal page -->
+            <!-- We use Education tab instead with more Ukrainian-specific fields -->
+            <xpath expr="//group[@name='hr_education_group']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <!-- Registration address, right below the native private address it
+                 mirrors and inside the same "Location" group, so both blocks
+                 share one heading and one layout.
+                 The address rows collapse once the checkbox is ticked; the
+                 checkbox itself stays and spells out where they went. -->
+            <xpath expr="//group[@name='hr_location_group']/div[@class='o_address_format']" position="after">
+                <field name="registration_same_as_actual"/>
+                <label for="registration_street" string="Registration Address" invisible="registration_same_as_actual"/>
+                <div class="o_address_format" invisible="registration_same_as_actual">
+                    <field name="registration_street" placeholder="Street..." class="o_address_street"/>
+                    <field name="registration_street2" placeholder="Street 2..." class="o_address_street"/>
+                    <field name="registration_city" placeholder="City" class="o_address_city"/>
+                    <field name="registration_region_id" class="o_address_state" placeholder="Region" options='{"no_open": True, "no_create": True}'/>
+                    <field name="registration_zip" placeholder="ZIP" class="o_address_zip"/>
+                </div>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <!-- UA Personal: Documents, Education, Military, Benefits, Family -->
+                <page string="UA: Персональне" name="ua_personal" groups="hr.group_hr_user">
+                    <group>
+                        <group string="Документи">
+                            <field name="rnokpp" placeholder="1234567890"/>
+                            <field name="document_type"/>
+                            <field name="passport_series" invisible="document_type != 'passport'"/>
+                            <field name="passport_id" string="Номер паспорта/ID"/>
+                            <field name="passport_issued_by"/>
+                            <field name="passport_issued_date"/>
+                            <field name="passport_expiration_date" string="Дійсний до" invisible="document_type != 'id_card'"/>
+                            <field name="passport_record_number" invisible="document_type != 'id_card'"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Освіта">
+                            <field name="education_level_id"/>
+                            <field name="study_school" string="Навчальний заклад"/>
+                            <field name="study_field" string="Спеціальність"/>
+                            <field name="diploma_series"/>
+                            <field name="diploma_number"/>
+                            <field name="diploma_date"/>
+                        </group>
+                        <group string="Сім'я">
+                            <field name="marital"/>
+                            <field name="spouse_complete_name" invisible="marital not in ('married', 'cohabitant')"/>
+                            <field name="spouse_birthdate" invisible="marital not in ('married', 'cohabitant')"/>
+                            <field name="spouse_rnokpp" invisible="marital not in ('married', 'cohabitant')"/>
+                            <field name="children_count" string="Кількість дітей"/>
+                            <field name="dependents_count"/>
+                            <field name="is_single_parent"/>
+                        </group>
+                    </group>
+                    <separator string="Діти"/>
+                    <field name="children_ids" nolabel="1"/>
+                </page>
+
+                <!-- UA Work: Position, Experience, Military, Benefits -->
+                <page string="UA: Робота" name="ua_work" groups="hr.group_hr_user">
+                    <group>
+                        <group string="Класифікатор професій (КП)">
+                            <field name="job_kp_code" string="Код КП"/>
+                            <field name="job_kp_name" string="Назва КП"/>
+                            <field name="job_work_conditions" string="Умови праці"/>
+                            <field name="job_hazard_class" string="Клас шкідливості"
+                                   invisible="job_work_conditions == 'normal'"/>
+                        </group>
+                        <!-- The "Position pay" group was removed: the range of
+                             the job catalogue duplicated the staffing table
+                             range, which is now shown on the Work tab and is
+                             the only one the wage check looks at. The fields
+                             themselves stay on hr.job. -->
+                    </group>
+                    <group>
+                        <group string="Стаж роботи">
+                            <field name="hire_date" readonly="1"/>
+                            <field name="work_experience_total"/>
+                            <field name="work_experience_company"/>
+                            <field name="insurance_experience"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Військовий облік">
+                            <!-- Громадянство — штатне поле версії договору;
+                                 військовий облік ведеться лише щодо громадян
+                                 України, тож блок ховається для іноземців. -->
+                            <field name="country_id" string="Громадянство"/>
+                            <field name="military_accounting_applicable" invisible="1"/>
+                            <div colspan="2" class="text-muted"
+                                 invisible="military_accounting_applicable">
+                                Військовий облік ведеться лише щодо громадян України
+                                (ст. 1 Закону № 2232-XII).
+                            </div>
+                            <field name="military_register_category"
+                                   invisible="not military_accounting_applicable"/>
+                            <field name="military_status" invisible="1"/>
+                            <field name="military_category" invisible="not military_accounting_applicable or military_register_category == 'not_applicable'"/>
+                            <field name="military_rank_id" invisible="not military_accounting_applicable or military_register_category == 'not_applicable'"/>
+                            <field name="military_specialty" invisible="not military_accounting_applicable or military_register_category == 'not_applicable'"/>
+                            <field name="military_fitness" invisible="not military_accounting_applicable or military_register_category == 'not_applicable'"/>
+                            <field name="military_medical_category" invisible="not military_accounting_applicable or military_register_category == 'not_applicable'"/>
+                            <field name="military_mlk_retest_date" invisible="not military_accounting_applicable or military_register_category == 'not_applicable'"/>
+                            <field name="military_mlk_retest_due_soon" invisible="not military_accounting_applicable or not military_mlk_retest_date"
+                                   readonly="1"/>
+                            <field name="military_document_number" invisible="not military_accounting_applicable or military_register_category == 'not_applicable'"/>
+                            <field name="military_tcc_id" invisible="not military_accounting_applicable or military_register_category == 'not_applicable'"/>
+                            <field name="military_reservation" invisible="not military_accounting_applicable or military_register_category == 'not_applicable'"/>
+                            <field name="military_reservation_until" invisible="not military_accounting_applicable or not military_reservation"/>
+                            <field name="military_reservation_expired" invisible="not military_accounting_applicable or not military_reservation"/>
+                            <field name="military_reservplus_id" invisible="not military_accounting_applicable or not military_reservation"/>
+                        </group>
+                        <!-- Реквізити, потрібні для Списків персонального
+                             військового обліку (додаток 5 до Порядку № 1487
+                             у редакції ПКМУ № 916 від 30.07.2025). Блок
+                             видимий лише тим, хто справді на обліку. -->
+                        <group string="Дані для Списків (додаток 5)"
+                               invisible="not military_accounting_applicable or military_register_category == 'not_applicable'">
+                            <field name="gender"/>
+                            <field name="military_list_group" readonly="1"/>
+                            <field name="military_vin_code"/>
+                            <field name="military_document_type"/>
+                            <field name="military_document_date"/>
+                            <field name="military_deferment_type"/>
+                            <field name="military_deferment_until"
+                                   invisible="not military_deferment_type"/>
+                            <field name="military_deferment_basis"
+                                   invisible="not military_deferment_type"/>
+                            <field name="military_service_status"/>
+                            <field name="military_service_since"
+                                   invisible="military_service_status != 'serving'"/>
+                            <field name="military_mob_order_number"/>
+                            <field name="military_mob_order_date"
+                                   invisible="not military_mob_order_number"/>
+                            <field name="military_mob_team"
+                                   invisible="not military_mob_order_number"/>
+                            <field name="military_position_order"/>
+                            <field name="military_exclusion_mark"/>
+                            <field name="military_exclusion_date"
+                                   invisible="not military_exclusion_mark"/>
+                            <field name="military_notice_ref" readonly="1"/>
+                            <field name="military_notice_ref_manual"/>
+                        </group>
+                        <group string="Пільги">
+                            <field name="benefit_ids" widget="many2many_tags"/>
+                            <field name="veteran_status"/>
+                            <field name="chornobyl_category"/>
+                            <field name="disability_group"/>
+                            <field name="disability_reason" invisible="disability_group == 'none'"/>
+                            <field name="disability_document" invisible="disability_group == 'none'"/>
+                            <field name="disability_date_from" invisible="disability_group == 'none'"/>
+                            <field name="disability_date_to" invisible="disability_group == 'none'"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+            <!-- Move Personnel Number to standard Work Information tab -->
+            <xpath expr="//page[@name='work_information']//field[@name='parent_id']" position="after">
+                <label for="employee_number" string="Personnel Number"/>
+                <div class="o_row">
+                    <field name="employee_number" placeholder="e.g. 2026-0001"/>
+                    <button string="Generate" 
+                            class="btn btn-link" 
+                            type="object" 
+                            name="action_generate_employee_number" 
+                            invisible="employee_number"
+                            groups="hr.group_hr_user"/>
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Employee Tree View Extension -->
+    <record id="view_employee_tree_inherit_ua" model="ir.ui.view">
+        <field name="name">hr.employee.tree.inherit.ua</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='job_id']" position="after">
+                <field name="job_kp_code" string="Код КП" optional="show"/>
+                <field name="rnokpp" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Employee Search View Extension -->
+    <record id="view_employee_search_inherit_ua" model="ir.ui.view">
+        <field name="name">hr.employee.search.inherit.ua</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_team']" position="after">
+                <separator/>
+                <filter string="Призовники" name="military_conscripts" domain="[('military_register_category', '=', 'conscript')]"/>
+                <filter string="Військовозобов'язані" name="military_liable" domain="[('military_register_category', '=', 'liable')]"/>
+                <filter string="Резервісти" name="military_reservists" domain="[('military_register_category', '=', 'reservist')]"/>
+                <filter string="Reservation expired" name="military_res_expired" domain="[('military_reservation_expired', '=', True)]"/>
+                <filter string="ВЛК скоро (14 днів)" name="military_mlk_due_soon" domain="[('military_mlk_retest_due_soon', '=', True)]"/>
+                <filter string="Мають відстрочку" name="military_deferment" domain="[('military_deferment_type', '!=', False)]"/>
+                <filter string="Мають моброзпорядження" name="military_mob_order" domain="[('military_mob_order_number', '!=', False)]"/>
+                <separator/>
+                <filter string="With Disability" name="with_disability" domain="[('disability_group', '!=', 'none')]"/>
+                <filter string="Veterans" name="veterans" domain="[('veteran_status', '!=', 'none')]"/>
+                <filter string="Chornobyl" name="chornobyl" domain="[('chornobyl_category', '!=', 'none')]"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Коди класифікації доходів бюджету (КБКД) для військового збору.
+         З 01.07.2026 ВЗ зараховується до спеціального фонду держбюджету
+         (наказ Казначейства №197 від 25.06.2026). Джерело назв: ДПС
+         (tax.gov.ua). УВАГА: номери рахунків (IBAN) — регіональні/індивідуальні,
+         у модулі не зберігаються — звірте реквізити в е-кабінеті ДПС/Казначействі. -->
+
+    <record id="budget_code_vz_11011000" model="l10n_ua.budget.code">
+        <field name="code">11011000</field>
+        <field name="name">Військовий збір (крім військового збору, що підлягає сплаті платниками, зазначеними у пп. 4 пп. 1.3 п. 16-1 підрозд. 10 розд. XX ПКУ, фізичними особами — підприємцями та юридичними особами, які перебувають на спрощеній системі оподаткування)</field>
+        <field name="tax_type">vz</field>
+    </record>
+
+    <record id="budget_code_vz_11011001" model="l10n_ua.budget.code">
+        <field name="code">11011001</field>
+        <field name="name">Військовий збір (крім зазначеного у пп. 4 пп. 1.3 п. 16-1 підрозд. 10 розд. XX ПКУ, ФОП та юросіб на спрощеній системі), що сплачується фізичними особами за результатами річного декларування</field>
+        <field name="tax_type">vz</field>
+    </record>
+
+    <record id="budget_code_vz_11011600" model="l10n_ua.budget.code">
+        <field name="code">11011600</field>
+        <field name="name">Військовий збір, що підлягає сплаті платниками, зазначеними у пп. 4 пп. 1.3 п. 16-1 підрозд. 10 розд. XX ПКУ</field>
+        <field name="tax_type">vz</field>
+    </record>
+
+    <record id="budget_code_vz_11011700" model="l10n_ua.budget.code">
+        <field name="code">11011700</field>
+        <field name="name">Військовий збір, що підлягає сплаті фізичними особами — підприємцями, які перебувають на спрощеній системі оподаткування</field>
+        <field name="tax_type">vz</field>
+    </record>
+
+    <record id="budget_code_vz_11011800" model="l10n_ua.budget.code">
+        <field name="code">11011800</field>
+        <field name="name">Військовий збір, що підлягає сплаті юридичними особами, які перебувають на спрощеній системі оподаткування (III група)</field>
+        <field name="tax_type">vz</field>
+    </record>
+
+</odoo>

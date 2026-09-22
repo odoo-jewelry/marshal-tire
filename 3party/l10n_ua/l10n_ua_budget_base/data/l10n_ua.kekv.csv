@@ -1,0 +1,59 @@
+id,code,name,parent_id:id,expense_type
+kekv_20,20,Поточні видатки,,current
+kekv_21,21,Оплата праці і нарахування на заробітну плату,l10n_ua_budget_base.kekv_20,current
+kekv_2110,2110,Оплата праці,l10n_ua_budget_base.kekv_21,current
+kekv_2111,2111,Заробітна плата,l10n_ua_budget_base.kekv_2110,current
+kekv_2112,2112,Грошове забезпечення військовослужбовців,l10n_ua_budget_base.kekv_2110,current
+kekv_2120,2120,Нарахування на оплату праці,l10n_ua_budget_base.kekv_21,current
+kekv_22,22,Використання товарів і послуг,l10n_ua_budget_base.kekv_20,current
+kekv_2210,2210,"Предмети, матеріали, обладнання та інвентар",l10n_ua_budget_base.kekv_22,current
+kekv_2220,2220,Медикаменти та перев'язувальні матеріали,l10n_ua_budget_base.kekv_22,current
+kekv_2230,2230,Продукти харчування,l10n_ua_budget_base.kekv_22,current
+kekv_2240,2240,Оплата послуг (крім комунальних),l10n_ua_budget_base.kekv_22,current
+kekv_2250,2250,Видатки на відрядження,l10n_ua_budget_base.kekv_22,current
+kekv_2260,2260,Видатки та заходи спеціального призначення,l10n_ua_budget_base.kekv_22,current
+kekv_2270,2270,Оплата комунальних послуг та енергоносіїв,l10n_ua_budget_base.kekv_22,current
+kekv_2271,2271,Оплата теплопостачання,l10n_ua_budget_base.kekv_2270,current
+kekv_2272,2272,Оплата водопостачання та водовідведення,l10n_ua_budget_base.kekv_2270,current
+kekv_2273,2273,Оплата електроенергії,l10n_ua_budget_base.kekv_2270,current
+kekv_2274,2274,Оплата природного газу,l10n_ua_budget_base.kekv_2270,current
+kekv_2275,2275,Оплата інших енергоносіїв та комунальних послуг,l10n_ua_budget_base.kekv_2270,current
+kekv_2276,2276,Оплата енергосервісу,l10n_ua_budget_base.kekv_2270,current
+kekv_2280,2280,"Дослідження і розробки, окремі заходи з реалізації державних (регіональних) програм",l10n_ua_budget_base.kekv_22,current
+kekv_2281,2281,"Дослідження і розробки, окремі заходи розвитку",l10n_ua_budget_base.kekv_2280,current
+kekv_2282,2282,"Окремі заходи, не віднесені до заходів розвитку",l10n_ua_budget_base.kekv_2280,current
+kekv_24,24,Обслуговування боргових зобов'язань,l10n_ua_budget_base.kekv_20,current
+kekv_2410,2410,Обслуговування внутрішніх боргових зобов'язань,l10n_ua_budget_base.kekv_24,current
+kekv_2420,2420,Обслуговування зовнішніх боргових зобов'язань,l10n_ua_budget_base.kekv_24,current
+kekv_26,26,Поточні трансферти,l10n_ua_budget_base.kekv_20,current
+kekv_2610,2610,"Субсидії та поточні трансферти підприємствам (установам, організаціям)",l10n_ua_budget_base.kekv_26,current
+kekv_2620,2620,Поточні трансферти органам державного управління інших рівнів,l10n_ua_budget_base.kekv_26,current
+kekv_2630,2630,Поточні трансферти урядам іноземних держав та міжнародним організаціям,l10n_ua_budget_base.kekv_26,current
+kekv_27,27,Соціальне забезпечення,l10n_ua_budget_base.kekv_20,current
+kekv_2710,2710,Виплата пенсій і допомоги,l10n_ua_budget_base.kekv_27,current
+kekv_2720,2720,Стипендії,l10n_ua_budget_base.kekv_27,current
+kekv_2730,2730,Інші виплати населенню,l10n_ua_budget_base.kekv_27,current
+kekv_28,28,Інші поточні видатки,l10n_ua_budget_base.kekv_20,current
+kekv_30,30,Капітальні видатки,,capital
+kekv_31,31,Придбання основного капіталу,l10n_ua_budget_base.kekv_30,capital
+kekv_3110,3110,Придбання обладнання і предметів довгострокового користування,l10n_ua_budget_base.kekv_31,capital
+kekv_3120,3120,Капітальне будівництво (придбання),l10n_ua_budget_base.kekv_31,capital
+kekv_3121,3121,Капітальне будівництво (придбання) житла,l10n_ua_budget_base.kekv_3120,capital
+kekv_3122,3122,Капітальне будівництво (придбання) інших об'єктів,l10n_ua_budget_base.kekv_3120,capital
+kekv_3130,3130,Капітальний ремонт,l10n_ua_budget_base.kekv_31,capital
+kekv_3131,3131,Капітальний ремонт житлового фонду (приміщень),l10n_ua_budget_base.kekv_3130,capital
+kekv_3132,3132,Капітальний ремонт інших об'єктів,l10n_ua_budget_base.kekv_3130,capital
+kekv_3140,3140,Реконструкція та реставрація,l10n_ua_budget_base.kekv_31,capital
+kekv_3141,3141,Реконструкція житлового фонду (приміщень),l10n_ua_budget_base.kekv_3140,capital
+kekv_3142,3142,Реконструкція та реставрація інших об'єктів,l10n_ua_budget_base.kekv_3140,capital
+kekv_3143,3143,"Реставрація пам'яток культури, історії та архітектури",l10n_ua_budget_base.kekv_3140,capital
+kekv_3150,3150,Створення державних запасів і резервів,l10n_ua_budget_base.kekv_31,capital
+kekv_3160,3160,Придбання землі та нематеріальних активів,l10n_ua_budget_base.kekv_31,capital
+kekv_32,32,Капітальні трансферти,l10n_ua_budget_base.kekv_30,capital
+kekv_3210,3210,"Капітальні трансферти підприємствам (установам, організаціям)",l10n_ua_budget_base.kekv_32,capital
+kekv_3220,3220,Капітальні трансферти органам державного управління інших рівнів,l10n_ua_budget_base.kekv_32,capital
+kekv_3230,3230,Капітальні трансферти урядам іноземних держав та міжнародним організаціям,l10n_ua_budget_base.kekv_32,capital
+kekv_3240,3240,Капітальні трансферти населенню,l10n_ua_budget_base.kekv_32,capital
+kekv_40,40,Кредитування,,lending
+kekv_41,41,Внутрішнє кредитування,l10n_ua_budget_base.kekv_40,lending
+kekv_42,42,Зовнішнє кредитування,l10n_ua_budget_base.kekv_40,lending

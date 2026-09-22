@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_tax_document_wizard_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.document.wizard.form</field>
+        <field name="model">l10n_ua.tax.document.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Fill Document Data">
+                <group>
+                    <group string="Document">
+                        <field name="document_id" readonly="1"/>
+                        <field name="document_type_id" readonly="1"/>
+                        <field name="document_type_code" readonly="1"/>
+                        <field name="company_id" readonly="1"/>
+                    </group>
+                    <group string="Period">
+                        <field name="year"/>
+                        <field name="period"/>
+                    </group>
+                </group>
+                <group string="Taxpayer Information">
+                    <group>
+                        <field name="taxpayer_tin"/>
+                        <field name="taxpayer_name"/>
+                    </group>
+                    <group>
+                        <field name="taxpayer_phone"/>
+                        <field name="taxpayer_email"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="taxpayer_address"/>
+                </group>
+                <group name="document_specific_fields"/>
+                <footer>
+                    <button string="Generate XML" name="action_generate" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

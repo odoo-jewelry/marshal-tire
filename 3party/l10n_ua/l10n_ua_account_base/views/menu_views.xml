@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Ukraine Configuration - under Accounting Configuration -->
+    <menuitem id="menu_l10n_ua_root"
+              name="Ukraine"
+              parent="account.menu_finance_configuration"
+              sequence="100"/>
+
+    <menuitem id="menu_l10n_ua_directories"
+              name="Directories"
+              parent="menu_l10n_ua_root"
+              sequence="10"/>
+
+    <menuitem id="menu_l10n_ua_koatuu"
+              name="KOATUU/KATOTTG"
+              parent="menu_l10n_ua_directories"
+              action="l10n_ua_koatuu_action"
+              sequence="10"/>
+
+    <menuitem id="menu_l10n_ua_kved"
+              name="KVED-2010"
+              parent="menu_l10n_ua_directories"
+              action="l10n_ua_kved_action"
+              sequence="20"/>
+
+    <!-- Tax Offices moved to l10n_ua_tax module (Taxes UA -> Configuration) -->
+
+    <!-- UA Accounting -->
+    <menuitem id="menu_l10n_ua_accounting"
+              name="Accounting"
+              parent="menu_l10n_ua_root"
+              sequence="20"/>
+
+    <menuitem id="menu_l10n_ua_journal_orders"
+              name="Journal Orders"
+              parent="menu_l10n_ua_accounting"
+              action="l10n_ua_journal_order_action"
+              sequence="10"/>
+
+    <menuitem id="menu_l10n_ua_osv"
+              name="Trial Balance (OSV)"
+              parent="menu_l10n_ua_accounting"
+              action="l10n_ua_osv_action"
+              sequence="20"/>
+
+    <menuitem id="menu_l10n_ua_account_card"
+              name="Account Card"
+              parent="menu_l10n_ua_accounting"
+              action="l10n_ua_account_card_action"
+              sequence="30"/>
+
+    <menuitem id="menu_l10n_ua_account_analysis"
+              name="Account Analysis"
+              parent="menu_l10n_ua_accounting"
+              action="l10n_ua_account_analysis_action"
+              sequence="35"/>
+
+    <menuitem id="menu_l10n_ua_general_ledger"
+              name="General Ledger"
+              parent="menu_l10n_ua_accounting"
+              action="l10n_ua_general_ledger_action"
+              sequence="37"/>
+
+    <menuitem id="menu_l10n_ua_chess_sheet"
+              name="Chess Sheet"
+              parent="menu_l10n_ua_accounting"
+              action="l10n_ua_chess_sheet_action"
+              sequence="39"/>
+
+    <!-- Subconto Configuration -->
+    <menuitem id="menu_l10n_ua_subconto_types"
+              name="Subconto Types"
+              parent="menu_l10n_ua_directories"
+              action="l10n_ua_subconto_type_action"
+              sequence="50"/>
+
+</odoo>

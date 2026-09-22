@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Ukrainian Regions (Oblasts) -->
+        
+        <record id="state_ua_zhytomyr" model="res.country.state">
+            <field name="name">Житомирська область</field>
+            <field name="code">UA-18</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_kyiv_city" model="res.country.state">
+            <field name="name">місто Київ</field>
+            <field name="code">UA-30</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_kyiv" model="res.country.state">
+            <field name="name">Київська область</field>
+            <field name="code">UA-32</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_poltava" model="res.country.state">
+            <field name="name">Полтавська область</field>
+            <field name="code">UA-53</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_sumy" model="res.country.state">
+            <field name="name">Сумська область</field>
+            <field name="code">UA-59</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_cherkasy" model="res.country.state">
+            <field name="name">Черкаська область</field>
+            <field name="code">UA-71</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_chernihiv" model="res.country.state">
+            <field name="name">Чернігівська область</field>
+            <field name="code">UA-74</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_odesa" model="res.country.state">
+            <field name="name">Одеська область</field>
+            <field name="code">UA-51</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_kherson" model="res.country.state">
+            <field name="name">Херсонська область</field>
+            <field name="code">UA-65</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_mykolaiv" model="res.country.state">
+            <field name="name">Миколаївська область</field>
+            <field name="code">UA-48</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_vinnytsia" model="res.country.state">
+            <field name="name">Вінницька область</field>
+            <field name="code">UA-05</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_kirovohrad" model="res.country.state">
+            <field name="name">Кіровоградська область</field>
+            <field name="code">UA-35</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_volyn" model="res.country.state">
+            <field name="name">Волинська область</field>
+            <field name="code">UA-07</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_zakarpattia" model="res.country.state">
+            <field name="name">Закарпатська область</field>
+            <field name="code">UA-21</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_ivano_frankivsk" model="res.country.state">
+            <field name="name">Івано-Франківська область</field>
+            <field name="code">UA-26</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_lviv" model="res.country.state">
+            <field name="name">Львівська область</field>
+            <field name="code">UA-46</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_rivne" model="res.country.state">
+            <field name="name">Рівненська область</field>
+            <field name="code">UA-56</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_ternopil" model="res.country.state">
+            <field name="name">Тернопільська область</field>
+            <field name="code">UA-61</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_khmelnytskyi" model="res.country.state">
+            <field name="name">Хмельницька область</field>
+            <field name="code">UA-68</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_chernivtsi" model="res.country.state">
+            <field name="name">Чернівецька область</field>
+            <field name="code">UA-77</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_dnipropetrovsk" model="res.country.state">
+            <field name="name">Дніпропетровська область</field>
+            <field name="code">UA-12</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_donetsk" model="res.country.state">
+            <field name="name">Донецька область</field>
+            <field name="code">UA-14</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_luhansk" model="res.country.state">
+            <field name="name">Луганська область</field>
+            <field name="code">UA-44</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_kharkiv" model="res.country.state">
+            <field name="name">Харківська область</field>
+            <field name="code">UA-63</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+        <record id="state_ua_zaporizhzhia" model="res.country.state">
+            <field name="name">Запорізька область</field>
+            <field name="code">UA-23</field>
+            <field name="country_id" ref="base.ua"/>
+        </record>
+        
+    </data>
+</odoo>

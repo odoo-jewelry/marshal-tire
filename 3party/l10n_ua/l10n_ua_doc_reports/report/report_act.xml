@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Акт виконаних робіт (наданих послуг) report action -->
+    <record id="action_report_act" model="ir.actions.report">
+        <field name="name">Акт виконаних робіт</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_doc_reports.report_act_document</field>
+        <field name="report_file">l10n_ua_doc_reports.report_act_document</field>
+        <field name="print_report_name">'Акт_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+    <template id="report_act_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+                        <t t-set="company" t-value="o.company_id"/>
+                        <t t-set="partner" t-value="o.partner_id"/>
+                        <t t-set="comp_partner" t-value="company.partner_id"/>
+                        <t t-set="lines" t-value="o._get_ua_report_lines()"/>
+
+                        <!-- Title -->
+                        <div class="ua-report-title" style="margin: 15px 0 5px 0;">
+                            АКТ<br/>
+                            <span style="font-size: 12pt;">наданих послуг (виконаних робіт)</span>
+                        </div>
+                        <div class="text-center" style="margin-bottom: 15px; font-size: 11pt;">
+                            № <span t-field="o.name"/>
+                            від <span t-esc="o._get_ua_date_formatted()"/> року
+                        </div>
+
+                        <!-- Parties -->
+                        <table class="no-border-all" style="margin-bottom: 5px;">
+                            <tr>
+                                <td style="width: 15%; vertical-align: top;"><u>Виконавець:</u></td>
+                                <td style="width: 85%;">
+                                    <strong t-field="company.name"/>
+                                    <t t-if="comp_partner.edrpou">
+                                        , ЄДРПОУ: <span t-field="comp_partner.edrpou"/>
+                                    </t>
+                                    <t t-if="comp_partner.ipn">
+                                        , ІПН: <span t-field="comp_partner.ipn"/>
+                                    </t>
+                                    <t t-if="comp_partner.is_vat_payer">
+                                        , платник ПДВ
+                                    </t>
+                                    <t t-if="comp_partner.l10n_ua_legal_address">
+                                        <br/>Адреса: <span t-field="comp_partner.l10n_ua_legal_address"/>
+                                    </t>
+                                    <t t-elif="comp_partner.contact_address">
+                                        <br/>Адреса: <span t-esc="comp_partner.contact_address"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="no-border-all" style="margin-bottom: 5px;">
+                            <tr>
+                                <td style="width: 15%; vertical-align: top;"><u>Замовник:</u></td>
+                                <td style="width: 85%;">
+                                    <strong t-field="partner.name"/>
+                                    <t t-if="partner.edrpou">
+                                        , ЄДРПОУ: <span t-field="partner.edrpou"/>
+                                    </t>
+                                    <t t-if="partner.ipn">
+                                        , ІПН: <span t-field="partner.ipn"/>
+                                    </t>
+                                    <t t-if="partner.l10n_ua_legal_address">
+                                        <br/>Адреса: <span t-field="partner.l10n_ua_legal_address"/>
+                                    </t>
+                                    <t t-elif="partner.contact_address">
+                                        <br/>Адреса: <span t-esc="partner.contact_address"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Contract reference -->
+                        <table class="no-border-all" style="margin-bottom: 10px;" t-if="o.ua_counterparty_doc">
+                            <tr>
+                                <td style="width: 15%;"><u>Договір:</u></td>
+                                <td style="width: 85%;"><strong t-field="o.ua_counterparty_doc"/></td>
+                            </tr>
+                        </table>
+
+                        <!-- Lines table -->
+                        <table style="margin-bottom: 10px;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%;">№</th>
+                                    <th style="width: 40%;">Найменування послуги (роботи)</th>
+                                    <th style="width: 10%;">Од. виміру</th>
+                                    <th style="width: 10%;">Кількість</th>
+                                    <th style="width: 15%;">Ціна, грн</th>
+                                    <th style="width: 20%;">Сума, грн</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="row_num" t-value="0"/>
+                                <t t-foreach="lines" t-as="line">
+                                    <t t-set="row_num" t-value="row_num + 1"/>
+                                    <tr>
+                                        <td class="text-center" t-esc="row_num"/>
+                                        <td><span t-field="line.name"/></td>
+                                        <td class="text-center" t-esc="line.product_uom_id.name if line.product_uom_id else '-'"/>
+                                        <td class="text-right" t-esc="'%.2f' % line.quantity"/>
+                                        <td class="text-right" t-esc="'%.2f' % line.price_unit"/>
+                                        <td class="text-right" t-esc="'%.2f' % line.price_subtotal"/>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="5" class="text-right bold" style="border: none !important;">Разом без ПДВ:</td>
+                                    <td class="text-right bold" t-esc="'%.2f' % o.amount_untaxed"/>
+                                </tr>
+                                <tr t-if="o.amount_tax">
+                                    <td colspan="5" class="text-right bold" style="border: none !important;">ПДВ:</td>
+                                    <td class="text-right bold" t-esc="'%.2f' % o.amount_tax"/>
+                                </tr>
+                                <tr t-if="not o.amount_tax">
+                                    <td colspan="5" class="text-right" style="border: none !important;">ПДВ не нараховується</td>
+                                    <td class="text-right">—</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="text-right bold" style="border: none !important;">Всього:</td>
+                                    <td class="text-right bold" t-esc="'%.2f' % o.amount_total"/>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <!-- Summary -->
+                        <div style="margin-bottom: 10px;">
+                            <p>
+                                Всього найменувань <strong t-esc="len(lines)"/>, на суму:
+                                <strong t-esc="'%.2f' % o.amount_total"/> грн.
+                            </p>
+                            <t t-if="o.l10n_ua_amount_words">
+                                <p><strong t-esc="o.l10n_ua_amount_words.capitalize()"/></p>
+                            </t>
+                        </div>
+
+                        <!-- Standard acceptance text -->
+                        <div style="margin: 15px 0;">
+                            <p>
+                                Вищеперелічені послуги (роботи) виконані в повному обсязі та у строк.
+                                Замовник претензій по об'єму, якості та строках виконання робіт (надання послуг) не має.
+                            </p>
+                        </div>
+
+                        <!-- Signatures -->
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-6">
+                                <div class="bold" style="margin-bottom: 10px; text-align: center;">Від Виконавця:</div>
+                                <table class="no-border-all" style="width: 100%;">
+                                    <tr>
+                                        <td style="width: 30%;">Посада</td>
+                                        <td style="width: 70%; border-bottom: 1px solid black;">
+                                            <t t-if="comp_partner.l10n_ua_chief_position">
+                                                <span t-field="comp_partner.l10n_ua_chief_position"/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Підпис</td>
+                                        <td style="border-bottom: 1px solid black; height: 30px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ПІБ</td>
+                                        <td style="border-bottom: 1px solid black;">
+                                            <t t-if="comp_partner.l10n_ua_chief_name">
+                                                <span t-field="comp_partner.l10n_ua_chief_name"/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-center" style="margin-top: 10px;">М.П.</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="bold" style="margin-bottom: 10px; text-align: center;">Від Замовника:</div>
+                                <table class="no-border-all" style="width: 100%;">
+                                    <tr>
+                                        <td style="width: 30%;">Посада</td>
+                                        <td style="width: 70%; border-bottom: 1px solid black;">
+                                            <t t-if="partner.l10n_ua_chief_position">
+                                                <span t-field="partner.l10n_ua_chief_position"/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Підпис</td>
+                                        <td style="border-bottom: 1px solid black; height: 30px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ПІБ</td>
+                                        <td style="border-bottom: 1px solid black;">
+                                            <t t-if="partner.l10n_ua_chief_name">
+                                                <span t-field="partner.l10n_ua_chief_name"/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="text-center" style="margin-top: 10px;">М.П.</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

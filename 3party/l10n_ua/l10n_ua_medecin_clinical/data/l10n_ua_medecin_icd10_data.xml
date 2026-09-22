@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Стартова вибірка ~30 найуживаніших МКХ-10 кодів.
+             Повний реєстр (~14000 кодів) — окремий PR з імпортом з CSV МОЗ. -->
+
+        <!-- A00-B99: інфекційні -->
+        <record id="icd10_a00" model="l10n_ua.medecin.icd10">
+            <field name="code">A00</field>
+            <field name="name">Холера</field>
+        </record>
+        <record id="icd10_a09" model="l10n_ua.medecin.icd10">
+            <field name="code">A09</field>
+            <field name="name">Інфекційний гастроентерит та коліт</field>
+        </record>
+        <record id="icd10_b34" model="l10n_ua.medecin.icd10">
+            <field name="code">B34.9</field>
+            <field name="name">Вірусна інфекція невизначеної локалізації</field>
+        </record>
+
+        <!-- E10-E14: цукровий діабет -->
+        <record id="icd10_e10" model="l10n_ua.medecin.icd10">
+            <field name="code">E10</field>
+            <field name="name">Інсулінозалежний цукровий діабет</field>
+        </record>
+        <record id="icd10_e11" model="l10n_ua.medecin.icd10">
+            <field name="code">E11</field>
+            <field name="name">Інсулінонезалежний цукровий діабет</field>
+        </record>
+
+        <!-- I00-I99: серцево-судинні -->
+        <record id="icd10_i10" model="l10n_ua.medecin.icd10">
+            <field name="code">I10</field>
+            <field name="name">Есенціальна (первинна) гіпертензія</field>
+        </record>
+        <record id="icd10_i20" model="l10n_ua.medecin.icd10">
+            <field name="code">I20</field>
+            <field name="name">Стенокардія</field>
+        </record>
+        <record id="icd10_i21" model="l10n_ua.medecin.icd10">
+            <field name="code">I21</field>
+            <field name="name">Гострий інфаркт міокарда</field>
+        </record>
+        <record id="icd10_i25" model="l10n_ua.medecin.icd10">
+            <field name="code">I25</field>
+            <field name="name">Хронічна ішемічна хвороба серця</field>
+        </record>
+        <record id="icd10_i63" model="l10n_ua.medecin.icd10">
+            <field name="code">I63</field>
+            <field name="name">Інфаркт мозку</field>
+        </record>
+
+        <!-- J00-J99: респіраторні -->
+        <record id="icd10_j00" model="l10n_ua.medecin.icd10">
+            <field name="code">J00</field>
+            <field name="name">Гострий назофарингіт (нежить)</field>
+        </record>
+        <record id="icd10_j06" model="l10n_ua.medecin.icd10">
+            <field name="code">J06.9</field>
+            <field name="name">Гостра інфекція верхніх дихальних шляхів неуточнена</field>
+        </record>
+        <record id="icd10_j11" model="l10n_ua.medecin.icd10">
+            <field name="code">J11</field>
+            <field name="name">Грип, вірус не ідентифіковано</field>
+        </record>
+        <record id="icd10_j18" model="l10n_ua.medecin.icd10">
+            <field name="code">J18</field>
+            <field name="name">Пневмонія неуточнена</field>
+        </record>
+        <record id="icd10_j45" model="l10n_ua.medecin.icd10">
+            <field name="code">J45</field>
+            <field name="name">Астма</field>
+        </record>
+
+        <!-- K00-K93: травна система -->
+        <record id="icd10_k29" model="l10n_ua.medecin.icd10">
+            <field name="code">K29</field>
+            <field name="name">Гастрит і дуоденіт</field>
+        </record>
+        <record id="icd10_k35" model="l10n_ua.medecin.icd10">
+            <field name="code">K35</field>
+            <field name="name">Гострий апендицит</field>
+        </record>
+
+        <!-- M00-M99: кістково-м'язова система -->
+        <record id="icd10_m54" model="l10n_ua.medecin.icd10">
+            <field name="code">M54</field>
+            <field name="name">Дорсалгія (біль у спині)</field>
+        </record>
+        <record id="icd10_m79" model="l10n_ua.medecin.icd10">
+            <field name="code">M79</field>
+            <field name="name">Інші м'якотканинні розлади</field>
+        </record>
+
+        <!-- N00-N99: сечостатева -->
+        <record id="icd10_n39" model="l10n_ua.medecin.icd10">
+            <field name="code">N39.0</field>
+            <field name="name">Інфекція сечовивідних шляхів</field>
+        </record>
+
+        <!-- R00-R99: симптоми -->
+        <record id="icd10_r50" model="l10n_ua.medecin.icd10">
+            <field name="code">R50</field>
+            <field name="name">Лихоманка нез'ясованого походження</field>
+        </record>
+        <record id="icd10_r51" model="l10n_ua.medecin.icd10">
+            <field name="code">R51</field>
+            <field name="name">Головний біль</field>
+        </record>
+        <record id="icd10_r10" model="l10n_ua.medecin.icd10">
+            <field name="code">R10</field>
+            <field name="name">Біль у животі та тазу</field>
+        </record>
+
+        <!-- Z00-Z99: фактори, що впливають на стан здоров'я -->
+        <record id="icd10_z00" model="l10n_ua.medecin.icd10">
+            <field name="code">Z00</field>
+            <field name="name">Загальне обстеження здорової особи</field>
+        </record>
+        <record id="icd10_z03" model="l10n_ua.medecin.icd10">
+            <field name="code">Z03</field>
+            <field name="name">Медичне спостереження при підозрі на захворювання</field>
+        </record>
+        <record id="icd10_z34" model="l10n_ua.medecin.icd10">
+            <field name="code">Z34</field>
+            <field name="name">Спостереження за перебігом нормальної вагітності</field>
+        </record>
+        <record id="icd10_z38" model="l10n_ua.medecin.icd10">
+            <field name="code">Z38</field>
+            <field name="name">Народжені живими діти за місцем народження</field>
+        </record>
+    </data>
+</odoo>

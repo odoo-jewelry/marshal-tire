@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report_business_trip" model="ir.actions.report">
+        <field name="name">Звіт про відрядження</field>
+        <field name="model">l10n_ua.business.trip.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_hr_business_trip.report_business_trip_document</field>
+        <field name="report_file">l10n_ua_hr_business_trip.report_business_trip_document</field>
+        <field name="print_report_name">'Звіт_про_відрядження_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_l10n_ua_business_trip_report"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+    <template id="report_business_trip_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+                        <t t-set="company" t-value="o.company_id"/>
+                        <t t-set="comp_partner" t-value="company.partner_id"/>
+
+                        <div class="company-header">
+                            <div class="company-name" t-field="company.name"/>
+                            <t t-if="comp_partner.company_registry">
+                                <div class="company-code">
+                                    ЄДРПОУ: <span t-field="comp_partner.company_registry"/>
+                                </div>
+                            </t>
+                        </div>
+
+                        <div class="ua-report-title" style="margin: 20px 0 5px 0;">
+                            ЗВІТ<br/>
+                            <span style="font-size: 12pt;">про службове відрядження</span>
+                        </div>
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <span>№ </span><span t-field="o.name"/>
+                            <span> від </span>
+                            <span t-field="o.date" t-options='{"format": "dd.MM.yyyy"}'/>
+                        </div>
+
+                        <table style="width: 100%; margin-bottom: 15px;">
+                            <tr>
+                                <td style="width: 30%;"><strong>Працівник:</strong></td>
+                                <td t-field="o.employee_id.name"/>
+                            </tr>
+                            <tr>
+                                <td><strong>Місце відрядження:</strong></td>
+                                <td t-field="o.destination"/>
+                            </tr>
+                            <tr t-if="o.purpose">
+                                <td><strong>Мета:</strong></td>
+                                <td t-field="o.purpose"/>
+                            </tr>
+                            <tr t-if="o.order_id">
+                                <td><strong>Наказ:</strong></td>
+                                <td t-field="o.order_id.name"/>
+                            </tr>
+                            <tr>
+                                <td><strong>Період:</strong></td>
+                                <td>
+                                    <span t-field="o.date_from" t-options='{"format": "dd.MM.yyyy"}'/>
+                                    <span> — </span>
+                                    <span t-field="o.date_to" t-options='{"format": "dd.MM.yyyy"}'/>
+                                    <span> (</span><span t-field="o.days"/><span> дн.)</span>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-sm table-bordered" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>Стаття витрат</th>
+                                    <th class="text-end">Сума</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Добові (<span t-field="o.days"/> дн. ×
+                                        <span t-field="o.daily_rate"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>)</td>
+                                    <td class="text-end" t-field="o.daily_total"
+                                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </tr>
+                                <tr>
+                                    <td>Проїзд</td>
+                                    <td class="text-end" t-field="o.transport_amount"
+                                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </tr>
+                                <tr>
+                                    <td>Проживання</td>
+                                    <td class="text-end" t-field="o.accommodation_amount"
+                                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </tr>
+                                <tr>
+                                    <td>Інші витрати</td>
+                                    <td class="text-end" t-field="o.other_amount"
+                                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </tr>
+                                <tr>
+                                    <td><strong>Усього</strong></td>
+                                    <td class="text-end"><strong
+                                        t-field="o.total_amount"
+                                        t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div style="margin-top: 40px;">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td style="width: 50%;">Працівник: _______________</td>
+                                    <td style="width: 50%; text-align: right;">
+                                        Головний бухгалтер: _______________</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

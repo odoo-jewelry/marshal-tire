@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_contract_list" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.nszu.contract.list</field>
+        <field name="model">l10n_ua.medecin.nszu.contract</field>
+        <field name="arch" type="xml">
+            <list string="Договори НСЗУ"
+                  decoration-info="state == 'draft'"
+                  decoration-warning="state == 'submitted'"
+                  decoration-success="state == 'active'"
+                  decoration-muted="state in ('expired', 'terminated')">
+                <field name="name"/>
+                <field name="nszu_contract_no" optional="show"/>
+                <field name="date_signed"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="total_expected" widget="monetary"/>
+                <field name="state" widget="badge"/>
+                <field name="currency_id" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_contract_form" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.nszu.contract.form</field>
+        <field name="model">l10n_ua.medecin.nszu.contract</field>
+        <field name="arch" type="xml">
+            <form string="Договір НСЗУ">
+                <header>
+                    <button name="action_submit" string="Подати в НСЗУ" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_activate" string="Активувати" type="object"
+                            class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_expire" string="Завершити" type="object"
+                            invisible="state != 'active'"/>
+                    <button name="action_terminate" string="Розірвати" type="object"
+                            invisible="state not in ('submitted', 'active')"/>
+                    <button name="action_reset_to_draft" string="У чернетку" type="object"
+                            invisible="state not in ('submitted', 'terminated')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,active,expired"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" readonly="state != 'draft'"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="nszu_contract_no"/>
+                            <field name="date_signed"/>
+                            <field name="date_start" readonly="state not in ('draft',)"/>
+                            <field name="date_end" readonly="state not in ('draft',)"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="total_expected" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Пакети в договорі" name="lines">
+                            <field name="line_ids" readonly="state not in ('draft', 'submitted')">
+                                <list editable="bottom">
+                                    <field name="package_id"/>
+                                    <field name="payment_model" readonly="1"/>
+                                    <field name="tariff"/>
+                                    <field name="expected_units"/>
+                                    <field name="expected_amount" widget="monetary"/>
+                                    <field name="note"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                    <button name="action_compute_pmd_capitation" type="object"
+                                            string="Перерахувати" icon="fa-refresh"
+                                            invisible="payment_model != 'capitation'"/>
+                                </list>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="total_expected" widget="monetary"/>
+                            </group>
+                        </page>
+                        <page string="Примітки" name="notes">
+                            <field name="notes" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_contract_search" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.nszu.contract.search</field>
+        <field name="model">l10n_ua.medecin.nszu.contract</field>
+        <field name="arch" type="xml">
+            <search string="Пошук договорів">
+                <field name="name"/>
+                <field name="nszu_contract_no"/>
+                <filter string="Чинні" name="filter_active" domain="[('state', '=', 'active')]"/>
+                <filter string="Подані" name="filter_submitted" domain="[('state', '=', 'submitted')]"/>
+                <group>
+                    <filter string="Стан" name="groupby_state" domain="[]"
+                            context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_contract" model="ir.actions.act_window">
+        <field name="name">Договори НСЗУ</field>
+        <field name="res_model">l10n_ua.medecin.nszu.contract</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

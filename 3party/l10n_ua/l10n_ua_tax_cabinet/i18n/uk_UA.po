@@ -1,0 +1,1525 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_tax_cabinet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260103\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-23 14:25+0000\n"
+"PO-Revision-Date: 2026-01-23 14:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid ""
+"<em>Note: Password is never stored. You will be prompted for it when "
+"needed.</em>"
+msgstr "<em>Пароль ніколи не зберігається. Ви будете запитані за ним, коли "
+"потрібно.</em>"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid "<span class=\"o_stat_text\">Documents</span>"
+msgstr "<span class=\"o_stat_text\">Документи</span>"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "<span class=\"o_stat_text\">Signed</span>"
+msgstr "<span class=\"o_stat_text\">Підписаний</span>"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_sync_wizard_view_form
+msgid ""
+"<strong>Authentication:</strong> Uses KEP (qualified electronic signature)."
+msgstr "<strong>Автентифікація:</strong> Використовується KEP (кваліфікована електронна підпис)."
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid "<strong>KEP Authentication Setup:</strong>"
+msgstr "<strong>Налаштування автентифікації КЕП:</strong>"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_password_wizard_view_form
+msgid ""
+"<strong>Security Notice:</strong> Your password is not stored and will only "
+"be used for this operation."
+msgstr "<strong>Попередження:</strong> Ваш пароль не зберігається і буде використано "
+"лише для цієї операції."
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_config.py:0
+msgid "API error %s: %s"
+msgstr "Помилка API %s: %s"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__state__accepted
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_search
+msgid "Accepted"
+msgstr "Прийнято"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__action
+msgid "Action"
+msgstr "Дія"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_needaction
+msgid "Action Needed"
+msgstr "Потрібна дія"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__active
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_type__active
+msgid "Active"
+msgstr "Активний"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_ids
+msgid "Activities"
+msgstr "Активності"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_res_company__l10n_ua_kved_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.view_company_form_ua_tax_cabinet
+msgid "Activity Codes (KVED)"
+msgstr "Коди діяльності (КВЕД)"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Оформлення виключення активності"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_state
+msgid "Activity State"
+msgstr "Стан активності"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Іконка типу активності"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Additional notes..."
+msgstr "Додаткові примітки..."
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__taxpayer_address
+msgid "Address"
+msgstr "Адреса"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,name:l10n_ua_tax_cabinet.tax_document_type_adjustment_calc
+msgid "Adjustment Calculation"
+msgstr "Розрахунок коригування"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_password_wizard__sync_mode__all
+msgid "All Documents"
+msgstr "Всі документи"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__04
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__month__4
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__04
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__04
+msgid "April"
+msgstr "Квітень"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_search
+msgid "Archived"
+msgstr "Архівовано"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_attachment_count
+msgid "Attachment Count"
+msgstr "Кількість вкладень"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__08
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__month__8
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__08
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__08
+msgid "August"
+msgstr "Серпень"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__auto_download_pdf
+msgid "Auto Download PDF"
+msgstr "Автозавантаження PDF"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__auto_download_xml
+msgid "Auto Download XML"
+msgstr "Автозавантаження XML"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__auto_download_pdf
+msgid "Automatically download PDF version of documents"
+msgstr "Автоматично завантажувати PDF версію документів"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__auto_download_xml
+msgid "Automatically download XML version of documents"
+msgstr "Автоматично завантажувати XML версію документів"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.actions.act_window,name:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_action
+#: model:ir.ui.menu,name:l10n_ua_tax_cabinet.menu_ua_tax_cabinet_connections
+msgid "Cabinet Connections"
+msgstr "Підключення до кабінету"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_password_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_sync_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_document_wizard_view_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+msgid "Cannot delete accepted document '%s'."
+msgstr "Неможливо видалити прийнятий документ '%s'."
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+msgid ""
+"Cannot modify accepted document '%s'. Accepted documents are read-only."
+"Cannot modify accepted document '%s'. Accepted documents are read-only."
+"Cannot modify accepted document '%s'. Accepted documents are read-only."
+"Cannot modify accepted document '%s'. Accepted documents are read-only."
+msgstr ""
+"Неможливо змінити прийнятий документ '%s'. Прийняті документи доступні лише "
+"для читання."
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_type__category
+msgid "Category"
+msgstr "Категорія"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__code
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_type__code
+msgid "Code"
+msgstr "Код"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model,name:l10n_ua_tax_cabinet.model_res_company
+msgid "Companies"
+msgstr "Компанії"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__company_id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__company_id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__company_id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__company_id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__company_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid "Company"
+msgstr "Компанія"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model,name:l10n_ua_tax_cabinet.model_l10n_ua_company_kved
+msgid "Company Activity Code (KVED)"
+msgstr "Код діяльності компанії (КВЕД)"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__config_id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__config_id
+#: model:ir.ui.menu,name:l10n_ua_tax_cabinet.menu_ua_tax_cabinet_config
+msgid "Configuration"
+msgstr "Налаштування"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.actions.act_window,help:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_action
+msgid ""
+"Configure connection to cabinet.tax.gov.ua for syncing tax documents using "
+"KEP (qualified electronic signature)."
+msgstr "Налаштуйте підключення до cabinet.tax.gov.ua для синхронізації податкових "
+"документів за допомогою КЕП (кваліфікованого електронного підпису)."
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_password_wizard_view_form
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,description:l10n_ua_tax_cabinet.tax_document_type_receipt_1
+msgid "Confirmation of document acceptance"
+msgstr "Підтвердження прийняття документа"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,description:l10n_ua_tax_cabinet.tax_document_type_receipt_2
+msgid "Confirmation of document registration"
+msgstr "Підтвердження реєстрації документа"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_cabinet_password_wizard.py:0
+msgid "Connection failed: %s"
+msgstr "Помилка підключення: %s"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_cabinet_password_wizard.py:0
+msgid "Connection successful! Taxpayer: %s"
+msgstr "Підключення успішне! Платник податків: %s"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.actions.act_window,help:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_action
+msgid "Create your first Tax Cabinet connection"
+msgstr "Створіть перше підключення до Податкового кабінету"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_type__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__create_uid
+msgid "Created by"
+msgstr "Створено"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__create_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__create_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__create_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__create_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__create_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__create_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_type__create_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__create_date
+msgid "Created on"
+msgstr "Дата створення"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__sync_date
+msgid "Date when document was synced from external system"
+msgstr "Дата синхронізації документа із зовнішньої системи"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__12
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__month__12
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__12
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__12
+msgid "December"
+msgstr "Грудень"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_type__category__declaration
+msgid "Declaration"
+msgstr "Декларація"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_type__description
+msgid "Description"
+msgstr "Опис"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__display_name
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__display_name
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__display_name
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__display_name
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__display_name
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__display_name
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_type__display_name
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__display_name
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_res_company__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__document_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_document_wizard_view_form
+msgid "Document"
+msgstr "Документ"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__document_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__document_date
+msgid "Document Date"
+msgstr "Дата документа"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__external_id
+msgid "Document ID from external system"
+msgstr "ID документа із зовнішньої системи"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Document Info"
+msgstr "Інформація про документ"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__name
+msgid "Document Name"
+msgstr "Назва документа"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__document_number
+msgid "Document Number"
+msgstr "Номер документа"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__document_type_id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__sync_type
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__document_type_id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__document_type_id
+msgid "Document Type"
+msgstr "Тип документа"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__document_type_code
+msgid "Document Type Code"
+msgstr "Код типу документа"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.actions.act_window,name:l10n_ua_tax_cabinet.l10n_ua_tax_document_type_action
+#: model:ir.ui.menu,name:l10n_ua_tax_cabinet.menu_ua_tax_cabinet_document_types
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_document_type_view_list
+msgid "Document Types"
+msgstr "Типи документів"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Document name"
+msgstr "Назва документа"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+msgid "Document signing requires password wizard - not yet implemented."
+msgstr "Підписання документа потребує майстра паролів - ще не реалізовано."
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+msgid "Document submission requires password wizard - not yet implemented."
+msgstr "Подання документа потребує майстра паролів - ще не реалізовано."
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_document_wizard.py:0
+msgid ""
+"Document type '%s' is not supported yet. Please install the corresponding "
+"module (l10n_ua_tax_%s)."
+msgstr ""
+"Тип документа '%s' ще не підтримується. Будь ласка, встановіть відповідний "
+"модуль (l10n_ua_tax_%s)."
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__state__draft
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_search
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__taxpayer_code
+msgid "EDRPOU (for companies) or RNOKPP (for FOP)"
+msgstr "ЄДРПОУ (для компаній) або РНОКПП (для ФОП)"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__taxpayer_code
+msgid "EDRPOU or RNOKPP"
+msgstr "ЄДРПОУ або РНОКПП"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,name:l10n_ua_tax_cabinet.tax_document_type_esv_declaration
+msgid "ESV Report"
+msgstr "Декларація єдиного податку (ФОП) v8"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__taxpayer_email
+msgid "Email"
+msgstr "Електронна пошта"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_config.py:0
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_cabinet_sync_wizard.py:0
+msgid "Enter KEP Password"
+msgstr "Введіть пароль КЕП"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_password_wizard_view_form
+msgid "Enter KEP password"
+msgstr "Введіть пароль КЕП"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-javascript
+#: code:addons/l10n_ua_tax_cabinet/static/src/xml/xml_viewer_field.xml:0
+msgid "Error:"
+msgstr "Помилка:"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__external_id
+msgid "External ID"
+msgstr "Зовнішній ID"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__source__fredo
+msgid "FREDO"
+msgstr "FREDO"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__02
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__month__2
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__02
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__02
+msgid "February"
+msgstr "Лютий"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__file
+msgid "File"
+msgstr "Файл"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__filename
+msgid "Filename"
+msgstr "Назва файлу"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__file_ids
+msgid "Files"
+msgstr "Файли"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Fill Data"
+msgstr "Заповнити дані"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_document_wizard_view_form
+msgid "Fill Document Data"
+msgstr "Заповнити дані документа"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Партнери)"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Іконка Font Awesome, напр. fa-tasks"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_document_wizard_view_form
+msgid "Generate XML"
+msgstr "Згенерувати XML"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__h1
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__h1
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__h1
+msgid "H1"
+msgstr "П1"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__h2
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__h2
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__h2
+msgid "H2"
+msgstr "П2"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__has_message
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__has_message
+msgid "Has Message"
+msgstr "Має повідомлення"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_type__id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__id
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_res_company__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__iit_cert_path
+msgid "IIT Certificates Path"
+msgstr "Шлях до сертифікатів ІІТ"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__iit_lib_path
+msgid "IIT Library Path"
+msgstr "Шлях до бібліотеки ІІТ"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_exception_icon
+msgid "Icon"
+msgstr "Іконка"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Іконка для позначення виключення активності."
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_needaction
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо позначено, нові повідомлення потребують вашої уваги."
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_has_error
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_has_sms_error
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_has_error
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_cabinet_password_wizard.py:0
+msgid "Imported %d documents"
+msgstr "Імпортовано %d документів"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,name:l10n_ua_tax_cabinet.tax_document_type_income_declaration
+msgid "Income Tax Declaration"
+msgstr "Декларація про доходи"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_password_wizard__sync_mode__incoming
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__sync_type__incoming
+msgid "Incoming Correspondence"
+msgstr "Вхідна кореспонденція"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid ""
+"Install IIT library: <code>sudo dpkg -i euswi.64.deb</code> (download from"
+msgstr ""
+"Встановіть бібліотеку ІІТ: <code>sudo dpkg -i euswi.64.deb</code> "
+"(завантажити з"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_is_follower
+msgid "Is Follower"
+msgstr "Є підписником"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__01
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__month__1
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__01
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__01
+msgid "January"
+msgstr "Січень"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__07
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__month__7
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__07
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__07
+msgid "July"
+msgstr "Липень"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__06
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__month__6
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__06
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__06
+msgid "June"
+msgstr "Червень"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__kep_key_file
+msgid "KEP Key File"
+msgstr "Файл ключа КЕП"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__password
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_password_wizard_view_form
+msgid "KEP Password"
+msgstr "Пароль КЕП"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model,name:l10n_ua_tax_cabinet.model_l10n_ua_tax_cabinet_password_wizard
+msgid "KEP Password Wizard"
+msgstr "Майстер пароля КЕП"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid "KEP Settings"
+msgstr "Налаштування КЕП"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_config.py:0
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+msgid "KEP key file is required. Please upload your private key."
+msgstr "Потрібен файл ключа КЕП. Будь ласка, завантажте ваш приватний ключ."
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_cabinet_sync_wizard.py:0
+msgid ""
+"KEP key not configured.\n"
+"\n"
+"Please upload your private key file in the Tax Cabinet connection settings."
+msgstr "Ключ КЕП не налаштований.\n\nБудь ласка, завантажте ваш приватний ключ у налаштуваннях підключення до Податкового кабінету."
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_config.py:0
+msgid "KEP password is required for signing."
+msgstr "Пароль КЕП необхідний для підписання."
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_config.py:0
+msgid "KEP signing failed: %s"
+msgstr "Помилка підписання КЕП: %s"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_config.py:0
+msgid "KEP signing library not available: %s"
+msgstr "Бібліотека підписання КЕП недоступна: %s"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__file_signed
+msgid "KEP-signed document ready for submission"
+msgstr "Документ, підписаний КЕП, готовий до подання"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__kved_id
+msgid "KVED"
+msgstr "КВЕД"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__code
+msgid "KVED code (e.g., 62.01)"
+msgstr "Код КВЕД (напр., 62.01)"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__kep_key_filename
+msgid "Key Filename"
+msgstr "Назва файлу ключа"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__last_sync_date
+msgid "Last Sync"
+msgstr "Остання синхронізація"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_type__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Останнє оновлення"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__write_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__write_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__write_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__write_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__write_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__write_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_type__write_date
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__write_date
+msgid "Last Updated on"
+msgstr "Дата оновлення"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__name
+msgid "Leave empty to extract from file"
+msgstr "Залиште порожнім для витягування з файлу"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-javascript
+#: code:addons/l10n_ua_tax_cabinet/static/src/xml/xml_viewer_field.xml:0
+msgid "Loading..."
+msgstr "Завантаження..."
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__source__medoc
+msgid "M.E.Doc"
+msgstr "M.E.Doc"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_sync_wizard_view_form
+msgid ""
+"Make sure KEP key file is uploaded in the configuration. Password will be "
+"requested when syncing."
+msgstr "Переконайтеся, що файл ключа КЕП завантажений у налаштуваннях. "
+"Пароль буде запитаний при синхронізації."
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__source__manual
+msgid "Manual Upload"
+msgstr "Ручне завантаження"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__03
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__month__3
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__03
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__03
+msgid "March"
+msgstr "Березень"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Mark Accepted"
+msgstr "Позначити прийнятим"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Mark Rejected"
+msgstr "Позначити відхиленим"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Mark Submitted"
+msgstr "Позначити поданим"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__is_primary
+msgid "Mark as primary activity code"
+msgstr "Позначити як основний код діяльності"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__05
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__month__5
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__05
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__05
+msgid "May"
+msgstr "Травень"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставки повідомлення"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__status_message
+msgid "Message from tax authority"
+msgstr "Повідомлення від податкової"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__mode
+msgid "Mode"
+msgstr "Режим"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__month
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__month
+msgid "Month"
+msgstr "Місяць"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Мій дедлайн активності"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__name
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__name
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__name
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_type__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_document_wizard.py:0
+msgid "New"
+msgstr "Новий"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Дедлайн наступної активності"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_summary
+msgid "Next Activity Summary"
+msgstr "Опис наступної активності"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_type_id
+msgid "Next Activity Type"
+msgstr "Тип наступної активності"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+msgid "No KEP configuration found for company %s."
+msgstr "Налаштування КЕП для компанії %s не знайдено."
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+msgid ""
+"No KEP configuration found for company %s. Please configure Tax Cabinet "
+"connection."
+msgstr "Налаштування КЕП для компанії %s не знайдено. Будь ласка, налаштуйте "
+"підключення до Податкового кабінету."
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-javascript
+#: code:addons/l10n_ua_tax_cabinet/static/src/xml/xml_viewer_field.xml:0
+msgid "No XML content"
+msgstr "Немає вмісту XML"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+msgid "No XML file to export"
+msgstr "Немає XML файлу для експорту"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+msgid "No XML file to sign"
+msgstr "Немає XML файлу для підписання"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+msgid "No XML file to submit"
+msgstr "Немає XML файлу для подання"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+msgid "No signed file. Please sign the document first."
+msgstr "Немає підписаного файлу. Спочатку підпишіть документ."
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__notes
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Notes"
+msgstr "Примітки"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_type__category__notification
+msgid "Notification"
+msgstr "Сповіщення"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__11
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__month__11
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__11
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__11
+msgid "November"
+msgstr "Листопад"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_has_error_counter
+msgid "Number of errors"
+msgstr "Кількість помилок"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Кількість повідомлень, що потребують дії"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилкою доставки"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__10
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__month__10
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__10
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__10
+msgid "October"
+msgstr "Жовтень"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Open wizard to fill document data"
+msgstr "Відкрити майстер для заповнення даних документа"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_type__category__other
+msgid "Other"
+msgstr "Інше"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,name:l10n_ua_tax_cabinet.tax_document_type_other
+msgid "Other Document"
+msgstr "Інший документ"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "PDF"
+msgstr "PDF"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__file_pdf
+msgid "PDF File"
+msgstr "PDF файл"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__file_pdf_name
+msgid "PDF Filename"
+msgstr "Назва PDF файлу"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__password
+msgid "Password for your private key (not stored)"
+msgstr "Пароль для вашого приватного ключа (не зберігається)"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__iit_lib_path
+msgid "Path to IIT EUSignCP library"
+msgstr "Шлях до бібліотеки IIT EUSignCP"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__iit_cert_path
+msgid "Path to certificates directory (CA certs, user certs)"
+msgstr ""
+"Шлях до каталогу сертифікатів (сертифікати ЦСК, сертифікати користувача)"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__period
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__period
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__period
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_document_wizard_view_form
+msgid "Period"
+msgstr "Період"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__taxpayer_phone
+msgid "Phone"
+msgstr "Телефон"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid "Place CA certificates in the certificates directory"
+msgstr "Розмістіть сертифікати ЦСК у каталозі сертифікатів"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid "Place your user certificates (.cer files) in the same directory"
+msgstr ""
+"Розмістіть ваші сертифікати користувача (.cer файли) у тому ж каталозі"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_cabinet_sync_wizard.py:0
+msgid "Please add files to upload"
+msgstr "Будь ласка, додайте файли для завантаження"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_document.py:0
+msgid "Please select a document type first."
+msgstr "Спочатку виберіть тип документа."
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_cabinet_sync_wizard.py:0
+msgid "Please select or create a Tax Cabinet configuration first."
+msgstr "Спочатку виберіть або створіть налаштування Податкового кабінету."
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__is_primary
+msgid "Primary"
+msgstr "Основний"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__kep_key_file
+msgid "Private key file (.dat, .jks, .pfx)"
+msgstr "Шлях до файлу приватного ключа (.dat, .jks, .pfx)"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_sync_wizard_view_form
+msgid "Process"
+msgstr "Обробити"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__q1
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__q1
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__q1
+msgid "Q1"
+msgstr "К1"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__q2
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__q2
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__q2
+msgid "Q2"
+msgstr "К2"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__q3
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__q3
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__q3
+msgid "Q3"
+msgstr "К3"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__q4
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__q4
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__q4
+msgid "Q4"
+msgstr "К4"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_type__category__receipt
+msgid "Receipt"
+msgstr "Квитанція"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,name:l10n_ua_tax_cabinet.tax_document_type_receipt_1
+msgid "Receipt Type 1 (Accepted)"
+msgstr "Квитанція тип 1 (Прийнято)"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,name:l10n_ua_tax_cabinet.tax_document_type_receipt_2
+msgid "Receipt Type 2 (Registered)"
+msgstr "Квитанція тип 2 (Зареєстровано)"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__state__rejected
+msgid "Rejected"
+msgstr "Відхилено"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_type__category__report
+msgid "Report"
+msgstr "Звіт"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_password_wizard__sync_mode__reported
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__sync_type__reported
+msgid "Reported Documents"
+msgstr "Подані документи"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_type__category__request
+msgid "Request"
+msgstr "Запит"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Reset to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_type__category__response
+msgid "Response"
+msgstr "Відповідь"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_user_id
+msgid "Responsible User"
+msgstr "Відповідальний користувач"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Помилка доставки SMS"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_password_wizard__sync_mode__sent
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__sync_type__sent
+msgid "Sent Correspondence"
+msgstr "Надіслана кореспонденція"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__09
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__month__9
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__09
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__09
+msgid "September"
+msgstr "Вересень"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_company_kved__sequence
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_type__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Sign & Export"
+msgstr "Підписати та експортувати"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Sign Document"
+msgstr "Підписати документ"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Sign document with KEP and download for external submission"
+msgstr "Підписати документ КЕП та завантажити для зовнішнього подання"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Sign, encrypt and submit document to cabinet.tax.gov.ua"
+msgstr "Підписати, зашифрувати та подати документ до cabinet.tax.gov.ua"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__file_signed
+msgid "Signed File"
+msgstr "Підписаний файл"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__file_signed_name
+msgid "Signed Filename"
+msgstr "Назва підписаного файлу"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,name:l10n_ua_tax_cabinet.tax_document_type_ep_declaration
+msgid "Single Tax Declaration (FOP) v5"
+msgstr "Декларація єдиного податку (ФОП)"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,name:l10n_ua_tax_cabinet.tax_document_type_ep_declaration_v9
+msgid "Single Tax Declaration (FOP) v9"
+msgstr "Декларація єдиного податку (ФОП) v9"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__source
+msgid "Source"
+msgstr "Джерело"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__state
+msgid "State"
+msgstr "Стан"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Status"
+msgstr "Статус"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__status_message
+msgid "Status Message"
+msgstr "Повідомлення статусу"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr "Статус на основі активностей\nПрострочено: Термін вже минув\nСьогодні: Дата активності сьогодні\nЗаплановано: Майбутні активності."
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Submit to Cabinet"
+msgstr "Подати до кабінету"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__state__submitted
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_search
+msgid "Submitted"
+msgstr "Подано"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_cabinet_password_wizard.py:0
+msgid "Success"
+msgstr "Успіх"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_cabinet_password_wizard.py:0
+msgid "Sync Complete"
+msgstr "Синхронізацію завершено"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__sync_date
+msgid "Sync Date"
+msgstr "Дата синхронізації"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_password_wizard__action__sync
+#: model:ir.ui.menu,name:l10n_ua_tax_cabinet.menu_ua_tax_cabinet_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid "Sync Documents"
+msgstr "Синхронізувати документи"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__sync_mode
+msgid "Sync Mode"
+msgstr "Режим синхронізації"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_password_wizard_view_form
+msgid "Sync Options"
+msgstr "Параметри синхронізації"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid "Sync Settings"
+msgstr "Налаштування синхронізації"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_cabinet_password_wizard.py:0
+msgid "Sync failed: %s"
+msgstr "Помилка синхронізації: %s"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__mode__sync
+msgid "Sync from Cabinet"
+msgstr "Синхронізувати з кабінету"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_sync_wizard_view_form
+msgid "Sync from Cabinet API"
+msgstr "Синхронізувати з API кабінету"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/models/l10n_ua_tax_cabinet_config.py:0
+#: model:ir.actions.act_window,name:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_sync_wizard_action
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_sync_wizard_view_form
+msgid "Sync with Tax Cabinet"
+msgstr "Синхронізувати з Податковим кабінетом"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.ui.menu,name:l10n_ua_tax_cabinet.menu_ua_tax_cabinet
+msgid "Tax Cabinet"
+msgstr "Податковий кабінет"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__source__cabinet
+msgid "Tax Cabinet API"
+msgstr "API Податкового кабінету"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model,name:l10n_ua_tax_cabinet.model_l10n_ua_tax_cabinet_config
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid "Tax Cabinet Configuration"
+msgstr "Налаштування Податкового кабінету"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_search
+msgid "Tax Cabinet Configurations"
+msgstr "Налаштування Податкового кабінету"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model,name:l10n_ua_tax_cabinet.model_l10n_ua_tax_cabinet_document
+msgid "Tax Cabinet Document"
+msgstr "Документ Податкового кабінету"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model,name:l10n_ua_tax_cabinet.model_l10n_ua_tax_cabinet_sync_wizard
+msgid "Tax Cabinet Sync Wizard"
+msgstr "Майстер синхронізації Податкового кабінету"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model,name:l10n_ua_tax_cabinet.model_l10n_ua_tax_cabinet_sync_wizard_file
+msgid "Tax Cabinet Sync Wizard File"
+msgstr "Файл майстра синхронізації Податкового кабінету"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_cabinet_sync_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "Tax Document"
+msgstr "Податковий документ"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model,name:l10n_ua_tax_cabinet.model_l10n_ua_tax_document_wizard
+msgid "Tax Document Data Wizard"
+msgstr "Майстер даних податкового документа"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model,name:l10n_ua_tax_cabinet.model_l10n_ua_tax_document_type
+msgid "Tax Document Type"
+msgstr "Тип податкового документа"
+
+#. module: l10n_ua_tax_cabinet
+#. odoo-python
+#: code:addons/l10n_ua_tax_cabinet/wizard/l10n_ua_tax_cabinet_sync_wizard.py:0
+#: model:ir.actions.act_window,name:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_action
+#: model:ir.ui.menu,name:l10n_ua_tax_cabinet.menu_ua_tax_cabinet_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_search
+msgid "Tax Documents"
+msgstr "Податкові документи"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,name:l10n_ua_tax_cabinet.tax_document_type_tax_invoice
+msgid "Tax Invoice"
+msgstr "Податкова накладна"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,name:l10n_ua_tax_cabinet.tax_document_type_notification
+msgid "Tax Notification"
+msgstr "Податкове повідомлення"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__taxpayer_code
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__taxpayer_code
+msgid "Taxpayer Code"
+msgstr "Код платника податків"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_document_wizard_view_form
+msgid "Taxpayer Information"
+msgstr "Інформація про платника податків"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__taxpayer_name
+msgid "Taxpayer Name"
+msgstr "Назва платника податків"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__taxpayer_tin
+msgid "Taxpayer TIN (РНОКПП/ЄДРПОУ)"
+msgstr "ІПН платника (РНОКПП/ЄДРПОУ)"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_password_wizard__action__test
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid "Test Connection"
+msgstr "Перевірити підключення"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_search
+msgid "This Year"
+msgstr "Цей рік"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Тип виключення активності в записі."
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard__mode__upload
+msgid "Upload Documents"
+msgstr "Завантажити документи"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_sync_wizard_view_form
+msgid "Upload Files"
+msgstr "Завантажити файли"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid "Upload your private key file (.dat, .jks, .pfx)"
+msgstr "Завантажте файл приватного ключа (.dat, .jks, .pfx)"
+
+#. module: l10n_ua_tax_cabinet
+#: model:l10n_ua.tax.document.type,name:l10n_ua_tax_cabinet.tax_document_type_vat_declaration
+msgid "VAT Declaration"
+msgstr "Декларація з ПДВ"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__website_message_ids
+msgid "Website Messages"
+msgstr "Повідомлення вебсайту"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_config__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__website_message_ids
+msgid "Website communication history"
+msgstr "Історія комунікації вебсайту"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__wizard_id
+msgid "Wizard"
+msgstr "Майстер"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_document_view_form
+msgid "XML"
+msgstr "XML"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__file_xml_content
+msgid "XML Content"
+msgstr "Вміст XML"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__file_xml
+msgid "XML File"
+msgstr "XML файл"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__file_xml_name
+msgid "XML Filename"
+msgstr "Назва XML файлу"
+
+#. module: l10n_ua_tax_cabinet
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_document__year
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_password_wizard__year
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard__year
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_cabinet_sync_wizard_file__year
+#: model:ir.model.fields,field_description:l10n_ua_tax_cabinet.field_l10n_ua_tax_document_wizard__year
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_document__period__year
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_cabinet_sync_wizard_file__period__year
+#: model:ir.model.fields.selection,name:l10n_ua_tax_cabinet.selection__l10n_ua_tax_document_wizard__period__year
+msgid "Year"
+msgstr "Рік"
+
+#. module: l10n_ua_tax_cabinet
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_cabinet.l10n_ua_tax_cabinet_config_view_form
+msgid "e.g. Tax Cabinet Connection"
+msgstr "напр. Підключення до Податкового кабінету"

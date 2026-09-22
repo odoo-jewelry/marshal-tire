@@ -1,0 +1,41 @@
+// Both rules land on one and the same element — the caption span that Odoo
+// marks with the `.text-truncate` class.
+//
+// --- Wrapping ---
+//
+// Odoo wraps a column caption in `.text-truncate`
+// (web/views/list/list_renderer.xml), that is nowrap + ellipsis. For an
+// ordinary list that is right, for this form it is not: there are thirteen
+// columns and the captions are long ("Opening Balance, Qty"), so at that count
+// nothing is left of them but an ellipsis, behind which one cannot tell a
+// quantity from an amount.
+//
+// It also settles the widths. Odoo measures a column's "ideal" width on the
+// `th` itself (column_width_hook.js), while the `o_list_computing_widths`
+// class, which suspends wrapping for the duration of the measurement, applies
+// to body cells only and leaves the headers alone. So without this rule a
+// column's ideal width is the whole caption on one line; with it, the longest
+// word — and the columns fit.
+//
+// --- Alignment ---
+//
+// Centred, so that a caption stands over its own column instead of hugging one
+// of the edges: on the form the columns come in pairs ("qty" and "amount"
+// under a shared heading), and edge alignment makes neighbouring pairs stick
+// together visually. This overrides `.o_list_number_th`
+// (list_renderer.scss:97), which pulls numeric captions to the right; the body
+// of the table stays as it was — numbers right, text left. The sort icon is
+// `position: absolute` near the right edge and has an opaque background of its
+// own, so it covers a centred caption cleanly instead of mixing with it.
+//
+// The root class comes from the js_class itself: registering the view in the
+// registry turns `l10n_ua_material_report_list` into `o_..._view`
+// (web/views/utils.js), so the rules do not reach other lists.
+.o_l10n_ua_material_report_list_view {
+    .o_list_table thead th .text-truncate {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        text-align: center;
+    }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+
+    <record id="seq_tax_invoice_issued" model="ir.sequence">
+        <field name="name">Податкова накладна (видана)</field>
+        <field name="code">l10n_ua.tax.invoice.issued</field>
+        <field name="prefix">%(year)s/</field>
+        <field name="padding">7</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="seq_tax_invoice_received" model="ir.sequence">
+        <field name="name">Податкова накладна (отримана)</field>
+        <field name="code">l10n_ua.tax.invoice.received</field>
+        <field name="prefix">%(year)s/</field>
+        <field name="padding">7</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+</data>
+</odoo>

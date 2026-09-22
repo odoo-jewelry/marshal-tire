@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_payslip_run_view_form" model="ir.ui.view">
+        <field name="name">hr.payslip.run.form</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="arch" type="xml">
+            <form string="Payslip Batch">
+                <header>
+                    <button name="action_generate_payslips" string="Generate Payslips" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_compute_all" string="Compute All" type="object"
+                            invisible="state != 'draft'"/>
+                    <button name="action_verify" string="Verify" type="object"
+                            invisible="state != 'draft'"/>
+                    <button name="action_close" string="Close" type="object"
+                            class="btn-primary" invisible="state != 'verify'"/>
+                    <button name="action_draft" string="Set to Draft" type="object"
+                            invisible="state == 'draft'"/>
+                    <button name="action_bank_export" string="Файл у банк" type="object"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,verify,close"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_payslips" type="object"
+                                class="oe_stat_button" icon="fa-file-text-o">
+                            <field name="payslip_count" widget="statinfo" string="Payslips"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Payslips" name="payslips">
+                            <field name="slip_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="employee_id"/>
+                                    <field name="department_id"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="gross_salary" sum="Total Gross"/>
+				    <field name="advance_amount" sum="Total Advance"/>
+                                    <field name="net_salary" sum="Total Net"/>
+                                    <field name="state" widget="badge"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Summary" name="summary">
+                            <group>
+                                <group>
+                                    <field name="total_gross"/>
+                                    <field name="total_pdfo"/>
+                                    <field name="total_military"/>
+                                    <field name="total_net"/>
+                                </group>
+                                <group>
+                                    <field name="total_esv"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_payslip_run_view_tree" model="ir.ui.view">
+        <field name="name">hr.payslip.run.tree</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="arch" type="xml">
+            <list string="Payslip Batches">
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="payslip_count"/>
+                <field name="total_gross" sum="Total"/>
+                <field name="total_net" sum="Total"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'close'"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'verify'"/>
+            </list>
+        </field>
+    </record>
+
+<record id="action_hr_payslip_run" model="ir.actions.act_window">
+        <field name="name">Payslip Batches</field>
+        <field name="res_model">hr.payslip.run</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a payslip batch to process multiple payslips at once
+            </p>
+        </field>
+    </record>
+
+</odoo>

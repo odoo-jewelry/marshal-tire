@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_ehealth_log"
+              name="eHealth: лог запитів"
+              parent="l10n_ua_medecin_base.menu_medecin_config"
+              action="action_log"
+              sequence="50"/>
+</odoo>

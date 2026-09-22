@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="education_level_primary" model="hr.education.level">
+            <field name="name">Primary Education</field>
+            <field name="code">1</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="education_level_basic_secondary" model="hr.education.level">
+            <field name="name">Basic Secondary Education</field>
+            <field name="code">2</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="education_level_complete_secondary" model="hr.education.level">
+            <field name="name">Complete Secondary Education</field>
+            <field name="code">3</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="education_level_vocational" model="hr.education.level">
+            <field name="name">Vocational Education</field>
+            <field name="code">4</field>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="education_level_professional_prehigher" model="hr.education.level">
+            <field name="name">Professional Pre-Higher Education</field>
+            <field name="code">5</field>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="education_level_bachelor" model="hr.education.level">
+            <field name="name">Bachelor's Degree</field>
+            <field name="code">6</field>
+            <field name="sequence">60</field>
+        </record>
+
+        <record id="education_level_master" model="hr.education.level">
+            <field name="name">Master's Degree</field>
+            <field name="code">7</field>
+            <field name="sequence">70</field>
+        </record>
+
+        <record id="education_level_phd" model="hr.education.level">
+            <field name="name">Doctor of Philosophy (PhD)</field>
+            <field name="code">8</field>
+            <field name="sequence">80</field>
+        </record>
+
+        <record id="education_level_doctor_science" model="hr.education.level">
+            <field name="name">Doctor of Science</field>
+            <field name="code">9</field>
+            <field name="sequence">90</field>
+        </record>
+
+    </data>
+</odoo>

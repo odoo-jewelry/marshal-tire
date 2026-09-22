@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="timesheet_code_work" model="hr.timesheet.code">
+            <field name="name">Робочий день</field>
+            <field name="code">Я</field>
+            <field name="code_type">work</field>
+            <field name="is_worked">True</field>
+            <field name="is_paid">True</field>
+            <field name="default_hours">8</field>
+            <field name="sequence">10</field>
+        </record>
+        
+        <record id="timesheet_code_night" model="hr.timesheet.code">
+            <field name="name">Нічні години</field>
+            <field name="code">Н</field>
+            <field name="code_type">work</field>
+            <field name="is_worked">True</field>
+            <field name="is_paid">True</field>
+            <field name="sequence">15</field>
+        </record>
+        
+        <record id="timesheet_code_overtime" model="hr.timesheet.code">
+            <field name="name">Надурочні години</field>
+            <field name="code">НУ</field>
+            <field name="code_type">work</field>
+            <field name="is_worked">True</field>
+            <field name="is_paid">True</field>
+            <field name="sequence">20</field>
+        </record>
+        
+        <record id="timesheet_code_weekend" model="hr.timesheet.code">
+            <field name="name">Вихідний день</field>
+            <field name="code">В</field>
+            <field name="code_type">holiday</field>
+            <field name="is_worked">False</field>
+            <field name="is_paid">False</field>
+            <field name="default_hours">0</field>
+            <field name="sequence">30</field>
+        </record>
+        
+        <record id="timesheet_code_holiday" model="hr.timesheet.code">
+            <field name="name">Святковий день</field>
+            <field name="code">СВ</field>
+            <field name="code_type">holiday</field>
+            <field name="is_worked">False</field>
+            <field name="is_paid">False</field>
+            <field name="default_hours">0</field>
+            <field name="sequence">35</field>
+        </record>
+        
+        <record id="timesheet_code_vacation" model="hr.timesheet.code">
+            <field name="name">Щорічна відпустка</field>
+            <field name="code">ВД</field>
+            <field name="code_type">leave</field>
+            <field name="is_worked">False</field>
+            <field name="is_paid">True</field>
+            <field name="default_hours">0</field>
+            <field name="sequence">40</field>
+        </record>
+        
+        <record id="timesheet_code_vacation_additional" model="hr.timesheet.code">
+            <field name="name">Додаткова відпустка</field>
+            <field name="code">ДВ</field>
+            <field name="code_type">leave</field>
+            <field name="is_worked">False</field>
+            <field name="is_paid">True</field>
+            <field name="default_hours">0</field>
+            <field name="sequence">45</field>
+        </record>
+        
+        <record id="timesheet_code_vacation_unpaid" model="hr.timesheet.code">
+            <field name="name">Відпустка без збереження зарплати</field>
+            <field name="code">БЗ</field>
+            <field name="code_type">leave</field>
+            <field name="is_worked">False</field>
+            <field name="is_paid">False</field>
+            <field name="default_hours">0</field>
+            <field name="sequence">50</field>
+        </record>
+        
+        <record id="timesheet_code_sick" model="hr.timesheet.code">
+            <field name="name">Тимчасова непрацездатність</field>
+            <field name="code">ТН</field>
+            <field name="code_type">sick</field>
+            <field name="is_worked">False</field>
+            <field name="is_paid">True</field>
+            <field name="default_hours">0</field>
+            <field name="sequence">60</field>
+        </record>
+        
+        <record id="timesheet_code_maternity" model="hr.timesheet.code">
+            <field name="name">Відпустка по вагітності та пологах</field>
+            <field name="code">ВП</field>
+            <field name="code_type">leave</field>
+            <field name="is_worked">False</field>
+            <field name="is_paid">True</field>
+            <field name="default_hours">0</field>
+            <field name="sequence">65</field>
+        </record>
+        
+        <record id="timesheet_code_childcare" model="hr.timesheet.code">
+            <field name="name">Відпустка по догляду за дитиною</field>
+            <field name="code">ДД</field>
+            <field name="code_type">leave</field>
+            <field name="is_worked">False</field>
+            <field name="is_paid">False</field>
+            <field name="default_hours">0</field>
+            <field name="sequence">70</field>
+        </record>
+        
+        <record id="timesheet_code_business_trip" model="hr.timesheet.code">
+            <field name="name">Відрядження</field>
+            <field name="code">ВР</field>
+            <field name="code_type">work</field>
+            <field name="is_worked">True</field>
+            <field name="is_paid">True</field>
+            <field name="default_hours">8</field>
+            <field name="sequence">80</field>
+        </record>
+        
+        <record id="timesheet_code_absence" model="hr.timesheet.code">
+            <field name="name">Прогул</field>
+            <field name="code">ПР</field>
+            <field name="code_type">absence</field>
+            <field name="is_worked">False</field>
+            <field name="is_paid">False</field>
+            <field name="default_hours">0</field>
+            <field name="sequence">90</field>
+        </record>
+        
+        <record id="timesheet_code_downtime" model="hr.timesheet.code">
+            <field name="name">Простій</field>
+            <field name="code">П</field>
+            <field name="code_type">other</field>
+            <field name="is_worked">False</field>
+            <field name="is_paid">True</field>
+            <field name="default_hours">0</field>
+            <field name="sequence">95</field>
+        </record>
+        
+        <record id="timesheet_code_study" model="hr.timesheet.code">
+            <field name="name">Навчальна відпустка</field>
+            <field name="code">НВ</field>
+            <field name="code_type">leave</field>
+            <field name="is_worked">False</field>
+            <field name="is_paid">True</field>
+            <field name="default_hours">0</field>
+            <field name="sequence">100</field>
+        </record>
+        
+        <record id="timesheet_code_unknown" model="hr.timesheet.code">
+            <field name="name">Невідома причина</field>
+            <field name="code">НН</field>
+            <field name="code_type">absence</field>
+            <field name="is_worked">False</field>
+            <field name="is_paid">False</field>
+            <field name="default_hours">0</field>
+            <field name="sequence">200</field>
+        </record>
+        
+    </data>
+</odoo>

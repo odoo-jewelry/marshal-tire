@@ -1,0 +1,202 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_tax_F0103309
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-23 15:45+0000\n"
+"PO-Revision-Date: 2026-01-23 15:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk_UA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__activity_ids
+msgid "Activity Codes"
+msgstr "Коди діяльності"
+
+#. module: l10n_ua_tax_F0103309
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_F0103309.l10n_ua_tax_document_wizard_view_form_F0103309
+msgid "Activity Codes (KVED)"
+msgstr "Коди діяльності (КВЕД)"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__journal_id
+msgid "Bank Journal"
+msgstr "Банківський журнал"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields.selection,name:l10n_ua_tax_F0103309.selection__l10n_ua_tax_document_wizard__declaration_type__2
+msgid "Clarifying"
+msgstr "Уточнююча"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard_activity__code
+msgid "Code"
+msgstr "Код"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__declaration_type
+msgid "Declaration Type"
+msgstr "Тип декларації"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__employee_count
+msgid "Employee Count"
+msgstr "Кількість працівників"
+
+#. module: l10n_ua_tax_F0103309
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_F0103309.l10n_ua_tax_document_wizard_view_form_F0103309
+msgid "Fill from Bank Transactions"
+msgstr "Заповнити з банківських транзакцій"
+
+#. module: l10n_ua_tax_F0103309
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_F0103309.l10n_ua_tax_document_wizard_view_form_F0103309
+msgid "Fill Income from Bank"
+msgstr "Заповнити дохід з банку"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__fop_group
+msgid "FOP Group"
+msgstr "Група ФОП"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields.selection,name:l10n_ua_tax_F0103309.selection__l10n_ua_tax_document_wizard__fop_group__1
+msgid "Group 1"
+msgstr "Група 1"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields.selection,name:l10n_ua_tax_F0103309.selection__l10n_ua_tax_document_wizard__fop_group__2
+msgid "Group 2"
+msgstr "Група 2"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields.selection,name:l10n_ua_tax_F0103309.selection__l10n_ua_tax_document_wizard__fop_group__3
+msgid "Group 3"
+msgstr "Група 3"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__has_employees
+msgid "Has Employees"
+msgstr "Має працівників"
+
+#. module: l10n_ua_tax_F0103309
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_F0103309.l10n_ua_tax_document_wizard_view_form_F0103309
+msgid "Income (Section 5)"
+msgstr "Дохід (Розділ 5)"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard_activity__kved_id
+msgid "KVED"
+msgstr "КВЕД"
+
+#. module: l10n_ua_tax_F0103309
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_F0103309.l10n_ua_tax_document_wizard_view_form_F0103309
+msgid "Load Previous Payments"
+msgstr "Завантажити попередні платежі"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__military_amount
+msgid "Military Tax (R023G3)"
+msgstr "Військовий збір (R023G3)"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__military_paid_prev
+msgid "Military Paid Previously (R024G3)"
+msgstr "Військовий збір сплачений раніше (R024G3)"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__military_rate
+msgid "Military Tax Rate (%)"
+msgstr "Ставка військового збору (%)"
+
+#. module: l10n_ua_tax_F0103309
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_F0103309.l10n_ua_tax_document_wizard_view_form_F0103309
+msgid "Military Tax (Section 7)"
+msgstr "Військовий збір (Розділ 7)"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__military_to_pay
+msgid "Military to Pay (R025G3)"
+msgstr "Військовий збір до сплати (R025G3)"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard_activity__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields.selection,name:l10n_ua_tax_F0103309.selection__l10n_ua_tax_document_wizard__declaration_type__1
+msgid "New Reporting"
+msgstr "Нова звітна"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard_activity__is_primary
+msgid "Primary"
+msgstr "Основний"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields.selection,name:l10n_ua_tax_F0103309.selection__l10n_ua_tax_document_wizard__declaration_type__0
+msgid "Reporting"
+msgstr "Звітна"
+
+#. module: l10n_ua_tax_F0103309
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_F0103309.l10n_ua_tax_document_wizard_view_form_F0103309
+msgid "Single Tax (Section 6)"
+msgstr "Єдиний податок (Розділ 6)"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__tax_amount
+msgid "Single Tax (R011G3)"
+msgstr "Єдиний податок (R011G3)"
+
+#. module: l10n_ua_tax_F0103309
+#: model_terms:ir.ui.view,arch_db:l10n_ua_tax_F0103309.l10n_ua_tax_document_wizard_view_form_F0103309
+msgid "Single Tax Declaration (F0103309)"
+msgstr "Декларація єдиного податку (F0103309)"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__tax_rate
+msgid "Single Tax Rate (%)"
+msgstr "Ставка єдиного податку (%)"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model,name:l10n_ua_tax_F0103309.model_l10n_ua_tax_document_wizard
+msgid "Tax Document Data Wizard"
+msgstr "Майстер даних податкового документа"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model,name:l10n_ua_tax_F0103309.model_l10n_ua_tax_document_wizard_activity
+msgid "Tax Document Wizard Activity Code"
+msgstr "Код діяльності майстра податкового документа"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__tax_office_id
+msgid "Tax Office"
+msgstr "Податкова інспекція"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__tax_paid_prev
+msgid "Tax Paid Previously (R013G3)"
+msgstr "Податок сплачений раніше (R013G3)"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__tax_to_pay
+msgid "Tax to Pay (R0141G3)"
+msgstr "Податок до сплати (R0141G3)"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard__income_total
+msgid "Total Income (R006G3)"
+msgstr "Загальний дохід (R006G3)"
+
+#. module: l10n_ua_tax_F0103309
+#: model:ir.model.fields,field_description:l10n_ua_tax_F0103309.field_l10n_ua_tax_document_wizard_activity__wizard_id
+msgid "Wizard"
+msgstr "Майстер"

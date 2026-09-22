@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_account_card_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.account.card.form</field>
+        <field name="model">l10n_ua.account.card</field>
+        <field name="arch" type="xml">
+            <form string="Account Card">
+                <header>
+                    <button name="action_compute" string="Compute" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_draft" string="Set to Draft" type="object" invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="account_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="period_start"/>
+                            <field name="period_end"/>
+                        </group>
+                    </group>
+                    <group string="Subconto filter (optional)">
+                        <group>
+                            <field name="partner_id"/>
+                        </group>
+                        <group>
+                            <field name="subconto_type_id"/>
+                            <field name="subconto_res_id" invisible="not subconto_type_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="opening_balance"/>
+                            <field name="total_debit"/>
+                        </group>
+                        <group>
+                            <field name="closing_balance"/>
+                            <field name="total_credit"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Movements" name="lines">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="date"/>
+                                    <field name="move_id"/>
+                                    <field name="corr_account_id"/>
+                                    <field name="partner_id" optional="show"/>
+                                    <field name="description" optional="hide"/>
+                                    <field name="debit" sum="Total Debit"/>
+                                    <field name="credit" sum="Total Credit"/>
+                                    <field name="running_balance"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_account_card_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.account.card.list</field>
+        <field name="model">l10n_ua.account.card</field>
+        <field name="arch" type="xml">
+            <list string="Account Cards">
+                <field name="name"/>
+                <field name="account_id"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="opening_balance"/>
+                <field name="closing_balance"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_account_card_action" model="ir.actions.act_window">
+        <field name="name">Account Cards</field>
+        <field name="res_model">l10n_ua.account.card</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

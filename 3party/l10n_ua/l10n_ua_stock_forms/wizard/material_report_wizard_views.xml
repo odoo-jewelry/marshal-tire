@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- The only parameter a reader actually types. The standard `daterange`
+         widget shows both ends as ordinary date fields — it pulls `date_to` in
+         by itself through fieldDependencies, so the field need not be declared
+         twice — and the footer of a form is the confirmation everyone already
+         knows. This replaced a calendar popover of our own, which had to grow
+         a hand-made Apply button because DateTimePicker hides its footer for
+         plain dates, and in which the first click set both ends to one day. -->
+    <record id="view_material_report_period_form" model="ir.ui.view">
+        <field name="name">l10n_ua.material.report.wizard.period.form</field>
+        <field name="model">l10n_ua.material.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Report Period">
+                <group>
+                    <!-- `numeric` is the widget's own option for the date
+                         format. Without it a date is spelled out with an
+                         abbreviated month name, whose length changes from month
+                         to month and which wraps onto a second line in a narrow
+                         box. A numeric date is always ten characters, so it
+                         fits on one line and both ends line up.
+
+                         Width: both ends carry `w-100` and would otherwise
+                         stretch across the whole cell. `o_input_13ch` is the
+                         stock utility for that (form_controller.scss), and
+                         `oe_inline` stops the field box from filling the row. -->
+                    <field name="date_from" widget="daterange"
+                           options="{'end_date_field': 'date_to', 'numeric': True}"
+                           class="oe_inline o_input_13ch"/>
+                </group>
+                <footer>
+                    <button name="action_apply_period" string="Apply"
+                            type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary"
+                            special="cancel" data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

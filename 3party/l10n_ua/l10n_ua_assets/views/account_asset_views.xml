@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Asset Form View -->
+    <record id="l10n_ua_asset_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.asset.form</field>
+        <field name="model">l10n_ua.asset</field>
+        <field name="arch" type="xml">
+            <form string="Основний засіб">
+                <header>
+                    <button name="action_commission" string="Ввести в експлуатацію"
+                            type="object" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_compute_depreciation" string="Розрахувати амортизацію"
+                            type="object" class="btn-primary"
+                            invisible="state != 'open'"/>
+                    <button name="action_pause" string="Призупинити"
+                            type="object"
+                            invisible="state != 'open'"/>
+                    <button name="action_resume" string="Відновити"
+                            type="object" class="btn-primary"
+                            invisible="state != 'paused'"/>
+                    <button name="action_write_off" string="Списати"
+                            type="object" class="btn-danger"
+                            invisible="state not in ('open', 'paused')"
+                            confirm="Списати основний засіб?"/>
+                    <button name="action_create_revaluation" string="Переоцінити"
+                            type="object" class="btn-secondary"
+                            invisible="state not in ('open', 'paused')"/>
+                    <button name="action_create_modernization" string="Модернізувати"
+                            type="object" class="btn-secondary"
+                            invisible="state not in ('open', 'paused')"/>
+                    <button name="action_draft" string="Повернути в чернетку"
+                            type="object"
+                            invisible="state == 'draft'"
+                            confirm="Повернути ОЗ в чернетку? Номери актів будуть скинуті."/>
+                    <button name="action_print_oz6" type="object"
+                            string="Картка ОЗ-6" class="btn-secondary"/>
+                    <button name="action_print_commission_act" type="object"
+                            string="Акт введення" class="btn-secondary"
+                            invisible="state == 'draft'"/>
+                    <button name="action_print_writeoff_act" type="object"
+                            string="Акт списання" class="btn-secondary"
+                            invisible="state != 'close'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,open,close"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_revaluations" type="object"
+                                class="oe_stat_button" icon="fa-balance-scale"
+                                invisible="revaluation_count == 0">
+                            <field name="revaluation_count" widget="statinfo"
+                                   string="Переоцінок"/>
+                        </button>
+                        <button name="action_view_modernizations" type="object"
+                                class="oe_stat_button" icon="fa-wrench"
+                                invisible="modernization_count == 0">
+                            <field name="modernization_count" widget="statinfo"
+                                   string="Модернізацій"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Найменування основного засобу"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="inventory_number"/>
+                            <field name="acquisition_date"/>
+                            <field name="commission_date" readonly="1"/>
+                            <field name="commission_act_number" readonly="1"
+                                   invisible="not commission_act_number"/>
+                            <field name="group_id"/>
+                        </group>
+                        <group>
+                            <field name="original_value"/>
+                            <field name="salvage_value"/>
+                            <field name="accumulated_depreciation" readonly="1"/>
+                            <field name="book_value" readonly="1"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Амортизація">
+                            <field name="depreciation_method"/>
+                            <field name="useful_life"/>
+                            <field name="annual_depreciation_rate"
+                                   invisible="depreciation_method != 'declining_balance'"/>
+                            <field name="production_capacity"
+                                   invisible="depreciation_method != 'production'"/>
+                            <field name="produced_units"
+                                   invisible="depreciation_method != 'production'"/>
+                            <field name="depreciation_amount" readonly="1"/>
+                        </group>
+                        <group string="Розташування та відповідальність">
+                            <field name="responsible_id"/>
+                            <field name="location"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+
+                    <group string="Рахунки амортизації"
+                           help="Порожні поля успадковуються з групи ОЗ">
+                        <field name="depreciation_journal_id"/>
+                        <field name="expense_account_id"/>
+                        <field name="depreciation_account_id"/>
+                    </group>
+
+                    <!-- Write-off section -->
+                    <group invisible="state != 'close'">
+                        <group string="Списання">
+                            <field name="writeoff_date" readonly="1"/>
+                            <field name="writeoff_act_number" readonly="1"/>
+                            <field name="writeoff_reason"/>
+                        </group>
+                    </group>
+
+                    <!-- Depreciation board -->
+                    <notebook>
+                        <page string="Амортизаційна відомість" name="depreciation">
+                            <field name="depreciation_line_ids">
+                                <list string="Амортизація" editable="bottom"
+                                      decoration-muted="state == 'draft'"
+                                      decoration-success="state == 'posted'"
+                                      decoration-info="line_type == 'revaluation'"
+                                      delete="0">
+                                    <field name="date"
+                                           readonly="line_type == 'revaluation' or state == 'posted'"/>
+                                    <field name="line_type" widget="badge"
+                                           decoration-info="line_type == 'revaluation'"
+                                           optional="show" readonly="1"/>
+                                    <field name="amount" sum="Всього"
+                                           readonly="line_type == 'revaluation' or state == 'posted'"/>
+                                    <field name="accumulated"
+                                           readonly="line_type == 'revaluation' or state == 'posted'"/>
+                                    <field name="remaining"
+                                           readonly="line_type == 'revaluation' or state == 'posted'"/>
+                                    <field name="revaluation_id" optional="hide" readonly="1"/>
+                                    <field name="move_id" optional="hide" readonly="1"/>
+                                    <field name="state" widget="badge"
+                                           decoration-info="state == 'draft'"
+                                           decoration-success="state == 'posted'"
+                                           readonly="line_type == 'revaluation'"/>
+                                    <button name="action_post" type="object"
+                                            string="Провести" class="btn-sm btn-primary"
+                                            invisible="state != 'draft' or line_type == 'revaluation'"/>
+                                    <button name="action_draft" type="object"
+                                            string="Скасувати" class="btn-sm"
+                                            invisible="state != 'posted' or line_type == 'revaluation'"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Переоцінки" name="revaluations"
+                              invisible="not revaluation_line_ids">
+                            <field name="revaluation_line_ids" readonly="1">
+                                <list string="Історія переоцінок"
+                                      decoration-muted="state != 'confirmed'">
+                                    <field name="revaluation_id"/>
+                                    <field name="original_value_before"/>
+                                    <field name="accumulated_before"/>
+                                    <field name="fair_value"/>
+                                    <field name="revaluation_index"/>
+                                    <field name="original_value_after"/>
+                                    <field name="revaluation_amount" sum="Всього"/>
+                                    <field name="revaluation_type" widget="badge"
+                                           decoration-success="revaluation_type == 'increase'"
+                                           decoration-warning="revaluation_type == 'decrease'"/>
+                                    <field name="state" widget="badge"
+                                           decoration-success="state == 'confirmed'"
+                                           decoration-muted="state == 'cancelled'"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Примітки" name="notes">
+                            <field name="notes" placeholder="Примітки..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Asset List View -->
+    <record id="l10n_ua_asset_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.asset.list</field>
+        <field name="model">l10n_ua.asset</field>
+        <field name="arch" type="xml">
+            <list string="Основні засоби" decoration-muted="state == 'close'">
+                <field name="inventory_number" string="Інв. №"/>
+                <field name="name"/>
+                <field name="group_id"/>
+                <field name="acquisition_date"/>
+                <field name="original_value" sum="Всього"/>
+                <field name="accumulated_depreciation" sum="Всього"/>
+                <field name="book_value" sum="Всього"/>
+                <field name="responsible_id"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'open'"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'paused'"
+                       decoration-muted="state == 'close'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Asset Search View -->
+    <record id="l10n_ua_asset_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.asset.search</field>
+        <field name="model">l10n_ua.asset</field>
+        <field name="arch" type="xml">
+            <search string="Основні засоби">
+                <field name="name"/>
+                <field name="inventory_number"/>
+                <field name="responsible_id"/>
+
+                <filter string="Чернетка" name="filter_draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter string="В експлуатації" name="filter_open"
+                        domain="[('state', '=', 'open')]"/>
+                <filter string="Призупинено" name="filter_paused"
+                        domain="[('state', '=', 'paused')]"/>
+                <filter string="Списано" name="filter_close"
+                        domain="[('state', '=', 'close')]"/>
+                <separator/>
+
+                <group>
+                    <filter string="Стан" name="groupby_state" domain="[]"
+                            context="{'group_by': 'state'}"/>
+                    <filter string="Група ОЗ" name="groupby_group" domain="[]"
+                            context="{'group_by': 'group_id'}"/>
+                    <filter string="Відповідальний" name="groupby_responsible" domain="[]"
+                            context="{'group_by': 'responsible_id'}"/>
+                    <filter string="Дата придбання" name="groupby_date" domain="[]"
+                            context="{'group_by': 'acquisition_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Asset Action -->
+    <record id="l10n_ua_asset_action" model="ir.actions.act_window">
+        <field name="name">Основні засоби</field>
+        <field name="res_model">l10n_ua.asset</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="l10n_ua_asset_view_search"/>
+        <field name="context">{'search_default_filter_open': 1}</field>
+    </record>
+
+</odoo>

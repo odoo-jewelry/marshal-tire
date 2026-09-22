@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="order_type_hiring" model="hr.order.type">
+            <field name="name">Наказ про прийняття на роботу</field>
+            <field name="code">HIRE</field>
+            <field name="category">hiring</field>
+            <field name="sequence_id" ref="seq_hr_order_hiring"/>
+            <field name="requires_employee">True</field>
+            <field name="requires_contract">True</field>
+            <field name="sequence">10</field>
+        </record>
+        
+        <record id="order_type_termination" model="hr.order.type">
+            <field name="name">Наказ про звільнення</field>
+            <field name="code">TERM</field>
+            <field name="category">termination</field>
+            <field name="sequence_id" ref="seq_hr_order_termination"/>
+            <field name="requires_employee">True</field>
+            <field name="requires_contract">True</field>
+            <field name="sequence">20</field>
+        </record>
+        
+        <record id="order_type_transfer" model="hr.order.type">
+            <field name="name">Наказ про переведення</field>
+            <field name="code">TRANS</field>
+            <field name="category">transfer</field>
+            <field name="requires_employee">True</field>
+            <field name="requires_department">True</field>
+            <field name="sequence">30</field>
+        </record>
+        
+        <record id="order_type_vacation" model="hr.order.type">
+            <field name="name">Наказ про надання відпустки</field>
+            <field name="code">VAC</field>
+            <field name="category">vacation</field>
+            <field name="sequence_id" ref="seq_hr_order_vacation"/>
+            <field name="requires_employee">True</field>
+            <field name="requires_date_range">True</field>
+            <field name="sequence">40</field>
+        </record>
+        
+        <record id="order_type_business_trip" model="hr.order.type">
+            <field name="name">Наказ про відрядження</field>
+            <field name="code">TRIP</field>
+            <field name="category">business_trip</field>
+            <field name="requires_employee">True</field>
+            <field name="requires_date_range">True</field>
+            <field name="sequence">50</field>
+        </record>
+        
+        <record id="order_type_bonus" model="hr.order.type">
+            <field name="name">Наказ про преміювання</field>
+            <field name="code">BONUS</field>
+            <field name="category">bonus</field>
+            <field name="requires_employee">True</field>
+            <field name="sequence">60</field>
+        </record>
+        
+        <record id="order_type_reprimand" model="hr.order.type">
+            <field name="name">Наказ про догану</field>
+            <field name="code">REPR</field>
+            <field name="category">disciplinary</field>
+            <field name="requires_employee">True</field>
+            <field name="sequence">70</field>
+        </record>
+        
+        <record id="order_type_wage_change" model="hr.order.type">
+            <field name="name">Наказ про зміну окладу</field>
+            <field name="code">WAGE</field>
+            <field name="category">other</field>
+            <field name="requires_employee">True</field>
+            <field name="requires_contract">True</field>
+            <field name="sequence">80</field>
+        </record>
+        
+        <record id="order_type_combine" model="hr.order.type">
+            <field name="name">Наказ про суміщення</field>
+            <field name="code">COMB</field>
+            <field name="category">other</field>
+            <field name="requires_employee">True</field>
+            <field name="sequence">90</field>
+        </record>
+        
+    </data>
+</odoo>

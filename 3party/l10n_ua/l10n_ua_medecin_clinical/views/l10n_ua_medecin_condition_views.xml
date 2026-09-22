@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_condition_list" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.condition.list</field>
+        <field name="model">l10n_ua.medecin.condition</field>
+        <field name="arch" type="xml">
+            <list string="Стани здоров'я" decoration-muted="date_resolved">
+                <field name="patient_id"/>
+                <field name="icd10_id"/>
+                <field name="date_onset"/>
+                <field name="date_resolved"/>
+                <field name="is_chronic"/>
+                <field name="severity"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_condition" model="ir.actions.act_window">
+        <field name="name">Хронічні стани</field>
+        <field name="res_model">l10n_ua.medecin.condition</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="view_allergy_list" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.allergy.list</field>
+        <field name="model">l10n_ua.medecin.allergy</field>
+        <field name="arch" type="xml">
+            <list string="Алергії">
+                <field name="patient_id"/>
+                <field name="allergen"/>
+                <field name="severity"/>
+                <field name="reaction"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_allergy" model="ir.actions.act_window">
+        <field name="name">Алергії</field>
+        <field name="res_model">l10n_ua.medecin.allergy</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

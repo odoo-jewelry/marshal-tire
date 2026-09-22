@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Sale Order QR report action -->
+    <record id="action_report_payment_qr_sale" model="ir.actions.report">
+        <field name="name">QR для оплати</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_payment_link.report_payment_qr_sale</field>
+        <field name="report_file">l10n_ua_payment_link.report_payment_qr_sale</field>
+        <field name="print_report_name">'QR_оплата_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Invoice QR report action -->
+    <record id="action_report_payment_qr_invoice" model="ir.actions.report">
+        <field name="name">QR для оплати</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_payment_link.report_payment_qr_invoice</field>
+        <field name="report_file">l10n_ua_payment_link.report_payment_qr_invoice</field>
+        <field name="print_report_name">'QR_оплата_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Sale Order QR template -->
+    <template id="report_payment_qr_sale">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-family: sans-serif;">
+                        <t t-set="company" t-value="o.company_id"/>
+                        <t t-set="comp_partner" t-value="company.partner_id"/>
+                        <t t-set="bank" t-value="comp_partner.bank_ids[:1]"/>
+
+                        <div style="text-align: center; margin: 20px 0;">
+                            <h2>Рахунок на оплату</h2>
+                            <h3>
+                                № <span t-field="o.name"/>
+                                від <span t-field="o.date_order" t-options='{"widget": "date"}'/>
+                            </h3>
+                        </div>
+
+                        <!-- Company info -->
+                        <table style="width: 100%; margin-bottom: 20px; border-collapse: collapse;">
+                            <tr>
+                                <td style="width: 30%; vertical-align: top; padding: 5px;"><strong>Отримувач:</strong></td>
+                                <td style="padding: 5px;">
+                                    <span t-field="company.name"/><br/>
+                                    <t t-if="comp_partner.edrpou">
+                                        ЄДРПОУ: <span t-field="comp_partner.edrpou"/><br/>
+                                    </t>
+                                    <t t-if="bank">
+                                        IBAN: <span t-field="bank.acc_number"/><br/>
+                                        <t t-if="bank.bank_id">
+                                            Банк: <span t-field="bank.bank_id.name"/>
+                                            <t t-if="bank.bank_id.bic">
+                                                , МФО <span t-field="bank.bank_id.bic"/>
+                                            </t>
+                                            <br/>
+                                        </t>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px;"><strong>Сума до сплати:</strong></td>
+                                <td style="padding: 5px; font-size: 14pt;">
+                                    <strong t-esc="'%.2f' % o.amount_total"/> грн.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px;"><strong>Призначення:</strong></td>
+                                <td style="padding: 5px;">
+                                    Оплата згідно з рахунком <span t-field="o.name"/>
+                                    від <span t-field="o.date_order" t-options='{"widget": "date"}'/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- NBU QR Code -->
+                        <div style="text-align: center; margin: 30px 0;" t-if="o.nbu_payment_link">
+                            <h4>Скануйте QR-код для оплати через банківський додаток</h4>
+                            <img t-att-src="o._get_nbu_qr_barcode_url(300, 300)"
+                                 style="width: 300px; height: 300px;"/>
+                            <div style="margin-top: 10px; color: #666; font-size: 9pt;">
+                                Стандарт НБУ (Постанова від 01.02.2021 №11)
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- Invoice QR template -->
+    <template id="report_payment_qr_invoice">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-family: sans-serif;">
+                        <t t-set="company" t-value="o.company_id"/>
+                        <t t-set="comp_partner" t-value="company.partner_id"/>
+                        <t t-set="bank" t-value="comp_partner.bank_ids[:1]"/>
+
+                        <div style="text-align: center; margin: 20px 0;">
+                            <h2>Рахунок на оплату</h2>
+                            <h3>
+                                № <span t-field="o.name"/>
+                                від <span t-field="o.invoice_date"/>
+                            </h3>
+                        </div>
+
+                        <!-- Company info -->
+                        <table style="width: 100%; margin-bottom: 20px; border-collapse: collapse;">
+                            <tr>
+                                <td style="width: 30%; vertical-align: top; padding: 5px;"><strong>Отримувач:</strong></td>
+                                <td style="padding: 5px;">
+                                    <span t-field="company.name"/><br/>
+                                    <t t-if="comp_partner.edrpou">
+                                        ЄДРПОУ: <span t-field="comp_partner.edrpou"/><br/>
+                                    </t>
+                                    <t t-if="bank">
+                                        IBAN: <span t-field="bank.acc_number"/><br/>
+                                        <t t-if="bank.bank_id">
+                                            Банк: <span t-field="bank.bank_id.name"/>
+                                            <t t-if="bank.bank_id.bic">
+                                                , МФО <span t-field="bank.bank_id.bic"/>
+                                            </t>
+                                            <br/>
+                                        </t>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px;"><strong>Сума до сплати:</strong></td>
+                                <td style="padding: 5px; font-size: 14pt;">
+                                    <strong t-esc="'%.2f' % o.amount_residual"/> грн.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px;"><strong>Призначення:</strong></td>
+                                <td style="padding: 5px;">
+                                    Оплата за рахунком <span t-field="o.name"/>
+                                    від <span t-field="o.invoice_date"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- NBU QR Code -->
+                        <div style="text-align: center; margin: 30px 0;" t-if="o.nbu_payment_link">
+                            <h4>Скануйте QR-код для оплати через банківський додаток</h4>
+                            <img t-att-src="o._get_nbu_qr_barcode_url(300, 300)"
+                                 style="width: 300px; height: 300px;"/>
+                            <div style="margin-top: 10px; color: #666; font-size: 9pt;">
+                                Стандарт НБУ (Постанова від 01.02.2021 №11)
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

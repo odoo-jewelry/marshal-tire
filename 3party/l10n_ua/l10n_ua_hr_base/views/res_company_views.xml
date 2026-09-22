@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Реєстраційні реквізити компанії живуть у `l10n_ua_company_base` і
+         показуються на власній вкладці. Тут — лише кадрове (#292). -->
+    <record id="view_company_form_inherit_ua_hr" model="ir.ui.view">
+        <field name="name">res.company.form.inherit.ua.hr</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Ukrainian HR" name="ua_hr">
+                    <group>
+                        <group string="Responsible Persons">
+                            <field name="director_id"/>
+                            <field name="accountant_id"/>
+                            <field name="hr_manager_id"/>
+                            <field name="military_officer_id"/>
+                        </group>
+                        <group string="HR Settings">
+                            <field name="wage_from_staffing"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

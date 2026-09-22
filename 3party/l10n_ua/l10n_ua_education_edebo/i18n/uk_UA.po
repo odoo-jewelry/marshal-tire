@@ -1,0 +1,7 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: l10n_ua_education_edebo 19.0.1.0.0\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"

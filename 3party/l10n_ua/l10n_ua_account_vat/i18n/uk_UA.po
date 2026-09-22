@@ -1,0 +1,737 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_account_vat
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20251022\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-31 19:28+0000\n"
+"PO-Revision-Date: 2026-01-31 19:28+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_account_vat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_declaration_view_form
+msgid "0% and Exempt"
+msgstr "0% та звільнені"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_tax_invoice_line__vat_rate__20
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_vat_register_line__vat_rate__20
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_declaration_view_form
+msgid "20%"
+msgstr "20%"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_vat_declaration__state__accepted
+msgid "Accepted"
+msgstr "Прийнято"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_needaction
+msgid "Action Needed"
+msgstr "Потрібна дія"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_ids
+msgid "Activities"
+msgstr "Активності"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Оформлення винятку активності"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_state
+msgid "Activity State"
+msgstr "Стан активності"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Іконка типу активності"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_attachment_count
+msgid "Attachment Count"
+msgstr "Кількість вкладень"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__base_amount
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__base_amount
+msgid "Base Amount"
+msgstr "Сума бази"
+
+#. module: l10n_ua_account_vat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_declaration_view_form
+msgid "Calculate"
+msgstr "Розрахувати"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_vat_declaration__state__calculated
+msgid "Calculated"
+msgstr "Розраховано"
+
+#. module: l10n_ua_account_vat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_tax_invoice_view_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_tax_invoice__state__cancelled
+msgid "Cancelled"
+msgstr "Скасовано"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__company_id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__company_id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__create_uid
+msgid "Created by"
+msgstr "Створено"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__create_date
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__create_date
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__create_date
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__create_date
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__create_date
+msgid "Created on"
+msgstr "Дата створення"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__credit_20
+msgid "Credit 20%"
+msgstr "Кредит 20%"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__credit_7
+msgid "Credit 7%"
+msgstr "Кредит 7%"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__date
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__date
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__date
+msgid "Date"
+msgstr "Дата"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__name
+msgid "Description"
+msgstr "Опис"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__display_name
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__display_name
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__display_name
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__display_name
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__display_name
+msgid "Display Name"
+msgstr "Відображувана назва"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_tax_invoice__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_vat_declaration__state__draft
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__erpn_date
+msgid "ERPN Registration Date"
+msgstr "Дата реєстрації ЄРПН"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__erpn_number
+msgid "ERPN Registration Number"
+msgstr "Реєстраційний номер ЄРПН"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_tax_invoice_line__vat_rate__exempt
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_vat_register_line__vat_rate__exempt
+msgid "Exempt"
+msgstr "Звільнено"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Контрагенти)"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Іконка Font awesome, напр. fa-tasks"
+
+#. module: l10n_ua_account_vat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_tax_invoice_view_form
+msgid "Generate XML"
+msgstr "Згенерувати XML"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__has_message
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__has_message
+msgid "Has Message"
+msgstr "Має повідомлення"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_exception_icon
+msgid "Icon"
+msgstr "Іконка"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Іконка для позначення активності з винятком."
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_needaction
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо позначено, нові повідомлення потребують вашої уваги."
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_has_error
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_has_sms_error
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_has_error
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_tax_invoice__partner_ipn
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_vat_register_line__partner_ipn
+msgid ""
+"Individual Tax Number / Registration Number of the Taxpayer Account Card (10"
+" or 12 digits)"
+msgstr ""
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__invoice_date
+msgid "Invoice Date"
+msgstr "Дата накладної"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__invoice_number
+msgid "Invoice Number"
+msgstr "Номер накладної"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_is_follower
+msgid "Is Follower"
+msgstr "Є підписником"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_tax_invoice__invoice_type__issued
+msgid "Issued (Видана)"
+msgstr "Видана"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_vat_register__register_type__issued
+msgid "Issued (Видані)"
+msgstr "Видані"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__write_uid
+msgid "Last Updated by"
+msgstr "Востаннє оновлено"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__write_date
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__write_date
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__write_date
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__write_date
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__write_date
+msgid "Last Updated on"
+msgstr "Дата останнього оновлення"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__line_ids
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__line_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_tax_invoice_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_register_view_form
+msgid "Lines"
+msgstr "Рядки"
+
+#. module: l10n_ua_account_vat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_declaration_view_form
+msgid "Mark Accepted"
+msgstr "Позначити прийнятою"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставки повідомлення"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Крайній термін моєї активності"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__name
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__name
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Наступна подія календаря активності"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Крайній термін наступної активності"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_summary
+msgid "Next Activity Summary"
+msgstr "Резюме наступної активності"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_type_id
+msgid "Next Activity Type"
+msgstr "Тип наступної активності"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__number
+msgid "Number"
+msgstr "Номер"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_has_error_counter
+msgid "Number of errors"
+msgstr "Кількість помилок"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Кількість повідомлень, що потребують дії"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилкою доставки"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__partner_id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__partner_id
+msgid "Partner"
+msgstr "Контрагент"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__partner_ipn
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__partner_ipn
+msgid "Partner IPN"
+msgstr "ІПН контрагента"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__partner_name
+msgid "Partner Name"
+msgstr "Найменування контрагента"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__product_id
+msgid "Product"
+msgstr "Товар"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__purchases_20
+msgid "Purchases 20%"
+msgstr "Придбання 20%"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__purchases_7
+msgid "Purchases 7%"
+msgstr "Придбання 7%"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__quantity
+msgid "Quantity"
+msgstr "Кількість"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_tax_invoice__invoice_type__received
+msgid "Received (Отримана)"
+msgstr "Отримана"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_vat_register__register_type__received
+msgid "Received (Отримані)"
+msgstr "Отримані"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__register_id
+msgid "Register"
+msgstr "Реєстр"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__register_type
+msgid "Register Type"
+msgstr "Тип реєстру"
+
+#. module: l10n_ua_account_vat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_tax_invoice_view_form
+msgid "Register in ERPN"
+msgstr "Зареєструвати в ЄРПН"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_tax_invoice__state__registered
+msgid "Registered in ERPN"
+msgstr "Зареєстровано в ЄРПН"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__move_id
+msgid "Related Invoice"
+msgstr "Пов'язаний рахунок"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_user_id
+msgid "Responsible User"
+msgstr "Відповідальний користувач"
+
+#. module: l10n_ua_account_vat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_declaration_view_form
+msgid "Result"
+msgstr "Результат"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Помилка доставки SMS"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__sales_0
+msgid "Sales 0%"
+msgstr "Продажі 0%"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__sales_20
+msgid "Sales 20%"
+msgstr "Продажі 20%"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__sales_7
+msgid "Sales 7%"
+msgstr "Продажі 7%"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__sales_exempt
+msgid "Sales Exempt"
+msgstr "Звільнені від ПДВ"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: l10n_ua_account_vat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_tax_invoice_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_declaration_view_form
+msgid "Set to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__state
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__state
+msgid "State"
+msgstr "Стан"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_state
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: l10n_ua_account_vat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_declaration_view_form
+msgid "Submit"
+msgstr "Подати"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields.selection,name:l10n_ua_account_vat.selection__l10n_ua_vat_declaration__state__submitted
+msgid "Submitted"
+msgstr "Подано"
+
+#. module: l10n_ua_account_vat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_declaration_view_form
+msgid "Tax Credit"
+msgstr "Податковий кредит"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__tax_invoice_id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__tax_invoice_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_tax_invoice_view_form
+msgid "Tax Invoice"
+msgstr "Податкова накладна"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model,name:l10n_ua_account_vat.model_l10n_ua_tax_invoice
+msgid "Tax Invoice (Податкова накладна)"
+msgstr "Податкова накладна"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model,name:l10n_ua_account_vat.model_l10n_ua_tax_invoice_line
+msgid "Tax Invoice Line"
+msgstr "Рядок податкової накладної"
+
+#. module: l10n_ua_account_vat
+#: model:ir.actions.act_window,name:l10n_ua_account_vat.l10n_ua_tax_invoice_action
+#: model:ir.ui.menu,name:l10n_ua_account_vat.menu_l10n_ua_tax_invoices
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_tax_invoice_view_list
+msgid "Tax Invoices"
+msgstr "Податкові накладні"
+
+#. module: l10n_ua_account_vat
+#: model:ir.ui.menu,name:l10n_ua_account_vat.menu_l10n_ua_tax_invoices_issued
+msgid "Issued Tax Invoices"
+msgstr "Видані податкові накладні"
+
+#. module: l10n_ua_account_vat
+#: model:ir.ui.menu,name:l10n_ua_account_vat.menu_l10n_ua_tax_invoices_received
+msgid "Received Tax Invoices"
+msgstr "Отримані податкові накладні"
+
+#. module: l10n_ua_account_vat
+#: model:ir.ui.menu,name:l10n_ua_account_vat.menu_l10n_ua_vat_erpn_limit
+msgid "Registration Limit"
+msgstr "Ліміт реєстрації"
+
+#. module: l10n_ua_account_vat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_declaration_view_form
+msgid "Tax Liabilities"
+msgstr "Податкові зобов'язання"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__period_id
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__period_id
+msgid "Tax Period"
+msgstr "Податковий період"
+
+#. module: l10n_ua_account_vat
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_tax_invoice_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_tax_invoice_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_declaration_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_register_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_register_view_list
+msgid "Total"
+msgstr "Разом"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__total_amount
+msgid "Total Amount"
+msgstr "Загальна сума"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__total_base
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__total_base
+msgid "Total Base"
+msgstr "Загальна база"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__total_credit
+msgid "Total Tax Credit"
+msgstr "Загальний податковий кредит"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__total_liabilities
+msgid "Total Tax Liabilities"
+msgstr "Загальні податкові зобов'язання"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__total_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register__total_vat
+msgid "Total VAT"
+msgstr "Загальний ПДВ"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__invoice_type
+msgid "Type"
+msgstr "Тип"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_tax_invoice__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_vat_declaration__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Тип активності з винятком у записі."
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__uktzed_code
+msgid "UKTZED Code"
+msgstr "Код УКТЗЕД"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__uktzed_code
+msgid "Ukrainian Classification of Foreign Economic Activity"
+msgstr "Українська класифікація товарів зовнішньоекономічної діяльності"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__price_unit
+msgid "Unit Price"
+msgstr "Ціна за одиницю"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__uom_id
+msgid "Unit of Measure"
+msgstr "Одиниця виміру"
+
+#. module: l10n_ua_account_vat
+#: model:ir.ui.menu,name:l10n_ua_account_vat.menu_l10n_ua_vat
+msgid "VAT"
+msgstr "ПДВ"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__vat_20
+msgid "VAT 20%"
+msgstr "ПДВ 20%"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__vat_7
+msgid "VAT 7%"
+msgstr "ПДВ 7%"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__vat_amount
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__vat_amount
+msgid "VAT Amount"
+msgstr "Сума ПДВ"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model,name:l10n_ua_account_vat.model_l10n_ua_vat_declaration
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_declaration_view_form
+msgid "VAT Declaration"
+msgstr "Декларація з ПДВ"
+
+#. module: l10n_ua_account_vat
+#: model:ir.actions.act_window,name:l10n_ua_account_vat.l10n_ua_vat_declaration_action
+#: model:ir.ui.menu,name:l10n_ua_account_vat.menu_l10n_ua_vat_declarations
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_declaration_view_list
+msgid "VAT Declarations"
+msgstr "Декларації з ПДВ"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__vat_payable
+msgid "VAT Payable"
+msgstr "ПДВ до сплати"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice_line__vat_rate
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_register_line__vat_rate
+msgid "VAT Rate"
+msgstr "Ставка ПДВ"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__vat_refundable
+msgid "VAT Refundable"
+msgstr "ПДВ до відшкодування"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model,name:l10n_ua_account_vat.model_l10n_ua_vat_register
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_register_view_form
+msgid "VAT Register"
+msgstr "Реєстр ПДВ"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model,name:l10n_ua_account_vat.model_l10n_ua_vat_register_line
+msgid "VAT Register Line"
+msgstr "Рядок реєстру ПДВ"
+
+#. module: l10n_ua_account_vat
+#: model:ir.actions.act_window,name:l10n_ua_account_vat.l10n_ua_vat_register_action
+#: model:ir.ui.menu,name:l10n_ua_account_vat.menu_l10n_ua_vat_registers
+#: model_terms:ir.ui.view,arch_db:l10n_ua_account_vat.l10n_ua_vat_register_view_list
+msgid "VAT Registers"
+msgstr "Реєстри ПДВ"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_tax_invoice__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_account_vat.field_l10n_ua_vat_declaration__website_message_ids
+msgid "Website Messages"
+msgstr "Повідомлення на сайті"
+
+#. module: l10n_ua_account_vat
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_tax_invoice__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_account_vat.field_l10n_ua_vat_declaration__website_message_ids
+msgid "Website communication history"
+msgstr "Історія комунікацій на сайті"

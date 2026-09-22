@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_journal_form_treasury" model="ir.ui.view">
+        <field name="name">account.journal.form.treasury</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Казначейський рахунок (UA)" name="ua_treasury">
+                    <group>
+                        <field name="ua_is_treasury"/>
+                        <field name="ua_treasury_account_type" invisible="not ua_is_treasury"
+                               required="ua_is_treasury"/>
+                        <field name="ua_treasury_organ_id" invisible="not ua_is_treasury"/>
+                    </group>
+                    <group>
+                        <field name="ua_treasury_kpkvk_id" invisible="not ua_is_treasury"/>
+                        <field name="ua_treasury_fund_type" invisible="not ua_is_treasury"
+                               required="ua_is_treasury"/>
+                        <field name="ua_treasury_check_limit" invisible="not ua_is_treasury"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

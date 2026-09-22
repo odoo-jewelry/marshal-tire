@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_tax_cabinet_sync_wizard_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.tax.cabinet.sync.wizard.form</field>
+        <field name="model">l10n_ua.tax.cabinet.sync.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Sync with Tax Cabinet">
+                <group>
+                    <field name="mode" widget="radio"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+
+                <!-- Upload mode -->
+                <group string="Upload Files" invisible="mode != 'upload'">
+                    <field name="file_ids" nolabel="1" colspan="2">
+                        <list editable="bottom">
+                            <field name="file" filename="filename"/>
+                            <field name="filename" column_invisible="True"/>
+                            <field name="document_type_id"/>
+                            <field name="name" optional="show"/>
+                            <field name="document_date"/>
+                            <field name="year"/>
+                            <field name="period"/>
+                        </list>
+                    </field>
+                </group>
+
+                <!-- Sync mode -->
+                <group string="Sync from Cabinet API" invisible="mode != 'sync'">
+                    <group>
+                        <field name="config_id" options="{'no_create': True}"/>
+                        <field name="sync_type"/>
+                    </group>
+                    <group>
+                        <field name="year"/>
+                        <field name="month" invisible="sync_type != 'reported'"/>
+                    </group>
+                </group>
+
+                <div class="alert alert-info" role="alert" invisible="mode != 'sync'">
+                    <p><strong>Авторизація:</strong> КЕП-підпис коду платника.</p>
+                    <p>Після «Process» відкриється діалог підпису: оберіть файл-ключ і введіть пароль —
+                        підпис рахується у вашому браузері, ключ і пароль на сервер не передаються.</p>
+                </div>
+
+                <footer>
+                    <button name="action_process" string="Process" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_tax_cabinet_sync_wizard_action" model="ir.actions.act_window">
+        <field name="name">Sync with Tax Cabinet</field>
+        <field name="res_model">l10n_ua.tax.cabinet.sync.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

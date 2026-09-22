@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- The period lives in the control panel rather than in the search bar:
+         it is a parameter of the report, not a filter. Changing a date does not
+         narrow the displayed rows — it makes the server recompute the opening
+         balance. -->
+    <t t-name="l10n_ua_stock_forms.MaterialReportListView"
+       t-inherit="web.ListView" t-inherit-mode="primary">
+        <xpath expr="//t[@t-set-slot='control-panel-always-buttons']" position="inside">
+            <MaterialReportPeriodRange t-props="materialReportPeriodProps"/>
+        </xpath>
+    </t>
+
+</templates>

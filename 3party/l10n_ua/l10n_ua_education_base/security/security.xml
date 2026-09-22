@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="group_ua_education_user" model="res.groups">
+            <field name="name">UA Education User</field>
+            <field name="comment">Доступ до даних освітнього закладу: контингент, групи, навчальний рік (тільки читання + редагування існуючих).</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_ua_education_manager" model="res.groups">
+            <field name="name">UA Education Manager</field>
+            <field name="comment">Повний доступ до даних освітнього закладу: створення/видалення контингенту, керування навчальними роками, наказами.</field>
+            <field name="implied_ids" eval="[(4, ref('group_ua_education_user'))]"/>
+        </record>
+    </data>
+</odoo>

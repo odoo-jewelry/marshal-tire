@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 900px; margin: 0 auto; color: #333;">
+
+    <div style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #00a046 0%, #79c843 100%); border-radius: 8px; margin-bottom: 30px;">
+        <h1 style="color: white; margin: 0; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🛒 Україна - Інтеграція з Rozetka</h1>
+        <p style="color: white; font-size: 1.2em; margin-top: 10px;">Повна інтеграція з маркетплейсом Rozetka для Odoo 19</p>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin-bottom: 25px;">
+        <h2 style="color: #00a046; margin-top: 0;">📦 Про модуль</h2>
+        <p>Модуль інтеграції з <strong>Rozetka Seller API</strong> для автоматизації продажів на найбільшому маркетплейсі України.</p>
+        <p>Розширює базовий модуль <strong>l10n_ua_marketplace_base</strong> функціоналом, специфічним для Rozetka.</p>
+    </div>
+
+    <div style="background: #e8f5e9; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #00a046; margin-top: 0;">✨ Основні можливості</h3>
+        <ul>
+            <li><strong>Авторизація API</strong> — Bearer token з автоматичним оновленням (кожні 24 години)</li>
+            <li><strong>Імпорт замовлень</strong> — автоматичне завантаження нових замовлень з пагінацією</li>
+            <li><strong>Оновлення статусів</strong> — синхронізація статусів замовлень в обидві сторони</li>
+            <li><strong>Синхронізація залишків</strong> — batch-оновлення залишків через API</li>
+            <li><strong>Синхронізація цін</strong> — масове оновлення цін на товари</li>
+            <li><strong>Webhook підтримка</strong> — миттєве отримання нових замовлень</li>
+            <li><strong>YML фід</strong> — генерація товарного фіду для Rozetka</li>
+        </ul>
+    </div>
+
+    <div style="background: #fff8e1; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #f57c00; margin-top: 0;">⚙️ Налаштування</h3>
+        <ol>
+            <li>Встановіть модуль <strong>l10n_ua_marketplace_base</strong></li>
+            <li>Перейдіть до <strong>Маркетплейси → Конфігурація → Бекенди</strong></li>
+            <li>Створіть новий бекенд з типом <strong>Rozetka</strong></li>
+            <li>Введіть дані авторизації:
+                <ul>
+                    <li><strong>Seller ID</strong> — ваш ідентифікатор продавця</li>
+                    <li><strong>Username</strong> — логін від Rozetka Seller Portal</li>
+                    <li><strong>Password</strong> — пароль від порталу</li>
+                </ul>
+            </li>
+            <li>Натисніть <strong>Тест підключення</strong> для перевірки</li>
+            <li>Активуйте бекенд</li>
+        </ol>
+    </div>
+
+    <div style="background: #e3f2fd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #1976d2; margin-top: 0;">🔄 Автоматична синхронізація</h3>
+        <p>Модуль підтримує автоматичну синхронізацію через Cron-завдання:</p>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <tr style="background: #bbdefb;">
+                <th style="padding: 10px; text-align: left; border: 1px solid #90caf9;">Операція</th>
+                <th style="padding: 10px; text-align: left; border: 1px solid #90caf9;">Інтервал за замовчуванням</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #90caf9;">Імпорт замовлень</td>
+                <td style="padding: 10px; border: 1px solid #90caf9;">Кожні 15 хвилин</td>
+            </tr>
+            <tr style="background: #e3f2fd;">
+                <td style="padding: 10px; border: 1px solid #90caf9;">Синхронізація залишків</td>
+                <td style="padding: 10px; border: 1px solid #90caf9;">Кожні 30 хвилин</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #90caf9;">Синхронізація цін</td>
+                <td style="padding: 10px; border: 1px solid #90caf9;">Кожну годину</td>
+            </tr>
+            <tr style="background: #e3f2fd;">
+                <td style="padding: 10px; border: 1px solid #90caf9;">Оновлення токену</td>
+                <td style="padding: 10px; border: 1px solid #90caf9;">Кожні 12 годин</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="background: #fce4ec; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #c2185b; margin-top: 0;">📋 Статуси замовлень</h3>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <tr style="background: #f8bbd9;">
+                <th style="padding: 10px; text-align: left; border: 1px solid #f48fb1;">Rozetka</th>
+                <th style="padding: 10px; text-align: left; border: 1px solid #f48fb1;">Odoo</th>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #f48fb1;">Новий (1)</td>
+                <td style="padding: 8px; border: 1px solid #f48fb1;">Новий</td>
+            </tr>
+            <tr style="background: #fce4ec;">
+                <td style="padding: 8px; border: 1px solid #f48fb1;">Прийнятий (2)</td>
+                <td style="padding: 8px; border: 1px solid #f48fb1;">Підтверджений</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #f48fb1;">Комплектується (3)</td>
+                <td style="padding: 8px; border: 1px solid #f48fb1;">В обробці</td>
+            </tr>
+            <tr style="background: #fce4ec;">
+                <td style="padding: 8px; border: 1px solid #f48fb1;">Відправлений (4)</td>
+                <td style="padding: 8px; border: 1px solid #f48fb1;">Відправлений</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #f48fb1;">Доставлений (5)</td>
+                <td style="padding: 8px; border: 1px solid #f48fb1;">Доставлений</td>
+            </tr>
+            <tr style="background: #fce4ec;">
+                <td style="padding: 8px; border: 1px solid #f48fb1;">Скасований (6)</td>
+                <td style="padding: 8px; border: 1px solid #f48fb1;">Скасований</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #333; margin-top: 0;">📸 Скріншоти</h3>
+        <div style="display: grid; gap: 15px;">
+            <div>
+                <p style="font-weight: bold; margin-bottom: 5px;">Список замовлень:</p>
+                <img src="01-orders.png" alt="Замовлення з маркетплейсів" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+            </div>
+            <div>
+                <p style="font-weight: bold; margin-bottom: 5px;">Список бекендів:</p>
+                <img src="02-backends.png" alt="Налаштування бекендів" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+            </div>
+            <div>
+                <p style="font-weight: bold; margin-bottom: 5px;">Налаштування бекенду Rozetka:</p>
+                <img src="03-backend.png" alt="Форма налаштування Rozetka" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+            </div>
+            <div>
+                <p style="font-weight: bold; margin-bottom: 5px;">Прайс-лист для маркетплейсу:</p>
+                <img src="04-pricelist.png" alt="Прайс-лист" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+            </div>
+            <div>
+                <p style="font-weight: bold; margin-bottom: 5px;">Категорії маркетплейсу:</p>
+                <img src="05-categories.png" alt="Категорії" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px;"/>
+            </div>
+        </div>
+    </div>
+
+    <div style="background: #fff3cd; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #856404; margin-top: 0;">⚠️ Вимоги</h3>
+        <ul>
+            <li>Встановлений модуль <strong>l10n_ua_marketplace_base</strong></li>
+            <li>Активний аккаунт продавця на <strong>Rozetka Seller Portal</strong></li>
+            <li>Доступ до <strong>Rozetka Seller API</strong></li>
+            <li>Python бібліотека <strong>requests</strong></li>
+        </ul>
+    </div>
+
+    <div style="background: #e8eaf6; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+        <h3 style="color: #3f51b5; margin-top: 0;">📚 Документація API</h3>
+        <p>Офіційна документація Rozetka Seller API:</p>
+        <p><a href="https://api-seller.rozetka.com.ua/apidoc/" target="_blank" style="color: #3f51b5;">https://api-seller.rozetka.com.ua/apidoc/</a></p>
+    </div>
+
+    <div style="text-align: center; padding: 20px; background: #00a046; border-radius: 8px; color: white;">
+        <p style="margin: 0;">Розроблено для Odoo 19 Community Edition</p>
+    </div>
+
+    <div style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); padding: 25px; border-radius: 8px; margin: 25px 0; border-left: 4px solid #ffc107;">
+        <h3 style="color: #856404; margin-top: 0;">🫙 Збір на українську локалізацію Odoo — заміна 1С для бізнесу</h3>
+        <p style="margin-bottom: 15px;">Привіт! Створюю <strong>відкриті модулі української локалізації Odoo</strong> для повноцінної заміни 1С:</p>
+        <ul style="list-style: none; padding: 0; margin: 15px 0;">
+            <li style="padding: 8px 0;">📊 <strong>Бухгалтерський та фінансовий облік</strong> за українськими стандартами</li>
+            <li style="padding: 8px 0;">📋 <strong>Податкова звітність</strong> та електронний документообіг</li>
+            <li style="padding: 8px 0;">👥 <strong>HR-модуль (заміна ЗУП)</strong> — кадри, зарплата, табелі</li>
+            <li style="padding: 8px 0;">🛒 <strong>Інтеграція з маркетплейсами</strong> — Rozetka, Prom.ua, інші</li>
+        </ul>
+        <p><strong>Навіщо це потрібно:</strong> тисячі українських компаній досі сидять на російському софті, бо немає повноцінної альтернативи. Odoo — це потужна європейська ERP з відкритим кодом, але без якісної української локалізації перехід неможливий.</p>
+        <p><strong>Куди підуть кошти:</strong> розробка та тестування модулів, документація українською, підтримка спільноти.</p>
+        <p style="margin-bottom: 0;"><strong>Модулі будуть у відкритому доступі</strong> — для всіх, хто хоче позбутися російських технологій.</p>
+        <p style="margin-top: 15px; margin-bottom: 0;"><strong>Дякую за підтримку! 🙏</strong></p>
+        <p style="margin-top:10px; text-align:center"><img src="monobank_qr.png" alt="QR код для підтримки на Monobank" style="width:150px; height:150px;"/><br/><strong>Скануйте QR для підтримки на Monobank</strong></p>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============================================== -->
+    <!-- Bank UA - Main menu                            -->
+    <!-- ============================================== -->
+
+    <menuitem id="menu_ua_bank_root"
+              name="Bank"
+              sequence="53"
+              groups="l10n_ua_account_base.group_ua_accountant"
+              web_icon="l10n_ua_bank_sync,static/description/icon.png"/>
+
+    <!-- Dashboard -->
+    <menuitem id="menu_ua_bank_dashboard"
+              name="Dashboard"
+              parent="menu_ua_bank_root"
+              action="l10n_ua_bank_dashboard_action"
+              sequence="1"/>
+
+    <!-- Statements submenu -->
+    <menuitem id="menu_ua_bank_statements_root"
+              name="Statements"
+              parent="menu_ua_bank_root"
+              sequence="10"/>
+
+    <menuitem id="menu_ua_bank_statements"
+              name="Statements"
+              parent="menu_ua_bank_statements_root"
+              action="l10n_ua_bank_statement_action"
+              sequence="10"/>
+
+    <menuitem id="menu_ua_bank_transactions"
+              name="Transactions"
+              parent="menu_ua_bank_statements_root"
+              action="l10n_ua_bank_transaction_action"
+              sequence="20"/>
+
+    <!-- Sync Jobs submenu -->
+    <menuitem id="menu_ua_bank_sync_root"
+              name="Sync Jobs"
+              parent="menu_ua_bank_root"
+              sequence="20"/>
+
+    <menuitem id="menu_ua_bank_jobs"
+              name="Jobs"
+              parent="menu_ua_bank_sync_root"
+              action="l10n_ua_bank_sync_job_action"
+              sequence="10"/>
+
+    <!-- Configuration submenu -->
+    <menuitem id="menu_ua_bank_config"
+              name="Configuration"
+              parent="menu_ua_bank_root"
+              sequence="90"/>
+
+    <menuitem id="menu_ua_bank_connections"
+              name="Connections"
+              parent="menu_ua_bank_config"
+              action="l10n_ua_bank_sync_config_action"
+              sequence="10"/>
+
+    <menuitem id="menu_ua_bank_reconcile_models"
+              name="Reconciliation Models"
+              parent="menu_ua_bank_config"
+              action="account.action_account_reconcile_model"
+              sequence="20"/>
+
+</odoo>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #875A7B;
+            border-bottom: 2px solid #875A7B;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #666;
+            margin-top: 30px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        .feature-list li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .workflow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .workflow-step {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px 25px;
+            margin: 5px;
+            text-align: center;
+        }
+        .workflow-step.draft { border-color: #17a2b8; }
+        .workflow-step.confirmed { border-color: #ffc107; }
+        .workflow-step.paid { border-color: #28a745; }
+        .workflow-arrow {
+            font-size: 24px;
+            color: #6c757d;
+            margin: 0 10px;
+        }
+        .bonus-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .bonus-type {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .bonus-type-code {
+            font-family: monospace;
+            background: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #f8f9fa;
+        }
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Ukraine - HR Salary Bonus</h1>
+
+<p>
+    Модуль управління преміями для української локалізації зарплатного обліку.
+    Дозволяє вести облік премій працівників з інтеграцією в розрахунок заробітної плати.
+</p>
+
+<h2>Основні можливості</h2>
+
+<ul class="feature-list">
+    <li>Облік премій працівників з різними типами</li>
+    <li>Налаштування податкових параметрів для кожного типу премії (ПДФО, військовий збір, ЄСВ)</li>
+    <li>Автоматичне включення підтверджених премій у розрахунковий листок</li>
+    <li>Відстеження статусу премій: чернетка → підтверджено → виплачено</li>
+    <li>Можливість заповнення премій із зовнішніх систем</li>
+    <li>Підтримка української мови</li>
+</ul>
+
+<h2>Робочий процес</h2>
+
+<div class="workflow">
+    <div class="workflow-step draft">
+        <strong>Чернетка</strong><br>
+        <small>Створення премії</small>
+    </div>
+    <span class="workflow-arrow">→</span>
+    <div class="workflow-step confirmed">
+        <strong>Підтверджено</strong><br>
+        <small>Готова до виплати</small>
+    </div>
+    <span class="workflow-arrow">→</span>
+    <div class="workflow-step paid">
+        <strong>Виплачено</strong><br>
+        <small>Включено в зарплату</small>
+    </div>
+</div>
+
+<h2>Типи премій за замовчуванням</h2>
+
+<div class="bonus-types">
+    <div class="bonus-type">
+        <strong>Премія за результати</strong><br>
+        <span class="bonus-type-code">PERFORMANCE</span>
+    </div>
+    <div class="bonus-type">
+        <strong>Святкова премія</strong><br>
+        <span class="bonus-type-code">HOLIDAY</span>
+    </div>
+    <div class="bonus-type">
+        <strong>Квартальна премія</strong><br>
+        <span class="bonus-type-code">QUARTERLY</span>
+    </div>
+    <div class="bonus-type">
+        <strong>Річна премія</strong><br>
+        <span class="bonus-type-code">ANNUAL</span>
+    </div>
+    <div class="bonus-type">
+        <strong>Проектна премія</strong><br>
+        <span class="bonus-type-code">PROJECT</span>
+    </div>
+    <div class="bonus-type">
+        <strong>Інша премія</strong><br>
+        <span class="bonus-type-code">OTHER</span>
+    </div>
+</div>
+
+<h2>Налаштування типів премій</h2>
+
+<table>
+    <tr>
+        <th>Параметр</th>
+        <th>Опис</th>
+        <th>За замовчуванням</th>
+    </tr>
+    <tr>
+        <td>Оподатковується ПДФО</td>
+        <td>Включати в базу оподаткування ПДФО (18%)</td>
+        <td>Так</td>
+    </tr>
+    <tr>
+        <td>Військовий збір</td>
+        <td>Включати в базу військового збору (5%)</td>
+        <td>Так</td>
+    </tr>
+    <tr>
+        <td>База ЄСВ</td>
+        <td>Включати в базу нарахування ЄСВ (22%)</td>
+        <td>Так</td>
+    </tr>
+    <tr>
+        <td>Код доходу 4ДФ</td>
+        <td>Код для податкової звітності</td>
+        <td>101</td>
+    </tr>
+</table>
+
+<h2>Як використовувати</h2>
+
+<ol>
+    <li><strong>Увімкніть бонусну систему</strong> для працівника у вкладці "Бонусна система" картки працівника</li>
+    <li><strong>Створіть премію</strong> через меню Зарплата → Премії → Премії</li>
+    <li><strong>Підтвердіть премію</strong> натиснувши кнопку "Підтвердити"</li>
+    <li><strong>Розрахуйте зарплату</strong> — премія автоматично додасться до нарахувань</li>
+    <li>Після проведення розрахункового листка премія автоматично отримає статус "Виплачено"</li>
+</ol>
+
+<div class="note">
+    <strong>Важливо:</strong> Премії включаються в розрахунок зарплати тільки якщо:
+    <ul>
+        <li>У працівника увімкнена бонусна система</li>
+        <li>Премія має статус "Підтверджено"</li>
+        <li>Дата премії потрапляє в період розрахункового листка</li>
+    </ul>
+</div>
+
+<h2>Інтеграція із зовнішніми системами</h2>
+
+<p>
+    Модуль підтримує заповнення премій через API Odoo, що дозволяє інтегрувати
+    зовнішні системи обліку продуктивності, CRM або інші джерела даних про премії.
+</p>
+
+<h2>Залежності</h2>
+
+<ul>
+    <li>l10n_ua_hr_salary — Зарплата UA</li>
+</ul>
+
+</body>
+</html>

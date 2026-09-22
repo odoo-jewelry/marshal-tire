@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_vacation_schedule_view_form" model="ir.ui.view">
+        <field name="name">hr.vacation.schedule.form</field>
+        <field name="model">hr.vacation.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Vacation Schedule">
+                <header>
+                    <button name="action_generate_lines" string="Generate Lines" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_confirm" string="Confirm" type="object"
+                            invisible="state != 'draft'"/>
+                    <button name="action_approve" string="Approve" type="object"
+                            class="btn-primary" invisible="state != 'confirmed'"/>
+                    <button name="action_draft" string="Set to Draft" type="object"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="year"/>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   domain="[('id', 'in', allowed_company_ids)]"/>
+                        </group>
+                        <group>
+                            <field name="approval_date" invisible="state != 'approved'"/>
+                            <field name="approved_by" invisible="state != 'approved'"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Schedule Lines" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom" default_order="employee_id" create="false">
+                                    <field name="employee_id" readonly="1"/>
+                                    <field name="department_id" readonly="1" optional="hide"/>
+                                    <field name="job_id" readonly="1" optional="show"/>
+                                    <field name="leave_type_id" readonly="1" optional="show"/>
+                                    <field name="planned_days" string="Number of Calendar Days" readonly="1" optional="show"/>
+                                    <field name="vacation_balance_id" string="Period the Leave Is Granted For" readonly="1" optional="show"/>
+                                    <field name="vacation_period_display" string="Vacation Month or Period" readonly="1" optional="show"/>
+                                    <field name="total_planned" readonly="1" optional="hide"/>
+                                    <field name="actual_days" readonly="1" optional="hide"/>
+                                    <field name="notes" optional="hide"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_vacation_schedule_view_tree" model="ir.ui.view">
+        <field name="name">hr.vacation.schedule.tree</field>
+        <field name="model">hr.vacation.schedule</field>
+        <field name="arch" type="xml">
+            <list string="Vacation Schedules">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="approval_date"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'approved'"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'confirmed'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Calendar view for schedule lines -->
+    <record id="hr_vacation_schedule_line_view_calendar" model="ir.ui.view">
+        <field name="name">hr.vacation.schedule.line.calendar</field>
+        <field name="model">hr.vacation.schedule.line</field>
+        <field name="arch" type="xml">
+            <calendar string="Vacation Schedule" date_start="period_1_start" date_stop="period_1_end" color="department_id" mode="month" quick_create="0" create="0">
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="period_1_days"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- List view for schedule lines -->
+    <record id="hr_vacation_schedule_line_view_tree" model="ir.ui.view">
+        <field name="name">hr.vacation.schedule.line.tree</field>
+        <field name="model">hr.vacation.schedule.line</field>
+        <field name="arch" type="xml">
+            <list string="Schedule Lines" default_order="employee_id">
+                <field name="employee_id"/>
+                <field name="department_id" optional="hide"/>
+                <field name="job_id" optional="show"/>
+                <field name="leave_type_id" optional="show"/>
+                <field name="planned_days" string="Number of Calendar Days" optional="show"/>
+                <field name="vacation_balance_id" string="Period the Leave Is Granted For" optional="show"/>
+                <field name="vacation_period_display" string="Vacation Month or Period" optional="show"/>
+                <field name="total_planned" optional="hide"/>
+                <field name="actual_days" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form view for schedule lines -->
+    <record id="hr_vacation_schedule_line_view_form" model="ir.ui.view">
+        <field name="name">hr.vacation.schedule.line.form</field>
+        <field name="model">hr.vacation.schedule.line</field>
+        <field name="arch" type="xml">
+            <form string="Schedule Line">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="job_id"/>
+                            <field name="department_id"/>
+                            <field name="leave_id"/>
+                            <field name="leave_type_id"/>
+                        </group>
+                        <group>
+                            <field name="vacation_balance_id"/>
+                            <field name="vacation_period_display"/>
+                            <field name="planned_days"/>
+                            <field name="total_planned"/>
+                            <field name="actual_days"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Planned Period" name="period1">
+                            <group>
+                                <field name="period_1_start"/>
+                                <field name="period_1_end"/>
+                                <field name="period_1_days"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <field name="notes"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search view for schedule lines -->
+    <record id="hr_vacation_schedule_line_view_search" model="ir.ui.view">
+        <field name="name">hr.vacation.schedule.line.search</field>
+        <field name="model">hr.vacation.schedule.line</field>
+        <field name="arch" type="xml">
+            <search string="Schedule Lines">
+                <field name="employee_id"/>
+                <field name="job_id"/>
+                <field name="leave_type_id"/>
+                <field name="department_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action for schedule lines with calendar -->
+    <record id="action_hr_vacation_schedule_line_calendar" model="ir.actions.act_window">
+        <field name="name">Vacation Calendar</field>
+        <field name="res_model">hr.vacation.schedule.line</field>
+        <field name="view_mode">calendar,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No vacation periods scheduled
+            </p>
+            <p>
+                Fill in vacation periods in the schedule to see them here.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_hr_vacation_schedule" model="ir.actions.act_window">
+        <field name="name">Vacation Schedules</field>
+        <field name="res_model">hr.vacation.schedule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a vacation schedule for the year
+            </p>
+            <p>
+                Vacation schedules must be approved before December 5th for the next year.
+            </p>
+        </field>
+    </record>
+
+</odoo>

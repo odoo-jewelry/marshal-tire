@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_template_form_view_ua_codes" model="ir.ui.view">
+        <field name="name">product.template.form.ua.codes</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Both codes are shown whatever the product type is. Which of
+                 them a document uses follows from `type`, but hiding the other
+                 one would let a filled value sit invisible on the product and
+                 silently never reach a tax invoice — the failure this module
+                 exists to end. -->
+            <page name="general_information" position="inside">
+                <group name="l10n_ua_product_codes" string="Ukrainian Classifiers">
+                    <field name="uktzed_code" placeholder="8471300000"/>
+                    <field name="dkpp_code" placeholder="62.01.11-00.00"/>
+                </group>
+            </page>
+        </field>
+    </record>
+
+    <record id="product_template_search_view_ua_codes" model="ir.ui.view">
+        <field name="name">product.template.search.ua.codes</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="uktzed_code" string="UKTZED"/>
+                <field name="dkpp_code" string="DKPP"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

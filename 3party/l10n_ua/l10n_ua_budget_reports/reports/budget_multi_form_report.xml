@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_budget_multi_form" model="ir.actions.report">
+        <field name="name">Бюджетна форма</field>
+        <field name="model">l10n_ua.budget.estimate</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_budget_reports.budget_multi_form_template</field>
+        <field name="report_file">l10n_ua_budget_reports.budget_multi_form_template</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <template id="budget_multi_form_template">
+        <t t-call="web.html_container">
+            <t t-set="estimate" t-value="env['l10n_ua.budget.estimate'].browse(data.get('estimate_id'))"/>
+            <t t-set="form_kind" t-value="data.get('form_kind')"/>
+            <t t-set="form_label" t-value="data.get('form_label')"/>
+            <t t-set="period_label" t-value="data.get('period_label')"/>
+            <t t-set="date_from" t-value="data.get('date_from')"/>
+            <t t-set="date_to" t-value="data.get('date_to')"/>
+            <t t-set="wizard" t-value="env['l10n_ua.budget.multi_form.wizard'].new({'estimate_id': estimate.id, 'form_kind': form_kind, 'period': data.get('period', 'year')})"/>
+            <t t-set="rows" t-value="wizard.get_report_data()"/>
+
+            <t t-call="web.external_layout">
+                <div class="page" style="font-size:11px;">
+                    <h2 style="text-align:center; margin-bottom:0;"><t t-out="form_label"/></h2>
+                    <p style="text-align:center; margin-top:0;">
+                        за <t t-out="period_label"/> <t t-out="estimate.year"/> року
+                    </p>
+                    <table class="table table-sm" style="margin-bottom:8px;">
+                        <tr>
+                            <td style="border:none; width:50%;">
+                                <strong>Установа:</strong> <t t-out="estimate.company_id.name"/>
+                            </td>
+                            <td style="border:none;">
+                                <strong>Період:</strong> <t t-out="date_from"/> — <t t-out="date_to"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- Variant A: execution-based forms (2м, 4-1д, 4-2д) -->
+                    <t t-if="form_kind in ('2m', '4_1d', '4_2d')">
+                        <table class="table table-bordered table-sm" style="font-size:10px;">
+                            <thead>
+                                <tr style="background:#f0f0f0;">
+                                    <th>КЕКВ</th>
+                                    <th>Призначення</th>
+                                    <th class="text-end">План</th>
+                                    <th class="text-end">Фактичне виконання</th>
+                                    <th class="text-end">Залишок</th>
+                                    <th class="text-end">%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="sum_plan" t-value="0"/>
+                                <t t-set="sum_actual" t-value="0"/>
+                                <tr t-foreach="rows" t-as="r">
+                                    <td><strong t-out="r['kekv_code']"/></td>
+                                    <td><t t-out="r['kekv_name']"/></td>
+                                    <td class="text-end"><t t-out="'{:,.2f}'.format(r['plan']).replace(',', ' ')"/></td>
+                                    <td class="text-end"><t t-out="'{:,.2f}'.format(r['actual']).replace(',', ' ')"/></td>
+                                    <td class="text-end"><t t-out="'{:,.2f}'.format(r['variance']).replace(',', ' ')"/></td>
+                                    <td class="text-end"><t t-out="'{:,.1f}'.format(r['variance_pct'])"/>%</td>
+                                    <t t-set="sum_plan" t-value="sum_plan + r['plan']"/>
+                                    <t t-set="sum_actual" t-value="sum_actual + r['actual']"/>
+                                </tr>
+                                <tr style="background:#f8f8f8;">
+                                    <td colspan="2"><strong>РАЗОМ</strong></td>
+                                    <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum_plan).replace(',', ' ')"/></strong></td>
+                                    <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum_actual).replace(',', ' ')"/></strong></td>
+                                    <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum_plan - sum_actual).replace(',', ' ')"/></strong></td>
+                                    <td class="text-end"><strong>
+                                        <t t-out="'{:,.1f}'.format((sum_actual / sum_plan * 100.0) if sum_plan else 0.0)"/>%
+                                    </strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+
+                    <!-- Variant B: debt forms (7д, 9д) -->
+                    <t t-if="form_kind in ('7d', '9d')">
+                        <table class="table table-bordered table-sm" style="font-size:10px;">
+                            <thead>
+                                <tr style="background:#f0f0f0;">
+                                    <th>КЕКВ</th>
+                                    <th>Призначення</th>
+                                    <th>Фонд</th>
+                                    <th class="text-end">Залишок</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="sum_bal" t-value="0"/>
+                                <tr t-foreach="rows" t-as="r">
+                                    <td><strong t-out="r['kekv_code']"/></td>
+                                    <td><t t-out="r['kekv_name']"/></td>
+                                    <td><t t-out="r['fund']"/></td>
+                                    <td class="text-end"><t t-out="'{:,.2f}'.format(r['balance']).replace(',', ' ')"/></td>
+                                    <t t-set="sum_bal" t-value="sum_bal + r['balance']"/>
+                                </tr>
+                                <tr style="background:#f8f8f8;">
+                                    <td colspan="3"><strong>РАЗОМ</strong></td>
+                                    <td class="text-end"><strong><t t-out="'{:,.2f}'.format(sum_bal).replace(',', ' ')"/></strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+
+                    <div style="margin-top:40px;">
+                        <table style="width:100%;">
+                            <tr>
+                                <td style="width:50%; border:none;">
+                                    Керівник установи<br/>
+                                    ________________ /__________________/
+                                </td>
+                                <td style="width:50%; border:none;">
+                                    Головний бухгалтер<br/>
+                                    ________________ /__________________/
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="l10n_ua_bank_sync_config_view_form_text" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.config.form.text</field>
+        <field name="model">l10n_ua.bank.sync.config</field>
+        <field name="inherit_id" ref="l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='account_group']" position="after">
+                <group string="Текстовий формат (BUH-1 / ІБІС / CSV)"
+                       invisible="provider != 'text'" col="4">
+                    <field name="text_delimiter"/>
+                    <field name="text_encoding"/>
+                    <field name="text_skip_rows"/>
+                    <field name="text_date_format"/>
+                </group>
+                <group string="Мапінг колонок (0-based; -1 = не використовується)"
+                       invisible="provider != 'text'" col="4">
+                    <field name="text_col_date"/>
+                    <field name="text_col_docid"/>
+                    <field name="text_col_debit"/>
+                    <field name="text_col_credit"/>
+                    <field name="text_col_amount"/>
+                    <field name="text_col_partner"/>
+                    <field name="text_col_account"/>
+                    <field name="text_col_edrpou"/>
+                    <field name="text_col_purpose"/>
+                </group>
+                <div class="text-muted" invisible="provider != 'text'" colspan="2">
+                    Опишіть формат виписки вашого банку. Дт/Кт в окремих колонках —
+                    заповніть Debit/Credit; якщо сума одна зі знаком — Signed Amount.
+                    Завантаження — кнопкою «Import File».
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

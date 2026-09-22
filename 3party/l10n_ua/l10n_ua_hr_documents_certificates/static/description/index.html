@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<section style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px;">
+
+<h1 style="color: #875A7B; border-bottom: 3px solid #875A7B; padding-bottom: 15px; font-size: 2em;">Ukraine - HR Certificates</h1>
+
+<div style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #875A7B;">
+    <strong style="font-size: 1.3em;">Модуль довідок та документів для Odoo 19</strong><br/><br/>
+    Система видачі стандартних кадрових довідок з автоматичним заповненням даних,
+    шаблонами та друком. Реєстр виданих довідок з workflow обробки заявок.
+</div>
+
+<div style="display: flex; gap: 15px; flex-wrap: wrap; margin: 25px 0;">
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px; border: 1px solid #e0e0e0;">
+        <div style="font-size: 2em; color: #875A7B; font-weight: bold;">7+</div>
+        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Типів довідок</div>
+    </div>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px; border: 1px solid #e0e0e0;">
+        <div style="font-size: 2em; color: #875A7B; font-weight: bold;">20+</div>
+        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Плейсхолдерів</div>
+    </div>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px; border: 1px solid #e0e0e0;">
+        <div style="font-size: 2em; color: #875A7B; font-weight: bold;">PDF</div>
+        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Друк довідок</div>
+    </div>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px; border: 1px solid #e0e0e0;">
+        <div style="font-size: 2em; color: #875A7B; font-weight: bold;">Workflow</div>
+        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Обробка заявок</div>
+    </div>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Типи довідок</h2>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+    <tr><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Тип</th><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Опис</th></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Довідка про роботу</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Підтвердження працевлаштування на підприємстві</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>Довідка про заробітну плату</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Інформація про поточну заробітну плату</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Довідка про стаж</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Інформація про стаж роботи на підприємстві</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>Довідка про доходи</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Доходи за визначений період</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Характеристика</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Характеристика з місця роботи</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>Довідка для банку</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Для отримання кредиту чи іпотеки</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Довідка про відпустку</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Підтвердження періоду відпустки</td></tr>
+</table>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Власні типи довідок</strong> — можливість створення нових типів з власними шаблонами</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Workflow обробки</h2>
+
+<div style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0;">
+    <div style="background: #f8f9fa; padding: 15px 25px; border-radius: 25px; border: 2px solid #875A7B;">
+        <strong>Чернетка</strong>
+    </div>
+    <div style="font-size: 1.5em; color: #875A7B;">→</div>
+    <div style="background: #fff3cd; padding: 15px 25px; border-radius: 25px; border: 2px solid #ffc107;">
+        <strong>Затверджено</strong>
+    </div>
+    <div style="font-size: 1.5em; color: #875A7B;">→</div>
+    <div style="background: #d4edda; padding: 15px 25px; border-radius: 25px; border: 2px solid #28a745;">
+        <strong>Видано</strong>
+    </div>
+</div>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Чернетка</strong> — заявка на довідку, можна редагувати</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Затверджено</strong> — заявка перевірена, готова до видачі</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Видано</strong> — довідка видана працівнику</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Скасовано</strong> — заявку скасовано</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Шаблони довідок</h2>
+
+<p>HTML-шаблони з автоматичним заповненням плейсхолдерів:</p>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+    <tr><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Плейсхолдер</th><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Опис</th></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">{company_name}</td><td style="border: 1px solid #ddd; padding: 12px;">Назва компанії</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">{company_director}</td><td style="border: 1px solid #ddd; padding: 12px;">ПІБ директора</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">{company_edrpou}</td><td style="border: 1px solid #ddd; padding: 12px;">Код ЄДРПОУ</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">{company_address}</td><td style="border: 1px solid #ddd; padding: 12px;">Адреса компанії</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">{employee_name}</td><td style="border: 1px solid #ddd; padding: 12px;">ПІБ працівника</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">{employee_position}</td><td style="border: 1px solid #ddd; padding: 12px;">Посада</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">{employee_department}</td><td style="border: 1px solid #ddd; padding: 12px;">Підрозділ</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">{employee_hire_date}</td><td style="border: 1px solid #ddd; padding: 12px;">Дата прийняття на роботу</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">{employee_rnokpp}</td><td style="border: 1px solid #ddd; padding: 12px;">РНОКПП працівника</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">{salary_amount}</td><td style="border: 1px solid #ddd; padding: 12px;">Сума зарплати</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">{work_experience}</td><td style="border: 1px solid #ddd; padding: 12px;">Стаж роботи</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">{certificate_number}</td><td style="border: 1px solid #ddd; padding: 12px;">Номер довідки</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">{certificate_date}</td><td style="border: 1px solid #ddd; padding: 12px;">Дата видачі</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">{destination}</td><td style="border: 1px solid #ddd; padding: 12px;">Куди подається (за місцем вимоги)</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">{period_from} / {period_to}</td><td style="border: 1px solid #ddd; padding: 12px;">Період (для довідок про доходи)</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">{total_income}</td><td style="border: 1px solid #ddd; padding: 12px;">Сума доходів за період</td></tr>
+</table>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Налаштування типів довідок</h2>
+
+<div style="display: flex; gap: 30px; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #555; margin-top: 25px;">Загальні налаштування</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Код та назва типу</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Опис призначення</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Термін дії (днів)</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Послідовність нумерації</li>
+        </ul>
+    </div>
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #555; margin-top: 25px;">Вимоги до даних</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Потребує інформацію про зарплату</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Потребує вказання періоду</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Потребує вказання призначення</li>
+        </ul>
+    </div>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Довідка</h2>
+
+<div style="display: flex; gap: 30px; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #555; margin-top: 25px;">Основні дані</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Номер довідки (автоматичний)</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Тип довідки</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Працівник</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Дата заявки</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Дата видачі</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Дійсна до</li>
+        </ul>
+    </div>
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #555; margin-top: 25px;">Додаткові дані</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Куди подається (призначення)</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Період (для довідок про доходи)</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Поточна зарплата (автоматично)</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Сума доходів за період</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Кількість копій</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Ким видано</li>
+        </ul>
+    </div>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Автоматичне заповнення</h2>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Зарплата</strong> — автоматично з трудового договору або hr.version</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Стаж</strong> — автоматичний розрахунок на основі дати прийняття</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Термін дії</strong> — автоматичний розрахунок на основі налаштувань типу</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Текст довідки</strong> — автоматична генерація з шаблону</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Друк (PDF)</h2>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Стандартний звіт</strong> — для всіх типів довідок</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Власні звіти</strong> — можливість налаштувати для кожного типу</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Формат A4</strong> — стандартний формат друку</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Реєстр довідок</h2>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Список всіх виданих довідок</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Фільтри за типом, працівником, статусом, датою</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Статистика по типах довідок</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Історія змін (трекінг через mail.activity)</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Інтеграція з картою працівника</h2>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Кнопка "Створити довідку" на формі працівника</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Список виданих довідок на вкладці працівника</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Лічильник довідок</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Залежності</h2>
+
+<div style="background: #e7f3ff; padding: 15px; border-radius: 5px; margin: 15px 0; border: 1px solid #b3d7ff;">
+    <strong>Потребує:</strong>
+    <ul style="margin: 10px 0 0 20px;">
+        <li>l10n_ua_hr_base — базовий модуль української HR локалізації</li>
+    </ul>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">🫙 Підтримати проект</h2>
+
+<div style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); padding: 25px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #ffc107;">
+    <h3 style="color: #856404; margin-top: 0;">Збір на українську локалізацію Odoo — заміна 1С для бізнесу</h3>
+    <p style="margin-bottom: 15px;">Привіт! Створюю <strong>відкриті модулі української локалізації Odoo</strong> для повноцінної заміни 1С:</p>
+    <ul style="list-style: none; padding: 0; margin: 15px 0;">
+        <li style="padding: 8px 0;">📊 <strong>Бухгалтерський та фінансовий облік</strong> за українськими стандартами</li>
+        <li style="padding: 8px 0;">📋 <strong>Податкова звітність</strong> та електронний документообіг</li>
+        <li style="padding: 8px 0;">👥 <strong>HR-модуль (заміна ЗУП)</strong> — кадри, зарплата, табелі</li>
+        <li style="padding: 8px 0;">🏭 <strong>Операційний облік</strong> — склад, виробництво, продажі</li>
+    </ul>
+    <p><strong>Навіщо це потрібно:</strong> тисячі українських компаній досі сидять на російському софті, бо немає повноцінної альтернативи. Odoo — це потужна європейська ERP з відкритим кодом, але без якісної української локалізації перехід неможливий.</p>
+    <p><strong>Куди підуть кошти:</strong> розробка та тестування модулів, документація українською, підтримка спільноти.</p>
+    <p style="margin-bottom: 0;"><strong>Модулі будуть у відкритому доступі</strong> — для всіх, хто хоче позбутися російських технологій.</p>
+    <p style="margin-top: 15px; margin-bottom: 0;"><strong>Дякую за підтримку! 🙏</strong></p>
+    <p style="margin-top:10px; text-align:center"><img src="monobank_qr.png" alt="QR код для підтримки на Monobank" style="width:150px; height:150px;"/><br/><strong>Скануйте QR для підтримки на Monobank</strong></p>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Підтримка</h2>
+
+<div style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #875A7B;">
+    <strong>Автор:</strong> Svyatoslav Nadozirny<br/>
+    <strong>Веб-сайт:</strong> <a href="https://many2one.online">https://many2one.online</a><br/>
+    <strong>Email:</strong> support@many2one.online
+</div>
+
+</section>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_department_form_inherit_ua" model="ir.ui.view">
+        <field name="name">hr.department.form.inherit.ua</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="koatuu_code"/>
+                <field name="department_type"/>
+                <field name="is_separate_unit"/>
+                <field name="edrpou" invisible="not is_separate_unit"/>
+                <field name="head_employee_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_department_tree_inherit_ua" model="ir.ui.view">
+        <field name="name">hr.department.tree.inherit.ua</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="department_type" optional="show"/>
+                <field name="is_separate_unit" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

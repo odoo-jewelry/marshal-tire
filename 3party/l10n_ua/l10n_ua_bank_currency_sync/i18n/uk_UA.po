@@ -1,0 +1,505 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * l10n_ua_bank_currency_sync
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-31 00:00+0000\n"
+"PO-Revision-Date: 2026-01-31 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian <>\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model,name:l10n_ua_bank_currency_sync.model_res_currency_rate
+msgid "Currency Rate"
+msgstr "Курс валюти"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model,name:l10n_ua_bank_currency_sync.model_res_currency_rate_provider
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+msgid "Currency Rate Provider"
+msgstr "Провайдер курсів валют"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model,name:l10n_ua_bank_currency_sync.model_l10n_ua_currency_sync_wizard
+msgid "Currency Sync Wizard"
+msgstr "Майстер синхронізації валют"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.actions.act_window,name:l10n_ua_bank_currency_sync.res_currency_rate_provider_action
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_list
+msgid "Currency Rate Providers"
+msgstr "Провайдери курсів валют"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.actions.act_window,name:l10n_ua_bank_currency_sync.res_currency_action
+#: model:ir.ui.menu,name:l10n_ua_bank_currency_sync.menu_ua_bank_currencies
+msgid "Currencies"
+msgstr "Валюти"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.actions.act_window,name:l10n_ua_bank_currency_sync.res_currency_rate_action
+#: model:ir.ui.menu,name:l10n_ua_bank_currency_sync.menu_ua_bank_currency_rates
+msgid "Currency Rates"
+msgstr "Курси валют"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.actions.act_window,name:l10n_ua_bank_currency_sync.currency_sync_wizard_action
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.currency_sync_wizard_view_form
+msgid "Sync Currency Rates"
+msgstr "Синхронізація курсів валют"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.ui.menu,name:l10n_ua_bank_currency_sync.menu_ua_bank_currency_providers
+msgid "Rate Providers"
+msgstr "Провайдери курсів"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.ui.menu,name:l10n_ua_bank_currency_sync.menu_ua_bank_currency_sync
+msgid "Sync Currencies"
+msgstr "Синхронізація валют"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.cron,name:l10n_ua_bank_currency_sync.ir_cron_currency_sync
+msgid "Currency Rates: Daily Sync"
+msgstr "Курси валют: щоденна синхронізація"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:res.currency.rate.provider,name:l10n_ua_bank_currency_sync.currency_rate_provider_nbu
+msgid "NBU (Official Rates)"
+msgstr "НБУ (офіційні курси)"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+msgid "Sync Now"
+msgstr "Синхронізувати зараз"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+msgid "Archived"
+msgstr "В архіві"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+msgid "e.g. NBU Official Rates"
+msgstr "напр. Офіційні курси НБУ"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+msgid "Provider Settings"
+msgstr "Налаштування провайдера"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+msgid "Sync Settings"
+msgstr "Налаштування синхронізації"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_res_currency_rate_provider__currency_ids
+msgid "Currencies to Sync"
+msgstr "Валюти для синхронізації"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+#: model:ir.model.fields,help:l10n_ua_bank_currency_sync.field_res_currency_rate_provider__currency_ids
+msgid "Leave empty to sync all available currencies"
+msgstr "Залиште порожнім для синхронізації всіх доступних валют"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+msgid "Provider Information:"
+msgstr "Інформація про провайдерів:"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+msgid "NBU"
+msgstr "НБУ"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+msgid "Official rates from National Bank of Ukraine. Supports historical rates."
+msgstr "Офіційні курси Національного банку України. Підтримує історичні курси."
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__res_currency_rate_provider__code__privatbank
+msgid "PrivatBank"
+msgstr "ПриватБанк"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+msgid "Commercial bank rates (cash or non-cash). Only current rates."
+msgstr "Курси комерційного банку (готівкові або безготівкові). Тільки поточні курси."
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__res_currency_rate_provider__code__monobank
+msgid "Monobank"
+msgstr "Монобанк"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_view_form
+msgid "Commercial bank rates. Only current rates. Rate limit: 1 request/minute."
+msgstr "Курси комерційного банку. Тільки поточні курси. Ліміт: 1 запит/хвилину."
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_action
+msgid "Configure currency rate providers"
+msgstr "Налаштуйте провайдерів курсів валют"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.res_currency_rate_provider_action
+msgid "Set up providers to sync exchange rates from NBU, PrivatBank, or Monobank."
+msgstr "Налаштуйте провайдерів для синхронізації курсів валют з НБУ, ПриватБанку або Монобанку."
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.currency_sync_wizard_view_form
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_l10n_ua_currency_sync_wizard__provider_ids
+msgid "Providers"
+msgstr "Провайдери"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.currency_sync_wizard_view_form
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_l10n_ua_currency_sync_wizard__period_type
+msgid "Period"
+msgstr "Період"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.currency_sync_wizard_view_form
+msgid "Warning:"
+msgstr "Увага:"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.currency_sync_wizard_view_form
+msgid "Only NBU supports historical rates. PrivatBank and Monobank will only sync today's rate if today is in the selected range."
+msgstr "Тільки НБУ підтримує історичні курси. ПриватБанк та Монобанк синхронізують лише курс на сьогодні, якщо сьогоднішня дата входить у вибраний діапазон."
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.currency_sync_wizard_view_form
+msgid "Provider Capabilities:"
+msgstr "Можливості провайдерів:"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.currency_sync_wizard_view_form
+msgid "Official rates, supports historical data (any date)"
+msgstr "Офіційні курси, підтримує історичні дані (будь-яка дата)"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.currency_sync_wizard_view_form
+msgid "Commercial rates, only current day"
+msgstr "Комерційні курси, тільки поточний день"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.currency_sync_wizard_view_form
+msgid "Commercial rates, only current day (1 req/min limit)"
+msgstr "Комерційні курси, тільки поточний день (ліміт 1 запит/хв)"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.currency_sync_wizard_view_form
+msgid "Sync Rates"
+msgstr "Синхронізувати курси"
+
+#. module: l10n_ua_bank_currency_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_currency_sync.currency_sync_wizard_view_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_res_currency_rate__inverse_company_rate
+msgid "Rate (UAH)"
+msgstr "Курс (грн)"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,help:l10n_ua_bank_currency_sync.field_res_currency_rate__inverse_company_rate
+msgid "Exchange rate: 1 foreign currency = X UAH"
+msgstr "Курс обміну: 1 іноземна валюта = X грн"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_res_currency_rate__provider_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_res_currency_rate_provider__code
+msgid "Provider"
+msgstr "Провайдер"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,help:l10n_ua_bank_currency_sync.field_res_currency_rate__provider_id
+msgid "Source of this rate"
+msgstr "Джерело цього курсу"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_res_currency_rate_provider__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__res_currency_rate_provider__code__nbu
+msgid "NBU (National Bank of Ukraine)"
+msgstr "НБУ (Національний банк України)"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_res_currency_rate_provider__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_res_currency_rate_provider__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_res_currency_rate_provider__last_sync_date
+msgid "Last Sync"
+msgstr "Остання синхронізація"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_res_currency_rate_provider__auto_sync
+msgid "Auto Sync"
+msgstr "Автосинхронізація"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,help:l10n_ua_bank_currency_sync.field_res_currency_rate_provider__auto_sync
+msgid "Automatically sync rates daily via scheduled action"
+msgstr "Автоматично синхронізувати курси щодня через заплановану дію"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_res_currency_rate_provider__privat_rate_type
+msgid "PrivatBank Rate Type"
+msgstr "Тип курсу ПриватБанку"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,help:l10n_ua_bank_currency_sync.field_res_currency_rate_provider__privat_rate_type
+msgid "Cash rate (5) or Non-cash/Card rate (11)"
+msgstr "Готівковий курс (5) або безготівковий/картковий курс (11)"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__res_currency_rate_provider__privat_rate_type__5
+msgid "Cash Rate"
+msgstr "Готівковий курс"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__res_currency_rate_provider__privat_rate_type__11
+msgid "Non-cash Rate"
+msgstr "Безготівковий курс"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.constraint,message:l10n_ua_bank_currency_sync.constraint_res_currency_rate_provider__unique_code_company
+msgid "Only one provider of each type per company!"
+msgstr "Тільки один провайдер кожного типу на компанію!"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__l10n_ua_currency_sync_wizard__period_type__today
+msgid "Today"
+msgstr "Сьогодні"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__l10n_ua_currency_sync_wizard__period_type__yesterday
+msgid "Yesterday"
+msgstr "Вчора"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__l10n_ua_currency_sync_wizard__period_type__current_week
+msgid "Current Week"
+msgstr "Поточний тиждень"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__l10n_ua_currency_sync_wizard__period_type__previous_week
+msgid "Previous Week"
+msgstr "Попередній тиждень"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__l10n_ua_currency_sync_wizard__period_type__current_month
+msgid "Current Month"
+msgstr "Поточний місяць"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__l10n_ua_currency_sync_wizard__period_type__previous_month
+msgid "Previous Month"
+msgstr "Попередній місяць"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__l10n_ua_currency_sync_wizard__period_type__current_quarter
+msgid "Current Quarter"
+msgstr "Поточний квартал"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__l10n_ua_currency_sync_wizard__period_type__previous_quarter
+msgid "Previous Quarter"
+msgstr "Попередній квартал"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__l10n_ua_currency_sync_wizard__period_type__current_year
+msgid "Current Year"
+msgstr "Поточний рік"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_currency_sync.selection__l10n_ua_currency_sync_wizard__period_type__custom
+msgid "Custom Period"
+msgstr "Довільний період"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_l10n_ua_currency_sync_wizard__date_from
+msgid "Date From"
+msgstr "Дата з"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_l10n_ua_currency_sync_wizard__date_to
+msgid "Date To"
+msgstr "Дата по"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_l10n_ua_currency_sync_wizard__days_count
+msgid "Days to Sync"
+msgstr "Днів для синхронізації"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_currency_sync.field_l10n_ua_currency_sync_wizard__has_nbu
+msgid "Has NBU Provider"
+msgstr "Є провайдер НБУ"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/models/res_currency_rate_provider.py:0
+#, python-format
+msgid "Unknown provider: %s"
+msgstr "Невідомий провайдер: %s"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/models/res_currency_rate_provider.py:0
+#, python-format
+msgid "Failed to fetch NBU rates: %s"
+msgstr "Не вдалося отримати курси НБУ: %s"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/models/res_currency_rate_provider.py:0
+#, python-format
+msgid "No rate data returned from NBU for %s"
+msgstr "НБУ не повернув даних про курси за %s"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/models/res_currency_rate_provider.py:0
+#, python-format
+msgid "Failed to fetch PrivatBank rates: %s"
+msgstr "Не вдалося отримати курси ПриватБанку: %s"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/models/res_currency_rate_provider.py:0
+#, python-format
+msgid "No rate data returned from PrivatBank"
+msgstr "ПриватБанк не повернув даних про курси"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/models/res_currency_rate_provider.py:0
+#, python-format
+msgid "Failed to fetch Monobank rates: %s"
+msgstr "Не вдалося отримати курси Монобанку: %s"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/models/res_currency_rate_provider.py:0
+#, python-format
+msgid "No rate data returned from Monobank"
+msgstr "Монобанк не повернув даних про курси"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Please select at least one provider."
+msgstr "Будь ласка, оберіть принаймні одного провайдера."
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Please select dates."
+msgstr "Будь ласка, оберіть дати."
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Date From must be before or equal to Date To."
+msgstr "Дата початку повинна бути до або дорівнювати даті закінчення."
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Cannot sync future dates."
+msgstr "Неможливо синхронізувати майбутні дати."
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Date range cannot exceed 365 days."
+msgstr "Діапазон дат не може перевищувати 365 днів."
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Sync completed!"
+msgstr "Синхронізацію завершено!"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Period: %s to %s (%d days)"
+msgstr "Період: %s по %s (%d днів)"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Created: %d"
+msgstr "Створено: %d"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Updated: %d"
+msgstr "Оновлено: %d"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Skipped: %d"
+msgstr "Пропущено: %d"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Note: %s only support current date rates."
+msgstr "Примітка: %s підтримують лише курси на поточну дату."
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Errors:"
+msgstr "Помилки:"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "... and %d more errors"
+msgstr "... та ще %d помилок"
+
+#. module: l10n_ua_bank_currency_sync
+#: code:addons/l10n_ua_bank_currency_sync/wizard/currency_sync_wizard.py:0
+#, python-format
+msgid "Currency Sync"
+msgstr "Синхронізація валют"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.access,name:l10n_ua_bank_currency_sync.access_res_currency_rate_provider_user
+msgid "res.currency.rate.provider.user"
+msgstr "res.currency.rate.provider.user"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.access,name:l10n_ua_bank_currency_sync.access_res_currency_rate_provider_manager
+msgid "res.currency.rate.provider.manager"
+msgstr "res.currency.rate.provider.manager"
+
+#. module: l10n_ua_bank_currency_sync
+#: model:ir.model.access,name:l10n_ua_bank_currency_sync.access_currency_sync_wizard_user
+msgid "l10n_ua.currency.sync.wizard.user"
+msgstr "l10n_ua.currency.sync.wizard.user"

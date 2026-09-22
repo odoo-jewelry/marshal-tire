@@ -1,0 +1,1560 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_bank_sync
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260103\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-23 13:44+0000\n"
+"PO-Revision-Date: 2026-01-23 13:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.report,print_report_name:l10n_ua_bank_sync.action_report_bank_statement
+msgid "'Bank_Statement_%s_%s' % (object.date_from, object.date_to)"
+msgstr "'Банківська_виписка_%s_%s' % (object.date_from, object.date_to)"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_journal_dashboard_kanban
+msgid "<i class=\"fa fa-refresh me-1\"/> Sync"
+msgstr "<i class=\"fa fa-refresh me-1\"/> Синхронізувати"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_form
+msgid "<span class=\"o_stat_text\">Journal Entry</span>"
+msgstr "<span class=\"o_stat_text\">Запис журналу</span>"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_form
+msgid "<span class=\"o_stat_text\">Sync Job</span>"
+msgstr "<span class=\"o_stat_text\">Завдання синхронізації</span>"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+msgid "<span class=\"o_stat_text\">View Logs</span>"
+msgstr "<span class=\"o_stat_text\">Журнал подій</span>"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_journal_dashboard_kanban
+msgid "<span>Balance</span>"
+msgstr "<span>Баланс</span>"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_journal_dashboard_kanban
+msgid "<span>Settings</span>"
+msgstr "<span>Налаштування</span>"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_journal_dashboard_kanban
+msgid "<span>View</span>"
+msgstr "<span>Переглянути</span>"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "<strong>Account:</strong>"
+msgstr "<strong>Рахунок:</strong>"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "<strong>Company:</strong>"
+msgstr "<strong>Компанія:</strong>"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "<strong>Journal:</strong>"
+msgstr "<strong>Журнал:</strong>"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "<strong>Period:</strong>"
+msgstr "<strong>Період:</strong>"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/wizard/l10n_ua_bank_statement_wizard.py:0
+msgid ""
+"A statement already exists for this period: %s\n"
+"Please delete it first or choose a different period."
+msgstr "Виписка для цього періоду вже існує: %s\n"
+"Спочатку видаліть її або виберіть інший період."
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form
+msgid "Account"
+msgstr "Рахунок"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_form
+msgid "Accounting"
+msgstr "Бухгалтерія"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_needaction
+msgid "Action Needed"
+msgstr "Потрібна дія"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__active
+msgid "Active"
+msgstr "Активний"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_ids
+msgid "Activities"
+msgstr "Активності"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Оформлення виключення активності"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_state
+msgid "Activity State"
+msgstr "Стан активності"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Іконка типу активності"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_log__data
+msgid "Additional data in JSON format"
+msgstr "Додаткові дані у форматі JSON"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.actions.act_window,help:l10n_ua_bank_sync.l10n_ua_bank_transaction_action_new
+msgid "All transactions have been processed"
+msgstr "Всі транзакції оброблено"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__amount
+msgid "Amount"
+msgstr "Сума"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_search
+msgid "Archived"
+msgstr "Архівовано"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_attachment_count
+msgid "Attachment Count"
+msgstr "Кількість вкладень"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__auto_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_search
+msgid "Auto Sync"
+msgstr "Автосинхронізація"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/account_journal.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Balance"
+msgstr "Баланс"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_account_journal__ua_bank_balance_graph
+msgid "Balance Graph Data"
+msgstr "Дані графіка балансу"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__closing_balance
+msgid "Balance at the end of the period"
+msgstr "Баланс на кінець періоду"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__opening_balance
+msgid "Balance at the start of the period"
+msgstr "Баланс на початок періоду"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_form
+msgid "Balances"
+msgstr "Залишки"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model,name:l10n_ua_bank_sync.model_res_bank
+#: model:ir.ui.menu,name:l10n_ua_bank_sync.menu_ua_bank_root
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_form
+msgid "Bank"
+msgstr "Банк"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__bank_account_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__bank_account_id
+msgid "Bank Account"
+msgstr "Банківський рахунок"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model,name:l10n_ua_bank_sync.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Банківські рахунки"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_wizard__config_id
+msgid "Bank Configuration"
+msgstr "Налаштування банку"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.act_window,name:l10n_ua_bank_sync.l10n_ua_bank_sync_config_action
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_search
+msgid "Bank Connections"
+msgstr "Підключення до банків"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.act_window,name:l10n_ua_bank_sync.l10n_ua_bank_dashboard_action
+msgid "Bank Dashboard"
+msgstr "Панель банку"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__journal_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__journal_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__journal_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__journal_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__journal_id
+msgid "Bank Journal"
+msgstr "Банківський журнал"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/wizard/l10n_ua_bank_statement_wizard.py:0
+#: model:ir.actions.report,name:l10n_ua_bank_sync.action_report_bank_statement
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Bank Statement"
+msgstr "Банківська виписка"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/account_journal.py:0
+#: model:ir.actions.act_window,name:l10n_ua_bank_sync.l10n_ua_bank_statement_action
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_journal_dashboard_kanban
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_search
+msgid "Bank Statements"
+msgstr "Банківські виписки"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model,name:l10n_ua_bank_sync.model_l10n_ua_bank_sync_config
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form
+msgid "Bank Sync Configuration"
+msgstr "Налаштування синхронізації банку"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_list
+msgid "Bank Sync Configurations"
+msgstr "Налаштування синхронізації банків"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model,name:l10n_ua_bank_sync.model_l10n_ua_bank_sync_job
+msgid "Bank Sync Job"
+msgstr "Завдання синхронізації банку"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model,name:l10n_ua_bank_sync.model_l10n_ua_bank_sync_log
+msgid "Bank Sync Log Entry"
+msgstr "Запис логу синхронізації банку"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model,name:l10n_ua_bank_sync.model_l10n_ua_bank_sync_wizard
+msgid "Bank Sync Wizard"
+msgstr "Майстер синхронізації банку"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_form
+msgid "Bank Transaction"
+msgstr "Банківська транзакція"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+msgid "Bank Transactions"
+msgstr "Банківські транзакції"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_statement__statement_type__both
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_statement_wizard__statement_type__both
+msgid "Both"
+msgstr "Обидва"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_job.py:0
+msgid "Can only fetch in draft or error state"
+msgstr "Можна отримати лише в стані чернетки або помилки"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_job.py:0
+msgid "Can only process in fetched or error state"
+msgstr "Можна обробити лише в стані отримано або помилки"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_wizard_view_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_transaction.py:0
+msgid "Cannot delete posted journal entry. Cancel it first."
+msgstr "Неможливо видалити проведений запис журналу. Спочатку скасуйте його."
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__closing_balance
+msgid "Closing Balance"
+msgstr "Залишок на кінець"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Closing Balance:"
+msgstr "Залишок на кінець:"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__company_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__company_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__company_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_transaction.py:0
+msgid ""
+"Company has no suspense account configured. Go to Settings > Accounting > "
+"Default Accounts."
+msgstr "Компанія не має налаштованої рахунку для відставок. Перейдіть до "
+"Налаштування > Облік > Загальна налаштування."
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__company_id
+msgid "Company related to this journal"
+msgstr "Компанія, пов'язана з цим журналом"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__config_id
+#: model:ir.ui.menu,name:l10n_ua_bank_sync.menu_ua_bank_config
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_journal_dashboard_kanban
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_search
+msgid "Configuration"
+msgstr "Налаштування"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.actions.act_window,help:l10n_ua_bank_sync.l10n_ua_bank_dashboard_action
+msgid "Configure your bank journals"
+msgstr "Налаштуйте ваші банківські журнали"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.ui.menu,name:l10n_ua_bank_sync.menu_ua_bank_connections
+msgid "Connections"
+msgstr "Підключення до банків"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.server,name:l10n_ua_bank_sync.action_transaction_mass_create_and_post
+msgid "Create & Post Entries"
+msgstr "Створити та провести записи"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_form
+msgid "Create Entry"
+msgstr "Створити запис"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.server,name:l10n_ua_bank_sync.action_transaction_mass_create_moves
+msgid "Create Journal Entries"
+msgstr "Створити записи журналу"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.actions.act_window,help:l10n_ua_bank_sync.l10n_ua_bank_dashboard_action
+msgid ""
+"Create bank journals to track your bank accounts and sync transactions from "
+"Ukrainian banks."
+msgstr "Створіть банківські журнали для відстеження вашої банківської рахунку та "
+"синхронізації транзакцій з українськими банками."
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__statement_ids
+msgid "Created Statements"
+msgstr "Створені виписки"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_log__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_wizard__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__create_date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__create_date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__create_date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__create_date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_log__create_date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_wizard__create_date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_account_journal__ua_bank_balance
+msgid "Current Balance"
+msgstr "Поточний баланс"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_wizard__period__custom
+msgid "Custom Period"
+msgstr "Довільний період"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form
+msgid "Custom Period..."
+msgstr "Довільний період..."
+
+#. module: l10n_ua_bank_sync
+#: model:ir.ui.menu,name:l10n_ua_bank_sync.menu_ua_bank_dashboard
+msgid "Dashboard"
+msgstr "Панель"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_log_view_form
+msgid "Data"
+msgstr "Дані"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_log__data
+msgid "Data (JSON)"
+msgstr "Дані (JSON)"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__date
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Date"
+msgstr "Дата"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__date_from
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__date_from
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__date_from
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_wizard__date_from
+msgid "Date From"
+msgstr "Дата з"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/wizard/l10n_ua_bank_statement_wizard.py:0
+#: code:addons/l10n_ua_bank_sync/wizard/l10n_ua_bank_sync_wizard.py:0
+msgid "Date From must be before Date To"
+msgstr "Дата початку повинна бути раніше дати закінчення"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_wizard_view_form
+msgid "Date Range"
+msgstr "Діапазон дат"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__date_to
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__date_to
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__date_to
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_wizard__date_to
+msgid "Date To"
+msgstr "Дата до"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_log__level__debug
+msgid "Debug"
+msgstr "Налагодження"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__default_days_back
+msgid "Default Days Back"
+msgstr "Днів назад за замовчуванням"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__default_days_back
+msgid "Default number of days to fetch statements for"
+msgstr "Кількість днів за замовчуванням для отримання виписок"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.server,name:l10n_ua_bank_sync.action_transaction_mass_delete_moves
+msgid "Delete Draft Entries"
+msgstr "Видалити чернетки записів"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_form
+msgid "Delete Entry"
+msgstr "Видалити запис"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__description
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Description"
+msgstr "Опис"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_account_journal__display_name
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__display_name
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__display_name
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__display_name
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__display_name
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_log__display_name
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_wizard__display_name
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__display_name
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_res_bank__display_name
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_res_partner_bank__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_job__state__done
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_search
+msgid "Done"
+msgstr "Виконано"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_job__state__draft
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_search
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_transaction__state__draft
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+msgid "Draft Entry"
+msgstr "Чернетка запису"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__auto_sync
+msgid "Enable automatic synchronization via scheduled action"
+msgstr "Увімкнути автоматичну синхронізацію через заплановану дію"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_job__state__error
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_log__level__error
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_search
+msgid "Error"
+msgstr "Помилка"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__error_message
+msgid "Error Message"
+msgstr "Повідомлення про помилку"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__error_count
+msgid "Errors"
+msgstr "Помилки"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_form
+msgid "Export XLSX"
+msgstr "Експорт XLSX"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__external_id
+msgid "External ID"
+msgstr "Зовнішній ID"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.server,name:l10n_ua_bank_sync.action_sync_job_mass_fetch
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+msgid "Fetch from Bank"
+msgstr "Отримати з банку"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_job__state__fetched
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_search
+msgid "Fetched"
+msgstr "Отримано"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_job__state__fetching
+msgid "Fetching from Bank"
+msgstr "Отримання з банку"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Партнери)"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Іконка Font Awesome, напр. fa-tasks"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_wizard__period__from_last
+msgid "From Last Sync"
+msgstr "З останньої синхронізації"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_form
+msgid "Generate"
+msgstr "Згенерувати"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model,name:l10n_ua_bank_sync.model_l10n_ua_bank_statement_wizard
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_wizard_view_form
+msgid "Generate Bank Statement"
+msgstr "Згенерувати банківську виписку"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.act_window,name:l10n_ua_bank_sync.l10n_ua_bank_statement_wizard_action
+#: model:ir.ui.menu,name:l10n_ua_bank_sync.menu_ua_bank_generate_statement
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_wizard_view_form
+msgid "Generate Statement"
+msgstr "Згенерувати виписку"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Generated:"
+msgstr "Згенеровано:"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__has_message
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__has_message
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__has_message
+msgid "Has Message"
+msgstr "Має повідомлення"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_search
+msgid "Has Payload"
+msgstr "Має дані"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_account_journal__id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_log__id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_wizard__id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_res_bank__id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_res_partner_bank__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_exception_icon
+msgid "Icon"
+msgstr "Іконка"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Іконка для позначення виключної активності."
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_needaction
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_needaction
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо позначено, нові повідомлення потребують вашої уваги."
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_has_error
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_has_sms_error
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_has_error
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_has_sms_error
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_has_error
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.act_window,name:l10n_ua_bank_sync.l10n_ua_bank_sync_job_action
+msgid "Import Jobs"
+msgstr "Завдання імпорту"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__imported_count
+msgid "Imported"
+msgstr "Імпортовано"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_statement__statement_type__incoming
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_statement_wizard__statement_type__incoming
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Incoming"
+msgstr "Вхідні"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_log__level__info
+msgid "Info"
+msgstr "Інформація"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/res_partner_bank.py:0
+msgid "Invalid Ukrainian IBAN: %s"
+msgstr "Невірний український IBAN: %s"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_is_follower
+msgid "Is Follower"
+msgstr "Є підписником"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_log__job_id
+msgid "Job"
+msgstr "Посада"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__job_count
+msgid "Job Count"
+msgstr "Кількість завдань"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__sync_job_id
+msgid "Job that imported this transaction"
+msgstr "Завдання, що імпортувало цю транзакцію"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.ui.menu,name:l10n_ua_bank_sync.menu_ua_bank_jobs
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form
+msgid "Jobs"
+msgstr "Завдання імпорту"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model,name:l10n_ua_bank_sync.model_account_journal
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+msgid "Journal"
+msgstr "Журнал"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_transaction.py:0
+msgid "Journal '%s' has no default account configured."
+msgstr "Журнал '%s' не має налаштованого рахунку за замовчуванням."
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_transaction.py:0
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__move_id
+msgid "Journal Entry"
+msgstr "Запис журналу"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_transaction.py:0
+msgid "Journal entry already exists for this transaction."
+msgstr "Запис журналу для цієї транзакції вже існує."
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_wizard__period__last_30_days
+msgid "Last 30 Days"
+msgstr "Останні 30 днів"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_wizard__period__last_7_days
+msgid "Last 7 Days"
+msgstr "Останні 7 днів"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_wizard__last_job_id
+msgid "Last Job"
+msgstr "Останнє завдання"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_wizard__period__last_month
+msgid "Last Month"
+msgstr "Минулий місяць"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_account_journal__ua_bank_last_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__last_sync_date
+msgid "Last Sync"
+msgstr "Остання синхронізація"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__last_sync_job_id
+msgid "Last Sync Job"
+msgstr "Останнє завдання синхронізації"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_log__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_wizard__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__write_uid
+msgid "Last Updated by"
+msgstr "Оновив"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__write_date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__write_date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__write_date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__write_date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_log__write_date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_wizard__write_date
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__write_date
+msgid "Last Updated on"
+msgstr "Оновлено"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_journal_dashboard_kanban
+msgid "Last:"
+msgstr "Останнє:"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_log__level
+msgid "Level"
+msgstr "Рівень"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_log_view_form
+msgid "Log Entry"
+msgstr "Запис логу"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__log_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+msgid "Logs"
+msgstr "Логи"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_res_bank__ua_mfo
+msgid "MFO Code"
+msgstr "Код МФО"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/res_bank.py:0
+msgid "MFO code must be exactly 6 digits"
+msgstr "Код МФО повинен містити рівно 6 цифр"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_statement__sync_provider__manual
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_config__provider__manual
+msgid "Manual"
+msgstr "Вручну"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.server,name:l10n_ua_bank_sync.action_transaction_mass_unreconcile
+msgid "Mark as Not Reconciled"
+msgstr "Позначити як незвірено"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.server,name:l10n_ua_bank_sync.action_transaction_mass_reconcile
+msgid "Mark as Reconciled"
+msgstr "Позначити як звірено"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_log__message
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_log_view_form
+msgid "Message"
+msgstr "Повідомлення"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставки повідомлення"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_statement__sync_provider__monobank
+msgid "Monobank"
+msgstr "Monobank"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_search
+msgid "Month"
+msgstr "Місяць"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__move_state
+msgid "Move State"
+msgstr "Стан проводки"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Термін моєї активності"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__name
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__name
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_transaction__state__new
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+msgid "New"
+msgstr "Новий"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/account_journal.py:0
+msgid "New Sync Job"
+msgstr "Нове завдання синхронізації"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.act_window,name:l10n_ua_bank_sync.l10n_ua_bank_transaction_action_new
+msgid "New Transactions"
+msgstr "Нові транзакції"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Термін наступної активності"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_summary
+msgid "Next Activity Summary"
+msgstr "Опис наступної активності"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_type_id
+msgid "Next Activity Type"
+msgstr "Тип наступної активності"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_job.py:0
+msgid "No payload to process. Fetch data first."
+msgstr "Немає даних для обробки. Спочатку отримайте дані."
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_job.py:0
+msgid "No payload to reprocess"
+msgstr "Немає даних для повторної обробки"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.actions.act_window,help:l10n_ua_bank_sync.l10n_ua_bank_transaction_action
+msgid "No transactions yet"
+msgstr "Транзакцій ще немає"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+msgid "Not Reconciled"
+msgstr "Не звірено"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_has_error_counter
+msgid "Number of errors"
+msgstr "Кількість помилок"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Кількість повідомлень, що потребують дії"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилкою доставки"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__opening_balance
+msgid "Opening Balance"
+msgstr "Залишок на початок"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Opening Balance:"
+msgstr "Залишок на початок:"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__statement_id
+msgid "Optional daily statement grouping"
+msgstr "Опціональне групування виписок за днями"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_statement__statement_type__outgoing
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_statement_wizard__statement_type__outgoing
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Outgoing"
+msgstr "Вихідні"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__partner_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Partner"
+msgstr "Партнер"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__partner_edrpou
+msgid "Partner EDRPOU"
+msgstr "ЄДРПОУ партнера"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__partner_iban
+msgid "Partner IBAN"
+msgstr "IBAN партнера"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__partner_name
+msgid "Partner Name (from bank)"
+msgstr "Назва партнера (з банку)"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__payload_fetched_at
+msgid "Payload Fetched At"
+msgstr "Дані отримано о"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__payment_ref
+msgid "Payment Reference"
+msgstr "Призначення платежу"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+msgid "Period"
+msgstr "Період"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__amount
+msgid "Positive for incoming, negative for outgoing"
+msgstr "Додатне для вхідних, від'ємне для вихідних"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_form
+msgid "Post Entry"
+msgstr "Провести запис"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.server,name:l10n_ua_bank_sync.action_transaction_mass_post_moves
+msgid "Post Journal Entries"
+msgstr "Провести записи журналу"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_transaction__state__posted
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+msgid "Posted"
+msgstr "Проведено"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_wizard_view_form
+msgid "Preview"
+msgstr "Попередній перегляд"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_form
+msgid "Print PDF"
+msgstr "Друк PDF"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_statement__sync_provider__privatbank
+msgid "PrivatBank"
+msgstr "ПриватБанк"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_job__state__processing
+msgid "Processing"
+msgstr "Обробка"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__provider
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__provider
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__sync_provider
+msgid "Provider"
+msgstr "Провайдер"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_config.py:0
+msgid "Provider '%s' does not implement _fetch_from_bank method"
+msgstr "Провайдер '%s' не реалізує метод _fetch_from_bank"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_config.py:0
+msgid "Provider '%s' does not implement _parse_transactions method"
+msgstr "Провайдер '%s' не реалізує метод _parse_transactions"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_wizard__period
+msgid "Quick Select"
+msgstr "Швидкий вибір"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+msgid "Raw Payload"
+msgstr "Сирі дані"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__raw_payload
+msgid "Raw Payload (JSON)"
+msgstr "Сирі дані (JSON)"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__raw_payload
+msgid "Raw response from bank API stored as JSON"
+msgstr "Сира відповідь від API банку, збережена як JSON"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__is_reconciled
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+msgid "Reconciled"
+msgstr "Звірено"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.ui.menu,name:l10n_ua_bank_sync.menu_ua_bank_reconcile_models
+msgid "Reconciliation Models"
+msgstr "Шаблони узгодження"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Reference"
+msgstr "Посилання"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+msgid "Reprocess"
+msgstr "Повторна обробка"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.server,name:l10n_ua_bank_sync.action_sync_job_mass_reprocess
+msgid "Reprocess Jobs"
+msgstr "Повторно обробити завдання"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.actions.server,name:l10n_ua_bank_sync.action_sync_job_mass_reset
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+msgid "Reset to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_user_id
+msgid "Responsible User"
+msgstr "Відповідальний користувач"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+msgid "Results"
+msgstr "Результати"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Помилка доставки SMS"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__sync_provider
+msgid "Source"
+msgstr "Джерело"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_wizard_view_form
+msgid "Start Sync"
+msgstr "Почати синхронізацію"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__state
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__state
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+msgid "State"
+msgstr "Статус"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__statement_id
+msgid "Statement"
+msgstr "Виписка"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_account_journal__ua_bank_statement_count
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__statement_count
+msgid "Statement Count"
+msgstr "Кількість виписок"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_job.py:0
+#: model:ir.ui.menu,name:l10n_ua_bank_sync.menu_ua_bank_statements
+#: model:ir.ui.menu,name:l10n_ua_bank_sync.menu_ua_bank_statements_root
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+msgid "Statements"
+msgstr "Банківські виписки"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form
+msgid "Status"
+msgstr "Статус"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_state
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Статус на основі активностей\n"
+"Прострочено: Термін вже минув\n"
+"Сьогодні: Дата активності сьогодні\n"
+"Заплановано: Майбутні активності."
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__turnover
+msgid "Sum of incoming and outgoing"
+msgstr "Сума вхідних та вихідних"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_config.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_wizard_view_form
+msgid "Sync Bank Statements"
+msgstr "Синхронізувати банківські виписки"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__sync_interval_hours
+msgid "Sync Interval (hours)"
+msgstr "Інтервал синхронізації (години)"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_statement.py:0
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_config.py:0
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__sync_job_id
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__sync_job_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_search
+msgid "Sync Job"
+msgstr "Завдання синхронізації"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_config.py:0
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__job_ids
+#: model:ir.ui.menu,name:l10n_ua_bank_sync.menu_ua_bank_sync_root
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_search
+msgid "Sync Jobs"
+msgstr "Завдання синхронізації"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_job.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_log_view_list
+msgid "Sync Logs"
+msgstr "Логи синхронізації"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form
+msgid "Sync Now"
+msgstr "Синхронізувати зараз"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form
+msgid "Sync Settings"
+msgstr "Налаштування синхронізації"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.actions.act_window,help:l10n_ua_bank_sync.l10n_ua_bank_transaction_action
+msgid "Sync transactions from your bank to see them here."
+msgstr "Синхронізуйте транзакції з вашого банку, щоб побачити їх тут."
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "TOTAL:"
+msgstr "ВСЬОГО:"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__currency_id
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__currency_id
+msgid "The currency used to enter statement"
+msgstr "Валюта для введення виписки"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_wizard__period__this_month
+msgid "This Month"
+msgstr "Цей місяць"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_log__timestamp
+msgid "Timestamp"
+msgstr "Мітка часу"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_wizard__period__today
+msgid "Today"
+msgstr "Сьогодні"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_list
+msgid "Total"
+msgstr "Всього"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__total_incoming
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__total_incoming
+msgid "Total Incoming"
+msgstr "Всього вхідних"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Total Incoming:"
+msgstr "Всього вхідних:"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__total_outgoing
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__total_outgoing
+msgid "Total Outgoing"
+msgstr "Всього вихідних"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Total Outgoing:"
+msgstr "Всього вихідних:"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_form
+msgid "Totals"
+msgstr "Підсумки"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_list
+msgid "Trans"
+msgstr "Транз"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_form
+msgid "Transaction"
+msgstr "Транзакція"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__transaction_count
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__transaction_count
+msgid "Transaction Count"
+msgstr "Кількість транзакцій"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_job.py:0
+msgid "Transaction has no ID"
+msgstr "Транзакція не має ID"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/account_journal.py:0
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_statement.py:0
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_job.py:0
+#: model:ir.actions.act_window,name:l10n_ua_bank_sync.l10n_ua_bank_transaction_action
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__transaction_ids
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__transaction_ids
+#: model:ir.ui.menu,name:l10n_ua_bank_sync.menu_ua_bank_transactions
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_journal_dashboard_kanban
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_statement_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_form
+msgid "Transactions"
+msgstr "Транзакції"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__transaction_count
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__transactions_count
+msgid "Transactions Found"
+msgstr "Знайдено транзакцій"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.report_bank_statement
+msgid "Transactions:"
+msgstr "Транзакції:"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__turnover
+msgid "Turnover"
+msgstr "Оборот"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__statement_type
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement_wizard__statement_type
+msgid "Type"
+msgstr "Тип"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Тип виключної активності в записі."
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model,name:l10n_ua_bank_sync.model_l10n_ua_bank_statement
+msgid "Ukrainian Bank Statement"
+msgstr "Українська банківська виписка"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model,name:l10n_ua_bank_sync.model_l10n_ua_bank_transaction
+msgid "Ukrainian Bank Transaction"
+msgstr "Українська банківська транзакція"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_res_bank__ua_mfo
+msgid "Ukrainian bank MFO code (6 digits)"
+msgstr "Код МФО українського банку (6 цифр)"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_transaction__external_id
+msgid "Unique transaction ID from bank"
+msgstr "Унікальний ID транзакції з банку"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_job_view_list
+msgid "Upd"
+msgstr "Онов"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__updated_count
+msgid "Updated"
+msgstr "Оновлено"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_transaction_view_form
+msgid "View Entry"
+msgstr "Переглянути запис"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_log__level__warning
+msgid "Warning"
+msgstr "Попередження"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_statement__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__website_message_ids
+msgid "Website Messages"
+msgstr "Повідомлення веб-сайту"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_statement__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_config__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_bank_sync.field_l10n_ua_bank_sync_job__website_message_ids
+msgid "Website communication history"
+msgstr "Історія комунікації веб-сайту"
+
+#. module: l10n_ua_bank_sync
+#: model:ir.model.fields.selection,name:l10n_ua_bank_sync.selection__l10n_ua_bank_sync_wizard__period__yesterday
+msgid "Yesterday"
+msgstr "Вчора"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_config.py:0
+msgid "config_id"
+msgstr "config_id"
+
+#. module: l10n_ua_bank_sync
+#: model_terms:ir.ui.view,arch_db:l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form
+msgid "e.g. PrivatBank Main Account"
+msgstr "напр. ПриватБанк Основний рахунок"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_job.py:0
+msgid "job_id"
+msgstr "job_id"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/account_journal.py:0
+msgid "journal_id"
+msgstr "journal_id"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_statement.py:0
+msgid "statement_id"
+msgstr "statement_id"
+
+#. module: l10n_ua_bank_sync
+#. odoo-python
+#: code:addons/l10n_ua_bank_sync/models/l10n_ua_bank_sync_job.py:0
+msgid "sync_job_id"
+msgstr "sync_job_id"

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Advance Report Action -->
+    <record id="action_report_advance_report" model="ir.actions.report">
+        <field name="name">Advance Report</field>
+        <field name="model">l10n_ua.advance.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_accounting.report_advance_report_document</field>
+        <field name="report_file">l10n_ua_accounting.report_advance_report_document</field>
+        <field name="print_report_name">'АЗ_%s_%s' % (object.name, object.employee_id.name)</field>
+        <field name="binding_model_id" ref="model_l10n_ua_advance_report"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+    <!-- Advance Report Template -->
+    <template id="report_advance_report_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="report">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+                        <!-- Header -->
+                        <div class="row mb-3">
+                            <div class="col-8">
+                                <div class="company-name" t-field="report.company_id.name"/>
+                                <div class="small" t-if="report.company_id.company_registry">
+                                    ЄДРПОУ: <span t-field="report.company_id.company_registry"/>
+                                </div>
+                            </div>
+                            <div class="col-4 text-right">
+                                <div class="small">ЗАТВЕРДЖУЮ</div>
+                                <div class="small">Керівник _____________</div>
+                                <div class="small">"___" __________ 20__ р.</div>
+                            </div>
+                        </div>
+
+                        <div class="ua-report-title">
+                            АВАНСОВИЙ ЗВІТ
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <strong>№ <span t-field="report.name"/></strong>
+                            </div>
+                            <div class="col-6 text-right">
+                                від <span t-field="report.date" t-options='{"widget": "date"}'/>
+                            </div>
+                        </div>
+
+                        <!-- Employee info -->
+                        <div class="mb-4">
+                            <table class="table-borderless" style="width: 100%;">
+                                <tr>
+                                    <td style="width: 200px;">Підзвітна особа:</td>
+                                    <td class="border-bottom"><span t-field="report.employee_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Посада:</td>
+                                    <td class="border-bottom" t-esc="report.employee_id.job_id.name if report.employee_id.job_id else '-'"/>
+                                </tr>
+                                <tr>
+                                    <td>Підрозділ:</td>
+                                    <td class="border-bottom" t-esc="report.employee_id.department_id.name if report.employee_id.department_id else '-'"/>
+                                </tr>
+                                <tr>
+                                    <td>Призначення авансу:</td>
+                                    <td class="border-bottom"><span t-field="report.purpose"/></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Summary -->
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <table>
+                                    <tr>
+                                        <td class="bold" colspan="2">Отримано</td>
+                                    </tr>
+                                    <tr t-if="report.previous_balance">
+                                        <td>Залишок попереднього авансу:</td>
+                                        <td class="text-right" t-esc="'%.2f' % report.previous_balance"/>
+                                    </tr>
+                                    <tr>
+                                        <td>Аванс від <span t-field="report.advance_date" t-options='{"widget": "date"}'/>:</td>
+                                        <td class="text-right" t-esc="'%.2f' % (report.advance_amount or 0)"/>
+                                    </tr>
+                                    <tr class="bold">
+                                        <td>Всього отримано:</td>
+                                        <td class="text-right" t-esc="'%.2f' % ((report.advance_amount or 0) + (report.previous_balance or 0))"/>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-6">
+                                <table>
+                                    <tr>
+                                        <td class="bold" colspan="2">Витрачено</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Всього витрачено:</td>
+                                        <td class="text-right" t-esc="'%.2f' % report.total_expenses"/>
+                                    </tr>
+                                    <tr class="bold">
+                                        <td t-if="report.balance >= 0">Залишок (до повернення):</td>
+                                        <td t-if="report.balance &lt; 0">Перевитрата (до виплати):</td>
+                                        <td class="text-right" t-esc="'%.2f' % abs(report.balance)"/>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Expense lines -->
+                        <table class="mb-4">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%;">№</th>
+                                    <th style="width: 12%;">Дата</th>
+                                    <th style="width: 15%;">Тип витрат</th>
+                                    <th style="width: 28%;">Опис</th>
+                                    <th style="width: 15%;">Документ</th>
+                                    <th style="width: 15%;">Постачальник</th>
+                                    <th style="width: 10%;">Сума</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="report.line_ids" t-as="line">
+                                    <tr>
+                                        <td class="text-center" t-esc="line_index + 1"/>
+                                        <td class="text-center"><span t-field="line.date" t-options='{"widget": "date"}'/></td>
+                                        <td>
+                                            <t t-if="line.expense_type == 'transport'">Транспорт</t>
+                                            <t t-if="line.expense_type == 'accommodation'">Проживання</t>
+                                            <t t-if="line.expense_type == 'meals'">Харчування</t>
+                                            <t t-if="line.expense_type == 'fuel'">Паливо</t>
+                                            <t t-if="line.expense_type == 'supplies'">Канцтовари</t>
+                                            <t t-if="line.expense_type == 'other'">Інше</t>
+                                        </td>
+                                        <td><span t-field="line.description"/></td>
+                                        <td>
+                                            <t t-if="line.document_number">
+                                                <span t-field="line.document_number"/>
+                                            </t>
+                                        </td>
+                                        <td t-esc="line.partner_id.name if line.partner_id else '-'"/>
+                                        <td class="text-right" t-esc="'%.2f' % line.amount"/>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6" class="text-right bold">Разом:</td>
+                                    <td class="text-right bold" t-esc="'%.2f' % report.total_expenses"/>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <!-- Notes -->
+                        <div class="mb-4" t-if="report.note">
+                            <strong>Примітки: </strong>
+                            <span t-field="report.note"/>
+                        </div>
+
+                        <!-- Signatures -->
+                        <div class="row mt-5">
+                            <div class="col-4">
+                                <div class="signature-row">
+                                    <span>Звіт перевірено</span>
+                                </div>
+                                <div class="signature-row">
+                                    <span>Бухгалтер</span>
+                                    <span class="signature-line"></span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="signature-row">
+                                    <span>Залишок внесено/</span>
+                                </div>
+                                <div class="signature-row">
+                                    <span>Перевитрату видано</span>
+                                </div>
+                                <div class="signature-row">
+                                    <span>Касир</span>
+                                    <span class="signature-line"></span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="signature-row">
+                                    <span>Підзвітна особа</span>
+                                </div>
+                                <div class="signature-row">
+                                    <span class="signature-line"></span>
+                                </div>
+                                <div class="small text-center" t-field="report.employee_id.name"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

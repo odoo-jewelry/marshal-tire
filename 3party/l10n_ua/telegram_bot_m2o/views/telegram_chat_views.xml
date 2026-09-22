@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Chat Form View -->
+    <record id="telegram_bot_chat_view_form" model="ir.ui.view">
+        <field name="name">telegram.bot.chat.form</field>
+        <field name="model">telegram.bot.chat</field>
+        <field name="arch" type="xml">
+            <form string="Telegram Chat">
+                <header>
+                    <button name="action_create_lead" string="Create Lead"
+                            type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_messages" type="object"
+                                class="oe_stat_button" icon="fa-comments">
+                            <field name="message_count" widget="statinfo" string="Messages"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="display_name"/>
+                        </h1>
+                        <field name="user_name"/>
+                    </div>
+
+                    <group>
+                        <group string="User Info">
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="phone"/>
+                            <field name="language_code"/>
+                            <field name="telegram_chat_id"/>
+                            <field name="telegram_user_id"/>
+                        </group>
+                        <group string="Bot and Relations">
+                            <field name="bot_id"/>
+                            <field name="chat_type"/>
+                            <field name="partner_id"/>
+                            <field name="first_message_date"/>
+                            <field name="last_message_date"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Messages" name="messages">
+                            <field name="message_ids" readonly="1">
+                                <list>
+                                    <field name="timestamp"/>
+                                    <field name="direction" widget="badge"/>
+                                    <field name="message_type"/>
+                                    <field name="text"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Leads" name="leads">
+                            <field name="lead_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="stage_id"/>
+                                    <field name="user_id"/>
+                                    <field name="create_date"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Context Data" name="context">
+                            <field name="context_data"/>
+                            <field name="current_command_id"/>
+                            <field name="waiting_for_field"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Chat List View -->
+    <record id="telegram_bot_chat_view_list" model="ir.ui.view">
+        <field name="name">telegram.bot.chat.list</field>
+        <field name="model">telegram.bot.chat</field>
+        <field name="arch" type="xml">
+            <list string="Chats">
+                <field name="display_name"/>
+                <field name="user_name"/>
+                <field name="phone"/>
+                <field name="bot_id"/>
+                <field name="state" widget="badge"/>
+                <field name="message_count"/>
+                <field name="last_message_date"/>
+                <field name="partner_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Chat Search View -->
+    <record id="telegram_bot_chat_view_search" model="ir.ui.view">
+        <field name="name">telegram.bot.chat.search</field>
+        <field name="model">telegram.bot.chat</field>
+        <field name="arch" type="xml">
+            <search string="Chats">
+                <field name="display_name"/>
+                <field name="user_name"/>
+                <field name="phone"/>
+                <field name="bot_id"/>
+                <filter name="active" string="Active"
+                        domain="[('state', '=', 'active')]"/>
+                <filter name="blocked" string="Blocked"
+                        domain="[('state', '=', 'blocked')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Chat Action -->
+    <record id="telegram_bot_chat_action" model="ir.actions.act_window">
+        <field name="name">Chats</field>
+        <field name="res_model">telegram.bot.chat</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Message List View -->
+    <record id="telegram_bot_message_view_list" model="ir.ui.view">
+        <field name="name">telegram.bot.message.list</field>
+        <field name="model">telegram.bot.message</field>
+        <field name="arch" type="xml">
+            <list string="Messages" create="0" edit="0">
+                <field name="timestamp"/>
+                <field name="chat_id"/>
+                <field name="direction" widget="badge"/>
+                <field name="message_type"/>
+                <field name="text"/>
+                <field name="callback_data"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Message Form View -->
+    <record id="telegram_bot_message_view_form" model="ir.ui.view">
+        <field name="name">telegram.bot.message.form</field>
+        <field name="model">telegram.bot.message</field>
+        <field name="arch" type="xml">
+            <form string="Message" create="0" edit="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="chat_id"/>
+                            <field name="direction"/>
+                            <field name="message_type"/>
+                            <field name="timestamp"/>
+                            <field name="telegram_message_id"/>
+                        </group>
+                        <group>
+                            <field name="text"/>
+                            <field name="caption"/>
+                            <field name="callback_data"/>
+                        </group>
+                    </group>
+                    <group string="Media">
+                        <field name="file_id"/>
+                        <field name="file_name"/>
+                    </group>
+                    <group string="Location">
+                        <field name="latitude"/>
+                        <field name="longitude"/>
+                    </group>
+                    <group string="Contact">
+                        <field name="contact_phone"/>
+                        <field name="contact_name"/>
+                    </group>
+                    <group string="Raw Data">
+                        <field name="raw_data"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Message Action -->
+    <record id="telegram_bot_message_action" model="ir.actions.act_window">
+        <field name="name">Messages</field>
+        <field name="res_model">telegram.bot.message</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

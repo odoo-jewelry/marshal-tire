@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="6244px" preserveAspectRatio="none" style="width:1283px;height:6244px;background:#FEFEFE;" version="1.1" viewBox="0 0 1283 6244" width="1283px" zoomAndPan="magnify"><defs><filter height="300%" id="f1bp8oo6e7sm7d" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="336" x="479.5" y="19.2419">Структура меню Ukrainian Localization</text><!--MD5=[6a65657a4cbb492b5b1c80eb27fb05ea]
+cluster Кореневі меню Odoo--><polygon fill="#FEFEFE" filter="url(#f1bp8oo6e7sm7d)" points="16.5,4984.5158,174.5,4984.5158,181.5,5009.5838,184.5,5009.5838,184.5,5264.5158,16.5,5264.5158,16.5,4984.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="16.5" x2="181.5" y1="5009.5838" y2="5009.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="152" x="20.5" y="5001.4818">Кореневі меню Odoo</text><!--MD5=[9de7b29840a8e0f7818a343fba1c8e99]
+cluster Кореневі меню UA--><polygon fill="#FEFEFE" filter="url(#f1bp8oo6e7sm7d)" points="22,1887.5158,163,1887.5158,170,1912.5838,178,1912.5838,178,2371.5158,22,2371.5158,22,1887.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="170" y1="1912.5838" y2="1912.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="135" x="26" y="1904.4818">Кореневі меню UA</text><!--MD5=[0171b2a5efeefed14326ae2d3052a218]
+cluster Invoicing → Configuration → Ukraine--><polygon fill="#ADD8E6" filter="url(#f1bp8oo6e7sm7d)" points="217.5,3544.5158,477.375,3544.5158,484.375,3569.5838,678.5,3569.5838,678.5,4760.5158,217.5,4760.5158,217.5,3544.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="217.5" x2="484.375" y1="3569.5838" y2="3569.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="253.875" x="221.5" y="3561.4818">Invoicing → Configuration → Ukraine</text><!--MD5=[1515f4b36c61b1a088f1865e0f5f4797]
+cluster dirs--><rect fill="#ADD8E6" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="193" x="250" y="3598.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="75" x="309" y="3615.4818">Directories</text><!--MD5=[7c0d2aaaa049113941b11ab29278e0d7]
+cluster ua_acc--><rect fill="#ADD8E6" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="194" x="249.5" y="3813.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="104" x="294.5" y="3830.4818">UA Accounting</text><!--MD5=[ebbdf34a4e08d830937e173a419c8362]
+cluster assets--><rect fill="#ADD8E6" filter="url(#f1bp8oo6e7sm7d)" height="115" style="stroke: #000000; stroke-width: 1.5;" width="114" x="289.5" y="4028.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="86" x="303.5" y="4045.4818">Fixed Assets</text><!--MD5=[78ff2bad968b699eac9f45ca3f248411]
+cluster prro--><rect fill="#ADD8E6" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="384" x="262.5" y="4183.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="38" x="435.5" y="4200.4818">PRRO</text><!--MD5=[24854741296f18f98d24d0c00da86c28]
+cluster delivery--><rect fill="#ADD8E6" filter="url(#f1bp8oo6e7sm7d)" height="115" style="stroke: #000000; stroke-width: 1.5;" width="151" x="271" y="4398.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="56" x="318.5" y="4415.4818">Delivery</text><!--MD5=[d4330e39c0bf177a52e24a65d7200b78]
+cluster marketplace--><rect fill="#ADD8E6" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="193" x="250" y="4553.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="93" x="300" y="4570.4818">Marketplaces</text><!--MD5=[ff9511eb3d2d9f62a1a68de99cbaad07]
+cluster Bank UA--><polygon fill="#87CEFA" filter="url(#f1bp8oo6e7sm7d)" points="237.5,1749.5158,303.5,1749.5158,310.5,1774.5838,714,1774.5838,714,2431.5158,237.5,2431.5158,237.5,1749.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="237.5" x2="310.5" y1="1774.5838" y2="1774.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="60" x="241.5" y="1766.4818">Bank UA</text><!--MD5=[7047ebed27f7e712d768eac5e0acfbda]
+cluster bank_stmt--><rect fill="#87CEFA" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="412.5" x="269.5" y="1803.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="80" x="435.75" y="1820.4818">Statements</text><!--MD5=[a5e249e1d6d3184ae6c09b29b0fce257]
+cluster bank_sync--><rect fill="#87CEFA" filter="url(#f1bp8oo6e7sm7d)" height="115" style="stroke: #000000; stroke-width: 1.5;" width="96" x="298.5" y="2018.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="66" x="313.5" y="2035.4818">Sync Jobs</text><!--MD5=[fab399ba61c78a660844bbc00d9e7093]
+cluster bank_cfg--><rect fill="#87CEFA" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="394.5" x="271" y="2173.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="96" x="420.25" y="2190.4818">Configuration</text><!--MD5=[06e7953b97c43e4e1c1f157ab3685c38]
+cluster Taxes UA--><polygon fill="#FFFFE0" filter="url(#f1bp8oo6e7sm7d)" points="224.5,2502.5158,294.5,2502.5158,301.5,2527.5838,716,2527.5838,716,3473.5158,224.5,3473.5158,224.5,2502.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="224.5" x2="301.5" y1="2527.5838" y2="2527.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="64" x="228.5" y="2519.4818">Taxes UA</text><!--MD5=[c834cdb91e7801dbe668d1161e956762]
+cluster tax_cab--><rect fill="#FFFFE0" filter="url(#f1bp8oo6e7sm7d)" height="115" style="stroke: #000000; stroke-width: 1.5;" width="179" x="257" y="2556.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="81" x="306" y="2573.4818">Tax Cabinet</text><!--MD5=[329031e07c650e618d6007fef49539fa]
+cluster vat--><rect fill="#FFFFE0" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="404.5" x="266.5" y="2711.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="27" x="455.25" y="2728.4818">VAT</text><!--MD5=[9bf05aa0641122d4e69b6be4fa396d4a]
+cluster fop--><rect fill="#FFFFE0" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="161" x="266" y="2926.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="112" x="290.5" y="2943.4818">FOP (Single Tax)</text><!--MD5=[aa189f73cba64b2436af0e27d0305865]
+cluster tax_cfg--><rect fill="#FFFFE0" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="427.5" x="256.5" y="3141.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="96" x="422.25" y="3158.4818">Configuration</text><!--MD5=[cc3bc884fade53a2125d990773c2fa0b]
+cluster Employees → Documents--><polygon fill="#98FB98" filter="url(#f1bp8oo6e7sm7d)" points="224.5,4784.5158,403.9375,4784.5158,410.9375,4809.5838,663.5,4809.5838,663.5,5392.5158,224.5,5392.5158,224.5,4784.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="224.5" x2="410.9375" y1="4809.5838" y2="4809.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="173.4375" x="228.5" y="4801.4818">Employees → Documents</text><!--MD5=[c887db6dacfa107a8e600158f5b38741]
+cluster certs--><rect fill="#98FB98" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="180" x="256.5" y="4838.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="78" x="307.5" y="4855.4818">Certificates</text><!--MD5=[fa20026679e6d466edffef653e22c598]
+cluster Employees → Configuration → Ukraine--><polygon fill="#98FB98" filter="url(#f1bp8oo6e7sm7d)" points="209.5,5416.5158,480.375,5416.5158,487.375,5441.5838,708.5,5441.5838,708.5,5892.5158,209.5,5892.5158,209.5,5416.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="209.5" x2="487.375" y1="5441.5838" y2="5441.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="264.875" x="213.5" y="5433.4818">Employees → Configuration → Ukraine</text><!--MD5=[28df3c63a78ad870b24c1d8ac1b15438]
+cluster classifiers--><rect fill="#98FB98" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="435" x="241.5" y="5470.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="69" x="424.5" y="5487.4818">Classifiers</text><!--MD5=[98a8be76995a3ff8e11dd84957e7221f]
+cluster military--><rect fill="#98FB98" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="191" x="251" y="5685.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="136" x="278.5" y="5702.4818">Military Accounting</text><!--MD5=[380fd7e76a5ca4966b5f72230e0c40e2]
+cluster Time Off--><polygon fill="#98FB98" filter="url(#f1bp8oo6e7sm7d)" points="255.5,5916.5158,320.5,5916.5158,327.5,5941.5838,437.5,5941.5838,437.5,6232.5158,255.5,6232.5158,255.5,5916.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="255.5" x2="327.5" y1="5941.5838" y2="5941.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="59" x="259.5" y="5933.4818">Time Off</text><!--MD5=[ff2011dfa3bf5cfa42e8521c8668a0a3]
+cluster Payroll--><polygon fill="#DDA0DD" filter="url(#f1bp8oo6e7sm7d)" points="228,240.5158,282,240.5158,289,265.5838,702.5,265.5838,702.5,674.5158,228,674.5158,228,240.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="228" x2="289" y1="265.5838" y2="265.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="48" x="232" y="257.4818">Payroll</text><!--MD5=[3bf604b238768c712edd419b921c291c]
+cluster pay_cfg--><rect fill="#DDA0DD" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="410.5" x="260" y="416.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="96" x="417.25" y="433.4818">Configuration</text><!--MD5=[fee5e150f2d7cb7d9e7b759cd68da143]
+cluster Timesheet--><polygon fill="#F08080" filter="url(#f1bp8oo6e7sm7d)" points="208,698.5158,286,698.5158,293,723.5838,485,723.5838,485,1010.5158,208,1010.5158,208,698.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="208" x2="293" y1="723.5838" y2="723.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="72" x="212" y="715.4818">Timesheet</text><!--MD5=[53eabedb97928d8d02bce3509dbc58b5]
+cluster ts_cfg--><rect fill="#F08080" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="213" x="240" y="752.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="96" x="298.5" y="769.4818">Configuration</text><!--MD5=[2f477c8699b61bbe6932f0753f121d07]
+cluster HR Reports--><polygon fill="#98FB98" filter="url(#f1bp8oo6e7sm7d)" points="23,48.5158,107,48.5158,114,73.5838,428,73.5838,428,216.5158,23,216.5158,23,48.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="23" x2="114" y1="73.5838" y2="73.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="78" x="27" y="65.4818">HR Reports</text><!--MD5=[19d9c8bbdcba2e189ea820629fd3f92d]
+cluster Бухгалтерія UA (PLANNED)--><polygon fill="#FAFAD2" filter="url(#f1bp8oo6e7sm7d)" points="209,1034.5158,407,1034.5158,414,1059.5838,1261,1059.5838,1261,1725.5158,209,1725.5158,209,1034.5158" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="209" x2="414" y1="1059.5838" y2="1059.5838"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="192" x="213" y="1051.4818">Бухгалтерія UA (PLANNED)</text><!--MD5=[59533e48abe4bdb77d40ed7e0e21fffc]
+cluster acc_docs--><rect fill="#FAFAD2" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="440" x="241" y="1088.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="84" x="419" y="1105.4818">Документи</text><!--MD5=[17206cb1bbb8952632da005fe559f5e7]
+cluster acc_cash--><rect fill="#FAFAD2" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="362.5" x="297.5" y="1303.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="91" x="433.25" y="1320.4818">Каса та банк</text><!--MD5=[3e98e3da0eb650965a71622005de0634]
+cluster acc_assets--><rect fill="#FAFAD2" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="394.5" x="771" y="1303.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="113" x="911.75" y="1320.4818">Основні засоби</text><!--MD5=[ee5b412a0ca7db4f47889dcdfc0c156d]
+cluster acc_reports--><rect fill="#FAFAD2" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="481" x="748" y="1518.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="67" x="955" y="1535.4818">Звітність</text><!--MD5=[e26e48cabf2d2725dffbfeec9f92f312]
+cluster acc_cfg--><rect fill="#FAFAD2" filter="url(#f1bp8oo6e7sm7d)" height="175" style="stroke: #000000; stroke-width: 1.5;" width="166" x="263.5" y="1518.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="109" x="292" y="1535.4818">Налаштування</text><!--MD5=[a98e71d22f2974e1677178f32256d00c]
+entity invoicing--><rect fill="#ADD8E6" filter="url(#f1bp8oo6e7sm7d)" height="58.1358" style="stroke: #000000; stroke-width: 1.5;" width="117" x="41.5" y="5022.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="62" x="51.5" y="5047.4818">Invoicing</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="51.5" y="5066.5497">(sequence=50)</text><!--MD5=[ea982bc5811375ed677254c545cca5ff]
+entity employees--><rect fill="#98FB98" filter="url(#f1bp8oo6e7sm7d)" height="58.1358" style="stroke: #000000; stroke-width: 1.5;" width="117" x="41.5" y="5115.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="72" x="51.5" y="5140.4818">Employees</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="51.5" y="5159.5497">(sequence=60)</text><!--MD5=[c3d9f47ac788bf5d70fe701a1f50261d]
+entity timeoff--><rect fill="#98FB98" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="78" x="61" y="5209.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="58" x="71" y="5233.9818">Time Off</text><!--MD5=[2e22289f46bc51f0684fac8907357668]
+entity payroll--><rect fill="#DDA0DD" filter="url(#f1bp8oo6e7sm7d)" height="58.1358" style="stroke: #000000; stroke-width: 1.5;" width="117" x="41.5" y="1925.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="45" x="51.5" y="1950.4818">Payroll</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="51.5" y="1969.5497">(sequence=30)</text><!--MD5=[014dced6116f709db6f74dc64f13872c]
+entity timesheet--><rect fill="#F08080" filter="url(#f1bp8oo6e7sm7d)" height="58.1358" style="stroke: #000000; stroke-width: 1.5;" width="117" x="41.5" y="2018.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="51.5" y="2043.4818">Timesheet</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="51.5" y="2062.5497">(sequence=50)</text><!--MD5=[eb77c6a6b551cb7500a4ad2ec8270835]
+entity accounting--><rect fill="#FAFAD2" filter="url(#f1bp8oo6e7sm7d)" height="58.1358" style="stroke: #000000; stroke-width: 1.5;" width="124" x="38" y="2111.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="104" x="48" y="2136.4818">Бухгалтерія UA</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="48" y="2155.5497">(sequence=51)</text><!--MD5=[7e4c127a05bd27e533c47e139fcb3c25]
+entity bank--><rect fill="#87CEFA" filter="url(#f1bp8oo6e7sm7d)" height="58.1358" style="stroke: #000000; stroke-width: 1.5;" width="117" x="41.5" y="2204.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="51.5" y="2229.4818">Bank UA</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="51.5" y="2248.5497">(sequence=53)</text><!--MD5=[b2b53190735ce008510639c8b29d071e]
+entity taxes--><rect fill="#FFFFE0" filter="url(#f1bp8oo6e7sm7d)" height="58.1358" style="stroke: #000000; stroke-width: 1.5;" width="117" x="41.5" y="2297.5158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="51.5" y="2322.4818">Taxes UA</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="51.5" y="2341.5497">(sequence=54)</text><!--MD5=[f62512a78b571c5ec5f0d174e8312fec]
+entity KOATUU/KATOTTG--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="145" x="274" y="3645.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="125" x="284" y="3662.9818">KOATUU/KATOTTG</text><!--MD5=[ba56c3b27976246a9704f730370faae2]
+entity KVED-2010--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="92" x="300.5" y="3705.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="72" x="310.5" y="3722.9818">KVED-2010</text><!--MD5=[9090c5cb934c3baa77c37fad055d26f8]
+entity Journal Orders--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="119" x="287" y="3860.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="99" x="297" y="3877.9818">Journal Orders</text><!--MD5=[cfe16a52a8481154405927e5832bcd50]
+entity Trial Balance (OSV)--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="146" x="273.5" y="3920.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="283.5" y="3937.9818">Trial Balance (OSV)</text><!--MD5=[eb0288e3fa4fc012f34d4a2e4c63ccf7]
+entity MNMA--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="66" x="313.5" y="4075.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="46" x="323.5" y="4092.9818">MNMA</text><!--MD5=[a4337511a443ce18e11210227114e6b0]
+entity Configurations--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="120" x="286.5" y="4290.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="100" x="296.5" y="4307.9818">Configurations</text><!--MD5=[e8951c0d49f7dea3a1f4a868262f63ef]
+entity Shifts--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="58" x="317.5" y="4230.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="38" x="327.5" y="4247.9818">Shifts</text><!--MD5=[3cf8f1fb93e5c383bf07f6742b026a5d]
+entity Receipts--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="77" x="542" y="4290.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="57" x="552" y="4307.9818">Receipts</text><!--MD5=[fed7cd626dafefd1039e75941dbbfe23]
+entity Checkbox--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="84" x="538.5" y="4230.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="64" x="548.5" y="4247.9818">Checkbox</text><!--MD5=[98ed9fd1927d574fee77a85ccaee6bc6]
+entity Warehouses--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="103" x="295" y="4445.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="83" x="305" y="4462.9818">Warehouses</text><!--MD5=[b6c4ffbd0eb4085aa75110d1e0860a48]
+entity Orders--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="67" x="313" y="4600.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="47" x="323" y="4617.9818">Orders</text><!--MD5=[c0b3df8e98117893764eb770bf671e06]
+entity Category Mapping--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="145" x="274" y="4660.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="125" x="284" y="4677.9818">Category Mapping</text><!--MD5=[377a36f90ec48769be8c0f8b2866171c]
+entity bank_dash--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="94" x="299.5" y="2376.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="74" x="309.5" y="2400.9818">Dashboard</text><!--MD5=[7780c37184c8fdc405b35f0ec02efd9c]
+entity Statements--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="96" x="298.5" y="1910.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="76" x="308.5" y="1927.9818">Statements</text><!--MD5=[ab5865aea8463589da2c365bf4ff65ed]
+entity Transactions--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="106" x="293.5" y="1850.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="86" x="303.5" y="1867.9818">Transactions</text><!--MD5=[0820c2476f89bbd00bfdab8399e56cc3]
+entity Generate Statement--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="155" x="503" y="1910.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="135" x="513" y="1927.9818">Generate Statement</text><!--MD5=[5a189b71c0586509f28b6ca9e13a06ed]
+entity Jobs--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="48" x="322.5" y="2065.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="332.5" y="2082.9818">Jobs</text><!--MD5=[2a092df0003c6969698c64cc67ec40af]
+entity Connections--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="103" x="295" y="2280.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="83" x="305" y="2297.9818">Connections</text><!--MD5=[d03197006fc035e6464019ddf6d35519]
+entity Currencies--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="93" x="300" y="2220.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="310" y="2237.9818">Currencies</text><!--MD5=[5ea6e8ec1e9869c57993c900967cbf78]
+entity Currency Rates--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="122" x="519.5" y="2280.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="102" x="529.5" y="2297.9818">Currency Rates</text><!--MD5=[b1f483f27ecb43766cd29e5ff3477fef]
+entity Rate Providers--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="117" x="522" y="2220.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="97" x="532" y="2237.9818">Rate Providers</text><!--MD5=[b1b087bd540689be35f6fb8b7df3c9a9]
+entity tax_docs--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="123" x="285" y="3344.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="103" x="295" y="3368.9818">Tax Documents</text><!--MD5=[b6cb24239cb87cfd0eb3883fc59c29ef]
+entity tax_periods--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="97" x="298" y="3418.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="77" x="308" y="3442.9818">Tax Periods</text><!--MD5=[fe0e007ac78ae39d913722a0ee0d5300]
+entity Sync Documents--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="131" x="281" y="2603.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="111" x="291" y="2620.9818">Sync Documents</text><!--MD5=[659d972dcd703a61df9ed67fc7a3f89a]
+entity Tax Invoices--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="102" x="295.5" y="2818.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="82" x="305.5" y="2835.9818">Tax Invoices</text><!--MD5=[c5a765b0767aaf62dee175e9ea31a1ea]
+entity VAT Registers--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="112" x="290.5" y="2758.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="92" x="300.5" y="2775.9818">VAT Registers</text><!--MD5=[9f68af047e86ffad4d77186f6c46d4cf]
+entity VAT Declarations--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="133" x="514" y="2818.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="113" x="524" y="2835.9818">VAT Declarations</text><!--MD5=[b09885e865688220ebda0241cd5f4241]
+entity Income Books--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="113" x="290" y="2973.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="300" y="2990.9818">Income Books</text><!--MD5=[753edde244f14563625ac91ae2f3c762]
+entity Declarations--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="104" x="294.5" y="3033.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="304.5" y="3050.9818">Declarations</text><!--MD5=[f37eddaa21980600e8ed89a740056e2a]
+entity Document Types--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="132" x="280.5" y="3248.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="290.5" y="3265.9818">Document Types</text><!--MD5=[26854223231fa4a1cec14b844c943041]
+entity Budget Codes--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="114" x="289.5" y="3188.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="94" x="299.5" y="3205.9818">Budget Codes</text><!--MD5=[7961e1d7660340f25fbca2a255d53fc5]
+entity Tax Offices (ДПІ)--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="131" x="515" y="3248.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="111" x="525" y="3265.9818">Tax Offices (ДПІ)</text><!--MD5=[aa872279134e6f4f1eaef13dca733373]
+entity Cabinet Connections--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="159" x="501" y="3188.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="139" x="511" y="3205.9818">Cabinet Connections</text><!--MD5=[478830e0dcf6e0c6dd20d2889ae224ac]
+entity staffing--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="137" x="278" y="5263.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="117" x="288" y="5287.9818">Штатний розпис</text><!--MD5=[07eba82fc362fddf5fee31463aeb1877]
+entity sal_changes--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="124" x="284.5" y="5189.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="104" x="294.5" y="5213.9818">Salary Changes</text><!--MD5=[b08a68c7cc7215d749c8bfcc61c7424d]
+entity job_comb--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="119" x="287" y="5115.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="99" x="297" y="5139.9818">Job Combining</text><!--MD5=[9d107a87dfcc39c3d618445fe5f3004a]
+entity amendments--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="110" x="291.5" y="5041.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="90" x="301.5" y="5065.9818">Amendments</text><!--MD5=[1f8d078c60165442005a4c1581b11ffa]
+entity orders--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="126" x="283.5" y="5337.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="106" x="293.5" y="5361.9818">Кадрові накази</text><!--MD5=[02eb659ac38dd27bddc2ce0f6db60c25]
+entity order_tpl--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="134" x="513.5" y="5189.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="114" x="523.5" y="5213.9818">Order Templates</text><!--MD5=[ff4927e900c2b10a8dc5fe53a8dfdc28]
+entity personal--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="112" x="524.5" y="5115.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="92" x="534.5" y="5139.9818">Personal Files</text><!--MD5=[ad370c7c6c33bb18f8ee599d626124c2]
+entity Certificates--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="96" x="298.5" y="4885.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="76" x="308.5" y="4902.9818">Certificates</text><!--MD5=[8c8e64bb3f5906d15ee0118f81d06a61]
+entity Certificate Types--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="132" x="280.5" y="4945.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="290.5" y="4962.9818">Certificate Types</text><!--MD5=[a99a63678b0c59553bc877ba199c6f4d]
+entity Professions (KP 2010)--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="162" x="265.5" y="5577.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="142" x="275.5" y="5594.9818">Professions (KP 2010)</text><!--MD5=[beafd4478c73b9a98bd861dbb6a4549f]
+entity Education Levels--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="132" x="280.5" y="5517.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="290.5" y="5534.9818">Education Levels</text><!--MD5=[1b1768669948b77dc94b39e155181880]
+entity Tariff Grades--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="108" x="526.5" y="5577.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="88" x="536.5" y="5594.9818">Tariff Grades</text><!--MD5=[c883864ded2a974c6305fb2d3a3284f0]
+entity Employee Benefits--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="144" x="508.5" y="5517.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="124" x="518.5" y="5534.9818">Employee Benefits</text><!--MD5=[efa69300d5d6582c0c652a11d1f6e2c4]
+entity Military Ranks--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="115" x="289" y="5732.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="95" x="299" y="5749.9818">Military Ranks</text><!--MD5=[81344b255a10d51321bfe220907304bd]
+entity Territorial Centers--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="143" x="275" y="5792.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="123" x="285" y="5809.9818">Territorial Centers</text><!--MD5=[93888f4c6798ee1a46a44c6bb0d6c721]
+entity sick--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="95" x="299" y="6103.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="309" y="6127.9818">Sick Leaves</text><!--MD5=[9a670e354c33604253c5af42838419d6]
+entity vac_bal--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="141" x="276" y="5955.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="121" x="286" y="5979.9818">Vacation Balances</text><!--MD5=[f20fd7cf3f3060ce87bb234a13f1a64d]
+entity vac_sch--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="150" x="271.5" y="6029.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="130" x="281.5" y="6053.9818">Vacation Schedules</text><!--MD5=[3d503caeb53557215822fd14e229f2fa]
+entity vac_cal--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="142" x="275.5" y="6177.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="122" x="285.5" y="6201.9818">Vacation Calendar</text><!--MD5=[01a49a171c55f7ebcd6fa2ef0e08dbb2]
+entity payslips--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="74" x="309.5" y="279.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="54" x="319.5" y="303.9818">Payslips</text><!--MD5=[8b2419bed8d11788f7f3355add76f487]
+entity batches--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="73" x="310" y="353.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="53" x="320" y="377.9818">Batches</text><!--MD5=[9484716c12ea0f559ef0d9712e6e8c73]
+entity exec_docs--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="121" x="286" y="619.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="101" x="296" y="643.9818">Execution Docs</text><!--MD5=[a41cff791ce34fbf82e666adba5f85bd]
+entity PSP Parameters--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="125" x="284" y="523.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="105" x="294" y="540.9818">PSP Parameters</text><!--MD5=[01b3477e467f62f05027f7c256d97f9b]
+entity Accrual Types--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="113" x="290" y="463.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="300" y="480.9818">Accrual Types</text><!--MD5=[c0ca5dd4757f6351247043d8cbc98fd5]
+entity Deduction Types--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="132" x="514.5" y="523.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="524.5" y="540.9818">Deduction Types</text><!--MD5=[1053bb3789f94d60fb8a6b84e1f1253a]
+entity timesheets--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="97" x="298" y="955.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="77" x="308" y="979.9818">Timesheets</text><!--MD5=[b6f91bcb4d3b2b8f9598e2ff8e5fcaa1]
+entity Production Calendars--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="165" x="264" y="799.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="145" x="274" y="816.9818">Production Calendars</text><!--MD5=[b51cd6e7ca81f81cc14275cc3cc59b5c]
+entity Timesheet Codes--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="135" x="279" y="859.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="115" x="289" y="876.9818">Timesheet Codes</text><!--MD5=[e71d2ce1060f4672a78ca54379df51ec]
+entity rep_1df--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="101" x="49.5" y="161.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="81" x="59.5" y="185.9818">1DF Reports</text><!--MD5=[473f5f020efeb146bebc5cf574ccce4f]
+entity rep_d5--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="122" x="39" y="87.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="102" x="49" y="111.9818">D5 ESV Reports</text><!--MD5=[a58ed5bf5f7814a777b509c27c07123c]
+entity rep_wiz--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="39.0679" style="stroke: #000000; stroke-width: 1.5;" width="131" x="281" y="161.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="111" x="291" y="185.9818">Generate Report</text><!--MD5=[5f4208b2e00e671d428a16515874a50b]
+entity Рахунки--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="75" x="309" y="1195.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="55" x="319" y="1212.9818">Рахунки</text><!--MD5=[d3e7be3e2942220040ffd454ed710380]
+entity Акти наданих послуг--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="163" x="265" y="1135.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="143" x="275" y="1152.9818">Акти наданих послуг</text><!--MD5=[2f6c6048fd7be9639e69020530f06727]
+entity Видаткові накладні--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="153" x="504" y="1195.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="133" x="514" y="1212.9818">Видаткові накладні</text><!--MD5=[8a049795d059c8e2a929b025515bb62d]
+entity Авансові звіти--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="120" x="520.5" y="1135.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="100" x="530.5" y="1152.9818">Авансові звіти</text><!--MD5=[6a90ece584310c337a6dc11b971c80bd]
+entity ПКО--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="50" x="321.5" y="1410.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="30" x="331.5" y="1427.9818">ПКО</text><!--MD5=[fb6467223495fe9b7451dccf997c7e98]
+entity ВКО--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="49" x="322" y="1350.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="29" x="332" y="1367.9818">ВКО</text><!--MD5=[aa3a8ccd87a1cab118754b475973770b]
+entity Касова книга--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="111" x="525" y="1410.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="91" x="535" y="1427.9818">Касова книга</text><!--MD5=[2f8514b9d1105ebe3288d316b5a8b2c4]
+entity Акти звірки--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="100" x="530.5" y="1350.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="80" x="540.5" y="1367.9818">Акти звірки</text><!--MD5=[ccfe6c909a1ff56f039e49afc70ded20]
+entity Картки ОЗ--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="92" x="795" y="1410.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="72" x="805" y="1427.9818">Картки ОЗ</text><!--MD5=[c4f0fb57ca55bc1a2b0238e0e056d62b]
+entity МНМА--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="65" x="808.5" y="1350.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="45" x="818.5" y="1367.9818">МНМА</text><!--MD5=[f4316a4d0387b6414eed5a5ee629e017]
+entity Амортизація--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="108" x="1033.5" y="1410.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="88" x="1043.5" y="1427.9818">Амортизація</text><!--MD5=[d402ff9e4ba133107fc0d89c9a305e07]
+entity ОСВ--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="49" x="816.5" y="1625.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="29" x="826.5" y="1642.9818">ОСВ</text><!--MD5=[ea0ab85927cbeabccea6b8d059947860]
+entity Журнали-ордери--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="138" x="772" y="1565.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="118" x="782" y="1582.9818">Журнали-ордери</text><!--MD5=[cedafd4238efd2cacffcd22a6531daa1]
+entity Баланс (Ф№1)--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="114" x="1030.5" y="1625.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="94" x="1040.5" y="1642.9818">Баланс (Ф№1)</text><!--MD5=[1e8f14346d6af7289fe35f8fba95fcde]
+entity Звіт про фін. результати (Ф№2)--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="235" x="970" y="1565.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="215" x="980" y="1582.9818">Звіт про фін. результати (Ф№2)</text><!--MD5=[89e4476f6472c59bf03bbb6943ec7185]
+entity План рахунків--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="118" x="287.5" y="1565.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="297.5" y="1582.9818">План рахунків</text><!--MD5=[8cfd053456ee84b6c8f4281e5b6ee551]
+entity Аналітика--><rect fill="#FEFECE" filter="url(#f1bp8oo6e7sm7d)" height="25.0679" style="stroke: #000000; stroke-width: 1.5;" width="89" x="302" y="1625.0158"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="69" x="312" y="1642.9818">Аналітика</text><!--MD5=[658d36365d54789d8f7eeb277a182450]
+link invoicing to dirs--><path d="M101.73,5022.3958 C106.35,4847.9258 133.34,3945.2058 200,3843.5158 C219.8,3813.3108 255.3575,3793.9433 286.3638,3782.0621 C294.1153,3779.0918 301.5824,3776.5894 308.4478,3774.5025 C309.3059,3774.2416 310.1547,3773.9872 310.9934,3773.7393 C311.2031,3773.6773 311.4122,3773.6157 311.6206,3773.5545 " fill="none" id="invoicing-&gt;dirs" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="311.6206,3773.5545,301.8582,3772.2521,306.8231,3774.9631,304.1121,3779.928,311.6206,3773.5545" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f6ac84d03a85ba43a007386f41114906]
+link invoicing to ua_acc--><path d="M102.28,5022.4458 C109.31,4867.3158 145.02,4140.8058 200,4058.5158 C220.065,4028.4908 255.625,4009.1258 286.5663,3997.2008 C294.3016,3994.2196 301.7482,3991.7033 308.5919,3989.6018 C309.4474,3989.3391 310.2934,3989.0829 311.1294,3988.833 C311.3384,3988.7706 311.5468,3988.7085 311.7545,3988.6469 " fill="none" id="invoicing-&gt;ua_acc" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="311.7545,3988.6469,301.9884,3987.3732,306.9612,3990.0696,304.2648,3995.0425,311.7545,3988.6469" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[ed552ac68a152982caf08d3d612db546]
+link invoicing to assets--><path d="M100.92,5022.3058 C101.09,4890.2158 107.5,4349.2558 200,4213.5158 C220.335,4183.6708 255.9,4164.3083 286.7763,4152.3396 C294.4953,4149.3474 301.9213,4146.8173 308.7431,4144.7011 C309.5958,4144.4366 310.4391,4144.1785 311.2723,4143.9268 C311.6889,4143.801 312.103,4143.6767 312.5145,4143.5541 " fill="none" id="invoicing-&gt;assets" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="312.5145,4143.5541,302.7469,4142.2918,307.7229,4144.9824,305.0323,4149.9584,312.5145,4143.5541" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1f8fbadf8f001591d8eab0411c65aeb5]
+link invoicing to prro--><path d="M102.25,5022.3558 C107.46,4912.6958 130.5,4526.2458 200,4428.5158 C220.93,4399.0858 256.505,4379.7308 287.2388,4367.6621 C294.9222,4364.6449 302.303,4362.0831 309.0769,4359.9331 C309.9236,4359.6644 310.7608,4359.4021 311.588,4359.1461 C312.0016,4359.0181 312.4126,4358.8917 312.8211,4358.7669 C313.0253,4358.7045 313.2289,4358.6425 313.4318,4358.5809 " fill="none" id="invoicing-&gt;prro" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="313.4318,4358.5809,303.6579,4357.3685,308.6476,4360.0337,305.9824,4365.0234,313.4318,4358.5809" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[57975988c462daf3245f978b15694a6d]
+link invoicing to delivery--><path d="M103.95,5022.3258 C113.64,4931.2658 146.93,4654.2658 200,4583.5158 C221.67,4554.6258 257.255,4535.2783 287.8088,4523.0783 C295.4472,4520.0283 302.7712,4517.4251 309.4847,4515.2311 C311.163,4514.6826 312.8033,4514.1597 314.4007,4513.6618 " fill="none" id="invoicing-&gt;delivery" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="314.4007,4513.6618,304.6181,4512.5212,309.6272,4515.1496,306.9987,4520.1587,314.4007,4513.6618" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[83506bfa43522e07b4a4e87b92a90e4a]
+link invoicing to marketplace--><path d="M113.61,5022.4558 C130.52,4985.0558 162.75,4918.9158 200,4868.5158 C226.98,4832.0008 262.6475,4795.5783 291.915,4768.0021 C306.5488,4754.214 319.5825,4742.6374 329.1303,4734.3666 C331.5173,4732.2989 333.6863,4730.4378 335.6081,4728.8005 " fill="none" id="invoicing-&gt;marketplace" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="335.6081,4728.8005,326.1633,4731.5927,331.8022,4732.0432,331.3517,4737.6821,335.6081,4728.8005" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[0853d5078c0ba8bef5c383d855c5c8d0]
+link bank to bank_dash--><path d="M158.92,2251.7158 C171.9,2258.4458 184.26,2267.4958 192.5,2279.5158 C202.22,2293.6958 188.89,2343.3958 200,2356.5158 C222.87,2383.5058 262.19,2392.8558 294.2,2395.6858 " fill="none" id="bank-&gt;bank_dash" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="299.27,2396.0858,290.6053,2391.4036,294.2849,2395.7002,289.9883,2399.3797,299.27,2396.0858" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[615e2efa6308e66354807a9642ae2ad0]
+link bank to bank_stmt--><path d="M158.83,2215.1758 C171.98,2208.2658 184.44,2198.9558 192.5,2186.5158 C209.21,2160.7458 183.52,2074.4258 200,2048.5158 C219.38,2018.0458 254.93,1998.6733 286.0375,1986.8558 C293.8144,1983.9015 301.3136,1981.4193 308.2131,1979.3539 C309.0755,1979.0958 309.9286,1978.8441 310.7717,1978.5989 " fill="none" id="bank-&gt;bank_stmt" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="310.7717,1978.5989,301.0126,1977.272,305.9707,1979.9955,303.2472,1984.9536,310.7717,1978.5989" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f1fc908254503addcd3014a8e0578392]
+link bank to bank_sync--><path d="M158.63,2208.0558 C194.21,2192.3408 240.035,2172.1008 277.4013,2155.5971 C296.0844,2147.3452 312.6528,2140.0274 324.7686,2134.6763 C325.5258,2134.3419 326.2657,2134.0151 326.9876,2133.6963 " fill="none" id="bank-&gt;bank_sync" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="326.9876,2133.6963,317.1387,2133.6734,322.4138,2135.7163,320.3708,2140.9914,326.9876,2133.6963" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7fb1f9c78275d2fa33ca2b0282175e13]
+link bank to bank_cfg--><path d="M158.74,2252.4258 C171.57,2259.1258 183.89,2267.9758 192.5,2279.5158 C203.84,2294.7158 186.28,2308.4258 200,2321.5158 C205.805,2327.0558 217.5644,2331.0196 231.9959,2333.8474 C239.2117,2335.2613 247.0955,2336.3912 255.2371,2337.2922 C259.3079,2337.7427 263.4432,2338.136 267.5916,2338.4788 C268.6287,2338.5646 269.6666,2338.6471 270.7046,2338.7267 " fill="none" id="bank-&gt;bank_cfg" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="270.7046,2338.7267,262.0365,2334.0507,265.7192,2338.3447,261.4253,2342.0273,270.7046,2338.7267" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d22951538d7f77beae9eb5606690a005]
+link taxes to tax_docs--><path d="M101.94,2355.7058 C107.27,2512.3158 135.59,3248.6558 200,3324.5158 C219.6,3347.6058 251.24,3357.7858 280.02,3362.0058 " fill="none" id="taxes-&gt;tax_docs" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="284.98,3362.6858,276.5983,3357.5141,280.0252,3362.0147,275.5246,3365.4417,284.98,3362.6858" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[749df80bf9c0e5d13dcee02ee3fb5d3b]
+link taxes to tax_periods--><path d="M101.71,2355.7658 C105.96,2519.5758 130.19,3318.7758 200,3400.5158 C222.58,3426.9458 261.12,3435.8858 292.86,3438.3758 " fill="none" id="taxes-&gt;tax_periods" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="297.9,3438.7258,289.1956,3434.1178,292.9118,3438.3828,288.6468,3442.099,297.9,3438.7258" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1d4b1f0f604058a4343296323725cd5d]
+link taxes to tax_cab--><path d="M100.44,2355.7758 C100.97,2419.3758 111.95,2570.4358 200,2644.5158 C212.28,2654.8483 227.3275,2661.2458 243.0367,2665.0194 C246.964,2665.9628 250.9327,2666.7422 254.9098,2667.3781 C255.4069,2667.4576 255.9042,2667.5349 256.4016,2667.6099 " fill="none" id="taxes-&gt;tax_cab" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="256.4016,2667.6099,248.0991,2662.3119,251.4575,2666.8639,246.9055,2670.2224,256.4016,2667.6099" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[11dd0bc42b66558a09d6595a5570623b]
+link taxes to vat--><path d="M102.06,2355.6658 C106.37,2456.6858 126.05,2789.4358 200,2859.5158 C211.65,2870.5558 226.3775,2877.3127 241.9623,2881.226 C249.7548,2883.1826 257.7615,2884.4284 265.7051,2885.1432 C265.9533,2885.1655 266.2015,2885.1873 266.4496,2885.2086 " fill="none" id="taxes-&gt;vat" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="266.4496,2885.2086,257.8248,2880.4533,261.4679,2884.7808,257.1404,2888.4239,266.4496,2885.2086" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1dedba648c4a931b2b31525a4bb6b87b]
+link taxes to fop--><path d="M102.79,2355.7858 C111.14,2487.6758 148.03,3022.6358 200,3074.5158 C211.3575,3085.8533 225.9369,3092.7615 241.4645,3096.7337 C249.2284,3098.7198 257.2293,3099.9719 265.183,3100.6767 C265.4316,3100.6987 265.6801,3100.7202 265.9285,3100.7411 " fill="none" id="taxes-&gt;fop" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="265.9285,3100.7411,257.2967,3095.9987,260.9462,3100.3208,256.6241,3103.9703,265.9285,3100.7411" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[ed31fb6560771dc2dba9ff0d59ab1b94]
+link taxes to tax_cfg--><path d="M101.88,2355.5858 C106.8,2509.0758 133.12,3220.7758 200,3289.5158 C205.595,3295.2683 217.2481,3299.3402 231.6388,3302.2102 C238.8341,3303.6452 246.7138,3304.7798 254.8627,3305.6737 C255.372,3305.7295 255.8824,3305.7845 256.3937,3305.8385 " fill="none" id="taxes-&gt;tax_cfg" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="256.3937,3305.8385,247.8636,3300.9153,251.4214,3305.3133,247.0234,3308.871,256.3937,3305.8385" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[53bedef60d15691a9691436be67bbf28]
+link employees to staffing--><path d="M158.61,5163.5858 C171.59,5170.4558 184.03,5179.5758 192.5,5191.5158 C206.52,5211.2758 183.84,5227.4558 200,5245.5158 C218.25,5265.9158 246,5275.7958 272.4,5280.3758 " fill="none" id="employees-&gt;staffing" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="277.66,5281.2158,269.4172,5275.8255,272.7246,5280.4147,268.1354,5283.7222,277.66,5281.2158" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7d7b0fea36a1a0da0befb4c516d13c44]
+link employees to orders--><path d="M158.8,5162.8858 C171.95,5169.7858 184.41,5179.0958 192.5,5191.5158 C208.05,5215.3858 181.86,5297.5458 200,5319.5158 C218.82,5342.3158 249.54,5352.1758 277.9,5356.0858 " fill="none" id="employees-&gt;orders" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="283.17,5356.7458,274.7447,5351.6455,278.2097,5356.1169,273.7383,5359.5819,283.17,5356.7458" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[0216fed5513168c805472b22f6ff9ab4]
+link employees to certs--><path d="M158.56,5126.6358 C171.71,5119.8758 184.23,5110.7458 192.5,5098.5158 C203.62,5082.0758 185.57,5023.1458 200,5009.5158 C211.57,4998.5808 226.2575,4992.7858 241.8273,4990.2632 C245.7198,4989.6325 249.6674,4989.2064 253.6352,4988.9556 C254.1312,4988.9242 254.6275,4988.8956 255.1241,4988.8697 C255.3723,4988.8567 255.6207,4988.8444 255.869,4988.8328 " fill="none" id="employees-&gt;certs" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="255.869,4988.8328,246.6918,4985.2581,250.8745,4989.0667,247.066,4993.2494,255.869,4988.8328" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[a1de13fd6cad89a82950698894046c28]
+link employees to classifiers--><path d="M158.67,5162.4058 C171.99,5169.3458 184.57,5178.7858 192.5,5191.5158 C205.04,5211.6558 184.19,5600.8258 200,5618.5158 C221.39,5642.4508 256.9725,5647.4283 287.595,5646.3108 C291.4228,5646.1712 295.1731,5645.9362 298.8085,5645.6312 C299.0357,5645.6121 299.2625,5645.5928 299.4888,5645.5732 " fill="none" id="employees-&gt;classifiers" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="299.4888,5645.5732,290.1771,5642.3649,294.5075,5646.0048,290.8677,5650.3351,299.4888,5645.5732" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[cac0f1ceca80e49c602db1f547256138]
+link employees to military--><path d="M158.72,5162.3758 C172.04,5169.3158 184.61,5178.7558 192.5,5191.5158 C201.88,5206.6858 188.16,5820.1858 200,5833.5158 C221.315,5857.5158 256.895,5862.4933 287.535,5861.3596 C291.365,5861.2179 295.1178,5860.9807 298.7559,5860.6732 C299.2107,5860.6348 299.6637,5860.5952 300.1148,5860.5546 " fill="none" id="employees-&gt;military" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="300.1148,5860.5546,290.7926,5857.3771,295.1349,5861.0026,291.5094,5865.3449,300.1148,5860.5546" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[99c530815c37bcc53d126d02b19af456]
+link timeoff to sick--><path d="M101.96,5248.3658 C108.05,5370.8058 142.89,6020.1858 200,6085.5158 C223.04,6111.8758 261.96,6120.7558 293.75,6123.2458 " fill="none" id="timeoff-&gt;sick" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="298.78,6123.5958,290.0756,6118.9878,293.7918,6123.2528,289.5268,6126.969,298.78,6123.5958" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[bbf5a115c9ab0891bf7c748149bf2e62]
+link timeoff to vac_bal--><path d="M102.02,5248.0358 C107.29,5343.3758 133.81,5759.9058 200,5868.5158 C222.94,5906.1658 264.78,5934.5058 297.72,5952.3658 " fill="none" id="timeoff-&gt;vac_bal" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="302.51,5954.9258,296.4551,5947.1581,298.0994,5952.5707,292.6868,5954.215,302.51,5954.9258" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[21188c2a02ff2abb89d5bbc4e5797496]
+link timeoff to vac_sch--><path d="M100.62,5248.1658 C98.88,5357.8358 95.88,5893.7058 200,6011.5158 C216.68,6030.3858 241.49,6040.2858 265.93,6045.2958 " fill="none" id="timeoff-&gt;vac_sch" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="271.14,6046.2858,263.0392,6040.6844,266.2269,6045.3575,261.5538,6048.5453,271.14,6046.2858" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[86ecc8526028c2fae303c9b74b0f2996]
+link payroll to payslips--><path d="M100.75,1925.2058 C99.25,1716.6958 94.68,462.7558 200,335.5158 C224.93,305.4058 270.58,297.8758 304.13,296.8058 " fill="none" id="payroll-&gt;payslips" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="309.4,296.6858,300.3109,292.8926,304.4013,296.8001,300.4938,300.8905,309.4,296.6858" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1ef187b3e706ad957887466c18b61315]
+link payroll to batches--><path d="M101.2,1925.2258 C102.79,1726.0258 115.6,574.5158 200,446.5158 C223.79,410.4358 270.87,391.0858 305.05,381.3258 " fill="none" id="payroll-&gt;batches" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="309.99,379.9558,300.2513,378.4868,305.1692,381.2823,302.3736,386.2001,309.99,379.9558" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[427657cb95a3b3da7399898e6e3c7917]
+link payroll to pay_cfg--><path d="M100.83,1925.4158 C99.99,1735.9958 99.87,683.2558 200,587.5158 C211.5075,576.5133 226.1631,570.684 241.7205,568.1479 C245.6098,567.5139 249.5555,567.0857 253.5224,566.8339 C255.5059,566.7081 257.4947,566.6263 259.4844,566.585 " fill="none" id="payroll-&gt;pay_cfg" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="259.4844,566.585,250.4033,562.7727,254.4855,566.6888,250.5694,570.7709,259.4844,566.585" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[385ddce856e0118c94936d43fafd48f6]
+link timesheet to timesheets--><path d="M158.75,2029.6658 C172.07,2022.7358 184.63,2013.2858 192.5,2000.5158 C205.36,1979.6558 190.47,1141.0858 200,1118.5158 C222.38,1065.5058 274.66,1021.9458 310.06,997.0858 " fill="none" id="timesheet-&gt;timesheets" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="314.29,994.1458,304.6191,996.0097,310.1878,997.0045,309.193,1002.5732,314.29,994.1458" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9fd6f7f45ec02f85f405eb05f3824f81]
+link timesheet to ts_cfg--><path d="M158.76,2029.6758 C172.08,2022.7458 184.64,2013.2958 192.5,2000.5158 C200.34,1987.7758 189.53,934.2058 200,923.5158 C205.57,917.8296 211.9722,913.4821 218.9174,910.23 C222.3901,908.6039 225.9985,907.2517 229.7065,906.1429 C231.5605,905.5886 233.4394,905.095 235.3387,904.6585 C236.2884,904.4403 237.2431,904.2363 238.2024,904.0461 C238.682,903.951 239.1628,903.8594 239.6447,903.7711 " fill="none" id="timesheet-&gt;ts_cfg" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="239.6447,903.7711,230.0712,901.4582,234.7265,904.672,231.5126,909.3272,239.6447,903.7711" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9da3d5ae70585a1408b8f4a262af3aeb]
+link accounting to acc_docs--><path d="M162.05,2120.8758 C174.12,2114.1358 185.28,2105.2158 192.5,2093.5158 C214.68,2057.5858 178.14,1369.6358 200,1333.5158 C218.7,1302.6208 254.24,1283.2433 285.5125,1271.5296 C293.3306,1268.6012 300.882,1266.1517 307.8369,1264.121 C308.2716,1263.9941 308.7039,1263.8688 309.1339,1263.7452 C309.3489,1263.6833 309.5632,1263.6219 309.777,1263.5609 " fill="none" id="accounting-&gt;acc_docs" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="309.777,1263.5609,300.0247,1262.1851,304.9691,1264.9334,302.2208,1269.8778,309.777,1263.5609" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[b5000eb34801081047a6d93fec39f41f]
+link accounting to acc_cash--><path d="M162.02,2120.8558 C174.09,2114.1158 185.25,2105.2058 192.5,2093.5158 C208.46,2067.7758 184.27,1574.3858 200,1548.5158 C218.76,1517.6558 254.3,1498.2783 285.5575,1486.5558 C293.3719,1483.6252 300.9186,1481.173 307.8686,1479.1395 C308.3029,1479.0124 308.735,1478.8869 309.1646,1478.7631 C309.3794,1478.7012 309.5936,1478.6396 309.8072,1478.5785 " fill="none" id="accounting-&gt;acc_cash" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="309.8072,1478.5785,300.0541,1477.2085,305.0001,1479.9539,302.2547,1484.8999,309.8072,1478.5785" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7826592a2e3ada8bf99238a32599462c]
+link accounting to acc_assets--><path d="M162.32,2159.8658 C174.22,2166.4458 185.23,2175.1258 192.5,2186.5158 C207.15,2209.4758 180.45,2412.5558 200,2431.5158 C370.82,2597.1858 595.91,2522.0658 724,2321.5158 C735.56,2303.4158 722.13,1567.5858 732,1548.5158 C745.4,1522.6358 771.7725,1503.3358 795.1013,1490.4083 C800.9334,1487.1765 806.5754,1484.3429 811.7769,1481.9043 C814.3776,1480.685 816.8682,1479.5645 819.2174,1478.5424 " fill="none" id="accounting-&gt;acc_assets" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="819.2174,1478.5424,809.3688,1478.4653,814.6326,1480.5373,812.5607,1485.801,819.2174,1478.5424" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[4c70464fc1270aebbfb4323ef9322e9f]
+link accounting to acc_reports--><path d="M162.06,2159.4758 C174.13,2166.0858 185.28,2174.8858 192.5,2186.5158 C201.93,2201.7058 187.32,3460.9158 200,3473.5158 C292.35,3565.3258 370.07,3516.4858 493,3473.5158 C616.9,3430.1958 662.79,3405.6258 724,3289.5158 C765.505,3210.7908 794.44,2812.6108 813.0313,2432.7108 C822.3269,2242.7608 829.0366,2057.3808 833.4386,1918.7877 C835.6396,1849.4912 837.2637,1791.8913 838.3457,1751.2653 C838.8867,1730.9523 839.2921,1714.8827 839.5664,1703.7163 C839.635,1700.9247 839.6953,1698.4395 839.7476,1696.2711 C839.7606,1695.729 839.7732,1695.2067 839.7852,1694.7043 " fill="none" id="accounting-&gt;acc_reports" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="839.7852,1694.7043,835.5707,1703.6059,839.6654,1699.7029,843.5684,1703.7976,839.7852,1694.7043" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[06f7cbd285adf18e6a47530823a62a9c]
+link accounting to acc_cfg--><path d="M162.36,2120.5158 C174.26,2113.8058 185.26,2104.9958 192.5,2093.5158 C207.91,2069.0658 188.67,1860.1058 200,1833.5158 C217.8,1791.7508 253.325,1755.2458 284.815,1728.9408 C300.56,1715.7883 315.2963,1705.1858 326.3038,1697.7508 C327.6797,1696.8215 328.9974,1695.9416 330.2515,1695.1124 C330.8785,1694.6978 331.4897,1694.2959 332.0843,1693.9068 C332.2329,1693.8095 332.3805,1693.7131 332.5271,1693.6174 " fill="none" id="accounting-&gt;acc_cfg" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="332.5271,1693.6174,322.8041,1695.187,328.3401,1696.3503,327.1768,1701.8863,332.5271,1693.6174" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[131984338ac081efdb1c97c9ea3f38df]
+link Configurations to Shifts--><!--MD5=[5e0440fab421780e65c56a2ea087fdce]
+link Configurations to Receipts--><!--MD5=[5114a5d89d99c533a30e41f1c52b1a3b]
+link Receipts to Checkbox--><!--MD5=[46462ad0de2213d2c42cbe0a7d596403]
+link Statements to Transactions--><!--MD5=[0f327dd5f92ec9841e3e65ad3eeab60b]
+link Statements to Generate Statement--><!--MD5=[22a48fd8a529d3e30cd54acb21708c8a]
+link Connections to Currencies--><!--MD5=[e4bfca7147abb93a4759946ee8d54d52]
+link Connections to Currency Rates--><!--MD5=[a68d1ca1149b07854827f443946d9dcc]
+link Currency Rates to Rate Providers--><!--MD5=[213e840d210eb4219620caba83845934]
+link Tax Invoices to VAT Registers--><!--MD5=[b6e9dc022c2696ce31b093826a4c338e]
+link Tax Invoices to VAT Declarations--><!--MD5=[783077d256a291339eb0dffbceaabebe]
+link Document Types to Budget Codes--><!--MD5=[74a7dd85e6119e7f3b65894239ee3648]
+link Document Types to Tax Offices (ДПІ)--><!--MD5=[d86a766dd88ab937e2bc5bad663aaf66]
+link Tax Offices (ДПІ) to Cabinet Connections--><!--MD5=[811c572e0d325e19c9f67dfa56a5329c]
+link sal_changes to job_comb--><!--MD5=[abffe47c2c897cdf33e2a62148fa8970]
+link job_comb to amendments--><!--MD5=[4c941a8ddb0c6129de76a0a15c172f8c]
+link sal_changes to order_tpl--><!--MD5=[55c9248640336ade0d03192db189cf04]
+link order_tpl to personal--><!--MD5=[9ece95948457c15f0a1aa59f9a581871]
+link Professions (KP 2010) to Education Levels--><!--MD5=[613c53f16c2a5c0d9265c108c2ffe46b]
+link Professions (KP 2010) to Tariff Grades--><!--MD5=[124b64327c5d87cc77f83ac2a0e4bd0c]
+link Tariff Grades to Employee Benefits--><!--MD5=[4c4099b501b2da1df14e8a9d83333d3d]
+link PSP Parameters to Accrual Types--><!--MD5=[d80ceefa5561a2e076b545272ffbadfc]
+link PSP Parameters to Deduction Types--><!--MD5=[f65935856dcb3248a4fd291cdfc5410a]
+link rep_1df to rep_d5--><!--MD5=[90d320cbe9824294d1678a7550e4493a]
+link rep_1df to rep_wiz--><!--MD5=[ffd5312065e664475766cd07ee80f23a]
+link Рахунки to Акти наданих послуг--><!--MD5=[d7f2bd533ce7407aaff85337ea1fdf78]
+link Рахунки to Видаткові накладні--><!--MD5=[c5d5017205dbfb9de0f113d31c0aeade]
+link Видаткові накладні to Авансові звіти--><!--MD5=[03156546ad0b617b1c0d15aad12fe639]
+link ПКО to ВКО--><!--MD5=[d42f2463aa834e56762f09fa943c146c]
+link ПКО to Касова книга--><!--MD5=[451e58de46107eb4e6988b1a34264887]
+link Касова книга to Акти звірки--><!--MD5=[a6d1d0aff37db08afe19a561751f5934]
+link Картки ОЗ to МНМА--><!--MD5=[f565eb96c4d472c7c49ccac309d49782]
+link Картки ОЗ to Амортизація--><!--MD5=[1034efe4a91909d7b775b94298fc3dd4]
+link ОСВ to Журнали-ордери--><!--MD5=[c03ad75160d0591b04e5eae6ca0a015c]
+link ОСВ to Баланс (Ф№1)--><!--MD5=[37ae3e3d19106f4c5ccaaeec6acff4fd]
+link Баланс (Ф№1) to Звіт про фін. результати (Ф№2)--><!--MD5=[225d34a36235388c3f9665768e7c5c70]
+link Акти наданих послуг to ПКО--><!--MD5=[f1f4235f47726c080e3f2f0a23020953]
+link Видаткові накладні to Картки ОЗ--><!--MD5=[140c9f933d2422a870aa3654bce6133e]
+link МНМА to ОСВ--><!--MD5=[c73352467a73227da79a8e459421aee0]
+@startuml menu_structure
+skinparam backgroundColor #FEFEFE
+left to right direction
+
+title Структура меню Ukrainian Localization
+
+package "Кореневі меню Odoo" {
+    rectangle "Invoicing\n(sequence=50)" as invoicing #LightBlue
+    rectangle "Employees\n(sequence=60)" as employees #PaleGreen
+    rectangle "Time Off" as timeoff #PaleGreen
+}
+
+package "Кореневі меню UA" {
+    rectangle "Payroll\n(sequence=30)" as payroll #Plum
+    rectangle "Timesheet\n(sequence=50)" as timesheet #LightCoral
+    rectangle "Бухгалтерія UA\n(sequence=51)" as accounting #LightGoldenRodYellow
+    rectangle "Bank UA\n(sequence=53)" as bank #LightSkyBlue
+    rectangle "Taxes UA\n(sequence=54)" as taxes #LightYellow
+}
+
+package "Invoicing → Configuration → Ukraine" #LightBlue {
+    rectangle "Directories" as dirs {
+        card "KOATUU/KATOTTG"
+        card "KVED-2010"
+    }
+    rectangle "UA Accounting" as ua_acc {
+        card "Journal Orders"
+        card "Trial Balance (OSV)"
+    }
+    rectangle "Fixed Assets" as assets {
+        card "MNMA"
+    }
+    rectangle "PRRO" as prro {
+        card "Configurations"
+        card "Shifts"
+        card "Receipts"
+        card "Checkbox"
+    }
+    rectangle "Delivery" as delivery {
+        card "Warehouses"
+    }
+    rectangle "Marketplaces" as marketplace {
+        card "Configurations"
+        card "Orders"
+        card "Category Mapping"
+    }
+}
+
+package "Bank UA" #LightSkyBlue {
+    rectangle "Dashboard" as bank_dash
+    rectangle "Statements" as bank_stmt {
+        card "Statements"
+        card "Transactions"
+        card "Generate Statement"
+    }
+    rectangle "Sync Jobs" as bank_sync {
+        card "Jobs"
+    }
+    rectangle "Configuration" as bank_cfg {
+        card "Connections"
+        card "Currencies"
+        card "Currency Rates"
+        card "Rate Providers"
+    }
+}
+
+package "Taxes UA" #LightYellow {
+    rectangle "Tax Documents" as tax_docs
+    rectangle "Tax Periods" as tax_periods
+    rectangle "Tax Cabinet" as tax_cab {
+        card "Sync Documents"
+    }
+    rectangle "VAT" as vat {
+        card "Tax Invoices"
+        card "VAT Registers"
+        card "VAT Declarations"
+    }
+    rectangle "FOP (Single Tax)" as fop {
+        card "Income Books"
+        card "Declarations"
+    }
+    rectangle "Configuration" as tax_cfg {
+        card "Document Types"
+        card "Budget Codes"
+        card "Tax Offices (ДПІ)"
+        card "Cabinet Connections"
+    }
+}
+
+package "Employees → Documents" #PaleGreen {
+    rectangle "Штатний розпис" as staffing
+    rectangle "Salary Changes" as sal_changes
+    rectangle "Job Combining" as job_comb
+    rectangle "Amendments" as amendments
+    rectangle "Кадрові накази" as orders
+    rectangle "Order Templates" as order_tpl
+    rectangle "Personal Files" as personal
+    rectangle "Certificates" as certs {
+        card "Certificates"
+        card "Certificate Types"
+    }
+}
+
+package "Employees → Configuration → Ukraine" #PaleGreen {
+    rectangle "Classifiers" as classifiers {
+        card "Professions (KP 2010)"
+        card "Education Levels"
+        card "Tariff Grades"
+        card "Employee Benefits"
+    }
+    rectangle "Military Accounting" as military {
+        card "Military Ranks"
+        card "Territorial Centers"
+    }
+}
+
+package "Time Off" #PaleGreen {
+    rectangle "Sick Leaves" as sick
+    rectangle "Vacation Balances" as vac_bal
+    rectangle "Vacation Schedules" as vac_sch
+    rectangle "Vacation Calendar" as vac_cal
+}
+
+package "Payroll" #Plum {
+    rectangle "Payslips" as payslips
+    rectangle "Batches" as batches
+    rectangle "Execution Docs" as exec_docs
+    rectangle "Configuration" as pay_cfg {
+        card "PSP Parameters"
+        card "Accrual Types"
+        card "Deduction Types"
+    }
+}
+
+package "Timesheet" #LightCoral {
+    rectangle "Timesheets" as timesheets
+    rectangle "Configuration" as ts_cfg {
+        card "Production Calendars"
+        card "Timesheet Codes"
+    }
+}
+
+package "HR Reports" #PaleGreen {
+    rectangle "1DF Reports" as rep_1df
+    rectangle "D5 ESV Reports" as rep_d5
+    rectangle "Generate Report" as rep_wiz
+}
+
+package "Бухгалтерія UA (PLANNED)" #LightGoldenRodYellow {
+    rectangle "Документи" as acc_docs {
+        card "Рахунки"
+        card "Акти наданих послуг"
+        card "Видаткові накладні"
+        card "Авансові звіти"
+    }
+    rectangle "Каса та банк" as acc_cash {
+        card "ПКО"
+        card "ВКО"
+        card "Касова книга"
+        card "Акти звірки"
+    }
+    rectangle "Основні засоби" as acc_assets {
+        card "Картки ОЗ"
+        card "МНМА"
+        card "Амортизація"
+    }
+    rectangle "Звітність" as acc_reports {
+        card "ОСВ"
+        card "Журнали-ордери"
+        card "Баланс (Ф№1)"
+        card "Звіт про фін. результати (Ф№2)"
+    }
+    rectangle "Налаштування" as acc_cfg {
+        card "План рахунків"
+        card "Аналітика"
+    }
+}
+
+invoicing - -> dirs
+invoicing - -> ua_acc
+invoicing - -> assets
+invoicing - -> prro
+invoicing - -> delivery
+invoicing - -> marketplace
+
+bank - -> bank_dash
+bank - -> bank_stmt
+bank - -> bank_sync
+bank - -> bank_cfg
+
+taxes - -> tax_docs
+taxes - -> tax_periods
+taxes - -> tax_cab
+taxes - -> vat
+taxes - -> fop
+taxes - -> tax_cfg
+
+employees - -> staffing
+employees - -> orders
+employees - -> certs
+employees - -> classifiers
+employees - -> military
+
+timeoff - -> sick
+timeoff - -> vac_bal
+timeoff - -> vac_sch
+
+payroll - -> payslips
+payroll - -> batches
+payroll - -> pay_cfg
+
+timesheet - -> timesheets
+timesheet - -> ts_cfg
+
+accounting - -> acc_docs
+accounting - -> acc_cash
+accounting - -> acc_assets
+accounting - -> acc_reports
+accounting - -> acc_cfg
+
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 UTC 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.9+10-Ubuntu-124.04
+Operating System: Linux
+Default Encoding: UTF-8
+Language: uk
+Country: UA
+--></g></svg>

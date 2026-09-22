@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- ============================================================ -->
+        <!-- Групи доступу для модулів бюджетного обліку                  -->
+        <!-- Інтегруються в існуючу категорію «Ukraine Localization»      -->
+        <!-- ============================================================ -->
+
+        <record id="group_ua_budget_user" model="res.groups">
+            <field name="name">UA Budget User</field>
+            <field name="comment">Read access to budget classifications (КЕКВ/КФК/КПКВК/КВКВ).</field>
+            <field name="implied_ids" eval="[(4, ref('account.group_account_user'))]"/>
+        </record>
+
+        <record id="group_ua_budget_manager" model="res.groups">
+            <field name="name">UA Budget Manager</field>
+            <field name="comment">Full access to budget classifications and configuration. Required for editing КПКВК, КЕКВ, КФК master data.</field>
+            <field name="implied_ids" eval="[(4, ref('group_ua_budget_user')), (4, ref('account.group_account_manager'))]"/>
+        </record>
+
+    </data>
+</odoo>

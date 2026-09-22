@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_l10n_ua_education_contingent_member_list" model="ir.ui.view">
+        <field name="name">l10n_ua.education.contingent.member.list</field>
+        <field name="model">l10n_ua.education.contingent.member</field>
+        <field name="arch" type="xml">
+            <list string="Контингент"
+                  decoration-info="state == 'applicant'"
+                  decoration-success="state in ('enrolled', 'studying')"
+                  decoration-warning="state == 'on_leave'"
+                  decoration-muted="state in ('graduated', 'expelled', 'transferred')">
+                <field name="partner_id"/>
+                <field name="member_type"/>
+                <field name="group_id" optional="show"/>
+                <field name="academic_year_id" optional="show"/>
+                <field name="state" widget="badge"/>
+                <field name="student_number" optional="hide"/>
+                <field name="date_enrolled" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_l10n_ua_education_contingent_member_form" model="ir.ui.view">
+        <field name="name">l10n_ua.education.contingent.member.form</field>
+        <field name="model">l10n_ua.education.contingent.member</field>
+        <field name="arch" type="xml">
+            <form string="Член контингенту">
+                <header>
+                    <button name="action_enroll" string="Зарахувати" type="object"
+                            class="btn-primary" invisible="state != 'applicant'"/>
+                    <button name="action_start_studying" string="Розпочати навчання" type="object"
+                            class="btn-primary" invisible="state != 'enrolled'"/>
+                    <button name="action_take_leave" string="Академвідпустка" type="object"
+                            invisible="state != 'studying'"/>
+                    <button name="action_return_from_leave" string="Повернути з відпустки" type="object"
+                            class="btn-primary" invisible="state != 'on_leave'"/>
+                    <button name="action_graduate" string="Випустити" type="object"
+                            class="btn-primary" invisible="state != 'studying'"/>
+                    <button name="action_expel" string="Відрахувати" type="object"
+                            invisible="state not in ('applicant', 'enrolled', 'studying', 'on_leave')"/>
+                    <button name="action_transfer" string="Перевести" type="object"
+                            invisible="state not in ('enrolled', 'studying')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="applicant,enrolled,studying,graduated"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="display_name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="member_type"/>
+                            <field name="academic_year_id"/>
+                            <field name="group_id"/>
+                            <field name="student_number"/>
+                        </group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="date_application"/>
+                            <field name="date_enrolled" readonly="state == 'applicant'"/>
+                            <field name="date_graduated" readonly="state != 'graduated'"
+                                   invisible="state not in ('graduated',)"/>
+                            <field name="date_expelled" readonly="state != 'expelled'"
+                                   invisible="state not in ('expelled',)"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Накази" name="orders">
+                            <group>
+                                <field name="enrollment_order_no"/>
+                                <field name="graduation_order_no"
+                                       invisible="state not in ('graduated',)"/>
+                                <field name="expulsion_reason"
+                                       invisible="state not in ('expelled',)"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_l10n_ua_education_contingent_member_search" model="ir.ui.view">
+        <field name="name">l10n_ua.education.contingent.member.search</field>
+        <field name="model">l10n_ua.education.contingent.member</field>
+        <field name="arch" type="xml">
+            <search string="Пошук контингенту">
+                <field name="partner_id"/>
+                <field name="student_number"/>
+                <field name="group_id"/>
+                <field name="academic_year_id"/>
+                <filter string="Заявники" name="filter_applicant" domain="[('state', '=', 'applicant')]"/>
+                <filter string="Навчаються" name="filter_studying" domain="[('state', 'in', ('enrolled', 'studying'))]"/>
+                <filter string="Академвідпустка" name="filter_on_leave" domain="[('state', '=', 'on_leave')]"/>
+                <filter string="Випущені" name="filter_graduated" domain="[('state', '=', 'graduated')]"/>
+                <filter string="Відраховані" name="filter_expelled" domain="[('state', '=', 'expelled')]"/>
+                <separator/>
+                <filter string="Учні" name="filter_pupils" domain="[('member_type', '=', 'pupil')]"/>
+                <filter string="Студенти" name="filter_students" domain="[('member_type', '=', 'student')]"/>
+                <group>
+                    <filter string="Стан" name="groupby_state" domain="[]" context="{'group_by': 'state'}"/>
+                    <filter string="Група" name="groupby_group" domain="[]" context="{'group_by': 'group_id'}"/>
+                    <filter string="Тип" name="groupby_type" domain="[]" context="{'group_by': 'member_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_l10n_ua_education_contingent_member" model="ir.actions.act_window">
+        <field name="name">Контингент</field>
+        <field name="res_model">l10n_ua.education.contingent.member</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_filter_studying': 1}</field>
+    </record>
+</odoo>

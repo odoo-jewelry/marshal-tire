@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Вікова категорія збережена й рахується від сьогоднішньої дати,
+             але змінюється без жодної події в системі: пацієнт просто має
+             день народження. Без щоденного перерахунку капітація НСЗУ
+             рахується за категоріями, актуальними на момент заведення
+             пацієнта. -->
+        <record id="cron_refresh_age_category" model="ir.cron">
+            <field name="name">Пацієнти: оновити вікові категорії</field>
+            <field name="model_id" ref="model_l10n_ua_medecin_patient"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_refresh_age_category()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall"
+                   eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 01:30:00')"/>
+            <field name="active" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

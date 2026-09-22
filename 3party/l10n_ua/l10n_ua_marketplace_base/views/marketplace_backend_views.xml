@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Backend Form View -->
+    <record id="marketplace_backend_view_form" model="ir.ui.view">
+        <field name="name">marketplace.backend.form</field>
+        <field name="model">marketplace.backend</field>
+        <field name="arch" type="xml">
+            <form string="Marketplace Backend">
+                <header>
+                    <button name="action_test_connection" type="object" string="Test Connection"
+                            class="btn-secondary" invisible="state == 'active'"/>
+                    <button name="action_activate" type="object" string="Activate"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_import_orders_now" type="object" string="Import Orders"
+                            class="btn-secondary" invisible="state != 'active'"/>
+                    <button name="action_sync_stock_now" type="object" string="Sync Stock"
+                            class="btn-secondary" invisible="state != 'active'"/>
+                    <button name="action_sync_prices_now" type="object" string="Sync Prices"
+                            class="btn-secondary" invisible="state != 'active'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_orders" type="object" class="oe_stat_button" icon="fa-shopping-cart">
+                            <field name="order_count" widget="statinfo" string="Orders"/>
+                        </button>
+                        <button name="action_view_pricelist_items" type="object" class="oe_stat_button" icon="fa-cubes">
+                            <field name="pricelist_item_count" widget="statinfo" string="Products"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Error" bg_color="text-bg-danger" invisible="state != 'error'"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Backend Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="marketplace_type"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="code" readonly="1"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="warehouse_id"/>
+                            <field name="delivery_carrier_id"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="API Configuration" name="api">
+                            <group>
+                                <group string="API Settings" name="api_settings">
+                                    <field name="api_url"/>
+                                    <field name="api_key" password="True"/>
+                                    <field name="api_secret" password="True"/>
+                                    <field name="api_token" password="True" readonly="1"/>
+                                    <field name="api_token_expiry" readonly="1"/>
+                                </group>
+                                <group string="Webhook">
+                                    <field name="webhook_enabled"/>
+                                    <field name="webhook_url" readonly="1" widget="CopyClipboardChar"
+                                           invisible="not webhook_enabled"/>
+                                    <field name="webhook_secret" password="True"
+                                           invisible="not webhook_enabled"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Feed" name="feed">
+                            <group>
+                                <group string="Feed Settings">
+                                    <field name="feed_enabled"/>
+                                    <field name="feed_format" invisible="not feed_enabled"/>
+                                    <field name="feed_pricelist_id" invisible="not feed_enabled"/>
+                                    <field name="feed_url" readonly="1" widget="CopyClipboardChar"
+                                           invisible="not feed_enabled"/>
+                                </group>
+                                <group string="Feed Authentication" invisible="not feed_enabled">
+                                    <field name="feed_auth_enabled"/>
+                                    <field name="feed_auth_login" invisible="not feed_auth_enabled"/>
+                                    <field name="feed_auth_password" password="True"
+                                           invisible="not feed_auth_enabled"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Synchronization" name="sync">
+                            <group>
+                                <group string="Stock Sync">
+                                    <field name="sync_stock_enabled"/>
+                                    <field name="sync_stock_interval" invisible="not sync_stock_enabled"/>
+                                    <field name="sync_stock_warehouse_id" invisible="not sync_stock_enabled"/>
+                                    <field name="sync_stock_last" readonly="1"/>
+                                </group>
+                                <group string="Price Sync">
+                                    <field name="sync_prices_enabled"/>
+                                    <field name="sync_prices_interval" invisible="not sync_prices_enabled"/>
+                                    <field name="sync_prices_last" readonly="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Order Import">
+                                    <field name="import_orders_enabled"/>
+                                    <field name="import_orders_interval" invisible="not import_orders_enabled"/>
+                                    <field name="import_orders_from_date" invisible="not import_orders_enabled"/>
+                                    <field name="import_orders_last" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Sales" name="sales">
+                            <group>
+                                <group string="Order Processing">
+                                    <field name="auto_create_sale_order"/>
+                                    <field name="auto_confirm_sale_order"
+                                           invisible="not auto_create_sale_order"/>
+                                    <field name="sale_team_id"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Customers" name="customers">
+                            <group>
+                                <group string="Partner Creation">
+                                    <field name="partner_creation_mode"/>
+                                    <field name="partner_search_by"
+                                           invisible="partner_creation_mode == 'always'"/>
+                                    <field name="partner_default_category_id"/>
+                                </group>
+                                <group string="Assignment">
+                                    <field name="partner_assign_salesperson"/>
+                                    <field name="partner_default_user_id"
+                                           invisible="not partner_assign_salesperson"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Errors" name="errors" invisible="not last_error">
+                            <group>
+                                <field name="last_error_date" readonly="1"/>
+                                <field name="last_error" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Backend Tree View -->
+    <record id="marketplace_backend_view_tree" model="ir.ui.view">
+        <field name="name">marketplace.backend.tree</field>
+        <field name="model">marketplace.backend</field>
+        <field name="arch" type="xml">
+            <list string="Marketplace Backends" decoration-danger="state == 'error'"
+                  decoration-muted="state == 'draft'">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="marketplace_type"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="order_count"/>
+                <field name="import_orders_last"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'active'"
+                       decoration-warning="state == 'draft'"
+                       decoration-danger="state == 'error'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Backend Search View -->
+    <record id="marketplace_backend_view_search" model="ir.ui.view">
+        <field name="name">marketplace.backend.search</field>
+        <field name="model">marketplace.backend</field>
+        <field name="arch" type="xml">
+            <search string="Marketplace Backends">
+                <field name="name"/>
+                <field name="marketplace_type"/>
+                <filter string="Active" name="filter_active" domain="[('state', '=', 'active')]"/>
+                <filter string="Draft" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Error" name="filter_error" domain="[('state', '=', 'error')]"/>
+                <separator/>
+                <group>
+                    <filter string="Marketplace" name="groupby_type" domain="[]"
+                            context="{'group_by': 'marketplace_type'}"/>
+                    <filter string="Company" name="groupby_company" domain="[]"
+                            context="{'group_by': 'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Backend Action -->
+    <record id="marketplace_backend_action" model="ir.actions.act_window">
+        <field name="name">Marketplace Backends</field>
+        <field name="res_model">marketplace.backend</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_filter_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Configure your first marketplace integration
+            </p>
+            <p>
+                Connect your Odoo to Rozetka, Prom.ua, Epicentr and other Ukrainian marketplaces.
+            </p>
+        </field>
+    </record>
+
+</odoo>

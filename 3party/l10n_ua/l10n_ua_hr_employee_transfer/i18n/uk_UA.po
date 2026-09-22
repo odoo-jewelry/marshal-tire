@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_hr_employee_transfer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_hr_employee_transfer
+#: model:ir.model.fields,field_description:l10n_ua_hr_employee_transfer.field_hr_employee_transfer_wizard__copy_bank_accounts
+msgid "Copy Bank Accounts"
+msgstr "Копіювати банківські рахунки"
+
+#. module: l10n_ua_hr_employee_transfer
+#: model:ir.model.fields,field_description:l10n_ua_hr_employee_transfer.field_hr_employee_transfer_wizard__vacation_period_mode
+msgid "Vacation Work Year"
+msgstr "Робочий рік відпустки"
+
+#. module: l10n_ua_hr_employee_transfer
+#: model:ir.model.fields,help:l10n_ua_hr_employee_transfer.field_hr_employee_transfer_wizard__vacation_period_mode
+msgid ""
+"For annual (work-year) leaves. \"keep\": preserve the original hire date so "
+"the work year continues (same period). \"reset\": start a new work year from "
+"the transfer date. Calendar leave types are unaffected by this mode."
+msgstr ""
+"Для щорічної (робочий рік) відпустки. \"keep\" — зберегти дату найму "
+"оригіналу, робочий рік продовжується (той самий період). \"reset\" — новий "
+"відлік робочого року від дати переведення. Для календарних типів відпусток "
+"режим не впливає на період."
+
+#. module: l10n_ua_hr_employee_transfer
+#: model:ir.model.fields.selection,name:l10n_ua_hr_employee_transfer.selection__hr_employee_transfer_wizard__vacation_period_mode__keep
+msgid "Keep Work Year (preserve hire_date)"
+msgstr "Зберегти робочий рік (зберегти дату найму)"
+
+#. module: l10n_ua_hr_employee_transfer
+#: model:ir.model.fields.selection,name:l10n_ua_hr_employee_transfer.selection__hr_employee_transfer_wizard__vacation_period_mode__reset
+msgid "New Work Year (from transfer date)"
+msgstr "Новий робочий рік (від дати переведення)"

@@ -1,0 +1,3565 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * l10n_ua_assets
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 14:14+0000\n"
+"PO-Revision-Date: 2026-08-14 14:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,print_report_name:l10n_ua_assets.action_report_asset_inv1
+msgid "'Інв-1_%s' % (object.name or '')"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,print_report_name:l10n_ua_assets.action_report_asset_inv3
+msgid "'Інв-3_%s' % (object.name or '')"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,print_report_name:l10n_ua_assets.action_report_mnma_commission
+msgid "'Акт_МНМА_%s' % (object.commission_act_number or object.name)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,print_report_name:l10n_ua_assets.action_report_asset_commission
+msgid "'Акт_введення_%s' % (object.commission_act_number or object.name)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,print_report_name:l10n_ua_assets.action_report_asset_modernization
+msgid "'Акт_модернізації_%s' % (object.name or '')"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,print_report_name:l10n_ua_assets.action_report_asset_revaluation
+msgid "'Акт_переоцінки_%s' % (object.name or '')"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,print_report_name:l10n_ua_assets.action_report_asset_writeoff
+msgid "'Акт_списання_%s' % (object.writeoff_act_number or object.name)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,print_report_name:l10n_ua_assets.action_report_mnma_writeoff
+msgid "'Акт_списання_МНМА_%s' % (object.writeoff_act_number or object.name)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,print_report_name:l10n_ua_assets.action_report_mshp_writeoff
+msgid "'Акт_списання_МШП_%s' % (object.writeoff_act_number or object.name)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,print_report_name:l10n_ua_assets.action_report_asset_oz6
+msgid "'ОЗ-6_%s' % (object.inventory_number or object.name)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "(ПІБ)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "(дата заведення картки)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "(з них знайдено:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "(найменування підприємства)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "(підпис)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "(підпис)      (ПІБ)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "(інвентарний номер)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid "+ Місяців"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__useful_life_extension
+msgid "+ Строк (міс.)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid ""
+",\n"
+"                                лишків зафіксовано:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid ""
+",\n"
+"                                нестачі:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid ""
+",\n"
+"                                члени комісії — ________________________, ________________________"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "1. Характеристика об'єкта"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "100%"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_mnma__write_off_method__100
+msgid "100% при введенні в експлуатацію"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "2. Відомості про придбання та введення в експлуатацію"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "3. Нарахування амортизації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "4. Відомість нарахування амортизації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "5. Поточний стан"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "50/50"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_mnma__write_off_method__50_50
+msgid "50/50 (50% при введенні, 50% при списанні)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+msgid "<span class=\"o_stat_text\">Проводка</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "<span> від </span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid ""
+"<span>Головний бухгалтер</span>\n"
+"                                <span class=\"signature-line\"/>\n"
+"                                <span class=\"small\">(підпис)</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_form
+msgid "<span>Проводка</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "<span>№ </span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid "<strong>Опис робіт:</strong>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid "<strong>Подовження строку корисного використання:</strong>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "<strong>Примітки:</strong>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "<strong>Причина списання:</strong>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+msgid ""
+"<strong>Розбіжностей не виявлено.</strong>\n"
+"                                Фактична наявність ОЗ відповідає обліковим даним."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__message_needaction
+msgid "Action Needed"
+msgstr "Необхідна дія"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__active
+msgid "Active"
+msgstr "Активно"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__activity_ids
+msgid "Activities"
+msgstr "Дії"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Оформлення виключення дії"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__activity_state
+msgid "Activity State"
+msgstr "Стан дії"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Іконка типу дії"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_7
+msgid "Animals"
+msgstr "Тварини"
+
+#. module: l10n_ua_assets
+#: model:ir.ui.menu,name:l10n_ua_assets.menu_l10n_ua_assets_list
+msgid "Asset Cards"
+msgstr "Картки ОЗ"
+
+#. module: l10n_ua_assets
+#: model:ir.ui.menu,name:l10n_ua_assets.menu_l10n_ua_asset_groups
+msgid "Asset Groups"
+msgstr "Групи ОЗ"
+
+#. module: l10n_ua_assets
+#: model:ir.ui.menu,name:l10n_ua_assets.menu_l10n_ua_asset_inventory
+msgid "Asset Inventories"
+msgstr "Інвентаризації основних засобів"
+
+#. module: l10n_ua_assets
+#: model:ir.ui.menu,name:l10n_ua_assets.menu_l10n_ua_asset_modernization
+msgid "Asset Modernizations"
+msgstr "Модернізації основних засобів"
+
+#. module: l10n_ua_assets
+#: model:ir.ui.menu,name:l10n_ua_assets.menu_l10n_ua_asset_revaluation
+msgid "Asset Revaluations"
+msgstr "Переоцінки основних засобів"
+
+#. module: l10n_ua_assets
+#: model:ir.model.constraint,message:l10n_ua_assets.constraint_l10n_ua_asset_group_unique_code
+msgid "Asset group code must be unique!"
+msgstr "Код групи основних засобів має бути унікальним!"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__message_attachment_count
+msgid "Attachment Count"
+msgstr "Підрахунок прикріплення"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_3
+msgid "Buildings, structures, transmission devices"
+msgstr "Будівлі, споруди, передавальні пристрої"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_2
+msgid "Capital expenditures on land improvement"
+msgstr "Капітальні витрати на поліпшення земель"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__code
+msgid "Code"
+msgstr "Код"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__create_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__create_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__create_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__create_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__create_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__create_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__create_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__create_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__create_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__create_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__description
+msgid "Description"
+msgstr "Опис"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__display_name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__display_name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__display_name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__display_name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__display_name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__display_name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__display_name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__display_name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__display_name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__display_name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: l10n_ua_assets
+#: model:ir.model,name:l10n_ua_assets.model_l10n_ua_asset_group
+msgid "Fixed Asset Group (Tax Code)"
+msgstr "Група основних засобів (Податковий кодекс)"
+
+#. module: l10n_ua_assets
+#: model:ir.actions.act_window,name:l10n_ua_assets.l10n_ua_asset_group_action
+msgid "Fixed Asset Groups"
+msgstr "Групи основних засобів"
+
+#. module: l10n_ua_assets
+#: model:ir.ui.menu,name:l10n_ua_assets.menu_l10n_ua_assets
+msgid "Fixed Assets"
+msgstr "Основні засоби"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Партнери)"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mnma__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Іконка зі шрифтом Font awesome, напр. fa-tasks"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__has_message
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__has_message
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__has_message
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__has_message
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__has_message
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__has_message
+msgid "Has Message"
+msgstr "Є повідомлення"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__activity_exception_icon
+msgid "Icon"
+msgstr "Значок"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mnma__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Іконка для визначення виключення дії."
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__message_needaction
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__message_needaction
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization__message_needaction
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_needaction
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mnma__message_needaction
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо позначено, то нові повідомлення будуть потребувати вашої уваги."
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__message_has_error
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__message_has_sms_error
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__message_has_error
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__message_has_sms_error
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization__message_has_error
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization__message_has_sms_error
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_has_error
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_has_sms_error
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mnma__message_has_error
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mnma__message_has_sms_error
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__message_has_error
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_14
+msgid "Inventory packaging"
+msgstr "Інвентарна тара"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__message_is_follower
+msgid "Is Follower"
+msgstr "Стежить"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_15
+msgid "Items for rent"
+msgstr "Предмети прокату"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_1
+msgid "Land plots"
+msgstr "Земельні ділянки"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,description:l10n_ua_assets.asset_group_1
+msgid "Land plots (not depreciated)"
+msgstr "Земельні ділянки (не амортизуються)"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__write_uid
+msgid "Last Updated by"
+msgstr "Востаннє оновив"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__write_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__write_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__write_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__write_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__write_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__write_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__write_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__write_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__write_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__write_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__write_date
+msgid "Last Updated on"
+msgstr "Останнє оновлення"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_10
+msgid "Library funds"
+msgstr "Бібліотечні фонди"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_16
+msgid "Long-term biological assets"
+msgstr "Довгострокові біологічні активи"
+
+#. module: l10n_ua_assets
+#: model:ir.ui.menu,name:l10n_ua_assets.menu_l10n_ua_mnma
+msgid "Low Value Assets (MNMA)"
+msgstr "Малоцінні активи (МНМА)"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_11
+msgid "MNMA"
+msgstr "МНМА"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_4
+msgid "Machinery and equipment"
+msgstr "Машини та обладнання"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставлення повідомлення"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__min_useful_life
+msgid "Min Useful Life (years)"
+msgstr "Мін. строк корисного використання (років)"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_group__min_useful_life
+msgid "Minimum useful life according to Tax Code"
+msgstr "Мінімальний строк корисного використання згідно з Податковим кодексом"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Дедлайн моєї дії"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_13
+msgid "Natural resources"
+msgstr "Природні ресурси"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__cumulative_revaluation_balance
+msgid ""
+"Net balance of confirmed revaluations: positive = surplus on 411, negative ="
+" accumulated impairment loss recognised on 975"
+msgstr ""
+"Сальдо підтверджених переоцінок: додатне — дооцінка на рахунку 411, від’ємне"
+" — накопичені втрати від зменшення корисності, визнані на рахунку 975"
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+#: code:addons/l10n_ua_assets/models/l10n_ua_mnma.py:0
+#: code:addons/l10n_ua_assets/models/l10n_ua_mshp.py:0
+msgid "New"
+msgstr "Новий"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Наступна подія календаря дій"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Дедлайн наступної дії"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__activity_summary
+msgid "Next Activity Summary"
+msgstr "Підсумок наступної дії"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__activity_type_id
+msgid "Next Activity Type"
+msgstr "Тип наступної дії"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__message_has_error_counter
+msgid "Number of errors"
+msgstr "Кількість помилок"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mnma__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Кількість повідомлень, які вимагають дії"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mnma__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилкою доставки"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_9
+msgid "Other fixed assets"
+msgstr "Інші основні засоби"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_8
+msgid "Perennial plantings"
+msgstr "Багаторічні насадження"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__activity_user_id
+msgid "Responsible User"
+msgstr "Відповідальний користувач"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Помилка доставки SMS"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__activity_state
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_state
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_state
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_state
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mnma__activity_state
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Етап заснований на діях\n"
+"Протерміновано: термін виконання вже минув\n"
+"Сьогодні: дата дії сьогодні\n"
+"Заплановано: майбутні дії."
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_12
+msgid "Temporary structures"
+msgstr "Тимчасові (нетитульні) споруди"
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_6
+msgid "Tools, devices, inventory"
+msgstr "Інструменти, прилади, інвентар"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mnma__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Тип дії виключення на записі."
+
+#. module: l10n_ua_assets
+#: model:l10n_ua.asset.group,name:l10n_ua_assets.asset_group_5
+msgid "Vehicles"
+msgstr "Транспортні засоби"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__website_message_ids
+msgid "Website Messages"
+msgstr "Повідомлення з веб-сайту"
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mnma__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__website_message_ids
+msgid "Website communication history"
+msgstr "Історія бесіди на сайті"
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "______________ / ______________"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__revaluation_amount
+msgid "book_value_after - book_value_before"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__revaluation_index
+msgid "fair_value / book_value_before"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "«___» ___________ 20__ р."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "Δ (+дооц./-уц.)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__accumulated_change
+msgid "Δ Зносу"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__original_change
+msgid "Δ Первісної"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "ЄДРПОУ:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid ""
+"ІНВЕНТАРИЗАЦІЙНИЙ ОПИС<br/>\n"
+"                            <span style=\"font-size: 12pt;\">основних засобів</span><br/>\n"
+"                            <span style=\"font-size: 10pt;\">(типова форма Інв-1)</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid ""
+"ІНВЕНТАРНА КАРТКА<br/>\n"
+"                            <span style=\"font-size: 11pt;\">обліку основних засобів</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Ідентифікаційний код ЄДРПОУ:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+msgid "Інв-1 (опис)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,name:l10n_ua_assets.action_report_asset_inv1
+msgid "Інв-1 (інвентаризаційний опис)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,name:l10n_ua_assets.action_report_asset_inv3
+msgid "Інв-3 (порівняльна відомість)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+msgid "Інв-3 (порівняльна)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "Інв. №"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "Інвент. №"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__inventory_id
+msgid "Інвентаризація"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+msgid "Інвентаризація ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid "Інвентаризація ОЗ %s від %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model,name:l10n_ua_assets.model_l10n_ua_asset_inventory
+msgid "Інвентаризація основних засобів"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.actions.act_window,help:l10n_ua_assets.l10n_ua_asset_inventory_action
+msgid ""
+"Інвентаризація — звіряння фактичної наявності ОЗ зі обліковими\n"
+"                даними з виявленням нестач та лишків (Наказ Мінфіну №879).\n"
+"                Звіти: Інв-1 (опис), Інв-3 (порівняльна відомість)."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.act_window,name:l10n_ua_assets.l10n_ua_asset_inventory_action
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_search
+msgid "Інвентаризації ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,name:l10n_ua_assets.action_report_asset_oz6
+msgid "Інвентарна картка ОЗ-6"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__inventory_number
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__inventory_number
+msgid "Інвентарний номер"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+msgid "Інвентарний №"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "Індекс"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__revaluation_index
+msgid "Індекс переоцінки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__surplus_income_account_id
+msgid "Інші доходи від лишків (746)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__other_income_account_id
+msgid ""
+"Інші операційні доходи — використовується при дооцінці після попередньої "
+"уцінки (П(С)БО 7 п.20)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__modernization_line_ids
+msgid "Історія модернізацій"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__revaluation_line_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Історія переоцінок"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+msgid ""
+"АКТ<br/>\n"
+"                            <span style=\"font-size: 12pt;\">введення МНМА в експлуатацію</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+msgid ""
+"АКТ<br/>\n"
+"                            <span style=\"font-size: 12pt;\">введення основних засобів в експлуатацію</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid ""
+"АКТ<br/>\n"
+"                            <span style=\"font-size: 12pt;\">на списання основних засобів</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid ""
+"АКТ<br/>\n"
+"                            <span style=\"font-size: 12pt;\">переоцінки основних засобів</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid ""
+"АКТ<br/>\n"
+"                            <span style=\"font-size: 12pt;\">прийому-передачі робіт з модернізації / реконструкції основних засобів</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid ""
+"АКТ<br/>\n"
+"                            <span style=\"font-size: 12pt;\">списання малоцінних необоротних матеріальних активів</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid ""
+"АКТ<br/>\n"
+"                            <span style=\"font-size: 12pt;\">списання малоцінних швидкозношуваних предметів</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Акт введення"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,name:l10n_ua_assets.action_report_mnma_commission
+msgid "Акт введення МНМА"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,name:l10n_ua_assets.action_report_asset_commission
+msgid "Акт введення ОЗ в експлуатацію"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Акт введення №:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+msgid "Акт модернізації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+msgid "Акт переоцінки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,name:l10n_ua_assets.action_report_asset_revaluation
+msgid "Акт переоцінки ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,name:l10n_ua_assets.action_report_asset_modernization
+msgid "Акт прийому-передачі модернізації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Акт списання"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,name:l10n_ua_assets.action_report_mnma_writeoff
+msgid "Акт списання МНМА"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,name:l10n_ua_assets.action_report_mshp_writeoff
+msgid "Акт списання МШП"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.report,name:l10n_ua_assets.action_report_asset_writeoff
+msgid "Акт списання ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Амортизаційна відомість"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model,name:l10n_ua_assets.model_l10n_ua_asset_depreciation
+msgid "Амортизаційне нарахування"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__depreciation_line_ids
+msgid "Амортизаційні нарахування"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Амортизацію ще не нараховано"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_depreciation__line_type__depreciation
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Амортизація"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid "Амортизація %(asset)s за %(date)s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__amount
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Амортизація за період"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__cumulative_revaluation_balance
+msgid "Баланс переоцінок"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_revaluation_line__revaluation_type__none
+msgid "Без зміни"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__move_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__move_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__move_id
+msgid "Бухгалтерська проводка"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_depreciation__move_id
+msgid "Бухгалтерська проводка амортизації (Дт витрати / Кт 131)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__journal_id
+msgid "Бухгалтерський журнал для проводок переоцінки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+msgid "Бухгалтерія"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset__state__open
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_mnma__state__in_use
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_mshp__state__in_use
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_search
+msgid "В експлуатації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__total_cost
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "Вартість"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+msgid "Вартість, грн"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_form
+msgid "Ввести в експлуатацію"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+msgid "Винний"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__produced_units
+msgid "Вироблено одиниць"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__production_capacity
+msgid "Виробнича потужність"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Виробнича потужність:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset__depreciation_method__production
+msgid "Виробничий"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__shortage_expense_account_id
+msgid "Витрати на списання нестач (947)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__impairment_loss_account_id
+msgid "Витрати на уцінку ОЗ (за замовч. 975)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid "Вкажіть дату придбання або введення в експлуатацію."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid "Вкажіть первісну вартість та строк корисного використання."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_list
+msgid "Всього"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Відновити"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Відновлення вартості (746): %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "Відповідальна особа"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+msgid "Відповідальна особа:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__responsible_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_search
+msgid "Відповідальний"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_form
+msgid "Відповідальність"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__commission_chair_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "Голова комісії"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "Головний бухгалтер"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "Головний бухгалтер: _______________"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "Група"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__group_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__filter_group_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__group_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_group_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+msgid "Група ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__group_id
+msgid "Група ОЗ згідно Податкового кодексу (1-16)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "Група ОЗ, що переоцінюється:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Група основних засобів:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__date
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Дата"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__commission_date
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "Дата введення"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__commission_date
+msgid "Дата введення в експлуатацію"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Дата введення в експлуатацію:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__order_date
+msgid "Дата наказу"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_search
+msgid "Дата передачі"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__date
+msgid "Дата передачі в експлуатацію"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__date
+msgid "Дата переоцінки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__acquisition_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__date
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_search
+msgid "Дата придбання"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Дата придбання:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__writeoff_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__writeoff_date
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__writeoff_date
+msgid "Дата списання"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__date
+msgid "Дата інвентаризації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+msgid "Детальний опис робіт з модернізації..."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__annual_depreciation_rate
+msgid ""
+"Для методу зменшення залишку. Якщо 0 — розраховується як 2/строк_років "
+"(подвійно-зменшуваний)."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "До переоцінки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid "Додайте хоча б один ОЗ до модернізації."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Додайте хоча б один ОЗ до переоцінки."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+msgid "Додати лишок"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__revaluation_id
+msgid "Документ переоцінки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__document_reference
+msgid "Документ-підстава"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid "Документ-підстава:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_revaluation_line__revaluation_type__increase
+msgid "Дооцінка"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__revaluation_surplus_account_id
+msgid "Дооцінка (411)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Дооцінка (411): %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__other_income_account_id
+msgid "Доход від відновлення (746)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_form
+msgid "Друк акту введення"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_form
+msgid "Друк акту списання"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__journal_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__journal_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__journal_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__journal_id
+msgid "Журнал"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__depreciation_journal_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__depreciation_journal_id
+msgid "Журнал амортизації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__depreciation_journal_id
+msgid "Журнал для проводок амортизації. За замовч. береться з групи ОЗ."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_group__depreciation_journal_id
+msgid "Журнал за замовчуванням для проводок місячної амортизації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_search
+msgid "З лишками"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_search
+msgid "З нестачами"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "ЗАТВЕРДЖУЮ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_inventory__state__done
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_search
+msgid "Завершено"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+msgid "Завершити"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid ""
+"Завершити можна лише інвентаризацію у процесі. Спочатку заповніть рядки."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+msgid ""
+"Завершити інвентаризацію? Будуть створені проводки, нестачі будуть списані, "
+"лишки оприбутковані."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "Загальна зміна накопиченого зносу:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "Загальна зміна первісної вартості:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__production_capacity
+msgid ""
+"Загальна очікувана кількість одиниць продукції (для виробничого методу)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__total_amount
+msgid "Загальна сума"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__total_net_change
+msgid "Загальна сума дооцінки (+) або уцінки (-)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "Залишк."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+msgid "Залишкова"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__book_value
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__remaining
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__book_value
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__residual_value
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "Залишкова вартість"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Залишкова вартість ОЗ \"%s\" повинна бути більше нуля для переоцінки."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Залишкова вартість:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__book_value_before
+msgid "Залишкова до"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__book_value_after
+msgid "Залишкова після"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "Залишкова, грн"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory_line__asset_id
+msgid "Заповнено для існуючих ОЗ; порожнє для лишків"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+msgid "Заповнити рядки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid "Заповнити рядки можна лише в стані «Чернетка» або «У процесі»."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid "Заповніть суму модернізації для всіх рядків."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Затверджено наказом"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_inventory_line__discrepancy__match
+msgid "Збіг"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+msgid "Здав"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset__depreciation_method__declining_balance
+msgid "Зменшення залишку"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__total_accumulated_change
+msgid "Зміна накопиченого зносу"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__total_original_change
+msgid "Зміна первісної вартості"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__found
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "Знайдено"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__accumulated_depreciation
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__depreciation_value
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "Знос"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__accumulated_before
+msgid "Знос до"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+msgid "Знос при введенні, грн"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__accumulated_after
+msgid "Знос після"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "Знос, грн"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__revaluation_surplus_account_id
+msgid "Капітал у дооцінках (за замовч. 411)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Картка ОЗ-6"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "Керівник підприємства"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__company_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__company_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__company_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__company_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__company_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__company_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__company_id
+msgid "Компанія"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "Комісія встановила, що об'єкт основних засобів підлягає списанню."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid ""
+"Комісія у складі: голова комісії — ________________________,\n"
+"                                члени комісії — ________________________, ________________________"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization_line__work_description
+msgid "Конкретні роботи з модернізації цього ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset__depreciation_method__cumulative
+msgid "Кумулятивний"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__quantity
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "Кількість"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__produced_units
+msgid "Кількість вироблених одиниць на поточний момент"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__modernization_count
+msgid "Кількість модернізацій"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__revaluation_count
+msgid "Кількість переоцінок"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__surplus_count
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+msgid "Лишки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__surplus_income_account_id
+msgid "Лишки (746)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__is_surplus
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_inventory_line__discrepancy__surplus
+msgid "Лишок"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid "Лишок %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid "Лишок можна додати лише в стані «Чернетка» або «У процесі»."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid "Лишок: %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__salvage_value
+msgid "Ліквідаційна вартість"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "Ліквідаційна вартість:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__responsible_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__filter_responsible_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__employee_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "МВО"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+msgid "МВО (прийняв)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "МВО:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "МВО: _______________"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.act_window,name:l10n_ua_assets.l10n_ua_mnma_action
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_search
+msgid "МНМА"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model,name:l10n_ua_assets.model_l10n_ua_mnma
+msgid "МНМА (малоцінні необоротні матеріальні активи)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.act_window,name:l10n_ua_assets.l10n_ua_mshp_action
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_search
+msgid "МШП"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model,name:l10n_ua_assets.model_l10n_ua_mshp
+msgid "МШП (малоцінні швидкозношувані предмети)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.ui.menu,name:l10n_ua_assets.menu_l10n_ua_mshp
+msgid "МШП (рах. 22)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__responsible_id
+msgid "Матеріально відповідальна особа"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__employee_id
+msgid "Матеріально відповідальна особа."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+msgid "Матеріально відповідальна особа:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "Метод"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__depreciation_method
+msgid "Метод амортизації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "Метод амортизації:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__write_off_method
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+msgid "Метод списання"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Модернізацій"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid "Модернізацію можна підтвердити лише з чернетки."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__modernization_id
+msgid "Модернізація"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.actions.act_window,help:l10n_ua_assets.l10n_ua_asset_modernization_action
+msgid ""
+"Модернізація / реконструкція ОЗ — збільшення первісної вартості\n"
+"                на витрати, що приводять до збільшення майбутніх економічних\n"
+"                вигод (П(С)БО 7 п.14)."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+msgid "Модернізація ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid "Модернізація ОЗ %s від %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model,name:l10n_ua_assets.model_l10n_ua_asset_modernization
+msgid "Модернізація основних засобів"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid "Модернізація: %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid "Модернізації %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.act_window,name:l10n_ua_assets.l10n_ua_asset_modernization_action
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_search
+msgid "Модернізації ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Модернізувати"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid "Модернізувати можна лише ОЗ у стані \"В експлуатації\" або \"Призупинено\"."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Мінстату України"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__location
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__location
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__location
+msgid "Місцезнаходження"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__filter_location
+msgid "Місцезнаходження (фільтр)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+msgid "Місцезнаходження:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__depreciation_amount
+msgid "Місячна амортизація"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Місячна амортизація:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__depreciation_amount
+msgid "Місячна сума амортизації за обраним методом"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "На підставі наказу від"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization_line__amount
+msgid "На скільки збільшується первісна вартість"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization_line__useful_life_extension
+msgid "На скільки місяців подовжується строк корисного використання"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__name
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "Найменування"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__surplus_name
+msgid "Найменування лишку"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+msgid "Найменування об'єкта"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Найменування об'єкта:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Найменування основного засобу"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "Нак. амортизація"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__accumulated_depreciation
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__accumulated
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Накопичена амортизація"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Накопичена амортизація:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Не заповнено обов'язкові поля: %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid "Не можна видалити завершену інвентаризацію."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid ""
+"Не можна видалити коригувальний рядок переоцінки. Спочатку скасуйте документ"
+" переоцінки."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid "Не можна видалити підтверджену модернізацію. Спочатку скасуйте її."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Не можна видалити підтверджену переоцінку. Спочатку скасуйте її."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid ""
+"Не можна переоцінити ОЗ у стані відмінному від «В експлуатації» або "
+"«Призупинено»: %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid ""
+"Не можна повернути ОЗ \"%s\" в чернетку: існують підтверджені переоцінки. "
+"Спочатку скасуйте документи переоцінки."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid ""
+"Не можна редагувати поля %s коригувального рядка переоцінки. Спочатку "
+"скасуйте документ переоцінки."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid ""
+"Не можна скасувати завершену інвентаризацію (нестачі та лишки вже "
+"відображені в обліку). Створіть зворотний документ."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid ""
+"Не можна скасувати модернізацію %s: на ОЗ \"%s\" пізніше підтверджено "
+"модернізацію %s. Спочатку скасуйте її."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid ""
+"Не можна скасувати модернізацію %s: на ОЗ \"%s\" після %s проведено "
+"амортизацію (%s)."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid ""
+"Не можна скасувати переоцінку %s: на ОЗ \"%s\" після дати %s вже проведено "
+"амортизацію (%s)."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid ""
+"Не можна скасувати переоцінку %s: на ОЗ \"%s\" після цього було підтверджено"
+" переоцінку %s від %s. Спочатку скасуйте її."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid ""
+"Неможливо провести амортизацію ОЗ \"%(asset)s\": не налаштовано %(missing)s."
+" Вкажіть на основному засобі або на групі ОЗ."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__product_id
+msgid "Необов’язкове посилання на номенклатуру."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_inventory_line__discrepancy__shortage
+msgid "Нестача"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid "Нестача (залишкова): %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid "Нестача (знос): %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid "Нестача за інвентаризацією %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__shortage_count
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+msgid "Нестачі"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__shortage_expense_account_id
+msgid "Нестачі (947)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Нова"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__fair_value
+msgid "Нова залишкова (справедлива) вартість ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__product_id
+msgid "Номенклатура"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__name
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__name
+msgid "Номер"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid "ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+msgid ""
+"Об'єкт основних засобів відповідає технічним умовам і\n"
+"                                придатний до експлуатації."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__description
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__work_description
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid "Опис робіт"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_group_form
+msgid "Опис..."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__processed
+msgid "Опрацьовано"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__group_id
+msgid "Опціональний фільтр: переоцінювати тільки ОЗ цієї групи"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model,name:l10n_ua_assets.model_l10n_ua_asset
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__asset_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__asset_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__asset_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__asset_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Основний засіб"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.act_window,name:l10n_ua_assets.l10n_ua_asset_action
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_search
+msgid "Основні засоби"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__salvage_value
+msgid "Очікувана вартість при вибутті"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+msgid ""
+"ПОРІВНЯЛЬНА ВІДОМІСТЬ<br/>\n"
+"                            <span style=\"font-size: 12pt;\">результатів інвентаризації ОЗ</span><br/>\n"
+"                            <span style=\"font-size: 10pt;\">(типова форма Інв-3)</span>"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "Первісна"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__original_value
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__original_value
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__original_value
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "Первісна вартість"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+msgid "Первісна вартість, грн"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Первісна вартість:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__original_value_before
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__original_value_before
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid "Первісна до"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__original_value_after
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__original_value_after
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid "Первісна після"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "Первісна, грн"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "Передано в експлуатацію за документом"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_form
+msgid "Передати в експлуатацію"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_mshp.py:0
+msgid "Передача МШП в експлуатацію: %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Переоцінити"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid "Переоцінити можна лише ОЗ у стані \"В експлуатації\" або \"Призупинено\"."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__revaluation_id
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_depreciation__line_type__revaluation
+msgid "Переоцінка"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+msgid "Переоцінка ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Переоцінка ОЗ %s від %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.actions.act_window,help:l10n_ua_assets.l10n_ua_asset_revaluation_action
+msgid ""
+"Переоцінка ОЗ — операція приведення вартості активу до справедливої.\n"
+"                Виконується згідно П(С)БО 7."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Переоцінка зносу: %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model,name:l10n_ua_assets.model_l10n_ua_asset_revaluation
+msgid "Переоцінка основних засобів"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Переоцінка первісної: %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Переоцінки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid "Переоцінки %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.act_window,name:l10n_ua_assets.l10n_ua_asset_revaluation_action
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_search
+msgid "Переоцінки ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Переоцінку можна підтвердити лише з чернетки."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Переоцінок"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_form
+msgid "Повернути МНМА в чернетку? Номери актів будуть скинуті."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_form
+msgid ""
+"Повернути МШП в чернетку? Проводку буде сторновано, номери актів скинуто."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Повернути ОЗ в чернетку? Номери актів будуть скинуті."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_form
+msgid "Повернути в чернетку"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid "Подовження строку не може бути від'ємним."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Порожні поля успадковуються з групи ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset__state__paused
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_search
+msgid "Призупинено"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Призупинити"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+msgid "Прийняв (МВО)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__notes
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__notes
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__note
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__notes
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__notes
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "Примітки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+msgid "Примітки до інвентаризації..."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_form
+msgid "Примітки..."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__writeoff_reason
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__writeoff_reason
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__writeoff_reason
+msgid "Причина списання"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+msgid "Причина списання:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_depreciation__state__posted
+msgid "Проведено"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Провести"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__move_id
+msgid "Проводка"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_form
+msgid "Проводка (Дт витрати / Кт 22)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid "Проводка модернізації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Проводка переоцінки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__move_id
+msgid "Проводка списання"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid "Проводка інвентаризації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset__depreciation_method__straight_line
+msgid "Прямолінійний"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__department_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__department_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_search
+msgid "Підрозділ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+msgid "Підрозділ:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+msgid "Підстава переоцінки, експертний висновок..."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+msgid "Підсумок"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__matched_count
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_modernization__state__confirmed
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_revaluation__state__confirmed
+msgid "Підтверджено"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_search
+msgid "Підтверджені"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+msgid "Підтвердити"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+msgid ""
+"Підтвердити модернізацію? Будуть створені проводки і збільшено вартість ОЗ."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+msgid ""
+"Підтвердити переоцінку? Будуть створені проводки і змінено вартість ОЗ."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "Після переоцінки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+msgid "Разом лишків:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+msgid "Разом нестач:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "Разом:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Рахунки амортизації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_group_form
+msgid "Рахунки амортизації за замовчуванням"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__stock_account_id
+msgid "Рахунок 22 (МШП)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__fixed_asset_account_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__fixed_asset_account_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__fixed_asset_account_id
+msgid "Рахунок ОЗ (10)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__expense_account_id
+msgid "Рахунок витрат"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__expense_account_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__expense_account_id
+msgid "Рахунок витрат (Дт)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__expense_account_id
+msgid "Рахунок витрат на амортизацію (23/91/92/93/94). За замовч. з групи ОЗ."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_group__expense_account_id
+msgid "Рахунок витрат на амортизацію за замовч. (23/91/92/93/94)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__expense_account_id
+msgid ""
+"Рахунок витрат, на який списується вартість при передачі в експлуатацію "
+"(92/93/949)."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid "Рахунок джерела"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__source_account_id
+msgid "Рахунок джерела (152/631)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Рахунок дооцінки (411)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__accumulated_depreciation_account_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__accumulated_depreciation_account_id
+msgid "Рахунок зносу (131)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__depreciation_account_id
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_group__depreciation_account_id
+msgid "Рахунок зносу (Кт 131)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization__source_account_id
+msgid ""
+"Рахунок капітальних інвестицій (152) або розрахунків з постачальниками "
+"(631), з якого переноситься сума модернізації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid "Рахунок лишків (746)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__depreciation_account_id
+msgid "Рахунок накопиченого зносу (131). За замовч. з групи ОЗ."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__accumulated_depreciation_account_id
+msgid "Рахунок накопиченого зносу (за замовч. 131)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_group__depreciation_account_id
+msgid "Рахунок накопиченого зносу за замовч. (131)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+msgid "Рахунок нестач (947)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_mshp__stock_account_id
+msgid "Рахунок обліку МШП (22)."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_revaluation__fixed_asset_account_id
+msgid "Рахунок первісної вартості ОЗ (за замовч. 10)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Рахунок уцінки (975)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Рахунок інших доходів (746)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.actions.act_window,name:l10n_ua_assets.l10n_ua_mshp_register_action
+#: model:ir.ui.menu,name:l10n_ua_assets.menu_l10n_ua_mshp_register
+msgid "Реєстр МШП в експлуатації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid ""
+"Роботи виконані повністю, у відповідності до договору-підстави,\n"
+"                                якість прийнятого обладнання задовольняє вимогам експлуатації.\n"
+"                                Об'єкти модернізації введено в експлуатацію з"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__discrepancy
+msgid "Розбіжність"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Розрахувати амортизацію"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Розташування та відповідальність"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__line_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+msgid "Рядки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__line_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+msgid "Рядки модернізації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__line_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+msgid "Рядки переоцінки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+msgid "Рядки інвентаризації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model,name:l10n_ua_assets.model_l10n_ua_asset_modernization_line
+msgid "Рядок модернізації ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model,name:l10n_ua_assets.model_l10n_ua_asset_revaluation_line
+msgid "Рядок переоцінки ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model,name:l10n_ua_assets.model_l10n_ua_asset_inventory_line
+msgid "Рядок інвентаризації ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__annual_depreciation_rate
+msgid "Річна норма амортизації (%)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Річна норма амортизації:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+msgid "Рішення комісії: ввести в експлуатацію з"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_inventory__state__cancelled
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_modernization__state__cancelled
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_revaluation__state__cancelled
+msgid "Скасовано"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_search
+msgid "Скасовані"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Скасувати"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+msgid ""
+"Скасувати модернізацію? Вартість ОЗ повернеться, проводку буде скасовано."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid "Скасувати можна лише підтверджену модернізацію."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Скасувати можна лише підтверджену переоцінку."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_form
+msgid "Скасувати переоцінку? Вартість ОЗ буде повернуто, проводку скасовано."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_form
+msgid "Списання"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Списання дооцінки (411): %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset__state__close
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_mnma__state__written_off
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_mshp__state__written_off
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_search
+msgid "Списано"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_form
+msgid "Списати"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_mshp.py:0
+msgid "Списати можна лише МШП в експлуатації: %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_form
+msgid "Списати основний засіб?"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__fair_value
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "Справедлива вартість"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__surplus_value
+msgid "Справедлива вартість лишку"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Справедлива вартість не може бути від'ємною."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization__state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__state
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__state
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_search
+msgid "Стан"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__condition_note
+msgid "Стан / примітки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory_line__created_asset_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+msgid "Створений ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory_line__created_asset_id
+msgid "Створений на основі цього лишку"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.actions.act_window,help:l10n_ua_assets.l10n_ua_asset_modernization_action
+msgid "Створіть першу модернізацію ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.actions.act_window,help:l10n_ua_assets.l10n_ua_asset_revaluation_action
+msgid "Створіть першу переоцінку ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.actions.act_window,help:l10n_ua_assets.l10n_ua_asset_inventory_action
+msgid "Створіть першу інвентаризацію ОЗ"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_mshp.py:0
+msgid "Сторно: %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__useful_life_before
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid "Строк до (міс.)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+msgid "Строк корисного використання"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__useful_life
+msgid "Строк корисного використання (міс.)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset__useful_life
+msgid "Строк корисного використання у місяцях"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "Строк корисного використання:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__useful_life_after
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid "Строк після (міс.)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid "Сума"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__surplus_amount
+msgid "Сума лишків"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+msgid "Сума лишків (справедлива вартість):"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_modernization_line__amount
+msgid "Сума модернізації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid "Сума модернізації повинна бути більше нуля."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__shortage_amount
+msgid "Сума нестач"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+msgid "Сума нестач (залишкова вартість):"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__revaluation_amount
+msgid "Сума переоцінки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation_line__revaluation_type
+msgid "Тип"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_depreciation__line_type
+msgid "Тип рядка"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "Типова форма № ОЗ-6"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_inventory__state__in_progress
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_search
+msgid "У процесі"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "У чернетку можна повернути лише скасовану переоцінку."
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_inventory.py:0
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_modernization.py:0
+msgid "У чернетку можна повернути лише скасовану."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_list
+msgid "Усього лишків"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "Усього найменувань:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_list
+msgid "Усього нестач"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__line_count
+msgid "Усього рядків"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_revaluation_line__revaluation_type__decrease
+msgid "Уцінка"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__impairment_loss_account_id
+msgid "Уцінка (975)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/l10n_ua_asset_revaluation.py:0
+msgid "Уцінка (975): %s"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory_line__found
+msgid "Фактично присутній на місці"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__filter_group_id
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_inventory__filter_responsible_id
+msgid "Фільтр для дії «Заповнити рядки»"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+msgid "Фільтри для заповнення"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_search
+msgid "Цей рік"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "Ціна"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__unit_cost
+msgid "Ціна за одиницю"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_depreciation__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_inventory__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_modernization__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_asset_revaluation__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_mnma__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_assets.selection__l10n_ua_mshp__state__draft
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mnma_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_mshp_view_search
+msgid "Чернетка"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_revaluation_view_search
+msgid "Чернетки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_revaluation__total_net_change
+msgid "Чиста сума переоцінки"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "Чиста сума переоцінки:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "Члени комісії"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mnma_writeoff_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_mshp_writeoff_document
+msgid "від"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "від 29.12.95 № 352"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "голова комісії —"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "грн."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv3_document
+msgid "до інвентаризації №"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid "журнал амортизації"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "комісія у складі:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_writeoff_document
+msgid "міс."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+msgid ""
+"міс.\n"
+"                                    ("
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "міс. ("
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid ""
+"на підставі справедливої вартості, визначеної експертною оцінкою\n"
+"                                (П(С)БО 7 «Основні засоби», п. 16-21)."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "нестача"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_oz6_document
+msgid "од."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_commission_document
+msgid ""
+"призначена наказом від «___» ___________ 20__ р. № ______,\n"
+"                                оглянула прийнятий об'єкт основних засобів і встановила:"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_revaluation_document
+msgid "провела переоцінку основних засобів станом на"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_modernization_document
+msgid ""
+"провела прийом виконаних робіт з модернізації /\n"
+"                                реконструкції основних засобів станом на"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "провела інвентаризацію основних засобів станом на"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid "рахунок витрат (Дт)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#. odoo-python
+#: code:addons/l10n_ua_assets/models/account_asset.py:0
+msgid "рахунок зносу (Кт 131)"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.report_asset_inv1_document
+msgid "так"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__commission_act_number
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__commission_act_number
+msgid "№ акту введення"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset__writeoff_act_number
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mnma__writeoff_act_number
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__writeoff_act_number
+msgid "№ акту списання"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_modernization_view_form
+msgid "№ договору від..."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_mshp__transfer_number
+msgid "№ документа передачі"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,field_description:l10n_ua_assets.field_l10n_ua_asset_inventory__order_number
+msgid "№ наказу про інвентаризацію"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model_terms:ir.ui.view,arch_db:l10n_ua_assets.l10n_ua_asset_inventory_view_form
+msgid "№ наказу..."
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.model.fields,help:l10n_ua_assets.field_l10n_ua_asset_modernization__document_reference
+msgid "№ та дата договору / акту прийому робіт"
+msgstr ""
+
+#. module: l10n_ua_assets
+#: model:ir.module.module,shortdesc:base.module_l10n_ua_assets
+msgid "Ukraine - Fixed Assets"
+msgstr "Україна - Основні засоби"
+
+#. module: l10n_ua_assets
+#: model:ir.module.module,summary:base.module_l10n_ua_assets
+msgid ""
+"Ukrainian fixed assets: depreciation, OZ-6, acts, MNMA, revaluation, "
+"modernization, inventory"
+msgstr ""
+"Основні засоби України: амортизація, ОЗ-6, акти, МНМА, переоцінка, "
+"модернізація, інвентаризація"

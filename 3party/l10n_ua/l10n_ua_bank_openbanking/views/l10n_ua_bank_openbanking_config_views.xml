@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="l10n_ua_bank_sync_config_view_form_ob" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.config.form.openbanking</field>
+        <field name="model">l10n_ua.bank.sync.config</field>
+        <field name="inherit_id" ref="l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form"/>
+        <field name="arch" type="xml">
+            <sheet position="inside">
+                <group string="Open Banking (PSD2)"
+                       invisible="provider != 'openbanking'">
+                    <group>
+                        <field name="ob_base_url"/>
+                        <field name="ob_token_url"/>
+                        <field name="ob_client_id"/>
+                        <field name="ob_client_secret" password="True"/>
+                    </group>
+                    <group>
+                        <field name="ob_account_resource_id"/>
+                        <field name="ob_consent_id"/>
+                        <field name="ob_consent_valid_until"/>
+                        <button name="action_check_consent" type="object"
+                                string="Перевірити згоду" class="btn-link"/>
+                    </group>
+                </group>
+            </sheet>
+        </field>
+    </record>
+
+</odoo>

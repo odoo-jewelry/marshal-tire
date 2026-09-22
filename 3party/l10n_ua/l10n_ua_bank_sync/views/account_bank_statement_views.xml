@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Native bank statement list with UA import-source metadata -->
+    <record id="l10n_ua_bank_statement_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.account.bank.statement.list</field>
+        <field name="model">account.bank.statement</field>
+        <field name="arch" type="xml">
+            <list string="Bank Statements">
+                <field name="name"/>
+                <field name="journal_id"/>
+                <field name="date"/>
+                <field name="l10n_ua_source_type" optional="show"/>
+                <field name="l10n_ua_source_ref" optional="show"/>
+                <field name="l10n_ua_import_date" optional="hide"/>
+                <field name="balance_start"/>
+                <field name="balance_end"/>
+                <field name="l10n_ua_balance_verified" optional="show"/>
+                <field name="l10n_ua_balance_ok" optional="show" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_bank_statement_action" model="ir.actions.act_window">
+        <field name="name">Bank Statements</field>
+        <field name="res_model">account.bank.statement</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('journal_id.type', '=', 'bank')]</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('l10n_ua_bank_statement_view_list')})]"/>
+    </record>
+
+    <record id="l10n_ua_bank_transaction_action" model="ir.actions.act_window">
+        <field name="name">Bank Transactions</field>
+        <field name="res_model">account.bank.statement.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('journal_id.type', '=', 'bank')]</field>
+    </record>
+
+</odoo>

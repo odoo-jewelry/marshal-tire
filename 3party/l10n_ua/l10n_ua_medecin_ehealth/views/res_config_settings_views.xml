@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_settings_ehealth" model="ir.ui.view">
+        <field name="name">res.config.settings.ehealth</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="eHealth" string="UA: eHealth" name="l10n_ua_medecin_ehealth"
+                     groups="l10n_ua_medecin_base.group_ua_medecin_manager">
+                    <block title="API налаштування" name="ehealth_api">
+                        <setting id="ehealth_dry_run">
+                            <field name="l10n_ua_medecin_ehealth_dry_run"/>
+                        </setting>
+                        <setting id="ehealth_url">
+                            <field name="l10n_ua_medecin_ehealth_base_url"
+                                   placeholder="https://api.ehealth.gov.ua"/>
+                        </setting>
+                        <setting id="ehealth_client_id">
+                            <field name="l10n_ua_medecin_ehealth_client_id"/>
+                        </setting>
+                        <setting id="ehealth_client_secret">
+                            <field name="l10n_ua_medecin_ehealth_client_secret" password="True"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

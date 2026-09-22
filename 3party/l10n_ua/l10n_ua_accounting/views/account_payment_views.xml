@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Restrict journal_id to allowed types from context (set by ПКО/ВКО actions) -->
+    <record id="view_account_payment_form_ua_journal_domain" model="ir.ui.view">
+        <field name="name">account.payment.form.ua.journal.domain</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <field name="journal_id" position="attributes">
+                <attribute name="domain">[('type', 'in', context.get('allowed_journal_types', ['bank', 'cash', 'credit']))]</attribute>
+            </field>
+        </field>
+    </record>
+
+    <!-- Extend payment form with Ukrainian fields -->
+    <record id="view_account_payment_form_ua" model="ir.ui.view">
+        <field name="name">account.payment.form.ua</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <field name="memo" position="after">
+                <field name="ua_cash_order_number" readonly="1"
+                       invisible="not is_ua_cash_order"/>
+                <field name="ua_payment_basis"
+                       invisible="not is_ua_cash_order"/>
+                <field name="ua_cash_person"
+                       invisible="not is_ua_cash_order"/>
+                <field name="ua_person_document"
+                       invisible="not is_ua_cash_order"/>
+                <field name="ua_appendix"
+                       invisible="not is_ua_cash_order"/>
+                <field name="is_ua_cash_order" invisible="1"/>
+                <field name="ua_cash_order_type" invisible="1"/>
+                <field name="analytic_distribution"
+                       widget="analytic_distribution"
+                       invisible="not is_ua_cash_order"
+                       groups="analytic.group_analytic_accounting"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Add print buttons for PKO/VKO -->
+    <record id="view_account_payment_form_ua_buttons" model="ir.ui.view">
+        <field name="name">account.payment.form.ua.buttons</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_print_pko" type="object"
+                        string="Print ПКО"
+                        invisible="ua_cash_order_type != 'pko' or state != 'paid'"
+                        class="btn-secondary"/>
+                <button name="action_print_vko" type="object"
+                        string="Print ВКО"
+                        invisible="ua_cash_order_type != 'vko' or state != 'paid'"
+                        class="btn-secondary"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- PKO List View (Cash Receipts) -->
+    <record id="view_account_payment_pko_list" model="ir.ui.view">
+        <field name="name">account.payment.pko.list</field>
+        <field name="model">account.payment</field>
+        <field name="arch" type="xml">
+            <list string="Income Cash Orders (PKO)">
+                <field name="ua_cash_order_number" string="PKO No."/>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="ua_payment_basis" string="Basis"/>
+                <field name="amount" sum="Total"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'paid'"
+                       decoration-info="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- VKO List View (Cash Disbursements) -->
+    <record id="view_account_payment_vko_list" model="ir.ui.view">
+        <field name="name">account.payment.vko.list</field>
+        <field name="model">account.payment</field>
+        <field name="arch" type="xml">
+            <list string="Expense Cash Orders (VKO)">
+                <field name="ua_cash_order_number" string="VKO No."/>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="ua_cash_person" string="Received By"/>
+                <field name="ua_payment_basis" string="Basis"/>
+                <field name="amount" sum="Total"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'paid'"
+                       decoration-info="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- PKO Action -->
+    <record id="action_account_payment_pko" model="ir.actions.act_window">
+        <field name="name">Income Cash Orders (PKO)</field>
+        <field name="res_model">account.payment</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('journal_id.type', '=', 'cash'), ('payment_type', '=', 'inbound')]</field>
+        <field name="context">{
+            'default_payment_type': 'inbound',
+            'default_partner_type': 'customer',
+            'search_default_journal_id': False,
+            'allowed_journal_types': ['cash'],
+        }</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_account_payment_pko_list')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('account.view_account_payment_form')})]"/>
+    </record>
+
+    <!-- VKO Action -->
+    <record id="action_account_payment_vko" model="ir.actions.act_window">
+        <field name="name">Expense Cash Orders (VKO)</field>
+        <field name="res_model">account.payment</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('journal_id.type', '=', 'cash'), ('payment_type', '=', 'outbound')]</field>
+        <field name="context">{
+            'default_payment_type': 'outbound',
+            'default_partner_type': 'supplier',
+            'search_default_journal_id': False,
+            'allowed_journal_types': ['cash'],
+        }</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_account_payment_vko_list')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('account.view_account_payment_form')})]"/>
+    </record>
+
+    <!-- ==================== Approval Workflow ==================== -->
+
+    <!-- Approval buttons in header -->
+    <record id="view_account_payment_form_ua_approval" model="ir.ui.view">
+        <field name="name">account.payment.form.ua.approval</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <field name="ua_approval_required" invisible="1"/>
+                <field name="ua_approved" invisible="1"/>
+                <button name="action_approve" type="object"
+                        string="Затвердити"
+                        class="btn-success"
+                        invisible="not ua_approval_required or ua_approved or state != 'draft'"
+                        groups="account.group_account_manager"/>
+                <button name="action_reject" type="object"
+                        string="Скасувати затвердження"
+                        class="btn-secondary"
+                        invisible="not ua_approval_required or not ua_approved or state != 'draft'"
+                        groups="account.group_account_manager"
+                        confirm="Скасувати затвердження цього платежу?"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Approval banner + info fields -->
+    <record id="view_account_payment_form_ua_approval_info" model="ir.ui.view">
+        <field name="name">account.payment.form.ua.approval.info</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning text-center" role="alert"
+                     invisible="not ua_approval_required or ua_approved">
+                    <strong>Потребує затвердження головного бухгалтера</strong> — сума платежу перевищує встановлений поріг.
+                </div>
+                <div class="alert alert-success text-center" role="alert"
+                     invisible="not ua_approval_required or not ua_approved">
+                    <strong>Затверджено</strong> —
+                    <field name="ua_approved_by" readonly="1" class="d-inline"/>
+                    (<field name="ua_approved_date" readonly="1" class="d-inline"/>)
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ==================== Payment Orders (ПД) ==================== -->
+
+    <!-- Extend payment form with Payment Order fields -->
+    <record id="view_account_payment_form_ua_pd" model="ir.ui.view">
+        <field name="name">account.payment.form.ua.pd</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <field name="memo" position="after">
+                <field name="ua_payment_order_number" readonly="1"
+                       invisible="not is_ua_payment_order"/>
+                <field name="ua_payment_purpose" invisible="not is_ua_payment_order"/>
+                <field name="is_ua_payment_order" invisible="1"/>
+                <field name="ua_payment_order_type" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Print button for Payment Order -->
+    <record id="view_account_payment_form_ua_pd_buttons" model="ir.ui.view">
+        <field name="name">account.payment.form.ua.pd.buttons</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_print_payment_order" type="object"
+                        string="Друк ПД"
+                        invisible="ua_payment_order_type != 'pd'"
+                        class="btn-secondary"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Payment Order List View -->
+    <record id="view_account_payment_pd_list" model="ir.ui.view">
+        <field name="name">account.payment.pd.list</field>
+        <field name="model">account.payment</field>
+        <field name="arch" type="xml">
+            <list string="Платіжні доручення" decoration-muted="state == 'canceled'">
+                <field name="ua_payment_order_number" string="№ ПД"/>
+                <field name="date"/>
+                <field name="partner_id" string="Отримувач"/>
+                <field name="partner_bank_id" string="Рахунок"/>
+                <field name="ua_payment_purpose" string="Призначення"/>
+                <field name="amount" sum="Total"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'paid'"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'in_process'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Payment Order Search View -->
+    <record id="view_account_payment_pd_search" model="ir.ui.view">
+        <field name="name">account.payment.pd.search</field>
+        <field name="model">account.payment</field>
+        <field name="arch" type="xml">
+            <search string="Платіжні доручення">
+                <field name="ua_payment_order_number" string="№ ПД"/>
+                <field name="partner_id"/>
+                <field name="ua_payment_purpose" string="Призначення"/>
+
+                <filter string="Чернетка" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Відправлено" name="filter_sent" domain="[('state', '=', 'in_process')]"/>
+                <filter string="Оплачено" name="filter_paid" domain="[('state', '=', 'paid')]"/>
+                <separator/>
+
+                <group>
+                    <filter string="Контрагент" name="groupby_partner" domain="[]"
+                            context="{'group_by': 'partner_id'}"/>
+                    <filter string="Дата" name="groupby_date" domain="[]"
+                            context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Payment Order Action -->
+    <record id="action_account_payment_pd" model="ir.actions.act_window">
+        <field name="name">Платіжні доручення</field>
+        <field name="res_model">account.payment</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('journal_id.type', '=', 'bank'), ('payment_type', '=', 'outbound')]</field>
+        <field name="context">{
+            'default_payment_type': 'outbound',
+            'default_partner_type': 'supplier',
+        }</field>
+        <field name="search_view_id" ref="view_account_payment_pd_search"/>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_account_payment_pd_list')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('account.view_account_payment_form')})]"/>
+    </record>
+
+</odoo>

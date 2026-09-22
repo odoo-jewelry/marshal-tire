@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- FOP Group action (must be before menu referencing it) -->
+    <record id="l10n_ua_fop_group_action" model="ir.actions.act_window">
+        <field name="name">Simplified Tax Groups</field>
+        <field name="res_model">l10n_ua.fop.group</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_l10n_ua_fop"
+              name="FOP (Simplified Tax)"
+              parent="l10n_ua_tax.menu_ua_tax_root"
+              sequence="40"/>
+
+    <menuitem id="menu_l10n_ua_fop_income_books"
+              name="Income Books"
+              parent="menu_l10n_ua_fop"
+              action="l10n_ua_fop_income_book_action"
+              sequence="10"/>
+
+    <menuitem id="menu_l10n_ua_fop_declarations"
+              name="Simplified Tax Declarations"
+              parent="menu_l10n_ua_fop"
+              action="l10n_ua_fop_declaration_action"
+              sequence="20"/>
+
+    <menuitem id="menu_l10n_ua_fop_groups"
+              name="Tax Groups"
+              parent="menu_l10n_ua_fop"
+              action="l10n_ua_fop_group_action"
+              sequence="30"/>
+
+</odoo>

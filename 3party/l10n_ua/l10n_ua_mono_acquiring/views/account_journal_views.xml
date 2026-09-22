@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_journal_form_mono_acquiring" model="ir.ui.view">
+        <field name="name">account.journal.form.mono.acquiring</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="after">
+                <field name="mono_acquiring_token"
+                       password="True"
+                       invisible="type != 'bank'"
+                       string="Токен Monobank Acquiring"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

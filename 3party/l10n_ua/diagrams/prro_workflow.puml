@@ -1,0 +1,63 @@
+@startuml prro_workflow
+skinparam backgroundColor #FEFEFE
+
+title Процес фіскалізації чека (ПРРО Checkbox)
+
+|Касир|
+start
+:Авторизація в Checkbox;
+note right
+    Login/Password
+    або PIN-код
+end note
+
+|Каса|
+:Перевірка зміни;
+
+if (Зміна відкрита?) then (ні)
+    :Відкриття зміни;
+    :Отримання shift_id;
+else (так)
+endif
+
+|POS|
+:Створення замовлення;
+:Вибір товарів;
+:Вибір способу оплати;
+note right
+    Готівка / Картка
+    mono / LiqPay
+    NovaPay / інші
+end note
+
+|Каса|
+:Формування чека;
+
+|Checkbox API|
+:POST /receipts/sell;
+
+if (Успішно?) then (так)
+    :Отримання fiscal_code;
+    :Збереження в l10n_ua.prro.receipt;
+
+    |POS|
+    :Друк/показ чека;
+    :QR-код для перевірки;
+else (ні)
+    |Каса|
+    :Офлайн режим;
+    :POST /receipts/sell-offline;
+    :Збереження для синхронізації;
+endif
+
+|Касир|
+if (Кінець дня?) then (так)
+    :X-звіт (проміжний);
+    :Z-звіт (закриття зміни);
+    :Закриття зміни;
+else (ні)
+endif
+
+stop
+
+@enduml

@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- ========== ЖИТОМИРСЬКА ОБЛАСТЬ ========== -->
+        
+        <record id="tcc_zhytomyr_otck" model="hr.military.tcc">
+            <field name="name">Житомирський ОТЦК та СП</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(0412) 47-37-26, (067)-72-53-500, (0800) 50-29-59, (066)-30-37-886</field>
+            <field name="email">ztovk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zhytomyr_omtck" model="hr.military.tcc">
+            <field name="name">Житомирський ОМТЦК та СП</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(0412) 42-00-42, (067)-72-53-503</field>
+            <field name="email">ztomvk_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zhytomyr_rtck" model="hr.military.tcc">
+            <field name="name">Житомирський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(0412) 47-32-26, (067)-72-53-517</field>
+            <field name="email">ztrtck_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zhytomyr_rtck_v1_korostyshiv" model="hr.military.tcc">
+            <field name="name">1 відділ Житомирського РТЦК та СП у місті Коростишів</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04130) 5-07-39, (067)-72-53-526</field>
+            <field name="email">korostishev_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zhytomyr_rtck_v2_khoroshiv" model="hr.military.tcc">
+            <field name="name">2 відділ Житомирського РТЦК та СП у селищі Хорошів</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04145) 3-16-34, (067)-72-53-552</field>
+            <field name="email">volodar_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zhytomyr_rtck_v3_chudniv" model="hr.military.tcc">
+            <field name="name">3 відділ Житомирського РТЦК та СП у місті Чуднів</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04139) 2-12-45, (067)-72-53-565</field>
+            <field name="email">chudnov_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zhytomyr_rtck_v4_liubar" model="hr.military.tcc">
+            <field name="name">4 відділ Житомирського РТЦК та СП у селищі Любар</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04147) 2-31-24, (067)-72-53-585</field>
+            <field name="email">lubar_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zhytomyr_rtck_v5_popilnia" model="hr.military.tcc">
+            <field name="name">5 відділ Житомирського РТЦК та СП у селищі Попільня</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04137) 5-13-55, (067)-72-53-586</field>
+            <field name="email">popelnya_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zhytomyr_rtck_v6_pulyn" model="hr.military.tcc">
+            <field name="name">6 відділ Житомирського РТЦК та СП у селищі Пулин</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04131) 3-22-03, (067)-72-53-588</field>
+            <field name="email">cherarm_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zhytomyr_rtck_v7_radomyshl" model="hr.military.tcc">
+            <field name="name">7 відділ Житомирського РТЦК та СП у місті Радомишль</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04132) 4-25-75, (067)-72-53-590</field>
+            <field name="email">radomishel_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zhytomyr_rtck_v8_romaniv" model="hr.military.tcc">
+            <field name="name">8 відділ Житомирського РТЦК та СП у селищі Романів</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04146) 2-33-37, (067)-72-53-593</field>
+            <field name="email">romaniv_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zhytomyr_rtck_v9_cherniakhiv" model="hr.military.tcc">
+            <field name="name">9 відділ Житомирського РТЦК та СП у місті Черняхів</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04134) 4-12-54, (067)-72-53-597</field>
+            <field name="email">chernyahiv_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_korosten_rtck" model="hr.military.tcc">
+            <field name="name">Коростенський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04142) 9-62-88, (067)-72-53-498</field>
+            <field name="email">korosten_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_korosten_rtck_v1_ovruch" model="hr.military.tcc">
+            <field name="name">1 відділ Коростенського РТЦК та СП у місті Овруч</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04148) 4-05-74, (067)-72-53-606</field>
+            <field name="email">ovruch_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_korosten_rtck_v2_olevsk" model="hr.military.tcc">
+            <field name="name">2 відділ Коростенського РТЦК та СП у місті Олевськ</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04135) 2-13-86, (067)-72-53-607</field>
+            <field name="email">olevsk_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_korosten_rtck_v3_malyn" model="hr.military.tcc">
+            <field name="name">3 відділ Коростенського РТЦК та СП у місті Малин</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04133) 5-11-56, (067)-72-53-611</field>
+            <field name="email">malin_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_korosten_rtck_v4_luhyny" model="hr.military.tcc">
+            <field name="name">4 відділ Коростенського РТЦК та СП у селищі Лугини</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04161) 9-12-64, (067)-72-53-625</field>
+            <field name="email">lugini_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_berdychiv_rtck" model="hr.military.tcc">
+            <field name="name">Бердичівський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04143) 4-09-50, (067)-72-53-632</field>
+            <field name="email">berdichev_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_berdychiv_rtck_v1_andrushivka" model="hr.military.tcc">
+            <field name="name">1 відділ Бердичівського РТЦК та СП у місті Андрушівка</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04136) 2-12-81, (067)-72-53-638</field>
+            <field name="email">andrushovka_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_berdychiv_rtck_v2_ruzhyn" model="hr.military.tcc">
+            <field name="name">2 відділ Бердичівського РТЦК та СП у місті Ружин</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04138) 3-03-94, (067)-72-53-641</field>
+            <field name="email">rugin_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zviahel_rtck" model="hr.military.tcc">
+            <field name="name">Звягельський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04141) 3-50-63, (067)-72-53-650</field>
+            <field name="email">novograd_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zviahel_rtck_v1_yemilchyne" model="hr.military.tcc">
+            <field name="name">1 відділ Звягельського РТЦК та СП у селищі Ємільчине</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04149) 2-11-75, (067)-72-53-657</field>
+            <field name="email">emilcheno_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zviahel_rtck_v2_baranivka" model="hr.military.tcc">
+            <field name="name">2 відділ Звягельського РТЦК та СП у селищі Баранівка</field>
+            <field name="region_id" ref="state_ua_zhytomyr"/>
+            <field name="phone">(04144) 3-13-02, (067)-72-53-660</field>
+            <field name="email">baranivka_vk@post.mil.gov.ua</field>
+        </record>
+        
+        <!-- ========== МІСТО КИЇВ ========== -->
+        
+        <record id="tcc_kyiv_mtck" model="hr.military.tcc">
+            <field name="name">Київський МТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv_city"/>
+            <field name="phone">(04445) 6-12-05, 0800-502-979, (04429) 0-42-01, (04429) 0-44-37</field>
+            <field name="email">kyiv_mvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kyiv_holosiivskyi" model="hr.military.tcc">
+            <field name="name">Голосіївський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv_city"/>
+            <field name="phone">(04452) 9-24-02</field>
+            <field name="email">holos_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kyiv_darnytskyi" model="hr.military.tcc">
+            <field name="name">Дарницький РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv_city"/>
+            <field name="phone">(04456) 6-50-93, (063)-358-69-56</field>
+            <field name="email">darnica_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kyiv_desnianskyi" model="hr.military.tcc">
+            <field name="name">Деснянський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv_city"/>
+            <field name="phone">(04451) 8-41-80</field>
+            <field name="email">desna_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kyiv_dniprovskyi" model="hr.military.tcc">
+            <field name="name">Дніпровський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv_city"/>
+            <field name="phone">(04429) 0-44-52</field>
+            <field name="email">dnepr_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kyiv_obolonskyi" model="hr.military.tcc">
+            <field name="name">Оболонський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv_city"/>
+            <field name="phone">(04446) 4-78-02</field>
+            <field name="email">obolon_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kyiv_pecherskyi" model="hr.military.tcc">
+            <field name="name">Печерський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv_city"/>
+            <field name="phone">(04428) 5-03-50</field>
+            <field name="email">pechersk_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kyiv_podilskyi" model="hr.military.tcc">
+            <field name="name">Подільський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv_city"/>
+            <field name="phone">(04448) 4-70-23, (04448) 4-70-65</field>
+            <field name="email">podol_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kyiv_sviatoshynskyi" model="hr.military.tcc">
+            <field name="name">Святошинський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv_city"/>
+            <field name="phone">(04442) 4-10-24</field>
+            <field name="email">svyatosh_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kyiv_solomianskyi" model="hr.military.tcc">
+            <field name="name">Солом'янський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv_city"/>
+            <field name="phone">(04424) 1-13-25</field>
+            <field name="email">solomyansk_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kyiv_shevchenkivskyi" model="hr.military.tcc">
+            <field name="name">Шевченківський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv_city"/>
+            <field name="phone">(04440) 0-61-46</field>
+            <field name="email">shevchenkovsk_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <!-- ========== КИЇВСЬКА ОБЛАСТЬ ========== -->
+        
+        <record id="tcc_kyivska_otck" model="hr.military.tcc">
+            <field name="name">Київський ОТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04445) 6-03-68, (800) 505-181, (066) 033-78-26, (067)-725-58-21</field>
+            <field name="email">kyivskuyovk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_bilotserkivskyi_rtck" model="hr.military.tcc">
+            <field name="name">Білоцерківський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04563) 5-13-45, (067)-725-57-33</field>
+            <field name="email">bilacerkvaomvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_bilotserkivskyi_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Білоцерківського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04568) 5-13-45, (067)-725-58-39</field>
+            <field name="email">skvirarvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_bilotserkivskyi_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Білоцерківського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04560) 5-13-45, (067)-725-58-41</field>
+            <field name="email">tetievrvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_bilotserkivskyi_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Білоцерківського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04566) 4-26-85, (067)-725-58-45</field>
+            <field name="email">tarasharvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_bilotserkivskyi_rtck_v4" model="hr.military.tcc">
+            <field name="name">4 відділ Білоцерківського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04569) 5-13-45, (067)-725-57-58</field>
+            <field name="email">volodarkarvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_bilotserkivskyi_rtck_v5" model="hr.military.tcc">
+            <field name="name">5 відділ Білоцерківського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04562) 5-13-45, (067)-725-58-62</field>
+            <field name="email">rokitnervk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_bilotserkivskyi_rtck_v6" model="hr.military.tcc">
+            <field name="name">6 відділ Білоцерківського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04564) 5-13-45, (067)-725-58-63</field>
+            <field name="email">stavishervk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_boryspilskyi_rtck" model="hr.military.tcc">
+            <field name="name">Бориспільський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04595) 6-23-45, (067)-725-57-12</field>
+            <field name="email">borispilomvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_boryspilskyi_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Бориспільського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04567) 5-13-45, (067)-725-57-29</field>
+            <field name="email">pereyaslovrvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_boryspilskyi_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Бориспільського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04575) 5-33-45, (067)-725-57-32</field>
+            <field name="email">yagotinrvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_brovarskyi_rtck" model="hr.military.tcc">
+            <field name="name">Броварський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04594) 5-45-33, (067)-725-58-09</field>
+            <field name="email">brovaryomvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_brovarskyi_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Броварського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04576) 6-10-76, (067)-725-58-08</field>
+            <field name="email">berezanmvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_brovarskyi_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Броварського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04576) 5-37-68, (067)-725-58-01</field>
+            <field name="email">barishivkarvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_brovarskyi_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Броварського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04570) 5-07-70, (067)-725-58-12</field>
+            <field name="email">zgurivkarvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_buchanskyi_rtck" model="hr.military.tcc">
+            <field name="name">Бучанський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04597) 9-60-24, (067)-725-59-44</field>
+            <field name="email">irpinbuchaorvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_buchanskyi_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Бучанського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(044) 450-26-97, (067)-725-56-93</field>
+            <field name="email">kyivcvyat@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_buchanskyi_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Бучанського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04577) 5-13-45, (067)-725-56-87</field>
+            <field name="email">borodyankarvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_buchanskyi_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Бучанського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04578) 5-13-45, (067)-725-56-94</field>
+            <field name="email">makarivrvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_vyshhorodskyi_rtck" model="hr.military.tcc">
+            <field name="name">Вишгородський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04596) 5-43-45, (067)-725-59-43</field>
+            <field name="email">vushgorodrvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_vyshhorodskyi_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Вишгородського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04591) 5-13-45, (067)-725-59-11</field>
+            <field name="email">ivankivorvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_vyshhorodskyi_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Вишгородського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04579) 2-03-08, (067)-725-59-15</field>
+            <field name="email">slavutichmvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_obukhivskyi_rtck" model="hr.military.tcc">
+            <field name="name">Обухівський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04572) 5-13-45, (067)-725-58-96</field>
+            <field name="email">obyhivrvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_obukhivskyi_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Обухівського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04571) 2-43-45, (067)-725-58-89</field>
+            <field name="email">vasilkivomvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_obukhivskyi_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Обухівського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04573) 5-13-45, (067)-725-58-64</field>
+            <field name="email">kagarlik@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_obukhivskyi_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Обухівського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04574) 5-13-45, (067)-725-58-69</field>
+            <field name="email">mironivkarvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_obukhivskyi_rtck_v4" model="hr.military.tcc">
+            <field name="name">4 відділ Обухівського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04561) 5-13-45, (067)-725-58-97</field>
+            <field name="email">boguslav@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_fastivskyi_rtck" model="hr.military.tcc">
+            <field name="name">Фастівський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(04565) 5-13-45, (067)-725-58-58</field>
+            <field name="email">fastivomvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_fastivskyi_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Фастівського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_kyiv"/>
+            <field name="phone">(095)-213-20-78</field>
+            <field name="email">boyarka_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <!-- ========== ПОЛТАВСЬКА ОБЛАСТЬ ========== -->
+        
+        <record id="tcc_poltava_otck" model="hr.military.tcc">
+            <field name="name">Полтавський ОТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(067)-725-26-97, 0800-50-29-92, (0532) 60-81-89</field>
+            <field name="email">polt_ovk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_poltava_omtck" model="hr.military.tcc">
+            <field name="name">Полтавський ОМТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(0532) 60-82-84, (067)-725-25-76, (0532) 60-72-12</field>
+            <field name="email">poltavskiyomvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_poltava_rtck" model="hr.military.tcc">
+            <field name="name">Полтавський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(0532) 56-54-84, (067)-725-24-70, (095)-364-95-94, (095)-855-21-31</field>
+            <field name="email">polt_prvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_poltava_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Полтавського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(067) 725-24-74, (05353) 3-11-47</field>
+            <field name="email">1v_prtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_poltava_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Полтавського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(067)-725-2526, (05344) 3-11-82</field>
+            <field name="email">n.san_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_poltava_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Полтавського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05343) 3-10-60, (067)-725-25-32, (05343) 3-14-58</field>
+            <field name="email">kobrvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_poltava_rtck_v4" model="hr.military.tcc">
+            <field name="name">4 відділ Полтавського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(067)-725-25-38, (05346) 2-23-52</field>
+            <field name="email">karlivka_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_poltava_rtck_v5" model="hr.military.tcc">
+            <field name="name">5 відділ Полтавського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05351) 9-79-30, (067)-725-25-48</field>
+            <field name="email">dyk_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_poltava_rtck_v6" model="hr.military.tcc">
+            <field name="name">6 відділ Полтавського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05363) 2-14-70, (067)-725-25-56</field>
+            <field name="email">reshetylivka_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_poltava_rtck_v7" model="hr.military.tcc">
+            <field name="name">7 відділ Полтавського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05350) 2-14-41, (067)-725-25-64</field>
+            <field name="email">kotelva_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_poltava_rtck_v8" model="hr.military.tcc">
+            <field name="name">8 відділ Полтавського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05364) 9-13-09, (067)-725-25-66</field>
+            <field name="email">mashivkarvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_poltava_rtck_v9" model="hr.military.tcc">
+            <field name="name">9 відділ Полтавського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05347) 9-11-76, (067)-725-25-74</field>
+            <field name="email">chutove_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kremenchuk_rtck" model="hr.military.tcc">
+            <field name="name">Кременчуцький РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05366) 3-10-45, (067)-725-27-41</field>
+            <field name="email">krem_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kremenchuk_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Кременчуцького РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05348) 4-11-05, (067)-725-27-34</field>
+            <field name="email">krem_rtck1v@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kremenchuk_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Кременчуцького РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05365) 2-44-09, (067)-725-27-18, (05365) 2-45-03</field>
+            <field name="email">krem_rtck2v@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kremenchuk_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Кременчуцького РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05341) 9-14-70, (067)-725-27-35</field>
+            <field name="email">krem_rtck3v@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_kremenchuk_rtck_v4" model="hr.military.tcc">
+            <field name="name">4 відділ Кременчуцького РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05342) 3-10-04, (067)-725-27-23</field>
+            <field name="email">krem_rtck4v@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_myrhorod_rtck" model="hr.military.tcc">
+            <field name="name">Миргородський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05355) 4-60-24, (067)-725-26-68</field>
+            <field name="email">myrgorod_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_myrhorod_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Миргородського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05354) 2-25-00, (067)-725-27-47</field>
+            <field name="email">gad_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_myrhorod_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Миргородського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05356) 3-13-83, (067)-725-27-06</field>
+            <field name="email">lohvytsia_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_myrhorod_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Миргородського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05356) 3-13-83, (067)-725-26-72</field>
+            <field name="email">v_bag@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_myrhorod_rtck_v4" model="hr.military.tcc">
+            <field name="name">4 відділ Миргородського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05352) 9-12-41, (067)-725-26-96</field>
+            <field name="email">shishaki_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_lubny_rtck" model="hr.military.tcc">
+            <field name="name">Лубенський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05361) 7-16-21, (067)-725-25-93</field>
+            <field name="email">lubny_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_lubny_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Лубенського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05362) 3-33-75, (067)-725-25-97</field>
+            <field name="email">horol_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_lubny_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Лубенського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05358) 2-03-16, (067)-725-26-25</field>
+            <field name="email">pir_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_lubny_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Лубенського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05340) 5-13-01, (067)-725-26-33</field>
+            <field name="email">chornuchy@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_lubny_rtck_v4" model="hr.military.tcc">
+            <field name="name">4 відділ Лубенського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05357) 9-15-36, (067)-725-26-54</field>
+            <field name="email">or_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_lubny_rtck_v5" model="hr.military.tcc">
+            <field name="name">5 відділ Лубенського РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_poltava"/>
+            <field name="phone">(05359) 9-13-05, (067)-725-26-53</field>
+            <field name="email">grebinka_rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <!-- ========== СУМСЬКА ОБЛАСТЬ ========== -->
+        
+        <record id="tcc_sumy_otck" model="hr.military.tcc">
+            <field name="name">Сумський ОТЦК та СП</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05442) 22-27-78, (067)-725-29-75, (066)-032-089-20, 0800-50-7405</field>
+            <field name="email">sovk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_sumy_rtck" model="hr.military.tcc">
+            <field name="name">Сумський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05442) 61-81-83, (067)-725-28-82, (097)-359-13-68</field>
+            <field name="email">sumy-rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_sumy_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Сумського РТЦК та СП у місті Суми</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(0542) 61-81-108, (0542) 61-81-109, (067)-725-28-66, (097)-359-13-68</field>
+            <field name="email">bilop-rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_sumy_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Сумського РТЦК та СП у місті Лебедин</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05445)-2-33-93, (067)-725-28-32, (097)-359-13-68</field>
+            <field name="email">lebedyn-omvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_sumy_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Сумського РТЦК та СП у місті Краснопілля</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05459)-7-12-09, (067)-725-28-46, (097)-359-13-68</field>
+            <field name="email">krasnop-rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_sumy_mtck" model="hr.military.tcc">
+            <field name="name">Сумський міський ТЦК та СП</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(0542)-2-22-184, (067)-725-28-82, (097)-359-13-68</field>
+            <field name="email">sumy-mvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_konotop_rtck" model="hr.military.tcc">
+            <field name="name">Конотопський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05447)-6-63-36, (067)-725-27-71, (097)-359-13-68</field>
+            <field name="email">konotop-omvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_konotop_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Конотопського РТЦК та СП у місті Буринь</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05454)-2-21-01, (067)-725-29-69, (097)-359-13-68</field>
+            <field name="email">buryn-rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_konotop_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Конотопського РТЦК та СП у місті Кролевець</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05453)-9-55-58, (067)-725-29-37, (097)-359-13-68</field>
+            <field name="email">krolevec-rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_konotop_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Конотопського РТЦК та СП у місті Путивель</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05442)-57-719, (067)-725-29-62, (097)-359-13-68</field>
+            <field name="email">putivl-rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_okhtyrka_rtck" model="hr.military.tcc">
+            <field name="name">Охтирський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05446)-23282, (067)-725-29-30, (097)-359-13-68</field>
+            <field name="email">ohtyrka-omvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_okhtyrka_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Охтирського РТЦК та СП у місті Тростянець</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05458)-5-11-44, (067)-725-29-11, (097)-359-13-68</field>
+            <field name="email">trost-rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_okhtyrka_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Охтирського РТЦК та СП у місті Велика Писарівка</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05457)-551-139, (067)-725-29-03, (097)-359-13-68</field>
+            <field name="email">v-pysarivka-rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_romny_rtck" model="hr.military.tcc">
+            <field name="name">Роменський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05448)-52449, (067)-725-28-98, (097)-359-13-68</field>
+            <field name="email">romny-omvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_romny_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Роменського РТЦК та СП у місті Липова Долина</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05452)-51-342, (067)-725-28-92, (097)-359-13-68</field>
+            <field name="email">L-dolyna-rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_romny_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Роменського РТЦК та СП у місті Недригайлів</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05455)-5-28-33, (067)-725-28-84, (097)-359-13-68</field>
+            <field name="email">nedrig-rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_shostka_rtck" model="hr.military.tcc">
+            <field name="name">Шосткинський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05449)-7-24-58, (067)-725-28-02, (097)-359-13-68</field>
+            <field name="email">shostka-omvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_shostka_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Шосткинського РТЦК та СП у місті Глухів</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05444)-2-26-10, (067)-725-28-01, (097)-359-13-68</field>
+            <field name="email">gluhiv_omvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_shostka_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Шосткинського РТЦК та СП у місті Ямпіль</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05456)-2-18-98, (067)-725-27-97, (097)-359-13-68</field>
+            <field name="email">yampil-rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_shostka_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Шосткинського РТЦК та СП у місті С. Буда</field>
+            <field name="region_id" ref="state_ua_sumy"/>
+            <field name="phone">(05451)-73-066, (067)-725-27-96, (097)-359-13-68</field>
+            <field name="email">s-buda-rvk@post.mil.gov.ua</field>
+        </record>
+        
+        <!-- ========== ЧЕРКАСЬКА ОБЛАСТЬ ========== -->
+        
+        <record id="tcc_cherkasy_otck" model="hr.military.tcc">
+            <field name="name">Черкаський ОТЦК та СП</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(0472)-63-67-29, 0-800-505-609, (066)-033-78-93</field>
+            <field name="email">cherkasy_otck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zvenyhorodka_rtck" model="hr.military.tcc">
+            <field name="name">Звенигородський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04740)-2-76-12, (067)-725-20-98</field>
+            <field name="email">zvenygorodka_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zvenyhorodka_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Звенигородського РТЦК та СП у місті Шпола</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04741)-2-01-54, (067)-725-20-84</field>
+            <field name="email">v1_zvenygor_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zvenyhorodka_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Звенигородського РТЦК та СП у селищі Лисянка</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04749)-6-10-60, (067)-725-20-94</field>
+            <field name="email">v2_zvenygor_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zvenyhorodka_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Звенигородського РТЦК та СП у місті Тальне</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04731)-2-27-10, (067)-725-20-89</field>
+            <field name="email">v3_zvenygor_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zvenyhorodka_rtck_v4" model="hr.military.tcc">
+            <field name="name">4 відділ Звенигородського РТЦК та СП у селищі Калинопіль</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04742)-3-01-59, (067)-725-20-85</field>
+            <field name="email">v4_zvenygor_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zolotonosha_rtck" model="hr.military.tcc">
+            <field name="name">Золотоніський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04737)-5-21-32, (067)-725-20-05</field>
+            <field name="email">zolotonosha_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zolotonosha_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Золотоніського РТЦК та СП у селищі Чорнобай</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04739)-2-30-03, (067)-725-20-12</field>
+            <field name="email">v1_zolot_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_zolotonosha_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Золотоніського РТЦК та СП у селищі Драбів</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04738)-2-57-10, (067)-725-19-82</field>
+            <field name="email">v2_zolot_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_uman_rtck" model="hr.military.tcc">
+            <field name="name">Уманський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04744)-3-07-56, (067)-725-20-55</field>
+            <field name="email">uman_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_uman_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Уманського РТЦК та СП у місті Христинівка</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04745)-6-21-11, (067)-725-20-24</field>
+            <field name="email">v1_uman_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_uman_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Уманського РТЦК та СП у місті Жашків</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04747)-4-17-10, (067)-725-20-36</field>
+            <field name="email">v2_uman_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_uman_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Уманського РТЦК та СП у селищі Маньківка</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04748)-6-10-22, (067)-725-20-54</field>
+            <field name="email">v3_uman_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_uman_rtck_v4" model="hr.military.tcc">
+            <field name="name">4 відділ Уманського РТЦК та СП у місті Монастирище</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04746)-2-68-18, (067)-725-20-62</field>
+            <field name="email">v4_uman_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_cherkasy_rtck" model="hr.military.tcc">
+            <field name="name">Черкаський РТЦК та СП</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04733)-2-45-31, (067)-725-20-64</field>
+            <field name="email">cherkasy_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_cherkasy_rtck_v1" model="hr.military.tcc">
+            <field name="name">1 відділ Черкаського РТЦК та СП у місті Городище</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04734)-2-56-15, (067)-725-20-80</field>
+            <field name="email">v1_cherkasy_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_cherkasy_rtck_v2" model="hr.military.tcc">
+            <field name="name">2 відділ Черкаського РТЦК та СП у місті Канів</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04736)-3-21-72, (067)-725-21-19</field>
+            <field name="email">v2_cherkasy_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_cherkasy_rtck_v3" model="hr.military.tcc">
+            <field name="name">3 відділ Черкаського РТЦК та СП у місті Корсунь-Шевченківський</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04735)-6-97-10, (067)-725-20-75</field>
+            <field name="email">v3_cherkasy_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_cherkasy_rtck_v4" model="hr.military.tcc">
+            <field name="name">4 відділ Черкаського РТЦК та СП у місті Чигирин</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04730)-6-92-10, (067)-725-20-72</field>
+            <field name="email">v4_cherkasy_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_cherkasy_rtck_v5" model="hr.military.tcc">
+            <field name="name">5 відділ Черкаського РТЦК та СП у місті Кам'янка</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(04732)-6-97-14, (067)-725-20-73</field>
+            <field name="email">v5_cherkasy_rtck@post.mil.gov.ua</field>
+        </record>
+        
+        <record id="tcc_cherkasy_omtck" model="hr.military.tcc">
+            <field name="name">Черкаський ОМТЦК та СП</field>
+            <field name="region_id" ref="state_ua_cherkasy"/>
+            <field name="phone">(0472)-63-75-25, (067)-725-19-56</field>
+            <field name="email">cherkasy_omtck@post.mil.gov.ua</field>
+        </record>
+
+    </data>
+</odoo>

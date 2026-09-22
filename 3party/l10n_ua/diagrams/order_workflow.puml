@@ -1,0 +1,20 @@
+@startuml order_workflow
+skinparam backgroundColor #FEFEFE
+
+title Життєвий цикл кадрового наказу (hr.order)
+
+[*] --> draft : Створення
+
+state "Чернетка" as draft #LightBlue
+state "Затверджено" as confirmed #LightGreen
+state "Скасовано" as cancelled #LightCoral
+
+draft --> confirmed : Затвердити
+draft --> cancelled : Скасувати
+confirmed --> cancelled : Скасувати
+confirmed --> draft : Повернути
+cancelled --> draft : Відновити
+
+confirmed --> [*] : Виконано
+
+@enduml

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_allowance_type_view_form" model="ir.ui.view">
+        <field name="name">hr.allowance.type.form</field>
+        <field name="model">hr.allowance.type</field>
+        <field name="arch" type="xml">
+            <form string="Allowance Type">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Allowance Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="category"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="is_taxable"/>
+                            <field name="is_esv_base"/>
+                            <field name="default_percent"/>
+                            <field name="default_amount"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_allowance_type_view_tree" model="ir.ui.view">
+        <field name="name">hr.allowance.type.tree</field>
+        <field name="model">hr.allowance.type</field>
+        <field name="arch" type="xml">
+            <list string="Allowance Types">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="default_percent"/>
+                <field name="is_taxable"/>
+                <field name="is_esv_base"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hr_allowance_type" model="ir.actions.act_window">
+        <field name="name">Allowance Types</field>
+        <field name="res_model">hr.allowance.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first allowance type
+            </p>
+        </field>
+    </record>
+
+</odoo>

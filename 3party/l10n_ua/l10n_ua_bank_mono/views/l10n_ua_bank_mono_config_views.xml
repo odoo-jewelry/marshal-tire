@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Extend base config form with monobank fields -->
+    <record id="l10n_ua_bank_sync_config_view_form_mono" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.config.form.mono</field>
+        <field name="model">l10n_ua.bank.sync.config</field>
+        <field name="inherit_id" ref="l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_sync_now']" position="before">
+                <button name="action_test_connection" string="Test Connection" type="object"
+                        invisible="provider != 'mono'"/>
+                <button name="action_fetch_accounts" string="Fetch Accounts" type="object"
+                        invisible="provider != 'mono' or not mono_api_token"/>
+            </xpath>
+            <xpath expr="//group[@name='account_group']" position="after">
+                <group string="monobank API" invisible="provider != 'mono'">
+                    <field name="mono_api_token" password="True"/>
+                    <field name="mono_account_id"/>
+                </group>
+                <group string="monobank Webhook" invisible="provider != 'mono'">
+                    <field name="mono_webhook_url" widget="CopyClipboardChar"/>
+                    <field name="mono_webhook_active" readonly="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

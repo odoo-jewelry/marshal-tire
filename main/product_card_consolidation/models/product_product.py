@@ -10,6 +10,18 @@ class ProductProduct(models.Model):
         "product.identifier.alias", "product_id", string="Identifier Aliases"
     )
 
+    def action_open_merged_sources(self):
+        self.ensure_one()
+        return self.product_tmpl_id.action_open_merged_sources()
+
+    def action_open_history_consolidation(self):
+        self.ensure_one()
+        return self.product_tmpl_id.action_open_history_consolidation()
+
+    def action_open_history_consolidation_audit(self):
+        self.ensure_one()
+        return self.product_tmpl_id.action_open_history_consolidation_audit()
+
     @api.model
     def _resolve_identifier_batch(self, identifier_type, identifiers, company):
         if identifier_type not in ("default_code", "barcode"):

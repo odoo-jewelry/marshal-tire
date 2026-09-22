@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="module_category_supplier_prices" model="ir.module.category">
+            <field name="name">Supplier Prices</field>
+            <field name="sequence">15</field>
+        </record>
+
+        <record id="res_groups_privilege_supplier_prices" model="res.groups.privilege">
+            <field name="name">Supplier Prices</field>
+            <field name="category_id" ref="module_category_supplier_prices"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="group_supplier_prices_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="privilege_id" ref="res_groups_privilege_supplier_prices"/>
+            <field name="sequence">10</field>
+            <field name="comment">Може переглядати джерела, mappings та імпорти.</field>
+        </record>
+
+        <record id="group_supplier_prices_officer" model="res.groups">
+            <field name="name">Officer</field>
+            <field name="privilege_id" ref="res_groups_privilege_supplier_prices"/>
+            <field name="sequence">20</field>
+            <field name="implied_ids" eval="[(4, ref('group_supplier_prices_user'))]"/>
+            <field name="comment">Може створювати та запускати імпорти.</field>
+        </record>
+
+        <record id="group_supplier_prices_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="privilege_id" ref="res_groups_privilege_supplier_prices"/>
+            <field name="sequence">30</field>
+            <field name="implied_ids" eval="[(4, ref('group_supplier_prices_officer'))]"/>
+            <field name="comment">Повний доступ — налаштування, видалення, керування auto-sync.</field>
+        </record>
+
+    </data>
+</odoo>

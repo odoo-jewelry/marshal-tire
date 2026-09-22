@@ -1,0 +1,3333 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_hr_salary
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260103\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-15 13:12+0000\n"
+"PO-Revision-Date: 2026-01-15 13:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "%s (перерахунок)"
+msgstr "%s (перерахунок)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.report,print_report_name:l10n_ua_hr_salary.action_report_payslip
+msgid ""
+"'Розрахунковий_листок_%s_%s' % (object.employee_id.name, object.date_to)"
+msgstr ""
+"'Розрахунковий_листок_%s_%s' % (object.employee_id.name, object.date_to)"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "* Застосовано ПСП у розмірі"
+msgstr "* Застосовано ПСП у розмірі"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__d4_income_type
+msgid "4DF Income Type"
+msgstr "Тип доходу 4ДФ"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__d4_income_type
+msgid "4DF Income Type Code"
+msgstr "Код типу доходу 4ДФ"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "<strong>Відпрацьовано:</strong>"
+msgstr "<strong>Відпрацьовано:</strong>"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "<strong>ДО ВИПЛАТИ:</strong><br/>"
+msgstr "<strong>ДО ВИПЛАТИ:</strong><br/>"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "<strong>Посада:</strong>"
+msgstr "<strong>Посада:</strong>"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "<strong>Працівник:</strong>"
+msgstr "<strong>Працівник:</strong>"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "<strong>Підрозділ:</strong>"
+msgstr "<strong>Підрозділ:</strong>"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "<strong>РНОКПП:</strong>"
+msgstr "<strong>РНОКПП:</strong>"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "<strong>Табельний №:</strong>"
+msgstr "<strong>Табельний №:</strong>"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_accrual_type_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_deduction_type_view_form
+msgid "Accounting"
+msgstr "Бухгалтерія"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_accrual_type
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__accrual_type_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__accrual_name
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_accrual_type_view_form
+msgid "Accrual Type"
+msgstr "Тип нарахування"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_accrual_type
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_accrual_type
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_accrual_type_view_tree
+msgid "Accrual Types"
+msgstr "Типи нарахувань"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.constraint,message:l10n_ua_hr_salary.constraint_hr_accrual_type_unique_code
+msgid "Accrual type code must be unique!"
+msgstr "Код типу нарахування має бути унікальним!"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__accrual_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Accruals"
+msgstr "Нарахування"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__message_needaction
+msgid "Action Needed"
+msgstr "Потрібна дія"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_form
+msgid "Activate"
+msgstr "Активувати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__active
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__active
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__active
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale__active
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__state__active
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_search
+msgid "Active"
+msgstr "Активний"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_ids
+msgid "Activities"
+msgstr "Активності"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Оформлення виключення активності"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_state
+msgid "Activity State"
+msgstr "Стан активності"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Іконка типу активності"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_form
+msgid "Additional notes..."
+msgstr "Додаткові нотатки..."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__advance_amount
+msgid "Advance"
+msgstr "Аванс"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__advance_run_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_run_view_form
+msgid "Advance Batch"
+msgstr "Пакет авансів"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_salary_advance_run
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_salary_advance_run
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_run_view_list
+msgid "Advance Batches"
+msgstr "Пакети авансів"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__advance_count
+msgid "Advance Count"
+msgstr "Кількість авансів"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_deduction_type__category__advance
+msgid "Advance Deduction"
+msgstr "Утримання авансу"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_salary_advance
+msgid "Advance List"
+msgstr "Перелік авансів"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_advance_run.py:0
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__advance_ids
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_salary_advance_root
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_run_view_form
+msgid "Advances"
+msgstr "Аванси"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_salary_advance_run
+msgid "Advances are calculated as percentage of the employee wage."
+msgstr "Аванси розраховуються як відсоток від окладу працівника."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_deduction_type__category__alimony
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__document_type__alimony
+msgid "Alimony"
+msgstr "Аліменти"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__category__allowance
+msgid "Allowance"
+msgstr "Надбавка"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__amount
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__amount
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__amount
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit_payment__amount
+msgid "Amount"
+msgstr "Сума"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_deduction__base_amount
+msgid "Amount used as calculation base"
+msgstr "Сума, що використовується як база розрахунку"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__message_attachment_count
+msgid "Attachment Count"
+msgstr "Кількість вкладень"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__is_auto_generated
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__is_auto_generated
+msgid "Auto-generated"
+msgstr "Створено автоматично"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_deduction_type__is_mandatory
+msgid "Automatically applied to all payslips"
+msgstr "Автоматично застосовується до всіх розрахункових листків"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__base_amount
+msgid "Base Amount"
+msgstr "Базова сума"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_psp_parameters_view_form
+msgid "Base Values"
+msgstr "Базові значення"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__category__wage
+msgid "Base Wage"
+msgstr "Базова зарплата"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__is_basic_salary
+msgid "Basic Salary Component"
+msgstr "Компонент основної зарплати"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_form
+msgid "Batch & Payroll Integration"
+msgstr "Пакет та інтеграція з розрахунком"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_payslip_run
+msgid "Batches"
+msgstr "Пакети"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__category__bonus
+msgid "Bonus"
+msgstr "Премія"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_cpi_index__index_value
+msgid "CPI (%)"
+msgstr "ІСЦ (%)"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_form
+msgid "Calculation"
+msgstr "Розрахунок"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__calculation_method
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__calculation_method
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__calculation_method
+msgid "Calculation Method"
+msgstr "Метод розрахунку"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip__state__cancel
+msgid "Cancelled"
+msgstr "Скасовано"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_advance.py:0
+msgid "Cannot delete paid advances."
+msgstr "Виплачені аванси не можна видалити."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__category
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__category
+msgid "Category"
+msgstr "Категорія"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_ifobs_employee_export__state__choose
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip_bank_export__state__choose
+msgid "Choose"
+msgstr "Вибір"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_run_view_form
+msgid "Close"
+msgstr "Закрити"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__state__closed
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_salary_advance_run__state__closed
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_search
+msgid "Closed"
+msgstr "Закрито"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__code
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__code
+msgid "Code"
+msgstr "Код"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__collected_amount
+msgid "Collected Amount"
+msgstr "Зібрана сума"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_res_company
+msgid "Companies"
+msgstr "Компанії"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_cpi_index__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__category__compensation
+msgid "Compensation"
+msgstr "Компенсація"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+msgid "Compute All"
+msgstr "Розрахувати все"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Compute Sheet"
+msgstr "Розрахувати листок"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_payroll_config
+msgid "Configuration"
+msgstr "Налаштування"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_psp_parameters
+msgid "Configure PSP parameters for each period"
+msgstr "Налаштуйте параметри ПСП для кожного періоду"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_form
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_run_view_form
+msgid "Confirm All"
+msgstr "Підтвердити всі"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_salary_advance__state__confirmed
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_salary_advance_run__state__confirmed
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_search
+msgid "Confirmed"
+msgstr "Підтверджено"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_salary_advance
+msgid "Confirmed advances are automatically deducted from the payslip."
+msgstr "Підтверджені аванси автоматично утримуються з розрахункового листа."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_cpi_index
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_cpi_index
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_cpi_index_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_cpi_index_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_cpi_index_view_tree
+msgid "Consumer Price Index"
+msgstr "Індекс споживчих цін"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_cpi_index
+msgid "Consumer Price Index (для індексації ЗП)"
+msgstr "Індекс споживчих цін (для індексації ЗП)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__document_type__court_decision
+msgid "Court Decision"
+msgstr "Рішення суду"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_payslip_run
+msgid "Create a payslip batch to process multiple payslips at once"
+msgstr ""
+"Створіть пакет розрахункових листків для обробки кількох листків одночасно"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_salary_advance_run
+msgid "Create an advance batch to process multiple advances at once"
+msgstr "Створіть пакет авансів для одночасної обробки кількох авансів"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_execution_document
+msgid "Create an execution document"
+msgstr "Створіть виконавчий документ"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_payslip
+msgid "Create your first payslip"
+msgstr "Створіть свій перший розрахунковий листок"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_salary_advance
+msgid "Create your first salary advance"
+msgstr "Створіть свій перший аванс із зарплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_cpi_index__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_ifobs_employee_export__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit_payment__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale_line__create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_cpi_index__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_ifobs_employee_export__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit_payment__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale_line__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__account_credit_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__account_credit_id
+msgid "Credit Account"
+msgstr "Кредитовий рахунок"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit_payment__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip_bank_export__file_format__dbf
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__res_company__payroll_bank_file_format__dbf
+msgid "DBF"
+msgstr "DBF"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__calculation_method__daily
+msgid "Daily Rate"
+msgstr "Денна ставка"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_deduction_type__category__damage
+msgid "Damage Compensation"
+msgstr "Компенсація збитків"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_search
+msgid "Date"
+msgstr "Дата"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__date_from
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__date_from
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__date_from
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__date_start
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__date_from
+msgid "Date From"
+msgstr "Дата з"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__date_to
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__date_to
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__date_to
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__date_end
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__date_to
+msgid "Date To"
+msgstr "Дата по"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_accrual__quantity
+msgid "Days, hours, or units"
+msgstr "Дні, години або одиниці"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__account_debit_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__account_debit_id
+msgid "Debit Account"
+msgstr "Дебетовий рахунок"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__deduction_priority
+msgid "Deduction Priority"
+msgstr "Пріоритет утримання"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_deduction_type
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__deduction_type_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_deduction_type_view_form
+msgid "Deduction Type"
+msgstr "Тип утримання"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_deduction_type
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_deduction_type
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_deduction_type_view_tree
+msgid "Deduction Types"
+msgstr "Типи утримань"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_deduction_type__priority
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_deduction__priority
+msgid "Deduction priority (lower = first). Alimony has priority 1-3."
+msgstr "Пріоритет утримання (менше = перше). Аліменти мають пріоритет 1-3."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.constraint,message:l10n_ua_hr_salary.constraint_hr_deduction_type_unique_code
+msgid "Deduction type code must be unique!"
+msgstr "Код типу утримання має бути унікальним!"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__deduction_ids
+msgid "Deductions"
+msgstr "Утримання"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__default_amount
+msgid "Default Amount"
+msgstr "Сума за замовчуванням"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__default_rate
+msgid "Default Rate (%)"
+msgstr "Ставка за замовчуванням (%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__gross_delta
+msgid "Delta"
+msgstr "Різниця"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__department_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__department_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_search
+msgid "Department"
+msgstr "Підрозділ"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit_payment__deposit_id
+msgid "Deposit"
+msgstr "Депонент"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__deposit_date
+msgid "Deposit Date"
+msgstr "Дата депонування"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_salary_deposit__state__deposited
+msgid "Deposited"
+msgstr "Депоновано"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_employee__salary_deposit_residual
+msgid "Deposited (unpaid) Salary"
+msgstr "Депонована (невиплачена) зарплата"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__deposit_ids
+msgid "Deposits"
+msgstr "Депоненти"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__description
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__description
+msgid "Description"
+msgstr "Опис"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__is_diia_city
+msgid "Diia.City Employee"
+msgstr "Працівник Дія.City"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__is_diia_city
+msgid "Diia.City gig employee (5% PDFO, no ESV)"
+msgstr "Гіг-спеціаліст Дія.City (ПДФО 5%, без ЄСВ)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__is_disability
+msgid "Disability"
+msgstr "Інвалідність"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_cpi_index__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_ifobs_employee_export__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit_payment__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale_line__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_version__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_res_company__display_name
+msgid "Display Name"
+msgstr "Відображувана назва"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__name
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_form
+msgid "Document Number"
+msgstr "Номер документа"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__document_type
+msgid "Document Type"
+msgstr "Тип документа"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_ifobs_employee_export__state__done
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip__state__done
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip_bank_export__state__done
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip_run__state__close
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_search
+msgid "Done"
+msgstr "Виконано"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip_run__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_salary_advance__state__draft
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_salary_advance_run__state__draft
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_search
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "ESV (Employer Cost)"
+msgstr "ЄСВ (витрати роботодавця)"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "ESV (Employer)"
+msgstr "ЄСВ (роботодавець)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__esv_amount
+msgid "ESV Amount"
+msgstr "Сума ЄСВ"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__is_esv_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__esv_base
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__is_esv_base
+msgid "ESV Base"
+msgstr "База ЄСВ"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__esv_rate
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__esv_rate
+msgid "ESV Rate (%)"
+msgstr "Ставка ЄСВ (%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_employee
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__employee_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__employee_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__employee_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__employee_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__employee_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_search
+msgid "Employee"
+msgstr "Працівник"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_version
+msgid "Employee Contract"
+msgstr "Трудовий договір працівника"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__version_id
+msgid "Employee Version"
+msgstr "Версія працівника"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__is_disability
+msgid "Employee has disability benefit (reduced ESV rate 8.41%)"
+msgstr "Працівник має пільгу за інвалідністю (знижена ставка ЄСВ 8,41%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_ifobs_employee_export__employee_ids
+msgid "Employees"
+msgstr "Працівники"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_execution_document
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__execution_doc_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_form
+msgid "Execution Document"
+msgstr "Виконавчий документ"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_execution_document
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_execution_document
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_tree
+msgid "Execution Documents"
+msgstr "Виконавчі документи"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_execution_document
+msgid ""
+"Execution documents are used for automatic deductions like alimony,\n"
+"                court decisions, and other mandatory payments."
+msgstr ""
+"Виконавчі документи використовуються для автоматичних утримань, таких як\n"
+"аліменти, рішення суду та інші обов'язкові платежі."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_accrual_type__account_debit_id
+msgid "Expense account"
+msgstr "Рахунок витрат"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_ifobs_employee_export__file_data
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__file_data
+msgid "File"
+msgstr "Файл"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_ifobs_employee_export__file_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__file_name
+msgid "File Name"
+msgstr "Назва файлу"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__deduction_priority__1
+msgid "First Priority (Alimony for minors)"
+msgstr "Перша черга (аліменти на неповнолітніх)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__fixed_amount
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__calculation_method__fixed
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_deduction_type__calculation_method__fixed
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__calculation_method__fixed
+msgid "Fixed Amount"
+msgstr "Фіксована сума"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Партнери)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_execution_document__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_run__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Іконка Font Awesome, напр. fa-tasks"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__file_format
+msgid "Format"
+msgstr "Формат"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_run_view_form
+msgid "Generate Advances"
+msgstr "Згенерувати аванси"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+msgid "Generate Payslips"
+msgstr "Згенерувати розрахункові листки"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__gross_amount
+msgid "Gross"
+msgstr "Нараховано"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__gross_salary
+msgid "Gross Salary"
+msgstr "Нарахована зарплата"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__has_message
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__has_message
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__has_message
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__has_message
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__has_message
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__has_message
+msgid "Has Message"
+msgstr "Є повідомлення"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__holiday_hours
+msgid "Holiday Hours"
+msgstr "Святкові години"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__holiday_multiplier
+msgid "Holiday Multiplier"
+msgstr "Множник святкових"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__calculation_method__hourly
+msgid "Hourly Rate"
+msgstr "Погодинна ставка"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_cpi_index__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_employee__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_ifobs_employee_export__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit_payment__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale_line__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_version__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_res_company__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_exception_icon
+msgid "Icon"
+msgstr "Іконка"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_execution_document__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_run__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Іконка для позначення виключної активності."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_execution_document__message_needaction
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__message_needaction
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_run__message_needaction
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance__message_needaction
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance_run__message_needaction
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_deposit__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо позначено, нові повідомлення потребують вашої уваги."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_execution_document__message_has_error
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__message_has_error
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_run__message_has_error
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance__message_has_error
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance_run__message_has_error
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_deposit__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__is_in_kind
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__is_in_kind
+msgid "In-Kind Income"
+msgstr "Дохід у натуральній формі"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_accrual_type__is_basic_salary
+msgid "Include in average salary calculation"
+msgstr "Включити в розрахунок середньої зарплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__income_limit
+msgid "Income Limit for PSP"
+msgstr "Ліміт доходу для ПСП"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_accrual_type__d4_income_type
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_accrual__d4_income_type
+msgid "Income type code for 4DF report"
+msgstr "Код типу доходу для звіту 4ДФ"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_accrual__is_auto_generated
+msgid ""
+"Indicates if this accrual was automatically generated during payslip "
+"computation. Auto-generated accruals are recreated on recomputation, manual "
+"ones are preserved."
+msgstr ""
+"Вказує, чи це нарахування створено автоматично під час розрахунку листка. "
+"Автоматичні нарахування створюються заново при перерахунку, ручні — "
+"зберігаються."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_deduction__is_auto_generated
+msgid ""
+"Indicates if this deduction was automatically generated during payslip "
+"computation. Auto-generated deductions are recreated on recomputation, "
+"manual ones are preserved."
+msgstr ""
+"Вказує, чи це утримання створено автоматично під час розрахунку листка. "
+"Автоматичні утримання створюються заново при перерахунку, ручні — "
+"зберігаються."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__message_is_follower
+msgid "Is Follower"
+msgstr "Є підписником"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__job_id
+msgid "Job Position"
+msgstr "Посада"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_search
+msgid "Last Month"
+msgstr "Минулий місяць"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_cpi_index__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_ifobs_employee_export__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit_payment__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale_line__write_uid
+msgid "Last Updated by"
+msgstr "Оновив"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_cpi_index__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_ifobs_employee_export__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit_payment__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale_line__write_date
+msgid "Last Updated on"
+msgstr "Оновлено"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_accrual_type__account_credit_id
+msgid "Liability account"
+msgstr "Рахунок зобов'язань"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_deduction_type__category__loan
+msgid "Loan Repayment"
+msgstr "Погашення позики"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__is_mandatory
+msgid "Mandatory"
+msgstr "Обов'язковий"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__category__maternity
+msgid "Maternity Leave"
+msgstr "Декретна відпустка"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__max_deduction_percent
+msgid "Max Deduction (%)"
+msgstr "Макс. утримання (%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__max_esv_base
+msgid "Max ESV Base"
+msgstr "Макс. база ЄСВ"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__max_percent
+msgid "Max Percent of Salary"
+msgstr "Макс. відсоток від зарплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_execution_document__max_deduction_percent
+msgid ""
+"Maximum percent of salary that can be deducted (50% or 70% for alimony)"
+msgstr ""
+"Максимальний відсоток, який можна утримати (50% або 70% для аліментів)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_deduction_type__max_percent
+msgid "Maximum percent that can be deducted (50% or 70% for alimony)"
+msgstr ""
+"Максимальний відсоток, який можна утримати (50% або 70% для аліментів)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставки повідомлення"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__is_military_tax
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__is_military_tax
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__military_amount
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Military Tax"
+msgstr "Військовий збір"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__military_rate
+msgid "Military Tax (%)"
+msgstr "Військовий збір (%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__military_tax_amount
+msgid "Military Tax Amount"
+msgstr "Сума військового збору"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__military_tax_base
+msgid "Military Tax Base"
+msgstr "База військового збору"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__military_tax_rate
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__military_tax_rate
+msgid "Military Tax Rate (%)"
+msgstr "Ставка військового збору (%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__min_hourly_wage
+msgid "Minimum Hourly Wage"
+msgstr "Мінімальна погодинна ставка"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__min_wage
+msgid "Minimum Wage"
+msgstr "Мінімальна зарплата"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_cpi_index__month
+msgid "Month"
+msgstr "Місяць"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__calculation_method__monthly
+msgid "Monthly Salary"
+msgstr "Місячна зарплата"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Термін моєї активності"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__amount
+msgid "Net Advance"
+msgstr "Аванс до виплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__net_salary
+msgid "Net Salary"
+msgstr "Зарплата до виплати"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_cpi_index.py:0
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_advance.py:0
+msgid "New"
+msgstr "Новий"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__new_gross
+msgid "New Gross"
+msgstr "Нараховано (нове)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Подія календаря наступної активності"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Термін наступної активності"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_summary
+msgid "Next Activity Summary"
+msgstr "Опис наступної активності"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_type_id
+msgid "Next Activity Type"
+msgstr "Тип наступної активності"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__night_hours
+msgid "Night Hours"
+msgstr "Нічні години"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__night_surcharge_rate
+msgid "Night Surcharge (%)"
+msgstr "Доплата за нічні (%)"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/wizard/hr_payslip_bank_export.py:0
+#, python-format
+msgid ""
+"No bank account (IBAN) for employees:\n"
+"- %s"
+msgstr ""
+"Немає банківського рахунку (IBAN) у працівників:\n"
+"- %s"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip__psp_type__none
+msgid "None"
+msgstr "Немає"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__note
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit_payment__note
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_form
+msgid "Note"
+msgstr "Примітка"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__notes
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__notes
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__notes
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__notes
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__notes
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__notes
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__notes
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_run_view_form
+msgid "Notes"
+msgstr "Примітки"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__message_has_error_counter
+msgid "Number of errors"
+msgstr "Кількість помилок"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_execution_document__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_run__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance_run__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_deposit__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Кількість повідомлень, що потребують дії"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_execution_document__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_run__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance_run__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_deposit__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилкою доставки"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__old_gross
+msgid "Old Gross"
+msgstr "Нараховано (старе)"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_advance.py:0
+msgid "Only draft advances can be confirmed."
+msgstr "Підтвердити можна лише аванси у стані чернетки."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__category__other
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_deduction_type__category__other
+msgid "Other"
+msgstr "Інше"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__document_type__other_debt
+msgid "Other Debt"
+msgstr "Інший борг"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__other_deductions
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Other Deductions"
+msgstr "Інші утримання"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__overtime_hours
+msgid "Overtime Hours"
+msgstr "Понаднормові години"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__overtime_multiplier
+msgid "Overtime Multiplier"
+msgstr "Множник понаднормових"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__pdfo_amount
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "PDFO"
+msgstr "ПДФО"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__pdfo_rate
+msgid "PDFO (%)"
+msgstr "ПДФО (%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__pdfo_amount
+msgid "PDFO Amount"
+msgstr "Сума ПДФО"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__pdfo_base
+msgid "PDFO Base"
+msgstr "База ПДФО"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__pdfo_rate
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__pdfo_rate
+msgid "PDFO Rate (%)"
+msgstr "Ставка ПДФО (%)"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "PSP (Tax Social Benefit)"
+msgstr "ПСП (Податкова соціальна пільга)"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_psp_parameters
+msgid ""
+"PSP (Податкова соціальна пільга) parameters include subsistence minimum,\n"
+"                minimum wage, and tax rates."
+msgstr ""
+"Параметри ПСП (Податкова соціальна пільга) включають мінімальну грошову постачання,\n"
+"                мінімальна зарплата та податкові ставки."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__psp_150
+msgid "PSP 150%"
+msgstr "ПСП 150%"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__psp_200
+msgid "PSP 200%"
+msgstr "ПСП 200%"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__psp_amount
+msgid "PSP Amount"
+msgstr "Сума ПСП"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_psp_parameters_view_form
+msgid "PSP Amounts (Computed)"
+msgstr "Суми ПСП (розраховані)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__psp_eligible
+msgid "PSP Eligible"
+msgstr "Право на ПСП"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_psp_parameters
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_psp_parameters
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_psp_parameters
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_psp_parameters_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_psp_parameters_view_tree
+msgid "PSP Parameters"
+msgstr "Параметри ПСП"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__psp_standard
+msgid "PSP Standard (50%)"
+msgstr "ПСП стандартна (50%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__psp_type
+msgid "PSP Type"
+msgstr "Тип ПСП"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__paid_amount
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_salary_advance__state__paid
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_salary_deposit__state__paid
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_tree
+msgid "Paid"
+msgstr "Виплачено"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_advance.py:0
+msgid "Paid advances cannot be reset to draft."
+msgstr "Виплачені аванси не можна повернути до чернетки."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.constraint,message:l10n_ua_hr_salary.constraint_hr_psp_parameters_unique_year_date_from_company_id
+msgid "Parameters for this period already exist!"
+msgstr "Параметри для цього періоду вже існують!"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_salary_deposit__state__partial
+msgid "Partially Paid"
+msgstr "Частково виплачено"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__payer_account_id
+msgid "Payer Account"
+msgstr "Рахунок платника"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__date
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit_payment__payment_date
+msgid "Payment Date"
+msgstr "Дата виплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__payment_purpose
+msgid "Payment Purpose"
+msgstr "Призначення платежу"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__payment_ids
+msgid "Payments"
+msgstr "Виплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_payroll_root
+msgid "Payroll"
+msgstr "Зарплата"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_res_company__payroll_accrual_name
+msgid "Payroll Accrual Type"
+msgstr "Вид нарахування для банк-файлу"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_payslip_bank_export
+msgid "Payroll Bank File Export"
+msgstr "Експорт зарплатного банк-файлу"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_res_company__payroll_bank_file_format
+msgid "Payroll Bank File Format"
+msgstr "Формат зарплатного банк-файлу"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_res_company__payroll_bank_account_id
+msgid "Payroll Payer Account"
+msgstr "Рахунок платника для зарплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_res_company__payroll_payment_purpose
+msgid "Payroll Payment Purpose"
+msgstr "Призначення платежу для зарплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_payslip_retro
+msgid "Payroll Retro Recalculation"
+msgstr "Ретро-перерахунок зарплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_res_company__payroll_transit_account_id
+msgid "Payroll Transit Account"
+msgstr "Транзитний рахунок для зарплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.report,name:l10n_ua_hr_salary.action_report_payslip
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_payslip
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__payslip_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__payslip_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__payslip_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Payslip"
+msgstr "Розрахунковий листок"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_payslip_accrual
+msgid "Payslip Accrual"
+msgstr "Нарахування розрахункового листка"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_payslip_run
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__payslip_run_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__payslip_run_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+msgid "Payslip Batch"
+msgstr "Пакет розрахункових листків"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_payslip_run
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_tree
+msgid "Payslip Batches"
+msgstr "Пакети розрахункових листків"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__payslip_count
+msgid "Payslip Count"
+msgstr "Кількість розрахункових листків"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_payslip_deduction
+msgid "Payslip Deduction"
+msgstr "Утримання розрахункового листка"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__payslip_deduction_ids
+msgid "Payslip Deductions"
+msgstr "Утримання з розрахункових листків"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance__payslip_id
+msgid "Payslip from which this advance was deducted"
+msgstr "Розрахунковий лист, з якого утримано аванс"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_payslip
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__slip_ids
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_payslip
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_tree
+msgid "Payslips"
+msgstr "Розрахункові листки"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__percent_value
+msgid "Percent (%)"
+msgstr "Відсоток (%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__calculation_method__percent
+msgid "Percent of Base"
+msgstr "Відсоток від бази"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_deduction_type__calculation_method__percent_gross
+msgid "Percent of Gross"
+msgstr "Відсоток від нарахованого"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__calculation_method__percent
+msgid "Percent of Income"
+msgstr "Відсоток від доходу"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__calculation_method__percent_min_wage
+msgid "Percent of Minimum Wage"
+msgstr "Відсоток від мінімальної зарплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_deduction_type__calculation_method__percent_net
+msgid "Percent of Net"
+msgstr "Відсоток від чистого"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_deduction_type__calculation_method__percent_base
+msgid "Percent of Tax Base"
+msgstr "Відсоток від податкової бази"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__source_date_to
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_psp_parameters_view_form
+msgid "Period"
+msgstr "Період"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Print"
+msgstr "Друк"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__priority
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__priority
+msgid "Priority"
+msgstr "Пріоритет"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__quantity
+msgid "Quantity"
+msgstr "Кількість"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__rnokpp
+msgid "RNOKPP"
+msgstr "РНОКПП"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__rate
+msgid "Rate"
+msgstr "Ставка"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__rate
+msgid "Rate (%)"
+msgstr "Ставка (%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_accrual__rate
+msgid "Rate per unit (hourly/daily rate)"
+msgstr "Ставка за одиницю (погодинна/денна)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__rating_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__rating_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__rating_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__rating_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__rating_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__rating_ids
+msgid "Ratings"
+msgstr "Оцінки"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_form
+msgid "Recipient"
+msgstr "Отримувач"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__recipient_account
+msgid "Recipient Account (IBAN)"
+msgstr "Рахунок отримувача (IBAN)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__recipient_bank
+msgid "Recipient Bank"
+msgstr "Банк отримувача"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__recipient_name
+msgid "Recipient Name"
+msgstr "Ім'я отримувача"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__recipient_rnokpp
+msgid "Recipient RNOKPP"
+msgstr "РНОКПП отримувача"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__name
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__name
+msgid "Reference"
+msgstr "Номер"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__rnokpp
+msgid ""
+"Registration Number of the Taxpayer Account Card (Individual Tax Number)"
+msgstr "Реєстраційний номер облікової картки платника податків (ІПН)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__remaining_amount
+msgid "Remaining Amount"
+msgstr "Залишок суми"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_form
+msgid "Reset to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__residual
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_tree
+msgid "Residual"
+msgstr "Залишок"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_user_id
+msgid "Responsible User"
+msgstr "Відповідальний"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__retro_source_ids
+msgid "Retro (as source)"
+msgstr "Ретро (як джерело)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__retro_incoming_ids
+msgid "Retro Adjustments"
+msgstr "Ретро-перерахунки"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__accrual_line_id
+msgid "Retro Line"
+msgstr "Рядок ретро-перерахунку"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_form
+msgid "Salary Advance"
+msgstr "Аванс із зарплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_salary_advance_run
+msgid "Salary Advance Batch"
+msgstr "Пакет авансів"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_salary_advance
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_search
+msgid "Salary Advances"
+msgstr "Аванси із зарплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_salary_deposit
+msgid "Salary Deposit (депонент)"
+msgstr "Депонент заробітної плати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_salary_deposit_payment
+msgid "Salary Deposit Payment"
+msgstr "Виплата депонента"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__salary_project_code
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_res_company__payroll_salary_project_code
+msgid "Salary Project Code (ЗКП)"
+msgstr "Код зарплатного проєкту (ЗКП)"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Scheduled"
+msgstr "Заплановано"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__scheduled_days
+msgid "Scheduled Days"
+msgstr "Заплановані дні"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__scheduled_hours
+msgid "Scheduled Hours"
+msgstr "Заплановані години"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__deduction_priority__2
+msgid "Second Priority (Other alimony)"
+msgstr "Друга черга (інші аліменти)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__sequence
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_deduction_type__sequence
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__sequence
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_deduction__sequence
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_run_view_form
+msgid "Set to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__category__sick
+msgid "Sick Leave"
+msgstr "Лікарняний"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_deduction_type__category__social
+msgid "Social Contribution"
+msgstr "Соціальний внесок"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__source_payslip_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__source_payslip_id
+msgid "Source Payslip"
+msgstr "Вихідний розрахунковий листок"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip__psp_type__standard
+msgid "Standard (50%)"
+msgstr "Стандартна (50%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_ifobs_employee_export__state
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__state
+msgid "State"
+msgstr "Стан"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__state
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__state
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__state
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__state
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__state
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__state
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_search
+msgid "Status"
+msgstr "Статус"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_execution_document__activity_state
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__activity_state
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_run__activity_state
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance__activity_state
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Статус на основі активностей\n"
+"Прострочено: Термін вже минув\n"
+"Сьогодні: Дата активності сьогодні\n"
+"Заплановано: Майбутні активності."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__subsistence_minimum
+msgid "Subsistence Minimum"
+msgstr "Прожитковий мінімум"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Summary"
+msgstr "Підсумок"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_form
+msgid "Suspend"
+msgstr "Призупинити"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__state__suspended
+msgid "Suspended"
+msgstr "Призупинено"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_retro__target_payslip_id
+msgid "Target Payslip"
+msgstr "Цільовий розрахунковий листок"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_deduction_type__category__tax
+msgid "Tax"
+msgstr "Податок"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__document_type__tax_debt
+msgid "Tax Debt"
+msgstr "Податковий борг"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_psp_parameters_view_form
+msgid "Tax Rates"
+msgstr "Податкові ставки"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_accrual_type__is_taxable_pdfo
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_accrual__is_taxable_pdfo
+msgid "Taxable (PDFO)"
+msgstr "Оподатковується (ПДФО)"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Taxes & Deductions"
+msgstr "Податки та утримання"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_execution_document__deduction_priority__3
+msgid "Third Priority (Other debts)"
+msgstr "Третя черга (інші борги)"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_search
+msgid "This Month"
+msgstr "Цей місяць"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_tree
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_run_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_run_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_tree
+msgid "Total"
+msgstr "Всього"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_tree
+msgid "Total Advance"
+msgstr "Всього авансів"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__total_amount
+msgid "Total Amount"
+msgstr "Загальна сума"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__total_amount
+msgid "Total Amount to Collect"
+msgstr "Загальна сума до стягнення"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__total_deductions
+msgid "Total Deductions"
+msgstr "Всього утримань"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__total_esv
+msgid "Total ESV"
+msgstr "Всього ЄСВ"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__total_gross
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_tree
+msgid "Total Gross"
+msgstr "Всього нараховано"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_tree
+msgid "Total Military"
+msgstr "Всього військового збору"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__total_military
+msgid "Total Military Tax"
+msgstr "Всього військового збору"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__total_net
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_tree
+msgid "Total Net"
+msgstr "Всього до виплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__total_pdfo
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_tree
+msgid "Total PDFO"
+msgstr "Всього ПДФО"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_bank_export__transit_account_id
+msgid "Transit Account"
+msgstr "Транзитний рахунок"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_execution_document_view_search
+msgid "Type"
+msgstr "Тип"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_execution_document__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_run__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance_run__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Тип виключної активності в записі."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_deduction_type__category__union
+msgid "Union Fees"
+msgstr "Профспілкові внески"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_accrual_type__category__vacation
+msgid "Vacation Pay"
+msgstr "Відпускні"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip_run__state__verify
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Verify"
+msgstr "Перевірити"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__wage_percent
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__wage_percent
+msgid "Wage Percentage"
+msgstr "Відсоток від окладу"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip__state__verify
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_search
+msgid "Waiting"
+msgstr "Очікування"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_execution_document__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip_run__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_advance_run__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_salary_deposit__website_message_ids
+msgid "Website Messages"
+msgstr "Повідомлення веб-сайту"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_execution_document__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_run__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_advance_run__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_deposit__website_message_ids
+msgid "Website communication history"
+msgstr "Історія комунікації веб-сайту"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Worked"
+msgstr "Відпрацьовано"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__worked_days
+msgid "Worked Days"
+msgstr "Відпрацьовано днів"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__worked_hours
+msgid "Worked Hours"
+msgstr "Відпрацьовано годин"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Worked Time"
+msgstr "Відпрацьований час"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__scheduled_days
+msgid "Working days in period according to calendar"
+msgstr "Робочі дні в періоді згідно з календарем"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip_bank_export__file_format__xml
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__res_company__payroll_bank_file_format__xml
+msgid "XML"
+msgstr "XML"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__year
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_cpi_index_view_search
+msgid "Year"
+msgstr "Рік"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_advance_run.py:0
+msgid "advance_run_id"
+msgstr "advance_run_id"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip_bank_export__file_format__ibank2
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__res_company__payroll_bank_file_format__ibank2
+msgid "iBank 2 UA (VST Bank та ін.)"
+msgstr "iBank 2 UA (VST Bank та ін.)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_payslip_bank_export__file_format__ifobs
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__res_company__payroll_bank_file_format__ifobs
+msgid "iFOBS (Укргазбанк та ін.)"
+msgstr "iFOBS (Укргазбанк та ін.)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_ifobs_employee_export
+msgid "iFOBS Employee Data Export"
+msgstr "Експорт даних працівників для iFOBS"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "ЄСВ (нарахування роботодавця):"
+msgstr "ЄСВ (нарахування роботодавця):"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.constraint,message:l10n_ua_hr_salary.constraint_hr_cpi_index_unique_month_company
+msgid "Індекс на цей місяць вже існує!"
+msgstr "Індекс на цей місяць вже існує!"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_cpi_index__index_value
+msgid "Індекс споживчих цін до попереднього місяця, % (напр. 100.5)."
+msgstr "Індекс споживчих цін до попереднього місяця, % (напр. 100.5)."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.constraint,message:l10n_ua_hr_salary.constraint_hr_cpi_index_check_positive
+msgid "Індекс споживчих цін має бути додатним!"
+msgstr "Індекс споживчих цін має бути додатним!"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_indexation
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_psp_parameters_view_form
+msgid "Індексація"
+msgstr "Індексація"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "Індексація %.1f%% (баз. міс. %s)"
+msgstr "Індексація %.1f%% (баз. міс. %s)"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_cpi_index
+msgid ""
+"Індекси споживчих цін (ІСЦ) використовуються для розрахунку\n"
+"                індексації заробітної плати. Значення — у відсотках до\n"
+"                попереднього місяця (напр. 100.5)."
+msgstr ""
+"Індекси споживчих цін (ІСЦ) використовуються для розрахунку\n"
+"                індексації заробітної плати. Значення — у відсотках до\n"
+"                попереднього місяця (напр. 100.5)."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_employee__indexation_enabled
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_version__indexation_enabled
+msgid "Індексувати ЗП"
+msgstr "Індексувати ЗП"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.deduction.type,name:l10n_ua_hr_salary.deduction_type_other
+msgid "Інші утримання"
+msgstr "Інші утримання"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_employee__seniority_enabled
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_version__seniority_enabled
+msgid ""
+"Автоматично нараховувати надбавку за вислугу років на основі стажу роботи в "
+"компанії за налаштованою шкалою."
+msgstr ""
+"Автоматично нараховувати надбавку за вислугу років на основі стажу роботи в "
+"компанії за налаштованою шкалою."
+
+#. module: l10n_ua_hr_salary
+#: model:hr.deduction.type,name:l10n_ua_hr_salary.deduction_type_alimony
+msgid "Аліменти"
+msgstr "Аліменти"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_employee__indexation_base_month
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_version__indexation_base_month
+msgid "Базовий місяць індексації"
+msgstr "Базовий місяць індексації"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/wizard/hr_ifobs_employee_export.py:0
+msgid ""
+"Бракує обов'язкових даних для iFOBS:\n"
+"- %s"
+msgstr ""
+"Бракує обов'язкових даних для iFOBS:\n"
+"- %s"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "Бухгалтер: _______________"
+msgstr "Бухгалтер: _______________"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "ВСЬОГО НАРАХОВАНО:"
+msgstr "ВСЬОГО НАРАХОВАНО:"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "ВСЬОГО УТРИМАНО:"
+msgstr "ВСЬОГО УТРИМАНО:"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__salary_currency_id
+msgid ""
+"Валюта нарахування окладу (з версії/договору). Якщо відрізняється від валюти"
+" компанії — оклад перераховується у гривню за курсом."
+msgstr ""
+"Валюта нарахування окладу (з версії/договору). Якщо відрізняється від валюти"
+" компанії — оклад перераховується у гривню за курсом."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_employee__salary_currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__salary_currency_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_version__salary_currency_id
+msgid "Валюта окладу"
+msgstr "Валюта окладу"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_employee__salary_currency_id
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_version__salary_currency_id
+msgid ""
+"Валюта, у якій встановлено оклад/ставку (для гіг-контрактів Дія.City, "
+"нерезидентів, валютних окладів). Для нарахування, податків і проведень сума "
+"перераховується у гривню за курсом на дату розрахункового листка."
+msgstr ""
+"Валюта, у якій встановлено оклад/ставку (для гіг-контрактів Дія.City, "
+"нерезидентів, валютних окладів). Для нарахування, податків і проведень сума "
+"перераховується у гривню за курсом на дату розрахункового листка."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_form
+msgid "Виплати"
+msgstr "Виплати"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_form
+msgid "Виплатити повністю"
+msgstr "Виплатити повністю"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "Вислуга %.1f р. — %.0f%%"
+msgstr "Вислуга %.1f р. — %.0f%%"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_severance
+msgid "Вихідна допомога"
+msgstr "Вихідна допомога"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/wizard/hr_payslip_bank_export.py:0
+msgid "Вкажіть період або відомість."
+msgstr "Вкажіть період або відомість."
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_vacation
+msgid "Відпускні"
+msgstr "Відпускні"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_version__salary_form__piece
+msgid "Відрядна"
+msgstr "Відрядна"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_piece
+msgid "Відрядна оплата"
+msgstr "Відрядна оплата"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "Відрядна оплата: %d наряд(ів)"
+msgstr "Відрядна оплата: %d наряд(ів)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_employee__salary_form
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_version__salary_form
+msgid ""
+"Відрядна форма: замість окладу нараховується сума за нарядами відрядної "
+"оплати (виробіток × розцінка) за місяць."
+msgstr ""
+"Відрядна форма: замість окладу нараховується сума за нарядами відрядної "
+"оплати (виробіток × розцінка) за місяць."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.constraint,message:l10n_ua_hr_salary.constraint_hr_seniority_scale_line_percent_positive
+msgid "Відсоток надбавки не може бути відʼємним."
+msgstr "Відсоток надбавки не може бути відʼємним."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale_line__percent
+msgid "Відсоток надбавки, %"
+msgstr "Відсоток надбавки, %"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.deduction.type,name:l10n_ua_hr_salary.deduction_type_damage
+msgid "Відшкодування шкоди"
+msgstr "Відшкодування шкоди"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.deduction.type,name:l10n_ua_hr_salary.deduction_type_military
+msgid "Військовий збір"
+msgstr "Військовий збір"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "Військовий збір (5%)"
+msgstr "Військовий збір (5%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__income_limit
+msgid "Граничний дохід для застосування ПСП"
+msgstr "Граничний дохід для застосування ПСП"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_ifobs_employee_export
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_ifobs_employee_export_view_form
+msgid "Дані працівників для iFOBS"
+msgstr "Дані працівників для iFOBS"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__date
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.view_hr_piece_work_entry_search
+msgid "Дата"
+msgstr "Дата"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_piece_work_entry__date
+msgid "Дата виконання роботи. Визначає місяць нарахування."
+msgstr "Дата виконання роботи. Визначає місяць нарахування."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "Дата формування:"
+msgstr "Дата формування:"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_form
+msgid "Депонент"
+msgstr "Депонент"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_deposit.py:0
+msgid "Депонент створено."
+msgstr "Депонент створено."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_salary_deposit
+msgid ""
+"Депонент — нарахована, але невиплачена у строк заробітна плата.\n"
+"                Створюється з розрахункового листка кнопкою «Депонувати»."
+msgstr ""
+"Депонент — нарахована, але невиплачена у строк заробітна плата.\n"
+"                Створюється з розрахункового листка кнопкою «Депонувати»."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_salary_deposit
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_salary_deposit
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_tree
+msgid "Депоненти"
+msgstr "Депоненти"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_search
+msgid "Депоновано"
+msgstr "Депоновано"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_deposit.py:0
+msgid "Депоновано за листком %s (%s)"
+msgstr "Депоновано за листком %s (%s)"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_deposit.py:0
+msgid "Депонування"
+msgstr "Депонування"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Депонувати"
+msgstr "Депонувати"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_deposit.py:0
+msgid ""
+"Депонувати можна лише закритий (Done) листок. Листок «%s» у стані «%s»."
+msgstr ""
+"Депонувати можна лише закритий (Done) листок. Листок «%s» у стані «%s»."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Депонувати невиплачену суму (net) як депонент"
+msgstr "Депонувати невиплачену суму (net) як депонент"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_deposit.py:0
+msgid "Для листка «%s» депонент уже створено."
+msgstr "Для листка «%s» депонент уже створено."
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/wizard/hr_payslip_bank_export.py:0
+msgid "Для формату iFOBS вкажіть транзитний рахунок зарплатного проєкту."
+msgstr "Для формату iFOBS вкажіть транзитний рахунок зарплатного проєкту."
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_night
+msgid "Доплата за нічні"
+msgstr "Доплата за нічні"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "Доплата за нічні (%.0f%%)"
+msgstr "Доплата за нічні (%.0f%%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__night_surcharge_rate
+msgid ""
+"Доплата за роботу в нічний час, % годинної ставки (ст. 108 КЗпП — не нижче "
+"20%)."
+msgstr ""
+"Доплата за роботу в нічний час, % годинної ставки (ст. 108 КЗпП — не нижче "
+"20%)."
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_holiday
+msgid "Доплата за святкові"
+msgstr "Доплата за святкові"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_maternity
+msgid "Допомога по вагітності та пологах"
+msgstr "Допомога по вагітності та пологах"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_accrual_type__is_in_kind
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_accrual__is_in_kind
+msgid ""
+"Дохід у натуральній (негрошовій) формі. До бази ПДФО (та ВЗ) застосовується "
+"натуральний коефіцієнт для гросс-апу (п. 164.5 ПКУ)."
+msgstr ""
+"Дохід у натуральній (негрошовій) формі. До бази ПДФО (та ВЗ) застосовується "
+"натуральний коефіцієнт для гросс-апу (п. 164.5 ПКУ)."
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_in_kind
+msgid "Дохід у натуральній формі"
+msgstr "Дохід у натуральній формі"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.server,name:l10n_ua_hr_salary.action_hr_ifobs_employee_export_server
+msgid "Експорт для карток (iFOBS)"
+msgstr "Експорт для карток (iFOBS)"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.deduction.type,name:l10n_ua_hr_salary.deduction_type_court
+msgid "За рішенням суду"
+msgstr "За рішенням суду"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_cpi_index
+msgid "Заведіть місячні індекси споживчих цін"
+msgstr "Заведіть місячні індекси споживчих цін"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_ifobs_employee_export_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_bank_export_view_form
+msgid "Закрити"
+msgstr "Закрити"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_retro__source_payslip_id
+msgid "Закритий листок минулого періоду, що перераховувався."
+msgstr "Закритий листок минулого періоду, що перераховувався."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.res_company_view_form_payroll_bank
+msgid "Зарплатний банк-файл (клієнт-банк)"
+msgstr "Зарплатний банк-файл (клієнт-банк)"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip_run.py:0
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_payslip_bank_export
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_payslip_bank_export
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_bank_export_view_form
+msgid "Зарплатний файл у банк"
+msgstr "Зарплатний файл у банк"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__natural_coef_for_military
+msgid ""
+"Застосовувати натуральний коефіцієнт (п. 164.5 ПКУ) також до бази "
+"військового збору з натурального доходу. Вимкніть, якщо ВЗ утримується від "
+"звичайної вартості без гросс-апу."
+msgstr ""
+"Застосовувати натуральний коефіцієнт (п. 164.5 ПКУ) також до бази "
+"військового збору з натурального доходу. Вимкніть, якщо ВЗ утримується від "
+"звичайної вартості без гросс-апу."
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "Змін не виявлено — перерахунок не потрібен."
+msgstr "Змін не виявлено — перерахунок не потрібен."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_res_company__payroll_salary_project_code
+msgid "Код зарплатного проєкту (iFOBS CODEZKP)."
+msgstr "Код зарплатного проєкту (iFOBS CODEZKP)."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale__company_id
+msgid "Компанія"
+msgstr "Компанія"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_compensation
+msgid "Компенсація за невикористану відпустку"
+msgstr "Компенсація за невикористану відпустку"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip__salary_rate
+msgid ""
+"Курс валюти окладу до гривні на дату розрахунку (грн за одиницю). "
+"Підставляється з довідника курсів; можна відкоригувати вручну."
+msgstr ""
+"Курс валюти окладу до гривні на дату розрахунку (грн за одиницю). "
+"Підставляється з довідника курсів; можна відкоригувати вручну."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_payslip__salary_rate
+msgid "Курс окладу"
+msgstr "Курс окладу"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_sick_fss
+msgid "Лікарняні (за рахунок ФСС)"
+msgstr "Лікарняні (за рахунок ФСС)"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_sick_employer
+msgid "Лікарняні (за рахунок роботодавця)"
+msgstr "Лікарняні (за рахунок роботодавця)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__max_esv_base
+msgid "Максимальна база нарахування ЄСВ (15 мін. зарплат)"
+msgstr "Максимальна база нарахування ЄСВ (15 мін. зарплат)"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_material_aid
+msgid "Матеріальна допомога"
+msgstr "Матеріальна допомога"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__overtime_multiplier
+msgid "Множник оплати понаднормових годин (ст. 106 КЗпП — подвійний розмір)."
+msgstr "Множник оплати понаднормових годин (ст. 106 КЗпП — подвійний розмір)."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__holiday_multiplier
+msgid ""
+"Множник оплати роботи у святкові/неробочі дні (ст. 107 КЗпП — подвійний "
+"розмір)."
+msgstr ""
+"Множник оплати роботи у святкові/неробочі дні (ст. 107 КЗпП — подвійний "
+"розмір)."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_psp_parameters_view_form
+msgid "Множники доплат (табель)"
+msgstr "Множники доплат (табель)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__min_wage
+msgid "Мінімальна заробітна плата"
+msgstr "Мінімальна заробітна плата"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__min_hourly_wage
+msgid "Мінімальна погодинна заробітна плата"
+msgstr "Мінімальна погодинна заробітна плата"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_seniority_scale_line__years_from
+msgid "Мінімальний стаж у роках, з якого діє цей відсоток надбавки."
+msgstr "Мінімальний стаж у роках, з якого діє цей відсоток надбавки."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_employee__indexation_base_month
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_version__indexation_base_month
+msgid ""
+"Місяць останнього підвищення посадового окладу / тарифної ставки. "
+"Накопичення індексу споживчих цін починається з наступного місяця. "
+"Оновлюється при кожному підвищенні зарплати."
+msgstr ""
+"Місяць останнього підвищення посадового окладу / тарифної ставки. "
+"Накопичення індексу споживчих цін починається з наступного місяця. "
+"Оновлюється при кожному підвищенні зарплати."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_cpi_index__month
+msgid "Місяць індексу (нормалізується до першого числа)."
+msgstr "Місяць індексу (нормалізується до першого числа)."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "НАРАХОВАНО"
+msgstr "НАРАХОВАНО"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_allowance
+msgid "Надбавка"
+msgstr "Надбавка"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_seniority
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_employee__seniority_enabled
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_version__seniority_enabled
+msgid "Надбавка за вислугу років"
+msgstr "Надбавка за вислугу років"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_seniority_scale_line__percent
+msgid "Надбавка у відсотках до посадового окладу / тарифної ставки."
+msgstr "Надбавка у відсотках до посадового окладу / тарифної ставки."
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_overtime
+msgid "Надурочні"
+msgstr "Надурочні"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale__name
+msgid "Назва"
+msgstr "Назва"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.view_hr_seniority_scale_form
+msgid "Назва шкали"
+msgstr "Назва шкали"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_res_company__payroll_accrual_name
+msgid ""
+"Найменування виду нарахування (iFOBS FLOWTYPE / iBank 2 UA ONFLOW_TYPE) з "
+"довідника банку."
+msgstr ""
+"Найменування виду нарахування (iFOBS FLOWTYPE / iBank 2 UA ONFLOW_TYPE) з "
+"довідника банку."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_deposit__amount
+msgid "Нарахована сума до виплати, що депонується."
+msgstr "Нарахована сума до виплати, що депонується."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_advance_view_form
+msgid "Нарахування та податки"
+msgstr "Нарахування та податки"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_piece_work_entry
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.view_hr_piece_work_entry_form
+msgid "Наряд відрядної оплати"
+msgstr "Наряд відрядної оплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_piece_work_entry
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_piece_work_entry
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.view_hr_piece_work_entry_list
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.view_hr_piece_work_entry_search
+msgid "Наряди відрядної оплати"
+msgstr "Наряди відрядної оплати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__natural_coef_for_military
+msgid "Натур. коеф. для ВЗ"
+msgstr "Натур. коеф. для ВЗ"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_psp_parameters_view_form
+msgid "Натуральний дохід"
+msgstr "Натуральний дохід"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "Не знайдено тип нарахування «Перерахунок» (RETRO)."
+msgstr "Не знайдено тип нарахування «Перерахунок» (RETRO)."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_search
+msgid "Не погашені"
+msgstr "Не погашені"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/wizard/hr_payslip_bank_export.py:0
+msgid ""
+"Немає банківського рахунку (IBAN) у працівників:\n"
+"- %s"
+msgstr ""
+"Немає банківського рахунку (IBAN) у працівників:\n"
+"- %s"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_salary.action_hr_salary_deposit
+msgid "Немає депонованих сум"
+msgstr "Немає депонованих сум"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/wizard/hr_payslip_bank_export.py:0
+msgid "Немає закритих (Done) листків за вибором."
+msgstr "Немає закритих (Done) листків за вибором."
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid ""
+"Немає поточного відкритого листка для працівника «%s», куди перенести "
+"різницю. Створіть листок поточного періоду."
+msgstr ""
+"Немає поточного відкритого листка для працівника «%s», куди перенести "
+"різницю. Створіть листок поточного періоду."
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/wizard/hr_payslip_bank_export.py:0
+msgid ""
+"Немає рядків для виплати (усі суми нульові або немає закритих листків за "
+"період)."
+msgstr ""
+"Немає рядків для виплати (усі суми нульові або немає закритих листків за "
+"період)."
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_deposit.py:0
+msgid "Немає суми до виплати для депонування (net = %.2f)."
+msgstr "Немає суми до виплати для депонування (net = %.2f)."
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/wizard/hr_ifobs_employee_export.py:0
+msgid "Оберіть працівників."
+msgstr "Оберіть працівників."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__quantity
+msgid "Обсяг (виробіток)"
+msgstr "Обсяг (виробіток)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.constraint,message:l10n_ua_hr_salary.constraint_hr_piece_work_entry_quantity_positive
+msgid "Обсяг виробітку не може бути відʼємним."
+msgstr "Обсяг виробітку не може бути відʼємним."
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_salary
+msgid "Оклад"
+msgstr "Оклад"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__name
+msgid "Операція / наряд"
+msgstr "Операція / наряд"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_piece_work_entry__name
+msgid "Опис виконаної роботи (операція, наряд)."
+msgstr "Опис виконаної роботи (операція, наряд)."
+
+#. module: l10n_ua_hr_salary
+#: model:hr.deduction.type,name:l10n_ua_hr_salary.deduction_type_pdfo
+msgid "ПДФО"
+msgstr "ПДФО"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "ПДФО (18%)"
+msgstr "ПДФО (18%)"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "Перенесено перерахунків: %d."
+msgstr "Перенесено перерахунків: %d."
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "Перенесено ретро-різницю %+.2f за період %s (з листка %s)."
+msgstr "Перенесено ретро-різницю %+.2f за період %s (з листка %s)."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Перерахувати (ретро)"
+msgstr "Перерахувати (ретро)"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid ""
+"Перерахувати період з поточними даними і перенести різницю в поточний листок"
+msgstr ""
+"Перерахувати період з поточними даними і перенести різницю в поточний листок"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "Перерахунок за %s (%s): було %.2f, стало %.2f"
+msgstr "Перерахунок за %s (%s): було %.2f, стало %.2f"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_retro
+msgid "Перерахунок за минулий період"
+msgstr "Перерахунок за минулий період"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Період"
+msgstr "Період"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.deduction.type,name:l10n_ua_hr_salary.deduction_type_loan
+msgid "Погашення позики"
+msgstr "Погашення позики"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_search
+msgid "Погашено"
+msgstr "Погашено"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields.selection,name:l10n_ua_hr_salary.selection__hr_version__salary_form__time
+msgid "Погодинна / окладна"
+msgstr "Погодинна / окладна"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__psp_150
+msgid "Податкова соціальна пільга 150% (75% ПМ)"
+msgstr "Податкова соціальна пільга 150% (75% ПМ)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__psp_200
+msgid "Податкова соціальна пільга 200% (100% ПМ)"
+msgstr "Податкова соціальна пільга 200% (100% ПМ)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__psp_standard
+msgid "Податкова соціальна пільга 50% ПМ"
+msgstr "Податкова соціальна пільга 50% ПМ"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "Понаднормові (×%.2g)"
+msgstr "Понаднормові (×%.2g)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__indexation_threshold
+msgid ""
+"Поріг наростаючого індексу споживчих цін, при перевищенні якого проводиться "
+"індексація (Порядок №1078 — 101%)."
+msgstr ""
+"Поріг наростаючого індексу споживчих цін, при перевищенні якого проводиться "
+"індексація (Порядок №1078 — 101%)."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_psp_parameters__indexation_threshold
+msgid "Поріг індексації (%)"
+msgstr "Поріг індексації (%)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_retro__target_payslip_id
+msgid "Поточний листок, у який перенесено різницю."
+msgstr "Поточний листок, у який перенесено різницю."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__employee_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.view_hr_piece_work_entry_search
+msgid "Працівник"
+msgstr "Працівник"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.accrual.type,name:l10n_ua_hr_salary.accrual_type_bonus
+msgid "Премія"
+msgstr "Премія"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_employee__indexation_enabled
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_version__indexation_enabled
+msgid ""
+"Проводити індексацію заробітної плати згідно із Законом про індексацію "
+"грошових доходів населення."
+msgstr ""
+"Проводити індексацію заробітної плати згідно із Законом про індексацію "
+"грошових доходів населення."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__subsistence_minimum
+msgid "Прожитковий мінімум для працездатних осіб"
+msgstr "Прожитковий мінімум для працездатних осіб"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.deduction.type,name:l10n_ua_hr_salary.deduction_type_union
+msgid "Профспілкові внески"
+msgstr "Профспілкові внески"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "РОЗРАХУНКОВИЙ ЛИСТОК"
+msgstr "РОЗРАХУНКОВИЙ ЛИСТОК"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.view_hr_piece_work_entry_list
+msgid "Разом"
+msgstr "Разом"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_res_company__payroll_bank_account_id
+msgid "Рахунок компанії-платника для зарплатного банк-файлу."
+msgstr "Рахунок компанії-платника для зарплатного банк-файлу."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_view_form
+msgid "Ретро-перерахунки"
+msgstr "Ретро-перерахунки"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+#: model:ir.actions.server,name:l10n_ua_hr_salary.action_hr_payslip_retro_batch
+msgid "Ретро-перерахунок"
+msgstr "Ретро-перерахунок"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid ""
+"Ретро-перерахунок можливий лише для закритих (Done) листків. Листок «%s» у "
+"стані «%s»."
+msgstr ""
+"Ретро-перерахунок можливий лише для закритих (Done) листків. Листок «%s» у "
+"стані «%s»."
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "Ретро-перерахунок: різницю %+.2f перенесено в листок %s."
+msgstr "Ретро-перерахунок: різницю %+.2f перенесено в листок %s."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_salary_deposit__source_payslip_id
+msgid "Розрахунковий листок, зарплату за яким депоновано."
+msgstr "Розрахунковий листок, зарплату за яким депоновано."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__unit_rate
+msgid "Розцінка за одиницю"
+msgstr "Розцінка за одиницю"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.constraint,message:l10n_ua_hr_salary.constraint_hr_piece_work_entry_rate_positive
+msgid "Розцінка не може бути відʼємною."
+msgstr "Розцінка не може бути відʼємною."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_retro__accrual_line_id
+msgid "Рядок нарахування «Перерахунок» у поточному листку."
+msgstr "Рядок нарахування «Перерахунок» у поточному листку."
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "Святкові/неробочі (×%.2g)"
+msgstr "Святкові/неробочі (×%.2g)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__military_tax_rate
+msgid "Ставка військового збору"
+msgstr "Ставка військового збору"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__pdfo_rate
+msgid "Ставка податку на доходи фізичних осіб"
+msgstr "Ставка податку на доходи фізичних осіб"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_psp_parameters__esv_rate
+msgid "Ставка єдиного соціального внеску"
+msgstr "Ставка єдиного соціального внеску"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale_line__years_from
+msgid "Стаж від (років)"
+msgstr "Стаж від (років)"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.constraint,message:l10n_ua_hr_salary.constraint_hr_seniority_scale_line_years_positive
+msgid "Стаж не може бути відʼємним."
+msgstr "Стаж не може бути відʼємним."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale__line_ids
+msgid "Ступені"
+msgstr "Ступені"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_seniority_scale_line
+msgid "Ступінь шкали вислуги років"
+msgstr "Ступінь шкали вислуги років"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_piece_work_entry__amount
+msgid "Сума"
+msgstr "Сума"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_deposit.py:0
+msgid "Сума виплат (%(paid).2f) перевищує депоновану суму (%(total).2f)."
+msgstr "Сума виплат (%(paid).2f) перевищує депоновану суму (%(total).2f)."
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_salary_deposit.py:0
+msgid "Сума виплати має бути додатною."
+msgstr "Сума виплати має бути додатною."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.constraint,message:l10n_ua_hr_salary.constraint_hr_salary_deposit_check_amount_positive
+msgid "Сума депонента має бути додатною!"
+msgstr "Сума депонента має бути додатною!"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_ifobs_employee_export_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_bank_export_view_form
+msgid "Сформувати"
+msgstr "Сформувати"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_res_company__payroll_bank_file_format
+msgid "Типовий формат зарплатного файлу для клієнт-банку."
+msgstr "Типовий формат зарплатного файлу для клієнт-банку."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_res_company__payroll_transit_account_id
+msgid "Транзитний рахунок зарплатного проєкту (iFOBS TRACCIBAN)."
+msgstr "Транзитний рахунок зарплатного проєкту (iFOBS TRACCIBAN)."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_bank_export__transit_account_id
+msgid "Транзитний рахунок зарплатного проєкту (iFOBS)."
+msgstr "Транзитний рахунок зарплатного проєкту (iFOBS)."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "УТРИМАНО"
+msgstr "УТРИМАНО"
+
+#. module: l10n_ua_hr_salary
+#: model:hr.deduction.type,name:l10n_ua_hr_salary.deduction_type_advance
+msgid "Утримання авансу"
+msgstr "Утримання авансу"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_bank_export_view_form
+msgid "Файл сформовано. Завантажте його і імпортуйте в клієнт-банк."
+msgstr "Файл сформовано. Завантажте його і імпортуйте в клієнт-банк."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_payslip_run_view_form
+msgid "Файл у банк"
+msgstr "Файл у банк"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_employee__salary_form
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_version__salary_form
+msgid "Форма оплати праці"
+msgstr "Форма оплати праці"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_ifobs_employee_export_view_form
+msgid ""
+"Формує DBF «Дані щодо співробітників» для відкриття карток\n"
+"                        у зарплатному проєкті iFOBS (Укргазбанк та ін.)."
+msgstr ""
+"Формує DBF «Дані щодо співробітників» для відкриття карток\n"
+"                        у зарплатному проєкті iFOBS (Укргазбанк та ін.)."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.view_hr_piece_work_entry_search
+msgid "Цей місяць"
+msgstr "Цей місяць"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.hr_salary_deposit_view_search
+msgid "Частково"
+msgstr "Частково"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_res_company__payroll_payment_purpose
+msgid ""
+"Шаблон призначення платежу. Плейсхолдери: {period}, {employee}, {rnokpp}."
+msgstr ""
+"Шаблон призначення платежу. Плейсхолдери: {period}, {employee}, {rnokpp}."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_seniority_scale_line__scale_id
+msgid "Шкала"
+msgstr "Шкала"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_employee__seniority_scale_id
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_version__seniority_scale_id
+msgid ""
+"Шкала «стаж → відсоток». Якщо не задано — береться перша активна шкала "
+"компанії."
+msgstr ""
+"Шкала «стаж → відсоток». Якщо не задано — береться перша активна шкала "
+"компанії."
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_employee__seniority_scale_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_salary.field_hr_version__seniority_scale_id
+msgid "Шкала вислуги"
+msgstr "Шкала вислуги"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.view_hr_seniority_scale_form
+msgid "Шкала вислуги років"
+msgstr "Шкала вислуги років"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model,name:l10n_ua_hr_salary.model_hr_seniority_scale
+msgid "Шкала надбавки за вислугу років"
+msgstr "Шкала надбавки за вислугу років"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.actions.act_window,name:l10n_ua_hr_salary.action_hr_seniority_scale
+#: model:ir.ui.menu,name:l10n_ua_hr_salary.menu_hr_seniority_scale
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.view_hr_seniority_scale_list
+msgid "Шкали вислуги років"
+msgstr "Шкали вислуги років"
+
+#. module: l10n_ua_hr_salary
+#: model:ir.model.fields,help:l10n_ua_hr_salary.field_hr_payslip_bank_export__payslip_run_id
+msgid "Якщо задано — беруться листки цієї відомості; інакше — за період."
+msgstr "Якщо задано — беруться листки цієї відомості; інакше — за період."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "год."
+msgstr "год."
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "грн"
+msgstr "грн"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "дн. /"
+msgstr "дн. /"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "донарахування"
+msgstr "донарахування"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "за період з"
+msgstr "за період з"
+
+#. module: l10n_ua_hr_salary
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_salary.report_payslip_document
+msgid "по"
+msgstr "по"
+
+#. module: l10n_ua_hr_salary
+#. odoo-python
+#: code:addons/l10n_ua_hr_salary/models/hr_payslip.py:0
+msgid "сторнування"
+msgstr "сторнування"

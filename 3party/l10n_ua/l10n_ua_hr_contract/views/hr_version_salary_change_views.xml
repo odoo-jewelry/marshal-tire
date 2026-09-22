@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_version_salary_change_view_form" model="ir.ui.view">
+        <field name="name">hr.version.salary.change.form</field>
+        <field name="model">hr.version.salary.change</field>
+        <field name="arch" type="xml">
+            <form string="Salary Change">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_apply" string="Apply" type="object"
+                            class="btn-primary" invisible="state != 'confirmed'"/>
+                    <button name="action_cancel" string="Cancel" type="object"
+                            invisible="state in ('applied', 'cancelled')"/>
+                    <button name="action_draft" string="Reset to Draft" type="object"
+                            invisible="state in ('draft', 'applied')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,applied"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="display_name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="version_id"/>
+                            <field name="employee_id"/>
+                            <field name="effective_date"/>
+                        </group>
+                        <group>
+                            <field name="order_number"/>
+                            <field name="order_date"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Salary">
+                            <field name="old_wage"/>
+                            <field name="new_wage"/>
+                            <field name="change_amount"/>
+                            <field name="change_percent"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="reason"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_version_salary_change_view_list" model="ir.ui.view">
+        <field name="name">hr.version.salary.change.list</field>
+        <field name="model">hr.version.salary.change</field>
+        <field name="arch" type="xml">
+            <list string="Salary Changes">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="effective_date"/>
+                <field name="old_wage"/>
+                <field name="new_wage"/>
+                <field name="change_percent"/>
+                <field name="order_number"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'applied'"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'confirmed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hr_version_salary_change" model="ir.actions.act_window">
+        <field name="name">Salary Changes</field>
+        <field name="res_model">hr.version.salary.change</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

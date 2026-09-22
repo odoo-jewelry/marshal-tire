@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_hr_fss_settlement" model="ir.sequence">
+            <field name="name">FSS Settlement</field>
+            <field name="code">hr.fss.settlement</field>
+            <field name="prefix">ФСС/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,32 @@
+.o_l10n_ua_material_report_period {
+    // A trace that the report was recomputed. The flash appears at once and
+    // fades away slowly: a sharp rise is caught even out of the corner of the
+    // eye, while a slow fade does not tug at the gaze once the user is already
+    // reading the rows.
+    > .btn {
+        transition: background-color 0.7s ease-out, border-color 0.7s ease-out;
+    }
+
+    > .btn.o_period_just_applied {
+        background-color: var(--bs-success-bg-subtle, #d1e7dd);
+        border-color: var(--bs-success-border-subtle, #a3cfbb);
+        transition: none;
+    }
+}
+
+// The `o_input_Nch` utility sizes `input` elements only, but a date range
+// shows a value that is not being edited as a `<button class="o_input …">`
+// (web/views/fields/datetime/datetime_field.xml). Those buttons carry `w-100`,
+// so inside a field box narrowed by `oe_inline` they collapse and the date
+// wraps onto two lines. Same width for both renderings, and the value stays on
+// one line whichever of the two is on screen.
+//
+// Only the two ends of a range are named, not `.o_input` at large: the class
+// this leans on is a stock utility used by other modules too (crm's
+// `expected_revenue`, for one), and a rule of ours has no business reaching
+// their fields.
+.o_field_widget.o_input_13ch {
+    .o_daterange_start, .o_daterange_end {
+        width: 13ch !important;
+    }
+}

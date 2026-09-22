@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Documents Root Menu -->
+    <menuitem id="menu_hr_documents_root"
+              name="Documents"
+              parent="hr.menu_hr_root"
+              sequence="15"/>
+
+    <!-- Staffing Table Menu -->
+    <menuitem id="menu_hr_staffing_table"
+              name="Штатний розпис"
+              action="action_hr_staffing_table"
+              parent="menu_hr_documents_root"
+              sequence="10"/>
+
+    <!-- Employee Reports (Reporting menu) -->
+    <menuitem id="menu_hr_employee_list_report"
+              name="Список працівників"
+              action="action_hr_employee_list_report"
+              parent="hr.hr_menu_hr_reports"
+              sequence="60"/>
+
+    <menuitem id="menu_hr_employee_military_report"
+              name="Військовозобов'язані"
+              action="action_hr_employee_military_report"
+              parent="hr.hr_menu_hr_reports"
+              sequence="70"/>
+
+    <menuitem id="menu_hr_military_op_report"
+              name="Оперативний військовий облік"
+              action="action_hr_military_op_report"
+              parent="hr.hr_menu_hr_reports"
+              sequence="71"/>
+
+    <menuitem id="menu_hr_military_notification"
+              name="Повідомлення до ТЦК"
+              action="action_hr_military_notification"
+              parent="hr.hr_menu_hr_reports"
+              sequence="72"/>
+
+    <menuitem id="menu_hr_employee_benefits_report"
+              name="Працівники з пільгами"
+              action="action_hr_employee_benefits_report"
+              parent="hr.hr_menu_hr_reports"
+	    sequence="80"/>
+
+    <!-- Ukraine Configuration Menu -->
+    <menuitem id="menu_hr_ua_configuration"
+              name="Ukraine"
+              parent="hr.menu_human_resources_configuration"
+              sequence="100"/>
+
+    <!-- Reference Data Menus -->
+    <menuitem id="menu_hr_ua_classifiers"
+              name="Classifiers"
+              parent="menu_hr_ua_configuration"
+              sequence="10"/>
+
+    <menuitem id="menu_hr_kp2010"
+              name="Professions (KP 2010)"
+              action="action_hr_kp2010"
+              parent="menu_hr_ua_classifiers"
+              sequence="10"/>
+
+    <menuitem id="menu_hr_education_level"
+              name="Education Levels"
+              action="action_hr_education_level"
+              parent="menu_hr_ua_classifiers"
+              sequence="20"/>
+
+    <menuitem id="menu_hr_tariff_grade"
+              name="Tariff Grades"
+              action="action_hr_tariff_grade"
+              parent="menu_hr_ua_classifiers"
+              sequence="30"/>
+
+    <menuitem id="menu_hr_employee_benefit"
+              name="Employee Benefits"
+              action="action_hr_employee_benefit"
+              parent="menu_hr_ua_classifiers"
+              sequence="40"/>
+
+    <!-- Military Accounting Menus -->
+    <menuitem id="menu_hr_ua_military"
+              name="Military Accounting"
+              parent="menu_hr_ua_configuration"
+              sequence="20"/>
+
+    <menuitem id="menu_hr_military_rank"
+              name="Military Ranks"
+              action="action_hr_military_rank"
+              parent="menu_hr_ua_military"
+              sequence="10"/>
+
+    <menuitem id="menu_hr_military_tcc"
+              name="Territorial Recruitment Centers"
+              action="action_hr_military_tcc"
+              parent="menu_hr_ua_military"
+              sequence="20"/>
+
+</odoo>

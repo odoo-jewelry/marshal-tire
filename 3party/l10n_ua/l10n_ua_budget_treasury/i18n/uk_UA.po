@@ -1,0 +1,9 @@
+#. Translations for l10n_ua_budget_treasury — Ukrainian (uk_UA)
+msgid ""
+msgstr ""
+"Project-Id-Version: l10n_ua_budget_treasury 19.0.1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"

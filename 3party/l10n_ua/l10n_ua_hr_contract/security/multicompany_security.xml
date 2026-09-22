@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Multi-company record rules (issue #178).
+             These models carry company_id but had no multi-company ir.rule,
+             so records leaked across ALL companies. Global rules scope them
+             to the user's allowed companies. Standard Odoo pattern
+             (see l10n_ua_account_vat pilot). -->
+
+        <record id="hr_job_combining_company_rule" model="ir.rule">
+            <field name="name">Суміщення посад: multi-company</field>
+            <field name="model_id" ref="model_hr_job_combining"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+            </field>
+        </record>
+
+        <record id="hr_version_amendment_company_rule" model="ir.rule">
+            <field name="name">Зміна умов договору: multi-company</field>
+            <field name="model_id" ref="model_hr_version_amendment"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+            </field>
+        </record>
+
+        <record id="hr_version_salary_change_company_rule" model="ir.rule">
+            <field name="name">Зміна окладу: multi-company</field>
+            <field name="model_id" ref="model_hr_version_salary_change"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+            </field>
+        </record>
+
+        <!-- resource.calendar has no multi-company rule in the core, unlike
+             its siblings resource.resource and resource.calendar.leaves
+             (addons/resource/security/resource_security.xml), so working
+             schedules of every company were visible to everyone. Since
+             19.0.6.0.0 each company owns its own copies, which makes the
+             missing rule visible: an HR officer would see ten schedules per
+             company instead of ten.
+
+             company_id = False is still allowed - that is what the archived
+             templates in data/resource_calendar_ua_data.xml carry, and the
+             core relies on company-less calendars being readable. -->
+
+        <record id="resource_calendar_company_rule" model="ir.rule">
+            <field name="name">Робочий час: multi-company</field>
+            <field name="model_id" ref="resource.model_resource_calendar"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+            </field>
+        </record>
+
+        <!-- hr.version.allowance carries no company_id of its own - it is
+             scoped through the version it belongs to. Record rules do not
+             cascade through a many2one, so without this rule an HR officer of
+             one company could read the allowances of another company's
+             employees (verified on a live database). The domain walks
+             version_id.company_id instead. -->
+
+        <record id="hr_version_allowance_company_rule" model="ir.rule">
+            <field name="name">Надбавка до версії: multi-company</field>
+            <field name="model_id" ref="model_hr_version_allowance"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|', ('version_id.company_id', '=', False),
+                      ('version_id.company_id', 'in', company_ids)]
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- OZ-6 Inventory Card Report Action -->
+    <record id="action_report_asset_oz6" model="ir.actions.report">
+        <field name="name">Інвентарна картка ОЗ-6</field>
+        <field name="model">l10n_ua.asset</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_assets.report_asset_oz6_document</field>
+        <field name="report_file">l10n_ua_assets.report_asset_oz6_document</field>
+        <field name="print_report_name">'ОЗ-6_%s' % (object.inventory_number or object.name)</field>
+        <field name="binding_model_id" ref="model_l10n_ua_asset"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+    <!-- OZ-6 Template -->
+    <template id="report_asset_oz6_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-call="l10n_ua_doc_reports.report_ua_styles"/>
+                    <div class="page ua-report">
+                        <t t-set="company" t-value="o.company_id"/>
+                        <t t-set="comp_partner" t-value="company.partner_id"/>
+
+                        <!-- Form number reference -->
+                        <div class="form-number-box">
+                            <div class="small">Типова форма № ОЗ-6</div>
+                            <div class="small">Затверджено наказом</div>
+                            <div class="small">Мінстату України</div>
+                            <div class="small">від 29.12.95 № 352</div>
+                        </div>
+
+                        <!-- Company header -->
+                        <div class="company-header">
+                            <div class="company-name" t-field="company.name"/>
+                            <div class="small">(найменування підприємства)</div>
+                            <t t-if="comp_partner.company_registry">
+                                <div class="company-code">
+                                    Ідентифікаційний код ЄДРПОУ:
+                                    <span t-field="comp_partner.company_registry"/>
+                                </div>
+                            </t>
+                        </div>
+
+                        <!-- Title -->
+                        <div class="ua-report-title" style="margin: 15px 0 5px 0;">
+                            ІНВЕНТАРНА КАРТКА<br/>
+                            <span style="font-size: 11pt;">обліку основних засобів</span>
+                        </div>
+
+                        <!-- Document info -->
+                        <table class="no-border-all mb-3" style="width: 60%; margin: 0 auto;">
+                            <tr>
+                                <td class="text-center" style="width: 50%; border-bottom: 1px solid black;">
+                                    <span t-esc="o.inventory_number or '—'"/>
+                                </td>
+                                <td style="width: 10%;"></td>
+                                <td class="text-center" style="width: 40%; border-bottom: 1px solid black;">
+                                    <span t-field="o.acquisition_date" t-options='{"widget": "date"}'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center small">(інвентарний номер)</td>
+                                <td></td>
+                                <td class="text-center small">(дата заведення картки)</td>
+                            </tr>
+                        </table>
+
+                        <!-- Asset identification -->
+                        <table class="mb-3" style="width: 100%;">
+                            <tr>
+                                <th colspan="2" style="text-align: left;">1. Характеристика об'єкта</th>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">Найменування об'єкта:</td>
+                                <td><strong t-field="o.name"/></td>
+                            </tr>
+                            <tr>
+                                <td>Група основних засобів:</td>
+                                <td><span t-esc="o._get_group_name() or '—'"/></td>
+                            </tr>
+                            <tr>
+                                <td>Місцезнаходження:</td>
+                                <td><span t-esc="o.location or '—'"/></td>
+                            </tr>
+                            <tr>
+                                <td>МВО:</td>
+                                <td><span t-esc="o.responsible_id.name if o.responsible_id else '—'"/></td>
+                            </tr>
+                        </table>
+
+                        <!-- Acquisition and commissioning -->
+                        <table class="mb-3" style="width: 100%;">
+                            <tr>
+                                <th colspan="2" style="text-align: left;">2. Відомості про придбання та введення в експлуатацію</th>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">Дата придбання:</td>
+                                <td><span t-field="o.acquisition_date" t-options='{"widget": "date"}'/></td>
+                            </tr>
+                            <tr>
+                                <td>Дата введення в експлуатацію:</td>
+                                <td>
+                                    <t t-if="o.commission_date">
+                                        <span t-field="o.commission_date" t-options='{"widget": "date"}'/>
+                                    </t>
+                                    <t t-else="">—</t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Акт введення №:</td>
+                                <td><span t-esc="o.commission_act_number or '—'"/></td>
+                            </tr>
+                            <tr>
+                                <td>Первісна вартість:</td>
+                                <td class="bold"><span t-esc="'%.2f' % o.original_value"/> грн.</td>
+                            </tr>
+                            <tr>
+                                <td>Ліквідаційна вартість:</td>
+                                <td><span t-esc="'%.2f' % o.salvage_value"/> грн.</td>
+                            </tr>
+                        </table>
+
+                        <!-- Depreciation parameters -->
+                        <table class="mb-3" style="width: 100%;">
+                            <tr>
+                                <th colspan="2" style="text-align: left;">3. Нарахування амортизації</th>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">Метод амортизації:</td>
+                                <td><span t-esc="o._get_depreciation_method_name() or '—'"/></td>
+                            </tr>
+                            <tr>
+                                <td>Строк корисного використання:</td>
+                                <td><span t-esc="o.useful_life"/> міс. (<span t-esc="'%.1f' % (o.useful_life / 12)"/> р.)</td>
+                            </tr>
+                            <t t-if="o.depreciation_method == 'declining_balance' and o.annual_depreciation_rate">
+                                <tr>
+                                    <td>Річна норма амортизації:</td>
+                                    <td><span t-esc="'%.2f' % o.annual_depreciation_rate"/>%</td>
+                                </tr>
+                            </t>
+                            <t t-if="o.depreciation_method == 'production'">
+                                <tr>
+                                    <td>Виробнича потужність:</td>
+                                    <td><span t-esc="'%.0f' % o.production_capacity"/> од.</td>
+                                </tr>
+                            </t>
+                            <tr>
+                                <td>Місячна амортизація:</td>
+                                <td class="bold"><span t-esc="'%.2f' % o.depreciation_amount"/> грн.</td>
+                            </tr>
+                        </table>
+
+                        <!-- Depreciation history table -->
+                        <table class="mb-3" style="width: 100%;">
+                            <tr>
+                                <th colspan="5" style="text-align: left;">4. Відомість нарахування амортизації</th>
+                            </tr>
+                            <tr>
+                                <th style="width: 5%;">№</th>
+                                <th style="width: 25%;">Дата</th>
+                                <th style="width: 25%;">Амортизація за період</th>
+                                <th style="width: 25%;">Накопичена амортизація</th>
+                                <th style="width: 20%;">Залишкова вартість</th>
+                            </tr>
+                            <t t-set="row_num" t-value="0"/>
+                            <t t-set="posted_lines" t-value="o.depreciation_line_ids.filtered(lambda l: l.state == 'posted').sorted('date')"/>
+                            <t t-foreach="posted_lines" t-as="line">
+                                <t t-set="row_num" t-value="row_num + 1"/>
+                                <tr>
+                                    <td class="text-center" t-esc="row_num"/>
+                                    <td class="text-center">
+                                        <span t-field="line.date" t-options='{"widget": "date"}'/>
+                                    </td>
+                                    <td class="text-right"><span t-esc="'%.2f' % line.amount"/></td>
+                                    <td class="text-right"><span t-esc="'%.2f' % line.accumulated"/></td>
+                                    <td class="text-right"><span t-esc="'%.2f' % line.remaining"/></td>
+                                </tr>
+                            </t>
+                            <t t-if="not posted_lines">
+                                <tr>
+                                    <td colspan="5" class="text-center" style="padding: 10px;">
+                                        Амортизацію ще не нараховано
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+
+                        <!-- Current values summary -->
+                        <table class="no-border-all mb-3" style="width: 100%;">
+                            <tr>
+                                <th colspan="2" style="text-align: left; border: none !important;">5. Поточний стан</th>
+                            </tr>
+                            <tr>
+                                <td style="width: 35%;">Накопичена амортизація:</td>
+                                <td class="bold"><span t-esc="'%.2f' % o.accumulated_depreciation"/> грн.</td>
+                            </tr>
+                            <tr>
+                                <td>Залишкова вартість:</td>
+                                <td class="bold"><span t-esc="'%.2f' % o.book_value"/> грн.</td>
+                            </tr>
+                        </table>
+
+                        <!-- Signature block -->
+                        <div class="signature-block" style="margin-top: 30px;">
+                            <div class="signature-row">
+                                <span>Головний бухгалтер</span>
+                                <span class="signature-line"></span>
+                                <span class="small">(підпис)</span>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

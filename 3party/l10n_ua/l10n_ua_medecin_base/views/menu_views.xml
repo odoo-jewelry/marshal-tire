@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_medecin_root"
+              name="Медицина (UA)"
+              sequence="56"
+              web_icon="l10n_ua_medecin_base,static/description/icon.png"
+              groups="group_ua_medecin_user"/>
+
+    <menuitem id="menu_medecin_config"
+              name="Налаштування"
+              parent="menu_medecin_root"
+              sequence="100"
+              groups="group_ua_medecin_manager"/>
+
+    <menuitem id="menu_medecin_specialty"
+              name="Спеціалізації"
+              parent="menu_medecin_config"
+              action="action_specialty"
+              sequence="10"/>
+</odoo>

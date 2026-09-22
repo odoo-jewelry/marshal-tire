@@ -14,8 +14,8 @@ class PosOrderLine(models.Model):
             return False
         orders.check_access("read")
         return bool(orders.filtered(
-            lambda order: order.correction_root_id or order.correction_ids
-            or order.is_correction_order
+            lambda order: order.correction_root_id or order.is_correction_order
+            or order.correction_ids.filtered(lambda correction: correction.state == "applied")
         ))
 
     def _cost_recompute_unsupported_reason(self):

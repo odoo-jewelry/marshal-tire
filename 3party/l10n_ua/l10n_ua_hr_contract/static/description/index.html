@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<section style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px;">
+
+<h1 style="color: #875A7B; border-bottom: 3px solid #875A7B; padding-bottom: 15px; font-size: 2em;">Ukraine - HR Contracts</h1>
+
+<div style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #875A7B;">
+    <strong style="font-size: 1.3em;">Модуль трудових договорів для Odoo 19</strong><br/><br/>
+    Повна система управління трудовими договорами відповідно до КЗпП України.
+    Підтримка всіх типів договорів, надбавок, графіків роботи та підстав звільнення.
+</div>
+
+<div style="display: flex; gap: 15px; flex-wrap: wrap; margin: 25px 0;">
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px; border: 1px solid #e0e0e0;">
+        <div style="font-size: 2em; color: #875A7B; font-weight: bold;">8</div>
+        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Типів договорів</div>
+    </div>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px; border: 1px solid #e0e0e0;">
+        <div style="font-size: 2em; color: #875A7B; font-weight: bold;">5</div>
+        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Режимів роботи</div>
+    </div>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px; border: 1px solid #e0e0e0;">
+        <div style="font-size: 2em; color: #875A7B; font-weight: bold;">6+</div>
+        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Типів надбавок</div>
+    </div>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px; border: 1px solid #e0e0e0;">
+        <div style="font-size: 2em; color: #875A7B; font-weight: bold;">Diia.City</div>
+        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Підтримка</div>
+    </div>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Типи трудових договорів</h2>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+    <tr><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Тип</th><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Опис</th></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Безстроковий</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Постійний трудовий договір без терміну закінчення</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>Строковий</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Договір з визначеним терміном дії</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Контракт</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Особлива форма строкового договору</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>Цивільно-правовий</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Договір ЦПХ (підряду, послуг)</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Гіг-контракт (Diia.City)</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Договір для резидентів Diia.City з особливим оподаткуванням</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>Авторський</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Договір про передачу авторських прав</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;"><strong>Сезонний</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Договір на сезонні роботи</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;"><strong>Тимчасовий</strong></td><td style="border: 1px solid #ddd; padding: 12px;">Договір на тимчасові роботи (до 2 місяців)</td></tr>
+</table>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Основні параметри договору</h2>
+
+<div style="display: flex; gap: 30px; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #555; margin-top: 25px;">Загальні дані</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Номер та дата договору</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Працівник, підрозділ, посада</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Дата початку та закінчення</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Прив'язка до штатного розпису</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Тарифний розряд</li>
+        </ul>
+
+        <h3 style="color: #555; margin-top: 25px;">Оплата праці</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Посадовий оклад</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Надбавки (сумарно)</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Загальна заробітна плата</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Валідація в межах оклада штатного розпису</li>
+        </ul>
+    </div>
+    <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #555; margin-top: 25px;">Робоче місце</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Основне місце роботи / сумісництво</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Внутрішнє / зовнішнє сумісництво</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Ставка (1.0, 0.5, 0.25...)</li>
+        </ul>
+
+        <h3 style="color: #555; margin-top: 25px;">Випробувальний термін</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Тривалість в днях</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Автоматичний розрахунок дати закінчення</li>
+        </ul>
+
+        <h3 style="color: #555; margin-top: 25px;">Наказ</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Номер та дата наказу про прийом</li>
+            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Номер та дата наказу про звільнення</li>
+        </ul>
+    </div>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Режими роботи</h2>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+    <tr><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Режим</th><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Опис</th></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">Повний робочий день</td><td style="border: 1px solid #ddd; padding: 12px;">Стандартний 8-годинний робочий день</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">Неповний робочий час</td><td style="border: 1px solid #ddd; padding: 12px;">Скорочений робочий день/тиждень</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">Гнучкий графік</td><td style="border: 1px solid #ddd; padding: 12px;">Вільний вибір робочих годин</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">Дистанційна робота</td><td style="border: 1px solid #ddd; padding: 12px;">Робота поза офісом</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">Гібридний</td><td style="border: 1px solid #ddd; padding: 12px;">Поєднання офісної та дистанційної роботи</td></tr>
+</table>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Кількість годин на тиждень</strong> — за замовчуванням 40</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Графіки роботи</strong> — 5-денка, змінний, гнучкий тощо</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Інтеграція з resource.calendar</strong></li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Умови праці</h2>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+    <tr><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Умови</th><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Додаткова відпустка</th></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">Нормальні</td><td style="border: 1px solid #ddd; padding: 12px;">-</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">Шкідливі</td><td style="border: 1px solid #ddd; padding: 12px;">До 35 днів залежно від класу</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">Важкі</td><td style="border: 1px solid #ddd; padding: 12px;">До 35 днів залежно від класу</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">Підземні роботи</td><td style="border: 1px solid #ddd; padding: 12px;">7 днів</td></tr>
+</table>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Клас та підклас шкідливості</strong> — згідно з ДСТУ</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Автоматичний розрахунок</strong> — додаткових днів відпустки</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Надбавки</h2>
+
+<p>Система надбавок до заробітної плати з різними методами розрахунку:</p>
+
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+    <tr><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Метод</th><th style="border: 1px solid #ddd; padding: 12px; text-align: left; background: #875A7B; color: white;">Опис</th></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">Фіксована сума</td><td style="border: 1px solid #ddd; padding: 12px;">Конкретна сума в гривнях</td></tr>
+    <tr style="background: #f9f9f9;"><td style="border: 1px solid #ddd; padding: 12px;">Відсоток від окладу</td><td style="border: 1px solid #ddd; padding: 12px;">% від посадового окладу</td></tr>
+    <tr><td style="border: 1px solid #ddd; padding: 12px;">Відсоток від мін. зарплати</td><td style="border: 1px solid #ddd; padding: 12px;">% від мінімальної зарплати</td></tr>
+</table>
+
+<h3 style="color: #555; margin-top: 25px;">Типи надбавок</h3>
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">За вислугу років</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">За шкідливі умови праці</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">За інтенсивність праці</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">За роботу в нічний час</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">За керівництво бригадою</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Персональна надбавка</li>
+</ul>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Період дії</strong> — дата початку та закінчення</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Автоматичний перерахунок</strong> — при зміні окладу</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Підстави звільнення</h2>
+
+<p>Готовий довідник підстав звільнення згідно КЗпП України:</p>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Стаття КЗпП</strong> — посилання на статтю</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Формулювання</strong> — стандартний текст для наказу</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Категорія</strong> — за власним бажанням, за угодою сторін, з ініціативи роботодавця тощо</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Суміщення посад</h2>
+
+<p>Облік суміщення посад та розширення зон обслуговування:</p>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Посада, що суміщається</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Період суміщення</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Доплата (сума або %)</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Зміни до договору</h2>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Історія змін окладу</strong> — з датами та причинами</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Додаткові угоди</strong> — з номерами та датами</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Трекінг всіх змін</strong> — через mail.activity</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Diia.City</h2>
+
+<div style="background: #e7f3ff; padding: 15px; border-radius: 5px; margin: 15px 0; border: 1px solid #b3d7ff;">
+    <strong>Підтримка гіг-контрактів Diia.City:</strong>
+    <ul style="margin: 10px 0 0 20px;">
+        <li>Особливий тип договору</li>
+        <li>Позначка "Працівник Diia.City"</li>
+        <li>Спеціальне оподаткування (5% ПДФО, без ЄСВ)</li>
+    </ul>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Синхронізація з hr.version</h2>
+
+<ul style="list-style: none; padding: 0;">
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Автоматична синхронізація окладу з картою працівника</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Синхронізація посади та підрозділу</li>
+    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">Прив'язка графіку роботи</li>
+</ul>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Залежності</h2>
+
+<div style="background: #e7f3ff; padding: 15px; border-radius: 5px; margin: 15px 0; border: 1px solid #b3d7ff;">
+    <strong>Потребує:</strong>
+    <ul style="margin: 10px 0 0 20px;">
+        <li>l10n_ua_hr_base — базовий модуль української HR локалізації</li>
+    </ul>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">🫙 Підтримати проект</h2>
+
+<div style="background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); padding: 25px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #ffc107;">
+    <h3 style="color: #856404; margin-top: 0;">Збір на українську локалізацію Odoo — заміна 1С для бізнесу</h3>
+    <p style="margin-bottom: 15px;">Привіт! Створюю <strong>відкриті модулі української локалізації Odoo</strong> для повноцінної заміни 1С:</p>
+    <ul style="list-style: none; padding: 0; margin: 15px 0;">
+        <li style="padding: 8px 0;">📊 <strong>Бухгалтерський та фінансовий облік</strong> за українськими стандартами</li>
+        <li style="padding: 8px 0;">📋 <strong>Податкова звітність</strong> та електронний документообіг</li>
+        <li style="padding: 8px 0;">👥 <strong>HR-модуль (заміна ЗУП)</strong> — кадри, зарплата, табелі</li>
+        <li style="padding: 8px 0;">🏭 <strong>Операційний облік</strong> — склад, виробництво, продажі</li>
+    </ul>
+    <p><strong>Навіщо це потрібно:</strong> тисячі українських компаній досі сидять на російському софті, бо немає повноцінної альтернативи. Odoo — це потужна європейська ERP з відкритим кодом, але без якісної української локалізації перехід неможливий.</p>
+    <p><strong>Куди підуть кошти:</strong> розробка та тестування модулів, документація українською, підтримка спільноти.</p>
+    <p style="margin-bottom: 0;"><strong>Модулі будуть у відкритому доступі</strong> — для всіх, хто хоче позбутися російських технологій.</p>
+    <p style="margin-top: 15px; margin-bottom: 0;"><strong>Дякую за підтримку! 🙏</strong></p>
+    <p style="margin-top:10px; text-align:center"><img src="monobank_qr.png" alt="QR код для підтримки на Monobank" style="width:150px; height:150px;"/><br/><strong>Скануйте QR для підтримки на Monobank</strong></p>
+</div>
+
+<h2 style="color: #00A09D; margin-top: 40px; border-left: 4px solid #00A09D; padding-left: 15px;">Підтримка</h2>
+
+<div style="background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #875A7B;">
+    <strong>Автор:</strong> Svyatoslav Nadozirny<br/>
+    <strong>Веб-сайт:</strong> <a href="https://many2one.online">https://many2one.online</a><br/>
+    <strong>Email:</strong> support@many2one.online
+</div>
+
+</section>
+</body>
+</html>

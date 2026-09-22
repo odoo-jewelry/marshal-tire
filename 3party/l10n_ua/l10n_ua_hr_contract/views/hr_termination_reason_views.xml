@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_termination_reason_view_form" model="ir.ui.view">
+        <field name="name">hr.termination.reason.form</field>
+        <field name="model">hr.termination.reason</field>
+        <field name="arch" type="xml">
+            <form string="Termination Reason">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Reason Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="category"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="article"/>
+                            <field name="paragraph"/>
+                            <field name="full_reference"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Compensation">
+                            <field name="requires_compensation"/>
+                            <field name="compensation_amount" invisible="not requires_compensation"/>
+                            <field name="notice_days"/>
+                        </group>
+                        <group string="Особлива процедура">
+                            <field name="requires_union_consent"/>
+                            <field name="is_suspension"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="full_text"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                    <notebook>
+                        <page string="Пояснення підстави (для шаблонів наказів)">
+                            <field name="description_html" widget="html" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_termination_reason_view_tree" model="ir.ui.view">
+        <field name="name">hr.termination.reason.tree</field>
+        <field name="model">hr.termination.reason</field>
+        <field name="arch" type="xml">
+            <list string="Termination Reasons">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="article"/>
+                <field name="paragraph"/>
+                <field name="requires_compensation"/>
+                <field name="notice_days"/>
+                <field name="requires_union_consent" optional="hide"/>
+                <field name="is_suspension" optional="hide"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+<record id="action_hr_termination_reason" model="ir.actions.act_window">
+        <field name="name">Termination Reasons</field>
+        <field name="res_model">hr.termination.reason</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first termination reason
+            </p>
+            <p>
+                Termination reasons are based on Ukrainian Labor Code articles.
+            </p>
+        </field>
+    </record>
+
+</odoo>

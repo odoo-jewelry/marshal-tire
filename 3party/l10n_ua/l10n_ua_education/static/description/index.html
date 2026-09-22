@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #0057b8;">Україна — Заклади освіти</h2>
+        <h3 class="oe_slogan" style="color: #1a1a1a;">ЗДО / ЗЗСО / Ліцей / ПТУ / Заклади вищої освіти</h3>
+        <div class="oe_span12">
+            <p class="oe_mt32 text-center" style="font-size: 18px;">
+                Контингент учнів/студентів, навчальні роки, групи, стипендії,
+                дитяче харчування, обмін з ЄДЕБО — все на одній платформі.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Що включено</h2>
+
+        <div class="oe_span6">
+            <h3><i class="fa fa-university"></i> l10n_ua_education_base</h3>
+            <ul>
+                <li>Тип закладу: ЗДО / ЗЗСО / ліцей / ПТУ / ЗВО I-II / ЗВО III-IV / позашкільний</li>
+                <li>Ліцензія МОН + код ЄДЕБО на res.company</li>
+                <li>Навчальний рік з контролем «один активний на установу»</li>
+                <li>Універсальна модель груп: клас школи, група ЗДО, курсова група, гурток</li>
+                <li>Контингент з повним lifecycle:<br/>
+                    <code>applicant → enrolled → studying → on_leave ↔ studying → graduated</code>
+                </li>
+                <li>Прив'язка до hr.employee (для аспірантів-співробітників)</li>
+                <li>Mail.thread / activity для аудиту переходів</li>
+                <li>Унікальні номери особових справ у межах установи</li>
+            </ul>
+        </div>
+
+        <div class="oe_span6">
+            <h3><i class="fa fa-money"></i> l10n_ua_education_scholarship</h3>
+            <ul>
+                <li>Типи стипендій: академічна, соціальна, президентська, ВР, обласна</li>
+                <li>Відомості виплати з рядками по членах контингенту</li>
+                <li>Автоматичний розрахунок ПДФО (18%) і військового збору (5%)</li>
+                <li>Звичайні академічні стипендії звільнені від ПДФО (ПК ст. 165.1.26)</li>
+                <li>Генерація account.move з аналітикою КЕКВ/Фонд/КПКВК</li>
+                <li>State machine: draft → approved → paid</li>
+                <li>Автонумерація СТП-&lt;рік&gt;-&lt;номер&gt;</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span6">
+            <h3><i class="fa fa-cutlery"></i> l10n_ua_education_meals</h3>
+            <ul>
+                <li>Технологічні картки страв з нормами закладки і виходу</li>
+                <li>Поживна цінність на порцію (ккал, БЖВ)</li>
+                <li>Меню на день за віковими групами</li>
+                <li>Облік присутності → автоматична кількість порцій</li>
+                <li>Для ЗДО за нормами ПКМУ № 1545 і Наказу МОЗ № 1073</li>
+                <li>Для шкіл за нормами ПКМУ № 305</li>
+            </ul>
+        </div>
+
+        <div class="oe_span6">
+            <h3><i class="fa fa-exchange"></i> l10n_ua_education_edebo</h3>
+            <ul>
+                <li>Wizard імпорту/експорту контингенту з ЄДЕБО (МОН)</li>
+                <li>CSV-формат за замовчуванням</li>
+                <li>XML-формат через окремий плагін <code>l10n_ua_education_edebo_xml</code></li>
+                <li>Збіг партнерів за РНОКПП або ПІБ</li>
+                <li>Dry-run режим для перевірочних прогонів</li>
+                <li>Точка розширення <code>_parse_custom()</code> для специфічних форматів МОН</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Як це виглядає</h2>
+        <div class="oe_span12 text-center oe_mt32">
+            <h4 style="color:#0057b8;">Клас з контингентом учнів</h4>
+            <img src="01_group_form.png" alt="Форма класу з учнями"
+                 style="max-width:100%; height:auto; border:1px solid #dfdfdf;
+                        box-shadow:0 2px 8px rgba(0,0,0,0.1);"/>
+        </div>
+        <div class="oe_span12 text-center oe_mt32">
+            <h4 style="color:#0057b8;">Відомість стипендій з автоматичним ПДФО і ВЗ</h4>
+            <img src="02_scholarship_payment.png" alt="Відомість стипендій з розрахунком податків"
+                 style="max-width:100%; height:auto; border:1px solid #dfdfdf;
+                        box-shadow:0 2px 8px rgba(0,0,0,0.1);"/>
+        </div>
+        <div class="oe_span12 oe_mt32">
+            <p class="text-center" style="font-size:14px; color:#666;">
+                Преміальні стипендії автоматично розраховують ПДФО (18%) і
+                військовий збір (5%) на кожному рядку. Натиснення «Виплатити»
+                генерує проводку з аналітикою КЕКВ 2720 / Фонд / КПКВК.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Для всіх типів закладів</h2>
+
+        <div class="oe_span3">
+            <div class="text-center">
+                <i class="fa fa-child fa-3x" style="color: #0057b8;"></i>
+                <h4>ЗДО</h4>
+                <p>Дошкільні заклади. Облік вихованців, груп, харчування.</p>
+            </div>
+        </div>
+
+        <div class="oe_span3">
+            <div class="text-center">
+                <i class="fa fa-pencil fa-3x" style="color: #0057b8;"></i>
+                <h4>ЗЗСО</h4>
+                <p>Школи 1-11(12) класи. Класні керівники, табелі, стипендії.</p>
+            </div>
+        </div>
+
+        <div class="oe_span3">
+            <div class="text-center">
+                <i class="fa fa-wrench fa-3x" style="color: #0057b8;"></i>
+                <h4>ПТУ</h4>
+                <p>Профтехосвіта. Групи за спеціальностями, виробнича практика.</p>
+            </div>
+        </div>
+
+        <div class="oe_span3">
+            <div class="text-center">
+                <i class="fa fa-graduation-cap fa-3x" style="color: #0057b8;"></i>
+                <h4>ЗВО</h4>
+                <p>Університети, інститути, коледжі. Курси, спеціальності, стипендії.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Інтеграції</h2>
+        <div class="oe_span6">
+            <h4><i class="fa fa-folder-open"></i> Бюджетний облік</h4>
+            <p>Стипендії автоматично створюють проводки з КЕКВ 2720 і потрапляють
+                до плану виконання кошторису через <code>l10n_ua_budget</code>.</p>
+        </div>
+        <div class="oe_span6">
+            <h4><i class="fa fa-users"></i> Кадровий облік</h4>
+            <p>Класні керівники, вчителі, тренери — через стандартний <code>hr</code>
+                + надбудови <code>l10n_ua_hr_*</code> з військовим обліком і ПСП.</p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Нормативна база</h2>
+        <div class="oe_span12">
+            <ul>
+                <li>Закон України «Про освіту» № 2145-VIII від 05.09.2017</li>
+                <li>Закон України «Про вищу освіту» № 1556-VII</li>
+                <li>Закон України «Про повну загальну середню освіту» № 463-IX</li>
+                <li>Закон України «Про дошкільну освіту» № 2628-III</li>
+                <li>Закон України «Про професійно-технічну освіту» № 103/98-ВР</li>
+                <li>Постанова КМУ № 1146 — Положення про стипендії</li>
+                <li>Постанова КМУ № 1545 — Норми харчування у ЗДО</li>
+                <li>Постанова КМУ № 305 — Норми харчування у школах</li>
+                <li>Податковий кодекс України, ст. 165.1.26 — звільнення стипендій від ПДФО</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_separator"></section>
+
+</body>
+</html>

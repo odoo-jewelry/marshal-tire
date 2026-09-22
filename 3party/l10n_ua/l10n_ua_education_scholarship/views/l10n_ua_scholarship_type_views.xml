@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_scholarship_type_list" model="ir.ui.view">
+        <field name="name">l10n_ua.scholarship.type.list</field>
+        <field name="model">l10n_ua.scholarship.type</field>
+        <field name="arch" type="xml">
+            <list string="Типи стипендій">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="kind"/>
+                <field name="monthly_amount"/>
+                <field name="default_kekv_id" optional="show"/>
+                <field name="is_taxable_pdfo" optional="hide"/>
+                <field name="active" optional="hide"/>
+                <field name="currency_id" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_scholarship_type_form" model="ir.ui.view">
+        <field name="name">l10n_ua.scholarship.type.form</field>
+        <field name="model">l10n_ua.scholarship.type</field>
+        <field name="arch" type="xml">
+            <form string="Тип стипендії">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="kind"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="monthly_amount"/>
+                            <field name="currency_id"/>
+                            <field name="default_kekv_id"/>
+                            <field name="is_taxable_pdfo"/>
+                        </group>
+                    </group>
+                    <group string="Опис / нормативне обґрунтування">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Розміри за періодами">
+                            <field name="rate_ids">
+                                <list editable="bottom">
+                                    <field name="institution_type"/>
+                                    <field name="date_from"/>
+                                    <field name="amount"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                    <field name="legal_basis" optional="show"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_scholarship_type" model="ir.actions.act_window">
+        <field name="name">Типи стипендій</field>
+        <field name="res_model">l10n_ua.scholarship.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

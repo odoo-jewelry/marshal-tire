@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_report_timesheet" model="ir.actions.report">
+        <field name="name">Timesheet (Form П-5)</field>
+        <field name="model">hr.timesheet</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_hr_attendance_sheet.report_timesheet</field>
+        <field name="report_file">l10n_ua_hr_attendance_sheet.report_timesheet</field>
+        <field name="print_report_name">'Табель_%s_%s' % (object.month, object.year)</field>
+        <field name="binding_model_id" ref="model_hr_timesheet"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <template id="report_timesheet">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="timesheet">
+                <t t-call="l10n_ua_hr_attendance_sheet.report_timesheet_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_timesheet_document">
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-family: 'Times New Roman', serif; font-size: 9pt;">
+                
+                <div style="text-align: right; margin-bottom: 10px;">
+                    <small>Типова форма № П-5</small>
+                </div>
+                
+                <div style="text-align: center; margin-bottom: 10px;">
+                    <strong t-esc="timesheet.company_id.name"/>
+                </div>
+                
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <h3 style="margin: 5px 0;">ТАБЕЛЬ ОБЛІКУ РОБОЧОГО ЧАСУ</h3>
+                    <p style="margin: 0;">
+                        за <span t-esc="dict(timesheet._fields['month'].selection).get(timesheet.month)"/> 
+                        <span t-esc="timesheet.year"/> року
+                    </p>
+                    <t t-if="timesheet.department_id">
+                        <p style="margin: 0;">Підрозділ: <span t-esc="timesheet.department_id.name"/></p>
+                    </t>
+                </div>
+                
+                <table style="width: 100%; border-collapse: collapse; font-size: 8pt;">
+                    <thead>
+                        <tr style="background-color: #f0f0f0;">
+                            <th style="border: 1px solid #000; padding: 3px;" rowspan="2">№</th>
+                            <th style="border: 1px solid #000; padding: 3px;" rowspan="2">ПІБ</th>
+                            <th style="border: 1px solid #000; padding: 3px;" rowspan="2">Посада</th>
+                            <th style="border: 1px solid #000; padding: 3px;" colspan="31">Числа місяця</th>
+                            <th style="border: 1px solid #000; padding: 3px;" rowspan="2">Відпр. днів</th>
+                            <th style="border: 1px solid #000; padding: 3px;" rowspan="2">Відпр. год.</th>
+                        </tr>
+                        <tr style="background-color: #f0f0f0;">
+                            <t t-foreach="range(1, 32)" t-as="day">
+                                <th style="border: 1px solid #000; padding: 2px; width: 20px; font-size: 7pt;">
+                                    <t t-esc="day"/>
+                                </th>
+                            </t>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="row_num" t-value="0"/>
+                        <t t-foreach="timesheet.line_ids" t-as="line">
+                            <t t-set="row_num" t-value="row_num + 1"/>
+                            <tr>
+                                <td style="border: 1px solid #000; padding: 2px; text-align: center;">
+                                    <t t-esc="row_num"/>
+                                </td>
+                                <td style="border: 1px solid #000; padding: 2px; white-space: nowrap;">
+                                    <t t-esc="line.employee_id.name"/>
+                                </td>
+                                <td style="border: 1px solid #000; padding: 2px; font-size: 7pt;">
+                                    <t t-esc="line.job_id.name or ''"/>
+                                </td>
+                                <t t-foreach="range(1, 32)" t-as="day">
+                                    <t t-set="day_rec" t-value="line.day_ids.filtered(lambda d: d.day_number == day)"/>
+                                    <td style="border: 1px solid #000; padding: 1px; text-align: center; font-size: 7pt;">
+                                        <t t-if="day_rec">
+                                            <t t-esc="day_rec.code_id.code"/>
+                                            <t t-if="day_rec.hours > 0">
+                                                <br/><small><t t-esc="int(day_rec.hours)"/></small>
+                                            </t>
+                                        </t>
+                                    </td>
+                                </t>
+                                <td style="border: 1px solid #000; padding: 2px; text-align: center;">
+                                    <t t-esc="line.worked_days"/>
+                                </td>
+                                <td style="border: 1px solid #000; padding: 2px; text-align: center;">
+                                    <t t-esc="line.worked_hours"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                
+                <div style="margin-top: 20px; font-size: 9pt;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 50%;">
+                                Відповідальна особа: _____________ / <t t-esc="timesheet.responsible_id.name"/> /
+                            </td>
+                            <td style="width: 50%; text-align: right;">
+                                Дата: _______________
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+            </div>
+        </t>
+    </template>
+
+</odoo>

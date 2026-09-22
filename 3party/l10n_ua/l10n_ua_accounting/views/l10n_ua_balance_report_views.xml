@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============================================== -->
+    <!-- Balance Report - Form View                     -->
+    <!-- ============================================== -->
+    <record id="view_balance_report_form" model="ir.ui.view">
+        <field name="name">l10n_ua.balance.report.form</field>
+        <field name="model">l10n_ua.balance.report</field>
+        <field name="arch" type="xml">
+            <form string="Balance Sheet">
+                <header>
+                    <button name="action_compute" type="object" string="Calculate"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_confirm" type="object" string="Confirm"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_draft" type="object" string="Set to Draft"
+                            invisible="state != 'confirmed'"/>
+                    <button name="action_print" type="object" string="Print PDF"
+                            icon="fa-print"/>
+                    <button name="action_export_xlsx" type="object" string="Export XLSX"
+                            icon="fa-file-excel-o"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Parameters">
+                            <field name="company_id" groups="base.group_multi_company"
+                                   readonly="state == 'confirmed'"/>
+                            <field name="date_to" readonly="state == 'confirmed'"/>
+                            <field name="comparison_date" readonly="state == 'confirmed'"/>
+                        </group>
+                        <group string="Totals">
+                            <field name="total_assets"/>
+                            <field name="total_liabilities"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Report Lines" name="lines">
+                            <field name="line_ids" readonly="1">
+                                <list decoration-bf="line_type in ('subtotal', 'total')"
+                                      decoration-info="line_type == 'section'"
+                                      editable="bottom" no_open="1">
+                                    <field name="sequence" column_invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="code"/>
+                                    <field name="line_type" column_invisible="1"/>
+                                    <field name="current_amount" string="Current"/>
+                                    <field name="previous_amount" string="Previous"/>
+                                    <field name="account_codes" optional="hide"/>
+                                    <button name="action_view_move_lines" type="object"
+                                            string="View Entries" icon="fa-search"
+                                            invisible="not account_codes or line_type in ('section', 'subtotal', 'total')"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Internal notes..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================================== -->
+    <!-- Balance Report - List View                     -->
+    <!-- ============================================== -->
+    <record id="view_balance_report_list" model="ir.ui.view">
+        <field name="name">l10n_ua.balance.report.list</field>
+        <field name="model">l10n_ua.balance.report</field>
+        <field name="arch" type="xml">
+            <list string="Balance Sheets" decoration-muted="state == 'draft'">
+                <field name="name"/>
+                <field name="date_to"/>
+                <field name="comparison_date"/>
+                <field name="total_assets" string="Assets"/>
+                <field name="total_liabilities" string="Liabilities"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'confirmed'"
+                       decoration-info="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================================== -->
+    <!-- Balance Report - Search View                   -->
+    <!-- ============================================== -->
+    <record id="view_balance_report_search" model="ir.ui.view">
+        <field name="name">l10n_ua.balance.report.search</field>
+        <field name="model">l10n_ua.balance.report</field>
+        <field name="arch" type="xml">
+            <search string="Balance Sheets">
+                <field name="name"/>
+                <field name="date_to"/>
+                <filter string="Draft" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Confirmed" name="filter_confirmed" domain="[('state', '=', 'confirmed')]"/>
+                <separator/>
+                <group>
+                    <filter string="Report Date" name="groupby_date" domain="[]" context="{'group_by': 'date_to:month'}"/>
+                    <filter string="State" name="groupby_state" domain="[]" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============================================== -->
+    <!-- Balance Report - Window Action                 -->
+    <!-- ============================================== -->
+    <record id="action_balance_report" model="ir.actions.act_window">
+        <field name="name">Balance Sheets</field>
+        <field name="res_model">l10n_ua.balance.report</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Balance Sheet report
+            </p>
+            <p>
+                Use the wizard to generate a new Balance Sheet (Баланс, Форма №1).
+            </p>
+        </field>
+    </record>
+
+</odoo>

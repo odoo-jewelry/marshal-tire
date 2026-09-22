@@ -1,0 +1,60 @@
+<section style="font-family: 'Segoe UI', Roboto, sans-serif; color: #2c3e50;">
+    <div style="background: linear-gradient(135deg, #1a5276 0%, #2980b9 100%); color: #fff; padding: 48px 32px; text-align: center; border-radius: 8px;">
+        <h1 style="margin: 0; font-size: 34px;">Договори з клієнтами</h1>
+        <p style="font-size: 18px; opacity: .9; margin-top: 12px;">
+            Шаблони · електронний підпис · додаткові угоди · акти · періодичні рахунки
+        </p>
+        <p style="opacity: .8; margin-top: 8px;">Українська локалізація Odoo 19 · many2one.online</p>
+    </div>
+
+    <div style="padding: 32px 0;">
+        <h2 style="color: #1a5276;">Що робить модуль</h2>
+        <p style="font-size: 16px; line-height: 1.6;">
+            Повний життєвий цикл договору з клієнтом — від генерації з шаблону до
+            підписання та виставлення рахунків. Призначено для ФОП і підприємств,
+            що надають послуги за договором.
+        </p>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; padding-bottom: 24px;">
+        <div style="flex: 1 1 280px; background: #f4f8fb; border-left: 4px solid #2980b9; padding: 20px; border-radius: 6px;">
+            <h3 style="margin-top: 0; color: #1a5276;">📄 Договір з шаблону</h3>
+            <p>Об'єкт «Договір» зі станами (Чернетка → На підписанні → Підписаний)
+               та друкованою формою для конкретного замовника.</p>
+        </div>
+        <div style="flex: 1 1 280px; background: #f4f8fb; border-left: 4px solid #2980b9; padding: 20px; border-radius: 6px;">
+            <h3 style="margin-top: 0; color: #1a5276;">✍️ Електронний підпис</h3>
+            <p>Інтеграція з <b>sign_oca</b>: надсилання на підпис, авто-перехід у
+               «Підписаний» і збереження підписаного PDF.</p>
+        </div>
+        <div style="flex: 1 1 280px; background: #f4f8fb; border-left: 4px solid #2980b9; padding: 20px; border-radius: 6px;">
+            <h3 style="margin-top: 0; color: #1a5276;">📑 Додаткові угоди</h3>
+            <p>Додаткові угоди як дочірні договори з посиланням на основний.</p>
+        </div>
+        <div style="flex: 1 1 280px; background: #f4f8fb; border-left: 4px solid #2980b9; padding: 20px; border-radius: 6px;">
+            <h3 style="margin-top: 0; color: #1a5276;">🧾 Акт наданих послуг</h3>
+            <p>Друкована форма акта безпосередньо з договору.</p>
+        </div>
+        <div style="flex: 1 1 280px; background: #f4f8fb; border-left: 4px solid #2980b9; padding: 20px; border-radius: 6px;">
+            <h3 style="margin-top: 0; color: #1a5276;">💳 Рахунки та продажі</h3>
+            <p>Разові рахунки через продажі (agreement_sale) та періодичні
+               (абонентські) рахунки через contract.</p>
+        </div>
+        <div style="flex: 1 1 280px; background: #f4f8fb; border-left: 4px solid #2980b9; padding: 20px; border-radius: 6px;">
+            <h3 style="margin-top: 0; color: #1a5276;">📊 Типи та аналітика</h3>
+            <p>Типи договорів і аналіз (pivot/graph) сум за типом і станом.</p>
+        </div>
+    </div>
+
+    <div style="background: #eef6ec; border: 1px solid #cce5c8; padding: 20px; border-radius: 6px;">
+        <h3 style="margin-top: 0; color: #1e7e34;">Залежності (OCA, гілка 19.0)</h3>
+        <p style="margin: 0;">
+            <code>agreement</code>, <code>agreement_sale</code>,
+            <code>sign_oca</code>, <code>contract</code> — мають бути в addons_path.
+        </p>
+    </div>
+
+    <div style="text-align: center; padding: 32px 0; color: #7f8c8d;">
+        <p>© many2one.online — Українська локалізація Odoo 19</p>
+    </div>
+</section>

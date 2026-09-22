@@ -1,0 +1,30 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_account_subconto_hr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-05 20:45:00+0000\n"
+"PO-Revision-Date: 2026-08-05 20:45:00+0000\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_account_subconto_hr
+#: model:ir.model.fields,field_description:l10n_ua_account_subconto_hr.field_account_move_line__subconto_department_id
+msgid "Department (Subconto)"
+msgstr "Підрозділ (Субконто)"
+
+#. module: l10n_ua_account_subconto_hr
+#: model:l10n_ua.subconto.type,name:l10n_ua_account_subconto_hr.subconto_type_department
+msgid "Departments"
+msgstr "Підрозділи"
+
+#. module: l10n_ua_account_subconto_hr
+#: model:l10n_ua.subconto.type,description:l10n_ua_account_subconto_hr.subconto_type_department
+msgid "HR departments (Підрозділи)"
+msgstr "Кадрові підрозділи"

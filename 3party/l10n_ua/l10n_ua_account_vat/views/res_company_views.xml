@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_company_form_ua_vat" model="ir.ui.view">
+        <field name="name">res.company.form.ua.vat</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="l10n_ua_tax.view_company_form_ua_tax"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='ua_tax_settings']//group[1]" position="after">
+                <group string="ПДВ">
+                    <group>
+                        <field name="l10n_ua_is_vat_payer"/>
+                        <field name="l10n_ua_vat_ipn"
+                               invisible="not l10n_ua_is_vat_payer"/>
+                        <field name="l10n_ua_vat_registration_date"
+                               invisible="not l10n_ua_is_vat_payer"/>
+                    </group>
+                    <group>
+                        <field name="l10n_ua_erpn_deadline_mode"
+                               invisible="not l10n_ua_is_vat_payer"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

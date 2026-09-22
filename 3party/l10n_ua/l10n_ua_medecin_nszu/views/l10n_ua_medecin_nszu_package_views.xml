@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_package_list" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.nszu.package.list</field>
+        <field name="model">l10n_ua.medecin.nszu.package</field>
+        <field name="arch" type="xml">
+            <list string="Пакети НСЗУ">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="package_type"/>
+                <field name="payment_model"/>
+                <field name="year"/>
+                <field name="base_tariff" widget="monetary"/>
+                <field name="is_active" widget="boolean_toggle"/>
+                <field name="currency_id" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_package_form" model="ir.ui.view">
+        <field name="name">l10n_ua.medecin.nszu.package.form</field>
+        <field name="model">l10n_ua.medecin.nszu.package</field>
+        <field name="arch" type="xml">
+            <form string="Пакет НСЗУ">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="package_type"/>
+                            <field name="payment_model"/>
+                        </group>
+                        <group>
+                            <field name="year"/>
+                            <field name="base_tariff"/>
+                            <field name="currency_id"/>
+                            <field name="is_active"/>
+                        </group>
+                    </group>
+                    <group string="Специфікація">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_package" model="ir.actions.act_window">
+        <field name="name">Пакети НСЗУ</field>
+        <field name="res_model">l10n_ua.medecin.nszu.package</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

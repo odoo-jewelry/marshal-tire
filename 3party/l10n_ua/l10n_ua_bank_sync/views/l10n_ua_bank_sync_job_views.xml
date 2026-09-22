@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Server Actions for Mass Operations -->
+    <record id="action_sync_job_mass_reprocess" model="ir.actions.server">
+        <field name="name">Reprocess Jobs</field>
+        <field name="model_id" ref="model_l10n_ua_bank_sync_job"/>
+        <field name="binding_model_id" ref="model_l10n_ua_bank_sync_job"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+if records:
+    for job in records.filtered(lambda j: j.raw_payload and j.state != 'processing'):
+        job.write({'state': 'fetched', 'imported_count': 0, 'updated_count': 0, 'error_count': 0})
+        job.action_process()
+        </field>
+    </record>
+
+    <record id="action_sync_job_mass_reset" model="ir.actions.server">
+        <field name="name">Reset to Draft</field>
+        <field name="model_id" ref="model_l10n_ua_bank_sync_job"/>
+        <field name="binding_model_id" ref="model_l10n_ua_bank_sync_job"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+if records:
+    records.filtered(lambda j: j.state != 'draft').action_reset_to_draft()
+        </field>
+    </record>
+
+    <record id="action_sync_job_mass_fetch" model="ir.actions.server">
+        <field name="name">Fetch from Bank</field>
+        <field name="model_id" ref="model_l10n_ua_bank_sync_job"/>
+        <field name="binding_model_id" ref="model_l10n_ua_bank_sync_job"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+if records:
+    for job in records.filtered(lambda j: j.state in ('draft', 'error')):
+        job.action_fetch()
+        </field>
+    </record>
+
+    <record id="l10n_ua_bank_sync_job_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.job.form</field>
+        <field name="model">l10n_ua.bank.sync.job</field>
+        <field name="arch" type="xml">
+            <form string="Sync Job">
+                <header>
+                    <button name="action_fetch" string="Fetch from Bank" type="object"
+                            class="btn-primary" invisible="state not in ('draft', 'error')"/>
+                    <button name="action_reprocess" string="Reprocess" type="object"
+                            invisible="not raw_payload or state == 'processing'"/>
+                    <button name="action_reset_to_draft" string="Reset to Draft" type="object"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,fetched,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_logs" type="object" class="oe_stat_button" icon="fa-file-text-o"
+                                invisible="not log_ids">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">View Logs</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Configuration">
+                            <field name="config_id"/>
+                            <field name="provider"/>
+                            <field name="journal_id"/>
+                        </group>
+                        <group string="Period">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="payload_fetched_at" invisible="not payload_fetched_at"/>
+                        </group>
+                        <group string="Source">
+                            <field name="source_type"/>
+                            <field name="source_ref"/>
+                        </group>
+                    </group>
+                    <group string="Results" invisible="state in ('draft', 'fetching')">
+                        <group>
+                            <field name="transactions_count"/>
+                            <field name="imported_count"/>
+                            <field name="bank_statement_id"/>
+                        </group>
+                        <group>
+                            <field name="updated_count"/>
+                            <field name="error_count"/>
+                        </group>
+                    </group>
+                    <group string="Error" invisible="not error_message">
+                        <field name="error_message" nolabel="1" colspan="2"/>
+                    </group>
+                    <notebook>
+                        <page string="Raw Payload" name="raw_payload" invisible="not raw_payload">
+                            <field name="raw_payload" readonly="1" nolabel="1"/>
+                        </page>
+                        <page string="Logs" name="logs" invisible="not log_ids">
+                            <field name="log_ids" nolabel="1">
+                                <list>
+                                    <field name="timestamp"/>
+                                    <field name="level"/>
+                                    <field name="message"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_bank_sync_job_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.job.list</field>
+        <field name="model">l10n_ua.bank.sync.job</field>
+        <field name="arch" type="xml">
+            <list string="Sync Jobs" decoration-danger="state == 'error'" decoration-success="state == 'done'">
+                <field name="name"/>
+                <field name="config_id" optional="hide"/>
+                <field name="journal_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="imported_count" string="New"/>
+                <field name="updated_count" string="Upd"/>
+                <field name="error_count" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state in ('fetching', 'processing', 'fetched')"
+                       decoration-success="state == 'done'"
+                       decoration-danger="state == 'error'"/>
+                <field name="create_date" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_bank_sync_job_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.job.search</field>
+        <field name="model">l10n_ua.bank.sync.job</field>
+        <field name="arch" type="xml">
+            <search string="Sync Jobs">
+                <field name="name"/>
+                <field name="config_id"/>
+                <field name="journal_id"/>
+                <separator/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="fetched" string="Fetched" domain="[('state', '=', 'fetched')]"/>
+                <filter name="done" string="Done" domain="[('state', '=', 'done')]"/>
+                <filter name="error" string="Error" domain="[('state', '=', 'error')]"/>
+                <separator/>
+                <filter name="has_payload" string="Has Payload" domain="[('raw_payload', '!=', False)]"/>
+                <group>
+                    <filter name="group_state" string="State" context="{'group_by': 'state'}"/>
+                    <filter name="group_config" string="Configuration" context="{'group_by': 'config_id'}"/>
+                    <filter name="group_journal" string="Journal" context="{'group_by': 'journal_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="l10n_ua_bank_sync_job_action" model="ir.actions.act_window">
+        <field name="name">Import Jobs</field>
+        <field name="res_model">l10n_ua.bank.sync.job</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Log views -->
+    <record id="l10n_ua_bank_sync_log_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.log.list</field>
+        <field name="model">l10n_ua.bank.sync.log</field>
+        <field name="arch" type="xml">
+            <list string="Sync Logs" decoration-danger="level == 'error'" decoration-warning="level == 'warning'">
+                <field name="timestamp"/>
+                <field name="job_id"/>
+                <field name="level"/>
+                <field name="message"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_bank_sync_log_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.log.form</field>
+        <field name="model">l10n_ua.bank.sync.log</field>
+        <field name="arch" type="xml">
+            <form string="Log Entry">
+                <sheet>
+                    <group>
+                        <field name="timestamp"/>
+                        <field name="job_id"/>
+                        <field name="level"/>
+                    </group>
+                    <group string="Message">
+                        <field name="message" nolabel="1"/>
+                    </group>
+                    <group string="Data" invisible="not data">
+                        <field name="data" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

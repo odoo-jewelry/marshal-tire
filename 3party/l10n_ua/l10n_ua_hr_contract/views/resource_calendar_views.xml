@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Українські атрибути на штатному екрані «Робочий час»: він замінює
+         власне UA-меню графіків роботи (#213). -->
+    <record id="resource_calendar_form_ua" model="ir.ui.view">
+        <field name="name">resource.calendar.form.ua</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.resource_calendar_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='resource_working_hours']" position="after">
+                <group name="ua_schedule" string="Українська локалізація">
+                    <field name="ua_code"/>
+                    <field name="ua_schedule_type"/>
+                    <field name="ua_reduced_hours"/>
+                    <field name="ua_is_hazardous"/>
+                    <field name="ua_is_night_work"/>
+                    <field name="ua_night_start_hour" widget="float_time"
+                           invisible="not ua_is_night_work"/>
+                    <field name="ua_night_end_hour" widget="float_time"
+                           invisible="not ua_is_night_work"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_resource_calendar_tree_ua" model="ir.ui.view">
+        <field name="name">resource.calendar.list.ua</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.view_resource_calendar_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="ua_code" optional="show"/>
+                <field name="ua_schedule_type" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

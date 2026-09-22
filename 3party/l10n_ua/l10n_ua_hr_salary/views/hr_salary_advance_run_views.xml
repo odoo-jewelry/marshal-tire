@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_salary_advance_run_view_form" model="ir.ui.view">
+        <field name="name">hr.salary.advance.run.form</field>
+        <field name="model">hr.salary.advance.run</field>
+        <field name="arch" type="xml">
+            <form string="Advance Batch">
+                <header>
+                    <button name="action_generate_advances" string="Generate Advances"
+                            type="object" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_confirm_all" string="Confirm All"
+                            type="object" class="btn-primary"
+                            invisible="state != 'draft' or not advance_count"/>
+                    <button name="action_close" string="Close"
+                            type="object" invisible="state != 'confirmed'"/>
+                    <button name="action_draft" string="Set to Draft"
+                            type="object" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirmed,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_advances" type="object"
+                                class="oe_stat_button" icon="fa-money">
+                            <field name="advance_count" widget="statinfo" string="Advances"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date"/>
+			    <field name="wage_percent" readonly="state != 'draft'"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="total_amount"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Advances" name="advances">
+                            <field name="advance_ids" readonly="state != 'draft'">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="employee_id"/>
+                                    <field name="department_id" optional="show"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="amount" sum="Total"/>
+                                    <field name="state" widget="badge"
+                                           decoration-success="state == 'paid'"
+                                           decoration-info="state == 'draft'"
+                                           decoration-warning="state == 'confirmed'"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_salary_advance_run_view_list" model="ir.ui.view">
+        <field name="name">hr.salary.advance.run.list</field>
+        <field name="model">hr.salary.advance.run</field>
+        <field name="arch" type="xml">
+            <list string="Advance Batches">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="advance_count"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="total_amount" sum="Total"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'closed'"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'confirmed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hr_salary_advance_run" model="ir.actions.act_window">
+        <field name="name">Advance Batches</field>
+        <field name="res_model">hr.salary.advance.run</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create an advance batch to process multiple advances at once
+            </p>
+            <p>Advances are calculated as percentage of the employee wage.</p>
+        </field>
+    </record>
+
+</odoo>
+

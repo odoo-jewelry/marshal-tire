@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="leave_type_annual_basic" model="hr.leave.type">
+            <field name="name">Щорічна основна відпустка</field>
+            <field name="ua_leave_category">annual_basic</field>
+            <field name="annual_days">24</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">work</field>
+            <field name="is_transferable">True</field>
+            <field name="ua_auto_calc_balance">True</field>
+            <field name="requires_experience">True</field>
+            <field name="min_experience_months">6</field>
+            <field name="is_paid">True</field>
+            <field name="payment_source">employer</field>
+            <field name="min_continuous_days">14</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+        
+        <record id="leave_type_annual_additional" model="hr.leave.type">
+            <field name="name">Щорічна додаткова відпустка</field>
+            <field name="ua_leave_category">annual_additional</field>
+            <field name="annual_days">7</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">work</field>
+            <field name="is_transferable">True</field>
+            <field name="is_paid">True</field>
+            <field name="payment_source">employer</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+        
+        <record id="leave_type_educational" model="hr.leave.type">
+            <field name="name">Навчальна відпустка</field>
+            <field name="ua_leave_category">educational</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">calendar</field>
+            <field name="is_transferable">False</field>
+            <field name="is_paid">True</field>
+            <field name="payment_source">employer</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+        
+        <record id="leave_type_creative" model="hr.leave.type">
+            <field name="name">Творча відпустка</field>
+            <field name="ua_leave_category">creative</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">calendar</field>
+            <field name="is_transferable">False</field>
+            <field name="is_paid">True</field>
+            <field name="payment_source">employer</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+        
+        <record id="leave_type_social_children" model="hr.leave.type">
+            <field name="name">Соціальна відпустка (на дітей)</field>
+            <field name="ua_leave_category">social_children</field>
+            <field name="annual_days">10</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">calendar</field>
+            <field name="is_transferable">False</field>
+            <field name="is_paid">True</field>
+            <field name="payment_source">employer</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+        
+        <record id="leave_type_unpaid" model="hr.leave.type">
+            <field name="name">Відпустка без збереження зарплати</field>
+            <field name="ua_leave_category">unpaid</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">calendar</field>
+            <field name="is_transferable">False</field>
+            <field name="is_paid">False</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+        
+        <record id="leave_type_unpaid_family" model="hr.leave.type">
+            <field name="name">Відпустка без збереження зарплати (сімейні обставини)</field>
+            <field name="ua_leave_category">unpaid</field>
+            <field name="annual_days">15</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">calendar</field>
+            <field name="is_transferable">False</field>
+            <field name="is_paid">False</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+        
+        <record id="leave_type_maternity" model="hr.leave.type">
+            <field name="name">Відпустка у зв'язку з вагітністю та пологами</field>
+            <field name="ua_leave_category">maternity</field>
+            <field name="annual_days">126</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">calendar</field>
+            <field name="is_transferable">False</field>
+            <field name="is_paid">True</field>
+            <field name="payment_source">fss</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+        
+        <record id="leave_type_childcare" model="hr.leave.type">
+            <field name="name">Відпустка для догляду за дитиною до 3 років</field>
+            <field name="ua_leave_category">childcare</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">calendar</field>
+            <field name="is_transferable">False</field>
+            <field name="is_paid">False</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+        
+        <record id="leave_type_sick" model="hr.leave.type">
+            <field name="name">Лікарняний</field>
+            <field name="ua_leave_category">sick</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">calendar</field>
+            <field name="is_transferable">False</field>
+            <field name="is_paid">True</field>
+            <field name="payment_source">mixed</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+
+        <!-- Additional leave types according to Ukrainian law -->
+
+        <record id="leave_type_additional_hazard" model="hr.leave.type">
+            <field name="name">Додаткова за шкідливі умови праці</field>
+            <field name="ua_leave_category">annual_hazardous</field>
+            <field name="annual_days">35</field>
+            <field name="max_additional_days">35</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">work</field>
+            <field name="is_transferable">True</field>
+            <field name="is_paid">True</field>
+            <field name="payment_source">employer</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+
+        <record id="leave_type_additional_irregular" model="hr.leave.type">
+            <field name="name">Додаткова за ненормований робочий день</field>
+            <field name="ua_leave_category">annual_irregular</field>
+            <field name="annual_days">7</field>
+            <field name="max_additional_days">7</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">work</field>
+            <field name="is_transferable">True</field>
+            <field name="is_paid">True</field>
+            <field name="payment_source">employer</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+
+        <record id="leave_type_additional_special_work" model="hr.leave.type">
+            <field name="name">Додаткова за особливий характер праці</field>
+            <field name="ua_leave_category">annual_special</field>
+            <field name="annual_days">7</field>
+            <field name="max_additional_days">7</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">work</field>
+            <field name="is_transferable">True</field>
+            <field name="is_paid">True</field>
+            <field name="payment_source">employer</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+
+        <record id="leave_type_chornobyl" model="hr.leave.type">
+            <field name="name">Додаткова чорнобильцям</field>
+            <field name="ua_leave_category">chornobyl</field>
+            <field name="annual_days">16</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">calendar</field>
+            <field name="is_transferable">False</field>
+            <field name="is_paid">True</field>
+            <field name="payment_source">employer</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+
+        <record id="leave_type_veteran" model="hr.leave.type">
+            <field name="name">Додаткова ветеранам війни</field>
+            <field name="ua_leave_category">veteran</field>
+            <field name="annual_days">14</field>
+            <field name="is_calendar_days">True</field>
+            <field name="period_type">calendar</field>
+            <field name="is_transferable">False</field>
+            <field name="is_paid">True</field>
+            <field name="payment_source">employer</field>
+            <field name="request_unit">day</field>
+            <field name="leave_validation_type">hr</field>
+            <field name="requires_allocation" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

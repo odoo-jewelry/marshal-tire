@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_bank_sync_config_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.config.form</field>
+        <field name="model">l10n_ua.bank.sync.config</field>
+        <field name="arch" type="xml">
+            <form string="Bank Sync Configuration">
+                <header>
+                    <button name="action_sync_now" string="Sync Now" type="object" class="btn-primary"
+                            invisible="exchange_type != 'online'"/>
+                    <button name="action_open_sync_wizard" string="Custom Period..." type="object"
+                            invisible="exchange_type != 'online'"/>
+                </header>
+                <sheet>
+                    <field name="exchange_type" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_jobs" type="object" class="oe_stat_button" icon="fa-tasks">
+                            <field name="job_count" widget="statinfo" string="Jobs"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. PrivatBank Main Account"/></h1>
+                    </div>
+                    <group>
+                        <group string="Account" name="account_group">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="provider"/>
+                            <field name="journal_id" context="{'default_type': 'bank', 'default_company_id': company_id}"/>
+                            <field name="bank_account_id"/>
+                        </group>
+                        <group string="Sync Settings" name="sync_settings_group"
+                               invisible="exchange_type != 'online'">
+                            <field name="auto_sync"/>
+                            <field name="sync_interval_hours" invisible="not auto_sync"/>
+                            <field name="default_days_back"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Status">
+                            <field name="last_sync_date"/>
+                            <field name="last_sync_job_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_bank_sync_config_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.config.list</field>
+        <field name="model">l10n_ua.bank.sync.config</field>
+        <field name="arch" type="xml">
+            <list string="Bank Sync Configurations">
+                <field name="name"/>
+                <field name="provider"/>
+                <field name="journal_id"/>
+                <field name="auto_sync"/>
+                <field name="last_sync_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_bank_sync_config_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.config.search</field>
+        <field name="model">l10n_ua.bank.sync.config</field>
+        <field name="arch" type="xml">
+            <search string="Bank Connections">
+                <field name="name"/>
+                <field name="journal_id"/>
+                <filter name="auto_sync" string="Auto Sync" domain="[('auto_sync', '=', True)]"/>
+                <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="l10n_ua_bank_sync_config_action" model="ir.actions.act_window">
+        <field name="name">Bank Connections</field>
+        <field name="res_model">l10n_ua.bank.sync.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="l10n_ua_currency_revaluation_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.currency.revaluation.form</field>
+        <field name="model">l10n_ua.currency.revaluation</field>
+        <field name="arch" type="xml">
+            <form string="Currency Revaluation">
+                <header>
+                    <button name="action_compute" string="Розрахувати" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_post" string="Провести" type="object"
+                            class="btn-primary"
+                            invisible="state != 'draft'" data-hotkey="v"/>
+                    <button name="action_draft" string="В чернетку" type="object"
+                            invisible="state != 'posted'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="journal_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="total_gain"/>
+                            <field name="total_loss"/>
+                            <field name="move_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Курсові різниці" name="lines">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="account_id"/>
+                                    <field name="partner_id" optional="show"/>
+                                    <field name="foreign_currency_id"/>
+                                    <field name="fc_balance"/>
+                                    <field name="book_balance"/>
+                                    <field name="revalued_balance"/>
+                                    <field name="fx_difference" sum="Різниця"/>
+                                    <field name="is_nonoperational" optional="hide"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                    <field name="note" placeholder="Примітки..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_ua_currency_revaluation_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.currency.revaluation.list</field>
+        <field name="model">l10n_ua.currency.revaluation</field>
+        <field name="arch" type="xml">
+            <list string="Currency Revaluations" decoration-muted="state == 'draft'">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="total_gain" sum="Дохід"/>
+                <field name="total_loss" sum="Втрати"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_ua_currency_revaluation_action" model="ir.actions.act_window">
+        <field name="name">Currency Revaluation</field>
+        <field name="res_model">l10n_ua.currency.revaluation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Прапор операційна/неопераційна на рахунку -->
+    <record id="view_account_form_fx_inherit" model="ir.ui.view">
+        <field name="name">account.account.form.fx</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_form"/>
+        <field name="arch" type="xml">
+            <field name="account_type" position="after">
+                <field name="l10n_ua_fx_nonoperational"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

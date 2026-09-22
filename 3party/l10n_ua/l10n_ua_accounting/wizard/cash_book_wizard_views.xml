@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Cash Book Wizard Form -->
+    <record id="view_cash_book_wizard_form" model="ir.ui.view">
+        <field name="name">l10n_ua.cash.book.wizard.form</field>
+        <field name="model">l10n_ua.cash.book.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Cash Book">
+                <group>
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="journal_id" options="{'no_create': True}"/>
+                    </group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_print" type="object"
+                            string="Print" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Cash Book Wizard Action -->
+    <record id="action_cash_book_wizard" model="ir.actions.act_window">
+        <field name="name">Cash Book</field>
+        <field name="res_model">l10n_ua.cash.book.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

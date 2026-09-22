@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Version related menus under Documents -->
+    <menuitem id="menu_hr_version_salary_change"
+              name="Salary Changes"
+              parent="l10n_ua_hr_base.menu_hr_documents_root"
+              action="action_hr_version_salary_change"
+              sequence="16"/>
+
+    <menuitem id="menu_hr_job_combining"
+              name="Job Combining"
+              parent="l10n_ua_hr_base.menu_hr_documents_root"
+              action="action_hr_job_combining"
+              sequence="17"/>
+
+    <menuitem id="menu_hr_version_amendment"
+              name="Amendments"
+              parent="l10n_ua_hr_base.menu_hr_documents_root"
+              action="action_hr_version_amendment"
+              sequence="18"/>
+
+    <!-- Configuration menus under HR Configuration -->
+    <menuitem id="menu_hr_allowance_type"
+              name="Allowance Types"
+              parent="hr.menu_human_resources_configuration"
+              action="action_hr_allowance_type"
+              sequence="40"/>
+
+    <menuitem id="menu_hr_termination_reason"
+              name="Termination Reasons"
+              parent="hr.menu_human_resources_configuration"
+              action="action_hr_termination_reason"
+              sequence="42"/>
+
+</odoo>

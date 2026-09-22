@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Extend base config form with PrivatBank fields -->
+    <record id="l10n_ua_bank_sync_config_view_form_privat" model="ir.ui.view">
+        <field name="name">l10n_ua.bank.sync.config.form.privat</field>
+        <field name="model">l10n_ua.bank.sync.config</field>
+        <field name="inherit_id" ref="l10n_ua_bank_sync.l10n_ua_bank_sync_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_sync_now']" position="before">
+                <button name="action_test_connection" string="Test Connection" type="object"
+                        invisible="provider != 'privat'"/>
+                <button name="action_privat_xls_open_import" type="object"
+                        string="Імпорт виписки з файлу" class="btn-primary"
+                        invisible="provider != 'privat_xls'"/>
+            </xpath>
+            <xpath expr="//group[@name='account_group']" position="after">
+                <group string="PrivatBank API (Autoclient)" invisible="provider != 'privat'">
+                    <field name="privat_api_token" password="True"/>
+                    <field name="privat_account_iban" placeholder="UA000000000000000000000000000"/>
+                </group>
+                <group string="PrivatBank Legacy (Merchant)" invisible="provider != 'privat'">
+                    <field name="privat_merchant_id"/>
+                    <field name="privat_merchant_password" password="True"/>
+                    <field name="privat_card_number" placeholder="0000000000000000"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

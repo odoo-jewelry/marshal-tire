@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Auto-sync bank statements. Runs hourly; each configuration is
+             gated by its own sync_interval_hours (see _cron_auto_sync). -->
+        <record id="ir_cron_bank_auto_sync" model="ir.cron">
+            <field name="name">Синхронізація банку: автозавантаження виписок</field>
+            <field name="model_id" ref="model_l10n_ua_bank_sync_config"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_auto_sync()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</odoo>

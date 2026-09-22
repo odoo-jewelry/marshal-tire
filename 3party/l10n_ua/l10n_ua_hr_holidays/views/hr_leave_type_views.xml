@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_leave_type_view_form_ua" model="ir.ui.view">
+        <field name="name">hr.leave.type.form.ua</field>
+        <field name="model">hr.leave.type</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Ukrainian Settings" name="ua_settings">
+                    <group>
+                        <field name="ua_leave_category"/>
+                        <field name="annual_days"/>
+                        <field name="is_calendar_days"/>
+                        <field name="period_type"/>
+                        <field name="min_continuous_days"/>
+                    </group>
+                    <group>
+                        <field name="is_transferable"/>
+                        <field name="max_transfer_days" invisible="not is_transferable"/>
+                        <field name="requires_experience"/>
+                        <field name="min_experience_months" invisible="not requires_experience"/>
+                    </group>
+                    <group>
+                        <field name="is_paid"/>
+                        <field name="payment_source" invisible="not is_paid"/>
+                    </group>
+                    <group>
+                        <field name="ua_is_default"/>
+                        <field name="ua_auto_calc_balance"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

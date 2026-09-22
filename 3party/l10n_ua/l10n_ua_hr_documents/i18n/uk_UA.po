@@ -1,0 +1,1391 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ua_hr_documents
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260103\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-11 00:00+0000\n"
+"PO-Revision-Date: 2026-09-11 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.actions.report,print_report_name:l10n_ua_hr_documents.action_report_hr_order
+msgid "'Наказ_%s_%s' % (object.name, object.date)"
+msgstr "'Наказ_%s_%s' % (object.name, object.date)"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.report_hr_order_document
+msgid "(П.І.Б.)"
+msgstr "(П.І.Б.)"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.report_hr_order_document
+msgid "(підпис)"
+msgstr "(підпис)"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.report_hr_order_document
+msgid "<strong>Посада:</strong>"
+msgstr "<strong>Посада:</strong>"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.report_hr_order_document
+msgid "<strong>Працівник:</strong>"
+msgstr "<strong>Працівник:</strong>"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.report_hr_order_document
+msgid "<strong>Підрозділ:</strong>"
+msgstr "<strong>Підрозділ:</strong>"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.report_hr_order_document
+msgid "<strong>Підстава:</strong>"
+msgstr "<strong>Підстава:</strong>"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.report_hr_order_document
+msgid "<strong>Тема:</strong>"
+msgstr "<strong>Тема:</strong>"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__message_needaction
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__message_needaction
+msgid "Action Needed"
+msgstr "Потрібна дія"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__active
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__active
+msgid "Active"
+msgstr "Активний"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__activity_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__activity_ids
+msgid "Activities"
+msgstr "Активності"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Оформлення виключення активності"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__activity_state
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__activity_state
+msgid "Activity State"
+msgstr "Стан активності"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Іконка типу активності"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__include_vacation_compensation
+msgid ""
+"Add the standard \"виплатити компенсацію за N календарних днів "
+"невикористаної відпустки\" phrase to the dismissal order."
+msgstr ""
+"Додавати до наказу про звільнення стандартну фразу \"виплатити компенсацію "
+"за N календарних днів невикористаної відпустки\"."
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_wizard_form
+msgid "Apply"
+msgstr "Застосувати"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_search
+msgid "Archived"
+msgstr "Архівовано"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__attachment_id
+msgid "Attachment"
+msgstr "Вкладення"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__message_attachment_count
+msgid "Attachment Count"
+msgstr "Кількість вкладень"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_family__birth_date
+msgid "Birth Date"
+msgstr "Дата народження"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__birth_place
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_family__birth_place
+msgid "Birth Place"
+msgstr "Місце народження"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__body
+msgid "Body"
+msgstr "Тіло"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__order_type__bonus
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template__order_type__bonus
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template_wizard__order_type__bonus
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_type__category__bonus
+msgid "Bonus"
+msgstr "Преміювання"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__order_type__business_trip
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template__order_type__business_trip
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template_wizard__order_type__business_trip
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_type__category__business_trip
+msgid "Business Trip"
+msgstr "Відрядження"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__unused_vacation_days
+msgid ""
+"Calendar days of unused vacation to compensate on dismissal. Auto-filled "
+"from the vacation balance; editable."
+msgstr ""
+"Календарні дні невикористаної відпустки для компенсації при звільненні. "
+"Заповнюється автоматично із залишку відпусток; можна редагувати."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__can_create_leave
+msgid "Can Create Time Off"
+msgstr "Можна створити відпустку"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_wizard_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__state__cancelled
+msgid "Cancelled"
+msgstr "Скасовано"
+
+#. module: l10n_ua_hr_documents
+#. odoo-python
+#: code:addons/l10n_ua_hr_documents/models/hr_order.py:0
+msgid ""
+"Cannot cancel the dismissal of %(employee)s: a new contract for this employee already starts on %(start)s.\n"
+"\n"
+"Reopening the contract this order closed would put the employee under two contracts at once. Correct or delete the later contract first, then cancel this order."
+msgstr ""
+"Не можна скасувати звільнення %(employee)s: для цього працівника вже починається новий контракт з %(start)s.\n"
+"\n"
+"Повернення контракту, який закрив цей наказ, лишило б працівника під двома контрактами одночасно. Спочатку виправте або видаліть пізніший контракт, а тоді скасовуйте наказ."
+
+#. module: l10n_ua_hr_documents
+#. odoo-python
+#: code:addons/l10n_ua_hr_documents/models/hr_order.py:0
+msgid ""
+"Cannot start a contract for %(employee)s on %(start)s: the contract of %(other_start)s - %(other_end)s is still running that day.\n"
+"\n"
+"An employee who leaves and is hired again is free from the day after the previous contract ends, so hire them from %(next_day)s.\n"
+"\n"
+"If instead the two contracts are meant to run side by side (concurrent employment next to a job that carries on), create a separate employee record for it: one record holds one contract at a time."
+msgstr ""
+"Не можна відкрити контракт для %(employee)s з %(start)s: цього дня ще діє контракт за період %(other_start)s - %(other_end)s.\n"
+"\n"
+"Звільнений і знову прийнятий працівник вільний з наступного дня після закінчення попереднього контракту, тож приймайте з %(next_day)s.\n"
+"\n"
+"Якщо ж два контракти мають діяти одночасно (сумісництво поряд з роботою, що триває), створіть для цього окрему картку працівника: одна картка тримає один контракт за раз."
+
+#. module: l10n_ua_hr_documents
+#. odoo-python
+#: code:addons/l10n_ua_hr_documents/models/hr_order.py:0
+msgid ""
+"Cannot start a contract for %(employee)s on %(start)s: the contract opened on %(other_start)s is still running and carries no end date.\n"
+"\n"
+"Close it first — confirm the dismissal order, or fill in its end date — and hire the employee from the day after. If the two contracts are meant to run side by side (concurrent employment), create a separate employee record for it."
+msgstr ""
+"Не можна відкрити контракт для %(employee)s з %(start)s: контракт, відкритий %(other_start)s, ще діє і не має дати закінчення.\n"
+"\n"
+"Спочатку закрийте його — проведіть наказ про звільнення або вкажіть дату закінчення — і приймайте працівника з наступного дня. Якщо ж два контракти мають діяти одночасно (сумісництво), створіть для цього окрему картку працівника."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__category
+msgid "Category"
+msgstr "Категорія"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_document__document_type__certificate
+msgid "Certificate"
+msgstr "Довідка"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__is_fixed_term
+msgid "Check if this is a fixed-term (строковий) contract"
+msgstr "Позначте, якщо це строковий трудовий договір"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_family__relation__child
+msgid "Child"
+msgstr "Дитина"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__code
+msgid "Code"
+msgstr "Код"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__company_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__include_vacation_compensation
+msgid "Compensate Unused Vacation"
+msgstr "Компенсувати невикористану відпустку"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__employment_form__secondary
+msgid "Concurrent employment"
+msgstr "За сумісництвом"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_form
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__state__confirmed
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_search
+msgid "Confirmed"
+msgstr "Підтверджено"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__confirmed_by_id
+msgid "Confirmed By"
+msgstr "Підтвердив"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__confirmed_date
+msgid "Confirmed On"
+msgstr "Дата підтвердження"
+
+#. module: l10n_ua_hr_documents
+#. odoo-python
+#: code:addons/l10n_ua_hr_documents/models/hr_order.py:0
+msgid ""
+"Confirming a vacation order grants the leave, which requires the \"Ukraine "
+"HR: Officer\" access rights. Ask an HR officer to confirm this order."
+msgstr ""
+"Підтвердження наказу на відпустку надає відпустку, тому потребує прав "
+"«Ukraine HR: Officer». Попросіть кадровика підтвердити цей наказ."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__content
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_form
+msgid "Content"
+msgstr "Зміст"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_form
+msgid "Content Template"
+msgstr "Шаблон змісту"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__date_end
+msgid "Contract end date (for fixed-term contracts)"
+msgstr "Дата закінчення договору (для строкових договорів)"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__country_of_birth
+msgid "Country of Birth"
+msgstr "Країна народження"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_documents.action_hr_personal_file
+msgid "Create a personal file for an employee"
+msgstr "Створити особову справу для працівника"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_documents.action_hr_order_template
+msgid "Create your first order template"
+msgstr "Створіть перший шаблон наказу"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template_wizard__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_family__create_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template_wizard__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_family__create_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__date
+msgid "Date"
+msgstr "Дата"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__date_from
+msgid "Date From"
+msgstr "Дата з"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__date_to
+msgid "Date To"
+msgstr "Дата до"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__date_start
+msgid "Date when employment begins"
+msgstr "Дата початку роботи"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__department_id
+msgid "Department"
+msgstr "Підрозділ"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__description
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_order_type_view_form
+msgid "Description"
+msgstr "Опис"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__education_level_id
+msgid "Detailed Ukrainian education level classification"
+msgstr "Детальна українська класифікація рівнів освіти"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_document__document_type__diploma
+msgid "Diploma"
+msgstr "Диплом"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_type__category__disciplinary
+msgid "Disciplinary"
+msgstr "Дисциплінарне стягнення"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__order_type__dismissal
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template__order_type__dismissal
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template_wizard__order_type__dismissal
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_search
+msgid "Dismissal"
+msgstr "Звільнення"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__date_dismissal
+msgid "Dismissal Date"
+msgstr "Дата звільнення"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__dismissal_reason
+msgid "Dismissal Reason"
+msgstr "Причина звільнення"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template_wizard__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_family__display_name
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__display_name
+msgid "Display Name"
+msgstr "Відображуване ім'я"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__name
+msgid "Document Name"
+msgstr "Назва документа"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__number
+msgid "Document Number"
+msgstr "Номер документа"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__document_type
+msgid "Document Type"
+msgstr "Тип документа"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__document_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_personal_file_view_form
+msgid "Documents"
+msgstr "Документи"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__state__draft
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_search
+msgid "Draft"
+msgstr "Чернетка"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_personal_file_view_form
+msgid "Education"
+msgstr "Освіта"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__education_level_id
+msgid "Education Level"
+msgstr "Рівень освіти"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__education_institution
+msgid "Educational Institution"
+msgstr "Навчальний заклад"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__date_dismissal
+msgid "Effective date of employment termination"
+msgstr "Дата припинення трудових відносин"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model,name:l10n_ua_hr_documents.model_hr_employee
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__employee_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__employee_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_search
+msgid "Employee"
+msgstr "Працівник"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__date_end
+msgid "Employment End Date"
+msgstr "Дата закінчення працевлаштування"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__date_start
+msgid "Employment Start Date"
+msgstr "Дата початку працевлаштування"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__employment_form
+msgid "Employment Type"
+msgstr "Тип зайнятості"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__entry_type
+msgid "Entry Type"
+msgstr "Тип запису"
+
+#. module: l10n_ua_hr_documents
+#. odoo-python
+#: code:addons/l10n_ua_hr_documents/models/hr_order.py:0
+msgid ""
+"Failed to sync hiring order data to the employee record.\n"
+"\n"
+"Details: %s"
+msgstr ""
+"Не вдалось синхронізувати дані наказу з карткою співробітника.\n"
+"\n"
+"Подробиці: %s"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_personal_file_view_form
+msgid "Family"
+msgstr "Сім'я"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model,name:l10n_ua_hr_documents.model_hr_personal_file_family
+msgid "Family Member"
+msgstr "Член сім'ї"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__family_member_ids
+msgid "Family Members"
+msgstr "Члени сім'ї"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__name
+msgid "File Number"
+msgstr "Номер справи"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__is_fixed_term
+msgid "Fixed-term Contract"
+msgstr "Строковий трудовий договір"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Партнери)"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__activity_type_icon
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Іконка Font Awesome, напр. fa-tasks"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_family__name
+msgid "Full Name"
+msgstr "Повне ім'я"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__graduation_year
+msgid "Graduation Year"
+msgstr "Рік закінчення"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.actions.report,name:l10n_ua_hr_documents.action_report_hr_order
+#: model:ir.model,name:l10n_ua_hr_documents.model_hr_order
+msgid "HR Order"
+msgstr "Кадровий наказ"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model,name:l10n_ua_hr_documents.model_hr_order_template
+msgid "HR Order Template"
+msgstr "Шаблон кадрового наказу"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model,name:l10n_ua_hr_documents.model_hr_order_template_wizard
+msgid "HR Order Template Selection Wizard"
+msgstr "Майстер вибору шаблону наказу"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model,name:l10n_ua_hr_documents.model_hr_order_type
+msgid "HR Order Type"
+msgstr "Тип кадрового наказу"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_employee__order_ids
+#: model:ir.ui.menu,name:l10n_ua_hr_documents.menu_hr_order
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_search
+msgid "HR Orders"
+msgstr "Накази по персоналу"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order_type__template_body
+msgid "HTML template for the order body"
+msgstr "HTML-шаблон для тіла наказу"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__has_message
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__has_message
+msgid "Has Message"
+msgstr "Має повідомлення"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__order_type__hiring
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template__order_type__hiring
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template_wizard__order_type__hiring
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_type__category__hiring
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_work_history__entry_type__hire
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_search
+msgid "Hiring"
+msgstr "Прийняття на роботу"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_employee__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template_wizard__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_family__id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_document__document_type__id_card
+msgid "ID Card"
+msgstr "ID-картка"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__activity_exception_icon
+msgid "Icon"
+msgstr "Іконка"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__activity_exception_icon
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Іконка для позначення виключної активності."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__message_needaction
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо позначено, нові повідомлення потребують вашої уваги."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__message_has_error
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__message_has_sms_error
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__message_has_error
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__previous_departure_date_saved
+msgid ""
+"Internal: True if previous_departure_date holds a backed-up value (needed "
+"because False is a legitimate previous value)."
+msgstr ""
+"Службове: True, якщо previous_departure_date містить збережене значення "
+"(потрібно, бо False — теж коректне попереднє значення)."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__previous_departure_date
+msgid ""
+"Internal: saves employee.departure_date before this dismissal order was "
+"applied, so cancellation can restore it."
+msgstr ""
+"Службове: зберігає employee.departure_date до застосування цього наказу про "
+"звільнення, щоб скасування могло його відновити."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__message_is_follower
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__message_is_follower
+msgid "Is Follower"
+msgstr "Є підписником"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__date
+msgid "Issue Date"
+msgstr "Дата видачі"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__issued_by
+msgid "Issued By"
+msgstr "Ким видано"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__job_id
+msgid "Job Position"
+msgstr "Посада"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template_wizard__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_family__write_uid
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__write_uid
+msgid "Last Updated by"
+msgstr "Оновив"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template_wizard__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_family__write_date
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__write_date
+msgid "Last Updated on"
+msgstr "Оновлено"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__leave_id
+msgid "Leave Record"
+msgstr "Запис відпустки"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__holiday_status_id
+msgid "Leave Type"
+msgstr "Тип відпустки"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__military_status
+msgid ""
+"Legacy field — kept for backward compatibility. Use "
+"military_register_category for the official ПКМУ № 1487 categorization."
+msgstr ""
+"Застаріле поле — залишено для зворотної сумісності. Для офіційної "
+"категоризації за ПКМУ № 1487 використовуйте military_register_category."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__dismissal_reason
+msgid ""
+"Legal basis for dismissal (e.g., \"за власним бажанням, ст. 38 КЗпП "
+"України\")"
+msgstr ""
+"Правова підстава звільнення (напр., \"за власним бажанням, ст. 38 КЗпП "
+"України\")"
+
+#. module: l10n_ua_hr_documents
+#. odoo-python
+#: code:addons/l10n_ua_hr_documents/models/hr_order.py:0
+msgid "Linked vacation order %s was cancelled. Leave state is unchanged."
+msgstr ""
+"Пов'язаний наказ про відпустку %s скасовано. Стан відпустки не змінено."
+
+#. module: l10n_ua_hr_documents
+#. odoo-python
+#: code:addons/l10n_ua_hr_documents/models/hr_order.py:0
+msgid "Linked vacation order was deleted."
+msgstr "Пов'язаний наказ про відпустку видалено."
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_form
+msgid "Load from Template"
+msgstr "Завантажити з шаблону"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__employment_form__main
+msgid "Main place of work"
+msgstr "За основним місцем роботи"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__marital_status
+msgid "Marital Status"
+msgstr "Сімейний стан"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_document__document_type__medical
+msgid "Medical Certificate"
+msgstr "Медична довідка"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__message_has_error
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставки повідомлення"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__message_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_personal_file_view_form
+msgid "Military"
+msgstr "Військовий облік"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_document__document_type__military
+msgid "Military Document"
+msgstr "Військовий документ"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__military_specialty
+msgid "Military Occupational Specialty"
+msgstr "Військово-облікова спеціальність"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__military_rank_id
+msgid "Military Rank"
+msgstr "Військове звання"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__military_specialty
+msgid "Military Specialty"
+msgstr "Військова спеціальність"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__military_status
+msgid "Military Status (legacy)"
+msgstr "Військовий статус (застаріле)"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Термін моєї активності"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_employee_view_form_inherit_documents
+msgid "New Order"
+msgstr "Новий наказ"
+
+#. module: l10n_ua_hr_documents
+#. odoo-python
+#: code:addons/l10n_ua_hr_documents/models/hr_order.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_form
+msgid "New Time Off"
+msgstr "Нова відпустка"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Подія календаря наступної активності"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Термін наступної активності"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__activity_summary
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__activity_summary
+msgid "Next Activity Summary"
+msgstr "Опис наступної активності"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__activity_type_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__activity_type_id
+msgid "Next Activity Type"
+msgstr "Тип наступної активності"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__notes
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__notes
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__notes
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__notes
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_personal_file_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_form
+msgid "Notes"
+msgstr "Примітки"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__name
+msgid "Number"
+msgstr "Номер"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__message_has_error_counter
+msgid "Number of errors"
+msgstr "Кількість помилок"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__message_needaction_counter
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Кількість повідомлень, що потребують дії"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__message_has_error_counter
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилкою доставки"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__leave_count
+msgid ""
+"Number of time off records tied to THIS order (0 or 1 — the order and its "
+"leave reference each other). Drives the \"Time Off\" smart button on "
+"vacation orders."
+msgstr ""
+"Кількість відпусток, прив'язаних до ЦЬОГО наказу (0 або 1 — наказ та його "
+"відпустка посилаються одне на одного). Керує смарт-кнопкою «Відпустки» на "
+"наказах про відпустку."
+
+#. module: l10n_ua_hr_documents
+#. odoo-python
+#: code:addons/l10n_ua_hr_documents/models/hr_order.py:0
+msgid "Only a vacation order records time off."
+msgstr "Лише наказ на відпустку оформлює відпустку."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template_wizard__order_id
+msgid "Order"
+msgstr "Наказ"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__order_date
+msgid "Order Date"
+msgstr "Дата наказу"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__order_number
+msgid "Order Number"
+msgstr "Номер наказу"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.actions.act_window,name:l10n_ua_hr_documents.action_hr_order_template
+#: model:ir.ui.menu,name:l10n_ua_hr_documents.menu_hr_order_template
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_search
+msgid "Order Templates"
+msgstr "Шаблони наказів"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__order_type
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__order_type
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template_wizard__order_type
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_order_type_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_search
+msgid "Order Type"
+msgstr "Тип наказу"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.actions.act_window,name:l10n_ua_hr_documents.action_hr_order_type
+#: model:ir.ui.menu,name:l10n_ua_hr_documents.menu_hr_order_type
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_order_type_view_tree
+msgid "Order Types"
+msgstr "Типи наказів"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.constraint,message:l10n_ua_hr_documents.constraint_hr_order_type_unique_code
+msgid "Order type code must be unique!"
+msgstr "Код типу наказу повинен бути унікальним!"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_employee__orders_count
+msgid "Orders"
+msgstr "Накази"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__organization
+msgid "Organization"
+msgstr "Організація"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__order_type__other
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template__order_type__other
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template_wizard__order_type__other
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_type__category__other
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_document__document_type__other
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_family__relation__other
+msgid "Other"
+msgstr "Інше"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_family__relation__parent
+msgid "Parent"
+msgstr "Батько/Мати"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_document__document_type__passport
+msgid "Passport"
+msgstr "Паспорт"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model,name:l10n_ua_hr_documents.model_hr_personal_file
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__personal_file_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_family__personal_file_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__personal_file_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_personal_file_view_form
+msgid "Personal File"
+msgstr "Особова справа"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model,name:l10n_ua_hr_documents.model_hr_personal_file_document
+msgid "Personal File Document"
+msgstr "Документ особової справи"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.actions.act_window,name:l10n_ua_hr_documents.action_hr_personal_file
+#: model:ir.ui.menu,name:l10n_ua_hr_documents.menu_hr_personal_file
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_personal_file_view_tree
+msgid "Personal Files"
+msgstr "Особові справи"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.constraint,message:l10n_ua_hr_documents.constraint_hr_personal_file_unique_employee_id
+msgid "Personal file for this employee already exists!"
+msgstr "Особова справа для цього працівника вже існує!"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_document__document_type__photo
+msgid "Photo"
+msgstr "Фото"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__termination_reason_id
+msgid ""
+"Pick a structured termination reason from the legal catalog. When set, the "
+"dismissal order will use its full_text and render description_html (legal "
+"explanation) in the print template."
+msgstr ""
+"Оберіть структуровану причину звільнення з правового довідника. Якщо її "
+"задано, наказ про звільнення використає її повний текст і виведе правове "
+"обґрунтування (description_html) у друкованому шаблоні."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_work_history__position
+msgid "Position"
+msgstr "Посада"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__previous_departure_date
+msgid "Previous Departure Date (backup)"
+msgstr "Попередня дата звільнення (резервна копія)"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__previous_departure_date_saved
+msgid "Previous Departure Date Saved"
+msgstr "Попередню дату звільнення збережено"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__qualification
+msgid "Qualification"
+msgstr "Кваліфікація"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_document__document_type__rnokpp
+msgid "RNOKPP Certificate"
+msgstr "Довідка РНОКПП"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_family__relation
+msgid "Relation"
+msgstr "Ступінь споріднення"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__requires_contract
+msgid "Requires Contract"
+msgstr "Потребує договір"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__requires_date_range
+msgid "Requires Date Range"
+msgstr "Потребує діапазон дат"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__requires_department
+msgid "Requires Department"
+msgstr "Потребує підрозділ"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__requires_employee
+msgid "Requires Employee"
+msgstr "Потребує працівника"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__activity_user_id
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__activity_user_id
+msgid "Responsible User"
+msgstr "Відповідальний"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Помилка доставки SMS"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_wizard_form
+msgid "Select Template"
+msgstr "Вибрати шаблон"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__sequence
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__sequence
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__sequence_id
+msgid "Sequence"
+msgstr "Послідовність"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_form
+msgid "Set to Draft"
+msgstr "Повернути в чернетку"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__order_type__sick_leave
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template__order_type__sick_leave
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template_wizard__order_type__sick_leave
+msgid "Sick Leave"
+msgstr "Лікарняний"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_form
+msgid "Source code"
+msgstr "Вихідний код"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__education_specialty
+msgid "Specialty"
+msgstr "Спеціальність"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_family__relation__spouse
+msgid "Spouse"
+msgstr "Чоловік/Дружина"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__state
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_search
+msgid "Status"
+msgstr "Статус"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__activity_state
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Стан на основі дій\n"
+"Прострочено: термін виконання вже минув\n"
+"Сьогодні: дата дії сьогодні\n"
+"Заплановано: майбутні дії."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__subject
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__subject
+msgid "Subject"
+msgstr "Тема"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__can_create_leave
+msgid ""
+"Technical: true when the \"New Time Off\" button should be shown — a "
+"vacation order with all its details filled in and no time off linked yet."
+msgstr ""
+"Технічне: істина, коли слід показати кнопку «Нова відпустка» — наказ на "
+"відпустку із заповненими даними, до якого ще не прив'язано відпустку."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template_wizard__template_id
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_order_type_view_form
+msgid "Template"
+msgstr "Шаблон"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_type__template_body
+msgid "Template Body"
+msgstr "Тіло шаблону"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order_template__name
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_form
+msgid "Template Name"
+msgstr "Назва шаблону"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_documents.action_hr_order_template
+msgid "Templates help you quickly fill in standard order content."
+msgstr "Шаблони допомагають швидко заповнити стандартний зміст наказу."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_type__category__termination
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_work_history__entry_type__termination
+msgid "Termination"
+msgstr "Звільнення"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__termination_reason_id
+msgid "Termination Reason (from catalog)"
+msgstr "Причина звільнення (з довідника)"
+
+#. module: l10n_ua_hr_documents
+#. odoo-python
+#: code:addons/l10n_ua_hr_documents/models/hr_order.py:0
+msgid "This order already has a linked time off."
+msgstr "Цей наказ уже має прив'язану відпустку."
+
+#. module: l10n_ua_hr_documents
+#. odoo-python
+#: code:addons/l10n_ua_hr_documents/models/hr_order.py:0
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__leave_count
+msgid "Time Off"
+msgstr "Відпустки"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__order_type__transfer
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template__order_type__transfer
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template_wizard__order_type__transfer
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_type__category__transfer
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_personal_file_work_history__entry_type__transfer
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_search
+msgid "Transfer"
+msgstr "Переведення"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Тип виключної активності в записі."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__unused_vacation_days
+msgid "Unused Vacation Days"
+msgstr "Дні невикористаної відпустки"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__confirmed_by_id
+msgid ""
+"User who confirmed this order in the system — the HR officer recording that "
+"the printed order was signed. Kept as the audit trail of the act the order "
+"performs (e.g. granting a leave)."
+msgstr ""
+"Користувач, який підтвердив цей наказ у системі, — кадровик, що фіксує "
+"підписання друкованого наказу. Зберігається як аудиторський слід дії, яку "
+"виконує наказ (напр., надання відпустки)."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order__order_type__vacation
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template__order_type__vacation
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_template_wizard__order_type__vacation
+#: model:ir.model.fields.selection,name:l10n_ua_hr_documents.selection__hr_order_type__category__vacation
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_search
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.view_hr_order_template_search
+msgid "Vacation"
+msgstr "Відпустка"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__vacation_date_to
+msgid "Vacation End Date"
+msgstr "Дата закінчення відпустки"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__vacation_date_from
+msgid "Vacation Start Date"
+msgstr "Дата початку відпустки"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file_document__valid_until
+msgid "Valid Until"
+msgstr "Дійсний до"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_order__website_message_ids
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__website_message_ids
+msgid "Website Messages"
+msgstr "Повідомлення веб-сайту"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__website_message_ids
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_personal_file__website_message_ids
+msgid "Website communication history"
+msgstr "Історія комунікації веб-сайту"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,help:l10n_ua_hr_documents.field_hr_order__confirmed_date
+msgid "When the order was confirmed in the system."
+msgstr "Коли наказ було підтверджено в системі."
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model.fields,field_description:l10n_ua_hr_documents.field_hr_personal_file__work_history_ids
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.hr_personal_file_view_form
+msgid "Work History"
+msgstr "Трудова історія"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.model,name:l10n_ua_hr_documents.model_hr_personal_file_work_history
+msgid "Work History Entry"
+msgstr "Запис трудової історії"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.report_hr_order_document
+msgid "Бухгалтерії підприємства виплатити компенсацію за"
+msgstr "Бухгалтерії підприємства виплатити компенсацію за"
+
+#. module: l10n_ua_hr_documents
+#: model:ir.actions.act_window,name:l10n_ua_hr_documents.action_hr_order
+msgid "Кадрові накази"
+msgstr "Кадрові накази"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.report_hr_order_document
+msgid "Керівник"
+msgstr "Керівник"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.report_hr_order_document
+msgid "НАКАЗ"
+msgstr "НАКАЗ"
+
+#. module: l10n_ua_hr_documents
+#: model:hr.order.type,name:l10n_ua_hr_documents.order_type_business_trip
+msgid "Наказ про відрядження"
+msgstr "Наказ про відрядження"
+
+#. module: l10n_ua_hr_documents
+#: model:hr.order.type,name:l10n_ua_hr_documents.order_type_reprimand
+msgid "Наказ про догану"
+msgstr "Наказ про догану"
+
+#. module: l10n_ua_hr_documents
+#: model:hr.order.type,name:l10n_ua_hr_documents.order_type_termination
+msgid "Наказ про звільнення"
+msgstr "Наказ про звільнення"
+
+#. module: l10n_ua_hr_documents
+#: model:hr.order.type,name:l10n_ua_hr_documents.order_type_wage_change
+msgid "Наказ про зміну окладу"
+msgstr "Наказ про зміну окладу"
+
+#. module: l10n_ua_hr_documents
+#: model:hr.order.type,name:l10n_ua_hr_documents.order_type_vacation
+msgid "Наказ про надання відпустки"
+msgstr "Наказ про надання відпустки"
+
+#. module: l10n_ua_hr_documents
+#: model:hr.order.type,name:l10n_ua_hr_documents.order_type_transfer
+msgid "Наказ про переведення"
+msgstr "Наказ про переведення"
+
+#. module: l10n_ua_hr_documents
+#: model:hr.order.type,name:l10n_ua_hr_documents.order_type_bonus
+msgid "Наказ про преміювання"
+msgstr "Наказ про преміювання"
+
+#. module: l10n_ua_hr_documents
+#: model:hr.order.type,name:l10n_ua_hr_documents.order_type_hiring
+msgid "Наказ про прийняття на роботу"
+msgstr "Наказ про прийняття на роботу"
+
+#. module: l10n_ua_hr_documents
+#: model:hr.order.type,name:l10n_ua_hr_documents.order_type_combine
+msgid "Наказ про суміщення"
+msgstr "Наказ про суміщення"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.actions.act_window,help:l10n_ua_hr_documents.action_hr_order
+msgid "Створіть перший кадровий наказ"
+msgstr "Створіть перший кадровий наказ"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.report_hr_order_document
+msgid "від"
+msgstr "від"
+
+#. module: l10n_ua_hr_documents
+#: model_terms:ir.ui.view,arch_db:l10n_ua_hr_documents.report_hr_order_document
+msgid "календарних днів невикористаної відпустки."
+msgstr "календарних днів невикористаної відпустки."

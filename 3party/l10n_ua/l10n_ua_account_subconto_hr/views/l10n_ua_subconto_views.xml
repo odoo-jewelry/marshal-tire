@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_move_line_form_subconto_hr" model="ir.ui.view">
+        <field name="name">account.move.line.form.subconto.hr</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="l10n_ua_account_base.view_move_line_form_subconto"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='subconto_quick_fields']" position="inside">
+                <field name="subconto_department_id"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

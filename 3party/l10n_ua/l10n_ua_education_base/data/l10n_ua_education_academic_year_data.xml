@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Default current academic year. company_id буде заповнене за замовчуванням -->
+        <record id="academic_year_2025_2026" model="l10n_ua.education.academic.year">
+            <field name="name">2025/2026</field>
+            <field name="year_start">2025</field>
+            <field name="date_start" eval="'2025-09-01'"/>
+            <field name="date_end" eval="'2026-06-30'"/>
+            <field name="is_active" eval="False"/>
+            <field name="state">planned</field>
+            <field name="notes">Стандартний навчальний рік 01.09.2025 — 30.06.2026.
+Активувати після першого використання модуля.</field>
+        </record>
+    </data>
+</odoo>

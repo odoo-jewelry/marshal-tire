@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Домен вкладено в застосунок «Співробітники» (hr.menu_hr_root) замість
+         власного кореня: власний корінь «Timesheet» дублював за назвою core
+         Timesheets (hr_timesheet) — див. docs/menu_registry.md §4 і H2 в
+         docs/menu_architecture.md.
+
+         NB: root/container groups alone do NOT hide the app — Odoo shows the
+         ancestors of any visible ungated leaf. Every action-bearing LEAF carries
+         the group. See docs/menu_architecture.md (видимість). -->
+
+    <menuitem id="menu_hr_timesheet"
+              name="Attendance Sheet (P-5)"
+              parent="hr.menu_hr_root"
+              action="action_hr_timesheet"
+              sequence="16"
+              groups="l10n_ua_hr_base.group_hr_ua_user"/>
+
+    <menuitem id="menu_hr_timesheet_config"
+              name="Attendance Sheet (P-5)"
+              parent="l10n_ua_hr_base.menu_hr_ua_configuration"
+              sequence="30"
+              groups="l10n_ua_hr_base.group_hr_ua_manager"/>
+
+    <menuitem id="menu_hr_timesheet_code"
+              name="Timesheet Codes"
+              parent="menu_hr_timesheet_config"
+              action="action_hr_timesheet_code"
+              sequence="10"
+              groups="l10n_ua_hr_base.group_hr_ua_manager"/>
+
+    <menuitem id="menu_hr_production_calendar"
+              name="Production Calendars"
+              parent="menu_hr_timesheet_config"
+              action="action_hr_production_calendar"
+              sequence="20"
+              groups="l10n_ua_hr_base.group_hr_ua_manager"/>
+
+</odoo>

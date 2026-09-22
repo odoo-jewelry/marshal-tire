@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_l10n_ua_kfk_list" model="ir.ui.view">
+        <field name="name">l10n_ua.kfk.list</field>
+        <field name="model">l10n_ua.kfk</field>
+        <field name="arch" type="xml">
+            <list string="КФК" decoration-info="not parent_id">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="division" optional="show"/>
+                <field name="parent_id" optional="show"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_l10n_ua_kfk_form" model="ir.ui.view">
+        <field name="name">l10n_ua.kfk.form</field>
+        <field name="model">l10n_ua.kfk</field>
+        <field name="arch" type="xml">
+            <form string="КФК">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="parent_id"/>
+                        </group>
+                        <group>
+                            <field name="division" readonly="1"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Дочірні коди">
+                            <field name="child_ids">
+                                <list>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_l10n_ua_kfk_search" model="ir.ui.view">
+        <field name="name">l10n_ua.kfk.search</field>
+        <field name="model">l10n_ua.kfk</field>
+        <field name="arch" type="xml">
+            <search string="Пошук КФК">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="division"/>
+                <filter string="Тільки верхній рівень" name="filter_top" domain="[('parent_id', '=', False)]"/>
+                <group>
+                    <filter string="Розділом" name="groupby_division" domain="[]" context="{'group_by': 'division'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_l10n_ua_kfk" model="ir.actions.act_window">
+        <field name="name">КФК</field>
+        <field name="res_model">l10n_ua.kfk</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

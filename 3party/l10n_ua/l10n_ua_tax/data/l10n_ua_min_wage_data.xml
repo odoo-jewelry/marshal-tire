@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Офіційні розміри оновлюються разом із модулем (без noupdate): застарілі
+         значення під noupdate і стали причиною #325. Нові роки додавайте окремими
+         записами — їх оновлення модуля не зачіпає. -->
+    <data>
+
+        <record id="min_wage_2024_01" model="l10n_ua.min.wage">
+            <field name="date_from">2024-01-01</field>
+            <field name="amount">7100</field>
+            <field name="legal_basis">Закон № 3460-IX «Про Державний бюджет України на 2024 рік»</field>
+        </record>
+
+        <record id="min_wage_2024_04" model="l10n_ua.min.wage">
+            <field name="date_from">2024-04-01</field>
+            <field name="amount">8000</field>
+            <field name="legal_basis">Закон № 3460-IX «Про Державний бюджет України на 2024 рік»</field>
+        </record>
+
+        <record id="min_wage_2025_01" model="l10n_ua.min.wage">
+            <field name="date_from">2025-01-01</field>
+            <field name="amount">8000</field>
+            <field name="legal_basis">Закон № 4059-IX від 19.11.2024 «Про Державний бюджет України на 2025 рік»</field>
+        </record>
+
+        <record id="min_wage_2026_01" model="l10n_ua.min.wage">
+            <field name="date_from">2026-01-01</field>
+            <field name="amount">8647</field>
+            <field name="legal_basis">Закон № 4695-IX від 03.12.2025 «Про Державний бюджет України на 2026 рік»</field>
+        </record>
+
+    </data>
+</odoo>

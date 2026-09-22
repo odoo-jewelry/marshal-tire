@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report_hr_order" model="ir.actions.report">
+        <field name="name">HR Order</field>
+        <field name="model">hr.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_hr_documents.report_hr_order</field>
+        <field name="report_file">l10n_ua_hr_documents.report_hr_order</field>
+        <field name="print_report_name">'Наказ_%s_%s' % (object.name, object.date)</field>
+        <field name="binding_model_id" ref="model_hr_order"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="l10n_ua_hr_base.paperformat_a4_ua"/>
+    </record>
+
+    <template id="report_hr_order">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="order">
+                <t t-call="l10n_ua_hr_documents.report_hr_order_document"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_hr_order_document">
+        <t t-call="web.basic_layout">
+            <t t-set="o" t-value="order"/>
+            <div class="page" style="font-family: 'Times New Roman', serif; font-size: 14pt;">
+
+                <t t-if="order.content">
+                    <t t-out="order.content"/>
+                </t>
+
+                <t t-else="">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <strong t-field="order.company_id.name"/>
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <h2 style="margin: 0;">НАКАЗ</h2>
+                    </div>
+
+                    <table style="width: 100%; margin-bottom: 20px;">
+                        <tr>
+                            <td style="width: 50%;">
+                                № <span t-field="order.name"/>
+                            </td>
+                            <td style="width: 50%; text-align: right;">
+                                від <span t-field="order.date" t-options='{"format": "dd.MM.yyyy"}'/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div style="margin-bottom: 20px;">
+                        <strong>Тема:</strong> <span t-field="order.subject"/>
+                    </div>
+
+                    <t t-if="order.employee_id">
+                        <div style="margin-bottom: 10px;">
+                            <strong>Працівник:</strong> <span t-field="order.employee_id.name"/>
+                        </div>
+                    </t>
+
+                    <t t-if="order.department_id">
+                        <div style="margin-bottom: 10px;">
+                            <strong>Підрозділ:</strong> <span t-field="order.department_id.name"/>
+                        </div>
+                    </t>
+
+                    <t t-if="order.job_id">
+                        <div style="margin-bottom: 10px;">
+                            <strong>Посада:</strong> <span t-field="order.job_id.name"/>
+                        </div>
+                    </t>
+
+                    <t t-if="order.order_type == 'dismissal' and order.dismissal_reason">
+                        <div style="margin-bottom: 10px;">
+                            <strong>Підстава:</strong> <span t-field="order.dismissal_reason"/>
+                        </div>
+                    </t>
+
+                    <t t-if="order.order_type == 'dismissal' and order.include_vacation_compensation and order.unused_vacation_days_phrase()">
+                        <div style="margin-top: 15px; margin-bottom: 10px;">
+                            Бухгалтерії підприємства виплатити компенсацію за
+                            <strong><span t-out="order.unused_vacation_days_phrase()"/></strong>
+                            невикористаної відпустки.
+                        </div>
+                    </t>
+
+                    <div style="margin-top: 50px;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 40%;">Керівник</td>
+                                <td style="width: 30%; border-bottom: 1px solid #000;"></td>
+                                <td style="width: 30%; border-bottom: 1px solid #000;"><span t-field="order.company_id.director_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="text-align: center; font-size: 10pt;">(підпис)</td>
+                                <td style="text-align: center; font-size: 10pt;">(П.І.Б.)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+
+            </div>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_sick_leave_view_form" model="ir.ui.view">
+        <field name="name">hr.sick.leave.form</field>
+        <field name="model">hr.sick.leave</field>
+        <field name="arch" type="xml">
+            <form string="Sick Leave">
+                <header>
+                    <button name="action_calculate" string="Calculate" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_confirm" string="Confirm" type="object"
+                            invisible="state != 'draft'"/>
+                    <button name="action_pay" string="Mark as Paid" type="object"
+                            class="btn-primary" invisible="state != 'confirmed'"/>
+                    <button name="action_cancel" string="Cancel" type="object"
+                            invisible="state in ('paid', 'cancelled')"/>
+                    <button name="action_draft" string="Set to Draft" type="object"
+                            invisible="state != 'cancelled'"/>
+                    <!-- The absence and the order are separate documents: each
+                         is created explicitly, reviewed and saved by whoever
+                         has the right to create it. -->
+                    <button name="action_create_leave" string="New Time Off" type="object"
+                            invisible="not can_create_leave or state == 'cancelled'"/>
+                    <button name="action_create_order" string="New Order" type="object"
+                            invisible="not can_create_order or state == 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,paid"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_leave" type="object"
+                                class="oe_stat_button" icon="fa-calendar-times-o"
+                                invisible="not leave_id">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Time Off</span>
+                            </div>
+                        </button>
+                        <button name="action_view_order" type="object"
+                                class="oe_stat_button" icon="fa-file-text-o"
+                                invisible="not order_id">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Order</span>
+                            </div>
+                        </button>
+                    </div>
+                    <field name="can_create_leave" invisible="1"/>
+                    <field name="can_create_order" invisible="1"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="sick_leave_type"/>
+                            <field name="diagnosis_code"/>
+                        </group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="calendar_days"/>
+                        </group>
+                    </group>
+                    <group string="Sick Leave Document">
+                        <group>
+                            <field name="is_electronic"/>
+                            <field name="sick_leave_number" invisible="is_electronic"/>
+                            <field name="e_sick_leave_id" invisible="not is_electronic"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group string="Payment Calculation">
+                        <group>
+                            <field name="insurance_experience_years"/>
+                            <field name="payment_percent"/>
+                            <field name="average_daily_salary"/>
+                        </group>
+                        <group>
+                            <field name="employer_days"/>
+                            <field name="employer_amount"/>
+                            <field name="fss_days"/>
+                            <field name="fss_amount"/>
+                            <field name="total_amount"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="leave_id" readonly="1"/>
+                        <field name="order_id" readonly="1"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_sick_leave_view_tree" model="ir.ui.view">
+        <field name="name">hr.sick.leave.tree</field>
+        <field name="model">hr.sick.leave</field>
+        <field name="arch" type="xml">
+            <list string="Sick Leaves" decoration-muted="state == 'cancelled'">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="sick_leave_type"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="calendar_days"/>
+                <field name="payment_percent"/>
+                <field name="total_amount" sum="Total"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'paid'"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'confirmed'"
+                       decoration-muted="state == 'cancelled'"/>
+            </list>
+        </field>
+    </record>
+
+<record id="action_hr_sick_leave" model="ir.actions.act_window">
+        <field name="name">Sick Leaves</field>
+        <field name="res_model">hr.sick.leave</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register a sick leave
+            </p>
+        </field>
+    </record>
+
+</odoo>

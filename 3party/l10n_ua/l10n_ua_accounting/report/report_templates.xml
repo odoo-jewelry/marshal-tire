@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Paper format and shared styles moved to l10n_ua_doc_reports module.
+        Use: ref="l10n_ua_doc_reports.paperformat_ua_report"
+        Use: t-call="l10n_ua_doc_reports.report_ua_styles"
+    -->
+
+    <!-- Report action for PKO -->
+    <record id="action_report_pko" model="ir.actions.report">
+        <field name="name">PKO (Cash Receipt Order)</field>
+        <field name="model">account.payment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_accounting.report_pko_document</field>
+        <field name="report_file">l10n_ua_accounting.report_pko_document</field>
+        <field name="print_report_name">'ПКО-%s' % (object.ua_cash_order_number or object.name)</field>
+        <field name="binding_model_id" ref="account.model_account_payment"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+    <!-- Report action for VKO -->
+    <record id="action_report_vko" model="ir.actions.report">
+        <field name="name">VKO (Cash Disbursement Order)</field>
+        <field name="model">account.payment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_accounting.report_vko_document</field>
+        <field name="report_file">l10n_ua_accounting.report_vko_document</field>
+        <field name="print_report_name">'ВКО-%s' % (object.ua_cash_order_number or object.name)</field>
+        <field name="binding_model_id" ref="account.model_account_payment"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+    <!-- Report action for Payment Order (Платіжне доручення) -->
+    <record id="action_report_payment_order" model="ir.actions.report">
+        <field name="name">Платіжне доручення</field>
+        <field name="model">account.payment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_ua_accounting.report_payment_order_document</field>
+        <field name="report_file">l10n_ua_accounting.report_payment_order_document</field>
+        <field name="print_report_name">'ПД-%s' % (object.ua_payment_order_number or object.name)</field>
+        <field name="binding_model_id" ref="account.model_account_payment"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="l10n_ua_doc_reports.paperformat_ua_report"/>
+    </record>
+
+</odoo>

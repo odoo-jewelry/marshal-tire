@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_scholarship_payment_list" model="ir.ui.view">
+        <field name="name">l10n_ua.scholarship.payment.list</field>
+        <field name="model">l10n_ua.scholarship.payment</field>
+        <field name="arch" type="xml">
+            <list string="Відомості стипендій"
+                  decoration-info="state == 'draft'"
+                  decoration-warning="state == 'approved'"
+                  decoration-success="state == 'paid'"
+                  decoration-muted="state == 'cancelled'">
+                <field name="name"/>
+                <field name="period_year"/>
+                <field name="period_month"/>
+                <field name="scholarship_type_id"/>
+                <field name="fund_type"/>
+                <field name="kekv_id" optional="hide"/>
+                <field name="line_count" string="К-сть"/>
+                <field name="total_amount" widget="monetary"/>
+                <field name="state" widget="badge"/>
+                <field name="currency_id" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_scholarship_payment_form" model="ir.ui.view">
+        <field name="name">l10n_ua.scholarship.payment.form</field>
+        <field name="model">l10n_ua.scholarship.payment</field>
+        <field name="arch" type="xml">
+            <form string="Відомість виплати стипендії">
+                <header>
+                    <button name="action_approve" string="Затвердити" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_pay" string="Виплатити" type="object"
+                            class="btn-primary" invisible="state != 'approved'"/>
+                    <button name="action_cancel" string="Скасувати" type="object"
+                            invisible="state in ('paid', 'cancelled')"/>
+                    <button name="action_reset_to_draft" string="У чернетку" type="object"
+                            invisible="state not in ('approved', 'cancelled')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,approved,paid"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" readonly="state != 'draft'"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="scholarship_type_id" readonly="state != 'draft'"/>
+                            <field name="period_year" readonly="state != 'draft'"/>
+                            <field name="period_month" readonly="state != 'draft'"/>
+                            <field name="payment_date" readonly="state not in ('draft', 'approved')"/>
+                            <field name="academic_year_id"/>
+                        </group>
+                        <group>
+                            <field name="kekv_id" readonly="state != 'draft'"/>
+                            <field name="fund_type" readonly="state != 'draft'"/>
+                            <field name="kpkvk_id" readonly="state != 'draft'"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Рядки виплати" name="lines">
+                            <field name="line_ids" readonly="state not in ('draft',)">
+                                <list editable="bottom">
+                                    <field name="member_id"/>
+                                    <field name="partner_id" readonly="1"/>
+                                    <field name="group_id" readonly="1" optional="show"/>
+                                    <field name="amount"/>
+                                    <field name="amount_pdfo" optional="show" readonly="1"/>
+                                    <field name="amount_vz" optional="show" readonly="1"/>
+                                    <field name="amount_net" optional="show" readonly="1"/>
+                                    <field name="is_taxable" readonly="1" optional="hide"/>
+                                    <field name="note"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                </list>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="line_count" string="Кількість одержувачів"/>
+                                <field name="total_amount" widget="monetary"/>
+                                <field name="total_pdfo" widget="monetary"/>
+                                <field name="total_vz" widget="monetary"/>
+                                <field name="total_net" widget="monetary"
+                                       class="oe_subtotal_footer_separator"/>
+                            </group>
+                        </page>
+                        <page string="Бухгалтерія" name="accounting">
+                            <group>
+                                <group string="Ставки податків">
+                                    <field name="pdfo_rate"/>
+                                    <field name="vz_rate"/>
+                                </group>
+                                <group string="Журнал нарахування">
+                                    <field name="journal_id"/>
+                                    <field name="account_expense_id"/>
+                                    <field name="account_payable_id"/>
+                                    <field name="account_pdfo_id"/>
+                                    <field name="account_vz_id"/>
+                                </group>
+                            </group>
+                            <group string="Згенерована проводка" invisible="not account_move_id">
+                                <field name="account_move_id" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Примітки" name="notes">
+                            <field name="notes" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_scholarship_payment_search" model="ir.ui.view">
+        <field name="name">l10n_ua.scholarship.payment.search</field>
+        <field name="model">l10n_ua.scholarship.payment</field>
+        <field name="arch" type="xml">
+            <search string="Пошук">
+                <field name="name"/>
+                <field name="scholarship_type_id"/>
+                <field name="period_year"/>
+                <filter string="Чернетки" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Затверджені" name="filter_approved" domain="[('state', '=', 'approved')]"/>
+                <filter string="Виплачені" name="filter_paid" domain="[('state', '=', 'paid')]"/>
+                <group>
+                    <filter string="Тип" name="groupby_type" domain="[]" context="{'group_by': 'scholarship_type_id'}"/>
+                    <filter string="Рік" name="groupby_year" domain="[]" context="{'group_by': 'period_year'}"/>
+                    <filter string="Стан" name="groupby_state" domain="[]" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_scholarship_payment" model="ir.actions.act_window">
+        <field name="name">Відомості виплати</field>
+        <field name="res_model">l10n_ua.scholarship.payment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

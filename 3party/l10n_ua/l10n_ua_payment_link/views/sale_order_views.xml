@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sale_order_form_inherit_payment_link" model="ir.ui.view">
+        <field name="name">sale.order.form.payment.link</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='order_lines']" position="after">
+                <page string="Оплата" name="payment_links">
+                    <group string="QR-код для оплати (стандарт НБУ)">
+                        <field name="nbu_payment_link" widget="CopyClipboardURL" readonly="1"
+                               invisible="not nbu_payment_link"/>
+                        <div invisible="nbu_payment_link" colspan="2">
+                            <span class="text-muted">Для генерації QR-коду налаштуйте IBAN та ЄДРПОУ компанії</span>
+                        </div>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

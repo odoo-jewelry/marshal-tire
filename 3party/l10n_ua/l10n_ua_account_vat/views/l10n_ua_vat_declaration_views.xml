@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- VAT Declaration Form -->
+    <record id="l10n_ua_vat_declaration_view_form" model="ir.ui.view">
+        <field name="name">l10n_ua.vat.declaration.form</field>
+        <field name="model">l10n_ua.vat.declaration</field>
+        <field name="arch" type="xml">
+            <form string="Декларація з ПДВ">
+                <header>
+                    <button name="action_calculate" string="Розрахувати" type="object"
+                            class="btn-primary" invisible="state not in ('draft', 'calculated')"/>
+                    <button name="action_export_xlsx" string="Експорт XLSX" type="object"
+                            invisible="state == 'draft'"/>
+                    <button name="action_submit" string="Подати" type="object"
+                            class="btn-primary" invisible="state != 'calculated'"/>
+                    <button name="action_accept" string="Прийнято" type="object"
+                            class="btn-success" invisible="state != 'submitted'"/>
+                    <button name="action_create_vat_payment" string="Сплатити ПДВ" type="object"
+                            class="btn-warning" invisible="line_18_vat &lt;= 0 or state == 'draft'"/>
+                    <button name="action_draft" string="Повернути в чернетку" type="object"
+                            invisible="state in ('draft', 'accepted')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,calculated,submitted,accepted"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_vat_account_balance" type="object"
+                                class="oe_stat_button" icon="fa-book"
+                                invisible="state == 'draft'">
+                            <span>Рахунок 6411</span>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="True"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="period_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="register_issued_id"/>
+                            <field name="register_received_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <!-- Section I — Tax Liabilities -->
+                        <page string="I. Зобов'язання" name="liabilities">
+                            <group>
+                                <group string="Ставка 20%">
+                                    <field name="line_1_1_base"/>
+                                    <field name="line_1_1_vat"/>
+                                </group>
+                                <group string="Ставка 14%">
+                                    <field name="line_1_2_base"/>
+                                    <field name="line_1_2_vat"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Ставка 7%">
+                                    <field name="line_1_3_base"/>
+                                    <field name="line_1_3_vat"/>
+                                </group>
+                                <group string="Нульова ставка">
+                                    <field name="line_2_base"/>
+                                    <field name="line_3_base"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Інші">
+                                    <field name="line_4_base"/>
+                                    <field name="line_5_base"/>
+                                    <field name="line_6_base"/>
+                                </group>
+                                <group string="Разом">
+                                    <field name="line_9_vat" class="oe_subtotal_footer_separator"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Section II — Tax Credit -->
+                        <page string="II. Кредит" name="credit">
+                            <group>
+                                <group string="Придбання 20%">
+                                    <field name="line_10_1_base"/>
+                                    <field name="line_10_1_vat"/>
+                                </group>
+                                <group string="Придбання 14%">
+                                    <field name="line_10_2_base"/>
+                                    <field name="line_10_2_vat"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Придбання 7%">
+                                    <field name="line_10_3_base"/>
+                                    <field name="line_10_3_vat"/>
+                                </group>
+                                <group string="Імпорт 20%">
+                                    <field name="line_11_1_base"/>
+                                    <field name="line_11_1_vat"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Імпорт 14%">
+                                    <field name="line_11_2_base"/>
+                                    <field name="line_11_2_vat"/>
+                                </group>
+                                <group string="Імпорт 7%">
+                                    <field name="line_11_3_base"/>
+                                    <field name="line_11_3_vat"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Коригування">
+                                    <field name="line_14_vat"/>
+                                </group>
+                                <group string="Разом">
+                                    <field name="line_17_vat" class="oe_subtotal_footer_separator"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Section III — Result -->
+                        <page string="III. Результат" name="result">
+                            <group>
+                                <group>
+                                    <field name="line_9_vat" string="Усього зобов'язань (р.9)" readonly="True"/>
+                                    <field name="line_17_vat" string="Усього кредит (р.17)" readonly="True"/>
+                                </group>
+                                <group>
+                                    <field name="line_18_vat"/>
+                                    <field name="line_20_vat"/>
+                                    <field name="line_20_2_vat"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- VAT Declaration List -->
+    <record id="l10n_ua_vat_declaration_view_list" model="ir.ui.view">
+        <field name="name">l10n_ua.vat.declaration.list</field>
+        <field name="model">l10n_ua.vat.declaration</field>
+        <field name="arch" type="xml">
+            <list string="Декларації з ПДВ">
+                <field name="name"/>
+                <field name="period_id"/>
+                <field name="line_9_vat" string="Зобов'язання"/>
+                <field name="line_17_vat" string="Кредит"/>
+                <field name="line_18_vat" string="До сплати"/>
+                <field name="line_20_vat" string="До відшкодування"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'accepted'"
+                       decoration-info="state in ('calculated', 'submitted')"
+                       decoration-warning="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- VAT Declaration Search -->
+    <record id="l10n_ua_vat_declaration_view_search" model="ir.ui.view">
+        <field name="name">l10n_ua.vat.declaration.search</field>
+        <field name="model">l10n_ua.vat.declaration</field>
+        <field name="arch" type="xml">
+            <search string="Декларації з ПДВ">
+                <field name="period_id"/>
+
+                <filter string="Чернетка" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Розраховано" name="filter_calculated" domain="[('state', '=', 'calculated')]"/>
+                <filter string="Подано" name="filter_submitted" domain="[('state', '=', 'submitted')]"/>
+                <filter string="Прийнято" name="filter_accepted" domain="[('state', '=', 'accepted')]"/>
+
+                <group>
+                    <filter string="Період" name="groupby_period" domain="[]" context="{'group_by': 'period_id'}"/>
+                    <filter string="Стан" name="groupby_state" domain="[]" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="l10n_ua_vat_declaration_action" model="ir.actions.act_window">
+        <field name="name">Декларації з ПДВ</field>
+        <field name="res_model">l10n_ua.vat.declaration</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="l10n_ua_vat_declaration_view_search"/>
+    </record>
+
+</odoo>

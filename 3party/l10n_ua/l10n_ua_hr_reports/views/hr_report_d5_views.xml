@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_report_d5_view_form" model="ir.ui.view">
+        <field name="name">hr.report.d5.form</field>
+        <field name="model">hr.report.d5</field>
+        <field name="arch" type="xml">
+            <form string="D5 ESV Report">
+                <header>
+                    <button name="action_generate" string="Generate" type="object"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_export_xml" string="Export XML" type="object"
+                            invisible="state == 'draft'"/>
+                    <button name="action_submit" string="Підписати і подати" type="object"
+                            class="btn-primary" invisible="state != 'generated'"/>
+                    <button name="action_draft" string="Set to Draft" type="object"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,generated,submitted"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="year"/>
+                            <field name="month"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="total_employees"/>
+                            <field name="total_esv_base"/>
+                            <field name="total_esv"/>
+                            <field name="submission_date" invisible="state != 'submitted'"/>
+                            <field name="xml_filename" invisible="1"/>
+                            <field name="xml_file" filename="xml_filename"
+                                   invisible="not xml_file"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="D1 Appendix (Employees)" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="rnokpp"/>
+                                    <field name="last_name"/>
+                                    <field name="first_name"/>
+                                    <field name="middle_name"/>
+                                    <field name="category"/>
+                                    <field name="esv_base" sum="Total"/>
+                                    <field name="esv_amount" sum="Total"/>
+                                    <field name="worked_days"/>
+                                    <field name="worked_hours"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_report_d5_view_tree" model="ir.ui.view">
+        <field name="name">hr.report.d5.tree</field>
+        <field name="model">hr.report.d5</field>
+        <field name="arch" type="xml">
+            <list string="D5 Reports">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="month"/>
+                <field name="total_employees"/>
+                <field name="total_esv_base" sum="Total"/>
+                <field name="total_esv" sum="Total"/>
+                <field name="submission_date"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'submitted'"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'generated'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_hr_report_d5" model="ir.actions.act_window">
+        <field name="name">D5 ESV Reports</field>
+        <field name="res_model">hr.report.d5</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a D5 monthly ESV report
+            </p>
+        </field>
+    </record>
+
+</odoo>

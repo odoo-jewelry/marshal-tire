@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Closing journal: Закриття періоду -->
+        <record id="journal_period_closing" model="account.journal">
+            <field name="name">Закриття періоду</field>
+            <field name="code">ZAK</field>
+            <field name="type">general</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+    </data>
+</odoo>

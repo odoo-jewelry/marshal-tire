@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_employee_child_tree" model="ir.ui.view">
+        <field name="name">hr.employee.child.tree</field>
+        <field name="model">hr.employee.child</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="employee_id"/>
+                <field name="name"/>
+                <field name="birthday"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="rnokpp"/>
+                <field name="is_disabled"/>
+                <field name="disability_group" optional="hide"/>
+                <field name="is_student" optional="hide"/>
+                <field name="is_orphan" optional="hide"/>
+                <field name="is_dependent" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hr_employee_child_form" model="ir.ui.view">
+        <field name="name">hr.employee.child.form</field>
+        <field name="model">hr.employee.child</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="name"/>
+                            <field name="birthday"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                        </group>
+                        <group>
+                            <field name="rnokpp"/>
+                            <field name="birth_certificate_number"/>
+                            <field name="is_disabled"/>
+                            <field name="disability_group" invisible="not is_disabled" required="is_disabled"/>
+                            <field name="is_student"/>
+                            <field name="is_orphan"/>
+                            <field name="is_dependent"/>
+                        </group>
+                    </group>
+                    <group string="Підтверджуючі документи (ПК ст. 169.4.1)">
+                        <field name="birth_cert_attachment_ids" widget="many2many_binary"
+                               nolabel="1" colspan="2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hr_employee_child_search" model="ir.ui.view">
+        <field name="name">hr.employee.child.search</field>
+        <field name="model">hr.employee.child</field>
+        <field name="arch" type="xml">
+            <search string="Employee Children">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="rnokpp"/>
+                <separator/>
+                <filter string="Disabled" name="disabled" domain="[('is_disabled', '=', True)]"/>
+                <filter string="Students" name="students" domain="[('is_student', '=', True)]"/>
+                <filter string="Orphans" name="orphans" domain="[('is_orphan', '=', True)]"/>
+                <filter string="Dependents" name="dependents" domain="[('is_dependent', '=', True)]"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

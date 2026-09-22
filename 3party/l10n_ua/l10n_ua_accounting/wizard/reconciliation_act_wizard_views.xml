@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Reconciliation Act Wizard Form -->
+    <record id="view_reconciliation_act_wizard_form" model="ir.ui.view">
+        <field name="name">l10n_ua.reconciliation.act.wizard.form</field>
+        <field name="model">l10n_ua.reconciliation.act.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reconciliation Statement">
+                <group>
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="partner_id" options="{'no_create': True}"/>
+                        <field name="account_type"/>
+                    </group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="include_unreconciled_only"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_print" type="object"
+                            string="Print" class="btn-primary"/>
+                    <button name="action_view_entries" type="object"
+                            string="View Entries" class="btn-secondary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Reconciliation Act Wizard Action -->
+    <record id="action_reconciliation_act_wizard" model="ir.actions.act_window">
+        <field name="name">Reconciliation Statement</field>
+        <field name="res_model">l10n_ua.reconciliation.act.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
