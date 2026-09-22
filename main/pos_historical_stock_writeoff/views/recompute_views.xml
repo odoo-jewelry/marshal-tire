@@ -5,6 +5,16 @@
         <field name="model">pos.cost.recompute</field>
         <field name="inherit_id" ref="pos_cost_recompute.pos_cost_recompute_view_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='stock_line_ids']/list" position="inside">
+                <field name="can_recompute_consolidated_history" column_invisible="True"/>
+                <button name="action_recompute_consolidated_history" type="object" string="Recompute Consolidated History"
+                        invisible="not can_recompute_consolidated_history" groups="pos_historical_stock_writeoff.group_historical_stock"/>
+            </xpath>
+            <xpath expr="//field[@name='stock_line_ids']/form/group" position="after">
+                <field name="can_recompute_consolidated_history" invisible="True"/>
+                <button name="action_recompute_consolidated_history" type="object" string="Recompute Consolidated History"
+                        invisible="not can_recompute_consolidated_history" groups="pos_historical_stock_writeoff.group_historical_stock"/>
+            </xpath>
             <xpath expr="//header/button[@name='action_apply']" position="attributes">
                 <attribute name="invisible" add="selection_type in ('historical', 'consolidation')" separator=" or "/>
             </xpath>
@@ -27,6 +37,9 @@
                 <group string="Subsequent Stock Costs" invisible="selection_type not in ('historical', 'consolidation')">
                     <div class="alert alert-info" role="alert">
                         Recompute all subsequent issues, including nonzero costs. Full product consolidation may require an earlier start than the selected historical write-off; Recompute From shows the inclusive boundary. Stock values are updated first, followed by related completed POS costs. Revenue, payments and quantities remain unchanged.
+                    </div>
+                    <div class="alert alert-info" role="alert" invisible="selection_type != 'consolidation'">
+                        This review includes related POS orders outside the original selection, from the earliest affected issue through the preview cutoff. Opening this form does not apply any cost changes.
                     </div>
                     <field name="stock_line_ids" readonly="1" nolabel="1">
                         <list create="0" delete="0">

@@ -147,7 +147,34 @@ class PosCostRecompute(models.Model):
             raise AccessError(self.env._("Access to the complete stock history is required for repair."))
         return history
 
-    def _stock_exclusion(self, move, lines, selected, history, locks, returns):
+    def _stock_consolidation_evidence(self, product):
+        """Read identity/version evidence only, never hidden stock amounts."""
+        template = product.product_tmpl_id.with_context(active_test=False)
+        if "merged_into_id" not in template._fields:
+            return {}
+        # Full-history proof already uses elevated existence checks. Include all
+        # archived sources even when a caller cannot read their old documents.
+        template = template.sudo()
+        sources = template.merged_source_ids
+        if not template.merged_into_id and not sources:
+            return {}
+        proof = getattr(template, "_has_full_consolidation_history", None)
+        source_products = sources.product_variant_ids.sorted("id")
+        return {
+            "company_id": self.company_id.id,
+            "canonical_id": (template.merged_into_id or template).id,
+            "absorbed": bool(template.merged_into_id),
+            "source_ids": sorted(sources.ids),
+            "operation_ids": sorted(template._full_history_operations(self.company_id).ids) if proof else [],
+            "complete": bool(proof and proof(self.company_id)),
+            # Preview detail creation touches the canonical consolidation version.
+            # Its cost version excludes audit writes and already tracks membership.
+            "canonical_version": product.cost_recompute_revision,
+            "source_versions": [[source.id, source.consolidation_revision] for source in source_products]
+                if "consolidation_revision" in source_products._fields else [],
+        }
+
+    def _stock_exclusion(self, move, lines, selected, history, locks, returns, consolidation=None):
         product = move.product_id
         order = lines.order_id
         if not move.picking_id.pos_order_id:
@@ -175,9 +202,21 @@ class PosCostRecompute(models.Model):
         relevant_dates = [move.date.date(), order.date_order.date()]
         if any(limit and any(day <= limit for day in relevant_dates) for limit in locks.values()):
             return self.env._("The stock issue or POS order belongs to a locked period."), False
-        template = product.product_tmpl_id
-        if "merged_into_id" in template._fields and (template.merged_into_id or template.merged_source_ids):
-            return self.env._("Consolidated products require separate valuation review."), False
+        if consolidation is None:
+            consolidation = self._stock_consolidation_evidence(product)
+        if consolidation and not consolidation["complete"]:
+            if consolidation["absorbed"]:
+                canonical = self.env["product.template"].browse(consolidation["canonical_id"])
+                canonical.check_access("read")
+                return self.env._(
+                    "This product was absorbed into %(product)s. Open that canonical product "
+                    "and use Merge Full History to convert all absorbed sources first.",
+                    product=canonical.display_name,
+                ), False
+            return self.env._(
+                "Consolidated products require complete history. Open the canonical product "
+                "and use Merge Full History to convert all absorbed sources first."
+            ), False
         active = order.picking_ids.move_ids.filtered(lambda item: item.product_id == product and item.state != "cancel")
         if any(item.state != "done" or not item.is_out for item in active):
             return self.env._("Related stock processing is not a completed direct sale."), False
@@ -190,6 +229,11 @@ class PosCostRecompute(models.Model):
             return self.env._("Equal movement timestamps make the source order ambiguous."), False
         receipts = earlier.filtered("is_in")
         if len(receipts) != 1:
+            if len(receipts) > 1 and consolidation:
+                return self.env._(
+                    "Multiple earlier receipts prevent ordinary zero-value repair. "
+                    "Use Recompute Consolidated History to review the complete FIFO history."
+                ), False
             return self.env._("Exactly one earlier supplier receipt is required."), False
         receipt = receipts
         if receipt.date >= move.date or receipt.location_id.usage != "supplier" or (
@@ -242,6 +286,7 @@ class PosCostRecompute(models.Model):
         digests = {product: hashlib.sha256(json.dumps(
             self._stock_history_snapshot(moves), sort_keys=True,
         ).encode()).hexdigest() for product, moves in histories.items()}
+        consolidations = {product: self._stock_consolidation_evidence(product) for product in targets.product_id}
         locks = self._stock_period_snapshot()
         plans = {}
         order_domain = [("picking_ids", "in", targets.picking_id.ids)]
@@ -267,7 +312,10 @@ class PosCostRecompute(models.Model):
             orders = orders_by_picking.get(move.picking_id.id, self.env["pos.order"])
             linked_lines = orders.lines.filtered(lambda line: line.product_id == move.product_id)
             linked_lines.check_access("read")
-            reason, receipt = self._stock_exclusion(move, linked_lines, selected, move_history, locks, returns)
+            reason, receipt = self._stock_exclusion(
+                move, linked_lines, selected, move_history, locks, returns,
+                consolidation=consolidations[move.product_id],
+            )
             value = 0 if reason else self.company_id.currency_id.round(
                 receipt.value * move._get_valued_qty() / receipt._get_valued_qty()
             )
@@ -289,6 +337,8 @@ class PosCostRecompute(models.Model):
                              "linked_lines": linked_lines.sorted("id").read(["order_id", "qty", "product_id"]),
                              "locks": _json_value(locks)},
             }
+            if consolidations[move.product_id]:
+                plans[move.id]["snapshot"]["consolidation"] = consolidations[move.product_id]
         # A stock source shared by several moves/lines is applied as one group.
         # One excluded move must not leave a partial repair of that same source.
         proposals_by_id = {proposal["pos_line_id"]: proposal for proposal in proposals}
@@ -349,6 +399,15 @@ class PosCostRecompute(models.Model):
         return (proposals, plans) if return_plans else proposals
 
     def _lock_sources(self, selected):
+        if self.repair_stock_values:
+            source_ids = {item[0] for detail in self.stock_line_ids
+                          for item in (detail.snapshot or {}).get("consolidation", {}).get("source_versions", [])}
+            if source_ids:
+                # Lock versions before reading proof under repeatable read, including
+                # sources whose new child records are invisible to this transaction.
+                products = (selected.product_id | self.env["product.product"].browse(sorted(source_ids))).sudo()
+                products.sorted("id").lock_for_update()
+                products.invalidate_recordset()
         super()._lock_sources(selected)
         if not self.repair_stock_values:
             return

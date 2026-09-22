@@ -202,6 +202,61 @@ class PosCostRecompute(models.Model):
             line.with_context(**{_CONTEXT_KEY: COST_INTERNAL}).write({"actual_value": line.move_id.value})
 
 
+class PosCostRecomputeStockLine(models.Model):
+    _inherit = "pos.cost.recompute.stock.line"
+
+    can_recompute_consolidated_history = fields.Boolean(compute="_compute_can_recompute_consolidated_history")
+
+    @api.depends(
+        "status", "product_id", "operation_id.repair_stock_values", "company_id",
+        "product_id.cost_recompute_revision", "product_id.product_tmpl_id.merged_into_id",
+        "product_id.product_tmpl_id.merged_source_ids.product_variant_ids.consolidation_revision",
+    )
+    @api.depends_context("uid", "company", "allowed_company_ids")
+    def _compute_can_recompute_consolidated_history(self):
+        for line in self:
+            try:
+                line.can_recompute_consolidated_history = bool(line._consolidated_history_operation())
+            except (AccessError, UserError):
+                line.can_recompute_consolidated_history = False
+
+    def _consolidated_history_operation(self):
+        self.ensure_one()
+        self.check_access("read")
+        self.operation_id.check_access("read")
+        check_permission(self.env)
+        self.operation_id._check_manager()
+        if self.company_id not in self.env.companies or self.company_id != self.operation_id.company_id:
+            raise AccessError(self.env._("The stock detail company must be authorized."))
+        if self.status != "skipped" or not self.operation_id.repair_stock_values:
+            raise UserError(self.env._("Select a skipped stock-repair detail to review consolidated history."))
+        template = self.product_id.product_tmpl_id.with_context(active_test=False)
+        if not template._has_full_consolidation_history(self.company_id):
+            raise UserError(self.env._(
+                "Open the canonical product and use Merge Full History to convert all absorbed sources first."
+            ))
+        # Search in caller rights: privileged completeness checks must not expose
+        # inaccessible audit operations through this navigation action.
+        operation = self.env["product.consolidation.operation"].search([
+            ("canonical_id", "=", template.id), ("company_id", "=", self.company_id.id),
+        ], order="id desc", limit=1)
+        if not operation:
+            raise AccessError(self.env._("Access to the full-history consolidation evidence is required."))
+        operation.check_access("read")
+        return operation
+
+    def action_recompute_consolidated_history(self):
+        operation = self._consolidated_history_operation()
+        action = operation.action_recompute_costs()
+        # Explicit defaults also defeat filters inherited from the source form.
+        action["context"].update({
+            "default_repair_stock_values": False,
+            "default_order_ids": [], "default_product_ids": [], "default_config_ids": [],
+            "default_historical_picking_ids": [],
+        })
+        return action
+
+
 class StockMove(models.Model):
     _inherit = "stock.move"
 

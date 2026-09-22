@@ -1216,3 +1216,22 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_cost_recompute.field_pos_cost_recompute_stock_line__warning
 msgid "Warning"
 msgstr "Предупреждение"
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Consolidated products require complete history. Open the canonical product and use Merge Full History to convert all absorbed sources first."
+msgstr "Для объединённых товаров требуется полный перенос истории. Откройте основную карточку товара и выполните «Объединить всю историю» для всех поглощённых карточек."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+msgid "Multiple earlier receipts prevent ordinary zero-value repair. Use Recompute Consolidated History to review the complete FIFO history."
+msgstr "Несколько предшествующих поступлений не поддерживаются обычным исправлением нулевой оценки. Выполните «Пересчитать объединённую историю» для проверки всей истории FIFO."
+
+#. module: pos_cost_recompute
+#. odoo-python
+#: code:addons/pos_cost_recompute/models/stock_repair.py:0
+#, python-format
+msgid "This product was absorbed into %(product)s. Open that canonical product and use Merge Full History to convert all absorbed sources first."
+msgstr "Этот товар объединён с %(product)s. Откройте эту основную карточку и сначала выполните «Объединить всю историю» для всех поглощённых карточек."

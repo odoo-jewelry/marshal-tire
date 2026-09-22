@@ -813,3 +813,37 @@ msgstr ""
 #: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
 msgid "Select applied full-history consolidations from one company."
 msgstr "Выберите выполненные полные объединения истории одной компании."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid "The stock detail company must be authorized."
+msgstr "Компания складской детали должна быть доступна пользователю."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid "Select a skipped stock-repair detail to review consolidated history."
+msgstr "Для пересчёта объединённой истории выберите пропущенную строку исправления складской оценки."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid "Open the canonical product and use Merge Full History to convert all absorbed sources first."
+msgstr "Откройте основную карточку товара и сначала выполните «Объединить всю историю» для всех поглощённых карточек."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/cost_recompute.py:0
+msgid "Access to the full-history consolidation evidence is required."
+msgstr "Требуется доступ к журналу полного объединения истории."
+
+#. module: pos_historical_stock_writeoff
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.historical_cost_recompute_form
+msgid "Recompute Consolidated History"
+msgstr "Пересчитать объединённую историю"
+
+#. module: pos_historical_stock_writeoff
+#: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.historical_cost_recompute_form
+msgid "This review includes related POS orders outside the original selection, from the earliest affected issue through the preview cutoff. Opening this form does not apply any cost changes."
+msgstr "В просмотр входят связанные чеки POS вне исходного отбора: от первого затронутого списания до границы предварительного расчёта. Открытие этой формы не изменяет себестоимость."
