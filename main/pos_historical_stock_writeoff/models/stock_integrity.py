@@ -1,5 +1,7 @@
+import math
+
 from odoo import api, models
-from odoo.exceptions import UserError
+from odoo.exceptions import AccessError, UserError
 
 from .history import _INTERNAL, _KEY, _VALUATION, _VALUATION_KEY, check_permission, internal
 
@@ -75,6 +77,77 @@ class StockMove(models.Model):
                     pos_historical_fifo_date=(_INTERNAL, picking.historical_effective_at),
                 ))._set_value(correction_quantity=correction_quantity)
         return super(StockMove, self - historical)._set_value(correction_quantity=correction_quantity)
+
+    def _check_historical_purchase_valuation(self):
+        """Validate historical facts after the caller locks its complete cost plan."""
+        check_permission(self.env)
+        self.check_access("read")
+        self.check_access("write")
+        company = self.env.company
+        if self.env.companies != company or self.company_id != company:
+            raise AccessError(self.env._("Historical purchase valuation requires one current allowed company."))
+        pickings = self.picking_id
+        sources = pickings.historical_pos_order_id
+        sessions = pickings.historical_session_id | sources.session_id
+        for records in (pickings, self.move_line_ids, sources, sources.lines, sessions,
+                        self.product_id, self.location_id | self.location_dest_id):
+            records.check_access("read")
+        sources._check_historical_source()
+        if self.filtered(lambda move: move.cost_repair_line_id or move.historical_cost_line_id):
+            raise UserError(self.env._("Historical purchase valuation cannot replace a protected previous cost correction."))
+        for move in self:
+            picking = move.picking_id
+            source = picking.historical_pos_order_id
+            session = picking.historical_session_id
+            if (not source or not session or move.state != "done" or picking.state != "done"
+                    or picking.company_id != company or source.company_id != company
+                    or source.session_id.company_id != company or session.company_id != company
+                    or source.state not in ("draft", "cancel") or session.state != "closed"
+                    or session.config_id != source.config_id or picking.pos_order_id or picking.pos_session_id
+                    or not picking.historical_applied_at or not picking.historical_source_snapshot
+                    or not picking.historical_effective_at or move.date != picking.historical_effective_at
+                    or picking.date_done != picking.historical_effective_at):
+                raise UserError(self.env._("Historical purchase valuation requires a completed historical write-off and its unchanged source links."))
+            product = move.product_id
+            quantity = move._get_valued_qty()
+            lines = move.move_line_ids
+            if (product.type != "consu" or product.tracking != "none" or product.lot_valuated
+                    or product.company_id and product.company_id != company
+                    or product.cost_method != "fifo" or product.valuation != "periodic"
+                    or not move.is_out or move.is_in or move.is_dropship or move.origin_returned_move_id
+                    or move.move_orig_ids or move.move_dest_ids or move.route_ids
+                    or move.location_id != picking.location_id or move.location_dest_id != picking.location_dest_id
+                    or move.location_id.usage != "internal" or not move.location_id.is_valued_internal
+                    or move.location_id.company_id != company or move.location_dest_id.usage != "customer"
+                    or move.location_dest_id.company_id not in (self.env["res.company"], company)
+                    or move.product_uom != product.uom_id or not math.isfinite(quantity) or quantity <= 0
+                    or not math.isfinite(move.quantity) or product.uom_id.compare(move.quantity, quantity)
+                    or not lines or lines.filtered(lambda line:
+                        line.product_id != product or line.product_uom_id != product.uom_id
+                        or line.company_id != company or line.date != move.date
+                        or line.location_id != move.location_id or line.location_dest_id != move.location_dest_id
+                        or line.owner_id or line.lot_id or line.package_id or line.result_package_id
+                        or not line.picked or not math.isfinite(line.quantity) or line.quantity <= 0
+                    ) or product.uom_id.compare(sum(lines.mapped("quantity")), quantity)):
+                raise UserError(self.env._("Historical purchase valuation requires consistent untracked outgoing stock quantities and locations."))
+        return True
+
+    def _write_historical_purchase_values(self, values_by_move_id):
+        """Keep the valuation capability local to the exact validated movements."""
+        self._check_historical_purchase_valuation()
+        if (not isinstance(values_by_move_id, dict) or set(values_by_move_id) != set(self.ids)
+                or any(isinstance(value, bool) or not isinstance(value, (int, float))
+                       or not math.isfinite(value) or value <= 0 for value in values_by_move_id.values())):
+            raise UserError(self.env._("Provide one finite positive historical value for each validated movement."))
+        context = {
+            "lang": self.env.lang,
+            "tz": self.env.context.get("tz"),
+            "allowed_company_ids": self.env.company.ids,
+            _VALUATION_KEY: _VALUATION,
+        }
+        for move in self:
+            move.with_context(context).write({"value": values_by_move_id[move.id]})
+        return True
 
 
 class StockMoveLine(models.Model):

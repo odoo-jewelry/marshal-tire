@@ -847,3 +847,33 @@ msgstr "Пересчитать объединённую историю"
 #: model_terms:ir.ui.view,arch_db:pos_historical_stock_writeoff.historical_cost_recompute_form
 msgid "This review includes related POS orders outside the original selection, from the earliest affected issue through the preview cutoff. Opening this form does not apply any cost changes."
 msgstr "В просмотр входят связанные чеки POS вне исходного отбора: от первого затронутого списания до границы предварительного расчёта. Открытие этой формы не изменяет себестоимость."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_integrity.py:0
+msgid "Historical purchase valuation requires one current allowed company."
+msgstr "Для пересчёта исторической стоимости закупок должна быть выбрана одна доступная текущая компания."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_integrity.py:0
+msgid "Historical purchase valuation cannot replace a protected previous cost correction."
+msgstr "Пересчёт исторической стоимости закупок не может изменять защищённое предыдущее исправление себестоимости."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_integrity.py:0
+msgid "Historical purchase valuation requires a completed historical write-off and its unchanged source links."
+msgstr "Для пересчёта исторической стоимости закупок требуется проведённое историческое списание с сохранёнными связями с исходными документами."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_integrity.py:0
+msgid "Historical purchase valuation requires consistent untracked outgoing stock quantities and locations."
+msgstr "Для пересчёта исторической стоимости закупок требуются согласованные количества и места хранения расходных движений без отслеживания по партиям или серийным номерам."
+
+#. module: pos_historical_stock_writeoff
+#. odoo-python
+#: code:addons/pos_historical_stock_writeoff/models/stock_integrity.py:0
+msgid "Provide one finite positive historical value for each validated movement."
+msgstr "Для каждого проверенного движения требуется одна конечная положительная историческая стоимость."

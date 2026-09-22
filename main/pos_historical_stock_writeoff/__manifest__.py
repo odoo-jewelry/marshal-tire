@@ -1,6 +1,6 @@
 {
     "name": "POS Historical Stock Write-off",
-    "version": "19.0.2.0.1",
+    "version": "19.0.2.1.0",
     "category": "Point of Sale",
     "summary": "Record historical stock consumption and manually recompute subsequent costs",
     "license": "LGPL-3",

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_cost_recompute_wizard_manager,Purchase cost recomputation wizard manager,model_purchase_cost_recompute_wizard,purchase.group_purchase_manager,1,1,1,1

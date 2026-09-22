@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_action_cost_recompute" model="ir.actions.server">
+        <field name="name">Include Taxes in Prices and Recompute Costs</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_view_types">list</field>
+        <field name="group_ids" eval="[(4, ref('purchase.group_purchase_manager')), (4, ref('stock.group_stock_manager'))]"/>
+        <field name="state">code</field>
+        <field name="code">action = records.action_open_cost_recompute()</field>
+    </record>
+
+    <record id="purchase_order_form" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.cost.recompute</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/header" position="inside">
+                <button name="action_open_cost_recompute" type="object"
+                        string="Include Taxes in Prices and Recompute Costs"
+                        groups="purchase.group_purchase_manager,stock.group_stock_manager"
+                        invisible="state != 'purchase' or locked"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

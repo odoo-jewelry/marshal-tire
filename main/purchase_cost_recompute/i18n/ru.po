@@ -1,0 +1,502 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* purchase_cost_recompute
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260908\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-17 14:55+0000\n"
+"PO-Revision-Date: 2026-09-17 14:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "%(move)s requires the historical purchase valuation integration."
+msgstr ""
+"Для движения %(move)s необходимо обновить поддержку пересчёта исторических списаний из закупок."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "%(move)s belongs to a protected previous cost correction."
+msgstr ""
+"Движение %(move)s относится к защищённому предыдущему исправлению "
+"себестоимости."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "%(move)s has an unsupported date, quantity, unit or recorded value."
+msgstr ""
+"Движение %(move)s имеет неподдерживаемую дату, количество, единицу или "
+"сохранённую стоимость."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "%(move)s has no valid earlier customer issue for its return."
+msgstr ""
+"Для возврата %(move)s отсутствует допустимая более ранняя отгрузка "
+"покупателю."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid ""
+"%(move)s has tracked, packaged, third-party or inconsistent stock details."
+msgstr ""
+"Движение %(move)s содержит партии, упаковки, чужой товар или несогласованные"
+" складские данные."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "%(move)s requires a positive recorded incoming value."
+msgstr ""
+"Для движения %(move)s необходима положительная сохранённая стоимость "
+"поступления."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "%(product)s requires exactly one internal stock location."
+msgstr ""
+"Для товара %(product)s поддерживается ровно одно внутреннее место хранения."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "%(product)s requires goods without lot/serial tracking, FIFO and periodic valuation."
+msgstr ""
+"Для %(product)s необходимы тип «Товар», отсутствие отслеживания партий и серийных номеров, FIFO и "
+"периодическая оценка."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "A POS stock source has an invalid corrected value."
+msgstr "Складской источник чека имеет недопустимую исправленную стоимость."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "A manually adjusted stock value prevents purchase cost correction."
+msgstr ""
+"Ручная корректировка складской стоимости препятствует исправлению "
+"себестоимости закупки."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid "A non-cancelled vendor bill prevents purchase correction."
+msgstr "Неотменённый счёт поставщика препятствует исправлению закупки."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "A shared POS stock source requires a closed session."
+msgstr "Общий складской источник чеков требует закрытой смены."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid "Access to the complete correction history is required."
+msgstr "Необходим доступ ко всей истории, участвующей в исправлении."
+
+#. module: purchase_cost_recompute
+#: model_terms:ir.ui.view,arch_db:purchase_cost_recompute.purchase_cost_recompute_wizard_view_form
+msgid "Cancel"
+msgstr "Отмена"
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Cannot recompute POS order %(order)s: %(reason)s"
+msgstr "Невозможно пересчитать чек %(order)s: %(reason)s"
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Consolidated stock movements require separate valuation review."
+msgstr ""
+"Движения объединённой складской истории требуют отдельной проверки оценки."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Corrected receipts require a positive finite stock value."
+msgstr ""
+"Стоимость исправленных поступлений должна быть положительным конечным "
+"числом."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Corrected returns require a positive finite stock value."
+msgstr ""
+"Стоимость исправленных возвратов должна быть положительным конечным числом."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid ""
+"Current stock for %(product)s has unsupported ownership, tracking or "
+"locations."
+msgstr ""
+"Текущий остаток товара %(product)s имеет неподдерживаемого владельца, "
+"отслеживание партий или места хранения."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Customer returns exceed the original quantity of %(move)s."
+msgstr "Возвраты покупателя превышают исходное количество движения %(move)s."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Deferred-delivery zero-cost substitution requires separate review."
+msgstr ""
+"Подстановка стоимости при нулевой оценке отложенной поставки требует "
+"отдельной проверки."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid ""
+"Equal receipt and issue timestamps make %(product)s historical costs "
+"ambiguous."
+msgstr ""
+"Одинаковые дата и время прихода и расхода товара %(product)s делают "
+"историческую стоимость неоднозначной."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "%(order)s, %(product)s: a completed receipt is required to prove historical cost."
+msgstr ""
+"%(order)s, %(product)s: для подтверждения исторической себестоимости необходимо завершённое поступление."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid ""
+"Existing stock accounting or analytic entries prevent purchase cost "
+"correction."
+msgstr ""
+"Существующие складские бухгалтерские или аналитические записи препятствуют "
+"исправлению себестоимости закупки."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Finish or cancel all pending stock movements for %(product)s first."
+msgstr ""
+"Сначала завершите или отмените все незавершённые складские движения товара "
+"%(product)s."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Historical FIFO returned an invalid stock value."
+msgstr "Исторический расчёт FIFO вернул недопустимую складскую стоимость."
+
+#. module: purchase_cost_recompute
+#: model:ir.actions.act_window,name:purchase_cost_recompute.purchase_cost_recompute_wizard_action
+#: model:ir.actions.server,name:purchase_cost_recompute.purchase_order_action_cost_recompute
+#: model_terms:ir.ui.view,arch_db:purchase_cost_recompute.purchase_cost_recompute_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:purchase_cost_recompute.purchase_order_form
+msgid "Include Taxes in Prices and Recompute Costs"
+msgstr "Включить налоги в цену и пересчитать себестоимость"
+
+#. module: purchase_cost_recompute
+#: model_terms:ir.ui.view,arch_db:purchase_cost_recompute.purchase_cost_recompute_wizard_view_form
+msgid ""
+"Include the selected purchases' taxes in unit prices, round prices to two "
+"decimal places and remove the included taxes from the lines. Recompute "
+"receipt, issue, return and POS costs. Rounding may change the purchase "
+"totals."
+msgstr ""
+"Включить налоги выбранных закупок в цену единицы, округлить цену до двух "
+"знаков и очистить налоги строк. Пересчитать стоимость поступлений, расходов,"
+" возвратов и себестоимость чеков. Округление может изменить итоги закупок."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Related customer financial documents contain protected cost-of-goods-sold entries."
+msgstr "Связанные финансовые документы покупателя содержат защищённые проводки себестоимости."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Related POS financial documents must belong to the order company."
+msgstr "Связанные финансовые документы чека должны принадлежать компании чека."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Landed costs prevent purchase cost correction."
+msgstr ""
+"Дополнительные расходы на доставку препятствуют исправлению себестоимости "
+"закупки."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "%(product)s requires proven full history consolidation; absorbed cards still have history or lack consolidation evidence."
+msgstr "Для %(product)s необходимо подтверждённое полное объединение истории: у поглощённых карточек остались движения или остатки либо отсутствует подтверждение объединения."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Purchase correction cannot target absorbed product %(product)s."
+msgstr "Нельзя пересчитать закупку по поглощённой карточке товара %(product)s."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid ""
+"No earlier incoming value proves the historical shortage cost of %(move)s."
+msgstr ""
+"Нет более раннего поступления, подтверждающего стоимость нехватки в движении"
+" %(move)s."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/wizard/purchase_cost_recompute.py:0
+msgid "No purchase lines required correction."
+msgstr "Нет строк закупки, требующих исправления."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid "Only confirmed, unlocked purchase orders can be corrected."
+msgstr ""
+"Можно исправить только подтверждённые незаблокированные заказы на закупку."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid ""
+"Only nonnegative percentage taxes excluded from the price are supported."
+msgstr ""
+"Поддерживаются только неотрицательные процентные налоги, не включённые в "
+"цену."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Only paid or completed POS orders can be recomputed."
+msgstr "Можно пересчитать только оплаченные или завершённые чеки."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "POS cost recomputation returned a non-finite amount."
+msgstr "Пересчёт себестоимости чека вернул не конечное число."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "POS quantities must be finite and use the product's base unit."
+msgstr ""
+"Количество в чеках должно быть конечным числом в базовой единице товара."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "POS stock quantities cannot be fully attributed for %(product)s."
+msgstr ""
+"Не удалось полностью сопоставить складское количество товара %(product)s со "
+"строками чеков."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid "Product Price precision must already be set to two decimal places."
+msgstr ""
+"Точность Product Price должна быть заранее установлена в два знака после "
+"запятой."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Project correction chains require separate cost allocation."
+msgstr ""
+"Цепочки проектных исправлений требуют отдельного распределения "
+"себестоимости."
+
+#. module: purchase_cost_recompute
+#: model:ir.model,name:purchase_cost_recompute.model_purchase_cost_recompute_wizard
+msgid "Purchase Cost Recomputation"
+msgstr "Пересчёт себестоимости закупок"
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/wizard/purchase_cost_recompute.py:0
+msgid "Purchase Costs Recomputed"
+msgstr "Себестоимость закупок пересчитана"
+
+#. module: purchase_cost_recompute
+#: model:ir.model.fields,field_description:purchase_cost_recompute.field_purchase_cost_recompute_wizard__order_ids
+msgid "Purchase Orders"
+msgstr "Заказы на закупку"
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid "Purchase and Inventory manager permissions are both required."
+msgstr ""
+"Необходимы одновременно права руководителя закупок и руководителя склада."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Purchase cost correction overlaps a locked or closed valuation period."
+msgstr ""
+"Исправление закупки затрагивает заблокированный или закрытый период оценки."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+#, python-format
+msgid "%(order)s, %(product)s: purchase lines must contain goods and must not be advance payments."
+msgstr ""
+"%(order)s, %(product)s: строки закупки должны содержать товары; услуги и авансы не поддерживаются."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+#, python-format
+msgid "%(order)s, %(product)s: the purchase unit must match the product base unit."
+msgstr "%(order)s, %(product)s: единица закупки должна совпадать с базовой единицей товара."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/wizard/purchase_cost_recompute.py:0
+msgid ""
+"Purchase lines: %(purchase_lines)s; receipts: %(receipts)s; issues: "
+"%(issues)s; returns: %(returns)s; inventory gains: %(inventory_gains)s; "
+"inventory losses: %(inventory_losses)s; scrap issues: %(scrap_issues)s; POS lines: %(pos_lines)s. Purchase total "
+"difference: %(difference)s."
+msgstr ""
+"Строк закупки: %(purchase_lines)s; поступлений: %(receipts)s; расходов: "
+"%(issues)s; возвратов: %(returns)s; излишков: %(inventory_gains)s; "
+"недостач: %(inventory_losses)s; списаний: %(scrap_issues)s; строк чеков: %(pos_lines)s. Разница "
+"итогов закупки: %(difference)s."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid ""
+"Purchase quantities and prices must be positive and finite; discounts must "
+"be between 0 and 100 percent."
+msgstr ""
+"Количество и цены закупки должны быть положительными конечными числами, а "
+"скидка — от 0 включительно до 100 процентов исключительно."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid "Purchases must use the company currency."
+msgstr "Закупки должны быть в валюте компании."
+
+#. module: purchase_cost_recompute
+#: model_terms:ir.ui.view,arch_db:purchase_cost_recompute.purchase_cost_recompute_wizard_view_form
+msgid "Recompute Costs"
+msgstr "Пересчитать себестоимость"
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid ""
+"Recorded movements do not reconcile with current stock for %(product)s."
+msgstr ""
+"Зарегистрированные движения товара %(product)s не соответствуют текущему "
+"складскому остатку."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid "Select existing purchase orders to recompute."
+msgstr "Выберите существующие заказы на закупку для пересчёта."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid "Select purchases from one allowed company."
+msgstr "Выберите закупки одной доступной компании."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid "%(order)s, %(product)s: the purchase line must be fully received."
+msgstr "%(order)s, %(product)s: строка закупки должна быть полностью получена."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Some affected POS stock movements have no complete POS cost source."
+msgstr ""
+"Для части затронутых складских движений чеков не удалось установить полный "
+"источник себестоимости."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Supplier returns and mixed purchase sources are not supported."
+msgstr "Возвраты поставщику и смешанные источники закупки не поддерживаются."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid "The purchase line did not retain its corrected price and empty taxes."
+msgstr "В строке закупки не сохранились исправленная цена и очищенные налоги."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid "The rounded tax-inclusive price must be positive and finite."
+msgstr ""
+"Округлённая цена с налогами должна быть положительным конечным числом."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/purchase_order.py:0
+msgid "The selected purchases have no product lines."
+msgstr "В выбранных закупках нет товарных строк."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Unsupported receipt, return or transfer in %(product)s: %(move)s."
+msgstr ""
+"Неподдерживаемое поступление, возврат или перемещение товара %(product)s: "
+"%(move)s."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "No complete historical FIFO value proves the inventory gain cost."
+msgstr "Для излишка не удалось доказать стоимость всего исторического остатка по FIFO."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "No earlier incoming value proves the inventory gain cost."
+msgstr "Нет более раннего поступления, подтверждающего стоимость излишка."
+
+#. module: purchase_cost_recompute
+#. odoo-python
+#: code:addons/purchase_cost_recompute/models/cost_recompute.py:0
+msgid "Historical inventory gain has an invalid value."
+msgstr "Вычислена недопустимая стоимость исторического излишка."

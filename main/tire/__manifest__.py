@@ -18,6 +18,7 @@
         'purchase_import',
         'purchase_price_control',
         'product_card_consolidation',
+        'purchase_cost_recompute',
 
         'disable_odoo_online',
         'portal_debranding',
