@@ -1,8 +1,22 @@
+# Purchase Cost Recompute Specification
+
+> [!abstract] Включение налогов в цену закупки и пересчёт себестоимости
+> Исправляет выбранные закупочные цены с учётом налогов и согласованно обновляет историческую стоимость товаров и связанных чеков.
+>
+> **Использование:**
+>
+> В приложении «Закупки» выберите подтверждённые незаблокированные заказы и действие «Включить налоги в цену и пересчитать себестоимость» в списке либо одноимённую кнопку в форме заказа. В форме заказа добавлена только кнопка; существующие поля не добавляются, не меняются и не удаляются. Временное окно показывает поле «Заказы на закупку» с выбранными заказами и кнопки «Пересчитать себестоимость» и «Отмена». Отмена не меняет хозяйственные данные. Нужны права руководителя закупок и склада и доступ ко всей затронутой истории.
+>
+> При применении положительные исключённые процентные налоги включаются в цену единицы до скидки с округлением до двух знаков, затем удаляются из строк. Пересчитываются связанные поступления, последующие расходы и возвраты, стоимость и маржа затронутых чеков, а также текущая стоимость товара. Уведомление показывает фактические количества обработанных записей и разницу итогов закупок из-за округления. Например, цена 27,33 с налогом 20 % становится 32,80; скидка сохраняется. Повторный запуск без оставшихся налогов сообщает, что исправление не требуется.
+>
+> Неполная или неоднозначная складская история, защищённые оценки, связанные счета поставщика и закрытые периоды вызывают отказ всего набора без частичных изменений. Количества, даты движений, состояния документов, оплаты, выручка и бухгалтерские суммы сохраняются. Отдельный журнал исправлений не создаётся.
+^feature-card
+
 ## Purpose
 
 Correct selected purchase prices by including their previously excluded taxes and consistently recompute receipt, historical stock and POS costs, with two-decimal price rounding and no separate permanent correction journal.
 
-## ADDED Requirements
+## Requirements
 
 ### Requirement: Explicit temporary purchase action
 
@@ -50,7 +64,7 @@ For each eligible purchase line carrying positive excluded percentage taxes, the
 
 ### Requirement: Supported documents and valuation boundaries
 
-The operation SHALL accept a nonempty selection of confirmed, unlocked, fully received purchase orders from one authorized company, using that company's currency. Corrected product lines SHALL have positive finite prices and quantities and a discount from zero inclusive to 100 percent exclusive. Its supported scope SHALL be company-owned goods without lot or serial tracking under FIFO and periodic valuation, with direct receipts, outgoing customer deliveries and linked customer returns through one stock location per affected product. Disabled inventory tracking alone MUST NOT reject goods whose complete actual movement history reconciles with their recorded internal quantity. Services, advance-payment lines and price-only correction without the required historical evidence SHALL remain unsupported. The operation MUST NOT change the inventory-tracking setting or create quantities to obtain eligibility. Quantities SHALL use the product's base unit. Incomplete or complex stock flows, supplier returns, absorbed product cards, incomplete consolidation, active synthetic consolidation movements and unresolved ownership or valuation evidence SHALL be rejected. Proven fully consolidated canonical history and eligible completed historical stock write-offs SHALL be supported under the conditions of [purchase-cost-recompute-integrated-history](../../../allow-merged-and-historical-purchase-cost-recompute/specs/purchase-cost-recompute-integrated-history/spec.md); their origin alone MUST NOT cause refusal. Existing manually adjusted stock values, protected previous cost corrections, protected historical stock write-offs, stock-related accounting or analytic entries and affected locked or closed valuation periods MUST cause an explained atomic refusal. Any non-cancelled supplier bill linked to a selected purchase line, including a draft bill, SHALL prevent correction. Ordinary POS session revenue accounting alone MUST NOT prevent correction when all stock and POS eligibility conditions are satisfied; such accounting SHALL remain unchanged.
+The operation SHALL accept a nonempty selection of confirmed, unlocked, fully received purchase orders from one authorized company, using that company's currency. Corrected product lines SHALL have positive finite prices and quantities and a discount from zero inclusive to 100 percent exclusive. Its supported scope SHALL be company-owned goods without lot or serial tracking under FIFO and periodic valuation, with direct receipts, outgoing customer deliveries and linked customer returns through one stock location per affected product. Disabled inventory tracking alone MUST NOT reject goods whose complete actual movement history reconciles with their recorded internal quantity. Services, advance-payment lines and price-only correction without the required historical evidence SHALL remain unsupported. The operation MUST NOT change the inventory-tracking setting or create quantities to obtain eligibility. Quantities SHALL use the product's base unit. Incomplete or complex stock flows, supplier returns, absorbed product cards, incomplete consolidation, active synthetic consolidation movements and unresolved ownership or valuation evidence SHALL be rejected. Proven fully consolidated canonical history and eligible completed historical stock write-offs SHALL be supported under the conditions of [purchase-cost-recompute-integrated-history](../purchase-cost-recompute-integrated-history/spec.md); their origin alone MUST NOT cause refusal. Existing manually adjusted stock values, protected previous cost corrections, protected historical stock write-offs, stock-related accounting or analytic entries and affected locked or closed valuation periods MUST cause an explained atomic refusal. Any non-cancelled supplier bill linked to a selected purchase line, including a draft bill, SHALL prevent correction. Ordinary POS session revenue accounting alone MUST NOT prevent correction when all stock and POS eligibility conditions are satisfied; such accounting SHALL remain unchanged.
 
 #### Scenario: P08 Reject an ineligible purchase selection
 - **WHEN** application is requested for an empty selection, an unconfirmed, locked or cancelled purchase, a purchase that is not fully received, a purchase in a different currency from its company, or an invalid price, quantity or discount
