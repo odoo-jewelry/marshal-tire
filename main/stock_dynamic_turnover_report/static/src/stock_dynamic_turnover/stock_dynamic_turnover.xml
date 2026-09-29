@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="stock_dynamic_turnover_report.StockDynamicTurnover">
+        <div class="o_stock_dynamic_turnover o_action">
+            <div class="o_stock_dynamic_turnover_header">
+                <h2>Stock turnover</h2>
+                <p>Owned products with inventory quantities. FIFO receipts represent company valuation, not physical location.</p>
+            </div>
+            <div class="o_stock_dynamic_turnover_filters">
+                <label>Company
+                    <select class="form-select" t-on-change="onCompany">
+                        <t t-foreach="state.companies" t-as="company" t-key="company.id">
+                            <option t-att-value="company.id" t-att-selected="company.id === state.options.company_id"><t t-esc="company.name"/></option>
+                        </t>
+                    </select>
+                </label>
+                <label>From
+                    <input class="form-control" type="date" name="date_from"
+                           t-att-value="state.options.date_from" t-on-change="onDate"/>
+                </label>
+                <label>To
+                    <input class="form-control" type="date" name="date_to"
+                           t-att-value="state.options.date_to" t-on-change="onDate"/>
+                </label>
+                <label>Mode
+                    <select class="form-select" t-on-change="onMode">
+                        <option value="stock" t-att-selected="state.options.mode === 'stock'">Stock locations</option>
+                        <option value="receipts" t-att-selected="state.options.mode === 'receipts'">FIFO receipts</option>
+                    </select>
+                </label>
+                <label>Columns
+                    <select class="form-select" t-on-change="onColumns">
+                        <option value="turnover" t-att-selected="state.options.columns === 'turnover'">Incoming / outgoing</option>
+                        <option value="operations" t-att-selected="state.options.columns === 'operations'">Operations</option>
+                    </select>
+                </label>
+                <label t-if="state.options.mode === 'stock'" class="o_stock_dynamic_turnover_checkbox">
+                    <input type="checkbox" t-att-checked="state.options.include_children" t-on-change="onChildren"/>
+                    Include child locations
+                </label>
+            </div>
+            <div class="o_stock_dynamic_turnover_dimensions">
+                <strong>Row dimensions, in order</strong>
+                <span class="text-muted">Remove incompatible dimensions and filters before changing mode.</span>
+                <t t-foreach="dimensions" t-as="item" t-key="item[0]">
+                    <label>
+                        <input type="checkbox" t-att-checked="state.options.row_dimensions.includes(item[0])"
+                               t-on-change="() => this.toggleDimension(item[0])"/>
+                        <t t-esc="item[1]"/>
+                    </label>
+                    <button class="btn btn-sm btn-light" type="button"
+                            t-if="state.options.row_dimensions.includes(item[0])"
+                            t-on-click="() => this.moveDimension(item[0], -1)">↑</button>
+                    <button class="btn btn-sm btn-light" type="button"
+                            t-if="state.options.row_dimensions.includes(item[0])"
+                            t-on-click="() => this.moveDimension(item[0], 1)">↓</button>
+                </t>
+                <span class="text-muted" t-if="state.options.row_dimensions.length">
+                    <t t-esc="state.options.row_dimensions.join(' → ')"/>
+                </span>
+            </div>
+            <div class="o_stock_dynamic_turnover_filters">
+                <t t-foreach="filterChoices" t-as="filter" t-key="filter[0]">
+                    <div class="o_stock_dynamic_turnover_filter">
+                        <label><t t-esc="filter[1]"/>
+                            <input class="form-control" type="search" t-att-value="state.queries[filter[0]] || ''"
+                                   t-on-input="(ev) => this.searchFilter(filter[0], ev)"/>
+                        </label>
+                        <div class="o_stock_dynamic_turnover_suggestions" t-if="(state.suggestions[filter[0]] || []).length">
+                            <t t-foreach="state.suggestions[filter[0]]" t-as="suggestion" t-key="suggestion.id">
+                                <button type="button" t-on-click="() => this.addFilter(filter[0], suggestion)">
+                                    <t t-esc="suggestion.name"/>
+                                </button>
+                            </t>
+                        </div>
+                        <div class="o_stock_dynamic_turnover_chips">
+                            <t t-foreach="state.options[filter[0]] || []" t-as="id" t-key="id">
+                                <span class="o_stock_dynamic_turnover_chip">
+                                    <t t-esc="state.selectedNames[filter[0] + ':' + id] || id"/>
+                                    <button type="button" t-on-click="() => this.removeFilter(filter[0], id)">×</button>
+                                </span>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </div>
+            <div class="o_stock_dynamic_turnover_buttons">
+                <button class="btn btn-primary" type="button" t-on-click="apply" t-att-disabled="state.loading">Apply</button>
+                <button class="btn btn-secondary" type="button" t-on-click="refresh" t-att-disabled="state.loading">Refresh</button>
+                <button class="btn btn-secondary" type="button" t-on-click="exportXlsx"
+                        t-att-disabled="state.loading || !state.report">XLSX</button>
+            </div>
+            <t t-if="state.report">
+                <p class="text-muted">Currency: <t t-esc="state.report.currency.name"/> · Cutoff UTC: <t t-esc="state.report.cutoff"/>
+                    · Internal movements cancel at a shared parent level.</p>
+                <p t-if="state.report.totals.incomplete" class="text-warning">Some totals are incomplete. Open diagnostics before using them.</p>
+                <div class="o_stock_dynamic_turnover_table_wrap">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th>Dimension</th>
+                                <th>Opening qty</th><th>Opening value</th>
+                                <th t-if="state.report.columns === 'turnover'">Incoming qty</th>
+                                <th t-if="state.report.columns === 'turnover'">Incoming value</th>
+                                <th t-if="state.report.columns === 'turnover'">Outgoing qty</th>
+                                <th t-if="state.report.columns === 'turnover'">Outgoing value</th>
+                                <t t-if="state.report.columns === 'operations'">
+                                    <t t-foreach="state.report.operation_columns" t-as="operation" t-key="operation">
+                                        <th><t t-esc="operationLabels[operation]"/> <t t-esc="quantityLabel"/></th>
+                                        <th><t t-esc="operationLabels[operation]"/> <t t-esc="valueLabel"/></th>
+                                    </t>
+                                </t>
+                                <th>Closing qty</th><th>Closing value</th>
+                                <th>Valuation difference</th><th>Diagnostics</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="visibleRows" t-as="row" t-key="row.key">
+                                <tr>
+                                    <td t-att-style="'padding-left: ' + (row.level * 18) + 'px'">
+                                        <button t-if="row.level" class="btn btn-sm btn-link" type="button"
+                                                t-on-click="() => this.toggleRow(row)">
+                                            <t t-esc="state.expanded[row.key] ? '−' : '+'"/>
+                                        </button>
+                                        <t t-esc="row.label"/>
+                                    </td>
+                                    <td><button class="btn btn-link" t-on-click="() => this.openDetails(row, 'opening')"><t t-esc="formatQuantity(row.measures.opening_qty)"/></button></td>
+                                    <td><button class="btn btn-link" t-on-click="() => this.openDetails(row, 'opening')"><t t-esc="formatMoney(row.measures.opening_value)"/></button></td>
+                                    <t t-if="state.report.columns === 'turnover'">
+                                        <td><button class="btn btn-link" t-on-click="() => this.openDetails(row, 'incoming')"><t t-esc="formatQuantity(row.measures.incoming_qty)"/></button></td>
+                                        <td><button class="btn btn-link" t-on-click="() => this.openDetails(row, 'incoming')"><t t-esc="formatMoney(row.measures.incoming_value)"/></button></td>
+                                        <td><button class="btn btn-link" t-on-click="() => this.openDetails(row, 'outgoing')"><t t-esc="formatQuantity(row.measures.outgoing_qty)"/></button></td>
+                                        <td><button class="btn btn-link" t-on-click="() => this.openDetails(row, 'outgoing')"><t t-esc="formatMoney(row.measures.outgoing_value)"/></button></td>
+                                    </t>
+                                    <t t-if="state.report.columns === 'operations'">
+                                        <t t-foreach="state.report.operation_columns" t-as="operation" t-key="operation">
+                                            <td><button class="btn btn-link" t-on-click="() => this.openDetails(row, operation)">
+                                                <t t-esc="formatQuantity((row.operations[operation] || {}).quantity)"/>
+                                            </button></td>
+                                            <td><button class="btn btn-link" t-on-click="() => this.openDetails(row, operation)">
+                                                <t t-esc="formatMoney(row.operations[operation] ? row.operations[operation].value : 0)"/>
+                                            </button></td>
+                                        </t>
+                                    </t>
+                                    <td><button class="btn btn-link" t-on-click="() => this.openDetails(row, 'closing')"><t t-esc="formatQuantity(row.measures.closing_qty)"/></button></td>
+                                    <td><button class="btn btn-link" t-on-click="() => this.openDetails(row, 'closing')"><t t-esc="formatMoney(row.measures.closing_value)"/></button></td>
+                                    <td><button class="btn btn-link" t-on-click="() => this.openDetails(row, 'valuation_delta')"><t t-esc="formatMoney(row.measures.valuation_delta)"/></button></td>
+                                    <td><t t-foreach="row.diagnostics" t-as="reason" t-key="reason"><div class="text-warning"><t t-esc="diagnosticLabel(reason)"/></div></t></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="o_stock_dynamic_turnover_pager">
+                    <button class="btn btn-sm btn-secondary" t-on-click="() => this.changePage(-1)"
+                            t-att-disabled="state.report.page === 1">Previous</button>
+                    <span><t t-esc="state.report.page"/> / <t t-esc="state.report.page_count"/></span>
+                    <button class="btn btn-sm btn-secondary" t-on-click="() => this.changePage(1)"
+                            t-att-disabled="state.report.page === state.report.page_count">Next</button>
+                </div>
+                <div t-if="state.details" class="o_stock_dynamic_turnover_details">
+                    <h3>Cell details</h3>
+                    <p><t t-esc="state.details.column_key"/> · <t t-esc="state.details.row_key"/></p>
+                    <p t-if="state.details.explanation"><t t-esc="state.details.explanation"/></p>
+                    <t t-foreach="state.details.events" t-as="event" t-key="event_index">
+                        <div>
+                            <button class="btn btn-link" t-on-click="() => this.openDocument(event)">
+                                <t t-esc="event.date"/> · <t t-esc="event.operation"/>
+                            </button>
+                            <span><t t-esc="formatNumber(event.quantity)"/> · <t t-esc="formatMoney(event.amount)"/></span>
+                        </div>
+                    </t>
+                    <t t-foreach="state.details.diagnostics" t-as="reason" t-key="reason"><div class="text-warning"><t t-esc="diagnosticLabel(reason)"/></div></t>
+                </div>
+                <t t-foreach="state.report.diagnostics" t-as="diagnostic" t-key="diagnostic_index">
+                    <div class="text-warning"><t t-esc="diagnosticLabel(diagnostic.code)"/></div>
+                </t>
+            </t>
+        </div>
+    </t>
+</templates>

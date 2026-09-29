@@ -1,0 +1,73 @@
+.o_stock_dynamic_turnover {
+    padding: 20px;
+    overflow: auto;
+}
+.o_stock_dynamic_turnover_header p {
+    color: var(--o-gray-600);
+}
+.o_stock_dynamic_turnover_filters,
+.o_stock_dynamic_turnover_dimensions,
+.o_stock_dynamic_turnover_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: end;
+    margin-bottom: 12px;
+}
+.o_stock_dynamic_turnover_filters label,
+.o_stock_dynamic_turnover_filter {
+    min-width: 170px;
+}
+.o_stock_dynamic_turnover_filter {
+    position: relative;
+}
+.o_stock_dynamic_turnover_suggestions {
+    position: absolute;
+    z-index: 5;
+    display: grid;
+    width: 100%;
+    max-height: 240px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+}
+.o_stock_dynamic_turnover_suggestions button {
+    border: 0;
+    background: white;
+    text-align: left;
+}
+.o_stock_dynamic_turnover_chip {
+    display: inline-flex;
+    gap: 4px;
+    margin: 3px;
+    padding: 2px 6px;
+    border-radius: 9px;
+    background: #e7eef7;
+}
+.o_stock_dynamic_turnover_chip button {
+    border: 0;
+    background: transparent;
+}
+.o_stock_dynamic_turnover_table_wrap {
+    overflow-x: auto;
+}
+.o_stock_dynamic_turnover_table_wrap table {
+    white-space: nowrap;
+}
+.o_stock_dynamic_turnover_table_wrap th:first-child,
+.o_stock_dynamic_turnover_table_wrap td:first-child {
+    position: sticky;
+    left: 0;
+    background: var(--o-view-background-color, white);
+}
+.o_stock_dynamic_turnover_details {
+    margin-top: 20px;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+.o_stock_dynamic_turnover_pager {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_stock_dynamic_turnover" model="ir.actions.client">
+        <field name="name">Stock Turnover</field>
+        <field name="tag">stock_dynamic_turnover</field>
+    </record>
+    <menuitem id="menu_stock_dynamic_turnover_accounting"
+              name="Stock Turnover" sequence="30"
+              parent="dynamic_accounts_report.dynamic_report_accounting"
+              action="action_stock_dynamic_turnover"
+              groups="stock.group_stock_manager"/>
+    <menuitem id="menu_stock_dynamic_turnover_inventory"
+              name="Stock Turnover" sequence="30"
+              parent="stock.menu_warehouse_report"
+              action="action_stock_dynamic_turnover"
+              groups="stock.group_stock_manager"/>
+</odoo>
