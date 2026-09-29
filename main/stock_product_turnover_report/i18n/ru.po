@@ -1,0 +1,977 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * stock_product_turnover_report
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"PO-Revision-Date: 2026-09-29 00:00+0000\n"
+"Last-Translator: Project Team\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "A calendar date is required."
+msgstr "Требуется календарная дата."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "A selected product belongs to another company."
+msgstr "Выбранный товар принадлежит другой компании."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "A selected product or category is unavailable."
+msgstr "Выбранный товар или категория недоступны."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "A valuation lot is unavailable."
+msgstr "Партия для оценки недоступна."
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "All valued locations"
+msgstr "Все оцениваемые места"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Amount"
+msgstr "Сумма"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Apply"
+msgstr "Применить"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Calculating report…"
+msgstr "Расчёт ведомости…"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Categories"
+msgstr "Категории"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Close"
+msgstr "Закрыть"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Closing"
+msgstr "Конечный остаток"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Closing quantity"
+msgstr "Конечное количество"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Closing unit cost"
+msgstr "Себестоимость единицы на конец"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Closing value"
+msgstr "Конечная сумма"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Company"
+msgstr "Компания"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Company valuation quantity is zero while selected stock is not."
+msgstr ""
+"Количество компании для оценки равно нулю при ненулевом выбранном остатке."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Currency:"
+msgstr "Валюта:"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Current stock differs from the recorded completed movement history."
+msgstr "Текущий остаток отличается от истории завершённых движений."
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Cutoff (UTC):"
+msgstr "Граница расчёта (UTC):"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Date"
+msgstr "Дата"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Destination"
+msgstr "Назначение"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Detail:"
+msgstr "Расшифровка:"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Diagnostics"
+msgstr "Диагностика"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Document"
+msgstr "Документ"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Effective cutoff (UTC)"
+msgstr "Граница расчёта (UTC)"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "From"
+msgstr "С"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Generated (UTC):"
+msgstr "Сформировано (UTC):"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Generated at (UTC)"
+msgstr "Сформировано (UTC)"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Historical internal transfer cost is unavailable."
+msgstr "Историческая стоимость внутреннего перемещения недоступна."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Historical valuation has no recorded cost basis."
+msgstr "Для исторической оценки нет записанного основания себестоимости."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Include child locations"
+msgstr "С дочерними местами"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Incoming"
+msgstr "Приход"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Incoming quantity"
+msgstr "Количество прихода"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Incoming value"
+msgstr "Сумма прихода"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Invalid calculation cutoff."
+msgstr "Некорректная граница расчёта."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Invalid child-location filter."
+msgstr "Некорректный выбор дочерних мест."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Invalid company filter."
+msgstr "Некорректный выбор компании."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Invalid product selection."
+msgstr "Некорректный выбор товара."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Invalid report date."
+msgstr "Некорректная дата ведомости."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Invalid report detail section."
+msgstr "Некорректный раздел расшифровки."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Invalid report filters."
+msgstr "Некорректные параметры ведомости."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Invalid report selection."
+msgstr "Некорректный выбор для ведомости."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Invalid user time zone."
+msgstr "Некорректный часовой пояс пользователя."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Inventory manager access is required."
+msgstr "Для ведомости нужны права руководителя склада."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Location"
+msgstr "Место хранения"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Monetary totals are incomplete."
+msgstr "Денежные итоги неполные."
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Next"
+msgstr "Вперёд"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "No"
+msgstr "Нет"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Opening"
+msgstr "Начальный остаток"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Opening quantity"
+msgstr "Начальное количество"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid ""
+"Opening quantity and period movements do not reconcile with closing "
+"quantity."
+msgstr "Начальный остаток и обороты не согласуются с конечным остатком."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Opening value"
+msgstr "Начальная сумма"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Outgoing"
+msgstr "Расход"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Outgoing quantity"
+msgstr "Количество расхода"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Outgoing value"
+msgstr "Сумма расхода"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid ""
+"Owned inventory-tracked products only. Historical values use the current "
+"recorded edition."
+msgstr ""
+"Только собственные товары с учётом запасов. Исторические суммы рассчитаны по"
+" текущей редакции записанной истории."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Period"
+msgstr "Период"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Previous"
+msgstr "Назад"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Product"
+msgstr "Товар"
+
+#. module: stock_product_turnover_report
+#: model:ir.actions.client,name:stock_product_turnover_report.product_stock_turnover_action
+#: model:ir.ui.menu,name:stock_product_turnover_report.product_stock_turnover_menu
+msgid "Product Stock Turnover Statement"
+msgstr "Товарная оборотно-сальдовая ведомость"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Product stock turnover statement"
+msgstr "Товарная оборотно-сальдовая ведомость"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Products"
+msgstr "Товары"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Quantity"
+msgstr "Количество"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Quantity subtotal:"
+msgstr "Итого количество:"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Quantity totals: %s"
+msgstr "Итог количества: %s"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid ""
+"Recorded history can be corrected; this statement uses its current edition."
+msgstr "История может исправляться; ведомость использует её текущую редакцию."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Recorded quantity differs from the standard valuation quantity."
+msgstr "Записанное количество отличается от количества стандартной оценки."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Reference"
+msgstr "Артикул"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Refresh"
+msgstr "Обновить"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Refresh the report before exporting."
+msgstr "Обновите ведомость перед выгрузкой."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Refresh the report before opening details."
+msgstr "Обновите ведомость перед открытием расшифровки."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Refresh the report."
+msgstr "Обновите ведомость."
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Remove category"
+msgstr "Удалить категорию"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Remove location"
+msgstr "Удалить место"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Remove product"
+msgstr "Удалить товар"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Search category"
+msgstr "Поиск категории"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Search location"
+msgstr "Поиск места"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Search product"
+msgstr "Поиск товара"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Source"
+msgstr "Источник"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "The crossing has no supported valuation basis."
+msgstr "Для пересечения нет поддерживаемого основания оценки."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "The location does not belong to the selected company."
+msgstr "Место хранения не принадлежит выбранной компании."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "The location is outside the selected warehouse."
+msgstr "Место хранения находится вне выбранного склада."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "The lot valuation quantity is zero while selected stock is not."
+msgstr ""
+"Количество партии для оценки равно нулю при ненулевом выбранном остатке."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "The movement has no valued own-stock quantity."
+msgstr "У движения нет оцениваемого количества собственного товара."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "The report date range is invalid or ends in the future."
+msgstr "Период ведомости некорректен или заканчивается в будущем."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "The report sources are not fully accessible."
+msgstr "Для расчёта недоступна часть необходимых источников."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "The report sources changed. Refresh the report."
+msgstr "Источники изменились. Обновите ведомость."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "The requested product is unavailable."
+msgstr "Запрошенный товар недоступен."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "The selected company is unavailable."
+msgstr "Выбранная компания недоступна."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "The warehouse does not belong to the selected company."
+msgstr "Склад не принадлежит выбранной компании."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Time zone"
+msgstr "Часовой пояс"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Time zone:"
+msgstr "Часовой пояс:"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "To"
+msgstr "По"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Total"
+msgstr "Итого"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Unable to calculate the report."
+msgstr "Не удалось рассчитать ведомость."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Unavailable"
+msgstr "Недоступно"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Unit"
+msgstr "Единица"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Unit cost"
+msgstr "Себестоимость единицы"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Valuation difference"
+msgstr "Изменение оценки"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Value"
+msgstr "Сумма"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Warehouse"
+msgstr "Склад"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Yes"
+msgstr "Да"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "products"
+msgstr "товаров"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Standard lot cost has no supported historical snapshot."
+msgstr ""
+"Для стандартной себестоимости партии нет подтверждённого исторического "
+"снимка."
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Opening value:"
+msgstr "Начальная сумма:"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Incoming value:"
+msgstr "Сумма прихода:"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Outgoing value:"
+msgstr "Сумма расхода:"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Closing value:"
+msgstr "Конечная сумма:"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Valuation difference:"
+msgstr "Изменение оценки:"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Recorded valuation events"
+msgstr "Записанные изменения оценки"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Quantity:"
+msgstr "Количество:"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Value:"
+msgstr "Сумма:"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Company quantity:"
+msgstr "Количество компании:"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Standard valuation quantity:"
+msgstr "Количество стандартной оценки:"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Company standard value:"
+msgstr "Стандартная стоимость компании:"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Line date:"
+msgstr "Дата детали:"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Current stock"
+msgstr "Текущий остаток"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Reversed completed movement"
+msgstr "Обратный учёт завершённого движения"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Recorded movement cost"
+msgstr "Записанная стоимость движения"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Standard cost before transfer"
+msgstr "Стандартная себестоимость до перемещения"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Opening balance"
+msgstr "Начальный остаток"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Incoming turnover"
+msgstr "Оборот прихода"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Outgoing turnover"
+msgstr "Оборот расхода"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Closing balance"
+msgstr "Конечный остаток"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Invalid lot expansion option."
+msgstr "Некорректная опция раскрытия по партиям."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Without lot"
+msgstr "Без партии"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Lot/Serial Number"
+msgstr "Партия/серийный номер"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Show FIFO receipts"
+msgstr "Показать поступления FIFO"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Opening FIFO basis"
+msgstr "Состав остатка FIFO на начало"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.js:0
+msgid "Closing FIFO basis"
+msgstr "Состав остатка FIFO на конец"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Toggle FIFO receipts"
+msgstr "Развернуть или свернуть поступления FIFO"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Company FIFO valuation basis"
+msgstr "База оценки FIFO по всей компании"
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Company FIFO valuation basis. Receipt amounts include all valued locations even when a warehouse or location is selected."
+msgstr "База оценки FIFO по всей компании. Суммы поступлений учитывают все оцениваемые места, даже если выбран склад или место хранения."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "FIFO does not apply to this product."
+msgstr "Для этого товара метод FIFO не применяется."
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "No recorded FIFO receipts at this boundary."
+msgstr "На эту дату учтённых поступлений FIFO нет."
+
+#. module: stock_product_turnover_report
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Receipt document"
+msgstr "Документ поступления"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Remaining quantity"
+msgstr "Остаток количества"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Remaining value"
+msgstr "Стоимость остатка"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+#. odoo-javascript
+#: code:addons/stock_product_turnover_report/static/src/stock_product_turnover/product_stock_turnover.xml:0
+msgid "Valuation lot"
+msgstr "Партия для оценки"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Boundary"
+msgstr "Граница периода"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Valuation scope"
+msgstr "Область оценки"
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Part of the FIFO valuation cannot be attributed to recorded receipts."
+msgstr "Часть оценки FIFO не удаётся отнести к учтённым поступлениям."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Invalid FIFO receipt selection."
+msgstr "Некорректно выбрано поступление FIFO."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "The requested FIFO receipt is unavailable."
+msgstr "Запрошенное поступление FIFO недоступно."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Refresh the report filters to use FIFO receipts."
+msgstr "Обновите фильтры отчёта для отображения поступлений FIFO."
+
+#. module: stock_product_turnover_report
+#. odoo-python
+#: code:addons/stock_product_turnover_report/report/product_stock_turnover.py:0
+msgid "Invalid FIFO receipt option."
+msgstr "Некорректное значение опции поступлений FIFO."

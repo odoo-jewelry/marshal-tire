@@ -1,6 +1,6 @@
 {
     'name': 'Tire',
-    'version': '19.0.1.4.3',
+    'version': '19.0.1.4.5',
     'category': 'Sales',
     'summary': 'Tire management',
     'author': 'dmitry.aka.jok@gmail.com',
@@ -19,6 +19,7 @@
         'purchase_price_control',
         'product_card_consolidation',
         'purchase_cost_recompute',
+        'stock_product_turnover_report',
 
         'disable_odoo_online',
         'portal_debranding',
